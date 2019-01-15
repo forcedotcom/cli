@@ -8,10 +8,17 @@ If you have encountered a bug in the Salesforce CLI, please first go to [Known D
 
 NOTICE: GitHub is not a mechanism for receiving support under any agreement or SLA. If you require immediate assistance, please use official support channels.
 
-# Related Docs and Repositories
+# Salesforce DX and CLI Documentation 
 
 * [The Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)  - Step by step guide on how to use the Salesforce DX Tools
 * [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm) - Complete CLI command documentation
+* [Get Started with Salesforce DX]( https://trailhead.salesforce.com/en/content/learn/trails/sfdx_get_started) - Step by step Tutorial for Salesforce DX 
+* [Salesforce Developers Blog](https://developer.salesforce.com/blogs/) 
+
+# CLI Repositories 
+
 * [@forcedotcom/cli-packages](https://github.com/forcedotcom/cli-packages) - Lerna repository containing Salesforce CLI command api.
 * [@forcedotcom/sfdx-core](https://github.com/forcedotcom/sfdx-core) - API for working with a Salesforce DX project and managing Salesforce orgs
 * [@salesforce/plugin-generator](https://github.com/forcedotcom/sfdx-plugin-generate) - The generator plug-in for building plug-ins for Salesforce CLI.
+
+
