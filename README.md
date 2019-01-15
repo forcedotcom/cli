@@ -12,7 +12,7 @@ NOTICE: GitHub is not a mechanism for receiving support under any agreement or S
 
 * _[Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)_ - Step-by-step guide on how to use the Salesforce DX tools
 * _[Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)_ - Complete command documentation for the `salesforcedx` CLI plug-in
-* [Get Started with Salesforce DX](https://trailhead.salesforce.com/en/content/learn/trails/sfdx_get_started) - Step-by-step Trailhead trail of tutorials for Salesforce DX 
+* [Get Started with Salesforce DX](https://trailhead.salesforce.com/en/content/learn/trails/sfdx_get_started) - Step-by-step Trailhead trail of tutorials for the Salesforce DX tools
 * [Salesforce Developers Blog](https://developer.salesforce.com/blogs/) 
 
 # CLI Repositories 
