@@ -32,6 +32,8 @@ _Describe what actually happened instead_.
 
 _Feel free to attach a screenshot_.
 
-**SFDX CLI Version**:
+**SFDX CLI Version**(to find the version of the CLI engine run sfdx --version):
+
+**SFDX plugin Version**(to find the version of the CLI plugin run sfdx plugins)
 
 **OS and version**:
