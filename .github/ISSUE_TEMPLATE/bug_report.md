@@ -34,6 +34,6 @@ _Feel free to attach a screenshot_.
 
 **SFDX CLI Version**(to find the version of the CLI engine run sfdx --version):
 
-**SFDX plugin Version**(to find the version of the CLI plugin run sfdx plugins)
+**SFDX plugin Version**(to find the version of the CLI plugin run sfdx plugins --core)
 
 **OS and version**:
