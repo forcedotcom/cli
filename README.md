@@ -20,5 +20,6 @@ NOTICE: GitHub is not a mechanism for receiving support under any agreement or S
 * [@forcedotcom/cli-packages](https://github.com/forcedotcom/cli-packages) - Lerna repository containing the Salesforce CLI command API
 * [@forcedotcom/sfdx-core](https://github.com/forcedotcom/sfdx-core) - API for working with a Salesforce DX project and managing Salesforce orgs
 * [@salesforce/plugin-generator](https://github.com/forcedotcom/sfdx-plugin-generate) - The generator plug-in for building plug-ins for Salesforce CLI
+* [@salesforce/salesforce-alm](https://github.com/forcedotcom/salesforce-alm) - The toolbelt is the largest plug-in for the CLI and it contains most of the force commands including the source format and conversion for commands.
 
 
