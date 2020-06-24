@@ -13,6 +13,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 ## 48.20.0 (June 25, 2020)
 
 * We aren't releasing a Salesforce CLI patch this week. 
+* As we described in this [blog post](https://developer.salesforce.com/blogs/2020/05/open-sourcing-salesforce-cli.html), we've open-sourced the Salesforce CLI release notes and moved them to this GitHub repository.
 
 Join us at [TrailheadDX 2020](https://www.salesforce.com/trailheadx/) to find out what's new in Salesforce developer tooling. 
 
