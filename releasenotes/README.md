@@ -10,10 +10,9 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v47 release notes.](./v47.md)
 
-## 48.21.1 (July 2, 2020)
+## 48.21.0 (July 2, 2020)
 
-* FIX: The `force:cmdt:record:insert` command works correctly and no longer returns `Error: Cannot find module 'csvtojson'`. ([GitHub issue #450](https://github.com/forcedotcom/cli/issues/450))
-
+* We aren't releasing a Salesforce CLI patch this week. 
 
 ## 48.20.0 (June 25, 2020)
 
