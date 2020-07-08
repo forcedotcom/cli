@@ -10,6 +10,31 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v47 release notes.](./v47.md)
 
+## 48.22.1 (July 9, 2020)
+
+* NEW: We introduced two new commands to override how the CLI tracks your local source code. The commands work with any org that supports source tracking. 
+
+  * `force:source:tracking:reset`. Resets local and remote source tracking so that the CLI doesn't register current differences between your local files and metadata in the org. When you next run `force:source:status`, the CLI returns no results, even if conflicts actually exist. The CLI then resumes tracking new source changes as usual. 
+  
+    The main use case is when the CLI doesn't have any tracking history for an org. For example, you want to use an org that's pre-populated by an automated process with the same metadata that's in your VCS. Run this command to make the CLI behave as if the local and remote files are the same at the moment you run the command.
+
+  * `force:source:tracking:clear`. Clears all local source tracking information. When you next run `force:source:status`, the CLI displays all local and remote files as changed, and any files with the same name are listed as conflicts. You manually resolve these conflicts yourself by, for example, forcing a push or pull. The CLI then resumes tracking new source changes as usual. 
+
+    Salesforce Customer Support uses this command to diagnose issues. We don't recommend using this command in your normal work flow.
+
+    **WARNING**: These commands delete or modify all existing local source tracking files in your project and affect subsequent behavior of the `force:source` commands. For example, if you reset source tracking then run `force:source:pull`, the CLI can silently overwrite local files even if there's actually a conflict. Use the commands only if you understand the differences between your local source files and the metadata in your org. And use extreme caution. Really. 
+
+* CHANGE: You can use the `force:source:push` and `force:source:pull` commands on metadata files stored in multiple package directories instead of just the default package directory. Multiple package directories help you organize your local source code into logical units. ([GitHub issue #379](../../../issues/379))
+
+    Each package directory must adhere to the standard [Salesforce DX project structure](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_source_file_format.htm). List the package directories in your `sfdx-project.json` file in the order you want the packaged metadata deployed to your org.  
+
+    Documentation about working with multiple package directories will be available in the [Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_workspace_setup.htm) around July 15, 2020. 
+
+* CHANGE:  We've improved the output of the `commands` command. By default, the command displays the full list of CLI commands and their descriptions in table format. With the new parameters, you can display more columns, such as command usage and the plug-in it belongs to. You have more choices for the output format (csv, json, yaml.) You can also filter and sort the output. The `commands` command works the same as the [oclif command](https://github.com/oclif/plugin-commands#oclif-example-commands).  
+
+* FIX: You can run `force:source:push` after deleting a report that begins with the letter D in an org. Previously the push returned an error such as `ERROR running force:source:push: SourceMember WHERE MemberName IN ('unfiled$public\Demo_time_per_lead_1Yb'`. ([GitHub issue #221](../../../issues/221))
+
+
 ## 48.21.0 (July 2, 2020)
 
 * We aren't releasing a Salesforce CLI patch this week. 
