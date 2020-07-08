@@ -30,7 +30,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
     Documentation about working with multiple package directories will be available in the [Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_workspace_setup.htm) around July 15, 2020. 
 
-* CHANGE:  We've improved the output of the `commands` command. By default, the command displays the full list of CLI commands and their descriptions in table format. With the new parameters, you can display more columns, such as command usage and the plug-in it belongs to. You have more choices for the output format (csv, json, yaml.) You can also filter and sort the output. The `commands` command works the same as the [oclif command](https://github.com/oclif/plugin-commands#oclif-example-commands).  
+* CHANGE:  We've improved the output of the `commands` command. By default, the command displays the full list of CLI commands and their descriptions in table format. With the new parameters, you can display more columns, such as command usage and the plug-in it belongs to. You have more choices for the output format (`.csv`, `.json`, `.yaml`). You can also filter and sort the output. The `commands` command works the same as the [oclif command](https://github.com/oclif/plugin-commands#oclif-example-commands).  
 
 * FIX: You can run `force:source:push` after deleting a report that begins with the letter D in an org. Previously the push returned an error such as `ERROR running force:source:push: SourceMember WHERE MemberName IN ('unfiled$public\Demo_time_per_lead_1Yb'`. ([GitHub issue #221](../../../issues/221))
 
