@@ -24,7 +24,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
     **WARNING**: These commands delete or modify all existing local source tracking files in your project and affect subsequent behavior of the `force:source` commands. For example, if you reset source tracking then run `force:source:pull`, the CLI can silently overwrite local files even if there's actually a conflict. Use the commands only if you understand the differences between your local source files and the metadata in your org. And use extreme caution. Really. 
 
-* CHANGE: You can use the `force:source:push` and `force:source:pull` commands on metadata files stored in multiple package directories instead of just the default package directory. Multiple package directories help you organize your local source code into logical units. (GitHub issue #379)
+* CHANGE: You can use the `force:source:push` and `force:source:pull` commands on metadata files stored in multiple package directories instead of just the default package directory. Multiple package directories help you organize your local source code into logical units. ([GitHub issue #379](../../../issues/379))
 
     Each package directory must adhere to the standard [Salesforce DX project structure](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_source_file_format.htm). List the package directories in your `sfdx-project.json` file in the order you want the packaged metadata deployed to your org.  
 
@@ -32,7 +32,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 * CHANGE:  We've improved the output of the `commands` command. By default, the command displays the full list of CLI commands and their descriptions in table format. With the new parameters, you can display more columns, such as command usage and the plug-in it belongs to. You have more choices for the output format (`.csv`, `.json`, `.yaml`). You can also filter and sort the output. The `commands` command works the same as the [oclif command](https://github.com/oclif/plugin-commands#oclif-example-commands).  
 
-* FIX: You can run `force:source:push` after deleting a report that begins with the letter D in an org. Previously the push returned an error such as `ERROR running force:source:push: SourceMember WHERE MemberName IN ('unfiled$public\Demo_time_per_lead_1Yb'`. (GitHub issue #221)
+* FIX: You can run `force:source:push` after deleting a report that begins with the letter D in an org. Previously the push returned an error such as `ERROR running force:source:push: SourceMember WHERE MemberName IN ('unfiled$public\Demo_time_per_lead_1Yb'`. ([GitHub issue #221](../../../issues/221))
 
 
 ## 48.21.0 (July 2, 2020)
@@ -64,7 +64,7 @@ To learn more about custom metadata types, read our [documentation](https://help
 
 ## 48.17.0 (June 4, 2020)
 
-* FIX: We've improved the error message when running `force:source:deploy` and your manifest file (`package.xml`) contains an incorrect entry for the Workflow or WorkflowFieldUpdate metadata type. An example of an incorrect entry is a reference to a local file that doesn't exist. The command now prompts you to review your `package.xml` file for user errors. Previously it returned the error `RangeError: Maximum call stack size exceeded`. (GitHub issue #280)
+* FIX: We've improved the error message when running `force:source:deploy` and your manifest file (`package.xml`) contains an incorrect entry for the Workflow or WorkflowFieldUpdate metadata type. An example of an incorrect entry is a reference to a local file that doesn't exist. The command now prompts you to review your `package.xml` file for user errors. Previously it returned the error `RangeError: Maximum call stack size exceeded`. ([GitHub issue #280](https://github.com/forcedotcom/cli/issues/280))
 
 ## 48.16.2 (May 28, 2020)
 
@@ -75,7 +75,7 @@ To learn more about custom metadata types, read our [documentation](https://help
    ```
 
 * FIX: The `force:org:list` command displays correct information immediately after you run `force:org:create` to create a scratch org. In particular, we display correct alias information and no longer display refresh tokens.
-* FIX: The `force:user:display` command correctly displays the user's plain text password rather than its hashed value. (GitHub issue #417)
+* FIX: The `force:user:display` command correctly displays the user's plain text password rather than its hashed value. ([GitHub issue #417](https://github.com/forcedotcom/cli/issues/417))
 
 ## 48.15.0 (May 21, 2020)
 
@@ -148,11 +148,11 @@ To learn more about custom metadata types, read our [documentation](https://help
 
 ## 48.1.5 (February 18, 2020)
 
-* FIX: We fixed the `npm install sfdx-cli` error. (Github issue #304).
+* FIX: We fixed the `npm install sfdx-cli` error. ([Github issue #304](https://github.com/forcedotcom/cli/issues/304)).
 
 ## 48.1.4 (February 17, 2020)
 
-* FIX: Deployments to production using `force:mdapi:deploy` or `force:source:deploy` complete as expected. (Github issue #305).
+* FIX: Deployments to production using `force:mdapi:deploy` or `force:source:deploy` complete as expected. ([Github issue #305](https://github.com/forcedotcom/cli/issues/305)).
 
 ## 48.1.2 (February 15, 2020)
 
