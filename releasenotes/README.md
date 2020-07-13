@@ -10,7 +10,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v47 release notes.](./v47.md)
 
-## 48.22.3 (July 12, 2020)
+## 48.22.4 (July 12, 2020)
 
 * FIX: We fixed a regression with `force:source:deploy` using the `--json` and `--wait 0` parameters returning the wrong type. ([GitHub issue #472](../../../issues/472))
 
