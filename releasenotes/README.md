@@ -14,7 +14,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 * FIX: We fixed a regression with `force:source:deploy` using the `--json` and `--wait 0` parameters returning the wrong type. ([GitHub issue #472](../../../issues/472))
 
-## 48.22.1 (July 9, 2020)
+## 48.22.2 (July 9, 2020)
 
 * NEW: We introduced two new commands to override how the CLI tracks your local source code. The commands work with any org that supports source tracking. 
 
