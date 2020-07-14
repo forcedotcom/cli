@@ -10,7 +10,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v47 release notes.](./v47.md)
 
-## 48.22.5 (July 14, 2020)
+## 48.22.8 (July 14, 2020)
 
 * FIX: We fixed a regression with multiple package directory listings in `sfdx-project.json` that point to the same path. ([GitHub issue #468 ](../../../issues/468 ))
 * FIX: We fixed a regression with running `force:mdapi:convert` with `--outputdir`. ([GitHub issue #471 ](../../../issues/471 ))
