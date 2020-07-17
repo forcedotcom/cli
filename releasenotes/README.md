@@ -33,12 +33,13 @@ $ sfdx plugins --core
 @salesforce/analytics 0.21.0
 @salesforce/sfdx-scanner 2.0.0
 @salesforce/sfdx-trust 3.0.7 (core)
-salesforcedx 49.2.3                   <<<============ salesforcedx plug-in version
+salesforcedx 49.2.3                  <<<===== salesforcedx plug-in version
 ├─ salesforcedx-templates 48.32.0
 ├─ custom-metadata 1.0.7
 ├─ salesforce-alm 49.3.0
 └─ @salesforce/sfdx-plugin-lwc-test 0.1.7
-sfdx-cli 7.66.2 (core)                <<<============ CLI version```
+sfdx-cli 7.66.2 (core)               <<<===== CLI version
+```
 
 ### Uninstall the Pre-Release Version of the salesforcedx CLI Plug-In
 
