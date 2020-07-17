@@ -30,9 +30,9 @@ $ sfdx plugins --core
 @oclif/plugin-update 1.3.10 (core)
 @oclif/plugin-warn-if-update-available 1.7.0 (core)
 @oclif/plugin-which 1.0.3 (core)
-@salesforce/analytics 0.21.0
-@salesforce/sfdx-scanner 2.0.0
 @salesforce/sfdx-trust 3.0.7 (core)
+analytics 1.12.0 (core)
+generator 1.1.3 (core)
 salesforcedx 49.2.3                  // salesforcedx plug-in version
 ├─ salesforcedx-templates 48.32.0
 ├─ custom-metadata 1.0.7
