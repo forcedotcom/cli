@@ -12,6 +12,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 ## 48.22.11 (July 15, 2020)
 * FIX: We fixed a regression with source tracking for projects with bundled metadata types. ([GitHub issue #480 ](../../../issues/480 ))
+* CHANGE: We've upgraded the CLI's version of Node.js to 12.13.0.
 
 ## 48.22.8 (July 14, 2020)
 
