@@ -20,6 +20,26 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Run `sfdx version` to display the version of Salesforce CLI installed on your computer. Run `sfdx plugins --core` to display the version of the installed `salesforcedx` plug-in.
 
+```bash
+$ sfdx plugins --core
+@oclif/plugin-autocomplete 0.1.5 (core)
+@oclif/plugin-commands 1.3.0 (core)
+@oclif/plugin-help 3.0.1 (core)
+@oclif/plugin-not-found 1.2.4 (core)
+@oclif/plugin-plugins 1.7.10 (core)
+@oclif/plugin-update 1.3.10 (core)
+@oclif/plugin-warn-if-update-available 1.7.0 (core)
+@oclif/plugin-which 1.0.3 (core)
+@salesforce/analytics 0.21.0
+@salesforce/sfdx-scanner 2.0.0
+@salesforce/sfdx-trust 3.0.7 (core)
+salesforcedx 49.2.3                   <<<============ salesforcedx plug-in version
+├─ salesforcedx-templates 48.32.0
+├─ custom-metadata 1.0.7
+├─ salesforce-alm 49.3.0
+└─ @salesforce/sfdx-plugin-lwc-test 0.1.7
+sfdx-cli 7.66.2 (core)                <<<============ CLI version```
+
 ### Uninstall the Pre-Release Version of the salesforcedx CLI Plug-In
 
 If you installed the pre-release version of the `salesforcedx` v49 plug-in to test the next version of Salesforce CLI, uninstall it and update the CLI. We’re no longer updating the pre-release v49 plug-in.
