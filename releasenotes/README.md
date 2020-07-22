@@ -1,10 +1,23 @@
 # Salesforce CLI v49 Release Notes
 
+Here are the new and changed features in recent updates of Salesforce CLI and the `salesforcedx` plug-in.
+
+Run `sfdx version` to display the version of Salesforce CLI installed on your computer. Run `sfdx plugins --core` to display the version of the installed `salesforcedx` plug-in.
+
+Run `sfdx update` to update both the CLI and the `salesforcedx` plug-in to the latest available version.
+
+If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_cli_autocomplete.htm), run `sfdx autocomplete --refresh-cache` after you update the `salesforcedx` plug-in to ensure that autocomplete works correctly on any new commands.
+
+[Click here for the v48 release notes.](./v48.md)
+
+## 49.3.0 (July 23, 2020)
+
+* CHANGE: We've upgraded the CLI's version of Node.js to 12.18.3.
+* FIX: The Salesforce CLI Mac installer works as expected on macOS Catalina (10.15) and later. Just double-click the `*.pkg` file and you're off!
+
 ## 49.2.3 (July 18, 2020) 
 
 Welcome to the first release of version 49 of the `salesforcedx` CLI plug-in in Summer '20. 
-
-[Click here for the v48 release notes.](./v48.md)
 
 ### Installation Notes
 
@@ -15,8 +28,6 @@ $ sfdx update
 ```
 
 If you are installing Salesforce CLI for the first time, see [Install Salesforce CLI](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm#sfdx_setup_install_cli) to install the CLI for your operating system, then run `sfdx update`.
-
-If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_cli_autocomplete.htm), run `sfdx autocomplete --refresh-cache` after you update the `salesforcedx` plug-in to ensure that autocomplete works correctly on any new commands.
 
 Run `sfdx version` to display the version of Salesforce CLI installed on your computer. Run `sfdx plugins --core` to display the version of the installed `salesforcedx` plug-in.
 
