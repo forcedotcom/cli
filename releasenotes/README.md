@@ -12,8 +12,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 ## 49.3.0 (July 23, 2020)
 
-* CHANGE: We've upgraded the CLI's version of Node.js to 12.18.3.
-* FIX: The Salesforce CLI Mac installer works as expected on macOS Catalina (10.15) and later. Just double-click the `*.pkg` file and you're off!
+* We aren't releasing a Salesforce CLI patch this week.
 
 ## 49.2.3 (July 18, 2020) 
 
