@@ -10,6 +10,11 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v48 release notes.](./v48.md)
 
+## 49.4.1 (July 30, 2020)
+
+* FIX: You can pass an access token as a username (with the` -u` parameter) to the `force:user:permset:assign` and `force:user:password:generate` commands. Previously you'd get an error such as `The username <username> was not found for scratch org <scratchorgid>`.
+* FIX: You can run the `force:source:push|deploy|convert` commands from subdirectories of the project directory. Previously you'd get `ERROR running force:source:deploy: Cannot read property 'path' of undefined`. ([GitHub issue #488 ](../../../issues/488 ))
+
 ## 49.3.0 (July 23, 2020)
 
 * We aren't releasing a Salesforce CLI patch this week.
