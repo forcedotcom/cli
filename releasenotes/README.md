@@ -10,6 +10,25 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v48 release notes.](./v48.md)
 
+## 49.5.0 (August 6, 2020)
+
+* NEW: Create a hook to customize the behavior of some Salesforce CLI commands. A hook is a piece of code that runs at a specific lifecycle event during command execution. For example, create a hook for `force:source:push` to make IDs in source files unique after they've been converted to metadata format but before they're sent to the org. 
+
+  You can create hooks that trigger during these Salesforce CLI lifecycle events:
+
+  * `predeploy`: After the CLI has converted your source files to Metadata API format but before it sends the files to the org. 
+  * `postdeploy`: After the CLI has sent the metadata to the org and the org has sent back a confirmation. 
+  * `preretrieve`: Before the CLI sends a request to the org to fetch files.
+  * `postretrieve`: After the CLI has retrieved the metadata from the org. The metadata has not yet been converted to source format. 
+  * `postsourceupdate`: After the CLI has converted the files it fetched from the org to source format.
+  * `postorgcreate`: Immediately after a new scratch org or sandbox is created. You can access the org from the hook. 
+
+  Salesforce also supports all the [oclif hooks](https://oclif.io/docs/hooks#lifecycle-events).
+
+  Documentation about creating hooks will be available in the [Salesforce CLI Plug-In Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/) soon.
+
+* FIX: We've restored the display of code coverage data in the `force:package:version:list` and `force:package:version:report` commands. ([See v48.15.0 release note](./v48.md#48150-may-21-2020))
+
 ## 49.4.1 (July 30, 2020)
 
 * FIX: You can pass an access token as a username (with the` -u` parameter) to the `force:user:permset:assign` and `force:user:password:generate` commands. Previously you'd get an error such as `The username <username> was not found for scratch org <scratchorgid>`.
