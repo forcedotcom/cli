@@ -10,6 +10,18 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v48 release notes.](./v48.md)
 
+## 49.6.1 (August 13, 2020)
+
+* NEW: Increase the number of Salesforce records that a CLI command returns with the new `maxQueryLimit` config value. The default value is 10,000. For example, if your Salesforce org contains 15,000 roles, and you run `sfdx force:mdapi:listmetadata -m Role`, the command returns only 10,000 roles by default. The CLI command warns you that it hasn't returned all the records. Set the config value to see all the roles:
+
+  `$ sfdx force:config:set maxQueryLimit=20000`
+  
+  The corresponding environment variable is SFDX_MAX_QUERY_LIMIT.
+
+* CHANGE: We've upgraded the CLI's version of Node.js to 12.18.3.
+
+* FIX: The Salesforce CLI installer works as expected on macOS Catalina (10.15) and later. Double-click the `*.pkg` file and you're off!  ([Github ssue #359](../../../issues/359))
+
 ## 49.5.0 (August 6, 2020)
 
 * NEW: Create a hook to customize the behavior of some Salesforce CLI commands. A hook is a piece of code that runs at a specific lifecycle event during command execution. For example, create a hook for `force:source:push` to make IDs in source files unique after they've been converted to metadata format but before they're sent to the org. 
