@@ -10,6 +10,10 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v48 release notes.](./v48.md)
 
+## 49.7.0 (August 20, 2020)
+
+* FIX: We fixed more regressions related to multiple package directory listings in `sfdx-project.json` that point to the same path. ([July 14, 2020 fix](./v48.md#48228-july-14-2020), [GitHub issue #468](../../../issues/468))
+
 ## 49.6.1 (August 13, 2020)
 
 * NEW: Increase the number of Salesforce records that a CLI command returns with the new `maxQueryLimit` config value. The default value is 10,000. For example, if your Salesforce org contains 15,000 roles, and you run `sfdx force:mdapi:listmetadata -m Role`, the command returns only 10,000 roles by default. The CLI command warns you that it hasn't returned all the records. Set the config value to see all the roles:
@@ -20,7 +24,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 * CHANGE: We've upgraded the CLI's version of Node.js to 12.18.3.
 
-* FIX: The Salesforce CLI installer works as expected on macOS Catalina (10.15) and later. Double-click the `*.pkg` file and you're off!  ([Github ssue #359](../../../issues/359))
+* FIX: The Salesforce CLI installer works as expected on macOS Catalina (10.15) and later. Double-click the `*.pkg` file and you're off!  ([Github issue #359](../../../issues/359))
 
 ## 49.5.0 (August 6, 2020)
 
