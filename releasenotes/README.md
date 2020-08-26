@@ -32,7 +32,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
     **WARNING**: When you disable SourceMember polling, the CLI's internal tracking of what's changed between your local source and org metadata gets out of sync. As a result, subsequent runs of the `force:source:push|pull|status` commands are unreliable, and it's up to you to synchronize your source. To reset source tracking, use the `force:source:tracking:reset` command.
 
-* CHANGE: We’ve changed the name of the local file that prevents Salesforce CLI from prompting you about trusting an unsigned plugin when you try to install it. The file is now called `unsignedPluginAllowList.json`, previously called `unsignedPluginWhiteList.json`. The file with the old name will continue to work for a while, but we recommend you change the name after you install this week's release. 
+* CHANGE: We’ve changed the name of the [local file that prevents Salesforce CLI](https://developer.salesforce.com/blogs/2017/10/salesforce-dx-cli-plugin-update.html) from prompting you about trusting an unsigned plugin when you try to install it. The file is now called `unsignedPluginAllowList.json`, previously called `unsignedPluginWhiteList.json`. The file with the old name will continue to work for a while, but we recommend you change the name after you install this week's release. 
 
 ## 49.7.0 (August 20, 2020)
 
