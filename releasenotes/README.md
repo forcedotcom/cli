@@ -10,6 +10,30 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v48 release notes.](./v48.md)
 
+## 49.8.0 (Aug 27, 2020)
+
+* NEW: As part of [open-sourcing Salesforce CLI](https://developer.salesforce.com/blogs/2020/05/open-sourcing-salesforce-cli.html), we’ve broken out the source for the config commands (`force:config:set`, `force:config:get`, `force:config:list`) into [their own GitHub repo](https://github.com/salesforcecli/plugin-config). As a result, the commands are now in the `config` namespace and no longer in the `force` namespace. For example:
+
+	 `$ sfdx config:set apiVersion=50.0`
+
+    But don’t worry, the current way to run the commands, such as `force:config:set`, still works. We plan to deprecate the `force` version of the commands in the future. But for now, your existing workflow and CI/CD jobs will continue working.
+
+    We’ve also added the `config:unset` command to unset a configuration value. This new command is only in the `config` namespace. 
+
+    `$ sfdx config:unset apiVersion`
+
+* NEW: Disable polling of your org's SourceMember object when you run the `force:source:push|pull` commands by setting the SFDX_DISABLE_SOURCE_MEMBER_POLLING environment variable to TRUE. 
+
+    The commands poll the SourceMember object to track what's changed between your local source and the org after the push or pull completes. If you have a large metadata deployment, however, the polling can take a while, or even time out. Sometimes you don't require source tracking at all, such as in a CI/CD job. These use cases are good candidates for setting this environment variable. 
+
+    The environment variable works with both scratch orgs and sandboxes. 
+
+    `$ export SFDX_DISABLE_SOURCE_MEMBER_POLLING=true`
+
+    **WARNING**: When you disable SourceMember polling, the CLI's internal tracking of what's changed between your local source and org metadata gets out of sync. As a result, subsequent runs of the `force:source:push|pull|status` commands are unreliable, and it's up to you to synchronize your source. To reset source tracking, use the `force:source:tracking:reset` command.
+
+* CHANGE: We’ve changed the name of the local file that prevents Salesforce CLI from prompting you about trusting an unsigned plugin when you try to install it. The file is now called `unsignedPluginAllowList.json`, previously called `unsignedPluginWhiteList.json`. The file with the old name will continue to work for a while, but we recommend you change the name after you install this week's release. 
+
 ## 49.7.0 (August 20, 2020)
 
 * FIX: We fixed more regressions related to multiple package directory listings in `sfdx-project.json` that point to the same path. ([July 14, 2020 fix](./v48.md#48228-july-14-2020), [GitHub issue #468](../../../issues/468))
