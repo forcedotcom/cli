@@ -10,6 +10,25 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v48 release notes.](./v48.md)
 
+## 49.9.1 (September 3, 2020)
+
+* NEW: As part of [open-sourcing Salesforce CLI](https://developer.salesforce.com/blogs/2020/05/open-sourcing-salesforce-cli.html), we've broken out the source for the alias commands (`force:alias:set` and `force:alias:list`) into their own [GitHub repo](https://github.com/salesforcecli/plugin-alias). As a result, the commands are now in the `alias` namespace, and no longer in the `force` namespace. For example:
+
+    `$ sfdx alias:set myscratchorg=username@example.com`
+
+    But don't worry, the current way to run the commands, such as `force:alias:set`, still works. We plan to deprecate the `force` version of the commands in the future. But for now, your existing workflow and CI/CD jobs will continue working.
+
+     We've also added the `alias:unset` command to easily unset an alias. This new command is only in the `alias` namespace. 
+
+    `$ sfdx alias:unset myscratchorg`
+
+* CHANGE: Now that the config commands (`config:set`, `config:get`, `config:list`, and `config:unset`) are in their own [GitHub repo](https://github.com/salesforcecli/plugin-config), they no longer show up in the `sfdx help force` output. Run `sfdx help config` instead.  The [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm) will soon list the commands only in the `config` namespace. 
+	
+	**NOTE**: We continue to alias the `config` commands to their `force:config` equivalents. So, for example, `force:config:set` continues to work. We'll announce when we plan to deprecate the `force` versions of these commands. 
+
+* FIX: When you run the `force:mdapi:deploy` command but then cancel the deployment, the CLI now correctly returns a non-zero status to indicate that the deployment didn't succeed. Previously it returned a zero status, which incorrectly indicated that the deployment succeeded. ([GitHub issue #37](../../../issues/37))
+
+
 ## 49.8.0 (Aug 27, 2020)
 
 * NEW: As part of [open-sourcing Salesforce CLI](https://developer.salesforce.com/blogs/2020/05/open-sourcing-salesforce-cli.html), we’ve broken out the source for the config commands (`force:config:set`, `force:config:get`, `force:config:list`) into [their own GitHub repo](https://github.com/salesforcecli/plugin-config). As a result, the commands are now in the `config` namespace and no longer in the `force` namespace. For example:
