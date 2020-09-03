@@ -22,9 +22,13 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
     `$ sfdx alias:unset myscratchorg`
 
+* NEW: Store the output of the `force:apex:log:get` command in a directory with the new `--outputdir` (`-d`) parameter. 
+
 * CHANGE: Now that the config commands (`config:set`, `config:get`, `config:list`, and `config:unset`) are in their own [GitHub repo](https://github.com/salesforcecli/plugin-config), they no longer show up in the `sfdx help force` output. Run `sfdx help config` instead.  The [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm) will soon list the commands only in the `config` namespace. 
 	
 	**NOTE**: We continue to alias the `config` commands to their `force:config` equivalents. So, for example, `force:config:set` continues to work. We'll announce when we plan to deprecate the `force` versions of these commands. 
+
+* CHANGE: We've removed the `--color` (`-c`) parameter of the `force:apex:log:get` command. Colors are displayed by default. 
 
 * FIX: When you run the `force:mdapi:deploy` command but then cancel the deployment, the CLI now correctly returns a non-zero status to indicate that the deployment didn't succeed. Previously it returned a zero status, which incorrectly indicated that the deployment succeeded. ([GitHub issue #37](../../../issues/37))
 
