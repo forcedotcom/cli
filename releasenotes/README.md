@@ -32,7 +32,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 * FIX: When you run the `force:mdapi:deploy` command but then cancel the deployment, the CLI now correctly returns a non-zero status to indicate that the deployment didn't succeed. Previously it returned a zero status, which incorrectly indicated that the deployment succeeded. ([GitHub issue #37](../../../issues/37))
 
-* FIX: The `force:package:version:command` will no longer fail with `typesArr.filter is not a function`. ([GitHub issue #594](../../../issues/594))
+* FIX: The `force:package:version:command` no longer fails with the error `typesArr.filter is not a function`. ([GitHub issue #594](../../../issues/594))
 
 
 ## 49.8.0 (Aug 27, 2020)
