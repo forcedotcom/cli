@@ -10,7 +10,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v48 release notes.](./v48.md)
 
-## 49.9.1 (September 3, 2020)
+## 49.9.2 (September 3, 2020)
 
 * NEW: As part of [open-sourcing Salesforce CLI](https://developer.salesforce.com/blogs/2020/05/open-sourcing-salesforce-cli.html), we've broken out the source for the alias commands (`force:alias:set` and `force:alias:list`) into their own [GitHub repo](https://github.com/salesforcecli/plugin-alias). As a result, the commands are now in the `alias` namespace, and no longer in the `force` namespace. For example:
 
@@ -31,6 +31,8 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 * CHANGE: We've removed the `--color` (`-c`) parameter of the `force:apex:log:get` command. Colors are displayed by default. 
 
 * FIX: When you run the `force:mdapi:deploy` command but then cancel the deployment, the CLI now correctly returns a non-zero status to indicate that the deployment didn't succeed. Previously it returned a zero status, which incorrectly indicated that the deployment succeeded. ([GitHub issue #37](../../../issues/37))
+
+* FIX: The `force:package:version:command` will no longer fail with `typesArr.filter is not a function`. ([GitHub issue #594](../../../issues/594))
 
 
 ## 49.8.0 (Aug 27, 2020)
