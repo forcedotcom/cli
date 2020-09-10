@@ -10,6 +10,20 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v48 release notes.](./v48.md)
 
+## 49.10.0 (September 10, 2020)
+
+* CHANGE: You can use the `force:source:deploy`, `force:source:retrieve`, and `force:source:delete` commands on metadata files stored in multiple package directories instead of just the default package directory. Multiple package directories help you organize your local source code into logical units. ([GitHub issue #379](https://github.com/forcedotcom/cli/issues/379))
+
+    Each package directory must adhere to the [standard Salesforce DX project structure](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_source_file_format.htm). List the package directories in your `sfdx-project.json` file in the order you want the packaged metadata deployed to your org.  See [Multiple Package Directories](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_mpd.htm). 
+
+* CHANGE: Now that the alias commands (`alias:set`, `alias:list`, `alias:unset`) are in their own [GitHub repo](https://github.com/salesforcecli/plugin-alias), they no longer show up in the `sfdx help force` output. Run `sfdx help alias` instead.  The [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm) also lists the commands only in the `alias` namespace. 
+	
+    **NOTE**: The `force:alias` commands will continue to work until we [deprecate](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/sfdx_dev_cli_deprecation.htm) them. We'll announce it ahead of time so you can prepare.
+
+* FIX: The `sfdx plugins:install` command works correctly when installing unsigned plug-ins. ([GitHub issue #592](https://github.com/forcedotcom/cli/issues/592))
+
+* FIX: The  `force:source:retrieve` command no longer returns the intermittent error `ERROR running force:source:retrieve: Cannot read property 'getWorkspaceElements' of undefined` in certain circumstances. ([GitHub issue #345](https://github.com/forcedotcom/cli/issues/345))
+
 ## 49.9.2 (September 3, 2020)
 
 * NEW: As part of [open-sourcing Salesforce CLI](https://developer.salesforce.com/blogs/2020/05/open-sourcing-salesforce-cli.html), we've broken out the source for the alias commands (`force:alias:set` and `force:alias:list`) into their own [GitHub repo](https://github.com/salesforcecli/plugin-alias). As a result, the commands are now in the `alias` namespace, and no longer in the `force` namespace. For example:
