@@ -10,6 +10,10 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v48 release notes.](./v48.md)
 
+## 49.11.0 (September 17, 2020)
+
+* We aren't releasing a Salesforce CLI patch this week.
+
 ## 49.10.0 (September 10, 2020)
 
 * CHANGE: You can use the `force:source:deploy`, `force:source:retrieve`, and `force:source:delete` commands on metadata files stored in multiple package directories instead of just the default package directory. Multiple package directories help you organize your local source code into logical units. ([GitHub issue #379](https://github.com/forcedotcom/cli/issues/379))
