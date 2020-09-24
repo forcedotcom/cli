@@ -10,6 +10,10 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v48 release notes.](./v48.md)
 
+## 49.12.0 (September 24, 2020)
+
+* We aren't releasing a Salesforce CLI patch this week.
+
 ## 49.11.0 (September 17, 2020)
 
 * We aren't releasing a Salesforce CLI patch this week.
@@ -53,7 +57,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 * FIX: The `force:package:version:command` no longer fails with the error `typesArr.filter is not a function`. ([GitHub issue #594](../../../issues/594))
 
 
-## 49.8.0 (Aug 27, 2020)
+## 49.8.0 (August 27, 2020)
 
 * NEW: As part of [open-sourcing Salesforce CLI](https://developer.salesforce.com/blogs/2020/05/open-sourcing-salesforce-cli.html), we’ve broken out the source for the config commands (`force:config:set`, `force:config:get`, `force:config:list`) into [their own GitHub repo](https://github.com/salesforcecli/plugin-config). As a result, the commands are now in the `config` namespace and no longer in the `force` namespace. For example:
 
