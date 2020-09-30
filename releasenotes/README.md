@@ -10,6 +10,35 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v48 release notes.](./v48.md)
 
+## 49.13.0 (October 1, 2020)
+
+* NEW: Override SourceMember polling time-outs when running the `force:source:push` command with the SFDX_SOURCE_MEMBER_POLLING_TIMEOUT environment variable.
+The command polls the SourceMember object to track what's changed between your local source and the org after the push completes. To prevent the command from timing out too quickly, set the environment variable to the number of seconds you want it to keep polling. 
+
+  There is no default value for this environment variable. The CLI calculates a time-out for each `force:source:push` command run based on the number of components it deploys. 
+
+  For example, if the push times out after 3 minutes, try setting a time-out of 5 minutes:
+
+    `$ export SFDX_SOURCE_MEMBER_POLLING_TIMEOUT=300`
+
+  ([GitHub Issue #572](https://github.com/forcedotcom/cli/issues/572))
+
+* FIX: After running `force:source:deploy` to deploy a [shared CSS styles module](https://lwc.dev/guide/css#share-css-style-rules) with your Lightning Web Components, you can then successfully retrieve it with `force:source:retrieve`. (GitHub issues [#496](https://github.com/forcedotcom/cli/issues/496) and [#563](https://github.com/forcedotcom/cli/issues/563))
+
+* FIX: The `force:source:deploy --sourcepath` (`-p`) command deploys source contained in the directories specified by the `-p` parameter, even when these directories aren't included in the `packageDirectories` section of `sfdx-project.json`.  ([GitHub issue #622](https://github.com/forcedotcom/cli/issues/622))
+
+* FIX: The `force:source:deploy` and `force:source:convert` commands work with custom fields when specified directly with the `-m CustomField` parameter or when bundled with other metadata with the `-x package.xml` parameter. (GitHub issues [#156](https://github.com/forcedotcom/cli/issues/156), [#542](https://github.com/forcedotcom/cli/issues/542), [#611](https://github.com/forcedotcom/cli/issues/611), [#623](https://github.com/forcedotcom/cli/issues/623), [#625](https://github.com/forcedotcom/cli/issues/625), and [#628](https://github.com/forcedotcom/cli/issues/628))
+
+* FIX: The `postdeploy` hook fires on both success and failure of the `force:source:push` and `force:source:deploy` commands. ([GitHub issue #624](https://github.com/forcedotcom/cli/issues/624))
+
+* FIX: The `force:source:convert` and `force:source:deploy` commands correctly handle metadata types whose `inFolder` attribute is set to `true`. The commands then generate the appropriate <code><i>FolderName</i>-meta.xml</code> file. (GitHub issues [#609](https://github.com/forcedotcom/cli/issues/609) and [#612](https://github.com/forcedotcom/cli/issues/612))
+
+* FIX: The `force:package:version:create` and `force:org:create` commands run successfully in a project whose `sfdx-project.json` file uses the `ancestorVersion` attribute to specify a package ancestor. Previously, the following error was sometimes thrown for released package versions:
+
+	`The ancestor package version [version] specified in the sfdx-project.json file hasn't been promoted and released. Release the ancestor package version before specifying it as the ancestor in a new package or patch version.`
+
+	([GitHub issue #312](https://github.com/forcedotcom/cli/issues/312))
+
 ## 49.12.0 (September 24, 2020)
 
 * We aren't releasing a Salesforce CLI patch this week.
