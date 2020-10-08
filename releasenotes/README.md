@@ -10,6 +10,12 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v48 release notes.](./v48.md)
 
+## 49.13.1 (October 8, 2020)
+
+* FIX: The `force:source:deploy` and `force:source:convert` commands work with custom fields when specified directly with the `-m CustomField` parameter or when bundled with other metadata with the `-x package.xml` parameter. (GitHub issues [#156](https://github.com/forcedotcom/cli/issues/156), [#542](https://github.com/forcedotcom/cli/issues/542), [#611](https://github.com/forcedotcom/cli/issues/611), [#623](https://github.com/forcedotcom/cli/issues/623), [#625](https://github.com/forcedotcom/cli/issues/625), and [#628](https://github.com/forcedotcom/cli/issues/628))
+
+* FIX: The `force:auth` and `force:org:signup` commands correctly map new sandbox instances to the sandbox audience URL.
+
 ## 49.14.0 (October 8, 2020)
 
 We aren't releasing a Salesforce CLI patch this week. But we have a few announcements. 
@@ -55,8 +61,6 @@ The command polls the SourceMember object to track what's changed between your l
 * FIX: After running `force:source:deploy` to deploy a [shared CSS styles module](https://lwc.dev/guide/css#share-css-style-rules) with your Lightning Web Components, you can then successfully retrieve it with `force:source:retrieve`. (GitHub issues [#496](https://github.com/forcedotcom/cli/issues/496) and [#563](https://github.com/forcedotcom/cli/issues/563))
 
 * FIX: The `force:source:deploy --sourcepath` (`-p`) command deploys source contained in the directories specified by the `-p` parameter, even when these directories aren't included in the `packageDirectories` section of `sfdx-project.json`.  ([GitHub issue #622](https://github.com/forcedotcom/cli/issues/622))
-
-* FIX: The `force:source:deploy` and `force:source:convert` commands work with custom fields when specified directly with the `-m CustomField` parameter or when bundled with other metadata with the `-x package.xml` parameter. (GitHub issues [#156](https://github.com/forcedotcom/cli/issues/156), [#542](https://github.com/forcedotcom/cli/issues/542), [#611](https://github.com/forcedotcom/cli/issues/611), [#623](https://github.com/forcedotcom/cli/issues/623), [#625](https://github.com/forcedotcom/cli/issues/625), and [#628](https://github.com/forcedotcom/cli/issues/628))
 
 * FIX: The `postdeploy` hook fires on both success and failure of the `force:source:push` and `force:source:deploy` commands. ([GitHub issue #624](https://github.com/forcedotcom/cli/issues/624))
 
