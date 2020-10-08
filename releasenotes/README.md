@@ -12,6 +12,8 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 ## 49.14.0 (October 8, 2020)
 
+We aren't releasing a Salesforce CLI patch this week. But we have a few announcements. 
+
 * NEW:  Want to play with the next version of Salesforce CLI before it's live? We target publicly releasing a candidate by Tuesday, although it could be anytime before Thursday, the official release day. Check [open pull requests](https://github.com/forcedotcom/cli/pulls) for early drafts of the release notes. If you find any issues or have feedback after testing, create a Github issue [here](https://github.com/forcedotcom/cli/issues) and include the release candidate version in the title. 
 
     To install the early release candidate of the CLI to test, for example, that it works correctly with your CI jobs, run this command:
@@ -26,7 +28,16 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
     `$ sfdx plugins:uninstall salesforcedx`
 
-* CHANGE: To improve usability, we're reorganizing the Salesforce DX Developer and Setup Guides during the next few weeks. In particular, we're moving most of the CLI Configuration and Tips topics to the [Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm) and the Dev Hub topics to the [Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm). We’ll fix internal cross-references, but you might need to refresh your bookmarks.  
+* CHANGE: To improve usability and better align how the Salesforce developer tools have evolved over time, we're reorganizing the Salesforce DX Developer and Setup Guides. In particular, we've moved most of the CLI Configuration and Tips topics to the [Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm). Next up are the Dev Hub topics which will move to the [Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm). We’ll fix internal cross-references, but you might need to refresh your bookmarks.  
+
+    **TIP**: If a bookmark to one of these guides no longer works, try changing the first two `setup` parts of the URL to `dev`, and vice versa. For example, the old URL to the CLI Runtime Configuration Values topic was:
+ 
+    `https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_cli_config_values.htm`
+ 
+    Now it's:
+ 
+    `https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_config_values.htm`
+
 
 ## 49.13.0 (October 1, 2020)
 
