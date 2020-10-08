@@ -10,12 +10,6 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v48 release notes.](./v48.md)
 
-## 49.13.1 (October 8, 2020)
-
-* FIX: The `force:source:deploy` and `force:source:convert` commands work with custom fields when specified directly with the `-m CustomField` parameter or when bundled with other metadata with the `-x package.xml` parameter. (GitHub issues [#156](https://github.com/forcedotcom/cli/issues/156), [#542](https://github.com/forcedotcom/cli/issues/542), [#611](https://github.com/forcedotcom/cli/issues/611), [#623](https://github.com/forcedotcom/cli/issues/623), [#625](https://github.com/forcedotcom/cli/issues/625), and [#628](https://github.com/forcedotcom/cli/issues/628))
-
-* FIX: The `force:auth` and `force:org:signup` commands correctly map new sandbox instances to the sandbox audience URL.
-
 ## 49.14.0 (October 8, 2020)
 
 We aren't releasing a Salesforce CLI patch this week. But we have a few announcements. 
@@ -44,6 +38,11 @@ We aren't releasing a Salesforce CLI patch this week. But we have a few announce
  
     `https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_config_values.htm`
 
+## 49.13.1 (October 8, 2020)
+
+* FIX: The `force:source:deploy` and `force:source:convert` commands work with custom fields when specified directly with the `-m CustomField` parameter or when bundled with other metadata with the `-x package.xml` parameter. (GitHub issues [#156](https://github.com/forcedotcom/cli/issues/156), [#542](https://github.com/forcedotcom/cli/issues/542), [#611](https://github.com/forcedotcom/cli/issues/611), [#623](https://github.com/forcedotcom/cli/issues/623), [#625](https://github.com/forcedotcom/cli/issues/625), and [#628](https://github.com/forcedotcom/cli/issues/628))
+
+* FIX: The `force:auth` and `force:org:signup` commands correctly map new sandbox instances to the sandbox audience URL.
 
 ## 49.13.0 (October 1, 2020)
 
