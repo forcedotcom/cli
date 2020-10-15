@@ -48,7 +48,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 If you installed the pre-release version of the `salesforcedx` v50 plug-in, uninstall it and update the CLI. We’re no longer updating the pre-release v50 plug-in.
 
-```bassh
+```bash
 $ sfdx plugins:uninstall salesforcedx
 $ sfdx update
 ```
