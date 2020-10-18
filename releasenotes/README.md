@@ -1,6 +1,6 @@
 # Salesforce CLI v50 Release Notes
 
-## 50.1.0 (October 17, 2020) 
+## 50.1.1 (October 17, 2020) 
 
 Welcome to the first release of version 50 of the `salesforcedx` CLI plug-in in Winter '21. 
 
@@ -33,13 +33,13 @@ $ sfdx plugins --core
 alias 1.1.2 (core)
 config 1.1.8 (core)
 generator 1.1.3 (core)
-salesforcedx 50.1.0 (core)                    // salesforcedx plug-in version
+salesforcedx 50.1.1 (core)                    // salesforcedx plug-in version
 ├─ templates 50.1.0 (core)
 ├─ custom-metadata 1.0.10 (core)
 ├─ @salesforce/sfdx-plugin-lwc-test 0.1.7 (core)
 ├─ apex 0.1.0 (core)
-└─ salesforce-alm 50.1.0 (core)
-sfdx-cli 7.75.1 (core)                        // Salesforce CLI version
+└─ salesforce-alm 50.1.1 (core)
+sfdx-cli 7.76.1 (core)                        // Salesforce CLI version
 ```
 
 If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_autocomplete.htm), run `sfdx autocomplete --refresh-cache` after you update the `salesforcedx` plug-in to ensure that autocomplete works correctly on any new commands.
