@@ -24,6 +24,12 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
   * `force:org:shape:delete`
   * `force:org:shape:list`
 
+* CHANGE:  A clarification to last week’s [`.forceignore` release note](#other-changes): To start using the new internal parser that follows the `.gitignore` patterns and rules, add this line to the top of your `.forceignore` file:
+
+    `# .forceignore v2`
+
+    If you don't add this line to your `.forceignore` file, the `force:source:*` commands continue to use the old parser.  The commands warn you about invalid entries so you can start updating them at your convenience. 
+
 * FIX: These release notes now include the version of the CLI npm package (`sfdx-cli`) released each week, such as 7.77.1. ([GitHub issue #683](../../../issues/683))
 
 ## 50.1.1 (October 17, 2020) - CLI 7.76.1
