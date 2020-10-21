@@ -26,7 +26,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 * FIX: These release notes include the version of the CLI npm package (`sfdx-cli`) released each week, such as 7.77.1. ([GitHub issue #683](../../../issues/683))
 
-## 50.1.1 (October 17, 2020) 
+## 50.1.1 (October 17, 2020) - CLI 7.76.1
 
 Welcome to the first release of version 50 of the `salesforcedx` CLI plug-in in Winter '21. 
 
