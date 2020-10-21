@@ -24,7 +24,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
   * `force:org:shape:delete`
   * `force:org:shape:list`
 
-* FIX: These release notes include the version of the CLI npm package (`sfdx-cli`) released each week, such as 7.77.1. ([GitHub issue #683](../../../issues/683))
+* FIX: These release notes now include the version of the CLI npm package (`sfdx-cli`) released each week, such as 7.77.1. ([GitHub issue #683](../../../issues/683))
 
 ## 50.1.1 (October 17, 2020) - CLI 7.76.1
 
