@@ -1,10 +1,34 @@
 # Salesforce CLI v50 Release Notes
 
+Here are the new and changed features in recent updates of Salesforce CLI and the `salesforcedx` plug-in.
+
+Run `sfdx version` to display the version of Salesforce CLI installed on your computer. Run `sfdx plugins --core` to display the version of the installed `salesforcedx` plug-in.
+
+Run `sfdx update` to update both the CLI and the `salesforcedx` plug-in to the latest available version.
+
+If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_autocomplete.htm), run `sfdx autocomplete --refresh-cache` after you update the `salesforcedx` plug-in to ensure that autocomplete works correctly on any new commands.
+
+[Click here for the v49 release notes.](./v49.md)
+
+## 50.2.0 (October 22, 2020) - CLI 7.77.1
+
+* NEW: As part of [open-sourcing Salesforce CLI](https://developer.salesforce.com/blogs/2020/05/open-sourcing-salesforce-cli.html), we've broken out the source for the authorization commands, such as `force:auth:jwt:grant`, into their own [GitHub repo](https://github.com/salesforcecli/plugin-auth). These commands are now in the `auth` namespace. For example: 
+
+    `$ sfdx auth:jwt:grant -u me@my.org -f ./server.key -i 345234`
+    
+     As we broke out the commands, we took the opportunity to also refactor the code. We’re keeping the current `force:auth:*` commands based on the original code. Test out the new commands and let us know if they behave differently or unexpectedly. We plan to alias the `force:auth:*` commands to the new `auth:*` commands in the future. Update your CI/CD scripts and let us know if you run into any issues with the new commands.
+
+* CHANGE: The following org shape commands are now beta; they were pilot in v49.
+
+  * `force:org:shape:create`
+  * `force:org:shape:delete`
+  * `force:org:shape:list`
+
+* FIX: These release notes include the version of the CLI npm package (`sfdx-cli`) released each week, such as 7.77.1. ([GitHub issue #683](../../../issues/683))
+
 ## 50.1.1 (October 17, 2020) 
 
 Welcome to the first release of version 50 of the `salesforcedx` CLI plug-in in Winter '21. 
-
-[Click here for the v49 release notes.](./v49.md)
 
 ### Installation Notes
 
@@ -41,8 +65,6 @@ salesforcedx 50.1.1 (core)                    // salesforcedx plug-in version
 └─ salesforce-alm 50.1.1 (core)
 sfdx-cli 7.76.1 (core)                        // Salesforce CLI version
 ```
-
-If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_autocomplete.htm), run `sfdx autocomplete --refresh-cache` after you update the `salesforcedx` plug-in to ensure that autocomplete works correctly on any new commands.
 
 ### Uninstall the Pre-Release Version of the salesforcedx CLI Plug-In
 
