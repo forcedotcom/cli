@@ -5,32 +5,32 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
-import Webhooks = require('@octokit/webhooks')
+import { EventPayloads } from '@octokit/webhooks';
 
-const core = require('@actions/core')
-const github = require('@actions/github')
+import { getInput, setOutput, setFailed } from '@actions/core';
+import { context, getOctokit } from '@actions/github';
 
 async function run() {
   try {
     // The issue request exists on payload when an issue is created
     // Sets action status to failed when issue does not exist on payload.
-    const issue = github.context.payload.issue as Webhooks.EventPayloads.WebhookPayloadIssuesIssue
+    const issue = context.payload.issue as EventPayloads.WebhookPayloadIssuesIssue
     if (!issue) {
-      core.setFailed('github.context.payload.issue does not exist')
+      setFailed('github.context.payload.issue does not exist')
       return
     }
 
     // Get input parameters.
-    const token = core.getInput('repo-token')
-    const message = core.getInput('message')
+    const token = getInput('repo-token')
+    const message = getInput('message')
     console.log('message: ' + message)
 
     // Create a GitHub client.
-    const octokit = new github.getOctokit(token)
+    const octokit = getOctokit(token)
 
     // Get owner and repo from context
-    const owner = github.context.repo.owner
-    const repo = github.context.repo.repo
+    const owner = context.repo.owner
+    const repo = context.repo.repo
 
     // Create a comment on Issue
     // https://octokit.github.io/rest.js/#octokit-routes-issues-create-comment
@@ -63,9 +63,9 @@ async function run() {
     })
     console.log('created comment URL: ' + response.data.html_url)
 
-    core.setOutput('comment-url', response.data.html_url)
+    setOutput('comment-url', response.data.html_url)
   } catch (error) {
-    core.setFailed(error.message)
+    setFailed(error.message)
   }
 }
 

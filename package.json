@@ -4,9 +4,13 @@
   "description": "Issues Only repository for the community to submit feedback, raise issues and propose enhancements to the Salesforce CLI.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "test.js",
-      "build": "tsc",
-      "pack": "ncc build"
+    "build": "tsc",
+    "postbuild": "ncc build"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn build"
+    }
   },
   "repository": {
     "type": "git",
@@ -14,13 +18,15 @@
   },
   "author": "Lisa Morgan",
   "devDependencies": {
-    "@types/node": "^12.7.12",
-    "@zeit/ncc": "^0.20.5",
-    "prettier": "^1.19.1",
-    "typescript": "3.8.3",
     "@actions/core": "^1.2.5",
     "@actions/github": "^4.0.0",
-    "@octokit/webhooks": "^7.11.2"
+    "@octokit/webhooks": "^7.11.2",
+    "@salesforce/dev-config": "^2.0.0",
+    "@types/node": "^12.7.12",
+    "@vercel/ncc": "^0.24.1",
+    "husky": "^4.3.0",
+    "prettier": "^1.19.1",
+    "typescript": "3.8.3"
   },
   "bugs": {
     "url": "https://github.com/forcedotcom/cli/issues"
