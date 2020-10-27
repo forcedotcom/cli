@@ -5,13 +5,15 @@
 # For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
 #
 
-name: 'Github Action Template'
-description: 'simple typescript template for building GitHub Actions'
+name: 'Salesforce CLI Issues Bot'
+description: 'Preform automatic responses to github issues.'
 author: 'Lisa Morgan'
 inputs:
-  repo-token: 
+  repo-token:
+    required: true
     description: 'Token taken from secrets env var'
-  message: 
+  message:
+    required: true
     description: 'Message to post in issue comment'
 runs:
   using: 'node12'
