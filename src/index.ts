@@ -23,7 +23,9 @@ async function run() {
     // Get input parameters.
     const token = getInput('repo-token')
     const message = getInput('message')
-    console.log('message: ' + message)
+    const label = getInput('label')
+    console.log('message: ', message)
+    console.log('label: ', label)
 
     // Create a GitHub client.
     const octokit = getOctokit(token)
@@ -38,21 +40,16 @@ async function run() {
     console.log('repo: ' + repo)
     console.log('number: ' + issue.number)
 
-    const labels = issue.labels
-    let comment: boolean = false
+    const issueLabels = issue.labels
 
-    /////// BEGIN FOR TESTING ONLY - WILL BE REMOVED ON MERGE
-    for (let i = 0; i < labels.length; i++) {
-      if (labels[i].name == 'test internal') {
-        comment = true
-        break
+    // If label is passed in as an input, make sure it is on the issue before posting the message.
+    // Otherwise, we want to post message on all issues regardless.
+    if (label) {
+      if (!issueLabels.find(issueLabel => issueLabel.name === label)) {
+        // We didn't find the label, so don't post on this issue.
+        return;
       }
     }
-
-    if (!comment) {
-      return
-    }
-    /////// END FOR TESTING ONLY - WILL BE REMOVED ON MERGE
 
     const response = await octokit.issues.createComment({
       owner,
