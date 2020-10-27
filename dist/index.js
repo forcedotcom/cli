@@ -40,8 +40,9 @@ async function run() {
         // https://octokit.github.io/rest.js/#octokit-routes-issues-create-comment
         console.log('owner: ' + owner);
         console.log('repo: ' + repo);
-        console.log('number: ' + issue.number);
+        console.log('issue number: ' + issue.number);
         const issueLabels = issue.labels;
+        console.log('issue labels: ', issueLabels);
         // If label is passed in as an input, make sure it is on the issue before posting the message.
         // Otherwise, we want to post message on all issues regardless.
         if (label) {
