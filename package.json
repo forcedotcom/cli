@@ -1,0 +1,35 @@
+{
+  "name": "cli",
+  "version": "1.0.0",
+  "description": "Issues Only repository for the community to submit feedback, raise issues and propose enhancements to the Salesforce CLI.",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc",
+    "postbuild": "ncc build"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn build"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/forcedotcom/cli.git"
+  },
+  "author": "Lisa Morgan",
+  "devDependencies": {
+    "@actions/core": "^1.2.5",
+    "@actions/github": "^4.0.0",
+    "@octokit/webhooks": "^7.11.2",
+    "@salesforce/dev-config": "^2.0.0",
+    "@types/node": "^12.7.12",
+    "@vercel/ncc": "^0.24.1",
+    "husky": "^4.3.0",
+    "prettier": "^1.19.1",
+    "typescript": "3.8.3"
+  },
+  "bugs": {
+    "url": "https://github.com/forcedotcom/cli/issues"
+  },
+  "homepage": "https://github.com/forcedotcom/cli#readme"
+}
