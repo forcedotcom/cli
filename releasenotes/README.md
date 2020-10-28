@@ -10,6 +10,10 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v49 release notes.](./v49.md)
 
+## 50.3.1 (October 29, 2020) - CLI 7.78.1
+
+* FIX: We fixed various issues with the `.forceignore` file and it now works as expected. In particular, we updated the version dependencies of the core plug-in libraries and improved how the CLI handles trailing slashes in file entries. ([GitHub issue #690](../../../issues/690))
+
 ## 50.2.0 (October 22, 2020) - CLI 7.77.1
 
 * NEW: As part of [open-sourcing Salesforce CLI](https://developer.salesforce.com/blogs/2020/05/open-sourcing-salesforce-cli.html), we've broken out the source for the authorization commands, such as `force:auth:jwt:grant`, into their own [GitHub repo](https://github.com/salesforcecli/plugin-auth). These commands are now in the `auth` namespace. For example: 
