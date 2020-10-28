@@ -6,9 +6,9 @@
 #
 
 name: "new-label"
-on: # any issue opened
-  label:
-    types: [created]
+on: # any labels added to an issue
+  issues:
+    types: [labeled]
 
 jobs:
   owned-by-other-team:
