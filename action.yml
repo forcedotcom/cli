@@ -15,6 +15,9 @@ inputs:
   message:
     required: true
     description: 'Message to post in issue comment'
+  label:
+    required: false
+    description: 'A label the issue must contain to post the message'
 runs:
   using: 'node12'
   main: 'dist/index.js'

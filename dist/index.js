@@ -28,7 +28,9 @@ async function run() {
         // Get input parameters.
         const token = core_1.getInput('repo-token');
         const message = core_1.getInput('message');
-        console.log('message: ' + message);
+        const label = core_1.getInput('label');
+        console.log('message: ', message);
+        console.log('label: ', label);
         // Create a GitHub client.
         const octokit = github_1.getOctokit(token);
         // Get owner and repo from context
@@ -38,20 +40,17 @@ async function run() {
         // https://octokit.github.io/rest.js/#octokit-routes-issues-create-comment
         console.log('owner: ' + owner);
         console.log('repo: ' + repo);
-        console.log('number: ' + issue.number);
-        const labels = issue.labels;
-        let comment = false;
-        /////// BEGIN FOR TESTING ONLY - WILL BE REMOVED ON MERGE
-        for (let i = 0; i < labels.length; i++) {
-            if (labels[i].name == 'test internal') {
-                comment = true;
-                break;
+        console.log('issue number: ' + issue.number);
+        const issueLabels = issue.labels;
+        console.log('issue labels: ', issueLabels);
+        // If label is passed in as an input, make sure it is on the issue before posting the message.
+        // Otherwise, we want to post message on all issues regardless.
+        if (label) {
+            if (!issueLabels.find(issueLabel => issueLabel.name === label)) {
+                // We didn't find the label, so don't post on this issue.
+                return;
             }
         }
-        if (!comment) {
-            return;
-        }
-        /////// END FOR TESTING ONLY - WILL BE REMOVED ON MERGE
         const response = await octokit.issues.createComment({
             owner,
             repo,

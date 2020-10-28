@@ -9,7 +9,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn build"
+      "pre-commit": "yarn build && git add dist/index.js"
     }
   },
   "repository": {

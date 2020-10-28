@@ -1,0 +1,29 @@
+#
+# Copyright (c) 2020, salesforce.com, inc.
+# All rights reserved.
+# Licensed under the BSD 3-Clause license.
+# For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+#
+
+name: "new-issue"
+on: # any issue opened
+  issues:
+    types: [opened]
+
+jobs:
+  opened:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2.0.0 
+    - name: issue comment
+      id: issue_comment
+      uses: ./
+      with: 
+        repo-token: ${{ secrets.GITHUB_TOKEN}}
+        message: >
+          Thank you for filing this issue.  We appreciate your feedback and will review the issue as soon as possible. 
+          Remember, however, that GitHub isn't a mechanism for receiving support under any agreement or SLA. 
+          If you require immediate assistance, contact Salesforce Customer Support.
+
+    - name: log action output
+      run: echo ${{steps.run_action.outputs.message}}     
