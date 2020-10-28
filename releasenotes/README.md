@@ -12,7 +12,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 ## 50.3.1 (October 29, 2020) - CLI 7.78.1
 
-* FIX: We fixed various issues with the `.forceignore` file and it now works as expected. In particular, we updated the version dependencies of the core plug-in libraries and improved how the CLI handles trailing slashes in file entries. ([GitHub issue #690](../../../issues/690))
+* FIX: We fixed various issues with the `.forceignore` file and it works as expected. In particular, we updated the version dependencies of the core plug-in libraries and improved how the CLI handles trailing slashes in file entries. ([GitHub issue #690](../../../issues/690))
 
 ## 50.2.0 (October 22, 2020) - CLI 7.77.1
 
