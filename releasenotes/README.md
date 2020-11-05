@@ -18,7 +18,7 @@ These changes are in the 50.5.0 release candidate plug-in (`salesforcedx@latest-
 
 * FIX: The `force:source:convert` and `force:source:deploy` commands work with the EmailTemplate and EmailFolder metadata types. Previously you’d get an error such as `Cannot find folder: ExampleFolder`. (GitHub issue [#609](https://github.com/forcedotcom/cli/issues/609) and [#612](https://github.com/forcedotcom/cli/issues/612))
 
-* FIX: The `force:source:push|pull|status|deploy|retrieve` commands work with duplicate rules. Previously you'd get the message `No results found` and the rule wouldn't be pushed to, pulled from, and so forth, your org.    (GitHub issue [#685](https://github.com/forcedotcom/cli/issues/685))
+* FIX: The `force:source:push|pull|status|deploy|retrieve` commands work with duplicate rules. Previously you'd get the message `No results found` and the rule wouldn't be recognized by the `source` commands.    (GitHub issue [#685](https://github.com/forcedotcom/cli/issues/685))
 
 ## 50.4.0 (November 5, 2020) - CLI 7.79.0
 
