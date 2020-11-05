@@ -12,7 +12,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 ## 50.5.0 (November 12, 2020) - CLI 7.80.0
 
-These changes are in the 50.5.0 release candidate plug-in (`salesforcedx@latest-rc`).
+These changes are in the 50.5.0 release candidate plug-in (`salesforcedx@latest-rc`). We plan to include these changes in next week's official release, although the final list of changes might differ. 
 
 * FIX: The `force:source:convert` command works on custom labels. Previously you'd get the error `ERROR running force:source:convert: The package root directory is empty`. (GitHub issue [#684](https://github.com/forcedotcom/cli/issues/684))
 
