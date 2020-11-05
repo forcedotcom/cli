@@ -10,6 +10,20 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v49 release notes.](./v49.md)
 
+## 50.5.0 (November 12, 2020) - CLI 7.80.0
+
+These changes are in the 50.5.0 release candidate plug-in (`salesforcedx@latest-rc`).
+
+* FIX: The `force:source:convert` command works on custom labels. Previously you'd get the error `ERROR running force:source:convert: The package root directory is empty`. (GitHub issue [#684](https://github.com/forcedotcom/cli/issues/684))
+
+* FIX: The `force:source:convert` and `force:source:deploy` commands work with the EmailTemplate and EmailFolder metadata types. Previously you’d get an error such as `Cannot find folder: ExampleFolder`. (GitHub issue [#609](https://github.com/forcedotcom/cli/issues/609) and [#612](https://github.com/forcedotcom/cli/issues/612))
+
+* FIX: The `force:source:push` and `force:source:push` commands work with duplicate rules. Previously you’d get the message `No results found` and the rule wouldn't be pushed to or pulled from your org.  (GitHub issue [#685](https://github.com/forcedotcom/cli/issues/685))
+
+## 50.4.0 (November 5, 2020) - CLI 7.79.0
+
+* We aren't releasing a Salesforce CLI patch this week.
+
 ## 50.2.0 (October 22, 2020) - CLI 7.77.1
 
 * NEW: As part of [open-sourcing Salesforce CLI](https://developer.salesforce.com/blogs/2020/05/open-sourcing-salesforce-cli.html), we've broken out the source for the authorization commands, such as `force:auth:jwt:grant`, into their own [GitHub repo](https://github.com/salesforcecli/plugin-auth). These commands are now in the `auth` namespace. For example: 
