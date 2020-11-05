@@ -1,0 +1,2 @@
+More Information Required:
+    - '^((?!Steps to reproduce)[\s\S])*$|^((?!Link to a GitHub repository)[\s\S])*$|^((?!Expected result)[\s\S])*$|^((?!Actual result)[\s\S])*$|^((?!CLI version)[\s\S])*$|^((?!plugin version)[\s\S])*$|^((?!OS)[\s\S])*$'
