@@ -1,6 +1,8 @@
 # Salesforce CLI v50 Release Notes
 
-Here are the new and changed features in recent updates of Salesforce CLI and the `salesforcedx` plug-in.
+Here are the new and changed features in recent updates of Salesforce CLI and the `salesforcedx` plug-in. 
+
+We publish the `latest` plug-in and CLI on Thursdays. At the same time we also publish the `latest-rc` release candidate plug-in and CLI. The release candidates contain changes that will likely be in the final official version. 
 
 Run `sfdx version` to display the version of Salesforce CLI installed on your computer. Run `sfdx plugins --core` to display the version of the installed `salesforcedx` plug-in.
 
@@ -9,6 +11,20 @@ Run `sfdx update` to update both the CLI and the `salesforcedx` plug-in to the l
 If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_autocomplete.htm), run `sfdx autocomplete --refresh-cache` after you update the `salesforcedx` plug-in to ensure that autocomplete works correctly on any new commands.
 
 [Click here for the v49 release notes.](./v49.md)
+
+## November 12, 2020 
+
+These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+* FIX: The `force:source:convert` command works on custom labels. Previously you'd get the error `ERROR running force:source:convert: The package root directory is empty`. (GitHub issue [#684](https://github.com/forcedotcom/cli/issues/684))
+
+* FIX: The `force:source:convert` and `force:source:deploy` commands work with the EmailTemplate and EmailFolder metadata types. Previously you’d get an error such as `Cannot find folder: ExampleFolder`. (GitHub issue [#609](https://github.com/forcedotcom/cli/issues/609) and [#612](https://github.com/forcedotcom/cli/issues/612))
+
+* FIX: The `force:source:push|pull|status|deploy|retrieve` commands work with duplicate rules. Previously you'd get the message `No results found` and the rule wouldn't be recognized by the `source` commands.    (GitHub issue [#685](https://github.com/forcedotcom/cli/issues/685))
+
+## November 5, 2020
+
+* We aren't releasing a Salesforce CLI patch this week.
 
 ## 50.2.0 (October 22, 2020) - CLI 7.77.1
 
