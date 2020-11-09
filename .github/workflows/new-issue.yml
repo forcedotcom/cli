@@ -13,77 +13,95 @@ jobs:
         enable-versioned-regex: 0
   missed-info:
     runs-on: ubuntu-latest
+    needs: [triage]
+    outputs:
+      STEPS_REPRODUCE: ${{ steps.steps_to_reproduce.outputs.STEPS_REPRODUCE }}
+      LINK_TO_GITHUB: ${{ steps.link_to_github.outputs.LINK_TO_GITHUB }}
+      EXPECTED_RESULT: ${{ steps.expected_result.outputs.EXPECTED_RESULT }}
+      ACTUAL_RESULT: ${{ steps.actual_result.outputs.ACTUAL_RESULT }}
+      CLI_VERSION: ${{ steps.missed_cli_version.outputs.CLI_VERSION }}
+      PLUGIN_VERSION: ${{ steps.missed_plugin_version.outputs.PLUGIN_VERSION }}
+      OS_VERSION: ${{ steps.missed_os_version.outputs.OS_VERSION }}
     steps:
+      - uses: actions/checkout@v2.0.0 
       - name: Missed Steps to reproduce
-        if: contains(github.event.issue.body, 'Steps to reproduce') == false
+        id: steps_to_reproduce
+        if: ${{contains(github.event.issue.body, 'Steps To Reproduce') == false}}
         env:
           STEPS_REPRODUCE: Steps to reproduce
-        run: echo "$STEPS_REPRODUCE"
+        run: echo "::set-output name=STEPS_REPRODUCE::$STEPS_REPRODUCE"
       - name: Missed Link to a GitHub repository
-        if: contains(github.event.issue.body, 'Link to a GitHub repository') == false
+        id: link_to_github
+        if: contains(github.event.issue.body, 'Repository to reproduce') == false
         env:
           LINK_TO_GITHUB: Link to a GitHub repository
-        run: echo "$LINK_TO_GITHUB"
+        run: echo "::set-output name=LINK_TO_GITHUB::$LINK_TO_GITHUB"
       - name: Missed Expected result
+        id: expected_result
         if: contains(github.event.issue.body, 'Expected result') == false
         env:
           EXPECTED_RESULT: Expected result
-        run: echo "$EXPECTED_RESULT"
+        run: echo "::set-output name=EXPECTED_RESULT::$EXPECTED_RESULT"
       - name: Missed Actual result
+        id: actual_result
         if: contains(github.event.issue.body, 'Actual result') == false
         env:
           ACTUAL_RESULT: Actual result
-        run: echo "$ACTUAL_RESULT"
+        run: echo "::set-output name=ACTUAL_RESULT::$ACTUAL_RESULT"
       - name: Missed CLI version
-        if: contains(github.event.issue.body, 'CLI version') == false
+        id: missed_cli_version
+        if: contains(github.event.issue.body, 'CLI Version') == false
         env:
           CLI_VERSION: CLI version
-        run: echo "$CLI_VERSION"
+        run: echo "::set-output name=CLI_VERSION::$CLI_VERSION"
       - name: Missed plugin version
-        if: contains(github.event.issue.body, 'plugin version') == false
+        id: missed_plugin_version
+        if: contains(github.event.issue.body, 'plugin Version') == false
         env:
           PLUGIN_VERSION: Plugin version
-        run: echo "$PLUGIN_VERSION"
+        run: echo "::set-output name=PLUGIN_VERSION::$PLUGIN_VERSION"
       - name: Missed OS version
+        id: missed_os_version
         if: contains(github.event.issue.body, 'OS') == false
         env:
           OS_VERSION: OS version
-        run: echo "$OS_VERSION"
-  more-info-required:
+        run: echo "::set-output name=OS_VERSION::$OS_VERSION"
+  display-message-missing:
     runs-on: ubuntu-latest
+    needs: [triage, missed-info]
     steps:
-    - uses: actions/checkout@v2.0.0 
-    - name: issue comment
-      id: issue_comment
-      uses: ./
-      with: 
-        repo-token: ${{ secrets.GITHUB_TOKEN}}
-        label: 'more information required'
-        message: >
-          This issue is missing the following required information: 
-          $STEPS_REPRODUCE
-          $LINK_TO_GITHUB
-          $EXPECTED_RESULT
-          $ACTUAL_RESULT
-          $CLI_VERSION
-          $PLUGIN_VERSION
-          $OS_VERSION
-          When you provide us this information we'll triage and reproduce the issue. 
-    - name: log action output
-      run: echo ${{steps.run_action.outputs.message}}
-  default-comment:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2.0.0 
-    - name: issue comment
-      id: issue_comment
-      uses: ./
-      with: 
-        repo-token: ${{ secrets.GITHUB_TOKEN}}
-        message: >
-          Thank you for filing this issue.  We appreciate your feedback and will review the issue as soon as possible. 
-          Remember, however, that GitHub isn't a mechanism for receiving support under any agreement or SLA. 
-          If you require immediate assistance, contact Salesforce Customer Support.
-    - name: log action output
-      if: contains(github.event.issue.labels.*.name, 'more information required') == false
-      run: echo ${{steps.run_action.outputs.message}}
+      - uses: actions/checkout@v2.0.0 
+      - name: issue comment
+        if: ${{needs.missed-info.outputs.STEPS_REPRODUCE != '' 
+          || needs.missed-info.outputs.LINK_TO_GITHUB != ''
+          || needs.missed-info.outputs.EXPECTED_RESULT != ''
+          || needs.missed-info.outputs.ACTUAL_RESULT != ''
+          || needs.missed-info.outputs.CLI_VERSION != ''
+          || needs.missed-info.outputs.PLUGIN_VERSION != ''
+          || needs.missed-info.outputs.OS_VERSION != ''}}
+        id: issue_comment_missing
+        uses: ./
+        with: 
+          repo-token: ${{ secrets.GITHUB_TOKEN}}
+          message: >
+            ${{format('{{Your issue is missing this required information: {0} {1} {2} {3} {4} {5} {6}. When you provide us this information we''ll triage and reproduce the issue.}}',
+            needs.missed-info.outputs.STEPS_REPRODUCE, needs.missed-info.outputs.LINK_TO_GITHUB, needs.missed-info.outputs.EXPECTED_RESULT, needs.missed-info.outputs.ACTUAL_RESULT,
+            needs.missed-info.outputs.CLI_VERSION, needs.missed-info.outputs.PLUGIN_VERSION, needs.missed-info.outputs.OS_VERSION)}}
+      - name: issue comment
+        if: ${{needs.missed-info.outputs.STEPS_REPRODUCE == '' 
+          && needs.missed-info.outputs.LINK_TO_GITHUB == ''
+          && needs.missed-info.outputs.EXPECTED_RESULT == ''
+          && needs.missed-info.outputs.ACTUAL_RESULT == ''
+          && needs.missed-info.outputs.CLI_VERSION == ''
+          && needs.missed-info.outputs.PLUGIN_VERSION == ''
+          && needs.missed-info.outputs.OS_VERSION == ''}}
+        id: issue_comment
+        uses: ./
+        with: 
+          repo-token: ${{ secrets.GITHUB_TOKEN}}
+          message: >
+            Thank you for filing this issue.  We appreciate your feedback and will review the issue as soon as possible. 
+            Remember, however, that GitHub isn't a mechanism for receiving support under any agreement or SLA. 
+            If you require immediate assistance, contact Salesforce Customer Support.
+      - name: log action output
+        run: echo ${{steps.run_action.outputs.message}}
