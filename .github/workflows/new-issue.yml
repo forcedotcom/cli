@@ -1,5 +1,12 @@
+#
+# Copyright (c) 2020, salesforce.com, inc.
+# All rights reserved.
+# Licensed under the BSD 3-Clause license.
+# For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+#
+
 name: "new-issue"
-on:
+on: # any issue opened
   issues:
     types: [opened]
 jobs:
@@ -66,7 +73,7 @@ jobs:
         env:
           OS_VERSION: OS version
         run: echo "::set-output name=OS_VERSION::$OS_VERSION"
-  display-message-missing:
+  display-message:
     runs-on: ubuntu-latest
     needs: [triage, missed-info]
     steps:
