@@ -20,7 +20,7 @@ These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). W
 
 ## 50.5.0 (November 12, 2020) - CLI 7.80.0
 
-* CHANGE: The `force:apex:log:list` command displays results in descending order. Previously it displayed results in ascending order. This change results from [Salesforce Extensions for VS Code GitHub issue #2698](https://github.com/forcedotcom/salesforcedx-vscode/issues/2698), which was fixed by changing the underlying CLI command rather than VS Code. 
+* CHANGE: The `force:apex:log:list` command displays results in descending order. Previously it displayed results in ascending order. (Salesforce Extensions for VS Code GitHub issue [#2698](https://github.com/forcedotcom/salesforcedx-vscode/issues/2698)) 
 
 * FIX: The `force:source:convert` command works on custom labels. Previously you'd get the error `ERROR running force:source:convert: The package root directory is empty`. (GitHub issue [#684](https://github.com/forcedotcom/cli/issues/684))
 
