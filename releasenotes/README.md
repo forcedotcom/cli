@@ -12,19 +12,28 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v49 release notes.](./v49.md)
 
-## November 12, 2020 
+## November 19, 2020
 
 These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+* FIX: The `force:source:push|pull|status|deploy|retrieve` commands work with duplicate rules. Previously you'd get the message `No results found` and the rule wouldn't be recognized by the `source` commands.    (GitHub issue [#685](https://github.com/forcedotcom/cli/issues/685))
+
+## 50.5.0 (November 12, 2020) - CLI 7.80.0
+
+* CHANGE: The `force:apex:log:list` command displays results in descending order. Previously it displayed results in ascending order. (Salesforce Extensions for VS Code GitHub issue [#2698](https://github.com/forcedotcom/salesforcedx-vscode/issues/2698)) 
 
 * FIX: The `force:source:convert` command works on custom labels. Previously you'd get the error `ERROR running force:source:convert: The package root directory is empty`. (GitHub issue [#684](https://github.com/forcedotcom/cli/issues/684))
 
 * FIX: The `force:source:convert` and `force:source:deploy` commands work with the EmailTemplate and EmailFolder metadata types. Previously you’d get an error such as `Cannot find folder: ExampleFolder`. (GitHub issue [#609](https://github.com/forcedotcom/cli/issues/609) and [#612](https://github.com/forcedotcom/cli/issues/612))
 
-* FIX: The `force:source:push|pull|status|deploy|retrieve` commands work with duplicate rules. Previously you'd get the message `No results found` and the rule wouldn't be recognized by the `source` commands.    (GitHub issue [#685](https://github.com/forcedotcom/cli/issues/685))
 
 ## November 5, 2020
 
 * We aren't releasing a Salesforce CLI patch this week.
+
+## 50.3.1 (October 29, 2020) - CLI 7.78.1
+
+* FIX: We fixed various issues with the `.forceignore` file and it works as expected. In particular, we updated the version dependencies of the core plug-in libraries and improved how the CLI handles trailing slashes in file entries. ([GitHub issue #690](../../../issues/690))
 
 ## 50.2.0 (October 22, 2020) - CLI 7.77.1
 
