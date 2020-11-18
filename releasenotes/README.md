@@ -12,11 +12,16 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v49 release notes.](./v49.md)
 
-## November 19, 2020
+## November 26, 2020
 
-These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+* We aren't releasing a Salesforce CLI patch this week. Have a happy and safe Thanksgiving!
 
-* FIX: The `force:source:push|pull|status|deploy|retrieve` commands work with duplicate rules. Previously you'd get the message `No results found` and the rule wouldn't be recognized by the `source` commands.    (GitHub issue [#685](https://github.com/forcedotcom/cli/issues/685))
+## 50.6.0 (November 19, 2020) - CLI 7.81.0
+
+* FIX: The `force:source:push|pull|status|deploy|retrieve` commands work with duplicate rules. Previously you'd get the message `No results found` and the rule wouldn't be recognized by the `source` commands. (GitHub issue [#685](https://github.com/forcedotcom/cli/issues/685))
+
+* FIX: The `force:source:retrieve` and `force:mdapi:convert -m <LightningComponentBundle>` commands work with [Lightning Web Component CSS style components](https://lwc.dev/guide/css). Previously you’d get the error `ERROR running force:mdapi:convert: Cannot read property 'fileName' of undefined`. Also, for `force:source:retrieve`, the metadata files weren't being copied to their proper location in the project. (GitHub issues [#496](https://github.com/forcedotcom/cli/issues/496), [#563](https://github.com/forcedotcom/cli/issues/563), and [#655](https://github.com/forcedotcom/cli/issues/655))
+
 
 ## 50.5.0 (November 12, 2020) - CLI 7.80.0
 
