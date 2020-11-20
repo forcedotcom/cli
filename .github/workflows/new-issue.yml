@@ -91,7 +91,7 @@ jobs:
         with: 
           repo-token: ${{ secrets.GITHUB_TOKEN}}
           message: >
-            ${{format('{{Your issue is missing this required information: {0} {1} {2} {3} {4} {5} {6}. When you provide us this information we''ll triage and reproduce the issue.}}',
+            ${{format('Your issue is missing this required information: {0} {1} {2} {3} {4} {5} {6}. When you provide us this information we''ll triage and reproduce the issue.',
             needs.missed-info.outputs.STEPS_REPRODUCE, needs.missed-info.outputs.LINK_TO_GITHUB, needs.missed-info.outputs.EXPECTED_RESULT, needs.missed-info.outputs.ACTUAL_RESULT,
             needs.missed-info.outputs.CLI_VERSION, needs.missed-info.outputs.PLUGIN_VERSION, needs.missed-info.outputs.OS_VERSION)}}
       - name: issue comment
