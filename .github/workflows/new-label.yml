@@ -55,6 +55,6 @@ jobs:
         repo-token: ${{ secrets.GITHUB_TOKEN}}
         label: 'feature'
         message: >
-          Thank you for proposing this new feature
+          Thank you for filing this feature request. We appreciate your feedback and will review the feature at our next grooming or sprint planning session. We prioritize feature requests with more upvotes and comments.
     - name: log action output
       run: echo ${{steps.run_action.outputs.message}}  
