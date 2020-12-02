@@ -12,6 +12,18 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v49 release notes.](./v49.md)
 
+## January 7, 2021
+
+These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). We plan to include these changes in the first official release of 2021. This list isn't final and is subject to change. 
+
+* CHANGE: Now that the `auth` commands (such as `force:auth:jwt:grant` and `force:auth:web:login`) are in their own [GitHub repo](https://github.com/salesforcecli/plugin-auth), they no longer show up in the `sfdx help force` output. Run `sfdx help auth` instead. The [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm) will soon list these commands in only the `auth` namespace.
+
+    We continue to alias the `auth` commands to their `force:auth` equivalents. So, for example, `force:auth:jwt:grant` continues to work. We'll announce when we plan to deprecate the `force` versions of these commands. We’ll then follow our standard deprecation policy, which gives you ample time to update your scripts. 
+
+## 50.8.0 (December 3, 2020) - CLI 7.83.0
+
+* FIX: We’ve removed the CLI’s dependency on ANTLR.  (GitHub issues [#746](https://github.com/forcedotcom/cli/issues/746) and [#754](https://github.com/forcedotcom/cli/issues/754))
+
 ## November 26, 2020
 
 * We aren't releasing a Salesforce CLI patch this week. Have a happy and safe Thanksgiving!
