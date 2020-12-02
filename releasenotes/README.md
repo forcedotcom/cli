@@ -22,7 +22,7 @@ These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). W
 
 ## 50.8.0 (December 3, 2020) - CLI 7.83.0
 
-* FIX: We’ve removed the CLI’s dependency on ANTLR.  (GitHub issues [#746](https://github.com/forcedotcom/cli/issues/746) and [#754](https://github.com/forcedotcom/cli/issues/754))
+* FIX: We’ve removed the CLI’s dependency on [ANTLR](https://www.antlr.org/).  (GitHub issues [#746](https://github.com/forcedotcom/cli/issues/746) and [#754](https://github.com/forcedotcom/cli/issues/754))
 
 ## November 26, 2020
 
