@@ -19,6 +19,8 @@ These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). W
 * CHANGE: Now that the `auth` commands (such as `force:auth:jwt:grant` and `force:auth:web:login`) are in their own [GitHub repo](https://github.com/salesforcecli/plugin-auth), they no longer show up in the `sfdx help force` output. Run `sfdx help auth` instead. The [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm) will soon list these commands in only the `auth` namespace.
 
     We continue to alias the `auth` commands to their `force:auth` equivalents. So, for example, `force:auth:jwt:grant` continues to work. We'll announce when we plan to deprecate the `force` versions of these commands. We’ll then follow our standard deprecation policy, which gives you ample time to update your scripts. 
+    
+* FIX: The `force:source:retrieve -n <PackageName>` command retrieves custom object subcomponents, such as custom fields. Previously the command retrieved just the custom object itself. (GitHub issue [#644](https://github.com/forcedotcom/cli/issues/644)).
 
 ## 50.8.0 (December 3, 2020) - CLI 7.83.0
 
