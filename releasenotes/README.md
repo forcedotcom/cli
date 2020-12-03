@@ -22,7 +22,7 @@ These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). W
     
 * FIX: The `force:source:retrieve -n <PackageName>` command retrieves custom object subcomponents, such as custom fields. Previously the command retrieved just the custom object itself. (GitHub issue [#644](https://github.com/forcedotcom/cli/issues/644)).
 
-## 50.8.0 (December 3, 2020) - CLI 7.83.0
+## 50.7.1 (December 3, 2020) - CLI 7.82.1-0
 
 * FIX: We’ve removed the CLI’s dependency on [ANTLR](https://www.antlr.org/).  (GitHub issues [#746](https://github.com/forcedotcom/cli/issues/746) and [#754](https://github.com/forcedotcom/cli/issues/754))
 
