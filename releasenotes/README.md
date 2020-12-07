@@ -24,7 +24,7 @@ These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). W
 
 ## December 10, 17, 24, and 31, 2020
 
-* We aren't releasing a Salesforce CLI patch on any of these weeks. Happy holidays!
+* We aren't releasing a Salesforce CLI patch on any of these weeks. Have a happy and safe holiday season. 
 
 ## 50.7.1 (December 3, 2020) - CLI 7.82.1-0
 
