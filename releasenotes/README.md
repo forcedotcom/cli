@@ -19,8 +19,23 @@ These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). W
 * CHANGE: Now that the `auth` commands (such as `force:auth:jwt:grant` and `force:auth:web:login`) are in their own [GitHub repo](https://github.com/salesforcecli/plugin-auth), they no longer show up in the `sfdx help force` output. Run `sfdx help auth` instead. The [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm) will soon list these commands in only the `auth` namespace.
 
     We continue to alias the `auth` commands to their `force:auth` equivalents. So, for example, `force:auth:jwt:grant` continues to work. We'll announce when we plan to deprecate the `force` versions of these commands. We’ll then follow our standard deprecation policy, which gives you ample time to update your scripts. 
+
+* CHANGE: We [deprecated](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_deprecation.htm) the `force:source:project:upgrade` command. The command upgrades files between old CLI releases and its functionality is no longer needed. 
     
 * FIX: The `force:source:retrieve -n <PackageName>` command retrieves custom object subcomponents, such as custom fields. Previously the command retrieved just the custom object itself. (GitHub issue [#644](https://github.com/forcedotcom/cli/issues/644)).
+
+* FIX: The `force:source:pull` command correctly retrieves static resources after you've updated them in the Salesforce user interface. 
+
+* FIX: Commands whose `-u` parameter accepts an access token as a value, in addition to a username, are working correctly. An example is `force:user:password:generate`. Previously you'd get an error such as `The username <string> was not found for scratch org 00D…` (GitHub issue [#290](https://github.com/forcedotcom/cli/issues/290))
+
+* FIX: The `force:source:retrieve|pull -m "CustomObject:MyCustomObject__c"` commands correctly retrieve a field whose name is the same as the custom object itself.  (GitHub issue [#579](https://github.com/forcedotcom/cli/issues/579))
+
+* FIX: We've updated the CLI to use the [graceful-fs npm package](https://www.npmjs.com/package/graceful-fs). As a result, the CLI can process a lot more files, and some errors no longer occur. Previously, for example, you sometimes got the error `EMFILE: too many open files` when running `force:source:convert` on Windows.
+
+* FIX: The `auth:jwt:grant` command correctly authenticates on Windows. Previously, if you installed or upgraded the CLI on Windows using npm, you’d get the error message `ERROR running auth:jwt:grant: We encountered a JSON web token error, which is likely not an issue with Salesforce CLI.`  (GitHub issue [#757](https://github.com/forcedotcom/cli/issues/757))
+
+* FIX: The `force:source:retrieve|pull -m "MutingPermissionSet:Name"` commands correctly retrieve muting permission sets. Previously you'd get the error message `ERROR running force:source:retrieve:  "cannot read property 'metadataName' of undefined"`. (GitHub issue [#339](https://github.com/forcedotcom/cli/issues/339))
+
 
 ## January 7, 2021
 
