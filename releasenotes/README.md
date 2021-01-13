@@ -21,7 +21,7 @@ These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). W
     The default content type (mime type) is `application/zip`; use the `--contenttype` parameter to specify a different content type, such as `application/json`. The command generates the `MyResource.resource-meta.xml` file in the current directory; use `-d | --outputdir` to generate it in a different directory. Static resources must reside in the `main/default/staticresources` directory under your package directory. For example:
 
      ```bash
-     $ cd <myprojectdir>/force-app
+     $ cd myprojectdir/force-app
      $ sfdx force:staticresource:create -n MyResource --contenttype application/json -d main/default/staticresources
     ```
     
