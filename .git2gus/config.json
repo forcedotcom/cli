@@ -1,5 +1,6 @@
 {
     "productTag": "a1aB00000004Bx8IAE",
     "defaultBuild": "offcore.tooling.50",
+    "issueTypeLabels": { "investigating": "INVESTIGATION P3", feature: "USER STORY", "regression": "BUG P1", "bug": "BUG P3" },
     "hideWorkItemUrl": true
 }
