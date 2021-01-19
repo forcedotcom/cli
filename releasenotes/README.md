@@ -12,7 +12,19 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v49 release notes.](./v49.md)
 
-## 50.13.3 (January 14, 2021) - CLI 7.84.2
+## January 21, 2021
+
+These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+**NOTE**: This release candidate also includes the changes in the [50.13.3 (January 14, 2021)](./README.md#50133-january-14-2021---cli-7842) release that we rolled back. 
+
+* FIX: We've improved the message returned when you delete a sandbox with `force:org:delete`. The new message clarifies that sandboxes created with `force:org:create|clone` are marked for deletion. (GitHub issue [#769](https://github.com/forcedotcom/cli/issues/769))
+
+
+
+## 50.13.3 (January 14, 2021) - CLI 7.84.2 (ROLLED BACK)
+
+**NOTE**: We rolled back this release on January 15, 2021. See [this announcement](https://github.com/forcedotcom/cli/issues/811) for details. The changes in this release will be included in the next release. 
 
 * NEW: Create a static resource in your local project directory with the `force:staticresource:create` command. Examples of static resources include code libraries in a ZIP file, images, JSON files, and style sheets. 
 
@@ -29,7 +41,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 * CHANGE: We [deprecated](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_deprecation.htm) the `force:source:project:upgrade` command. The command upgrades files between old CLI releases and its functionality is no longer needed. 
     
-* FIX: The `force:source:retrieve -n <PackageName>` command retrieves custom object subcomponents, such as custom fields. Previously the command retrieved just the custom object itself. (GitHub issue [#644](https://github.com/forcedotcom/cli/issues/644)).
+* FIX: The `force:source:retrieve -n <PackageName>` command retrieves custom object subcomponents, such as custom fields. Previously the command retrieved just the custom object itself. (GitHub issue [#644](https://github.com/forcedotcom/cli/issues/644))
 
 * FIX: The `force:source:pull` command correctly retrieves static resources after you've updated them in the Salesforce user interface. 
 
