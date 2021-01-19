@@ -16,11 +16,15 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+**NOTE**: This release candidate also includes the changes in the [50.13.3 (January 14, 2021)](./README.md#50133-january-14-2021---cli-7842) release that we rolled back. 
+
 * FIX: We've improved the message returned when you delete a sandbox with `force:org:delete`. The new message clarifies that sandboxes created with `force:org:create|clone` are marked for deletion. (GitHub issue [#769](https://github.com/forcedotcom/cli/issues/769))
 
 
 
-## 50.13.3 (January 14, 2021) - CLI 7.84.2
+## 50.13.3 (January 14, 2021) - CLI 7.84.2 (ROLLED BACK)
+
+**NOTE**: We rolled back this release on January 15, 2021. See [this announcement](https://github.com/forcedotcom/cli/issues/811) for details. The changes in this release will be included in the next release. 
 
 * NEW: Create a static resource in your local project directory with the `force:staticresource:create` command. Examples of static resources include code libraries in a ZIP file, images, JSON files, and style sheets. 
 
