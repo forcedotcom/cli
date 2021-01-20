@@ -12,7 +12,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v49 release notes.](./v49.md)
 
-## January 21, 2021
+## January 28, 2021
 
 These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
@@ -20,7 +20,9 @@ These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). W
 
 * FIX: We've improved the message returned when you delete a sandbox with `force:org:delete`. The new message clarifies that sandboxes created with `force:org:create|clone` are marked for deletion. (GitHub issue [#769](https://github.com/forcedotcom/cli/issues/769))
 
+## January 21, 2021
 
+* We aren't releasing a Salesforce CLI patch this week. 
 
 ## 50.13.3 (January 14, 2021) - CLI 7.84.2 (ROLLED BACK)
 
