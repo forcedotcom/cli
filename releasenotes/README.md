@@ -12,9 +12,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v49 release notes.](./v49.md)
 
-## January 28, 2021
-
-These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+## 50.15.0 (January 28, 2021) - CLI 7.85.1
 
 **NOTE**: This release candidate also includes the changes in the [50.13.3 (January 14, 2021)](./README.md#50133-january-14-2021---cli-7842) release that we rolled back. 
 
