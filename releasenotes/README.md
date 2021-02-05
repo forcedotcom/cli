@@ -18,8 +18,6 @@ These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). W
 
 * NEW: Use the SFDX_DNS_TIMEOUT environment variable to configure how long the `force:org` commands wait for a response when checking if an org is connected. Set the variable to the number of seconds before the commands time out. Default value is 3.
 
-* CHANGE: If you fail to authorize a Salesforce org after running `auth:web:login`, we display an appropriate message in the browser to help you troubleshoot the problem. Previously the message appeared only at the terminal or command prompt, and users often missed it. 
-
 * FIX: We've improved the error message returned when you run `force:user:password:generate` using API version 51.0 and EnableSetPasswordInApi is configured as a security setting in your scratch org definition file. EnableSetPasswordInApi is now a scratch org feature instead of a Metadata API setting. Here's an example of configuring it as a feature in your scratch org definition file:
  
     `"features": ["EnableSetPasswordInApi","MultiCurrency"],`
