@@ -12,9 +12,25 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v49 release notes.](./v49.md)
 
-## February 4, 2021
+## February 11, 2021
 
-**NOTE**: This release candidate also includes the changes in the [50.13.3 (January 14, 2021)](./README.md#50133-january-14-2021---cli-7842) release that we rolled back. 
+These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). We plan to include these changes in the next official release. This list isn't final and is subject to change.
+
+* NEW: Use the SFDX_DNS_TIMEOUT environment variable to configure how long the `force:org` commands wait for a response when checking if an org is connected. Set the variable to the number of seconds before the commands time out. Default value is 3.
+
+* CHANGE: If you fail to authorize a Salesforce org after running `auth:web:login`, we display an appropriate message in the browser to help you troubleshoot the problem. Previously the message appeared only at the terminal or command prompt, and users often missed it. 
+
+* FIX: We've improved the error message returned when you run `force:user:password:generate` using API version 51.0 and EnableSetPasswordInApi is configured as a security setting in your scratch org definition file. EnableSetPasswordInApi is now a scratch org feature instead of a Metadata API setting. Here's an example of configuring it as a feature in your scratch org definition file:
+ 
+    `"features": ["EnableSetPasswordInApi","MultiCurrency"],`
+
+    This change is a result of the field `Settings.securitySettings.passwordPolicies.enableSetPasswordInApi` being [removed in version 51.0 of the Metadata API](https://help.salesforce.com/articleView?id=release-notes.rn_api_meta.htm&type=5&release=230).  (GitHub issue [#798](https://github.com/forcedotcom/cli/issues/798))
+
+
+
+## 50.16.1 (February 5, 2021) - CLI 7.86.3
+
+**NOTE**: This release also includes the changes in the [50.13.3 (January 14, 2021)](./README.md#50133-january-14-2021---cli-7842) release that we rolled back. 
 
 * FIX: We've improved the message returned when you delete a sandbox with `force:org:delete`. The new message clarifies that sandboxes created with `force:org:create|clone` are marked for deletion. (GitHub issue [#769](https://github.com/forcedotcom/cli/issues/769))
 
