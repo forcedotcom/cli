@@ -1,8 +1,8 @@
-# Salesforce CLI v50 Release Notes
+# Salesforce CLI v51 Release Notes
 
-Here are the new and changed features in recent updates of Salesforce CLI and the `salesforcedx` plug-in. 
+Here are the new and changed features in recent updates of Salesforce CLI and the `salesforcedx` plug-in.
 
-We publish the `latest` plug-in and CLI on Thursdays. At the same time we also publish the `latest-rc` release candidate plug-in and CLI. The release candidates contain changes that will likely be in the final official version. 
+We publish the `latest` plug-in and CLI on Thursdays. At the same time we also publish the `latest-rc` release candidate plug-in and CLI. The release candidates contain changes that will likely be in the final official version.
 
 Run `sfdx version` to display the version of Salesforce CLI installed on your computer. Run `sfdx plugins --core` to display the version of the installed `salesforcedx` plug-in.
 
@@ -10,135 +10,11 @@ Run `sfdx update` to update both the CLI and the `salesforcedx` plug-in to the l
 
 If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_autocomplete.htm), run `sfdx autocomplete --refresh-cache` after you update the `salesforcedx` plug-in to ensure that autocomplete works correctly on any new commands.
 
-[Click here for the v49 release notes.](./v49.md)
+[Click here for the v50 release notes.](./v50.md)
 
-## February 11, 2021
+## 51.0.1 (February 18, 2020) - CLI 7.88.0
 
-These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). We plan to include these changes in the next official release. This list isn't final and is subject to change.
-
-* NEW: Use the SFDX_DNS_TIMEOUT environment variable to configure how long the `force:org` commands wait for a response when checking if an org is connected. Set the variable to the number of seconds before the commands time out. Default value is 3.
-
-* FIX: We've improved the error message returned when you run `force:user:password:generate` using API version 51.0 and EnableSetPasswordInApi is configured as a security setting in your scratch org definition file. EnableSetPasswordInApi is now a scratch org feature instead of a Metadata API setting. Here's an example of configuring it as a feature in your scratch org definition file:
- 
-    `"features": ["EnableSetPasswordInApi","MultiCurrency"],`
-
-    This change is a result of the field `Settings.securitySettings.passwordPolicies.enableSetPasswordInApi` being [removed in version 51.0 of the Metadata API](https://help.salesforce.com/articleView?id=release-notes.rn_api_meta.htm&type=5&release=230).  (GitHub issue [#798](https://github.com/forcedotcom/cli/issues/798))
-
-
-
-## 50.16.1 (February 5, 2021) - CLI 7.86.3
-
-**NOTE**: This release also includes the changes in the [50.13.3 (January 14, 2021)](./README.md#50133-january-14-2021---cli-7842) release that we rolled back. 
-
-* FIX: We've improved the message returned when you delete a sandbox with `force:org:delete`. The new message clarifies that sandboxes created with `force:org:create|clone` are marked for deletion. (GitHub issue [#769](https://github.com/forcedotcom/cli/issues/769))
-
-## January 28, 2021
-
-* We aren't releasing a Salesforce CLI patch this week. 
-
-## January 21, 2021
-
-* We aren't releasing a Salesforce CLI patch this week. 
-
-## 50.13.3 (January 14, 2021) - CLI 7.84.2 (ROLLED BACK)
-
-**NOTE**: We rolled back this release on January 15, 2021. See [this announcement](https://github.com/forcedotcom/cli/issues/811) for details. The changes in this release will be included in the next release. 
-
-* NEW: Create a static resource in your local project directory with the `force:staticresource:create` command. Examples of static resources include code libraries in a ZIP file, images, JSON files, and style sheets. 
-
-    The default content type (mime type) is `application/zip`; use the `--contenttype` parameter to specify a different content type, such as `application/json`. The command generates the `MyResource.resource-meta.xml` file in the current directory; use `-d | --outputdir` to generate it in a different directory. Static resources must reside in the `main/default/staticresources` directory under your package directory. For example:
-
-     ```bash
-     $ cd myprojectdir/force-app
-     $ sfdx force:staticresource:create -n MyResource --contenttype application/json -d main/default/staticresources
-    ```
-    
-* CHANGE: Now that the `auth` commands (such as `force:auth:jwt:grant` and `force:auth:web:login`) are in their own [GitHub repo](https://github.com/salesforcecli/plugin-auth), they no longer show up in the `sfdx help force` output. Run `sfdx help auth` instead. The [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm) will soon list these commands in only the `auth` namespace.
-
-    We continue to alias the `auth` commands to their `force:auth` equivalents. So, for example, `force:auth:jwt:grant` continues to work. We'll announce when we plan to deprecate the `force` versions of these commands. We’ll then follow our standard deprecation policy, which gives you ample time to update your scripts. 
-
-* CHANGE: We [deprecated](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_deprecation.htm) the `force:source:project:upgrade` command. The command upgrades files between old CLI releases and its functionality is no longer needed. 
-    
-* FIX: The `force:source:retrieve -n <PackageName>` command retrieves custom object subcomponents, such as custom fields. Previously the command retrieved just the custom object itself. (GitHub issue [#644](https://github.com/forcedotcom/cli/issues/644))
-
-* FIX: The `force:source:pull` command correctly retrieves static resources after you've updated them in the Salesforce user interface. 
-
-* FIX: Commands whose `-u` parameter accepts an access token as a value, in addition to a username, are working correctly. An example is `force:user:password:generate`. Previously you'd get an error such as `The username <string> was not found for scratch org 00D…` (GitHub issue [#290](https://github.com/forcedotcom/cli/issues/290))
-
-* FIX: The `force:source:retrieve|pull -m "CustomObject:MyCustomObject__c"` commands correctly retrieve a field whose name is the same as the custom object itself.  (GitHub issue [#579](https://github.com/forcedotcom/cli/issues/579))
-
-* FIX: We've updated the CLI to use the [graceful-fs npm package](https://www.npmjs.com/package/graceful-fs). As a result, the CLI can process a lot more files, and some errors no longer occur. Previously, for example, you sometimes got the error `EMFILE: too many open files` when running `force:source:convert` on Windows.
-
-* FIX: The `auth:jwt:grant` command correctly authenticates on Windows. Previously, if you installed or upgraded the CLI on Windows using npm, you’d get the error message `ERROR running auth:jwt:grant: We encountered a JSON web token error, which is likely not an issue with Salesforce CLI.`  (GitHub issue [#757](https://github.com/forcedotcom/cli/issues/757))
-
-* FIX: The `force:source:retrieve|pull -m "MutingPermissionSet:Name"` commands correctly retrieve muting permission sets. Previously you'd get the error message `ERROR running force:source:retrieve:  "cannot read property 'metadataName' of undefined"`. (GitHub issue [#339](https://github.com/forcedotcom/cli/issues/339))
-
-
-## January 7, 2021
-
-* We aren't releasing a Salesforce CLI patch this week. 
-
-## December 10, 17, 24, and 31, 2020
-
-* We aren't releasing a Salesforce CLI patch on any of these weeks. Have a happy and safe holiday season. 
-
-## 50.7.1 (December 3, 2020) - CLI 7.82.1-0
-
-* FIX: We’ve removed the CLI’s dependency on [ANTLR](https://www.antlr.org/).  (GitHub issues [#746](https://github.com/forcedotcom/cli/issues/746) and [#754](https://github.com/forcedotcom/cli/issues/754))
-
-## November 26, 2020
-
-* We aren't releasing a Salesforce CLI patch this week. Have a happy and safe Thanksgiving!
-
-## 50.6.0 (November 19, 2020) - CLI 7.81.0
-
-* FIX: The `force:source:push|pull|status|deploy|retrieve` commands work with duplicate rules. Previously you'd get the message `No results found` and the rule wouldn't be recognized by the `source` commands. (GitHub issue [#685](https://github.com/forcedotcom/cli/issues/685))
-
-* FIX: The `force:source:retrieve` and `force:mdapi:convert -m <LightningComponentBundle>` commands work with [Lightning Web Component CSS style components](https://lwc.dev/guide/css). Previously you’d get the error `ERROR running force:mdapi:convert: Cannot read property 'fileName' of undefined`. Also, for `force:source:retrieve`, the metadata files weren't being copied to their proper location in the project. (GitHub issues [#496](https://github.com/forcedotcom/cli/issues/496), [#563](https://github.com/forcedotcom/cli/issues/563), and [#655](https://github.com/forcedotcom/cli/issues/655))
-
-
-## 50.5.0 (November 12, 2020) - CLI 7.80.0
-
-* CHANGE: The `force:apex:log:list` command displays results in descending order. Previously it displayed results in ascending order. (Salesforce Extensions for VS Code GitHub issue [#2698](https://github.com/forcedotcom/salesforcedx-vscode/issues/2698)) 
-
-* FIX: The `force:source:convert` command works on custom labels. Previously you'd get the error `ERROR running force:source:convert: The package root directory is empty`. (GitHub issue [#684](https://github.com/forcedotcom/cli/issues/684))
-
-* FIX: The `force:source:convert` and `force:source:deploy` commands work with the EmailTemplate and EmailFolder metadata types. Previously you’d get an error such as `Cannot find folder: ExampleFolder`. (GitHub issue [#609](https://github.com/forcedotcom/cli/issues/609) and [#612](https://github.com/forcedotcom/cli/issues/612))
-
-
-## November 5, 2020
-
-* We aren't releasing a Salesforce CLI patch this week.
-
-## 50.3.1 (October 29, 2020) - CLI 7.78.1
-
-* FIX: We fixed various issues with the `.forceignore` file and it works as expected. In particular, we updated the version dependencies of the core plug-in libraries and improved how the CLI handles trailing slashes in file entries. ([GitHub issue #690](../../../issues/690))
-
-## 50.2.0 (October 22, 2020) - CLI 7.77.1
-
-* NEW: As part of [open-sourcing Salesforce CLI](https://developer.salesforce.com/blogs/2020/05/open-sourcing-salesforce-cli.html), we've broken out the source for the authorization commands, such as `force:auth:jwt:grant`, into their own [GitHub repo](https://github.com/salesforcecli/plugin-auth). These commands are now in the `auth` namespace. For example: 
-
-    `$ sfdx auth:jwt:grant -u me@my.org -f ./server.key -i 345234`
-    
-     As we broke out the commands, we took the opportunity to also refactor the code. We’re keeping the current `force:auth:*` commands based on the original code. Test out the new commands and let us know if they behave differently or unexpectedly. We plan to alias the `force:auth:*` commands to the new `auth:*` commands in the future. Update your CI/CD scripts and let us know if you run into any issues with the new commands.
-
-* CHANGE: The following org shape commands are now beta; they were pilot in v49.
-
-  * `force:org:shape:create`
-  * `force:org:shape:delete`
-  * `force:org:shape:list`
-
-* CHANGE:  A clarification to last week’s [`.forceignore` release note](#other-changes): To start using the new internal parser that follows the `.gitignore` patterns and rules, add this line to the top of your `.forceignore` file:
-
-    `# .forceignore v2`
-
-    If you don't add this line to your `.forceignore` file, the `force:source:*` commands continue to use the old parser.  The commands warn you about invalid entries so you can start updating them at your convenience. 
-
-* FIX: These release notes now include the version of the CLI npm package (`sfdx-cli`) released each week, such as 7.77.1. ([GitHub issue #683](../../../issues/683))
-
-## 50.1.1 (October 17, 2020) - CLI 7.76.1
-
-Welcome to the first release of version 50 of the `salesforcedx` CLI plug-in in Winter '21. 
+Welcome to the first release of version 50 of the `salesforcedx` CLI plug-in in Spring '21.
 
 ### Installation Notes
 
@@ -185,53 +61,63 @@ $ sfdx plugins:uninstall salesforcedx
 $ sfdx update
 ```
 
+### The sfdx CLI platform installers now install nodejs v14 LTS
+The platform installers for sfdx CLI (Windows, Linux and Mac OS X) now install nodejs v14 LTS.
+
+### Salesforce DX NPM modules for CLI plugins and libraries have dropped support for nodejs v8
+Nodejs v8 has reached end-of-life and is no longer maintained. Salesforce DX NPM modules support nodejs engine v10 or greater
+
 ### New Commands
 
-* `force:package:version:displayancestry`
-
-    Create visualizations of your package or package version's ancestry tree. View the visualization in Salesforce CLI or use the `--dotcode` parameter to generate output that you can use in graph visualization software.
-
-* `force:package:version:delete`
-* `force:package:delete`
-
-    Deletes the package or package version.
-
-    You can't recover deleted packages or package versions, or specify them as dependencies. New installations of the package will fail. You can’t delete released versions of second-generation managed packages.
+No new commands have been added in release v51.
 
 ### Removed Commands
 
-These commands were deprecated in v49 and removed in v50.  You can continue using them by installing the [Lightning Testing Service CLI Plug-in](https://github.com/forcedotcom/plugin-lightning-test-service). Salesforce doesn't support or update this plug-in.
+These commands were removed in v51. The Hammer Test closed pilot program has been terminated.
 
-* `force:lightning:test:install`
-* `force:lightning:test:run`
+* `force:package:hammertest:list`
+* `force:package:hammertest:report`
+* `force:package:hammertest:run`
 
 ### New Parameters
 
-* `force:package:create --errornotificationusername (-o)`
-* `force:package:update --errornotificationusername (-o)`
+* `force:mdapi:deploy --soapdeploy`
 
-    Designate an active Dev Hub org user to receive email notifications for unhandled Apex exceptions, as well as install, upgrade, or uninstall failures associated with your packages. Specify the username during package creation, or when you update the package with the `force:package:update` command.
+  The `soapdeploy` parameter will cause the metadata deploy to use the SOAP API, instead of the REST API.
+
+### Deprecated Parameters
+
+* `force:org:shape:create`
+
+  The `definitionfile` parameter has been removed from this command.
+
+### Second Generation Packaging
+
+* The release version stamped on a package version is now available in the response of command `force:package:version:report` when the user specifies the `--verbose` parameter.
+
+* Package version CLI commands are enhanced to support component deletion
+  * If force:package:version:create completes successfully and if any metadata has been removed from the package version in comparison to its ancestor, a generic warning message is shown in the `force:package:version:create` output highlighting that some metadata was removed.
+  * Command `force:package:version:list` displays this info (boolean, whether or not metadata was removed) when used with --verbose param
+  * Command `force:package:version:report` displays this info (boolean, whether or not metadata was removed).
+  * Command `force:package:version:promote` displays a warning if the version being promoted contains removed components and if --noprompt is not specified.
 
 ### Other Changes
 
-* When parsing the `.forceignore` file, Salesforce CLI uses the same rules and patterns as [git uses with the `.gitignore` file](https://git-scm.com/docs/gitignore). As a result, some entries in your existing `.forceignore` files might be invalid. The `force:source:*` commands warn you about any invalid entries.  
+* FIX: The `force:user:password:generate` no longer fails whe run against Spring '21 release of Salesforce.
 
-* FIX: The `force:source:convert` command works correctly when you individually convert two or more custom fields of the same custom object.  
+  The cause of the error, "The requested Resource does not exist API 51.0", is due the deprecation of a security setting, "enableSetPasswordInApi", a scratch org required in order to generate a password.
 
-    For example, let’s say your custom object Flower__c has two custom fields: Color__c and Size__c. Previously, this command would convert only one custom field, now it correctly converts all specified fields:
+  Starting in Spring '21, EnableSetPasswordInApi is a feature in your scratch org definition file and not a setting.
 
-    ```bash
-    $ sfdx force:source:convert -m CustomField:Flower__c.Color__c,CustomField:Flower__c.Size__c
-    ```
+* FIX: The `force:user:password:generate` no longer fails when generating a password for a user that does not have access to Profile Standard Object.
 
-    This fix also applies when using the `-x` parameter to specify a manifest file that lists these fields individually. The fix also applies to `force:source:deploy`, which executes a convert before it deploys.  ([GitHub issue #628](../../../issues/628))
-    
-* As [previously announced](./v49.md#49140-october-8-2020), we've reorganized the Salesforce DX Developer and Setup Guides to improve their usability and better align with how the Salesforce developer tools have evolved over time. In particular, we've moved most of the CLI Configuration and Tips topics to the [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm) and the Dev Hub topics to the [Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm). You might need to refresh your bookmarks.  
 
-    **TIP**: If a bookmark to one of these guides no longer works, try changing the first two `setup` parts of the URL to `dev`, or vice versa. For example, the old URL to the CLI Runtime Configuration Values topic was:
- 
-    `https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_cli_config_values.htm`
- 
-    Now it's:
- 
-    `https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_config_values.htm`
+* As [previously announced](./v49.md#49140-october-8-2020), we've reorganized the Salesforce DX Developer and Setup Guides to improve their usability and better align with how the Salesforce developer tools have evolved over time. In particular, we've moved most of the CLI Configuration and Tips topics to the [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm) and the Dev Hub topics to the [Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm). You might need to refresh your bookmarks.
+
+  **TIP**: If a bookmark to one of these guides no longer works, try changing the first two `setup` parts of the URL to `dev`, or vice versa. For example, the old URL to the CLI Runtime Configuration Values topic was:
+
+  `https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_cli_config_values.htm`
+
+  Now it's:
+
+  `https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_config_values.htm`
