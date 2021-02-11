@@ -89,7 +89,7 @@ These commands were removed in v51. The Hammer Test closed pilot program has bee
 
 * `force:org:shape:create`
 
-  The `definitionfile` parameter has been removed from this command.
+  The `definitionfile` parameter has been removed from this command. This parameter is part of the Org Shape feature which is currently in beta and has been removed based on feedback that users prefer storing Org Shape in the shape source org instead of a scratch definition file.
 
 ### Second Generation Packaging
 
