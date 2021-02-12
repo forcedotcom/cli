@@ -12,7 +12,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v49 release notes.](./v49.md)
 
-## February 11, 2021
+## February 18, 2021
 
 These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). We plan to include these changes in the next official release. This list isn't final and is subject to change.
 
@@ -24,7 +24,9 @@ These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). W
 
     This change is a result of the field `Settings.securitySettings.passwordPolicies.enableSetPasswordInApi` being [removed in version 51.0 of the Metadata API](https://help.salesforce.com/articleView?id=release-notes.rn_api_meta.htm&type=5&release=230).  (GitHub issue [#798](https://github.com/forcedotcom/cli/issues/798))
 
+## February 11, 2021
 
+* We aren't releasing a Salesforce CLI patch this week. 
 
 ## 50.16.1 (February 5, 2021) - CLI 7.86.3
 
