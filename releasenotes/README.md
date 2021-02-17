@@ -12,13 +12,13 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v50 release notes.](./v50.md)
 
-## 51.0.1 (February 18, 2020) - CLI 7.88.0
+## 51.0.2 (February 18, 2020) - CLI 7.88.3
 
-Welcome to the first release of version 50 of the `salesforcedx` CLI plug-in in Spring '21.
+Welcome to the first release of version 51 of the `salesforcedx` CLI plug-in in Spring '21.
 
 ### Installation Notes
 
-Update Salesforce CLI to v50 by running `sfdx update`.
+Update Salesforce CLI to v51 by running `sfdx update`.
 
 ```bash
 $ sfdx update
@@ -31,41 +31,46 @@ Run `sfdx plugins --core` to display the version of Salesforce CLI and the insta
 ```bash
 $ sfdx plugins --core
 
-@oclif/plugin-autocomplete 0.1.5 (core)
+@oclif/plugin-autocomplete 0.3.0 (core)
 @oclif/plugin-commands 1.3.0 (core)
-@oclif/plugin-help 3.2.0 (core)
+@oclif/plugin-help 3.2.2 (core)
 @oclif/plugin-not-found 1.2.4 (core)
-@oclif/plugin-plugins 1.9.0 (core)
-@oclif/plugin-update 1.3.10 (core)
+@oclif/plugin-plugins 1.9.5 (core)
+@oclif/plugin-update 1.4.0-2 (core)
 @oclif/plugin-warn-if-update-available 1.7.0 (core)
 @oclif/plugin-which 1.0.3 (core)
-@salesforce/sfdx-trust 3.4.3 (core)
-alias 1.1.2 (core)
-config 1.1.8 (core)
-generator 1.1.3 (core)
-salesforcedx 50.1.1 (core)                    // salesforcedx plug-in version
-├─ templates 50.1.0 (core)
-├─ custom-metadata 1.0.10 (core)
+@salesforce/sfdx-trust 3.6.0 (core)
+alias 1.1.5 (core)
+auth 1.4.8 (core)
+config 1.2.4 (core)
+generator 1.1.5 (core)
+salesforcedx 51.0.2 (core)                    // salesforcedx plug-in version
+├─ limits 1.0.3 (core)
+├─ user 1.1.0 (core)
+├─ schema 1.0.3 (core)
+├─ apex 0.1.4 (core)
+├─ templates 51.1.0 (core)
+├─ custom-metadata 1.0.11 (core)
 ├─ @salesforce/sfdx-plugin-lwc-test 0.1.7 (core)
-├─ apex 0.1.0 (core)
-└─ salesforce-alm 50.1.1 (core)
-sfdx-cli 7.76.1 (core)                        // Salesforce CLI version
+└─ salesforce-alm 51.0.1 (core)
+sfdx-cli 7.88.3 (core)                        // Salesforce CLI version
+telemetry 1.1.1 (core)
 ```
 
 ### Uninstall the Pre-Release Version of the salesforcedx CLI Plug-In
 
-If you installed the pre-release version of the `salesforcedx` v50 plug-in, uninstall it and update the CLI. We’re no longer updating the pre-release v50 plug-in.
+If you installed the pre-release version of the `salesforcedx` plug-in, uninstall it and update the CLI. We’re no longer updating the pre-release and will be removing the tag.
 
 ```bash
 $ sfdx plugins:uninstall salesforcedx
 $ sfdx update
 ```
 
-### The sfdx CLI platform installers now install nodejs v14 LTS
-The platform installers for sfdx CLI (Windows, Linux and Mac OS X) now install nodejs v14 LTS.
+### The Salesforce CLI platform installers now install nodejs v14 LTS
+The platform installers for Salesforce CLI (Windows, Linux and Mac OS X) now install nodejs v14 LTS.
 
-### Salesforce DX NPM modules for CLI plugins and libraries have dropped support for nodejs v8
-Nodejs v8 has reached end-of-life and is no longer maintained. Salesforce DX NPM modules support nodejs engine v10 or greater
+### Salesforce CLI has dropped support for nodejs v8
+Nodejs v8 has reached end-of-life and is no longer maintained. Salesforce CLI supports nodejs engine v10 or greater
 
 ### New Commands
 
@@ -110,14 +115,3 @@ These commands were removed in v51. The Hammer Test closed pilot program has bee
   Starting in Spring '21, EnableSetPasswordInApi is a feature in your scratch org definition file and not a setting.
 
 * FIX: The `force:user:password:generate` no longer fails when generating a password for a user that does not have access to Profile Standard Object.
-
-
-* As [previously announced](./v49.md#49140-october-8-2020), we've reorganized the Salesforce DX Developer and Setup Guides to improve their usability and better align with how the Salesforce developer tools have evolved over time. In particular, we've moved most of the CLI Configuration and Tips topics to the [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm) and the Dev Hub topics to the [Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm). You might need to refresh your bookmarks.
-
-  **TIP**: If a bookmark to one of these guides no longer works, try changing the first two `setup` parts of the URL to `dev`, or vice versa. For example, the old URL to the CLI Runtime Configuration Values topic was:
-
-  `https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_cli_config_values.htm`
-
-  Now it's:
-
-  `https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_config_values.htm`
