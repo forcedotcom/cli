@@ -74,7 +74,7 @@ $ sfdx update
 The platform installers for Salesforce CLI (Windows, Linux and Mac OS X) now install nodejs v14 LTS.
 
 ### Salesforce CLI has dropped support for nodejs v8
-Nodejs v8 has reached end-of-life and is no longer maintained. Salesforce CLI supports nodejs engine v10 or greater
+Nodejs v8 has reached end-of-life and is no longer maintained. Salesforce CLI supports nodejs engine v10 or greater.
 
 ### New Commands
 
@@ -98,29 +98,29 @@ These commands were removed in v51. The ISV Hammer test closed pilot program has
 
   For unlocked packages only, allows the package to depend on unpackaged metadata in the installation org.
 
-### Deprecated Parameters
+### Removed Parameters
 
 * `force:org:shape:create`
 
-  The `definitionfile` parameter has been removed from this command. This parameter is part of the Org Shape feature which is currently in beta and has been removed based on feedback that users prefer storing Org Shape in the shape source org instead of a scratch definition file.
+  The `definitionfile` parameter has been removed from this command. This parameter is part of the org shape feature which is currently in beta. We removed the parameter based on feedback from users that they preferred storing the org shape in the shape source org rather than in a scratch definition file.
 
 ### Second Generation Packaging
 
-* The release version stamped on a package version is now available in the response of command `force:package:version:report` when the user specifies the `--verbose` parameter.
+* The `force:pacakge:version:report --verbose` command displays the release version stamped on a package version.
 
-* Package version CLI commands are enhanced to support component deletion
-  * If force:package:version:create completes successfully and if any metadata has been removed from the package version in comparison to its ancestor, a generic warning message is shown in the `force:package:version:create` output highlighting that some metadata was removed.
-  * Command `force:package:version:list` displays this info (boolean, whether or not metadata was removed) when used with --verbose param
-  * Command `force:package:version:report` displays this info (boolean, whether or not metadata was removed).
-  * Command `force:package:version:promote` displays a warning if the version being promoted contains removed components and if --noprompt is not specified.
+* We've enhanced the package version CLI commands to support component deletion.
+  * If `force:package:version:create` completes successfully, and metadata has been removed from the package version as compared to its ancestor, the command displays a generic warning message about the removed metadata.
+  * The command `force:package:version:list --verbose` displays whether metadata was removed.
+  * The command `force:package:version:report` displays whether metadata was removed.
+  * The command `force:package:version:promote` displays a warning if components have been removed from the version being promoted and --noprompt isn't specified.
 
 ### Other Changes
 
-* FIX: The `force:user:password:generate` no longer fails whe run against Spring '21 release of Salesforce.
+* FIX: We've improved the error message returned when you run `force:user:password:generate` using API version 51.0 and EnableSetPasswordInApi is configured as a security setting in your scratch org definition file. EnableSetPasswordInApi is now a scratch org feature instead of a Metadata API setting. Here's an example of configuring it as a feature in your scratch org definition file:
 
-  The cause of the error, "The requested Resource does not exist API 51.0", is due the deprecation of a security setting, "enableSetPasswordInApi", a scratch org required in order to generate a password.
+  `"features": ["EnableSetPasswordInApi","MultiCurrency"],`
 
-  Starting in Spring '21, EnableSetPasswordInApi is a feature in your scratch org definition file and not a setting.
+  This change is a result of the field `Settings.securitySettings.passwordPolicies.enableSetPasswordInApi` being [removed in version 51.0 of the Metadata API](https://help.salesforce.com/articleView?id=release-notes.rn_api_meta.htm&type=5&release=230).  (GitHub issue [#798](https://github.com/forcedotcom/cli/issues/798))
 
 * FIX: The `force:user:password:generate` no longer fails when generating a password for a user that does not have access to Profile Standard Object.
 
