@@ -12,6 +12,10 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v50 release notes.](./v50.md)
 
+## 51.1.0 (February 18, 2020) - CLI 7.88.3
+
+* FIX: The command `force:user:create` properly authenticates to a connected app authenticated with Web Flow login
+
 ## 51.0.2 (February 18, 2020) - CLI 7.88.3
 
 Welcome to the first release of version 51 of the `salesforcedx` CLI plug-in in Spring '21.
@@ -119,3 +123,6 @@ These commands were removed in v51. The ISV Hammer test closed pilot program has
   Starting in Spring '21, EnableSetPasswordInApi is a feature in your scratch org definition file and not a setting.
 
 * FIX: The `force:user:password:generate` no longer fails when generating a password for a user that does not have access to Profile Standard Object.
+
+* FIX: The output of `force:user:create` with `--json` now matches previous version.
+
