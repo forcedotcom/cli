@@ -73,7 +73,7 @@ No new commands have been added in release v51.
 
 ### Removed Commands
 
-These commands were removed in v51. The Hammer Test closed pilot program has been terminated.
+These commands were removed in v51. The ISV Hammer test closed pilot program has been terminated.
 
 * `force:package:hammertest:list`
 * `force:package:hammertest:report`
@@ -84,6 +84,10 @@ These commands were removed in v51. The Hammer Test closed pilot program has bee
 * `force:mdapi:deploy --soapdeploy`
 
   The `soapdeploy` parameter will cause the metadata deploy to use the SOAP API, instead of the REST API.
+
+* `force:package:create --orgdependent`
+
+  For unlocked packages only, allows the package to depend on unpackaged metadata in the installation org.
 
 ### Deprecated Parameters
 
