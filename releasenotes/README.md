@@ -126,3 +126,7 @@ These commands were removed in v51. The ISV Hammer test closed pilot program has
 
 * FIX: The output of `force:user:create` with `--json` now matches previous version.
 
+* FIX: Command `force:source:deploy` no longer fails with "The org cannot be found" after a successful login.
+
+* FIX: The password generator in @salesforce/core now reliably produces passwords that meet Salesforce password policies.
+
