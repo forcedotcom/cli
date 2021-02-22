@@ -12,11 +12,11 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v50 release notes.](./v50.md)
 
-## 51.1.0 (February 18, 2020) - CLI 7.88.3
+## 51.1.0 (February 25, 2020) - CLI 7.89.0
 
 * FIX: The command `force:user:create` properly authenticates to a connected app authenticated with Web Flow login
 
-## 51.0.2 (February 18, 2020) - CLI 7.88.3
+## 51.0.4 (February 22, 2020) - CLI 7.88.4
 
 Welcome to the first release of version 51 of the `salesforcedx` CLI plug-in in Spring '21.
 
