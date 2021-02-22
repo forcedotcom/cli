@@ -92,19 +92,19 @@ These commands were removed in v51. The ISV Hammer test closed pilot program has
 
 * `force:mdapi:deploy --soapdeploy`
 
-  The `soapdeploy` parameter will cause the metadata deploy to use the SOAP API, instead of the REST API.
+  The --soapdeploy parameter causes the metadata deploy to use the SOAP API. Starting in v51, the force:mdapi:deploy command uses REST by default; previously it used SOAP. All other commands continue to use SOAP by default.
 
 * `force:package:create --orgdependent`
 
-  For unlocked packages only, allows the package to depend on unpackaged metadata in the installation org.
+  For unlocked packages only, allows the package to depend on unpackaged metadata in the installation org. This parameter is now GA; it was Beta in v50.
 
 ### Removed Parameters
 
-* `force:org:shape:create`
+* `force:org:shape:create --definitionfile`
 
   The `definitionfile` parameter has been removed from this command. This parameter is part of the org shape feature which is currently in beta. We removed the parameter based on feedback from users that they preferred storing the org shape in the shape source org rather than in a scratch definition file.
 
-### Second Generation Packaging
+### Second-Generation Managed Packaging
 
 * The `force:pacakge:version:report --verbose` command displays the release version stamped on a package version.
 
@@ -113,6 +113,7 @@ These commands were removed in v51. The ISV Hammer test closed pilot program has
   * The command `force:package:version:list --verbose` displays whether metadata was removed.
   * The command `force:package:version:report` displays whether metadata was removed.
   * The command `force:package:version:promote` displays a warning if components have been removed from the version being promoted and --noprompt isn't specified.
+  * The --orgdependent parameter of force:package:create is GA. The parameter was beta in v50."
 
 ### Other Changes
 
@@ -124,9 +125,9 @@ These commands were removed in v51. The ISV Hammer test closed pilot program has
 
 * FIX: The `force:user:password:generate` no longer fails when generating a password for a user that does not have access to Profile Standard Object.
 
-* FIX: The output of `force:user:create` with `--json` now matches previous version.
+* FIX: The output of `force:user:create --json` now matches the output from previous versions.
 
 * FIX: Command `force:source:deploy` no longer fails with "The org cannot be found" after a successful login.
 
-* FIX: The password generator in @salesforce/core now reliably produces passwords that meet Salesforce password policies.
+* FIX: The force:user:password:generate command no longer fails when generating a password for a user that doesn't have access to the Profile standard object.
 
