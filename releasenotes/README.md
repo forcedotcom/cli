@@ -12,9 +12,11 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v50 release notes.](./v50.md)
 
-## 51.1.0 (February 25, 2020) - CLI 7.89.0
+## February 25, 2020
 
-* FIX: The command `force:user:create` properly authenticates to a connected app authenticated with Web Flow login
+These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). We plan to include these changes in the next official release. This list isn't final and is subject to change.
+
+* FIX: The command `force:user:create` properly authenticates to a connected app authenticated with Web Flow login.
 
 ## 51.0.4 (February 22, 2020) - CLI 7.88.4
 
@@ -92,7 +94,7 @@ These commands were removed in v51. The ISV Hammer test closed pilot program has
 
 * `force:mdapi:deploy --soapdeploy`
 
-  The --soapdeploy parameter causes the metadata deploy to use the SOAP API. Starting in v51, the force:mdapi:deploy command uses REST by default; previously it used SOAP. All other commands continue to use SOAP by default.
+  The `--soapdeploy` parameter causes the metadata deploy to use the SOAP API. Starting in v51, the `force:mdapi:deploy` command uses REST by default; previously it used SOAP. All other commands continue to use SOAP by default.
 
 * `force:package:create --orgdependent`
 
@@ -112,8 +114,8 @@ These commands were removed in v51. The ISV Hammer test closed pilot program has
   * If `force:package:version:create` completes successfully, and metadata has been removed from the package version as compared to its ancestor, the command displays a generic warning message about the removed metadata.
   * The command `force:package:version:list --verbose` displays whether metadata was removed.
   * The command `force:package:version:report` displays whether metadata was removed.
-  * The command `force:package:version:promote` displays a warning if components have been removed from the version being promoted and --noprompt isn't specified.
-  * The --orgdependent parameter of force:package:create is GA. The parameter was beta in v50."
+  * The command `force:package:version:promote` displays a warning if components have been removed from the version being promoted and `--noprompt` isn't specified.
+  * The `--orgdependent` parameter of `force:package:create` is GA. The parameter was beta in v50."
 
 ### Other Changes
 
@@ -123,11 +125,11 @@ These commands were removed in v51. The ISV Hammer test closed pilot program has
 
   This change is a result of the field `Settings.securitySettings.passwordPolicies.enableSetPasswordInApi` being [removed in version 51.0 of the Metadata API](https://help.salesforce.com/articleView?id=release-notes.rn_api_meta.htm&type=5&release=230).  (GitHub issue [#798](https://github.com/forcedotcom/cli/issues/798))
 
-* FIX: The `force:user:password:generate` no longer fails when generating a password for a user that does not have access to Profile Standard Object.
+* FIX: The command `force:user:password:generate` no longer fails when generating a password for a user that doesn't have access to the Profile standard object.
 
 * FIX: The output of `force:user:create --json` now matches the output from previous versions.
 
-* FIX: Command `force:source:deploy` no longer fails with "The org cannot be found" after a successful login.
+* FIX: The command `force:source:deploy` no longer fails with "The org cannot be found" after a successful login.
 
-* FIX: The force:user:password:generate command no longer fails when generating a password for a user that doesn't have access to the Profile standard object.
+* FIX: The command `force:user:password:generate` no longer fails when generating a password for a user that doesn't have access to the Profile standard object.
 
