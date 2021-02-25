@@ -24,8 +24,6 @@ These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). W
 
 ## 51.1.1 (February 25, 2020) - CLI 7.89.2
 
-These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). We plan to include these changes in the next official release. This list isn't final and is subject to change.
-
 * FIX: The command `force:user:create` properly authenticates to a connected app authenticated with Web Flow login.
 
 ## 51.0.4 (February 22, 2020) - CLI 7.88.4
