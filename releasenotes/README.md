@@ -18,11 +18,11 @@ These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). W
 
 
 * FIX: You no longer get the error FILE HAS NO CONTENT when you run any command after authenticating to an org with the `auth:jwt:grant` command. (GitHub Issue [#867](https://github.com/forcedotcom/cli/issues/867))
-* FIX: When generating a password for a user via `sfdx force:user:password:generate` or `force:user:create`, it was possibe to generate an invalid password. We now ensure passwords will be valid (GitHub Issue [#858](https://github.com/forcedotcom/cli/issues/858))
-* FIX: "EnableSetPasswordInApi" has been migrated to Org features instead of `securitySettings` new projects will be generated correctly
+* FIX: The force:user:password:generate and force:user:create commands generate valid passwords. (GitHub Issue [#858](https://github.com/forcedotcom/cli/issues/858))
+* FIX: The force:project:create command now generates a scratch org definition file with EnableSetPasswordInApi as a scratch org feature rather than a security setting. This change is a result of the field Settings.securitySettings.passwordPolicies.enableSetPasswordInApi being removed in version 51.0 of the Metadata API.
 
 
-## February 25, 2020
+## 51.1.1 (February 25, 2020) - CLI 7.89.2
 
 These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). We plan to include these changes in the next official release. This list isn't final and is subject to change.
 
