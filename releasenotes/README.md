@@ -17,7 +17,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). We plan to include these changes in the next official release. This list isn't final and is subject to change.
 
 
-* FIX: "FILE HAS NO CONTENT" error after authenticating via `auth:jwt:grant` has been fixed (GitHub Issue [#867](https://github.com/forcedotcom/cli/issues/867))
+* FIX: You no longer get the error FILE HAS NO CONTENT when you run any command after authenticating to an org with the `auth:jwt:grant` command. (GitHub Issue [#867](https://github.com/forcedotcom/cli/issues/867))
 * FIX: When generating a password for a user via `sfdx force:user:password:generate` or `force:user:create`, it was possibe to generate an invalid password. We now ensure passwords will be valid (GitHub Issue [#858](https://github.com/forcedotcom/cli/issues/858))
 * FIX: "EnableSetPasswordInApi" has been migrated to Org features instead of `securitySettings` new projects will be generated correctly
 
