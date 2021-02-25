@@ -12,6 +12,16 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v50 release notes.](./v50.md)
 
+## March 4, 2021
+
+These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). We plan to include these changes in the next official release. This list isn't final and is subject to change.
+
+
+* FIX: "FILE HAS NO CONTENT" error after authenticating via `auth:jwt:grant` has been fixed (GitHub Issue [#867](https://github.com/forcedotcom/cli/issues/867))
+* FIX: When generating a password for a user via `sfdx force:user:password:generate` or `force:user:create`, it was possibe to generate an invalid password. We now ensure passwords will be valid (GitHub Issue [#858](https://github.com/forcedotcom/cli/issues/858))
+* FIX: "EnableSetPasswordInApi" has been migrated to Org features instead of `securitySettings` new projects will be generated correctly
+
+
 ## February 25, 2020
 
 These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). We plan to include these changes in the next official release. This list isn't final and is subject to change.
