@@ -15,11 +15,4 @@ NOTICE: GitHub is not a mechanism for receiving support under any agreement or S
 * [Get Started with Salesforce DX](https://trailhead.salesforce.com/en/content/learn/trails/sfdx_get_started) - Step-by-step Trailhead trail of tutorials for the Salesforce DX tools
 * [Salesforce Developers Blog](https://developer.salesforce.com/blogs/) 
 
-# CLI Repositories 
-
-* [@forcedotcom/cli-packages](https://github.com/forcedotcom/cli-packages) - Lerna repository containing the Salesforce CLI command API
-* [@forcedotcom/sfdx-core](https://github.com/forcedotcom/sfdx-core) - API for working with a Salesforce DX project and managing Salesforce orgs
-* [@salesforce/plugin-generator](https://github.com/forcedotcom/sfdx-plugin-generate) - The generator plug-in for building plug-ins for Salesforce CLI
-* [@salesforce/salesforce-alm](https://github.com/forcedotcom/salesforce-alm) - The toolbelt is the largest plug-in for the CLI and it contains most of the force commands including the source format and conversion for commands.
-
-
+# The up-to-date list of CLI [Repositories](https://github.com/salesforcecli/status) 
