@@ -28,11 +28,11 @@ These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). W
 * FIX: The force:project:create command now generates a scratch org definition file with EnableSetPasswordInApi as a scratch org feature rather than a security setting. This change is a result of the field [Settings.securitySettings.passwordPolicies.enableSetPasswordInApi](https://help.salesforce.com/articleView?id=release-notes.rn_api_meta.htm&type=5&release=230) being removed in version 51.0 of the Metadata API.
 * FIX: When authorizing an org with `auth:web:login`, the browser no longer hangs after allowing access. (GitHub Issue [#890](https://github.com/forcedotcom/cli/issues/890))
 
-## 51.1.1 (February 25, 2020) - CLI 7.89.2
+## 51.1.1 (February 25, 2021) - CLI 7.89.2
 
 * FIX: The command `force:user:create` properly authenticates to a connected app authenticated with Web Flow login.
 
-## 51.0.4 (February 22, 2020) - CLI 7.88.4
+## 51.0.4 (February 22, 2021) - CLI 7.88.4
 
 Welcome to the first release of version 51 of the `salesforcedx` CLI plug-in in Spring '21.
 
