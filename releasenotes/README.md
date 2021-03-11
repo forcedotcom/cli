@@ -12,9 +12,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v50 release notes.](./v50.md)
 
-## March 11, 2021
-
-These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). We plan to include these changes in the next official release. This list isn't final and is subject to change.
+## 51.3.0 (March 11, 2021) - CLI 7.91.0
 
 * FIX: The `force:mdapi:deploy --runtests` command now runs the specified tests.
 * FIX: When you run the `force:mdapi:deploy` command with the `--json` parameter and the command fails, it returns the exit code 1. Previously it returned 0.
