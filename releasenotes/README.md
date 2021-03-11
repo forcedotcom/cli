@@ -30,7 +30,7 @@ These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). W
 
     The username `tester@sfdx.org` must be unique across the entire Salesforce ecosystem; otherwise, the `force:user:create` command fails. But if you use the same user definition file for each CI run, the command definitely fails on the second run. To ensure success, specify the `--setuniqueusername` parameter so that the resulting username looks something like `tester@sfdx.org.00D123456123456123`. Because org IDs are always unique, the username is also always unique.  
 
-    Thank you Fabien Taillon for submitting this [new feature request](https://github.com/salesforcecli/plugin-user/pull/50) and then writing most of the code. You're our first community member to contribute a feature that we then merged into our code and released. We're thrilled with your elegant solution to a real-world problem and hope to see many more contributions from you and the community. 
+    Thank you, Fabien Taillon, for submitting this [new feature request](https://github.com/salesforcecli/plugin-user/pull/50) and then writing most of the code. You're our first community member to contribute a feature that we then merged into our code and released. We're thrilled with your elegant solution to a real-world problem and hope to see many more contributions from you and the community. 
 
 As part of [open-sourcing Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021.html), we've broken out the source for some of the org commands (`force:org:open|list|display`) into their own [GitHub repo](https://github.com/salesforcecli/plugin-org). These commands are still in the `force` namespace and bundled in the `salesforcedx` plug-in, and they work the same as before.  
 
@@ -175,4 +175,3 @@ These commands were removed in v51. The ISV Hammer test closed pilot program has
 * FIX: The command `force:source:deploy` no longer fails with "The org cannot be found" after a successful login.
 
 * FIX: The command `force:user:password:generate` no longer fails when generating a password for a user that doesn't have access to the Profile standard object.
-
