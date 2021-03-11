@@ -38,7 +38,7 @@ We don't normally announce when we open-source commands that remain in the `forc
 
   * NEW: The `force:org:display` command displays the scratch org’s namespace. Many thanks to Todd Halfpenny for requesting this new feature. (GitHub issue [#422](https://github.com/forcedotcom/cli/issues/422))
 
-  * CHANGE: Starting in version 52.0 of Salesforce CLI, the `.json` output of the `force:org:list` command no longer returns the property `connectedStatus` for scratch orgs. The `force:org:list` command displays a warning about this upcoming change, but be sure to update your CI/CD scripts now if they currently use this property.
+  * CHANGE: Starting in version 52.0 of Salesforce CLI, the `--json` output of the `force:org:list` command no longer returns the property `connectedStatus` for scratch orgs. The `force:org:list` command displays a warning about this upcoming change, but be sure to update your CI/CD scripts now if they currently use this property.
 
   * FIX: GitHub issues [#361](https://github.com/forcedotcom/cli/issues/361), [#456](https://github.com/forcedotcom/cli/issues/456), [#482](https://github.com/forcedotcom/cli/issues/482), [#637](https://github.com/forcedotcom/cli/issues/637), [#666](https://github.com/forcedotcom/cli/issues/666), [#719](https://github.com/forcedotcom/cli/issues/719), [#724](https://github.com/forcedotcom/cli/issues/724) 
 
