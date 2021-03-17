@@ -16,7 +16,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). We plan to include these changes in the next official release. This list isn't final and is subject to change.
 
-* FIX: The `auth:sfdxurl:store` command executes correctly when you specify a JSON file to the `---sfdxurlfile` parameter. We also improved the command so that you can pass it the JSON output of the `force:org:display` command. For example:
+* FIX: The `auth:sfdxurl:store` command executes correctly when you specify a `.json` file to the `---sfdxurlfile` parameter. We also improved the command so that you can pass it the `.json` output of the `force:org:display` command. For example:
 
 	```bash
     sfdx force:org:display -u <DevHub> --verbose --json > authFile.json
