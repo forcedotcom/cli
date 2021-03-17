@@ -12,9 +12,18 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v50 release notes.](./v50.md)
 
-## March 18, 2021
+## March 25, 2021
 
 These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). We plan to include these changes in the next official release. This list isn't final and is subject to change.
+
+* FIX: The `auth:sfdxurl:store` command executes correctly when you specify a JSON file to the `---sfdxurlfile` parameter. We also improved the command so that you can pass it the JSON output of the `force:org:display` command. For example:
+
+	```bash
+    sfdx force:org:display -u <DevHub> --verbose --json > authFile.json
+	sfdx auth:sfdxurl:store --sfdxurlfile authFile.json
+    ```
+
+## 51.4.0 (March 18, 2021) - CLI 7.92.0
 
 * NEW:  Use the `--setuniqueusername` flag of `force:user:create` to force the newly created username, if specified in the definition file or at the command line, to be unique by appending the org ID. This feature is particularly useful in CI scripts that run multiple times.
 
