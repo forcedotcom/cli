@@ -22,6 +22,7 @@ These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). W
     sfdx force:org:display -u <DevHub> --verbose --json > authFile.json
 	sfdx auth:sfdxurl:store --sfdxurlfile authFile.json
     ```
+* CHANGE: We've removed the `force:project:upgrade` command after deprecating it in v50. 
 
 ## 51.4.0 (March 18, 2021) - CLI 7.92.0
 
