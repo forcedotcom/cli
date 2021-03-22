@@ -42,11 +42,15 @@ async function run() {
 
     const issueLabels = issue.labels
     console.log('issue labels: ', issueLabels)
+    console.log('issue', JSON.stringify(issue, null, 2))
 
     // If label is passed in as an input, make sure it is on the issue before posting the message.
     // Otherwise, we want to post message on all issues regardless.
     if (label) {
-      if (!issueLabels.find(issueLabel => issueLabel.name === label)) {
+      if (!issueLabels.find(issueLabel => {
+        console.log('name', issueLabel.name, label);
+        return issueLabel.name === label
+      })) {
         // We didn't find the label, so don't post on this issue.
         return;
       }
