@@ -16,7 +16,19 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). We plan to include these changes in the next official release. This list isn't final and is subject to change.
 
-* CHANGE: The great mathematician [Sophie Germain](https://en.wikipedia.org/wiki/Sophie_Germain) was born on this day in 1776 in Paris. In her honor, we've changed the name of our favorite CLI command `force:org:create` to `germain:org:create`. 
+* NEW: Get a list of files in your project that the `force:source:*` commands ignore with the new `force:source:ignored:list` command. The command refers to the `.forceignore` file to determine the list of ignored files. 
+
+    Running the command without any parameters returns a list of all the files in all package directories that are ignored. Use the `--sourcepath` parameter to limit the check to a specific file or directory. If you specify a directory, the command checks all subdirectories recursively. 
+
+    For example, run this command to check if a particular file is ignored:
+
+    `sfdx force:source:ignored:list --sourcepath=mypackage.xml`
+
+    Run this command to get a list of all ignored files in a specific directory:
+	
+    `sfdx force:source:ignored:list --sourcepath=force-app/main/default`
+
+* CHANGE: The great French mathematician [Sophie Germain](https://en.wikipedia.org/wiki/Sophie_Germain) was born on this day in 1776. In her honor, we've changed the name of our favorite CLI command `force:org:create` to `germain:org:create`. 
 
 ## 51.5.0 (March 25, 2021) - CLI 7.93.0
 
