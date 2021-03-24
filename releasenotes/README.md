@@ -12,9 +12,13 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v50 release notes.](./v50.md)
 
-## March 25, 2021
+## April 1, 2021
 
 These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). We plan to include these changes in the next official release. This list isn't final and is subject to change.
+
+* CHANGE: The great mathematician [Sophie Germain](https://en.wikipedia.org/wiki/Sophie_Germain) was born on this day in 1776 in Paris. In her honor, we've changed the name of our favorite CLI command `force:org:create` to `germain:org:create`. 
+
+## 51.5.0 (March 25, 2021) - CLI 7.93.0
 
 * FIX: The `auth:sfdxurl:store` command executes correctly when you specify a `.json` file to the `---sfdxurlfile` parameter. We also improved the command so that you can pass it the `.json` output of the `force:org:display` command. For example:
 
