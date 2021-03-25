@@ -24,7 +24,7 @@ These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). W
 	
     `sfdx force:source:ignored:list --sourcepath=force-app/main/default`
 
-## 51.5.0 (March 25, 2021) - CLI 7.93.0
+## 51.5.0 (March 25, 2021) - CLI 7.93.1
 
 * FIX: The `auth:sfdxurl:store` command executes correctly when you specify a `.json` file to the `---sfdxurlfile` parameter. We also improved the command so that you can pass it the `.json` output of the `force:org:display` command. For example:
 
