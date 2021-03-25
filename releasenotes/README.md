@@ -18,7 +18,7 @@ These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). W
 
 * NEW: Get a list of files in your project that the `force:source:*` commands ignore with the new `force:source:ignored:list` command. The command refers to the `.forceignore` file to determine the list of ignored files. Run the command without any parameters to get a list of all the files in all package directories that are ignored. Use the `--sourcepath` parameter to limit the check to a specific file or directory. If you specify a directory, the command checks all subdirectories recursively. For example, run this command to check if a particular file is ignored:
 
-    `sfdx force:source:ignored:list --sourcepath=mypackage.xml`
+    `sfdx force:source:ignored:list --sourcepath=package.xml`
 
     Run this command to get a list of all ignored files in a specific directory:
 	
