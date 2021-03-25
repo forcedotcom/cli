@@ -24,8 +24,6 @@ These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). W
 	
     `sfdx force:source:ignored:list --sourcepath=force-app/main/default`
 
-* CHANGE: The great French mathematician [Sophie Germain](https://en.wikipedia.org/wiki/Sophie_Germain) was born on this day in 1776. In her honor, we've changed the name of our favorite CLI command `force:org:create` to `germain:org:create`. 
-
 ## 51.5.0 (March 25, 2021) - CLI 7.93.0
 
 * FIX: The `auth:sfdxurl:store` command executes correctly when you specify a `.json` file to the `---sfdxurlfile` parameter. We also improved the command so that you can pass it the `.json` output of the `force:org:display` command. For example:
