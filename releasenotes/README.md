@@ -12,9 +12,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v50 release notes.](./v50.md)
 
-## April 1, 2021
-
-These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). We plan to include these changes in the next official release. This list isn't final and is subject to change.
+## 51.6.0 (April 1, 2021) - CLI 7.94.1
 
 * NEW: Get a list of files in your project that the `force:source:*` commands ignore with the new `force:source:ignored:list` command. The command refers to the `.forceignore` file to determine the list of ignored files. Run the command without any parameters to get a list of all the files in all package directories that are ignored. Use the `--sourcepath` parameter to limit the check to a specific file or directory. If you specify a directory, the command checks all subdirectories recursively. For example, run this command to check if a particular file is ignored:
 
@@ -23,6 +21,14 @@ These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). W
     Run this command to get a list of all ignored files in a specific directory:
 	
     `sfdx force:source:ignored:list --sourcepath=force-app/main/default`
+    
+* NEW: Here at Salesforce, we love metadata! We're always looking for ways to improve moving it between orgs. And we feel like we haven't provided you with enough ways to deploy and retrieve it. So we're excited to introduce these new commands that provide true flexibility and power to your workflows:
+  * `force:tooling:deploy|retrieve`
+  * `force:source:transfer`
+  * `force:mdapi:stash:push|pop`
+  * `force:code:shove|wrest`
+
+  Enjoy! 
 
 ## 51.5.0 (March 25, 2021) - CLI 7.93.1
 
