@@ -50,7 +50,7 @@ Before we describe the changes in this week's release, here's a quick update on 
 
     We’ll update the [documentation](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm#sfdx_setup_install_cli_linux) soon. 
 
-* CHANGE: We've rolled back the change we announced on [March 4, 2021](./README.md#5122-march-4-2021---cli-7902) where some commands (`force:org:create`, `force:source:*`, and `force:mdapi:*`) use REST API by default when deploying source. These commands use SOAP API by default again. 
+* CHANGE: We've rolled back the change we announced on [February 22, 2021](./README.md#new-parameters) where some commands (`force:org:create`, `force:source:*`, and `force:mdapi:*`) use REST API by default when deploying source. These commands use SOAP API by default again. 
 
     If you want to use REST for deployment, set the `restDeploy` config value or `SFDX_REST_DEPLOY` environment variable to `true`. For example, to set it globally with the config variable:
 
