@@ -14,7 +14,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 ## 51.7.1 (April 8, 2021) - CLI 7.95.0
 
-Before we describe the changes in this week's release, here’s an update on our project to open-source Salesforce CLI since we published [this blog post](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021.html) in February 2021.
+Before we describe the changes in this week's release, here's a quick update on open-sourcing Salesforce CLI since we published [this blog post](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021.html) in February 2021.
 
 * We've created two new public GitHub repositories and broken out the [force:data](https://github.com/salesforcecli/data) and some of the [force:org](https://github.com/salesforcecli/plugin-org) commands into their own plug-ins.
 * At the same time we open-sourced these plug-ins, we also fixed a bunch of GitHub issues. For example, [these issues](https://github.com/forcedotcom/cli/issues?q=is%3Aissue+is%3Aclosed+%22I+think+this+is+fixed+in+the+new+data+plugin%22) were fixed in the new data repository. 
