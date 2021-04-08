@@ -16,7 +16,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). We plan to include these changes in the next official release. This list isn't final and is subject to change.
 
-* CHANGE: We've rolled back the change we announced on [March 4, 2021](https://github.com/forcedotcom/cli/blob/jshackell-51.6.0/releasenotes/README.md#5122-march-4-2021---cli-7902) where some commands (`force:org:create`, `force:source:*`, and `force:mdapi:*`) use REST API by default when deploying source. These commands use SOAP API by default again. 
+* CHANGE: We've rolled back the change we announced on [March 4, 2021](./README.md#5122-march-4-2021---cli-7902) where some commands (`force:org:create`, `force:source:*`, and `force:mdapi:*`) use REST API by default when deploying source. These commands use SOAP API by default again. 
 
     If you want to use REST for deployment, set the `restDeploy` config value or `SFDX_REST_DEPLOY` environment variable to `true`. For example, to set it globally with the config variable:
 
