@@ -25,7 +25,7 @@ Before we describe the changes in this week's release, here's a quick update on 
  
 * NEW: Get more granular information about the code coverage results of your Apex test runs with the new `--detailedcoverage` parameter of the `force:apex:test:run` command. We've also greatly improved the code coverage results and output of the `force:apex:test:run` and `force:apex:test:report` commands. Check out the [Clearer Apex Commands](https://developer.salesforce.com/blogs/2021/04/clearer-apex-commands.html) blog post for more information. 
 
-* CHANGE: We changed the URLs we use to distribute the TAR files for installing Salesforce CLI. Don't worry, the URLs listed in this [manifest](https://developer.salesforce.com/media/salesforce-cli/manifest.json) still work, but starting this week we'll no longer update them to point to the latest releases. To get latest Salesforce CLI releases, update your CI/CD scripts. 
+* CHANGE: We changed the URLs we use to distribute the TAR files for installing Salesforce CLI. Don't worry, the URLs listed in this [manifest](https://developer.salesforce.com/media/salesforce-cli/manifest.json) still work, but starting this week we'll no longer update them to point to the latest releases. If you use these URLs in your CI/CD jobs, update your scripts with the new URLs to ensure you install the latest Salesforce CLI release. 
 
     This table lists the new unversioned URLs for the TAR files (`.tar.gz` or `.tar.xz`) for each operating system. When we release a new version of Salesforce CLI every week, we also update these URLs so they point to the most up-to-date version. 
     
@@ -44,7 +44,7 @@ Before we describe the changes in this week's release, here's a quick update on 
 
     * WINDOWS NOTE: Installing Salesforce CLI with a TAR file on Windows requires a separate program, such as 7Zip, to extract the contents. We highly recommend you use the [Windows installers](https://developer.salesforce.com/tools/sfdxcli).
 
-    We also removed the `install` script from the new TAR files. The existing TAR files listed in this [manifest](https://developer.salesforce.com/media/salesforce-cli/manifest.json) file still have the `install` script. You had to have administrator privileges to run the script, and it wasn’t necessary to install Salesforce CLI anyway. We now recommend that you simply unpack the TAR file into a directory of your choice and update your PATH environment variable appropriately. 
+    We also removed the `install` script from the new TAR files. The existing TAR files listed in this [manifest](https://developer.salesforce.com/media/salesforce-cli/manifest.json) still contain the `install` script. You had to have administrator privileges to run the script, and it wasn’t necessary to install Salesforce CLI anyway. We now recommend that you simply unpack the TAR file into a directory of your choice and update your PATH environment variable appropriately. 
 
     We’ll update the [documentation](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm#sfdx_setup_install_cli_linux) soon. 
 
