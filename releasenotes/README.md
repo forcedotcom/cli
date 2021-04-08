@@ -12,9 +12,43 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v50 release notes.](./v50.md)
 
-## April 8, 2021
+## 51.7.1 (April 8, 2021) - CLI 7.95.0
 
-These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). We plan to include these changes in the next official release. This list isn't final and is subject to change.
+Before we describe the changes in this week's release, here's a quick update on open-sourcing Salesforce CLI since we published [this blog post](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021.html) in February 2021.
+
+* We've created two new public GitHub repositories and broken out the [force:data](https://github.com/salesforcecli/data) and some of the [force:org](https://github.com/salesforcecli/plugin-org) commands into their own plug-ins.
+* At the same time we open-sourced these plug-ins, we also fixed a bunch of GitHub issues. For example, [these issues](https://github.com/forcedotcom/cli/issues?q=is%3Aissue+is%3Aclosed+%22I+think+this+is+fixed+in+the+new+data+plugin%22) were fixed in the new data repository. 
+
+  Check out the [status page](https://github.com/salesforcecli/status) to get a bird’s eye view of the project. 
+
+---
+ 
+* NEW: Get more granular information about the code coverage results of your Apex test runs with the new `--detailedcoverage` parameter of the `force:apex:test:run` command. We've also greatly improved the code coverage results and output of the `force:apex:test:run` and `force:apex:test:report` commands. 
+ 
+    Check out the [Clearer Apex Commands](https://developer.salesforce.com/blogs/2021/04/clearer-apex-commands.html) blog post for more information and a preview of more exciting changes coming soon. Note that the upcoming improvements to the command output might break your existing scripts. 
+
+* CHANGE: We changed the URLs we use to distribute the TAR files for installing Salesforce CLI. Don't worry, the URLs listed in this [manifest](https://developer.salesforce.com/media/salesforce-cli/manifest.json) still work, but starting this week we'll no longer update them to point to the latest releases. If you use these URLs in your CI/CD jobs, update your scripts with the new URLs to ensure you install the latest Salesforce CLI release. 
+
+    This table lists the new unversioned URLs for the TAR files (`.tar.gz` or `.tar.xz`) for each operating system. When we release a new version of Salesforce CLI every week, we also update these URLs so they point to the most up-to-date version. 
+    
+    | Operating System | TAR Files                |
+    |------------------|--------------------------|
+    |Linux| [sfdx-linux-x64.tar.gz](https://developer.salesforce.com/media/salesforce-cli/sfdx/channels/stable/sfdx-linux-x64.tar.gz)|
+    ||[sfdx-linux-x64.tar.xz](https://developer.salesforce.com/media/salesforce-cli/sfdx/channels/stable/sfdx-linux-x64.tar.xz)|
+    ||[sfdx-linux-arm.tar.gz](https://developer.salesforce.com/media/salesforce-cli/sfdx/channels/stable/sfdx-linux-arm.tar.gz)|
+    ||[sfdx-linux-arm.tar.xz](https://developer.salesforce.com/media/salesforce-cli/sfdx/channels/stable/sfdx-linux-arm.tar.xz)|
+    |macOS|[sfdx-darwin-x64.tar.gz](https://developer.salesforce.com/media/salesforce-cli/sfdx/channels/stable/sfdx-darwin-x64.tar.gz)|
+    ||[sfdx-darwin-x64.tar.xz](https://developer.salesforce.com/media/salesforce-cli/sfdx/channels/stable/sfdx-darwin-x64.tar.xz)|
+    |Windows*|[sfdx-win32-x64.tar.gz](https://developer.salesforce.com/media/salesforce-cli/sfdx/channels/stable/sfdx-win32-x64.tar.gz)|
+    | |[sfdx-win32-x64.tar.xz](https://developer.salesforce.com/media/salesforce-cli/sfdx/channels/stable/sfdx-win32-x64.tar.xz)|
+    | |[sfdx-win32-x86.tar.gz](https://developer.salesforce.com/media/salesforce-cli/sfdx/channels/stable/sfdx-win32-x86.tar.gz)|
+    ||[sfdx-win32-x86.tar.xz](https://developer.salesforce.com/media/salesforce-cli/sfdx/channels/stable/sfdx-win32-x86.tar.xz)|
+
+    * WINDOWS NOTE: Installing Salesforce CLI with a TAR file on Windows requires a separate program, such as 7Zip, to extract the contents. We highly recommend you use the [Windows installers](https://developer.salesforce.com/tools/sfdxcli).
+
+    We also removed the `install` script from the new TAR files. The existing TAR files listed in this [manifest](https://developer.salesforce.com/media/salesforce-cli/manifest.json) still contain the `install` script. You had to have administrator privileges to run the script, and it wasn’t necessary to install Salesforce CLI anyway. We now recommend that you simply unpack the TAR file into a directory of your choice and update your PATH environment variable appropriately. 
+
+    We’ll update the [documentation](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm#sfdx_setup_install_cli_linux) soon. 
 
 * CHANGE: We've rolled back the change we announced on [March 4, 2021](./README.md#5122-march-4-2021---cli-7902) where some commands (`force:org:create`, `force:source:*`, and `force:mdapi:*`) use REST API by default when deploying source. These commands use SOAP API by default again. 
 
