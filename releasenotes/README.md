@@ -20,7 +20,7 @@ These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). W
 
 ## 51.8.0 (April 15, 2021) - CLI 7.97.0
 
-* FIX: We fixed some under-the-hood bugs.
+* FIX: When you run `force:apex:test:run --synchronous` but specify more than one Apex class, we now correctly return an error. Previously, the CLI didn’t surface the error, but instead silently ran the tests asynchronously. If your CI/CD scripts rely on this old incorrect behavior, remove the `--synchronous` parameter so the command works as before. We released this fix in v51.7.1. (GitHub issues [#963](https://github.com/forcedotcom/cli/issues/963) and [#975](https://github.com/forcedotcom/cli/issues/975))
 
 ## 51.7.1 (April 8, 2021) - CLI 7.96.1
 
@@ -67,8 +67,6 @@ Before we describe the changes in this week's release, here's a quick update on 
 	`$ sfdx config:set restDeploy=true --global`
 
     To set it for just your project, don’t use the `--global` flag. We’ll update the [documentation](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_config_values.htm) soon.
-    
-* FIX: When you run `force:apex:test:run --synchronous` but specify more than one Apex class, we now correctly return an error. Previously, the CLI didn’t surface the error, but instead silently ran the tests asynchronously. If your CI/CD scripts rely on this old incorrect behavior, remove the `--synchronous` parameter so the command works as before. (GitHub issues [#963](https://github.com/forcedotcom/cli/issues/963) and [#975](https://github.com/forcedotcom/cli/issues/975))
 
 ## 51.6.0 (April 1, 2021) - CLI 7.94.3
 
