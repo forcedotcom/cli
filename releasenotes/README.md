@@ -20,7 +20,7 @@ These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). W
 
 ## 51.8.0 (April 15, 2021) - CLI 7.97.0
 
-* FIX: When you run `force:apex:test:run --synchronous` but specify more than one Apex class, we now correctly return an error. Previously, the CLI didn’t surface the error, but instead silently ran the tests asynchronously. If your CI/CD scripts rely on this old incorrect behavior, remove the `--synchronous` parameter so the command works as before. We released this fix in v51.7.1. (GitHub issues [#963](https://github.com/forcedotcom/cli/issues/963) and [#975](https://github.com/forcedotcom/cli/issues/975))
+* FIX: We fixed some under-the-hood bugs.
 
 ## 51.7.1 (April 8, 2021) - CLI 7.96.1
 
