@@ -12,6 +12,16 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v50 release notes.](./v50.md)
 
+## April 22, 2021
+
+These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* FIX: Running a Quick Deploy on a package with recently validated components no longer fails. Previously, running the command `force:source:deploy` with the `-q | --validateddeployrequestid` parameter returned the error `Unexpected element {http://soap.sforce.com/2006/04/metadata}id during simple type deserialization`. (GitHub issues [#877](https://github.com/forcedotcom/cli/issues/877) and [#876](https://github.com/forcedotcom/cli/issues/876))
+
+## 51.8.0 (April 15, 2021) - CLI 7.97.0
+
+* FIX: We fixed some under-the-hood bugs.
+
 ## 51.7.1 (April 8, 2021) - CLI 7.96.1
 
 Before we describe the changes in this week's release, here's a quick update on open-sourcing Salesforce CLI since we published [this blog post](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021.html) in February 2021.
