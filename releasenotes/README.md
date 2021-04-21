@@ -20,6 +20,8 @@ These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). W
 
 ## 51.9.1 (April 22, 2021) - CLI 7.98.0
 
+* NEW: Are you a Salesforce CLI plug-in developer looking to create tests beyond simple unit tests? We got you covered. Check out our new [@salesforce/cli-plugins-testkit](https://github.com/salesforcecli/cli-plugins-testkit) library that provides utilities for writing integration, smoke, and end-to-end tests. We also describe a number of use cases with associated sample code. Finally, we link to other public GitHub repos that use the testkit so you can see the libraries in action. Go forth and test!
+* 
 * FIX: Running a Quick Deploy on a package with recently validated components no longer fails. Previously, running the command `force:source:deploy` with the `-q | --validateddeployrequestid` parameter returned the error `Unexpected element {http://soap.sforce.com/2006/04/metadata}id during simple type deserialization`. (GitHub issues [#877](https://github.com/forcedotcom/cli/issues/877) and [#876](https://github.com/forcedotcom/cli/issues/876))
 
 ## 51.8.0 (April 15, 2021) - CLI 7.97.0
