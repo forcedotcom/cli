@@ -18,6 +18,8 @@ These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). W
 
 * FIX: The `force:org:list` command no longer returns the error `MissingMessageError - Missing message list:noResultsFound for locale en_US` when it doesn't find non-scratch orgs in certain use cases. 
 
+* CHANGE: We [deprecated](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_deprecation.htm) the `force:lightning:lint` command and plan to remove it in v53.0. Use the [esling-plugin-aura](https://github.com/forcedotcom/eslint-plugin-aura) npm package instead. 
+
 ## 51.9.1 (April 22, 2021) - CLI 7.98.0
 
 * FIX: Running a Quick Deploy on a package with recently validated components no longer fails. Previously, running the command `force:source:deploy` with the `-q | --validateddeployrequestid` parameter returned the error `Unexpected element {http://soap.sforce.com/2006/04/metadata}id during simple type deserialization`. (GitHub issues [#877](https://github.com/forcedotcom/cli/issues/877) and [#876](https://github.com/forcedotcom/cli/issues/876))
