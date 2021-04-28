@@ -12,13 +12,11 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v50 release notes.](./v50.md)
 
-## April 29, 2021
-
-These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+## 51.10.0 (April 29, 2021) - CLI 7.99.0
 
 * FIX: The `force:org:list` command no longer returns the error `MissingMessageError - Missing message list:noResultsFound for locale en_US` when it doesn't find non-scratch orgs in certain use cases. 
 
-* CHANGE: We [deprecated](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_deprecation.htm) the `force:lightning:lint` command and plan to remove it in v53.0. Use the [esling-plugin-aura](https://github.com/forcedotcom/eslint-plugin-aura) npm package instead. 
+* CHANGE: We [deprecated](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_deprecation.htm) the `force:lightning:lint` command and plan to remove it in v53.0. Use the [eslint-plugin-aura](https://github.com/forcedotcom/eslint-plugin-aura) npm package instead. 
 
 ## 51.9.1 (April 22, 2021) - CLI 7.98.0
 
