@@ -12,13 +12,25 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v50 release notes.](./v50.md)
 
-## April 29, 2021
+## 51.10.0 (April 29, 2021) - CLI 7.99.0
 
-These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+* NEW: Use a `.tar` file to install the Salesforce CLI release candidate. The download URL is similar to the URL for installing the current release, but uses the `stable-rc` channel instead of `stable`. For example, use this `wget` command to get the Linux release candidate `.tar` file:
+
+    `wget https://developer.salesforce.com/media/salesforce-cli/sfdx/channels/stable-rc/sfdx-linux-x64.tar.xz`
+
+    Then install the release candidate the same way you [install the current version](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm#sfdx_setup_install_cli_linux). 
+
+* NEW: If you’ve already installed the current version of Salesforce CLI using the installers, run this command to switch to the release candidate:
+
+    `sfdx update stable-rc`
+
+    When the update completes, the core Salesforce CLI plug-ins, such as `salesforcedx`, are also updated to the release candidate version. Previously you could use only npm to install the CLI release candidate. Run this command to return to the current release:
+
+    `sfdx update stable`
+
+* CHANGE: We [deprecated](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_deprecation.htm) the `force:lightning:lint` command and plan to remove it in v53.0. Use the [eslint-plugin-aura](https://github.com/forcedotcom/eslint-plugin-aura) npm package instead. 
 
 * FIX: The `force:org:list` command no longer returns the error `MissingMessageError - Missing message list:noResultsFound for locale en_US` when it doesn't find non-scratch orgs in certain use cases. 
-
-* CHANGE: We [deprecated](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_deprecation.htm) the `force:lightning:lint` command and plan to remove it in v53.0. Use the [esling-plugin-aura](https://github.com/forcedotcom/eslint-plugin-aura) npm package instead. 
 
 ## 51.9.1 (April 22, 2021) - CLI 7.98.0
 
