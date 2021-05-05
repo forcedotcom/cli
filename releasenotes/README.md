@@ -12,6 +12,22 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v50 release notes.](./v50.md)
 
+## May 12, 2021
+
+These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). We plan to include these changes in the next official release. This list isn't final and is subject to change.
+
+* NEW: Get an approximate count of the records in standard or custom objects in your org with the new `force:limits:recordcounts:display` command. The counts are approximate because the org calculates them asynchronously and periodically rather than immediately. 
+
+    This example returns an approximate count of the records in the Account, Contact, Lead, and Opportunity standard objects.
+
+    `sfdx force:limits:recordcounts:display -s Account,Contact,Lead,Opportunity`
+
+    Thank you, [mkreth, for submitting this new feature request](https://github.com/forcedotcom/cli/issues/978) and then writing the code. We’re delighted with your solution to a real-world problem and hope to see many more contributions from you and the community. 
+
+## 51.11.0 (May 5, 2021) - CLI 7.100.0
+
+* FIX: We fixed some under-the-hood bugs. 
+
 ## 51.10.0 (April 29, 2021) - CLI 7.99.0
 
 * NEW: Use a `.tar` file to install the Salesforce CLI release candidate. The download URL is similar to the URL for installing the current release, but uses the `stable-rc` channel instead of `stable`. For example, use this `wget` command to get the Linux release candidate `.tar` file:
