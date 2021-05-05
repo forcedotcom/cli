@@ -1,20 +1,20 @@
 # Salesforce CLI v51 Release Notes
 
-Here are the new and changed features in recent updates of Salesforce CLI and the `salesforcedx` plug-in.
+Here are the new and changed features in recent updates of Salesforce CLI.
 
-We publish the `latest` plug-in and CLI on Thursdays. At the same time we also publish the `latest-rc` release candidate plug-in and CLI. The release candidates contain changes that will likely be in the final official version.
+We publish a new `stable` version of the CLI on Thursdays. At the same time we also publish the `stable-rc` release candidate CLI version. The release candidate contains changes that will likely be in the final weekly version.
 
-Run `sfdx version` to display the version of Salesforce CLI installed on your computer. Run `sfdx plugins --core` to display the version of the installed `salesforcedx` plug-in.
+Run `sfdx version` to display the version of Salesforce CLI installed on your computer. Run `sfdx update` to update the CLI to the latest available version. 
 
-Run `sfdx update` to update both the CLI and the `salesforcedx` plug-in to the latest available version.
+Run `sfdx update stable-rc` to update the CLI to the release candidate. To return to the stable version, run `sfdx update stable`. 
 
-If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_autocomplete.htm), run `sfdx autocomplete --refresh-cache` after you update the `salesforcedx` plug-in to ensure that autocomplete works correctly on any new commands.
+If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_autocomplete.htm), run `sfdx autocomplete --refresh-cache` after you update Salesforce CLI to ensure that autocomplete works correctly on any new commands.
 
 [Click here for the v50 release notes.](./v50.md)
 
 ## May 12, 2021
 
-These changes are in the release candidate plug-in (`salesforcedx@latest-rc`). We plan to include these changes in the next official release. This list isn't final and is subject to change.
+These changes are in the release candidate CLI (`stable-rc`). We plan to include these changes in next week's release. This list isn't final and is subject to change.
 
 * NEW: Get an approximate count of the records in standard or custom objects in your org with the new `force:limits:recordcounts:display` command. The counts are approximate because the org calculates them asynchronously and periodically rather than immediately. 
 
