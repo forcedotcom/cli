@@ -23,6 +23,8 @@ These changes are in the release candidate CLI (`stable-rc`). We plan to include
     `sfdx force:limits:recordcounts:display -s Account,Contact,Lead,Opportunity`
 
     Thank you, [mkreth, for submitting this new feature request](https://github.com/forcedotcom/cli/issues/978) and then writing the code. We’re delighted with your solution to a real-world problem and hope to see many more contributions from you and the community. 
+    
+* FIX: We've improved the error message that's displayed when you run the `force:package:version:create` command and it can't find a file. The error now correctly describes the problem and shows the directory that's missing the file.
 
 ## 51.11.0 (May 5, 2021) - CLI 7.100.0
 
