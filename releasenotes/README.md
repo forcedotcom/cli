@@ -12,9 +12,9 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v50 release notes.](./v50.md)
 
-## May 12, 2021
+## 51.12.0 (May 12, 2021) - CLI 7.101.0
 
-These changes are in the release candidate CLI (`stable-rc`). We plan to include these changes in next week's release. This list isn't final and is subject to change.
+* NEW: Are you a Salesforce CLI plug-in developer looking to create tests beyond simple unit tests? We've got you covered. Check out our new [@salesforce/cli-plugins-testkit](https://github.com/salesforcecli/cli-plugins-testkit) library that provides utilities for writing integration, smoke, and end-to-end tests. We also describe common use cases with associated sample code. And we link to other public GitHub repos that use the testkit so you can see the library in action. Go forth and test!
 
 * NEW: Get an approximate count of the records in standard or custom objects in your org with the new `force:limits:recordcounts:display` command. The counts are approximate because the org calculates them asynchronously and periodically rather than immediately. 
 
@@ -24,6 +24,8 @@ These changes are in the release candidate CLI (`stable-rc`). We plan to include
 
     Thank you, [mkreth, for submitting this new feature request](https://github.com/forcedotcom/cli/issues/978) and then writing the code. We’re delighted with your solution to a real-world problem and hope to see many more contributions from you and the community. 
     
+* FIX: The `force:package:version:create` command outputs correct JSON when run with the `--json` parameter. Previously the command incorrectly included console logging messages in the JSON output. ([GitHub issue #1003](https://github.com/forcedotcom/cli/issues/1003))
+  
 * FIX: We've improved the error message that's displayed when you run the `force:package:version:create` command and it can't find a file. The error now correctly describes the problem and shows the directory that's missing the file.
 
 ## 51.11.0 (May 5, 2021) - CLI 7.100.0
