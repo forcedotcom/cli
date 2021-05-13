@@ -28,7 +28,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
   
 * FIX: We've improved the error message that's displayed when you run the `force:package:version:create` command and it can't find a file. The error now correctly describes the problem and shows the directory that's missing the file.
 
-* FIX: FIX: The `force:project:create` command generates an `.eslintignore` file that contains `**/aura/**/*.app` for Lighting Aura apps. ([GitHub issue #1004](https://github.com/forcedotcom/cli/issues/1003))
+* FIX: FIX: The `force:project:create` command generates an `.eslintignore` file that contains `**/aura/**/*.app` for Lighting Aura apps. ([GitHub issue #1004](https://github.com/forcedotcom/cli/issues/1004))
 
 ## 51.11.0 (May 5, 2021) - CLI 7.100.0
 
