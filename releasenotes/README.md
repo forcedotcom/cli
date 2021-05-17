@@ -12,7 +12,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v50 release notes.](./v50.md)
 
-## 51.12.0 (May 12, 2021) - CLI 7.101.0
+## 51.12.0 (May 13, 2021) - CLI 7.101.0
 
 * NEW: Are you a Salesforce CLI plug-in developer looking to create tests beyond simple unit tests? We've got you covered. Check out our new [@salesforce/cli-plugins-testkit](https://github.com/salesforcecli/cli-plugins-testkit) library that provides utilities for writing integration, smoke, and end-to-end tests. We also describe common use cases with associated sample code. And we link to other public GitHub repos that use the testkit so you can see the library in action. Go forth and test!
 
@@ -30,7 +30,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 * FIX: FIX: The `force:project:create` command generates an `.eslintignore` file that contains `**/aura/**/*.app` for Lighting Aura apps. ([GitHub issue #1004](https://github.com/forcedotcom/cli/issues/1004))
 
-## 51.11.0 (May 5, 2021) - CLI 7.100.0
+## 51.11.0 (May 6, 2021) - CLI 7.100.0
 
 * FIX: We fixed some under-the-hood bugs. 
 
