@@ -12,6 +12,26 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v50 release notes.](./v50.md)
 
+## May 27, 2021
+
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* NEW: When you authenticate into a scratch org that wasn't created on your computer, the CLI correctly identifies it as a scratch org and associates it with its Dev Hub. This feature requires that your computer is authenticated to the Dev Hub that created the scratch org. With the Dev Hub properly identified, commands like `force:org:list` and `force:org:delete` work as expected. ([GitHub issue #398](https://github.com/forcedotcom/cli/issues/398)).  
+
+* NEW: Specify more than one permission set when you use the `-n | --permsetname` parameter of the `force:user:permset:assign` command. Separate multiple names with a comma and enclose them in quotes. For example:
+
+    `sfdx force:user:permset:assign -n "DreamHouse, NightmareHouse"`
+
+    Thank you, [Luke Cotter, for submitting this new feature request](https://github.com/forcedotcom/cli/issues/463) and then [writing most of the code](https://github.com/salesforcecli/plugin-user/pull/102). We love that you thought of an excellent CLI improvement, and then you took the initiative and implemented the new feature yourself. We hope to see many more contributions like this from you and the community. 
+
+* FIX: We've improved the warning that's displayed when you run one of the `force:source` commands and you're still using the old version of the `.forceignore` parser. ([GitHub issue #916](https://github.com/forcedotcom/cli/issues/916))
+
+* FIX: The CLI recognizes scratch orgs created after authenticating to a Dev Hub with the `auth:jwt:grant` command. ([GitHub issue #949](https://github.com/forcedotcom/cli/issues/949))
+
+## 51.13.0 (May 20, 2021) - CLI 7.102.0
+
+* FIX: We fixed some under-the-hood bugs.
+
 ## 51.12.0 (May 13, 2021) - CLI 7.101.0
 
 * NEW: Are you a Salesforce CLI plug-in developer looking to create tests beyond simple unit tests? We've got you covered. Check out our new [@salesforce/cli-plugins-testkit](https://github.com/salesforcecli/cli-plugins-testkit) library that provides utilities for writing integration, smoke, and end-to-end tests. We also describe common use cases with associated sample code. And we link to other public GitHub repos that use the testkit so you can see the library in action. Go forth and test!
