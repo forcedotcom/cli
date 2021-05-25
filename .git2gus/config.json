@@ -2,5 +2,6 @@
     "productTag": "a1aB00000004Bx8IAE",
     "defaultBuild": "offcore.tooling.51",
     "issueTypeLabels": { "feature": "USER STORY", "regression": "BUG P1", "bug": "BUG P3" },
-    "hideWorkItemUrl": true
+    "hideWorkItemUrl": true,
+    "statusWhenClosed": "CLOSED"
 }
