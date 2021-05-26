@@ -20,8 +20,8 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
     **NOTE**: We continue to keep all old versions of the [sfdx-cli npm package](https://www.npmjs.com/package/sfdx-cli). 
 
-    |Operating System| Installer or TAR file?|If a TAR file, is it .gz or .xz?| Link to JSON file that lists up to 20 old versions|
-    |----------------|-----------------------|--------------------------------|-------------------------------------------|
+    |Operating System| File Type|TAR Compression Type | Link to JSON File|
+    |----------------|-----------------------|------------------------|---------------------|
     |Linux ARM |TAR |gz |[sfdx-linux-arm-tar-gz.json](https://developer.salesforce.com/media/salesforce-cli/sfdx/versions/sfdx-linux-arm-tar-gz.json)|
     |Linux ARM |TAR |xz |[sfdx-linux-arm-tar.xz.json](https://developer.salesforce.com/media/salesforce-cli/sfdx/versions/sfdx-linux-arm-tar.xz.json)|
     |Linux 64 |TAR |gz |[sfdx-linux-x64-tar-gz.json](https://developer.salesforce.com/media/salesforce-cli/sfdx/versions/sfdx-linux-x64-tar-gz.json)|
