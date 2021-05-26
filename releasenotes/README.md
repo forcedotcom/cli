@@ -12,9 +12,14 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v50 release notes.](./v50.md)
 
-## May 27, 2021
+## 51.14.0 (May 27, 2021) - CLI 7.103.0
 
-These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+* NEW: We recommend that you always use the latest version or release candidate of Salesforce CLI. However, if you absolutely _must_ install an older version, we still have your back! 
+
+    We now publish JSON files that list the URLs to download recent versions of the installers and TAR files for each supported operating system. Each week we'll add the latest released version; versions will remain on the list for 20 weeks. We'll keep the TAR and installer files themselves for 40 weeks minimum. 
+
+    **NOTE**: We continue to keep all old versions of the [sfdx-cli npm package](https://www.npmjs.com/package/sfdx-cli). 
+
 
 * NEW: When you authenticate into a scratch org that wasn't created on your computer, the CLI correctly identifies it as a scratch org and associates it with its Dev Hub. This feature requires that your computer is authenticated to the Dev Hub that created the scratch org. With the Dev Hub properly identified, commands like `force:org:list` and `force:org:delete` work as expected. ([GitHub issue #398](https://github.com/forcedotcom/cli/issues/398)).  
 
