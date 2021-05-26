@@ -20,6 +20,21 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
     **NOTE**: We continue to keep all old versions of the [sfdx-cli npm package](https://www.npmjs.com/package/sfdx-cli). 
 
+    |Operating System| Installer or TAR file?|If a TAR file, is it .gz or .xz?| Link to JSON file that lists up to 20 old versions|
+    |----------------|-----------------------|--------------------------------|-------------------------------------------|
+    |Linux ARM |TAR |gz |[sfdx-linux-arm-tar-gz.json](https://developer.salesforce.com/media/salesforce-cli/sfdx/versions/sfdx-linux-arm-tar-gz.json)|
+    |Linux ARM |TAR |xz |[sfdx-linux-arm-tar.xz.json](https://developer.salesforce.com/media/salesforce-cli/sfdx/versions/sfdx-linux-arm-tar.xz.json)|
+    |Linux 64 |TAR |gz |[sfdx-linux-x64-tar-gz.json](https://developer.salesforce.com/media/salesforce-cli/sfdx/versions/sfdx-linux-x64-tar-gz.json)|
+    |Linux 64 |TAR |xz |[sfdx-linux-x64-tar-xz.json](https://developer.salesforce.com/media/salesforce-cli/sfdx/versions/sfdx-linux-x64-tar-xz.json)|
+    |Windows 64 |TAR |gz |[sfdx-win32-x64-tar-gz.json](https://developer.salesforce.com/media/salesforce-cli/sfdx/versions/sfdx-win32-x64-tar-gz.json)|
+    |Windows 64 |TAR |xz |[sfdx-win32-x64-tar-xz.json](https://developer.salesforce.com/media/salesforce-cli/sfdx/versions/sfdx-win32-x64-tar-xz.json)|
+    |Windows x86 |TAR |gz |[sfdx-win32-x86-tar-gz.json](https://developer.salesforce.com/media/salesforce-cli/sfdx/versions/sfdx-win32-x86-tar-gz.json)|
+    |Windows x86 |TAR |xz |[sfdx-win32-x86-tar-xz.json](https://developer.salesforce.com/media/salesforce-cli/sfdx/versions/sfdx-win32-x86-tar-xz.json)|
+    |macOS |TAR |gz |[sfdx-darwin-x64-tar-gz.json](https://developer.salesforce.com/media/salesforce-cli/sfdx/versions/sfdx-darwin-x64-tar-gz.json)|
+    |macOS |TAR |xz |[sfdx-darwin-x64-tar-xz.json](https://developer.salesforce.com/media/salesforce-cli/sfdx/versions/sfdx-darwin-x64-tar-xz.json)|
+    |Windows 64 |Installer | |[sfdx-x64-exe.json](https://developer.salesforce.com/media/salesforce-cli/sfdx/versions/sfdx-x64-exe.json)|
+    |Windows x86 |Installer | |[sfdx-x86-exe.json](https://developer.salesforce.com/media/salesforce-cli/sfdx/versions/sfdx-x86-exe.json)|
+    |macOS |Installer | |[sfdx-pkg.json](https://developer.salesforce.com/media/salesforce-cli/sfdx/versions/sfdx-pkg.json)|
 
 * NEW: When you authenticate into a scratch org that wasn't created on your computer, the CLI correctly identifies it as a scratch org and associates it with its Dev Hub. This feature requires that your computer is authenticated to the Dev Hub that created the scratch org. With the Dev Hub properly identified, commands like `force:org:list` and `force:org:delete` work as expected. ([GitHub issue #398](https://github.com/forcedotcom/cli/issues/398)).  
 
