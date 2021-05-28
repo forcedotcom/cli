@@ -10,8 +10,10 @@ NOTICE: GitHub is not a mechanism for receiving support under any agreement or S
 
 # Salesforce DX and CLI Documentation 
 
+* _[Release Notes](./releasenotes/README.md)_ - Read about the new and changed features in recent weekly updates to Salesforce CLI. 
+* _[Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)_ - How to install, update, and configure Salesforce CLI. 
 * _[Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)_ - Step-by-step guide on how to use the Salesforce DX tools
-* _[Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)_ - Complete command documentation for the `salesforcedx` CLI plug-in
+* _[Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)_ - Complete reference documentation for all Salesforce CLI commands.
 * [Get Started with Salesforce DX](https://trailhead.salesforce.com/en/content/learn/trails/sfdx_get_started) - Step-by-step Trailhead trail of tutorials for the Salesforce DX tools
 * [Salesforce Developers Blog](https://developer.salesforce.com/blogs/) 
 
