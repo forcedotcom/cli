@@ -18,7 +18,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ## 7.105.0 (June 10, 2021)
 
-* NEW: Good news: we're simplifying how we version Salesforce CLI! Starting today, the CLI's version reflects the version of the [sfdx-cli plug-in](https://github.com/salesforcecli/sfdx-cli). Previously we also referenced the `salesforcedx` plug-in version (such as 51.15.0), which we admit was a tad confusing. But as we [recently announced](https://github.com/forcedotcom/cli/issues/1016), we're removing the `salesforcedx` aggregator plug-in from Salesforce CLI soon. Your work life just got a teeny bit easier. How great is that?
+* NEW: Good news! We're simplifying how we version Salesforce CLI. Starting today, the CLI's version reflects the version of the [sfdx-cli plug-in](https://github.com/salesforcecli/sfdx-cli). Previously we also referenced the `salesforcedx` plug-in version (such as 51.15.0), which we admit was a tad confusing. But as we [recently announced](https://github.com/forcedotcom/cli/issues/1016), we're removing the `salesforcedx` aggregator plug-in from Salesforce CLI soon. Your work life just got a teeny bit easier. How great is that?
 
 * FIX: We fixed some under-the-hood bugs.
 
