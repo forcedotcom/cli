@@ -1,4 +1,4 @@
-# Salesforce CLI v51 Release Notes
+# Salesforce CLI Release Notes
 
 Here are the new and changed features in recent updates of Salesforce CLI.
 
@@ -11,6 +11,16 @@ Run `sfdx update stable-rc` to update the CLI to the release candidate. To retur
 If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_autocomplete.htm), run `sfdx autocomplete --refresh-cache` after you update Salesforce CLI to ensure that autocomplete works correctly on any new commands.
 
 [Click here for the v50 release notes.](./v50.md)
+
+## June 17, 2021
+
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+## 7.105.0 (June 10, 2021)
+
+* NEW: Good news: we're simplifying how we version Salesforce CLI! Starting today, the CLI's version reflects the version of the [sfdx-cli plug-in](https://github.com/salesforcecli/sfdx-cli). Previously we also referenced the `salesforcedx` plug-in version (such as 51.15.0), which we admit was a tad confusing. But as we [recently announced](https://github.com/forcedotcom/cli/issues/1016), we're removing the `salesforcedx` aggregator plug-in from Salesforce CLI soon. Your work life just got a teeny bit easier. How great is that?
+
+* FIX: We fixed some under-the-hood bugs.
 
 ## 51.15.0 (June 3, 2021) - CLI 7.104.0
 
