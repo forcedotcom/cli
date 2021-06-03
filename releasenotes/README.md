@@ -12,6 +12,10 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v50 release notes.](./v50.md)
 
+## 51.15.0 (June 3, 2021) - CLI 7.104.0
+
+* FIX: We fixed some under-the-hood bugs.
+ 
 ## 51.14.0 (May 27, 2021) - CLI 7.103.0
 
 * NEW: We recommend that you always use the latest version or release candidate of Salesforce CLI. However, if you absolutely _must_ install an older version, we still have your back! 
