@@ -12,6 +12,10 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the v50 release notes.](./v50.md)
 
+## 52.0.0 (June 17, 2021) - CLI 7.106.0
+
+* FIX: We fixed some under-the-hood bugs.
+
 ## 51.16.0 (June 10, 2021) - CLI 7.105.0
 
 * FIX: We fixed some under-the-hood bugs.
