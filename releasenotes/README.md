@@ -10,11 +10,39 @@ Run `sfdx update stable-rc` to update the CLI to the release candidate. To retur
 
 If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_autocomplete.htm), run `sfdx autocomplete --refresh-cache` after you update Salesforce CLI to ensure that autocomplete works correctly on any new commands.
 
-[Click here for the v50 release notes.](./v50.md)
+[Click here for the previous release notes.](./v50.md)
 
-## 52.0.0 (June 17, 2021) - CLI 7.106.0
+## June 24, 2021
 
-* FIX: We fixed some under-the-hood bugs.
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* FIX: Salesforce CLI honors the `instanceUrl` config value and corresponding `SFDX_INSTANCE_URL` environment variable when the `sfdx-project.json` file doesn't contain the `sfdcLoginUrl` property. Previously the CLI ignored them and instead used the default value of `sfdcLoginUrl` (https://login.salesforce.com). ([GitHub issue #616](https://github.com/forcedotcom/cli/issues/616))
+
+* FIX: Let's say you log in to an org with `auth:web:login` and set an alias, and then rerun the same command with the same username but set a different alias. The `force:org:list|display` commands show the most recent alias for that username. Previously the commands continued to display the first alias. ([GitHub issue #1031](https://github.com/forcedotcom/cli/issues/1031))
+
+## 7.106.3 (June 17, 2021)
+
+* NEW: We've removed the `salesforcedx` plug-in from Salesforce CLI. Don't worry, we haven't removed any functionality. The `salesforcedx` plug-in never did much; it simply aggregated other ones that contain the commands to create scratch orgs, deploy source, and so on. The CLI itself (`sfdx-cli`) is already an aggregator plug-in. 
+
+    We [announced this change](https://github.com/forcedotcom/cli/issues/1016) a month ago. If you didn't follow the steps to prepare, do them now:
+
+    - If you previously installed a tagged version of `salesforcedx` with the `sfdx plugins:install` command, uninstall it:
+
+        `sfdx plugins:uninstall salesforcedx`
+	
+    - Update the CLI as usual:
+
+         `sfdx update` 
+	 
+    - Remove the `sfdx plugins:install salesforcedx` command from your scripts.
+
+    Going forward, don't manually install the `salesforcedx` plug-in. If you do you'll no longer automatically get the latest versions of the other plug-ins. We know there are still ways to install it, but just don't. Really.  
+
+    As of June 16, 2021, all orgs have been updated to the Summer '21 release (API Version 52.0). Most CLI commands also default to 52.0. But if you find a command that hasn't yet been updated, set the `apiVersion` config value. 
+
+    `sfdx config:set apiVersion=52.0 --global`
+
+   Finally, as a result of removing the `salesforcedx` plug-in, we've also simplified how we version Salesforce CLI. Starting today, the CLI's version reflects the version of the `sfdx-cli` plug-in (such as 7.106.3). Previously we also referenced the `salesforcedx` plug-in version (such as 51.16.0), which was a tad confusing. Your work life just got a tiny bit easier. How great is that?
 
 ## 51.16.0 (June 10, 2021) - CLI 7.105.0
 
