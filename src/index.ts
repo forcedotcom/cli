@@ -52,6 +52,20 @@ async function run() {
       }
     }
 
+    const {data: comments} = await octokit.issues.listComments({
+      owner,
+      repo,
+      issue_number: issue.number,
+    });
+
+    // If we have comments check out that this comment has not been previously commented
+    if (comments.length) {
+      if (comments.some(comment => comment.body === message)) {
+        console.log('Already commented')
+        return
+      }
+    }
+
     const response = await octokit.issues.createComment({
       owner,
       repo,
