@@ -20,7 +20,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 	`sfdx version --json --verbose`
 	
-* NEW: Authorize an org using an existing Salesforce access token with the new `auth:accesstoken:store` command. You're required to specify the instance URL where the org is hosted with `--instanceurl` parameter. By default, the command runs interactively and asks you for the access token. If you've previously authorized the org, the command prompts whether you want to overwrite the local authentication file. Specify the `--noprompt` parameter to not be prompted about this overwrite.
+* NEW: Authorize an org using an existing Salesforce access token with the new `auth:accesstoken:store` command. You're required to use the `--instanceurl` parameter to specify the instance that hosts your org. By default, the command runs interactively and asks you for the access token. If you've previously authorized the org, the command prompts whether you want to overwrite the local authentication file. Specify the `--noprompt` parameter to not be prompted about this overwrite.
  
      To use the command in a CI/CD script, set the new SFDX_ACCESS_TOKEN environment variable to the access token. Then run the command with the `--noprompt` parameter. For example, if your access token is `00D1234!XYZ` (usually much longer!):
 
