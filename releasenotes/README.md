@@ -12,9 +12,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the previous release notes.](./v50.md)
 
-## June 24, 2021
-
-These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+## 7.107.0 (June 24, 2021)
 
 * FIX: Salesforce CLI honors the `instanceUrl` config value and corresponding `SFDX_INSTANCE_URL` environment variable when the `sfdx-project.json` file doesn't contain the `sfdcLoginUrl` property. Previously the CLI ignored them and instead used the default value of `sfdcLoginUrl` (https://login.salesforce.com). ([GitHub issue #616](https://github.com/forcedotcom/cli/issues/616))
 
