@@ -19,7 +19,14 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 * NEW: Get verbose CLI version information in JSON format with just a single command. Use the new `--json` and `--verbose` parameters of `sfdx version`. It's now a smidgen easier to gather your environment details for us when you report an issue:
 
 	`sfdx version --json --verbose`
+	
+* NEW: Authorize an org using a Salesforce access token with the new `auth:accesstoken:store` command. Specify the instance URL where the org lives with the required `--instanceurl` parameter. When run interactively, the command prompts you for the access token. To use in a CI/CD script, set the new environment variable SFDX_ACCESS_TOKEN to the access token and run the command with the `--noprompt` parameter. 
 
+
+    ```bash
+    export SFDX_ACCESS_TOKEN=<access-token>
+    sfdx auth:accesstoken:store --instanceurl https://login.salesforce.com --noprompt
+    ```
 
 ## 7.107.0 (June 24, 2021)
 
