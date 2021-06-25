@@ -16,10 +16,18 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* NEW: Get verbose CLI version information in JSON format with just a single command. Use the new `--json` and `--verbose` parameters of `sfdx version`. It's now a smidgen easier to gather your environment details for us when you report an issue:
+* NEW: Get detailed CLI version information in JSON format with just a single command. Use the new `--json` parameter of `sfdx version` to get JSON output. Use the new `--verbose` parameter to get detailed information, such as the full list of installed plug-ins. Use them together to easily gather your environment details for us when you report an issue:
 
 	`sfdx version --json --verbose`
+	
+* NEW: Authorize an org using an existing Salesforce access token with the new `auth:accesstoken:store` command. You're required to use the `--instanceurl` parameter to specify the instance that hosts your org. By default, the command runs interactively and asks you for the access token. If you've previously authorized the org, the command prompts whether you want to overwrite the local authentication file. Specify the `--noprompt` parameter to not be prompted about this overwrite.
+ 
+     To use the command in a CI/CD script, set the new SFDX_ACCESS_TOKEN environment variable to the access token. Then run the command with the `--noprompt` parameter. For example, if your access token is `00D1234!XYZ` (usually much longer!):
 
+    ```bash
+    export SFDX_ACCESS_TOKEN='00D1234!XYZ'
+    sfdx auth:accesstoken:store --instanceurl https://mycompany.my.salesforce.com --noprompt
+    ```
 
 ## 7.107.0 (June 24, 2021)
 
