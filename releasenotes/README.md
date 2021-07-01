@@ -48,6 +48,12 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
     `exit`
 
+    You can also remotely execute commands from outside the container once you have it running and know the container ID:
+    
+    ```bash
+    docker exec -it 8b1e2696a243 bin/bash sfdx version
+    ```
+    
 * NEW: Get detailed CLI version information in JSON format with just a single command. Use the new `--json` parameter of `sfdx version` to get JSON output. Use the new `--verbose` parameter to get detailed information, such as the full list of installed plug-ins. Use them together to easily gather your environment details for us when you report an issue:
 
 	`sfdx version --json --verbose`
