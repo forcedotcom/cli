@@ -12,10 +12,48 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the previous release notes.](./v50.md)
 
-## July 1, 2021
+## 7.108.0 (July 1, 2021)
 
-These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+* NEW: Run Salesforce CLI using Docker container images that we publish on [Docker Hub](https://hub.docker.com/r/salesforce/salesforcedx). 
 
+    We follow the same release process as our installers and npm packages. Each week we publish a Docker container image for that week’s release candidate (`latest-rc`). The following week we retag the image as `latest`. You can run the `latest` or `latest-rc` CLI versions, or a specific numbered version. 
+
+    For each version we provide two flavors:
+
+    * **slim**: Just the CLI installed on Linux plus OpenJDK 11. 
+    * **full**: The CLI installed with npm on a full Node.js installation, plus OpenJDK 11 and additional utilities such as jq.
+
+    Use [this Web page](https://hub.docker.com/r/salesforce/salesforcedx/tags?page=1&ordering=last_updated) or this table to determine the name of the image you want to use.
+
+    |CLI Version Type|Docker Hub Image Name|
+    |-------------------------------------|------------------------------------|
+    |Slim latest release|`salesforce/salesforcedx:latest-slim`|
+    |Full latest release|`salesforce/salesforcedx:latest-full`|
+    |Slim release candidate|`salesforce/salesforcedx:latest-rc-slim`|
+    |Full release candidate|`salesforce/salesforcedx:latest-rc-full`|
+    |Slim specific version, such as 7.107.0|`salesforce/salesforcedx:7.107.0-slim`|
+    |Full specific version, such as 7.107.0|`salesforce/salesforcedx:7.107.0-full`|
+
+    For example, to pull and run the slim CLI release candidate image:
+
+    ```bash
+    docker pull salesforce/salesforcedx:latest-rc-slim
+    docker run -it salesforce/salesforcedx:latest-rc-slim 
+    ```
+    Then you can run Salesforce CLI commands, such as:
+
+    `sfdx version` 
+
+    To exit the Salesforce CLI Docker container:
+
+    `exit`
+
+    You can also remotely execute commands from outside the container once you have it running and know the container ID:
+    
+    ```bash
+    docker exec -it 8b1e2696a243 bin/bash sfdx version
+    ```
+    
 * NEW: Get detailed CLI version information in JSON format with just a single command. Use the new `--json` parameter of `sfdx version` to get JSON output. Use the new `--verbose` parameter to get detailed information, such as the full list of installed plug-ins. Use them together to easily gather your environment details for us when you report an issue:
 
 	`sfdx version --json --verbose`
