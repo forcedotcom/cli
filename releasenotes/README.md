@@ -12,6 +12,10 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the previous release notes.](./v50.md)
 
+## 7.109.0 (July 8, 2021)
+
+* FIX: We fixed some under-the-hood bugs.
+
 ## 7.108.0 (July 1, 2021)
 
 * NEW: Run Salesforce CLI using Docker container images that we publish on [Docker Hub](https://hub.docker.com/r/salesforce/salesforcedx). 
