@@ -32,12 +32,11 @@ _Describe what should have happened_.
 
 _Describe what actually happened instead_.
 
+### System Information
+
+Run `sfdx version --verbose --json` and paste the output here
+
 ### Additional information
 
 _Feel free to attach a screenshot_.
 
-**SFDX CLI Version**(to find the version of the CLI engine run sfdx --version):
-
-**SFDX plugin Version**(to find the version of the CLI plugin run sfdx plugins --core)
-
-**OS and version**:
