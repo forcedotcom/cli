@@ -12,6 +12,18 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the previous release notes.](./v50.md)
 
+## July 15, 2021
+
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* NEW: The `force:source:*` commands support these metadata types:
+ 
+    * ConnectedSystem
+    * DataMappingSchema
+    * DataMapping
+    * FederationDataMappingUsage
+    * WaveComponent
+
 ## 7.109.0 (July 8, 2021)
 
 * FIX: We fixed some under-the-hood bugs.
