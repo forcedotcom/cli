@@ -34,9 +34,8 @@ _Describe what actually happened instead_.
 
 ### System Information
 
-Run `sfdx version --verbose --json` and paste the output here
+Run `sfdx version --verbose --json` and paste the output here.
 
 ### Additional information
 
 _Feel free to attach a screenshot_.
-
