@@ -30,7 +30,7 @@ _Describe what should have happened_.
 
 ### Actual result
 
-_Describe what actually happened instead_.
+_Describe what actually happened_.
 
 ### System Information
 
