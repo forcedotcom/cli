@@ -37,7 +37,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ## July 22, 2021
 
-* We aren't releasing a Salesforce CLI patch this week. The latest version of the Salesforce CLI remains 7.111.0.
+* We aren't releasing a Salesforce CLI patch this week. The latest version of Salesforce CLI remains 7.111.0.
 
 ## 7.110.0 (July 15, 2021)
 
