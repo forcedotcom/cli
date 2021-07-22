@@ -35,9 +35,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     `sfdx force:user:password:generate --complexity 4 --length 15`
 
-## (July 22, 2021)
+## July 22, 2021
 
-We are not publishing a version `stable` or `latest` this week.  The latest version of the Salesforce CLI remains 7.111.0.
+* We aren't releasing a Salesforce CLI patch this week. The latest version of the Salesforce CLI remains 7.111.0.
 
 ## 7.110.0 (July 15, 2021)
 
