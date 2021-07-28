@@ -12,7 +12,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the previous release notes.](./v50.md)
 
-## July 29, 2021
+## August 5, 2021
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
@@ -35,9 +35,13 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     `sfdx force:user:password:generate --complexity 4 --length 15`
 
+## July 29, 2021
+
+* We aren't releasing a Salesforce CLI patch this week. The latest version of Salesforce CLI remains 7.110.0.
+ 
 ## July 22, 2021
 
-* We aren't releasing a Salesforce CLI patch this week. The latest version of Salesforce CLI remains 7.111.0.
+* We aren't releasing a Salesforce CLI patch this week. The latest version of Salesforce CLI remains 7.110.0.
 
 ## 7.110.0 (July 15, 2021)
 
