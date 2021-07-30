@@ -16,13 +16,14 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* NEW: We [announced it back in June](https://github.com/forcedotcom/cli/issues/1057), and now it's a reality: we've greatly improved the performance and reliability of these deploy and retrieve commands:
+* NEW: We [announced it back in June](https://github.com/forcedotcom/cli/issues/1057), and now it's a reality: we've greatly improved the performance and reliability of these commands:
 
-    * `force:source:deploy`
-    * `force:source:retrieve`
     * `force:source:convert`
-    * `force:source:deploy:report`
+    * `force:source:deploy`
     * `force:source:deploy:cancel`
+    * `force:source:deploy:report`
+    * `force:source:open`
+    * `force:source:retrieve`
 
     Want to see what we did? We created a [new plug-in](https://github.com/salesforcecli/plugin-source) that's bundled with Salesforce CLI. The deploy-retrieve code itself is [here](https://github.com/forcedotcom/source-deploy-retrieve). Go ahead, give the updated commands a try; they work so fast, you can now leave work a little early and go surfing. Or bake banana bread. Or take a nap. The possibilities are endless.  
     
