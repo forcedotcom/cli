@@ -53,9 +53,6 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 * FIX: When the `force:org:create` command finishes executing, it cleans up after itself by removing the temporary folder it created called `shape`, including if the operation failed. The command also uses a separate and uniquely named folder for each execution. Previously, the command didn't remove the folder, which sometimes interfered with subsequent scratch org creates. 
 
-Now
-1. We clean up the folder as part of each scratch org creation, even if it failed
-2. Each operation uses a separate, uniquely named folder.
 ## July 29, 2021
 
 * We aren't releasing a Salesforce CLI patch this week. The latest version of Salesforce CLI remains 7.110.0.
