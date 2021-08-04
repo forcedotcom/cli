@@ -51,7 +51,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
     
 * FIX: The command `force:org:open --urlonly --json` no longer prints the error `JsonParseError: Unexpected end of JSON input` after the JSON output when you've also set the SFDX_LOG_LEVEL environment variable to `debug`. ([GitHub sfdx-core repo, issue #153](https://github.com/forcedotcom/sfdx-core/issues/153))
 
-* FIX: When the `force:org:create` command finishes executing, it cleans up after itself by removing the temporary folder it created called `shape`, including if the operation failed. The command also uses a separate and uniquely named folder for each execution. Previously, the command didn't remove the folder, which sometimes interfered with subsequent scratch org creates. 
+* FIX: When the `force:org:create` command finishes executing, the command cleans up after itself by removing the temporary folder it created called `shape`, including if the command fails. The command also uses a separate and uniquely named temporary folder for each execution; the folder is called `shape_<timestamp>`, such as `shape_1628100694156`. Previously, the command didn't remove the folder, which sometimes interfered with subsequent scratch org creates. If you want the folder to remain after the command finishes, set the SFDX_MDAPI_TEMP_DIR environment variable to the root folder where you want the `shape_<timestamp>` to live.
 
 ## July 29, 2021
 
