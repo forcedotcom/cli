@@ -179,7 +179,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
     |Operating System| File Type|TAR Compression Type | Link to JSON File|
     |----------------|-----------------------|------------------------|---------------------|
     |Linux ARM |TAR |gz |[sfdx-linux-arm-tar-gz.json](https://developer.salesforce.com/media/salesforce-cli/sfdx/versions/sfdx-linux-arm-tar-gz.json)|
-    |Linux ARM |TAR |xz |[sfdx-linux-arm-tar.xz.json](https://developer.salesforce.com/media/salesforce-cli/sfdx/versions/sfdx-linux-arm-tar.xz.json)|
+    |Linux ARM |TAR |xz |[sfdx-linux-arm-tar-xz.json](https://developer.salesforce.com/media/salesforce-cli/sfdx/versions/sfdx-linux-arm-tar-xz.json)|
     |Linux 64 |TAR |gz |[sfdx-linux-x64-tar-gz.json](https://developer.salesforce.com/media/salesforce-cli/sfdx/versions/sfdx-linux-x64-tar-gz.json)|
     |Linux 64 |TAR |xz |[sfdx-linux-x64-tar-xz.json](https://developer.salesforce.com/media/salesforce-cli/sfdx/versions/sfdx-linux-x64-tar-xz.json)|
     |Windows 64 |TAR |gz |[sfdx-win32-x64-tar-gz.json](https://developer.salesforce.com/media/salesforce-cli/sfdx/versions/sfdx-win32-x64-tar-gz.json)|
