@@ -12,6 +12,10 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the previous release notes.](./v50.md)
 
+## 7.113.0 (August 12, 2021)
+
+* FIX: We fixed some under-the-hood bugs.
+
 ## 7.112.0 (August 4, 2021)
 
 * NEW: We [announced it back in June](https://github.com/forcedotcom/cli/issues/1057), and now it's a reality: we've greatly improved the performance and reliability of these commands:
