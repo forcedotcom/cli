@@ -12,6 +12,37 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the previous release notes.](./v50.md)
 
+## Aug 19, 2021
+
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* NEW: Create a project manifest that lists the metadata components you want to deploy, retrieve, or delete with the new `force:source:manifest:create` command. 
+
+    Use the `--sourcepath` or `--metadata` parameters to specify the source files or metadata components to include in the manifest. Use the `--manifesttype` parameter to create a specific type of manifest with a prescribed name, such as the default `package.xml` or one that adds or deletes components, such as `destructiveChangesPost.xml`. Here are the valid parameter values and the corresponding created filenames:
+
+    * `package`  :  `package.xml` (default)
+    * `pre`  :  `destructiveChangesPre.xml`
+    * `post` : `destructiveChangesPost.xml`
+    * `destroy` : `destructiveChanges.xml`
+
+    Alternatively, use the `--manifestname` parameter to create a manifest with a custom name. See the Metadata API Developer Guide for information about the [package.xml manifest file](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_deploy.htm) and the [destructive changes manifest files](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_deploy_deleting_files.htm). 
+  
+    This example creates a default `package.xml` file that contains all the Apex classes in your project:
+
+    ```sfdx force:source:manifest:create -m ApexClass```
+
+    This example creates a `destructiveChanges.xml` manifest file that contains the `MyApexClass` metadata component:
+
+    ```sfdx force:source:manifest:create --metadata ApexClass:MyApexClass --manifesttype destroy```
+
+    This example creates a custom file called `myNewManifest.xml` that contains all the source in the `force-app` directory:
+
+    ```sfdx force:source:manifest:create --sourcepath force-app --manifestname myNewManifest```
+
+* FIX: The `force:source:convert --packagename <packagename> --outputdir <dir>` now works the same as before we broke out the deploy-retrieve code into its [own plug-in](https://github.com/salesforcecli/plugin-source). For a brief period, the command incorrectly created a `<packagename>` subdirectory under the output directory; now it correctly stores the converted files in the output directory as before. ([GitHub issue #1115](https://github.com/forcedotcom/cli/issues/1115))
+
+* FIX: Static resource compression when deploying with `force:source:deploy` now works the same as before we broke out the deploy-retrieve code into its [own plug-in](https://github.com/salesforcecli/plugin-source). For a brief period, the compression algorithm changed, which resulted in large static resources close to the 5-MB limit no longer deploying.  ([GitHub issue #1098](https://github.com/forcedotcom/cli/issues/1098))
+
 ## 7.113.0 (August 12, 2021)
 
 * FIX: We fixed some under-the-hood bugs.
