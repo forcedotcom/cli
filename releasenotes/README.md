@@ -14,6 +14,8 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 ## Aug 26, 2021
 
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
 * FIX: The `force:source:*` commands correctly deploy, retrieve, and convert big object indexes. ([GitHub issue #1141](https://github.com/forcedotcom/cli/issues/1141))
 
 * FIX: The `force:source:deploy` command correctly deploys a custom label. Previously it failed with the error `Not in package.xml`. ([GitHub issue #1133](https://github.com/forcedotcom/cli/issues/1133))
@@ -21,8 +23,6 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 * FIX: The `force:source:deploy` command correctly deploys custom objects that use field history tracking. Previously it failed with the error `Component conversion failed: group.push is not a function`.  ([GitHub issue #1119](https://github.com/forcedotcom/cli/issues/1119))
 
 * FIX: We’ve improved the error when the `force:source:*` commands encounter an unexpected metadata child type, such as an Apex class within a custom object. The new error (`Unexpected child metadata [/path/to/child/metadata] found for parent type [Parent]`) provides more information about the problem than the old error (`TypeError: Cannot set property 'content' of undefined at DecomposedSourceAdapter.populate`). ([GitHub issue #1106](https://github.com/forcedotcom/cli/issues/1106))
-
-
 
 ## 7.114.0 (Aug 19, 2021)
 
