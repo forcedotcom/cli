@@ -49,6 +49,12 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     ```sfdx force:source:manifest:create --sourcepath force-app --manifestname myNewManifest```
 
+* CHANGE: We no longer publish Docker container images called `salesforce/salesforcedx:latest` on Docker Hub. Instead we publish two flavors of the Salesforce CLI release and release candidate: slim and full. For example, to pull the slim version of the latest Salesforce CLI, run:
+
+    ```docker pull salesforce/salesforcedx:latest-slim```
+    
+    See [Run Salesforce CLI Using a Docker Image](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_docker.htm) for more information. 
+
 * FIX: The `force:source:convert --packagename <packagename> --outputdir <dir>` now works almost the same as before we broke out the deploy-retrieve code into its [own plug-in](https://github.com/salesforcecli/plugin-source). For a brief period, the command incorrectly created a `<packagename>` subdirectory under the output directory; now it correctly stores the converted files in the output directory as before. However, due to another bug, custom fields, list views, record types, compact layouts, and other metadata components aren't included in the `package.xml`. The fix will be available as soon as possible. ([GitHub issue #1115](https://github.com/forcedotcom/cli/issues/1115))
 
 * FIX: Static resource compression when deploying with `force:source:deploy` now works the same as before we broke out the deploy-retrieve code into its [own plug-in](https://github.com/salesforcecli/plugin-source). For a brief period, the compression algorithm changed, which resulted in large static resources close to the 5-MB limit no longer deploying.  ([GitHub issue #1098](https://github.com/forcedotcom/cli/issues/1098))
