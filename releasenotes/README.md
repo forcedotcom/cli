@@ -24,6 +24,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We’ve improved the error when the `force:source:*` commands encounter an unexpected metadata child type, such as an Apex class within a custom object. The new error (`Unexpected child metadata [/path/to/child/metadata] found for parent type [Parent]`) provides more information about the problem than the old error (`TypeError: Cannot set property 'content' of undefined at DecomposedSourceAdapter.populate`). ([GitHub issue #1106](https://github.com/forcedotcom/cli/issues/1106))
 
+* FIX: The command `force:org:list --json` consistently includes namespace prefixes for scratch orgs that have them. ([GitHub issue #1146](https://github.com/forcedotcom/cli/issues/1146))
+
 ## 7.114.0 (Aug 19, 2021)
 
 * NEW: Create a project manifest that lists the metadata components you want to deploy, retrieve, or delete with the new `force:source:manifest:create` command. 
