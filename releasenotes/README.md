@@ -16,7 +16,14 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* FIX: The `force:source:*` commands correctly deploy, retrieve, and convert big object indexes. ([GitHub issue #1141](https://github.com/forcedotcom/cli/issues/1141))
+* NEW:  Check out the new `sf` CLI! We plan to officially announce the beta later this week when we'll also publish a Getting Started guide. But get a sneak peek preview in this week's Salesforce CLI release candidate.
+
+    ```bash
+    $ sfdx update stable-rc
+    $ sf help
+    ```
+ 
+ * FIX: The `force:source:*` commands correctly deploy, retrieve, and convert big object indexes. ([GitHub issue #1141](https://github.com/forcedotcom/cli/issues/1141))
 
 * FIX: The `force:source:deploy` command correctly deploys a custom label. Previously it failed with the error `Not in package.xml`. ([GitHub issue #1133](https://github.com/forcedotcom/cli/issues/1133))
 
