@@ -18,7 +18,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
  * FIX: When running `force:source:deploy -m`, you can now include a space when specifying the metadata type, as long as you enclose the parameter value in double quotes. Previously, including a space, such as `-m "ApexClass: MyClass"` returned the error `No source backed components present in the package.` ([GitHub issue #1151](https://github.com/forcedotcom/cli/issues/1151))
 
-* FIX: The `force:source:*` commands support this metadata type: InboundCertificate. ([GitHub issue #995](https://github.com/forcedotcom/cli/issues/995))
+* FIX: The `force:source:*` commands now support the InboundCertificate metadata type. ([GitHub issue #995](https://github.com/forcedotcom/cli/issues/995))
 
 ## 7.115.1 (Aug 26, 2021)
 
