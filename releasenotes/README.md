@@ -31,7 +31,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     $ sfdx update
     $ sf help
     ```
-    Read the [Getting Started guide](https://github.com/salesforcecli/cli/wiki), give the commands a try, and let us know what you think. 
+    Read the [Getting Started guide](https://github.com/salesforcecli/cli/wiki), give the commands a try, and let us know what you think. (**NOTE**: We're making the new top-level GitHub repo public sometime during Aug 26. If the link to the guide doesn't yet work, try a little later!)
  
  * FIX: The `force:source:*` commands correctly deploy, retrieve, and convert big object indexes. ([GitHub issue #1141](https://github.com/forcedotcom/cli/issues/1141))
 
