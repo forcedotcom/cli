@@ -12,16 +12,26 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the previous release notes.](./v50.md)
 
-## Aug 26, 2021
+## Sep 2, 2021
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* NEW:  Check out the new `sf` CLI! We plan to officially announce the beta later this week when we'll also publish a Getting Started guide. But get a sneak peek preview in this week's Salesforce CLI release candidate.
+ * FIX: When running `force:source:deploy -m`, you can now include a space when specifying the metadata type, as long as you enclose the parameter value in double quotes. Previously, including a space, such as `-m "ApexClass: MyClass"` returned the error `No source backed components present in the package.` ([GitHub issue #1151](https://github.com/forcedotcom/cli/issues/1151))
+
+* FIX: The `force:source:*` commands now support the InboundCertificate metadata type. ([GitHub issue #995](https://github.com/forcedotcom/cli/issues/995))
+
+* FIX: The `force:source:deploy` command correctly deploys the IndustriesManufacturingSettings metadata type.  Previously it returned the error `Unknown type name 'IndustriesManufacturingSettings' specified in package.xml`. ([GitHub issue #866](https://github.com/forcedotcom/cli/issues/866))
+
+
+## 7.115.1 (Aug 26, 2021)
+
+* NEW:  Check out the new `sf` CLI! Update `sfdx` to this week's release and you automatically get the beta version of `sf`. 
 
     ```bash
-    $ sfdx update stable-rc
+    $ sfdx update
     $ sf help
     ```
+    Read the [Getting Started guide](https://github.com/salesforcecli/cli/wiki), give the commands a try, and let us know what you think. 
  
  * FIX: The `force:source:*` commands correctly deploy, retrieve, and convert big object indexes. ([GitHub issue #1141](https://github.com/forcedotcom/cli/issues/1141))
 
