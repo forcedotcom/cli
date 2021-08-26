@@ -20,6 +20,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `force:source:*` commands now support the InboundCertificate metadata type. ([GitHub issue #995](https://github.com/forcedotcom/cli/issues/995))
 
+* FIX: The `force:source:deploy` command correctly deploys the IndustriesManufacturingSettings metadata type.  Previously it returned the error `Unknown type name 'IndustriesManufacturingSettings' specified in package.xml`. ([GitHub issue #866](https://github.com/forcedotcom/cli/issues/866))
+
+
 ## 7.115.1 (Aug 26, 2021)
 
 * NEW:  Check out the new `sf` CLI! Update `sfdx` to this week's release and you automatically get the beta version of `sf`. 
