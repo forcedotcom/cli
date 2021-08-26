@@ -22,6 +22,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `force:source:deploy` command correctly deploys the IndustriesManufacturingSettings metadata type.  Previously it returned the error `Unknown type name 'IndustriesManufacturingSettings' specified in package.xml`. ([GitHub issue #866](https://github.com/forcedotcom/cli/issues/866))
 
+* FIX: The `force:source:convert` command now includes child elements in the `package.xml` manifest file, such as custom fields of a custom object. Previously the command didn't include them in the manifest, which caused deployments to packaging orgs to fail with an error such as `UNKNOWN_EXCEPTION: Unable to handle <element>. filepath not expected`. ([GitHub issue #1115](https://github.com/forcedotcom/cli/issues/1115))
+
+* FIX: The `force:source:deploy|retrieve|convert` commands support the Territory2 metadata types. ([GitHub issue #1147](https://github.com/forcedotcom/cli/issues/1147))
+
 
 ## 7.115.1 (Aug 26, 2021)
 
