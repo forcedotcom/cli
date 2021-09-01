@@ -29,7 +29,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
 * FIX: Because the Metadata API doesn't support the CustomFieldTranslation metadata type, the `force:source:deploy|retrieve|convert` commands now correctly exclude it from the `package.xml` file. Previously it wasn't excluded, and when you ran the commands you'd get the error `Unknown type name 'CustomFieldTranslation' specified in package.xml`. 
 
-* FIX: The `force:source:deploy|retrieve|convert` commands now support the AuraDefinitionBundle metadata type being located within a CustomObject folder in your project. Previously the commands would return an error similar to this one: `ERROR running force:source:retrieve: Cannot read property 'id' of undefined`. ([GitHub issues #1148](https://github.com/forcedotcom/cli/issues/1148))
+* FIX: The `force:source:deploy|retrieve|convert` commands now support the AuraDefinitionBundle metadata type being located within a CustomObject folder in your project. Previously the commands would return an error similar to this one: `ERROR running force:source:retrieve: Cannot read property 'id' of undefined`. ([GitHub issue #1148](https://github.com/forcedotcom/cli/issues/1148))
 
 ## 7.116.2 (Sep 2, 2021)
 
