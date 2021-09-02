@@ -16,16 +16,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* FIX: The `force:source:deploy|retrieve|convert` commands correctly support these metadata types:
-   
-    * AssignmentRule
-    * AuraDefinitionBundle
-    * AutoResponseRule
-    * RestrictionRule 
-    * SharingCriteriaRule
-    * SharingOwnerRule
-
-    (GitHub issues [#1115](https://github.com/forcedotcom/cli/issues/1115) and [#1158](https://github.com/forcedotcom/cli/issues/1158))
+* FIX: The `force:source:deploy|retrieve|convert` commands now support the RestrictionRule metadata type. ([GitHub issue #1158](https://github.com/forcedotcom/cli/issues/1158))
     
 * FIX: As a result of a recent Salesforce CLI bug fix, the `force:source:deploy|retrieve|convert` commands incorrectly started including the CustomFieldTranslation metadata type in the manifest when handling CustomObjectTranslation types. Because the Metadata API doesn't support CustomFieldTranslation, deploys and retrieves resulted in the error `Unknown type name 'CustomFieldTranslation' specified in package.xml` The commands no longer include the CustomFieldTranslation type in the manifest. (GitHub issues [1135](https://github.com/forcedotcom/cli/issues/1135) and [1161](https://github.com/forcedotcom/cli/issues/1161)) 
 
