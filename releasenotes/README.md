@@ -25,11 +25,11 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * SharingCriteriaRule
     * SharingOwnerRule
 
-    ([GitHub issue #1158](https://github.com/forcedotcom/cli/issues/1158))
+    (GitHub issues [#1115](https://github.com/forcedotcom/cli/issues/1115) and [#1158](https://github.com/forcedotcom/cli/issues/1158))
     
-* FIX: Because the Metadata API doesn't support the CustomFieldTranslation metadata type, the `force:source:deploy|retrieve|convert` commands now correctly exclude it from the `package.xml` file. Previously it wasn't excluded, and when you ran the commands you'd get the error `Unknown type name 'CustomFieldTranslation' specified in package.xml`. 
+* FIX: As a result of a recent Salesforce CLI bug fix, the `force:source:deploy|retrieve|convert` commands incorrectly started including the CustomFieldTranslation metadata type in the manifest when handling CustomObjectTranslation types. Because the Metadata API doesn't support CustomFieldTranslation, deploys and retrieves resulted in the error `Unknown type name 'CustomFieldTranslation' specified in package.xml` The commands no longer include the CustomFieldTranslation type in the manifest. (GitHub issues [1135](https://github.com/forcedotcom/cli/issues/1135) and [1161](https://github.com/forcedotcom/cli/issues/1161)) 
 
-* FIX: The `force:source:deploy|retrieve|convert` commands now support the AuraDefinitionBundle metadata type being located within a CustomObject folder in your project. Previously the commands would return an error similar to this one: `ERROR running force:source:retrieve: Cannot read property 'id' of undefined`. ([GitHub issue #1148](https://github.com/forcedotcom/cli/issues/1148))
+* FIX: We’ve improved the error when the `force:source:deploy|retrieve|convert` commands encounter an Aura metadata type, such as AuraDefinitionBundle, within a custom object folder in your project. The new error (`Unexpected child metadata [/path/to/child/metadata] found for parent type [Parent]`) provides more information about the problem than the old error (`ERROR running force:source:retrieve: Cannot read property 'id' of undefined`). ([GitHub issue #1148](https://github.com/forcedotcom/cli/issues/1148))
 
 ## 7.116.2 (Sep 2, 2021)
 
