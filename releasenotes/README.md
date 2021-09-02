@@ -12,11 +12,28 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the previous release notes.](./v50.md)
 
-## Sep 2, 2021
+## Sept 9, 2021
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
- * FIX: When running `force:source:deploy -m`, you can now include a space when specifying the metadata type, as long as you enclose the parameter value in double quotes. Previously, including a space, such as `-m "ApexClass: MyClass"` returned the error `No source backed components present in the package.` ([GitHub issue #1151](https://github.com/forcedotcom/cli/issues/1151))
+* FIX: The `force:source:deploy|retrieve|convert` commands correctly support these metadata types:
+   
+    * AssignmentRule
+    * AuraDefinitionBundle
+    * AutoResponseRule
+    * RestrictionRule 
+    * SharingCriteriaRule
+    * SharingOwnerRule
+
+    (GitHub issues [#1115](https://github.com/forcedotcom/cli/issues/1115) and [#1158](https://github.com/forcedotcom/cli/issues/1158))
+    
+* FIX: As a result of a recent Salesforce CLI bug fix, the `force:source:deploy|retrieve|convert` commands incorrectly started including the CustomFieldTranslation metadata type in the manifest when handling CustomObjectTranslation types. Because the Metadata API doesn't support CustomFieldTranslation, deploys and retrieves resulted in the error `Unknown type name 'CustomFieldTranslation' specified in package.xml` The commands no longer include the CustomFieldTranslation type in the manifest. (GitHub issues [1135](https://github.com/forcedotcom/cli/issues/1135) and [1161](https://github.com/forcedotcom/cli/issues/1161)) 
+
+* FIX: We’ve improved the error when the `force:source:deploy|retrieve|convert` commands encounter an Aura metadata type, such as AuraDefinitionBundle, within a custom object folder in your project. The new error (`Unexpected child metadata [/path/to/child/metadata] found for parent type [Parent]`) provides more information about the problem than the old error (`ERROR running force:source:retrieve: Cannot read property 'id' of undefined`). ([GitHub issue #1148](https://github.com/forcedotcom/cli/issues/1148))
+
+## 7.116.2 (Sep 2, 2021)
+
+* FIX: When running `force:source:deploy -m`, you can now include a space when specifying the metadata type, as long as you enclose the parameter value in double quotes. Previously, including a space, such as `-m "ApexClass: MyClass"` returned the error `No source backed components present in the package.` ([GitHub issue #1151](https://github.com/forcedotcom/cli/issues/1151))
 
 * FIX: The `force:source:*` commands now support the InboundCertificate metadata type. ([GitHub issue #995](https://github.com/forcedotcom/cli/issues/995))
 
