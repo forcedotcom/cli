@@ -12,6 +12,12 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the previous release notes.](./v50.md)
 
+## Sept 16, 2021
+
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* FIX: The `force:source:deploy|retrieve|convert` commands now support the SharingCriteriaRule, SharingOwnerRule, AutoResponseRule, and AssignmentRule metadata types. ([GitHub issue #833](https://github.com/forcedotcom/cli/issues/833))
+
 ## 7.117.0 (Sept 9, 2021)
 
 * FIX: The `force:source:deploy|retrieve|convert` commands now support the RestrictionRule metadata type. ([GitHub issue #1158](https://github.com/forcedotcom/cli/issues/1158))
