@@ -18,6 +18,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `force:mdapi:deploy:cancel` command no longer fails with the error `TypeError: MdapiCancelCommandImpl is not a constructor`.
 
+* FIX: The `force:source:deploy|retrieve|convert` commands now support the ManagedTopics metadata type. ([GitHub issue #1192](https://github.com/forcedotcom/cli/issues/1192))
+
+* FIX: The `force:source:deploy|retrieve|convert` commands now support the Reports, Dashboards, Documents, and EmailTemplates metadata types. Note that these types don't yet work when nested in directories more than one level. We're working on the fix. (GitHub issues [#1165](https://github.com/forcedotcom/cli/issues/1165) and [#1180](https://github.com/forcedotcom/cli/issues/1180))
+
 ## 7.118.1 (Sept 16, 2021)
 
 * FIX: The `force:source:deploy|retrieve|convert` commands now support the SharingCriteriaRule, SharingOwnerRule, AutoResponseRule, and AssignmentRule metadata types. ([GitHub issue #833](https://github.com/forcedotcom/cli/issues/833))
