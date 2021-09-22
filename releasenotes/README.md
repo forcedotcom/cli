@@ -28,7 +28,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
  
 * FIX: The `force:source:deploy|retrieve|convert` commands now support the Reports, Dashboards, Documents, and EmailTemplates metadata types when they're nested in directories of more than one level. (GitHub issues [#1112](https://github.com/forcedotcom/cli/issues/1112) and [#1173](https://github.com/forcedotcom/cli/issues/1173))
 
-* FIX: Running `force:org:create` in certain circumstances no longer returns the error `Socket timeout occurred while listening for results.` ([GitHub issue #1149](https://github.com/forcedotcom/cli/issues/1149))
+* FIX: The `force:org:create` command now uses only polling, and not the Streaming API, to listen for updates about the scratch org creation. As a result, you no longer get the error `Socket timeout occurred while listening for results` if the scratch org creation takes a long time. ([GitHub issue #1149](https://github.com/forcedotcom/cli/issues/1149))
 
 ## 7.119.1 (Sept 24, 2021)
 
