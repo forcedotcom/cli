@@ -21,6 +21,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     For example, to run all org tests when you delete the MyMetadataType type from both your local project and the org, run this command:
     
     `sfdx force:source:delete --metadata MyMetadataType --testlevel RunAllTestsInOrg`
+    
+    As a result of this new feature, [GitHub issue #971](https://github.com/forcedotcom/cli/issues/971) is fixed.
 
 * FIX: The `force:source:deploy|retrieve|convert` commands now support the Reports, Dashboards, Documents, and EmailTemplates metadata types when they're nested in directories more than one level. (GitHub issues [#1112](https://github.com/forcedotcom/cli/issues/1112) and [#1173](https://github.com/forcedotcom/cli/issues/1173))
 
