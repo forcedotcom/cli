@@ -16,15 +16,19 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* NEW: Specify the level of deployment tests to run when you delete metadata source files with the new `--testlevel` parameter of `force:source:delete`. The new parameter works the same as the `--testlevel` parameter of `force:source:delete` and has the same valid values: `NoTestRun`, `RunSpecifiedTests`, `RunLocalTests`, and `RunAllTestsInOrg`. See the [CLI Reference guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_force_source.htm#cli_reference_force_source_deploy) for more information about each value. 
+* NEW: Specify the level of deployment tests to run when you delete metadata source files with the new `--testlevel` parameter of `force:source:delete`. The new parameter works the same as the `--testlevel` parameter of `force:source:deploy`, although the list of valid values is shorter: `NoTestRun`, `RunLocalTests`, and `RunAllTestsInOrg`. See the [CLI Reference guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_force_source.htm#cli_reference_force_source_deploy) for more information about each value. 
 
     For example, to run all org tests when you delete the MyMetadataType type from both your local project and the org, run this command:
     
     `sfdx force:source:delete --metadata MyMetadataType --testlevel RunAllTestsInOrg`
     
     As a result of this new feature, [GitHub issue #971](https://github.com/forcedotcom/cli/issues/971) is fixed.
-
+    
+* CHANGE: As we [warned last year](./v50.md#5020-october-22-2020---cli-7771), the `force:source:*` commands no longer support the old format of the `.forceignore` file. When parsing the `.forceignore` file, the commands now always use the same rules and patterns as [git uses with the `.gitignore` file](https://git-scm.com/docs/gitignore). 
+ 
 * FIX: The `force:source:deploy|retrieve|convert` commands now support the Reports, Dashboards, Documents, and EmailTemplates metadata types when they're nested in directories of more than one level. (GitHub issues [#1112](https://github.com/forcedotcom/cli/issues/1112) and [#1173](https://github.com/forcedotcom/cli/issues/1173))
+
+* FIX: Running `force:org:create` in certain circumstances no longer returns the error `Socket timeout occurred while listening for results.` ([GitHub issue #1149](https://github.com/forcedotcom/cli/issues/1149))
 
 ## 7.119.1 (Sept 24, 2021)
 
