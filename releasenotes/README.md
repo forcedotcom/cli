@@ -12,9 +12,19 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the previous release notes.](./v50.md)
 
-## Sept 24, 2021
+## Sept 30, 2021
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* NEW: Specify the level of deployment tests to run when you delete metadata source files with the new `--testlevel` parameter of `force:source:delete`. The new parameter works the same as the `--testlevel` parameter of `force:source:delete` and has the same valid values: `NoTestRun`, `RunSpecifiedTests`, `RunLocalTests`, and `RunAllTestsInOrg`. See the [CLI Reference guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_force_source.htm#cli_reference_force_source_deploy) for more information about each value. 
+
+    For example, to run all org tests when you delete the MyMetadataType type from both your local project and the org, run this command:
+    
+    `sfdx force:source:delete --metadata MyMetadataType --testlevel RunAllTestsInOrg`
+
+* FIX: The `force:source:deploy|retrieve|convert` commands now support the Reports, Dashboards, Documents, and EmailTemplates metadata types when they're nested in directories more than one level. (GitHub issues [#1112](https://github.com/forcedotcom/cli/issues/1112) and [#1173](https://github.com/forcedotcom/cli/issues/1173))
+
+## 7.119.1 (Sept 24, 2021)
 
 * FIX: The `force:mdapi:deploy:cancel` command no longer fails with the error `TypeError: MdapiCancelCommandImpl is not a constructor`.
 
