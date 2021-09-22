@@ -24,7 +24,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
     As a result of this new feature, [GitHub issue #971](https://github.com/forcedotcom/cli/issues/971) is fixed.
 
-* FIX: The `force:source:deploy|retrieve|convert` commands now support the Reports, Dashboards, Documents, and EmailTemplates metadata types when they're nested in directories more than one level. (GitHub issues [#1112](https://github.com/forcedotcom/cli/issues/1112) and [#1173](https://github.com/forcedotcom/cli/issues/1173))
+* FIX: The `force:source:deploy|retrieve|convert` commands now support the Reports, Dashboards, Documents, and EmailTemplates metadata types when they're nested in directories of more than one level. (GitHub issues [#1112](https://github.com/forcedotcom/cli/issues/1112) and [#1173](https://github.com/forcedotcom/cli/issues/1173))
 
 ## 7.119.1 (Sept 24, 2021)
 
