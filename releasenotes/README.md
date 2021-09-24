@@ -12,15 +12,35 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the previous release notes.](./v50.md)
 
-## Sept 24, 2021
+## Sept 30, 2021
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* NEW: Specify the level of deployment tests to run when you delete metadata source files with the new `--testlevel` parameter of `force:source:delete`. The new parameter works the same as the `--testlevel` parameter of `force:source:deploy`, although the list of valid values is shorter: `NoTestRun`, `RunLocalTests`, and `RunAllTestsInOrg`. See the [CLI Reference guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_force_source.htm#cli_reference_force_source_deploy) for more information about each value. 
+
+    For example, to run all org tests when you delete the MyMetadataType type from both your local project and the org, run this command:
+    
+    `sfdx force:source:delete --metadata MyMetadataType --testlevel RunAllTestsInOrg`
+    
+    As a result of this new feature, [GitHub issue #971](https://github.com/forcedotcom/cli/issues/971) is fixed.
+    
+* CHANGE: As we [warned last year](./v50.md#5020-october-22-2020---cli-7771), the `force:source:*` commands no longer support the old format of the `.forceignore` file. When parsing the `.forceignore` file, the commands now always use the same rules and patterns as [git uses with the `.gitignore` file](https://git-scm.com/docs/gitignore). 
+ 
+* FIX: The `force:source:deploy|retrieve|convert` commands now support the Reports, Dashboards, Documents, and EmailTemplates metadata types when they're nested in directories of more than one level. (GitHub issues [#1112](https://github.com/forcedotcom/cli/issues/1112) and [#1173](https://github.com/forcedotcom/cli/issues/1173))
+
+* FIX: The `force:source:deploy` command provides more failure details in situations where it previously reported the un-helpful `Deploy Failed`
+
+* FIX: The `force:org:create` command now uses only polling, and not the Streaming API, to listen for updates about the scratch org creation. As a result, you no longer get the error `Socket timeout occurred while listening for results` if the scratch org creation takes a long time. ([GitHub issue #1149](https://github.com/forcedotcom/cli/issues/1149))
+
+## 7.119.2 (Sept 24, 2021)
 
 * FIX: The `force:mdapi:deploy:cancel` command no longer fails with the error `TypeError: MdapiCancelCommandImpl is not a constructor`.
 
 * FIX: The `force:source:deploy|retrieve|convert` commands now support the ManagedTopics metadata type. ([GitHub issue #1192](https://github.com/forcedotcom/cli/issues/1192))
 
 * FIX: The `force:source:deploy|retrieve|convert` commands now support the Reports, Dashboards, Documents, and EmailTemplates metadata types. Note that these types don't yet work when nested in directories more than one level. We're working on the fix. (GitHub issues [#1165](https://github.com/forcedotcom/cli/issues/1165) and [#1180](https://github.com/forcedotcom/cli/issues/1180))
+
+* FIX: `plugins:install` no longer fails for Windows users (Github issue [#1198](https://github.com/forcedotcom/cli/issues/1198)) as part of the change to support plugins in private npm packages and private registries.
 
 ## 7.118.1 (Sept 16, 2021)
 
