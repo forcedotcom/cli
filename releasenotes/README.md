@@ -28,15 +28,19 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
  
 * FIX: The `force:source:deploy|retrieve|convert` commands now support the Reports, Dashboards, Documents, and EmailTemplates metadata types when they're nested in directories of more than one level. (GitHub issues [#1112](https://github.com/forcedotcom/cli/issues/1112) and [#1173](https://github.com/forcedotcom/cli/issues/1173))
 
+* FIX: The `force:source:deploy` command provides more failure details in situations where it previously reported the un-helpful `Deploy Failed`
+
 * FIX: The `force:org:create` command now uses only polling, and not the Streaming API, to listen for updates about the scratch org creation. As a result, you no longer get the error `Socket timeout occurred while listening for results` if the scratch org creation takes a long time. ([GitHub issue #1149](https://github.com/forcedotcom/cli/issues/1149))
 
-## 7.119.1 (Sept 24, 2021)
+## 7.119.2 (Sept 24, 2021)
 
 * FIX: The `force:mdapi:deploy:cancel` command no longer fails with the error `TypeError: MdapiCancelCommandImpl is not a constructor`.
 
 * FIX: The `force:source:deploy|retrieve|convert` commands now support the ManagedTopics metadata type. ([GitHub issue #1192](https://github.com/forcedotcom/cli/issues/1192))
 
 * FIX: The `force:source:deploy|retrieve|convert` commands now support the Reports, Dashboards, Documents, and EmailTemplates metadata types. Note that these types don't yet work when nested in directories more than one level. We're working on the fix. (GitHub issues [#1165](https://github.com/forcedotcom/cli/issues/1165) and [#1180](https://github.com/forcedotcom/cli/issues/1180))
+
+* FIX: `plugins:install` no longer fails for Windows users (Github issue [#1198](https://github.com/forcedotcom/cli/issues/1198)) as part of the change to support plugins in private npm packages and private registries.
 
 ## 7.118.1 (Sept 16, 2021)
 
