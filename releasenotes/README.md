@@ -16,6 +16,10 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* NEW: Some commands (`force:org:open`, `force:org:display`, `force:user:display`, `force:source:open`) output tokens and URLs with tokens embedded in them.  They now include a warning about the risks of sharing that sensitive information. 
+
+* NEW: `force:source:retrieve -m CustomField` (or the manifest equivalent using `*` for CustomField without CustomObject entries) succeeds but returns no results.  It's a confusing Metadata API quirk.  Now, when you run the command like that, it will output a warning with instructions for how to do what you probably meant to do.
+
 * NEW: Specify the level of deployment tests to run when you delete metadata source files with the new `--testlevel` parameter of `force:source:delete`. The new parameter works the same as the `--testlevel` parameter of `force:source:deploy`, although the list of valid values is shorter: `NoTestRun`, `RunLocalTests`, and `RunAllTestsInOrg`. See the [CLI Reference guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_force_source.htm#cli_reference_force_source_deploy) for more information about each value. 
 
     For example, to run all org tests when you delete the MyMetadataType type from both your local project and the org, run this command:
