@@ -12,9 +12,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the previous release notes.](./v50.md)
 
-## Sept 30, 2021
-
-These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+## 7.120.0 (Sept 30, 2021)
 
 * NEW: Some commands (`force:org:open`, `force:org:display`, `force:user:display`, `force:source:open`) output tokens and URLs with tokens embedded in them.  They now include a warning about the risks of sharing that sensitive information. 
 
