@@ -12,6 +12,16 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 [Click here for the previous release notes.](./v50.md)
 
+## Oct 7, 2021
+
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* CHANGE: As we announced on [March 18, 2021](./README.md#5140-march-18-2021---cli-7920), the `--json` output of the `force:org:list` command no longer returns the property `connectedStatus` for scratch orgs. We've also removed the warning. 
+
+* FIX: When you delete a scratch org with the `force:org:delete` command, we now ensure that the associated Dev Hub org always deletes the corresponding record from the ActiveScratchOrg object. Previously, in certain circumstances, the record wasn't deleted, which could cause you to incorrectly exceed over your scratch org limit. ([GitHub issue #1155](https://github.com/forcedotcom/cli/issues/1155))
+
+* FIX: The `force:source:convert` command correctly converts the `CustomFieldTranslation` metadata type.
+
 ## 7.120.0 (Sept 30, 2021)
 
 * NEW: Some commands (`force:org:open`, `force:org:display`, `force:user:display`, `force:source:open`) display tokens and URLs with tokens embedded in them.  They now include a warning about the risks of sharing that sensitive information. 
