@@ -14,9 +14,11 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 ## 7.120.0 (Sept 30, 2021)
 
-* NEW: Some commands (`force:org:open`, `force:org:display`, `force:user:display`, `force:source:open`) output tokens and URLs with tokens embedded in them.  They now include a warning about the risks of sharing that sensitive information. 
+* NEW: Some commands (`force:org:open`, `force:org:display`, `force:user:display`, `force:source:open`) display tokens and URLs with tokens embedded in them.  They now include a warning about the risks of sharing that sensitive information. 
 
-* NEW: `force:source:retrieve -m CustomField` (or the manifest equivalent using `*` for CustomField without CustomObject entries) succeeds but returns no results.  It's a confusing Metadata API quirk.  Now, when you run the command like that, it will output a warning with instructions for how to do what you probably meant to do.
+* NEW: We've added a warning and additional information to explain why the command `force:source:retrieve -m CustomField` succeeds but returns no results, even when your org contains custom fields. This behavior is expected because the Metadata API never returns results if you retrieve the `CustomField` type on its own without also retrieving `CustomObject`. If you want to retrieve all your custom fields, try this command instead: `force:source:retrieve -m CustomField,CustomObject`.
+
+    You get the same behavior if you run `force:source:retrieve -x manifest` and your manifest file contains a `CustomField` entry with an `*` to retrieve all custom fields, but no `CustomObject` entry. Check out the new warning for hints to actually retrieve your custom fields.
 
 * NEW: Specify the level of deployment tests to run when you delete metadata source files with the new `--testlevel` parameter of `force:source:delete`. The new parameter works the same as the `--testlevel` parameter of `force:source:deploy`, although the list of valid values is shorter: `NoTestRun`, `RunLocalTests`, and `RunAllTestsInOrg`. See the [CLI Reference guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_force_source.htm#cli_reference_force_source_deploy) for more information about each value. 
 
