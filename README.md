@@ -22,7 +22,7 @@ The release notes for both executables (`sf` and `sfdx`) are maintained in [this
 * _[Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)_ - How to install, update, and configure Salesforce CLI. 
 * _[Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)_ - Step-by-step guide on how to use the Salesforce DX tools.
 * _[Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)_ - Complete reference documentation for all Salesforce CLI commands.
-* [Build Apps Together with Package Development](https://trailhead.salesforce.com/en/content/learn/trails/sfdx_get_started) - Step-by-step Trailhead trail of tutorials for the Salesforce DX tools. Discover how the package development model facilitates team development.
+* [Build Apps Together with Package Development](https://trailhead.salesforce.com/en/content/learn/trails/sfdx_get_started) - Step-by-step Trailhead trail of tutorials for the Salesforce DX tools.
 * [Salesforce Developers Blog](https://developer.salesforce.com/blogs/) 
 
 # The up-to-date list of CLI [Repositories](https://github.com/salesforcecli/status) 
