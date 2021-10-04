@@ -8,6 +8,14 @@ If you have encountered a bug in Salesforce CLI, please first go to the [Salesfo
 
 NOTICE: GitHub is not a mechanism for receiving support under any agreement or SLA. If you require immediate assistance, please use official support channels.
 
+# A note on CLI Unification
+
+We recently introduced a new executable, sf, to the Salesforce CLI. This is the realization of our strategy to unify our developer tooling across all Salesforce clouds and brands. Please see our_[Getting Started Guide](link to getting stared guide) for CLI Unification for more information 
+
+For bugs and feature requests for sf please submit them directly to the sf repo _[here](https://github.com/salesforcecli/cli). This will allow our teams to keep these issues organized. We of course will continue to monitor this repo for new issues about sfdx. 
+
+sf release notes will also be in this repository found under release notes
+
 # Salesforce DX and CLI Documentation 
 
 * _[Release Notes](./releasenotes/README.md)_ - Read about the new and changed features in recent weekly updates to Salesforce CLI. 
