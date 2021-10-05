@@ -10,7 +10,9 @@ Run `sfdx update stable-rc` to update to the release candidate. To return to the
 
 If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_autocomplete.htm), run `sfdx autocomplete --refresh-cache` after you update Salesforce CLI to ensure that autocomplete works correctly on any new commands.
 
-[Click here for the previous release notes.](./v50.md)
+[Click here for the previous sfdx release notes.](./v50.md)
+
+Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
 ## Oct 7, 2021
 
