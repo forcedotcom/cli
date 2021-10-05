@@ -1,4 +1,4 @@
-# Salesforce CLI Release Notes (sfdx Executable)
+# Salesforce CLI Release Notes (sfdx Commands)
 
 Here are the new and changed features in recent updates of the `sfdx` executable of Salesforce CLI.
 
