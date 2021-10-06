@@ -22,6 +22,8 @@ These changes are in the Salesforce CLI (`sfdx` executable) release candidate. W
 
 * FIX: The `force:source:deploy|retrieve|convert|delete` commands support the SharingGuestRule metadata type again. ([GitHub issue #1199](https://github.com/forcedotcom/cli/issues/1199))
 
+* FIX: The `force:source:delete` command no longer fails when you try to delete metadata types that are in the org, but not in your local project directory. Previously you'd get the error `Entity of type MD-Type named MD-Type-Name cannot be found`.  ([GitHub issue #1203](https://github.com/forcedotcom/cli/issues/1203))
+
 
 ## 7.121.2 (Oct 7, 2021)
 
