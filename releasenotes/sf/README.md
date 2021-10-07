@@ -1,6 +1,6 @@
 # Salesforce CLI Release Notes (sf Commands)
 
-## 1.0.4 (Oct 6, 2021)
+## 1.0.4 (Oct 7, 2021)
 
 Welcome to the first GA release of the new `sf` executable of Salesforce CLI!
 
