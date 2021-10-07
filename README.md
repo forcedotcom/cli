@@ -4,15 +4,13 @@ This is an issue-only repository for Salesforce CLI. We monitor this repository 
 
 If you have a feature or enhancement request for Salesforce CLI that is not related to our open-source repositories (see list below), please submit an issue here. 
 
-If you have encountered a bug in Salesforce CLI, please first go to the [Salesforce DX](https://success.salesforce.com/issues_index?tag=Salesforce%20DX) section in Known Issues to determine if there is already a documented workaround. If you don’t see your bug listed, please open an issue on this repository. 
+If you have encountered a bug in with the `sfdx` or `sf` CLI, please first go to the [Salesforce DX](https://success.salesforce.com/issues_index?tag=Salesforce%20DX) section in Known Issues to determine if there is already a documented workaround. If you don’t see your bug listed, please open an issue on this repository.
 
 NOTICE: GitHub is not a mechanism for receiving support under any agreement or SLA. If you require immediate assistance, please use official support channels.
 
 # A note on CLI Unification
 
 We recently introduced a new executable `sf` to Salesforce CLI. This is the realization of our strategy to unify our developer tooling across all Salesforce clouds and brands. See [Get Started with CLI Unification](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_sf_intro.htm) for more information.
-
-Submit `sf` bugs and feature requests directly to [the `sf` repo](https://github.com/salesforcecli/cli/issues). Continue to submit `sfdx` bugs and feature requests to [this repo](https://github.com/forcedotcom/cli/issues). Separating the issues related to the two executables allows the CLI team to keep them organized. 
 
 The release notes for both executables (`sf` and `sfdx`) are maintained in [this repo](https://github.com/forcedotcom/cli/tree/main/releasenotes). 
 

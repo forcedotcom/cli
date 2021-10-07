@@ -34,8 +34,11 @@ _Describe what actually happened_.
 
 ### System Information
 
-Run `sfdx version --verbose --json` and paste the output here.
-
+- If you are using `sfdx`
+	- Run `sfdx version --verbose --json`
+- If you are using `sf`
+	- Run `sf version` **AND** `sf plugins --core`
+- Paste the output here
 ### Additional information
 
 _Feel free to attach a screenshot_.
