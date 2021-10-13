@@ -20,9 +20,9 @@ These changes are in the Salesforce CLI (`sfdx` executable) release candidate. W
 
 * FIX: The `force:source:deploy|retrieve|convert|delete` commands support the `EclairGeoData` metadata type again.
 
-* FIX: The `force:org:display --json` command once again displays the security warning about exposing sensitive information. ([GitHub issue #1229](https://github.com/forcedotcom/cli/issues/1229))
+* FIX: The `force:org:display --json` command displays in the JSON output the security warning about exposing sensitive information, consistent with the other commands. ([GitHub issue #1229](https://github.com/forcedotcom/cli/issues/1229))
 
-* FIX: The `force:org:open` command opens sandbox orgs with `.mil` extension. Previously the command timed out. 
+* FIX: The `force:org:open` command correctly opens sandbox orgs with `.mil` extension. Previously the command tried to open a different domain. 
 
 ## 7.122.1 (Oct 14, 2021)
 
