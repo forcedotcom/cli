@@ -22,7 +22,7 @@ These changes are in the Salesforce CLI (`sfdx` executable) release candidate. W
 
 * FIX: The `force:org:display --json` command displays in the JSON output the security warning about exposing sensitive information, consistent with the other commands. ([GitHub issue #1229](https://github.com/forcedotcom/cli/issues/1229))
 
-* FIX: The `force:org:open` command correctly opens sandbox orgs with `.mil` extension. Previously the command tried to open a different domain. 
+* FIX: The `force:org:open` command correctly opens sandboxes in the `.mil` domain. Previously the command tried to open a different domain. 
 
 ## 7.122.1 (Oct 14, 2021)
 
