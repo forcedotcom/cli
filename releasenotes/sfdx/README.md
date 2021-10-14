@@ -14,9 +14,17 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## Oct 14, 2021
+## 7.123.0 (Oct 21, 2021) [stable-rc]
 
 These changes are in the Salesforce CLI (`sfdx` executable) release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* FIX: The `force:source:deploy|retrieve|convert|delete` commands support the `EclairGeoData` metadata type again.
+
+* FIX: The `force:org:display --json` command displays in the JSON output the security warning about exposing sensitive information, consistent with the other commands. ([GitHub issue #1229](https://github.com/forcedotcom/cli/issues/1229))
+
+* FIX: The `force:org:open` command correctly opens sandboxes in the `.mil` domain. Previously the command tried to open a different domain. 
+
+## 7.122.1 (Oct 14, 2021)
 
 * NEW: The `force:source:deploy|retrieve|convert|delete` commands support these Slack-related metadata types that are new in the Winter '22 Salesforce release: `ViewDefinition` and `SlackApp`.
 
