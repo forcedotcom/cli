@@ -6,6 +6,8 @@ We usually publish a new version of `sf` on Thursdays, bundled with the weekly `
 
 Run `sf version` to display the version installed on your computer. Run `sfdx update` to update to the latest available version.
 
+[Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
+
 ## 1.1.0 (Oct 21, 2021) 
 
 * FIX: We fixed some under-the-hood bugs.
@@ -15,8 +17,6 @@ Run `sf version` to display the version installed on your computer. Run `sfdx up
 Welcome to the first GA release of the new `sf` executable of Salesforce CLI!
 
 Salesforce CLI is a bundle of two executables: `sf` and `sfdx`. We first launched `sfdx` for you to develop and test your apps more easily on Salesforce Platform. But if you want to work across all Salesforce clouds, `sfdx` doesn’t provide all the commands you need. With `sf`, we're bringing together a cross-cloud set of commands that streamline how you build and deploy across Salesforce. See [Get Started with CLI Unification](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_sf_intro.htm) for more information about the `sf` executable, such as how it works with `sfdx`, a mapping of the available `sf` commands to their equivalent `sfdx` commands, and more. 
-
-[Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
 
 ### Installation Notes
 
