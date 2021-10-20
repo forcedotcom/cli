@@ -1,5 +1,15 @@
 # Salesforce CLI Release Notes (sf Commands)
 
+Here are the new and changed features in recent updates of the `sf` executable of Salesforce CLI.
+
+We usually publish a new version of `sf` on Thursdays, bundled with the weekly `sfdx` release.
+
+Run `sf version` to display the version installed on your computer. Run `sfdx update` to update to the latest available version.
+
+## 1.1.0 (Oct 21, 2021) 
+
+* FIX: We fixed some under-the-hood bugs.
+
 ## 1.0.4 (Oct 7, 2021)
 
 Welcome to the first GA release of the new `sf` executable of Salesforce CLI!
