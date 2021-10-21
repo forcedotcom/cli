@@ -18,13 +18,15 @@ Want to check out the new `sf` executable of Salesforce CLI? [Click here for the
 
 These changes are in the Salesforce CLI (`sfdx` executable) release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* NEW: Delete metadata components in your org at the same time you run `force:source:deploy --manifest` with the new `--predestructivechanges` and `--postdestructivechanges` parameters. Similar to how the `--manifest` parameter works, set these new parameters to a destructive changes manifest file. Depending on the parameter, the delete executes either before or after you deploy your local metadata files to the org. For example, this command runs the `preDestruct.xml` destructive change manifest file before you deploy the components in the `package.xml` file:
+* NEW: Delete metadata components in your org at the same time you run `force:source:deploy --manifest` with the new `--predestructivechanges` and `--postdestructivechanges` parameters. Similar to how the `--manifest` parameter works, set the new parameters to a manifest file. But rather than deploy the components in the file, the command deletes them from your org. Depending on the parameter, the delete executes either before (`pre`) or after (`post`) the deploy. 
+ 
+     For example, this command deletes the components in the `preDestruct.xml` manifest file before you deploy the components in the `package.xml` file:
 
     `sfdx force:source:deploy --manifest package.xml --predestructivechanges preDestruct.xml`
     
-    Don't have a destructive manifest file handy?  No problem, run the `force:source:manifest:create` command to create one! This example shows how to create a file that deletes the `NoLongerNeededClass` Apex class:
+    Don't have a destructive manifest file handy?  No problem, run the `force:source:manifest:create` command to create one! This example shows how to create a file to delete the `NoLongerNeededClass` Apex class:
     
-    `sfdx force:source:manifest:create -m ApexClass:NoLongerNeededClass --manifesttype destroy --manifestname preDestruct.xml`
+    `sfdx force:source:manifest:create -m ApexClass:NoLongerNeededClass --manifestname preDestruct.xml`
     
     See [Deleting Components from an Org](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_deploy_deleting_files.htm) in the Metadata API Developer Guide for more information about using destructive change manifest files. 
 
