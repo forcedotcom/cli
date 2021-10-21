@@ -24,7 +24,7 @@ These changes are in the Salesforce CLI (`sfdx` executable) release candidate. W
 
     `sfdx force:source:deploy --manifest package.xml --predestructivechanges preDestruct.xml`
     
-    Don't have a destructive manifest file handy?  No problem, run the `force:source:manifest:create` command to create one! This example shows how to create a file to delete the `NoLongerNeededClass` Apex class:
+    Don't have a manifest file handy?  No problem, run the `force:source:manifest:create` command to create one! This example shows how to create a file that you can use to delete the `NoLongerNeededClass` Apex class:
     
     `sfdx force:source:manifest:create -m ApexClass:NoLongerNeededClass --manifestname preDestruct.xml`
     
