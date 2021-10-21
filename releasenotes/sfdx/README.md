@@ -14,9 +14,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.123.0 (Oct 21, 2021) [stable-rc]
-
-These changes are in the Salesforce CLI (`sfdx` executable) release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+## 7.123.0 (Oct 21, 2021) 
 
 * FIX: The `force:source:deploy|retrieve|convert|delete` commands support the `EclairGeoData` metadata type again.
 
