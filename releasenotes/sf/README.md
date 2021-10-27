@@ -8,6 +8,10 @@ Run `sf version` to display the version installed on your computer. Run `sfdx up
 
 [Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
 
+## 1.1.5 (Oct 28, 2021)
+
+* FIX: We fixed some under-the-hood bugs.
+
 ## 1.1.0 (Oct 21, 2021) 
 
 * FIX: We fixed some under-the-hood bugs.
