@@ -14,9 +14,17 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.124.0 (Oct 28, 2021) [stable-rc]
+## 7.125.0 (Nov 3, 2021) [stable-rc]
 
 These changes are in the Salesforce CLI (`sfdx` executable) release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* NEW: Specify the browser to use with the `force:org:open` command with the new `--browser|-b` parameter. Supported browsers are `chrome`, `edge`, and `firefox`. If you don't specify `--browser`, the org opens in your default browser. For example, to open an org in Firefox:
+
+    `sfdx force:org:open --browser firefox`
+    
+    Thank you, [Todd Halfpenny](https://github.com/toddhalfpenny), for [requesting the nifty new feature](https://github.com/forcedotcom/cli/issues/1015), and then taking the initiative and contributing the code yourself. We love contributions from the community, and look forward to many more!
+
+## 7.124.0 (Oct 28, 2021)
 
 * NEW: Delete metadata components in your org at the same time you run `force:source:deploy --manifest` with the new `--predestructivechanges` and `--postdestructivechanges` parameters. Similar to how the `--manifest` parameter works, set the new parameters to a manifest file. But rather than deploy the components in the file, the command deletes them from your org. Depending on the parameter, the delete executes either before (`pre`) or after (`post`) the deploy. 
  
