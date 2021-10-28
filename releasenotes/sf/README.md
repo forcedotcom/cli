@@ -14,7 +14,7 @@ Run `npm install @salesforce/cli@latest-rc -g` to update to the `sf` release can
 
 These changes are in the Salesforce CLI (`sf` executable) release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* FIX: Running `sfdx update` now also updates `sf` to its latest version.
+* FIX: We fixed a bug that prevented `sfdx update` from also updating `sf` to its latest version.
 
 ## 1.1.5 (Oct 28, 2021)
 
