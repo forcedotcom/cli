@@ -18,11 +18,25 @@ Want to check out the new `sf` executable of Salesforce CLI? [Click here for the
 
 These changes are in the Salesforce CLI (`sfdx` executable) release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* NEW: We've greatly improved the source tracking commands, and we'd love you to try out the beta versions before we make them generally available.  
+
+    We're doing something different this time: rather than provide the beta commands in a separate plug-in, we're including them right in this release. The beta command names are similar to the existing ones, but are in the `force:source:beta` topic:
+    
+	* `force:source:beta:pull`
+	* `force:source:beta:push`
+	* `force:source:beta:status`
+	* `force:source:beta:tracking:clear`
+	* `force:source:beta:tracking:reset`
+
+    The existing commands, such as `force:source:pull`, continue to work as before. Check out [Source Tracking Beta](https://github.com/forcedotcom/cli/issues/1258) for additional details and gotchas.
+
 * NEW: Specify the browser to use with the `force:org:open` command with the new `--browser|-b` parameter. Supported browsers are `chrome`, `edge`, and `firefox`. If you don't specify `--browser`, the org opens in your default browser. For example, to open an org in Firefox:
 
     `sfdx force:org:open --browser firefox`
     
     Thank you, [Todd Halfpenny](https://github.com/toddhalfpenny), for [requesting the nifty new feature](https://github.com/forcedotcom/cli/issues/1015), and then taking the initiative and contributing the code yourself. We love contributions from the community, and look forward to many more!
+    
+* FIX: Running `sfdx update` now also updates `sf` to its latest version. 
 
 ## 7.124.0 (Oct 28, 2021)
 
