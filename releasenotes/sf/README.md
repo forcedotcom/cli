@@ -2,11 +2,19 @@
 
 Here are the new and changed features in recent updates of the `sf` executable of Salesforce CLI.
 
-We usually publish a new version of `sf` on Thursdays, bundled with the weekly `sfdx` release.
+We publish a new stable version of `sf` on Thursdays, bundled with the weekly `sfdx` release. We also publish a release candidate in the `sfdx` executable's `stable-rc` version. The release candidate contains changes that will likely be in the final weekly version.
 
-Run `sf version` to display the version installed on your computer. Run `sfdx update` to update to the latest available version.
+Run `sf version` to display the version installed on your computer. Run `sfdx update` to update to the latest available stable version. 
+
+Run `npm install @salesforce/cli@latest-rc -g` to update to the `sf` release candidate. To go back to the latest version, run `npm install @salesforce/cli -g`.
 
 [Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
+
+## 1.2.0 (Nov 3, 2021) [stable-rc]
+
+These changes are in the Salesforce CLI (`sf` executable) release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* FIX: Running `sfdx update` now also updates `sf` to its latest version.
 
 ## 1.1.5 (Oct 28, 2021)
 
