@@ -36,7 +36,7 @@ These changes are in the Salesforce CLI (`sfdx` executable) release candidate. W
     
     Thank you, [Todd Halfpenny](https://github.com/toddhalfpenny), for [requesting the nifty new feature](https://github.com/forcedotcom/cli/issues/1015), and then taking the initiative and contributing the code yourself. We love contributions from the community, and look forward to many more!
     
-* FIX: Running `sfdx update` now also updates `sf` to its latest version. 
+* FIX: We fixed a bug that prevented `sfdx update` from also updating `sf` to its latest version.
 
 ## 7.124.0 (Oct 28, 2021)
 
