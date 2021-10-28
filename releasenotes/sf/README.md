@@ -2,9 +2,9 @@
 
 Here are the new and changed features in recent updates of the `sf` executable of Salesforce CLI.
 
-We usually publish a new version of `sf` on Thursdays, bundled with the weekly `sfdx` release.
+We publish a new stable version of `sf` on Thursdays that will be installed automatically when you install or update `sfdx`.
 
-Run `sf version` to display the version installed on your computer. Run `sfdx update` to update to the latest available version.
+Run `sf version` to display the version installed on your computer. Run `sfdx update` to update to the latest available stable version. 
 
 [Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
 
