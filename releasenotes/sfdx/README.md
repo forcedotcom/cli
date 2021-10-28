@@ -38,6 +38,9 @@ These changes are in the Salesforce CLI (`sfdx` executable) release candidate. W
     
 * FIX: We fixed a bug that prevented `sfdx update` from also updating `sf` to its latest version.
 
+* FIX: The `force:source:retrieve` command correctly retrieves CustomObjectTranslation metadata types into new projects. Previously you'd get the error `ERROR running force:source:retrieve: Metadata API request failed: Component conversion failed`.  ([GitHub issue #1233](https://github.com/forcedotcom/cli/issues/1233))
+
+
 ## 7.124.0 (Oct 28, 2021)
 
 * NEW: Delete metadata components in your org at the same time you run `force:source:deploy --manifest` with the new `--predestructivechanges` and `--postdestructivechanges` parameters. Similar to how the `--manifest` parameter works, set the new parameters to a manifest file. But rather than deploy the components in the file, the command deletes them from your org. Depending on the parameter, the delete executes either before (`pre`) or after (`post`) the deploy. 
