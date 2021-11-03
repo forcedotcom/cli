@@ -14,9 +14,13 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.125.0 (Nov 3, 2021) [stable-rc]
+## 7.126.0 (Nov 11, 2021) [stable-rc]
 
 These changes are in the Salesforce CLI (`sfdx` executable) release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* FIX: The `force:source:deploy|retrieve|convert` commands are smarter about classifying metadata. Previously, for example, the commands naively classified the metadata file `classes/foo/objects/myClass.cls` as a CustomObject simply because the word `objects` was in the directory path. The commands now determine the actual metadata type, such as an ApexClass. 
+
+## 7.125.0 (Nov 4, 2021)
 
 * NEW: We've greatly improved the source tracking commands, and we'd love you to try out the beta versions before we make them generally available.  
 
