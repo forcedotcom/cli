@@ -14,9 +14,19 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.125.0 (Nov 3, 2021) [stable-rc]
+## 7.126.0 (Nov 11, 2021) [stable-rc]
 
 These changes are in the Salesforce CLI (`sfdx` executable) release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* CHANGE: We're deprecating the `--all` parameter of `force:source:status`. We're also deprecating the combined use of the `--local` and `--remote` parameters. To view source changes in both your local project and an org, run the command with no parameters.
+
+* FIX: The `force:source:deploy|retrieve|convert` commands are smarter about classifying metadata. Previously, for example, the commands naively classified the metadata file `classes/foo/objects/myClass.cls` as a CustomObject simply because the word `objects` was in the directory path. The commands now determine the actual metadata type, such as an ApexClass. 
+
+* FIX: We've improved Salesforce CLI's internal metadata registry so it better handles the Workflow and SharingRules metadata types.
+
+    Thank you, [Jochen Rinder](https://github.com/jayree), for contributing the code for this fix. We love that you, and our awesome community, take the time and initiative to improve the CLI. It keeps us on our toes too. Keep those contributions coming!
+
+## 7.125.0 (Nov 4, 2021)
 
 * NEW: We've greatly improved the source tracking commands, and we'd love you to try out the beta versions before we make them generally available.  
 
@@ -40,6 +50,7 @@ These changes are in the Salesforce CLI (`sfdx` executable) release candidate. W
 
 * FIX: The `force:source:retrieve` command correctly retrieves CustomObjectTranslation metadata types into new projects. Previously you'd get the error `ERROR running force:source:retrieve: Metadata API request failed: Component conversion failed`.  ([GitHub issue #1233](https://github.com/forcedotcom/cli/issues/1233))
 
+* FIX: We restarted publishing the full versions of the Salesforce CLI Docker container images on [Docker Hub](https://hub.docker.com/r/salesforce/salesforcedx/tags?page=1&ordering=last_updated).  ([GitHub issue #1249](https://github.com/forcedotcom/cli/issues/1249))
 
 ## 7.124.0 (Oct 28, 2021)
 
