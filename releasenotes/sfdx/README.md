@@ -50,6 +50,7 @@ These changes are in the Salesforce CLI (`sfdx` executable) release candidate. W
 
 * FIX: The `force:source:retrieve` command correctly retrieves CustomObjectTranslation metadata types into new projects. Previously you'd get the error `ERROR running force:source:retrieve: Metadata API request failed: Component conversion failed`.  ([GitHub issue #1233](https://github.com/forcedotcom/cli/issues/1233))
 
+* FIX: We restarted publishing the full versions of the Salesforce CLI Docker container images on [Docker Hub](https://hub.docker.com/r/salesforce/salesforcedx/tags?page=1&ordering=last_updated).  ([GitHub issue #1249](https://github.com/forcedotcom/cli/issues/1249))
 
 ## 7.124.0 (Oct 28, 2021)
 
