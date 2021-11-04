@@ -26,6 +26,8 @@ These changes are in the Salesforce CLI (`sfdx` executable) release candidate. W
 
     Thank you, [Jochen Rinder](https://github.com/jayree), for contributing the code for this fix. We love that you, and our awesome community, take the time and initiative to improve the CLI. It keeps us on our toes too. Keep those contributions coming!
 
+* FIX: We fixed a bug where the CLI confused SiteDotCom and CustomSite and would fail with `Expected source files for type 'SiteDotCom'`
+
 ## 7.125.0 (Nov 4, 2021)
 
 * NEW: We've greatly improved the source tracking commands, and we'd love you to try out the beta versions before we make them generally available.  
