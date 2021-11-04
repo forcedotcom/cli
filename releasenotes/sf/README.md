@@ -14,11 +14,11 @@ Run `sfdx update stable-rc` to update to the release candidate for both `sf` and
 
 These changes are in the Salesforce CLI (`sf` executable) release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* FIX: We fixed a bug that prevented `sfdx update` from also updating `sf` to its latest version.
+* FIX: Installation of `sf` will be much more reliable when installing `sfdx` via the installers and tarballs.
 
 ## 1.2.0 (Nov 4, 2021)
 
-* FIX: We fixed some under-the-hood bugs.
+* FIX: We fixed a bug that prevented `sfdx update` from also updating `sf` to its latest version.
 
 ## 1.1.5 (Oct 28, 2021)
 
