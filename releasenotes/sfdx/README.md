@@ -14,9 +14,13 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.126.0 (Nov 11, 2021) [stable-rc]
+## 7.127.0 (Nov 18, 2021) [stable-rc]
 
 These changes are in the Salesforce CLI (`sfdx` executable) release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* CHANGE: We continue to [open-source Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021), and this week we've moved the `force:mdapi:listmetadata` and `force:mdapi:describemetadata` commands into the [plugin-source](https://github.com/salesforcecli/plugin-source) plug-in. The commands work the same, except for one small change. Previously, if you used the ` -f|--resultfile` and `--json` parameters together, the `message` property of the JSON output included just the name of the output file. We saw an opportunity for improvement, so the command now includes the actual response. Much better!
+
+## 7.126.0 (Nov 11, 2021)
 
 * CHANGE: We're deprecating the `--all` parameter of `force:source:status`. We're also deprecating the combined use of the `--local` and `--remote` parameters. To view source changes in both your local project and an org, run the command with no parameters.
 
