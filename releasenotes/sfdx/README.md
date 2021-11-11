@@ -20,7 +20,7 @@ These changes are in the Salesforce CLI (`sfdx` executable) release candidate. W
 
 * CHANGE: We continue to [open-source Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021), and this week we've moved the `force:mdapi:listmetadata` and `force:mdapi:describemetadata` commands into the [plugin-source](https://github.com/salesforcecli/plugin-source) plug-in. The commands work the same as before, except for an improvement in the JSON output.
 
-    Previously, if you ran `force:mdapi:describemetadata` with both `--resultfile` and `--json`, the `message` property of the JSON output included only the name of the result file. We now include the actual information that's in the result file. We made a similar change to `force:mdapi:listmetadata`, where we also made the JSON output consistent regardless of the number of returned metadata properties. Previously, the JSON output was different depending on the number of returned properties.
+    Previously, if you ran `force:mdapi:describemetadata` with both `--resultfile` and `--json` parameters, the `message` property of the JSON output included only the name of the result file. We now include the actual information that's in the result file. We made a similar change to `force:mdapi:listmetadata`, where we also made the JSON output consistent regardless of the number of returned metadata properties. Previously, the JSON output was different depending on the number of returned properties.
    
 ## 7.126.0 (Nov 11, 2021)
 
