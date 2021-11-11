@@ -10,9 +10,7 @@ Run `sfdx update stable-rc` to update to the release candidate for both `sf` and
 
 [Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
 
-## 1.3.0 (Nov 11, 2021) [stable-rc]
-
-These changes are in the Salesforce CLI (`sf` executable) release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+## 1.3.0 (Nov 11, 2021)
 
 * FIX: We improved the automatic installation of `sf` when you install `sfdx` using the operating system-specific installers and TAR files. 
 
