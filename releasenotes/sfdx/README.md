@@ -20,11 +20,7 @@ These changes are in the Salesforce CLI (`sfdx` executable) release candidate. W
 
 * CHANGE: We continue to [open-source Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021), and this week we've moved the `force:mdapi:deploy:cancel` command into the [plugin-source](https://github.com/salesforcecli/plugin-source) plug-in. The commands works the same as before.
 
-## November 25, 2021
-
-We aren't releasing a Salesforce CLI patch this week. Have a happy and safe Thanksgiving!
-
-## 7.127.0 (Nov 18, 2021)
+## 7.127.0 (Nov 18, 2021)[stable]
 
 * CHANGE: We continue to [open-source Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021), and this week we've moved the `force:mdapi:listmetadata` and `force:mdapi:describemetadata` commands into the [plugin-source](https://github.com/salesforcecli/plugin-source) plug-in. The commands work the same as before, except for an improvement in the JSON output.
 
