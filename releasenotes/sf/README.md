@@ -10,6 +10,10 @@ Run `sfdx update stable-rc` to update to the release candidate for both `sf` and
 
 [Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
 
+## 1.4.0 (Nov 18, 2021)
+
+* FIX: We fixed some under-the-hood bugs.
+
 ## 1.3.0 (Nov 11, 2021)
 
 * FIX: We improved the automatic installation of `sf` when you install `sfdx` using the operating system-specific installers and TAR files. 
