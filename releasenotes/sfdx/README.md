@@ -18,7 +18,7 @@ Want to check out the new `sf` executable of Salesforce CLI? [Click here for the
 
 These changes are in the Salesforce CLI (`sfdx` executable) release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* CHANGE: We continue to [open-source Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021), and this week we've moved the `force:mdapi:deploy:cancel` command into the [plugin-source](https://github.com/salesforcecli/plugin-source) plug-in. The commands works the same as before.
+* CHANGE: We continue to [open-source Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021), and this week we've moved the `force:mdapi:deploy:cancel` command into the [plugin-source](https://github.com/salesforcecli/plugin-source) plug-in. The command works the same as before.
 
 ## 7.127.0 (Nov 18, 2021)[stable]
 
