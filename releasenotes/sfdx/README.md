@@ -14,16 +14,14 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.129.0 (Dec 2, 2021) [stable-rc]
-
-These changes are in the Salesforce CLI (`sfdx` executable) release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+## 7.129.0 (Nov 25, 2021) [stable]
 
 * CHANGE: We continue to [open-source Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021), and this week we've moved these commands into the [plugin-source](https://github.com/salesforcecli/plugin-source) plug-in:
 
     * `force:mdapi:deploy:cancel`: Works the same as before.
     * `force:mdapi:beta:convert`: This command is the beta version of `force:mdapi:convert`. We've improved the performance and added a spinner that shows the progress of the conversion. Try out the beta version before we move the `force:mdapi:convert` command into plugin-source and make it generally available.
 
-## 7.127.0 (Nov 18, 2021)[stable]
+## 7.127.0 (Nov 18, 2021)
 
 * CHANGE: We continue to [open-source Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021), and this week we've moved the `force:mdapi:listmetadata` and `force:mdapi:describemetadata` commands into the [plugin-source](https://github.com/salesforcecli/plugin-source) plug-in. The commands work the same as before, except for an improvement in the JSON output.
 
