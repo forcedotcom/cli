@@ -41,6 +41,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * CHANGE: For security reasons, we no longer display the URL by default in the terminal or command window when you run `force:org:open`. We continue to display the URL when you specify either the `--urlonly` or `--json` parameters, but we also show a security warning about displaying sensitive information. 
 
+* CHANGE: We continue to [open-source Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021), and this week we moved the `force:org:delete` command into the [plugin-org](https://github.com/salesforcecli/plugin-org) plug-in. The command works the same as before.
+
 * FIX: We updated the `--help` of the `auth:sfdxurl:store` command to better explain the format of the SFDX auth URL. We also added that you can't obtain the URL from `force:org:display` if you authorized the org using the JWT bearer flow.  (GitHub issues [#1297](https://github.com/forcedotcom/cli/issues/1297) and [#1298](https://github.com/forcedotcom/cli/issues/1298)). 
 
 * FIX: The `force:mdapi:listmetadata -m MDType` command correctly returns properties of metadata components. Previously it returned the error `No metadata for type: MDType`. (GitHub issue [#1285](https://github.com/forcedotcom/cli/issues/1285))
