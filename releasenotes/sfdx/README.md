@@ -31,7 +31,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     sfdx whatsnew --version stable-rc
     sfdx whatsnew -v 7.127.0 
     ```
-* NEW: Find out who created a package, package version, or package version creation request with the updated output of the following commands, which now include a `Created By` property:
+* NEW: Find out who created a package, package version, or package version creation request with the updated output of the following commands, which now includes a `Created By` property:
 
     * `force:package:list --verbose`
     * `force:package:version:list --verbose`
