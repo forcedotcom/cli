@@ -39,6 +39,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `force:package:version:create:list`
     * `force:package:version:create:report`
 
+* NEW: The `force:source:beta:push` command uses a new `pushPackageDirectoriesSequentially` option in `sfdx-project.json` to push packageDirectories sequentially rather than in one transaction.  This should unblock certain complex deployments.  See the [Beta announcement](https://github.com/forcedotcom/cli/issues/1258) for more details and a code example. (GitHub issue [#1269](https://github.com/forcedotcom/cli/issues/1269))
+
 * CHANGE: For security reasons, we no longer display the URL by default in the terminal or command window when you run `force:org:open`. We continue to display the URL when you specify either the `--urlonly` or `--json` parameters, but we also show a security warning about displaying sensitive information. 
 
 * CHANGE: We continue to [open-source Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021), and this week we moved the `force:org:delete` command into the [plugin-org](https://github.com/salesforcecli/plugin-org) plug-in. The command works the same as before.
