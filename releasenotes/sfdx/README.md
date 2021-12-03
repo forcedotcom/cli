@@ -14,7 +14,44 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.129.0 (Nov 25, 2021) [stable]
+## 7.130.0 (Dec 9, 2021) [stable-rc]
+
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change
+
+* NEW: Assign permission set licenses to users with the new `force:user:permsetlicense:assign` command. The command works similarly to the existing `force:user:permset:assign` command. This example shows how to assign the permission set license named `DreamHouse` to a user with username `me@my.org`:
+
+    ```bash
+    sfdx force:user:permsetlicense:assign -n DreamHouse -u me@my.org
+    ```
+
+* NEW:  Quickly catch up on the new and changed features in any Salesforce CLI release with the new `info:releasenotes:display` command (alias `whatsnew`). By default, the command displays the release notes for the Salesforce CLI version that's currently installed. Use the `--version|-v` parameter to specify a specific CLI version or a tag, such as `stable-rc`. For example:
+
+    ```bash
+    sfdx whatsnew
+    sfdx whatsnew --version stable-rc
+    sfdx whatsnew -v 7.127.0 
+    ```
+* NEW: Find out who created a package, package version, or package version creation request with the updated output of the following commands, which now includes a `Created By` property:
+
+    * `force:package:list --verbose`
+    * `force:package:version:list --verbose`
+    * `force:package:version:report`
+    * `force:package:version:create:list`
+    * `force:package:version:create:report`
+
+* CHANGE: For security reasons, we no longer display the URL by default in the terminal or command window when you run `force:org:open`. We continue to display the URL when you specify either the `--urlonly` or `--json` parameters, but we also show a security warning about displaying sensitive information. 
+
+* CHANGE: We continue to [open-source Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021), and this week we moved the `force:org:delete` command into the [plugin-org](https://github.com/salesforcecli/plugin-org) plug-in. The command works the same as before.
+
+* FIX: We updated the `--help` of the `auth:sfdxurl:store` command to better explain the format of the SFDX auth URL. We also added that you can't obtain the URL from `force:org:display` if you authorized the org using the JWT bearer flow.  (GitHub issues [#1297](https://github.com/forcedotcom/cli/issues/1297) and [#1298](https://github.com/forcedotcom/cli/issues/1298)). 
+
+* FIX: The `force:mdapi:listmetadata -m MDType` command correctly returns properties of metadata components. Previously it returned the error `No metadata for type: MDType`. (GitHub issue [#1285](https://github.com/forcedotcom/cli/issues/1285))
+
+* FIX: Successfully ignore children of decomposed metadata types when you deploy or retrieve by adding the children to the `.forceignore` file.  For example, if you add `**/Account/listViews/**` to your `.forceignore` file and then run `force:source:retrieve -m CustomObject:Account`, the command doesn't retrieve any list views for the Account object. Previously the command would incorrectly retrieve them.  (GitHub issue [#938](https://github.com/forcedotcom/cli/issues/938))
+
+## 7.129.0 (Dec 2, 2021) [stable]
+
+* NOTE: Because of the Thanksgiving holiday, we didn't publish a release candidate last Thursday. As a result, this week's `stable` release is the same as last week's (Nov 25, 2021).  
 
 * CHANGE: We continue to [open-source Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021), and this week we've moved these commands into the [plugin-source](https://github.com/salesforcecli/plugin-source) plug-in:
 
