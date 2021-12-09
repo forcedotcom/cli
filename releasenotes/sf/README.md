@@ -22,7 +22,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
 ## 1.5.2 (Dec 9, 2021)[stable]
 
-* FIX: We fixed some under-the-hood bugs.
+* NEW: Build and run a Salesforce Function locally with the new `sf run function start local` command.
 
 ## 1.4.0 (Nov 18, 2021)
 
