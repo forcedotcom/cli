@@ -14,6 +14,16 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
+## 7.131.0 (Dec 16, 2021) [stable-rc]
+
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* CHANGE: Installing the `sfdx` executable with the `npm install sfdx-cli -g` command no longer installs the `@salesforce/cli` package, which corresponds to the `sf` executable. 
+
+   To install `sf`, run this command: `npm install @salesforce/cli -g`. 
+   
+   Installing Salesforce CLI with the installers and TAR files hasn't changed; they still install both the `sfdx` and `sf` executables.
+   
 ## 7.130.1 (Dec 9, 2021) [stable]
 
 * NEW: Assign permission set licenses to users with the new `force:user:permsetlicense:assign` command. The command works similarly to the existing `force:user:permset:assign` command. This example shows how to assign the permission set license named `DreamHouse` to a user with username `me@my.org`:
