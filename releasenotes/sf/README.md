@@ -16,7 +16,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * CHANGE: Installing the `sfdx` executable with the `npm install sfdx-cli -g` command no longer installs the `@salesforce/cli` package, which corresponds to the `sf` executable. 
 
-   To install `sf`, run this command: `npm install @salesforce/cli -g`. 
+   To install `sf` via npm, run this command: `npm install @salesforce/cli -g`. 
    
    Installing Salesforce CLI with the installers and TAR files hasn't changed; they still install both the `sfdx` and `sf` executables.
     
