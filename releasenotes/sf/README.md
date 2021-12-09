@@ -10,6 +10,16 @@ Run `sfdx update stable-rc` to update to the release candidate for both `sf` and
 
 [Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
 
+## 1.6.0 (Dec 16, 2021)[stable-rc]
+
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* CHANGE: Installing the `sfdx` executable with the `npm install sfdx-cli -g` command no longer installs the `@salesforce/cli` package, which corresponds to the `sf` executable. 
+
+   To install `sf`, run this command: `npm install @salesforce/cli -g`. 
+   
+   Installing Salesforce CLI with the installers and TAR files hasn't changed; they still install both the `sfdx` and `sf` executables.
+    
 ## 1.5.2 (Dec 9, 2021)[stable]
 
 * FIX: We fixed some under-the-hood bugs.
