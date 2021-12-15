@@ -10,9 +10,21 @@ Run `sfdx update stable-rc` to update to the release candidate for both `sf` and
 
 [Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
 
-## 1.6.0 (Dec 16, 2021)[stable]
+## 1.7.0 (Dec 23, 2021) [stable-rc]
+
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 NOTE: We plan to promote this week's `stable-rc` release (1.7.0) to `stable` on Dec 23, 2021. However, because of the holidays, we won't publish a new `stable-rc` release on either Dec 23 or 30, 2021. We'll return to our regular weekly release schedule on Jan 6, 2022. (Wow, next year we'll be exactly 200 years away from the first every-digit-is-the-same year since 1111. Exciting stuff!) Happy holidays to our fabulous developer community, and we'll see you next year!
+
+* NEW:  Quickly catch up on the new and changed features in any Salesforce CLI release with the new `info releasenotes display` command (alias `whatsnew`). By default, the command displays the release notes for the Salesforce CLI version that's currently installed. Use the `--version|-v` parameter to specify a specific CLI version or a tag, such as `stable-rc`. For example:
+
+    ```bash
+    sf whatsnew
+    sf whatsnew --version stable-rc
+    sf whatsnew -v 1.6.0 
+    ```
+
+## 1.6.0 (Dec 16, 2021)[stable]
 
 * CHANGE: Installing the `sfdx` executable with the `npm install sfdx-cli -g` command no longer installs the `@salesforce/cli` package, which corresponds to the `sf` executable. 
 
@@ -20,7 +32,7 @@ NOTE: We plan to promote this week's `stable-rc` release (1.7.0) to `stable` on 
    
    Installing Salesforce CLI with the installers and TAR files hasn't changed; they still install both the `sfdx` and `sf` executables.
     
-## 1.5.2 (Dec 9, 2021)[stable]
+## 1.5.2 (Dec 9, 2021)
 
 * NEW: Build and run a Salesforce Function locally with the new `sf run function start local` command.
 
