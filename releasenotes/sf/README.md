@@ -16,7 +16,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 NOTE: We plan to promote this week's `stable-rc` release (1.7.0) to `stable` on Dec 23, 2021. However, because of the holidays, we won't publish a new `stable-rc` release on either Dec 23 or 30, 2021. We'll return to our regular weekly release schedule on Jan 6, 2022. (Wow, next year we'll be exactly 200 years away from the first every-digit-is-the-same year since 1111. Exciting stuff!) Happy holidays to our fabulous developer community, and we'll see you next year!
 
-* NEW:  Quickly catch up on the new and changed features in any Salesforce CLI release with the new `info releasenotes display` command (alias `whatsnew`). By default, the command displays the release notes for the Salesforce CLI version that's currently installed. Use the `--version|-v` parameter to specify a specific CLI version or a tag, such as `stable-rc`. For example:
+* NEW:  Quickly catch up on the new and changed features in any Salesforce CLI release with the new `info releasenotes display` command (alias `whatsnew`). By default, the command displays the release notes for the Salesforce CLI version that's currently installed. Use the `--version|-v` flag to specify a specific CLI version or a tag, such as `stable-rc`. For example:
 
     ```bash
     sf whatsnew
