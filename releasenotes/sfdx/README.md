@@ -16,6 +16,8 @@ Want to check out the new `sf` executable of Salesforce CLI? [Click here for the
 
 ## 7.132.0 (Dec 23, 2021) [stable-rc]
 
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
 NOTE: We plan to promote this week's `stable-rc` release (7.132.0) to `stable` on Dec 23, 2021. However, because of the holidays, we won't publish a new `stable-rc` release on either Dec 23 or 30, 2021. We'll return to our regular weekly release schedule on Jan 6, 2022. (Yikes, it's almost 2022. How did that happen?) We hope you have a joyful and peaceful holiday season, and we'll see you in the new year! 
 
 * CHANGE: The `force:source:deploy|retrieve|convert` and `force:source:beta:push|pull` commands are more tolerant when they encounter certain network problems, such as ETIMEDOUT, ECONNRESET, ENOTFOUND and 'socket hang up' errors. The commands now keep trying to connect, at least up to the time specified by the `--wait` parameter. They also display warnings and debugging information so the user knows what's going on. Previously the commands failed on the first connection problem. (GitHub issues [#529](https://github.com/forcedotcom/cli/issues/529), [#1007](https://github.com/forcedotcom/cli/issues/1007), [#1301](https://github.com/forcedotcom/cli/issues/1301))
