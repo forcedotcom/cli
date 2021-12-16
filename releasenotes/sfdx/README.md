@@ -22,6 +22,8 @@ NOTE: We plan to promote this week's `stable-rc` release (7.132.0) to `stable` o
 
 * FIX: The `force:org:create` command no longer returns the error `ERROR running force:org:create: Unrecognized option: cookiesAllowAllPaths`. This error occurred only on npm-based installations of Salesforce CLI running version 7.120.0 or earlier. (GitHub issue [#1323](https://github.com/forcedotcom/cli/issues/1323))
 
+* FIX: The command `force:data:soql:query` correctly runs SOQL queries that use the `count()` aggregate function without a field name, such as `SELECT COUNT() FROM Account WHERE Name LIKE 'a%'`.  Previously the command showed 0 records returned and displayed the erroneous `Warning: The query result is missing YY records due to a ZZ record limit.` (GitHub issue [#1320](https://github.com/forcedotcom/cli/issues/1320))
+
 ## 7.131.0 (Dec 16, 2021) [stable]
 
 * CHANGE: Installing the `sfdx` executable with the `npm install sfdx-cli -g` command no longer installs the `@salesforce/cli` package, which corresponds to the `sf` executable. 
