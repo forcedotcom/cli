@@ -14,9 +14,17 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.131.0 (Dec 16, 2021) [stable-rc]
+## 7.132.0 (Dec 23, 2021) [stable-rc]
 
-These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+NOTE: We plan to promote this week's `stable-rc` release (7.132.0) to `stable` on Dec 23, 2021. However, because of the holidays, we won't publish a new `stable-rc` release on either Dec 23 or 30, 2021. We'll return to our regular weekly release schedule on Jan 6, 2022. (Yikes, it's almost 2022. How did that happen?) We hope you have a joyful and peaceful holiday season, and we'll see you in the new year! 
+
+* CHANGE: The `force:source:deploy|retrieve|convert` and `force:source:beta:push|pull` commands are more tolerant when they encounter certain network problems, such as ETIMEDOUT, ECONNRESET, ENOTFOUND and 'socket hang up' errors. The commands now keep trying to connect, at least up to the time specified by the `--wait` parameter. They also display warnings and debugging information so the user knows what's going on. Previously the commands failed on the first connection problem. (GitHub issues [#529](https://github.com/forcedotcom/cli/issues/529), [#1007](https://github.com/forcedotcom/cli/issues/1007), [#1301](https://github.com/forcedotcom/cli/issues/1301))
+
+* FIX: The `force:org:create` command no longer returns the error `ERROR running force:org:create: Unrecognized option: cookiesAllowAllPaths`. This error occurred only on npm-based installations of Salesforce CLI running version 7.120.0 or earlier. (GitHub issue [#1323](https://github.com/forcedotcom/cli/issues/1323))
+
+* FIX: The command `force:data:soql:query` correctly runs SOQL queries that use the `count()` aggregate function without a field name, such as `SELECT COUNT() FROM Account WHERE Name LIKE 'a%'`.  Previously the command showed 0 records returned and displayed the erroneous `Warning: The query result is missing YY records due to a ZZ record limit.` (GitHub issue [#1320](https://github.com/forcedotcom/cli/issues/1320))
+
+## 7.131.0 (Dec 16, 2021) [stable]
 
 * CHANGE: Installing the `sfdx` executable with the `npm install sfdx-cli -g` command no longer installs the `@salesforce/cli` package, which corresponds to the `sf` executable. 
 
@@ -24,7 +32,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
    
    Installing Salesforce CLI with the installers and TAR files hasn't changed; they still install both the `sfdx` and `sf` executables.
    
-## 7.130.1 (Dec 9, 2021) [stable]
+## 7.130.1 (Dec 9, 2021)
 
 * NEW: Assign permission set licenses to users with the new `force:user:permsetlicense:assign` command. The command works similarly to the existing `force:user:permset:assign` command. This example shows how to assign the permission set license named `DreamHouse` to a user with username `me@my.org`:
 
