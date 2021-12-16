@@ -67,7 +67,7 @@ NOTE: We plan to promote this week's `stable-rc` release (7.132.0) to `stable` o
 
 * FIX: Successfully ignore children of decomposed metadata types when you deploy or retrieve by adding the children to the `.forceignore` file.  For example, if you add `**/Account/listViews/**` to your `.forceignore` file and then run `force:source:retrieve -m CustomObject:Account`, the command doesn't retrieve any list views for the Account object. Previously the command would incorrectly retrieve them.  (GitHub issue [#938](https://github.com/forcedotcom/cli/issues/938))
 
-## 7.129.0 (Dec 2, 2021) [stable]
+## 7.129.0 (Dec 2, 2021)
 
 * NOTE: Because of the Thanksgiving holiday, we didn't publish a release candidate last Thursday. As a result, this week's `stable` release is the same as last week's (Nov 25, 2021).  
 
@@ -429,15 +429,15 @@ These changes are in the Salesforce CLI (`sfdx` executable) release candidate. W
 
    Finally, as a result of removing the `salesforcedx` plug-in, we've also simplified how we version Salesforce CLI. Starting today, the CLI's version reflects the version of the `sfdx-cli` plug-in (such as 7.106.3). Previously we also referenced the `salesforcedx` plug-in version (such as 51.16.0), which was a tad confusing. Your work life just got a tiny bit easier. How great is that?
 
-## 51.16.0 (June 10, 2021) - CLI 7.105.0
+## 7.105.0 (June 10, 2021) - (salesforcedx 51.16.0) 
 
 * FIX: We fixed some under-the-hood bugs.
 
-## 51.15.0 (June 3, 2021) - CLI 7.104.0
+## 7.104.0 (June 3, 2021) - (salesforcedx 51.15.0)
 
 * FIX: We fixed some under-the-hood bugs.
  
-## 51.14.0 (May 27, 2021) - CLI 7.103.0
+## 7.103.0 (May 27, 2021) - (salesforcedx 51.14.0) 
 
 * NEW: We recommend that you always use the latest version or release candidate of Salesforce CLI. However, if you absolutely _must_ install an older version, we still have your back! 
 
@@ -473,11 +473,11 @@ These changes are in the Salesforce CLI (`sfdx` executable) release candidate. W
 
 * FIX: The CLI recognizes scratch orgs created after authenticating to a Dev Hub with the `auth:jwt:grant` command. ([GitHub issue #949](https://github.com/forcedotcom/cli/issues/949))
 
-## 51.13.0 (May 20, 2021) - CLI 7.102.0
+## 7.102.0 (May 20, 2021) - (salesforcedx 51.13.0)
 
 * FIX: We fixed some under-the-hood bugs.
 
-## 51.12.0 (May 13, 2021) - CLI 7.101.0
+## 7.101.0 (May 13, 2021) - (salesforcedx 51.12.0) 
 
 * NEW: Are you a Salesforce CLI plug-in developer looking to create tests beyond simple unit tests? We've got you covered. Check out our new [@salesforce/cli-plugins-testkit](https://github.com/salesforcecli/cli-plugins-testkit) library that provides utilities for writing integration, smoke, and end-to-end tests. We also describe common use cases with associated sample code. And we link to other public GitHub repos that use the testkit so you can see the library in action. Go forth and test!
 
@@ -495,11 +495,11 @@ These changes are in the Salesforce CLI (`sfdx` executable) release candidate. W
 
 * FIX: FIX: The `force:project:create` command generates an `.eslintignore` file that contains `**/aura/**/*.app` for Lighting Aura apps. ([GitHub issue #1004](https://github.com/forcedotcom/cli/issues/1004))
 
-## 51.11.0 (May 6, 2021) - CLI 7.100.0
+## 7.100.0 (May 6, 2021) - (salesforcedx 51.11.0) 
 
 * FIX: We fixed some under-the-hood bugs. 
 
-## 51.10.0 (April 29, 2021) - CLI 7.99.0
+## 7.99.0 (April 29, 2021) - (salesforcedx 51.10.0)
 
 * NEW: Use a `.tar` file to install the Salesforce CLI release candidate. The download URL is similar to the URL for installing the current release, but uses the `stable-rc` channel instead of `stable`. For example, use this `wget` command to get the Linux release candidate `.tar` file:
 
@@ -519,15 +519,15 @@ These changes are in the Salesforce CLI (`sfdx` executable) release candidate. W
 
 * FIX: The `force:org:list` command no longer returns the error `MissingMessageError - Missing message list:noResultsFound for locale en_US` when it doesn't find non-scratch orgs in certain use cases. 
 
-## 51.9.1 (April 22, 2021) - CLI 7.98.0
+## 7.98.0 (April 22, 2021) - (salesforcedx 51.9.1)
 
 * FIX: Running a Quick Deploy on a package with recently validated components no longer fails. Previously, running the command `force:source:deploy` with the `-q | --validateddeployrequestid` parameter returned the error `Unexpected element {http://soap.sforce.com/2006/04/metadata}id during simple type deserialization`. (GitHub issues [#877](https://github.com/forcedotcom/cli/issues/877) and [#876](https://github.com/forcedotcom/cli/issues/876))
 
-## 51.8.0 (April 15, 2021) - CLI 7.97.0
+## 7.97.0 (April 15, 2021) - (salesforcedx# 51.8.0)
 
 * FIX: We fixed some under-the-hood bugs.
 
-## 51.7.1 (April 8, 2021) - CLI 7.96.1
+## 7.96.1 (April 8, 2021) - (salesforcedx 51.7.1)
 
 Before we describe the changes in this week's release, here's a quick update on open-sourcing Salesforce CLI since we published [this blog post](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021.html) in February 2021.
 
@@ -573,7 +573,7 @@ Before we describe the changes in this week's release, here's a quick update on 
 
     To set it for just your project, don’t use the `--global` flag. We’ll update the [documentation](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_config_values.htm) soon.
 
-## 51.6.0 (April 1, 2021) - CLI 7.94.3
+## 7.94.3 (April 1, 2021) - (salesforcedx 51.6.0)
 
 * NEW: Get a list of files in your project that the `force:source:*` commands ignore with the new `force:source:ignored:list` command. The command refers to the `.forceignore` file to determine the list of ignored files. Run the command without any parameters to get a list of all the files in all package directories that are ignored. Use the `--sourcepath` parameter to limit the check to a specific file or directory. If you specify a directory, the command checks all subdirectories recursively. For example, run this command to check if a particular file is ignored:
 
@@ -591,7 +591,7 @@ Before we describe the changes in this week's release, here's a quick update on 
 
   Enjoy! 
 
-## 51.5.0 (March 25, 2021) - CLI 7.93.1
+## 7.93.1 (March 25, 2021) - (salesforcedx 51.5.0)
 
 * FIX: The `auth:sfdxurl:store` command executes correctly when you specify a `.json` file to the `---sfdxurlfile` parameter. We also improved the command so that you can pass it the `.json` output of the `force:org:display` command. For example:
 
@@ -601,7 +601,7 @@ Before we describe the changes in this week's release, here's a quick update on 
     ```
 * CHANGE: We've removed the `force:project:upgrade` command after deprecating it in v50. 
 
-## 51.4.0 (March 18, 2021) - CLI 7.92.0
+## 7.92.0 (March 18, 2021) - (salesforcedx 51.4.0)
 
 * NEW:  Use the `--setuniqueusername` flag of `force:user:create` to force the newly created username, if specified in the definition file or at the command line, to be unique by appending the org ID. This feature is particularly useful in CI scripts that run multiple times.
 
@@ -630,13 +630,13 @@ We don't normally announce when we open-source commands that remain in the `forc
   * FIX: GitHub issues [#361](https://github.com/forcedotcom/cli/issues/361), [#456](https://github.com/forcedotcom/cli/issues/456), [#482](https://github.com/forcedotcom/cli/issues/482), [#637](https://github.com/forcedotcom/cli/issues/637), [#666](https://github.com/forcedotcom/cli/issues/666), [#719](https://github.com/forcedotcom/cli/issues/719), [#724](https://github.com/forcedotcom/cli/issues/724) 
 
 
-## 51.3.0 (March 11, 2021) - CLI 7.91.0
+## 7.91.0 (March 11, 2021) - (salesforcedx 51.3.0) 
 
 * FIX: The `force:mdapi:deploy --runtests` command now runs the specified tests.
 * FIX: When you run the `force:mdapi:deploy` command with the `--json` parameter and the command fails, it returns the exit code 1. Previously it returned 0.
 
 
-## 51.2.2 (March 4, 2021) - CLI 7.90.2
+## 7.90.2  (March 4, 2021) - (salesforcedx 51.2.2)
 
 * CHANGE: As of v51, all `force:source` and `force:mdapi` commands use REST API by default to deploy. Previously they used SOAP API by default. Set the `restDeploy` config value or `SFDX_REST_DEPLOY` environment variable to false to switch back to SOAP. (GitHub Issues [#860](https://github.com/forcedotcom/cli/issues/860), [#870](https://github.com/forcedotcom/cli/issues/870), [#872](https://github.com/forcedotcom/cli/issues/872), [#884](https://github.com/forcedotcom/cli/issues/884))
 * FIX: You no longer get the error FILE HAS NO CONTENT when you run any command after authenticating to an org with the `auth:jwt:grant` command. (GitHub Issue [#867](https://github.com/forcedotcom/cli/issues/867))
@@ -644,11 +644,11 @@ We don't normally announce when we open-source commands that remain in the `forc
 * FIX: The force:project:create command now generates a scratch org definition file with EnableSetPasswordInApi as a scratch org feature rather than a security setting. This change is a result of the field [Settings.securitySettings.passwordPolicies.enableSetPasswordInApi](https://help.salesforce.com/articleView?id=release-notes.rn_api_meta.htm&type=5&release=230) being removed in version 51.0 of the Metadata API.
 * FIX: When authorizing an org with `auth:web:login`, the browser no longer hangs after allowing access. (GitHub Issue [#890](https://github.com/forcedotcom/cli/issues/890))
 
-## 51.1.1 (February 25, 2021) - CLI 7.89.2
+## 7.89.2 (February 25, 2021) - (salesforcedx 51.1.1)
 
 * FIX: The command `force:user:create` properly authenticates to a connected app authenticated with Web Flow login.
 
-## 51.0.4 (February 22, 2021) - CLI 7.88.4
+## 7.88.4 (February 22, 2021) - (salesforcedx 51.0.4)
 
 Welcome to the first release of version 51 of the `salesforcedx` CLI plug-in in Spring '21.
 
