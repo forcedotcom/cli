@@ -14,6 +14,41 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
+## 7.133.0 (Jan 6, 2022) [stable-rc]
+
+Happy new year, Salesforce CLI community!
+
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* NEW: We're pretty proud and excited about the new features and fixes we release in Salesforce CLI each week. And we want you to know about them! So when you run `sfdx update`, we now automatically display the release notes for the version you're updating to.  
+
+    Under the covers, the update is simply running the [info:releasenotes:display](https://github.com/forcedotcom/cli/blob/main/releasenotes/sfdx/README.md#71301-dec-9-2021) (alias `whatsnew`) command, which you can run anytime to read the release notes again. Which I'm sure you're eager to do.  
+    
+    Configure this feature with these environment variables:
+    
+    * `SFDX_HIDE_RELEASE_NOTES`: Set to `true` to silence the automatic display of the release notes when you run sfdx update. Default value is `false`.
+    * `SFDX_HIDE_RELEASE_NOTES_FOOTER`: Set to `true` to stop displaying the boilerplate footer. Default value is `false`.
+
+* CHANGE: We continue on our journey of [open-sourcing Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021), and this week we've created these beta commands in the [plugin-source](https://github.com/salesforcecli/plugin-source) plug-in:
+
+    * `force:mdapi:beta:deploy`
+    * `force:mdapi:beta:deploy:report` 
+    
+    Both beta commands work the same as their equivalent existing commands. Try out these beta commands before we make `force:mdapi:deploy` and `force:mdapi:deploy:report` generally available.
+
+* CHANGE: If the `info:releasenotes:display` command can't find an exact match of the installed CLI version in the release notes, the command displays the notes for the closest version. The command behaves the same way if it can't find the exact version specified by the `–version` parameter in the release notes. 
+
+* FIX: We've changed the polling frequency of the `force:source` commands based on the size of the deployment. In general, we poll more frequently when the deployment is small and less frequently when it's large. This new behavior results in quicker-feeling smaller deployments, and reduces the API requests, and thus network traffic, for large deployments. 
+
+* FIX: We've improved the error message when Salesforce CLI encounters invalid XML, such as a badly formed metadata source file during a deployment. (GitHub issue [#1261](https://github.com/forcedotcom/cli/issues/1261))
+
+* FIX: The command `force:source:retrieve -m CustomFieldTranslation` correctly retrieves the field translation source files, even if there's no parent CustomObjectTranslation in the org. In this case, the command generates an empty CustomObjectTranslation source file. Previously the command retrieved only the CustomFieldTranslation source files, which are invalid by themselves without a CustomObjectTranslation parent file. (GitHub issues [#1233](https://github.com/forcedotcom/cli/issues/1233), [#1241](https://github.com/forcedotcom/cli/issues/1241), [#1262](https://github.com/forcedotcom/cli/issues/1262)) 
+
+* FIX: If you run the `force:data:record:update` command but submit invalid data that violates a validation rule, the command now returns the actual validation error from the org. (GitHub issue [#1327](https://github.com/forcedotcom/cli/issues/1327))
+
+* FIX: We've improved the error message when the command `force:org:create` is unable to reset the source tracking after creating the scratch org and deploying the settings. (GitHub issue [#1337](https://github.com/forcedotcom/cli/issues/1337))
+
+
 ## 7.132.0 (Dec 23, 2021) [stable]
 
 NOTE: Because of the holidays, we're not publishing a new `stable-rc` release today or next week (Dec 30, 2021). We'll return to our regular weekly release schedule on Jan 6, 2022. (Yikes, it's almost 2022. How did that happen?) We hope you have a joyful and peaceful holiday season, and see you in the new year! 
