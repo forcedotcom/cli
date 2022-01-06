@@ -22,7 +22,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: We're pretty proud and excited about the new features and fixes we release in Salesforce CLI each week. And we want you to know about them! So when you run `sfdx update`, we now automatically display the release notes for the version you're updating to.  
 
-    Under the covers, the update is simply running the [info:releasenotes:display](https://github.com/forcedotcom/cli/blob/main/releasenotes/sfdx/README.md#71301-dec-9-2021) (alias `whatsnew`) command, which you can run anytime to read the release notes again. Which I'm sure you want to.  
+    Under the covers, the update is simply running the [info:releasenotes:display](https://github.com/forcedotcom/cli/blob/main/releasenotes/sfdx/README.md#71301-dec-9-2021) (alias `whatsnew`) command, which you can run anytime to read the release notes again. Which I'm sure you're eager to do.  
     
     Configure this feature with these environment variables:
     
