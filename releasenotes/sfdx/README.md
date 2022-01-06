@@ -29,6 +29,13 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `SFDX_HIDE_RELEASE_NOTES`: Set to `true` to silence the automatic display of the release notes when you run sfdx update. Default value is `false`.
     * `SFDX_HIDE_RELEASE_NOTES_FOOTER`: Set to `true` to stop displaying the boilerplate footer. Default value is `false`.
 
+* CHANGE: We continue on our journey of [open-sourcing Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021), and this week we've created beta versions of these commands in the [plugin-source](https://github.com/salesforcecli/plugin-source) plug-in:
+
+    * `force:mdapi:beta:deploy`
+    * `force:mdapi:beta:deploy:report` 
+    
+    Both commands work the same as the existing versions. Try out these beta commands before we move `force:mdapi:deploy` and `force:mdapi:deploy:report` into plugin-source and make them generally available.
+
 * CHANGE: If the `info:releasenotes:display` command can't find an exact match of the installed CLI version in the release notes, the command displays the notes for the closest version. The command behaves the same way if it can't find the exact version specified by the `–version` parameter in the release notes. 
 
 * FIX: We've changed the polling frequency of the `force:source` commands based on the size of the deployment. In general, we poll more frequently when the deployment is small and less frequently when it's large. This new behavior results in quicker-feeling smaller deployments, and reduces the API requests, and thus network traffic, for large deployments. 
