@@ -20,6 +20,15 @@ Happy new year, Salesforce CLI community!
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* NEW: We're pretty proud and excited about the new features and fixes we release in Salesforce CLI each week. And we want you to know about them! So when you run `sfdx update`, we now automatically display the release notes for the version you're updating to.  
+
+    Under the covers, the update is simply running the [info:releasenotes:display](https://github.com/forcedotcom/cli/blob/main/releasenotes/sfdx/README.md#71301-dec-9-2021) (alias `whatsnew`) command, which you can run anytime to read the release notes again. Which I'm sure you want to.  
+    
+    Configure this feature with these environment variables:
+    
+    * `SFDX_HIDE_RELEASE_NOTES`: Set to `true` to silence the automatic display of the release notes when you run sfdx update. Default value is `false`.
+    * `SFDX_HIDE_RELEASE_NOTES_FOOTER`: Set to `true` to stop displaying the boilerplate footer. Default value is `false`.
+
 * CHANGE: If the `info:releasenotes:display` command can't find an exact match of the installed CLI version in the release notes, the command displays the notes for the closest version. The command behaves the same way if it can't find the exact version specified by the `–version` parameter in the release notes. 
 
 * FIX: We've changed the polling frequency of the `force:source` commands based on the size of the deployment. In general, we poll more frequently when the deployment is small and less frequently when it's large. This new behavior results in quicker-feeling smaller deployments, and reduces the API requests, and thus network traffic, for large deployments. 
