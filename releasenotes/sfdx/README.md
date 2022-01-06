@@ -29,7 +29,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `SFDX_HIDE_RELEASE_NOTES`: Set to `true` to silence the automatic display of the release notes when you run sfdx update. Default value is `false`.
     * `SFDX_HIDE_RELEASE_NOTES_FOOTER`: Set to `true` to stop displaying the boilerplate footer. Default value is `false`.
 
-* CHANGE: We continue on our journey of [open-sourcing Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021), and this week we've created these beta command versions in the [plugin-source](https://github.com/salesforcecli/plugin-source) plug-in:
+* CHANGE: We continue on our journey of [open-sourcing Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021), and this week we've created these beta commands in the [plugin-source](https://github.com/salesforcecli/plugin-source) plug-in:
 
     * `force:mdapi:beta:deploy`
     * `force:mdapi:beta:deploy:report` 
