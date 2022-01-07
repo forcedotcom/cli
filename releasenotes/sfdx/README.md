@@ -34,7 +34,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `force:mdapi:beta:deploy`
     * `force:mdapi:beta:deploy:report` 
     
-    Both beta commands work the same as their equivalent existing commands. Try out these beta commands before we make `force:mdapi:deploy` and `force:mdapi:deploy:report` generally available.
+    Both beta commands work the same as their equivalent existing commands. Try out these beta commands before we make the open-source versions of `force:mdapi:deploy` and `force:mdapi:deploy:report` generally available.
 
 * CHANGE: If the `info:releasenotes:display` command can't find an exact match of the installed CLI version in the release notes, the command displays the notes for the closest version. The command behaves the same way if it can't find the exact version specified by the `–version` parameter in the release notes. 
 
