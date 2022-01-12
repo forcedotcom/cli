@@ -14,7 +14,7 @@ Run `sfdx update stable-rc` to update to the release candidate for both `sf` and
 
 * CHANGE: If the `info releasenotes display` command (alias `whatsnew`) can't find an exact match of the installed CLI version in the release notes, the command displays the notes for the closest version. The command behaves the same way if it can't find the exact version specified by the `–version` parameter in the release notes. 
 
-## 1.7.0 (Dec 23, 2021) [stable]
+## 1.7.0 (Dec 23, 2021)
 
 NOTE: Because of the holidays, we're not publishing a new `stable-rc` release today or next week (Dec 30, 2021). We'll return to our regular weekly release schedule on Jan 6, 2022. (Wow, next year we'll be exactly 200 years away from the first every-digit-is-the-same year since 1111. Exciting stuff!) Happy holidays to our fabulous developer community, and see you next year!
 
