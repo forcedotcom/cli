@@ -14,11 +14,9 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.133.0 (Jan 6, 2022) [stable-rc]
+## 7.133.0 (Jan 6, 2022) [stable]
 
 Happy new year, Salesforce CLI community!
-
-These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 * NEW: We're pretty proud and excited about the new features and fixes we release in Salesforce CLI each week. And we want you to know about them! So when you run `sfdx update`, we now automatically display the release notes for the version you're updating to.  
 
