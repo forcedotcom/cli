@@ -14,7 +14,15 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.133.0 (Jan 6, 2022) [stable]
+## 7.134.0 (Jan 19, 2022) [stable-rc]
+
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* FIX: The `force:source:beta:push` command no longer deploys metadata in directories that aren't defined in the `sfdx-project.json` file but have names that start the same as directories that are defined in the file, such as `force-app-extra` and `force-app`. (GitHub issue [#1336](https://github.com/forcedotcom/cli/issues/1336))
+
+* FIX: The `force:source:beta:*` commands support storing multiple `.gitignore` files in as many places in your `packageDirectories` as you want. Previously, the `.gitignore` files would affect source tracking and sometimes result in unexpected behavior. (GitHub issue [#1335](https://github.com/forcedotcom/cli/issues/1335))
+
+## 7.133.0 (Jan 12, 2022) [stable]
 
 Happy new year, Salesforce CLI community!
 
@@ -47,7 +55,7 @@ Happy new year, Salesforce CLI community!
 * FIX: We've improved the error message when the command `force:org:create` is unable to reset the source tracking after creating the scratch org and deploying the settings. (GitHub issue [#1337](https://github.com/forcedotcom/cli/issues/1337))
 
 
-## 7.132.0 (Dec 23, 2021) [stable]
+## 7.132.0 (Dec 23, 2021)
 
 NOTE: Because of the holidays, we're not publishing a new `stable-rc` release today or next week (Dec 30, 2021). We'll return to our regular weekly release schedule on Jan 6, 2022. (Yikes, it's almost 2022. How did that happen?) We hope you have a joyful and peaceful holiday season, and see you in the new year! 
 
