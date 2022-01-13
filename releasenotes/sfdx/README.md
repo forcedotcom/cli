@@ -18,7 +18,7 @@ Want to check out the new `sf` executable of Salesforce CLI? [Click here for the
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* FIX: The `force:source:beta:push` command no longer deploys metadata in directories that aren't defined in the `sfdx-project.json` file but have names that start the same as directories that are defined in the file, such as `force-app-extra` and `force-app`. (GitHub issue [#1336](https://github.com/forcedotcom/cli/issues/1336))
+* FIX: We've improved how the `force:source:beta:*` commands match package name directories. Previously, for example, `force:source:beta:deploy` deployed metadata in a directory that wasn't defined in `sfdx-project.json` if its name started with the same string as a legitimate package directory, such as `force-app-extra` and `force-app`. (GitHub issue [#1336](https://github.com/forcedotcom/cli/issues/1336))
 
 * FIX: The `force:source:beta:*` commands support storing multiple `.gitignore` files in as many places in your `packageDirectories` as you want. Previously, the `.gitignore` files would affect source tracking and sometimes result in unexpected behavior. (GitHub issue [#1335](https://github.com/forcedotcom/cli/issues/1335))
 
