@@ -34,6 +34,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `force:source:beta:*` commands support storing multiple `.gitignore` files in as many places in your `packageDirectories` as you want. Previously, the `.gitignore` files would affect source tracking and sometimes result in unexpected behavior. (GitHub issue [#1335](https://github.com/forcedotcom/cli/issues/1335))
 
+* FIX: The `force:project:create` command creates a `sfdx-project.json` file with the correct `sourceApiVersion` (53.0). (GitHub issue [#1278](https://github.com/forcedotcom/cli/issues/1278))
+
 ## 7.133.0 (Jan 13, 2022) [stable]
 
 Happy new year, Salesforce CLI community!
