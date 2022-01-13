@@ -14,7 +14,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.134.0 (Jan 19, 2022) [stable-rc]
+## 7.134.0 (Jan 20, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
@@ -22,7 +22,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `force:source:beta:*` commands support storing multiple `.gitignore` files in as many places in your `packageDirectories` as you want. Previously, the `.gitignore` files would affect source tracking and sometimes result in unexpected behavior. (GitHub issue [#1335](https://github.com/forcedotcom/cli/issues/1335))
 
-## 7.133.0 (Jan 12, 2022) [stable]
+## 7.133.0 (Jan 13, 2022) [stable]
 
 Happy new year, Salesforce CLI community!
 
