@@ -14,7 +14,7 @@ Run `sfdx update stable-rc` to update to the release candidate for both `sf` and
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* FIX: The command `sf login functions` works correctly from behind company VPNs and proxies.
+* FIX: We've switched the HTTP library used by the [Salesforce Functions commands](https://github.com/salesforcecli/plugin-functions) to ensure compatibility with customer VPNs.
 
 ## 1.8.0 (Jan 13, 2022) [stable]
 
