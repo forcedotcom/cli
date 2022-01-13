@@ -10,7 +10,7 @@ Run `sfdx update stable-rc` to update to the release candidate for both `sf` and
 
 [Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
 
-## 1.8.0 (Jan 6, 2022) [stable]
+## 1.8.0 (Jan 13, 2022) [stable]
 
 * CHANGE: If the `info releasenotes display` command (alias `whatsnew`) can't find an exact match of the installed CLI version in the release notes, the command displays the notes for the closest version. The command behaves the same way if it can't find the exact version specified by the `–version` parameter in the release notes. 
 
