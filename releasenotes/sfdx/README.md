@@ -18,7 +18,7 @@ Want to check out the new `sf` executable of Salesforce CLI? [Click here for the
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* NEW: Display terser output when you run the `force:source:beta:status` command with the new `--concise` parameter. 
+* NEW: Display terser output by running the `force:source:beta:status` command with the new `--concise` parameter. For example, the output doesn't include ignored files. (GitHub issue [#1312](https://github.com/forcedotcom/cli/issues/1312))
 
 * CHANGE: The project to [open-source Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021) is chugging along smoothly, and this week we've created these beta commands in the [plugin-source](https://github.com/salesforcecli/plugin-source) plug-in:
 
