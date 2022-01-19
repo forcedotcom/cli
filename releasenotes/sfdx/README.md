@@ -36,7 +36,7 @@ Want to check out the new `sf` executable of Salesforce CLI? [Click here for the
 
 * FIX: The `force:project:create` command creates a `sfdx-project.json` file with the correct `sourceApiVersion` (53.0). (GitHub issue [#1278](https://github.com/forcedotcom/cli/issues/1278))
 
-## 7.133.0 (Jan 13, 2022) [stable]
+## 7.133.0 (Jan 13, 2022)
 
 Happy new year, Salesforce CLI community!
 
