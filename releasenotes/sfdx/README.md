@@ -14,9 +14,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.134.0 (Jan 20, 2022) [stable-rc]
-
-These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+## 7.134.0 (Jan 20, 2022) [stable]
 
 * NEW: Display terser output by running the `force:source:beta:status` command with the new `--concise` parameter. For example, the output doesn't include ignored files. (GitHub issue [#1312](https://github.com/forcedotcom/cli/issues/1312))
 
