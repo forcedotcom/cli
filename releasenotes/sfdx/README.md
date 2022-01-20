@@ -22,6 +22,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `force:source:pull` and `force:source:retrieve` commands correctly retrieve and merge the CustomLabels metadata type. (GitHub issue [#1317](https://github.com/forcedotcom/cli/issues/1317))
 
+* FIX: The `force:source:beta:*` commands support storing multiple `.gitignore` files in as many places in your `packageDirectories` as you want. Previously, the `.gitignore` files would affect source tracking and sometimes result in unexpected behavior. (GitHub issue [#1335](https://github.com/forcedotcom/cli/issues/1335))
+
 ## 7.134.0 (Jan 20, 2022) [stable]
 
 * NEW: Display terser output by running the `force:source:beta:status` command with the new `--concise` parameter. For example, the output doesn't include ignored files. (GitHub issue [#1312](https://github.com/forcedotcom/cli/issues/1312))
@@ -39,8 +41,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     Other than these new parameters, the commands work the same as their equivalent existing ones. Try out these beta commands before we make the open-source versions of `force:mdapi:retrieve` and `force:mdapi:retrieve:report` generally available.
     
 * FIX: We've improved how the `force:source:beta:*` commands match package name directories. Previously, for example, `force:source:beta:deploy` deployed metadata in a directory that wasn't defined in `sfdx-project.json` if its name started with the same string as a legitimate package directory, such as `force-app-extra` and `force-app`. (GitHub issue [#1336](https://github.com/forcedotcom/cli/issues/1336))
-
-* FIX: The `force:source:beta:*` commands support storing multiple `.gitignore` files in as many places in your `packageDirectories` as you want. Previously, the `.gitignore` files would affect source tracking and sometimes result in unexpected behavior. (GitHub issue [#1335](https://github.com/forcedotcom/cli/issues/1335))
 
 * FIX: The `force:project:create` command creates a `sfdx-project.json` file with the correct `sourceApiVersion` (53.0). (GitHub issue [#1278](https://github.com/forcedotcom/cli/issues/1278))
 
