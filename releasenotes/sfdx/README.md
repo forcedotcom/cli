@@ -20,6 +20,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * CHANGE: Have we mentioned that we're [open-sourcing Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021)? This week we moved the `force:source:ignored:list` command into the [plugin-source](https://github.com/salesforcecli/plugin-source) plug-in. It works the same as before. 
 
+* FIX: The `force:source:pull` and `force:source:retrieve` commands correctly retrieve and merge the CustomLabels metadata type. (GitHub issue [#1317](https://github.com/forcedotcom/cli/issues/1317))
+
 ## 7.134.0 (Jan 20, 2022) [stable]
 
 * NEW: Display terser output by running the `force:source:beta:status` command with the new `--concise` parameter. For example, the output doesn't include ignored files. (GitHub issue [#1312](https://github.com/forcedotcom/cli/issues/1312))
