@@ -31,6 +31,11 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     ```
     
     And pow, all those peculiar CLI issues you had are now solved. (GitHub issue [#1304](https://github.com/forcedotcom/cli/issues/1304))
+    
+* FIX: Deploying metadata with the REST API now automatically refreshes your authentication token when necessary. (GitHub issues [#899](https://github.com/forcedotcom/cli/issues/899), [#912](https://github.com/forcedotcom/cli/issues/912))
+
+* FIX: We've updated the full Docker image for Salesforce CLI that we publish on [Docker Hub](https://hub.docker.com/r/salesforce/salesforcedx/tags?page=1&ordering=last_updated) to the latest LTS version of Node.js (v16.13.1). 
+
 
 ## 7.135.0 (Jan 27, 2022) [stable]
 
