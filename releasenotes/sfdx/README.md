@@ -14,6 +14,22 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
+## 7.136.0 (Feb 3, 2022) [stable-rc]
+
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* NEW: Get shorter JSON output from running the `force:mdapi:beta:deploy` or `force:mdapi:beta:deploy:report` commands by using the new `--concise` parameter with the `--json` parameter. The new parameter omits success messages from the JSON output. When the two beta commands become generally available, the GA commands, such as `force:mdapi:deploy`, will also have the new parameter. 
+
+* CHANGE: The [Salesforce CLI open-sourcing train](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021) is speeding along and this week we've created the `force:org:beta:create` beta command in the [plugin-org](https://github.com/salesforcecli/plugin-org) plug-in. The command works the same as its equivalent existing one. Try out this beta command before we make the open-source version of `force:org:retrieve` generally available.
+
+* CHANGE: We now display a warning message when you run `sfdx update` and haven't yet [uninstalled](https://github.com/forcedotcom/cli/blob/main/releasenotes/sfdx/README.md#71063-june-17-2021) that pesky `salesforcedx` plug-in. Having it installed can cause unexpected behavior, so first check to see if you still have it, and then uninstall it if you do:
+
+    ```bash
+    sfdx plugins --core
+    sfdx plugins:uninstall salesforcedx
+    sfdx update
+    ```
+
 ## 7.135.0 (Jan 27, 2022) [stable]
 
 IMPORTANT: Have you tried out the `force:source:beta:*` commands yet? See [this post](https://github.com/forcedotcom/cli/issues/1258) for details. If you haven't, we highly encourage you to take them out for a spin and try to break them. We plan to end the beta of these commands around February 1, 2022, when we'll update the generally available commands (such as `force:source:push`) with their beta equivalents. We're still hoping for more feedback and issues from our community before then. Thanks in advance for all your help!
