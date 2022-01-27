@@ -36,6 +36,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We've updated the full Salesforce CLI Docker image on [Docker Hub](https://hub.docker.com/r/salesforce/salesforcedx/tags?page=1&ordering=last_updated) to use the latest LTS version of Node.js (v16.13.1). 
 
+* FIX: The `force:source:*` commands now support the EmailTemplateFolder metadata type. (GitHub issue [#1345](https://github.com/forcedotcom/cli/issues/1345))
+
 
 ## 7.135.0 (Jan 27, 2022) [stable]
 
