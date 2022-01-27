@@ -22,13 +22,15 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * CHANGE: The [Salesforce CLI open-sourcing train](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021) is speeding along and this week we've created the `force:org:beta:create` beta command in the [plugin-org](https://github.com/salesforcecli/plugin-org) plug-in. The command works the same as its equivalent existing one. Try out this beta command before we make the open-source version of `force:org:retrieve` generally available.
 
-* CHANGE: We now display a warning message when you run `sfdx update` and haven't yet [uninstalled](https://github.com/forcedotcom/cli/blob/main/releasenotes/sfdx/README.md#71063-june-17-2021) that pesky `salesforcedx` plug-in. Having it installed can cause unexpected behavior, so first check to see if you still have it, and then uninstall it if you do:
+* CHANGE: We now display a warning message when you run `sfdx update` and haven't yet [uninstalled](https://github.com/forcedotcom/cli/blob/main/releasenotes/sfdx/README.md#71063-june-17-2021) that pesky `salesforcedx` plug-in. Having it installed can cause unexpected behavior, so first see if you still have it, and then uninstall it if you do:
 
     ```bash
     sfdx plugins --core
     sfdx plugins:uninstall salesforcedx
     sfdx update
     ```
+    
+    And pow, all those peculiar CLI issues you had are now solved. (GitHub issue [#1304](https://github.com/forcedotcom/cli/issues/1304))
 
 ## 7.135.0 (Jan 27, 2022) [stable]
 
