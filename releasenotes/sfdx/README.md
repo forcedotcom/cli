@@ -20,9 +20,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: Get shorter JSON output from running the `force:mdapi:beta:deploy` or `force:mdapi:beta:deploy:report` commands by using the new `--concise` parameter with the `--json` parameter. The new parameter omits success messages from the JSON output. When the two beta commands become generally available, the GA commands, such as `force:mdapi:deploy`, will also have the new parameter. 
 
-* CHANGE: The [Salesforce CLI open-sourcing train](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021) is speeding along and this week we've created the `force:org:beta:create` beta command in the [plugin-org](https://github.com/salesforcecli/plugin-org) plug-in. The command works the same as its equivalent existing one. Try out this beta command before we make the open-source version of `force:org:retrieve` generally available.
+* CHANGE: The [Salesforce CLI open-sourcing train](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021) is speeding along and this week we've created the `force:org:beta:create` beta command in the [plugin-org](https://github.com/salesforcecli/plugin-org) plug-in. The command works the same as its equivalent existing one. Try out this beta command before we make the open-source version of `force:org:create` generally available.
 
-* CHANGE: We now display a warning message when you run `sfdx update` and haven't yet [uninstalled](https://github.com/forcedotcom/cli/blob/main/releasenotes/sfdx/README.md#71063-june-17-2021) that pesky `salesforcedx` plug-in. Having it installed can cause unexpected behavior, so first see if you still have it, and then uninstall it if you do:
+* CHANGE: We now display a warning message when you run `sfdx update` and haven't yet [uninstalled](https://github.com/forcedotcom/cli/blob/main/releasenotes/sfdx/README.md#71063-june-17-2021) that pesky `salesforcedx` plug-in. Having it installed can cause unexpected behavior, so we really want it gone. First see if you still have it, and then uninstall it if you do:
 
     ```bash
     sfdx plugins --core
