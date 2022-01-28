@@ -16,9 +16,13 @@ Want to check out the new `sf` executable of Salesforce CLI? [Click here for the
 
 ## 7.136.0 (Feb 3, 2022) [stable-rc]
 
+IMPORTANT: Have you tried out the `force:source:beta:*` commands yet? See [this post](https://github.com/forcedotcom/cli/issues/1258) for details. If you haven't, we highly encourage you to take them out for a spin and try to break them. We plan to end the beta of these commands around February 1, 2022, when we'll update the generally available commands (such as `force:source:push`) with their beta equivalents. We're still hoping for more feedback and issues from our community before then. Thanks in advance for all your help!
+
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 * NEW: Get shorter JSON output from running the `force:mdapi:beta:deploy` or `force:mdapi:beta:deploy:report` commands by using the new `--concise` parameter with the `--json` parameter. The new parameter omits success messages from the JSON output. When the two beta commands become generally available, the GA commands, such as `force:mdapi:deploy`, will also have the new parameter. 
+
+* NEW: When running `force:source:deploy`, specify that deleted components in the destructive changes manifest file are immediately eligible for deletion with the new `--purgeondelete` parameter. By default, deleted components are stored in the Recycle Bin. The `force:mdapi:beta:deploy` command also has this new parameter, and we'll add it to `force:mdapi:deploy` when the beta version becomes generally available. 
 
 * CHANGE: The [Salesforce CLI open-sourcing train](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021) is speeding along and this week we've created the `force:org:beta:create` beta command in the [plugin-org](https://github.com/salesforcecli/plugin-org) plug-in. The command works the same as its equivalent existing one. Try out this beta command before we make the open-source version of `force:org:create` generally available.
 
@@ -40,8 +44,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 
 ## 7.135.0 (Jan 27, 2022) [stable]
-
-IMPORTANT: Have you tried out the `force:source:beta:*` commands yet? See [this post](https://github.com/forcedotcom/cli/issues/1258) for details. If you haven't, we highly encourage you to take them out for a spin and try to break them. We plan to end the beta of these commands around February 1, 2022, when we'll update the generally available commands (such as `force:source:push`) with their beta equivalents. We're still hoping for more feedback and issues from our community before then. Thanks in advance for all your help!
 
 * CHANGE: Have we mentioned that we're [open-sourcing Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021)? This week we moved the `force:source:ignored:list` command into the [plugin-source](https://github.com/salesforcecli/plugin-source) plug-in. It works the same as before. 
 
