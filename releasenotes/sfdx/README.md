@@ -16,7 +16,7 @@ Want to check out the new `sf` executable of Salesforce CLI? [Click here for the
 
 ## 7.136.0 (Feb 3, 2022) [stable-rc]
 
-IMPORTANT: Have you tried out the `force:source:beta:*` commands yet? See [this post](https://github.com/forcedotcom/cli/issues/1258) for details. If you haven't, we highly encourage you to take them out for a spin and try to break them. We plan to end the beta of these commands around February 1, 2022, when we'll update the generally available commands (such as `force:source:push`) with their beta equivalents. We're still hoping for more feedback and issues from our community before then. Thanks in advance for all your help!
+IMPORTANT: Have you tried out the `force:source:beta:*` commands yet? See [this post](https://github.com/forcedotcom/cli/issues/1258) for details. If you haven't, we highly encourage you to take them out for a spin and try to break them. We plan to end the beta of these commands in early February, 2022, when we'll update the generally available commands (such as `force:source:push`) with their beta equivalents. We're still hoping for more feedback and issues from our community before then. Thanks in advance for all your help!
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
