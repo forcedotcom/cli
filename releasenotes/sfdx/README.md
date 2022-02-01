@@ -36,7 +36,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
     And pow, all those peculiar CLI issues you had are now solved. (GitHub issue [#1304](https://github.com/forcedotcom/cli/issues/1304))
 
-* FIX: The `auth:accesstoken:store` command had an incorrect flag.  It now uses `-d` to set the default devhub username and matches all the other `auth` commands.  Thanks to [Matthias Rolke](https://github.com/amtrack) for the submitting [the fix](https://github.com/salesforcecli/plugin-auth/pull/359).  PRs are even better than issues!
+* FIX: The `auth:accesstoken:store` command uses the correct short parameter name (`-d`) for setting your default Dev Hub org and now matches the other `auth` commands. Thanks to [Matthias Rolke](https://github.com/amtrack) for the submitting [the fix](https://github.com/salesforcecli/plugin-auth/pull/359). PRs are even better than issues! 
 
 * FIX: The `force:source:convert` command correctly works with object translations. (GitHub issue [#1383](https://github.com/forcedotcom/cli/issues/1383))
 
