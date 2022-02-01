@@ -14,7 +14,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.136.0 (Feb 3, 2022) [stable-rc]
+## 7.136.2 (Feb 3, 2022) [stable-rc]
 
 IMPORTANT: Have you tried out the `force:source:beta:*` commands yet? See [this post](https://github.com/forcedotcom/cli/issues/1258) for details. If you haven't, we highly encourage you to take them out for a spin and try to break them. We plan to end the beta of these commands in early February, 2022, when we'll update the generally available commands (such as `force:source:push`) with their beta equivalents. We're still hoping for more feedback and issues from our community before then. Thanks in advance for all your help!
 
@@ -36,7 +36,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
     And pow, all those peculiar CLI issues you had are now solved. (GitHub issue [#1304](https://github.com/forcedotcom/cli/issues/1304))
 
-* FIX: The `auth:accesstoken:store` command uses the correct short parameter name (`-d`) for setting your default Dev Hub org and now matches the other `auth` commands. Thanks to [Matthias Rolke](https://github.com/amtrack) for the submitting [the fix](https://github.com/salesforcecli/plugin-auth/pull/359). PRs are even better than issues! 
+* FIX: The `auth:accesstoken:store` command uses the correct short parameter name (`-d`) for setting your default Dev Hub org and now matches the other `auth` commands. Thanks to [Matthias Rolke](https://github.com/amtrack) for submitting [the fix](https://github.com/salesforcecli/plugin-auth/pull/359). PRs are even better than issues! 
 
 * FIX: The `force:source:convert` command works correctly with object translations (CustomObjectTranslation metadata type). (GitHub issue [#1383](https://github.com/forcedotcom/cli/issues/1383))
 
