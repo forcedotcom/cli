@@ -38,7 +38,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `auth:accesstoken:store` command uses the correct short parameter name (`-d`) for setting your default Dev Hub org and now matches the other `auth` commands. Thanks to [Matthias Rolke](https://github.com/amtrack) for the submitting [the fix](https://github.com/salesforcecli/plugin-auth/pull/359). PRs are even better than issues! 
 
-* FIX: The `force:source:convert` command correctly works with object translations. (GitHub issue [#1383](https://github.com/forcedotcom/cli/issues/1383))
+* FIX: The `force:source:convert` command works correctly with object translations (CustomObjectTranslation metadata type). (GitHub issue [#1383](https://github.com/forcedotcom/cli/issues/1383))
 
 * FIX: Deploying metadata with the REST API now automatically refreshes your authentication token when necessary. (GitHub issues [#899](https://github.com/forcedotcom/cli/issues/899), [#912](https://github.com/forcedotcom/cli/issues/912))
 
