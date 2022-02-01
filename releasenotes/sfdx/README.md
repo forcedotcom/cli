@@ -35,7 +35,11 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     ```
     
     And pow, all those peculiar CLI issues you had are now solved. (GitHub issue [#1304](https://github.com/forcedotcom/cli/issues/1304))
-    
+
+* FIX: The `auth:accesstoken:store` command uses the correct short parameter name (`-d`) for setting your default Dev Hub org and now matches the other `auth` commands. Thanks to [Matthias Rolke](https://github.com/amtrack) for the submitting [the fix](https://github.com/salesforcecli/plugin-auth/pull/359). PRs are even better than issues! 
+
+* FIX: The `force:source:convert` command works correctly with object translations (CustomObjectTranslation metadata type). (GitHub issue [#1383](https://github.com/forcedotcom/cli/issues/1383))
+
 * FIX: Deploying metadata with the REST API now automatically refreshes your authentication token when necessary. (GitHub issues [#899](https://github.com/forcedotcom/cli/issues/899), [#912](https://github.com/forcedotcom/cli/issues/912))
 
 * FIX: We've updated the full Salesforce CLI Docker image on [Docker Hub](https://hub.docker.com/r/salesforce/salesforcedx/tags?page=1&ordering=last_updated) to use the latest LTS version of Node.js (v16.13.1). 
