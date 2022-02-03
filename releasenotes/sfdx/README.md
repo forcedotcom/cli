@@ -14,9 +14,19 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.136.2 (Feb 3, 2022) [stable]
+## 7.137.0 ( Feb 10, 2022) [stable-rc]
 
 IMPORTANT: Have you tried out the `force:source:beta:*` commands yet? See [this post](https://github.com/forcedotcom/cli/issues/1258) for details. If you haven't, we highly encourage you to take them out for a spin and try to break them. We plan to end the beta of these commands in early February, 2022, when we'll update the generally available commands (such as `force:source:push`) with their beta equivalents. We're still hoping for more feedback and issues from our community before then. Thanks in advance for all your help!
+
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* NEW: Quickly preview a Visualforce page in your browser by specifying the page to the `force:source:open` command. Visualforce pages have the `.page` suffix.  
+
+    `sfdx force:source:open -f force-app/main/default/pages/StartVFPage.page`
+    
+    Many thanks to [Fodil Boudjedien](https://github.com/fodilo) for designing the new feature and then taking the initiative to submit a PR with the code. It even included tests -- awesome. Keep 'em coming, community! (GitHub issue [#1386](https://github.com/forcedotcom/cli/issues/1386))
+
+## 7.136.2 (Feb 3, 2022) [stable]
 
 * NEW: Get shorter JSON output from running the `force:mdapi:beta:deploy` or `force:mdapi:beta:deploy:report` commands by using the new `--concise` parameter with the `--json` parameter. The new parameter omits success messages from the JSON output. When the two beta commands become generally available, the GA commands, such as `force:mdapi:deploy`, will also have the new parameter. 
 
