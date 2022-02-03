@@ -25,6 +25,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     `sfdx force:source:open -f force-app/main/default/pages/StartVFPage.page`
     
     Many thanks to [Fodil Boudjedien](https://github.com/fodilo) for designing the new feature and then taking the initiative to submit a PR with the code. It even included tests -- awesome. Keep 'em coming, community! (GitHub issue [#1386](https://github.com/forcedotcom/cli/issues/1386))
+    
+* NEW: You're now required to set a package ancestor when you create a package version. To make it easier to increment your package ancestor version number, we added two keywords to the `packageDirectories` section of the `sfdx-project.json` file. We also added a parameter to the `force:package:version:create` command to override this requirement: `--skipancestorcheck`. Get all the details [here](https://help.salesforce.com/s/articleView?id=release-notes.rn_packaging_ancestor_enhancements.htm&type=5&release=236) and [here](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_dev2gp_config_ancestors.htm). 
+
+* CHANGE: When running `force:package:version:create`, we now correctly fail to create the package version if we detect duplicate package dependencies in the `sfdx-project.json` file.
 
 ## 7.136.2 (Feb 3, 2022) [stable]
 
