@@ -10,7 +10,11 @@ Run `sfdx update stable-rc` to update to the release candidate for both `sf` and
 
 [Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
 
-## 1.10.0 (Jan 27, 2022) [stable]
+## 1.11.1 (Feb 3, 2022) [stable]
+
+* FIX: We fixed some under-the-hood bugs.
+ 
+## 1.10.0 (Jan 27, 2022)
 
 * CHANGE: Docker is no longer required when you develop a Salesforce Function locally using the `run function start` command. Instead, you can build and run Functions on the host operating system, which results in a faster development cycle. If you want to continue using Docker for local Salesforce Functions development, use the new `run function local container` command. This command behaves the same as `run function start` did before this release.
 
