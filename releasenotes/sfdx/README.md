@@ -14,11 +14,23 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.136.2 (Feb 3, 2022) [stable-rc]
+## 7.137.0 ( Feb 10, 2022) [stable-rc]
 
 IMPORTANT: Have you tried out the `force:source:beta:*` commands yet? See [this post](https://github.com/forcedotcom/cli/issues/1258) for details. If you haven't, we highly encourage you to take them out for a spin and try to break them. We plan to end the beta of these commands in early February, 2022, when we'll update the generally available commands (such as `force:source:push`) with their beta equivalents. We're still hoping for more feedback and issues from our community before then. Thanks in advance for all your help!
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* NEW: Quickly preview a Visualforce page in your browser by specifying the page to the `force:source:open` command. Visualforce pages have the `.page` suffix.  
+
+    `sfdx force:source:open -f force-app/main/default/pages/StartVFPage.page`
+    
+    Many thanks to [Fodil Boudjedien](https://github.com/fodilo) for designing the new feature and then taking the initiative to submit a PR with the code. It even included tests -- awesome. Keep 'em coming, community! (GitHub issue [#1386](https://github.com/forcedotcom/cli/issues/1386))
+    
+* NEW: You're now required to set a package ancestor when you create a package version. To make it easier to increment your package ancestor version number, we added two keywords to the `packageDirectories` section of the `sfdx-project.json` file. We also added a parameter to the `force:package:version:create` command to override this requirement: `--skipancestorcheck`. Get all the details [here](https://help.salesforce.com/s/articleView?id=release-notes.rn_packaging_ancestor_enhancements.htm&type=5&release=236) and [here](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_dev2gp_config_ancestors.htm). 
+
+* CHANGE: When running `force:package:version:create`, we now correctly fail to create the package version if we detect duplicate package dependencies in the `sfdx-project.json` file.
+
+## 7.136.2 (Feb 3, 2022) [stable]
 
 * NEW: Get shorter JSON output from running the `force:mdapi:beta:deploy` or `force:mdapi:beta:deploy:report` commands by using the new `--concise` parameter with the `--json` parameter. The new parameter omits success messages from the JSON output. When the two beta commands become generally available, the GA commands, such as `force:mdapi:deploy`, will also have the new parameter. 
 
@@ -47,7 +59,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 * FIX: The `force:source:*` commands now support the EmailTemplateFolder metadata type. (GitHub issue [#1345](https://github.com/forcedotcom/cli/issues/1345))
 
 
-## 7.135.0 (Jan 27, 2022) [stable]
+## 7.135.0 (Jan 27, 2022)
 
 * CHANGE: Have we mentioned that we're [open-sourcing Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021)? This week we moved the `force:source:ignored:list` command into the [plugin-source](https://github.com/salesforcecli/plugin-source) plug-in. It works the same as before. 
 
