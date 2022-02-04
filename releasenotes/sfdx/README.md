@@ -14,7 +14,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.137.0 ( Feb 10, 2022) [stable-rc]
+## 7.137.1 ( Feb 10, 2022) [stable-rc]
 
 IMPORTANT: Have you tried out the `force:source:beta:*` commands yet? See [this post](https://github.com/forcedotcom/cli/issues/1258) for details. If you haven't, we highly encourage you to take them out for a spin and try to break them. We plan to end the beta of these commands in early February, 2022, when we'll update the generally available commands (such as `force:source:push`) with their beta equivalents. We're still hoping for more feedback and issues from our community before then. Thanks in advance for all your help!
 
