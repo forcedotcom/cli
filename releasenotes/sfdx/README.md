@@ -36,7 +36,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `force:source:*` commands support symlink (symbolic link) source paths.  (GitHub issue [#1375](https://github.com/forcedotcom/cli/issues/1375))
 
-* FIX: When you create a user with the `force:user:create` command, Salesforce CLI now uses your MyDomain URL when it authenticates the new user. This change fixes an authentication error when running the command to create an Experience Cloud user on a preview (API version 54.0) scratch org. (GitHub issue [#1365](https://github.com/forcedotcom/cli/issues/1365))
+* FIX: When you create a user with the `force:user:create` command, Salesforce CLI now uses your MyDomain URL when it authenticates the new user. This change fixes an authentication error when running the command to create an Experience Cloud user on a preview (API version 54.0) scratch org when using JWT. (GitHub issue [#1365](https://github.com/forcedotcom/cli/issues/1365))
 
 * FIX: When you run the `force:data:soql:query` command, and the SOQL query includes a field that contains JSON content, the results now display the actual JSON content. Previously the results would display the unhelpful `[object Object]` text. (GitHub issue [#1318](https://github.com/forcedotcom/cli/issues/1318))
 
