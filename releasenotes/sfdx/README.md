@@ -20,6 +20,14 @@ IMPORTANT: Have you tried out the `force:source:beta:*` commands yet? See [this 
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* CHANGE: Vroom, vroom, the project to [open-source Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021) continues to speed along! This week we moved these commands into the [plugin-community](https://github.com/salesforcecli/plugin-community) plug-in:
+
+    * `force:community:create`
+    * `force:community:publish`
+    * `force:community:template:list`
+
+    They all work the same as before. Go build a community. 
+ 
 * CHANGE: If you specify an invalid scratch org definition file with the `force:org:beta:create` command, we now display more information in the error to help you troubleshoot the problem. When the beta command becomes generally available, the equivalent GA command `force:org:create` will also display the improved error message. 
 
 * CHANGE: The `force:source:*` commands display a warning when they find a `.forceignore` file that incorrectly uses the backslash (`\`) as a folder separator. The correct syntax is to use the slash (`/`), same as the [`.gitignore` syntax](https://git-scm.com/docs/gitignore). While we currently accept both separators, we plan to stop supporting the backslash soon.   
