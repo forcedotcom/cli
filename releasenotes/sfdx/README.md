@@ -14,11 +14,19 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.137.1 ( Feb 10, 2022) [stable-rc]
+## 7.138.0 (Feb 17, 2022) [stable-rc]
 
 IMPORTANT: Have you tried out the `force:source:beta:*` commands yet? See [this post](https://github.com/forcedotcom/cli/issues/1258) for details. If you haven't, we highly encourage you to take them out for a spin and try to break them. We plan to end the beta of these commands in early February, 2022, when we'll update the generally available commands (such as `force:source:push`) with their beta equivalents. We're still hoping for more feedback and issues from our community before then. Thanks in advance for all your help!
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* CHANGE: The `force:source:*` commands display a warning when they find a `.forceignore` file that incorrectly uses the backslash (`\`) as a folder separator. The correct syntax is to use the slash (`/`). While we currently accept both separators, we plan to stop supporting the backslash soon.
+
+* FIX: When you run the `force:data:soql:query` command, and the SOQL query includes a field that contains JSON content, the results now display the actual JSON content. Previously the results would display the unhelpful `[object Object]` text. (GitHub issue [#1318](https://github.com/forcedotcom/cli/issues/1318))
+
+* FIX: The `force:data:record:update` command properly parses JSON content when passed as a field value with the `-v` parameter. (GitHub issue [#72](https://github.com/forcedotcom/cli/issues/72))
+
+## 7.137.2 (Feb 10, 2022) [stable]
 
 * NEW: Quickly preview a Visualforce page in your browser by specifying the page to the `force:source:open` command. Visualforce pages have the `.page` suffix.  
 
@@ -30,7 +38,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * CHANGE: When running `force:package:version:create`, we now correctly fail to create the package version if we detect duplicate package dependencies in the `sfdx-project.json` file.
 
-## 7.136.2 (Feb 3, 2022) [stable]
+## 7.136.2 (Feb 3, 2022)
 
 * NEW: Get shorter JSON output from running the `force:mdapi:beta:deploy` or `force:mdapi:beta:deploy:report` commands by using the new `--concise` parameter with the `--json` parameter. The new parameter omits success messages from the JSON output. When the two beta commands become generally available, the GA commands, such as `force:mdapi:deploy`, will also have the new parameter. 
 
