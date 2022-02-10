@@ -16,11 +16,13 @@ Want to check out the new `sf` executable of Salesforce CLI? [Click here for the
 
 ## 7.138.0 (Feb 17, 2022) [stable-rc]
 
-IMPORTANT: Have you tried out the `force:source:beta:*` commands yet? See [this post](https://github.com/forcedotcom/cli/issues/1258) for details. If you haven't, we highly encourage you to take them out for a spin and try to break them. We plan to end the beta of these commands in early February, 2022, when we'll update the generally available commands (such as `force:source:push`) with their beta equivalents. We're still hoping for more feedback and issues from our community before then. Thanks in advance for all your help!
+IMPORTANT: Have you tried out the `force:source:beta:*` commands yet? See [this post](https://github.com/forcedotcom/cli/issues/1258) for details. If you haven't, we highly encourage you to take them out for a spin and try to break them. We plan to end the beta of these commands sometime in February, 2022, when we'll update the generally available commands (such as `force:source:push`) with their beta equivalents. We're still hoping for more feedback and issues from our community before then. Thanks in advance for all your help!
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* CHANGE: The `force:source:*` commands display a warning when they find a `.forceignore` file that incorrectly uses the backslash (`\`) as a folder separator. The correct syntax is to use the slash (`/`). While we currently accept both separators, we plan to stop supporting the backslash soon.
+* CHANGE: If you specify an invalid scratch org definition file with the `force:org:beta:create` command, we now display more information in the error to help you troubleshoot the problem. When the beta command becomes generally available, the equivalent GA command `force:org:create` will also display the improved error message. 
+
+* CHANGE: The `force:source:*` commands display a warning when they find a `.forceignore` file that incorrectly uses the backslash (`\`) as a folder separator. The correct syntax is to use the slash (`/`), same as the [`.gitignore` syntax](https://git-scm.com/docs/gitignore). While we currently accept both separators, we plan to stop supporting the backslash soon.   
 
 * FIX: When you run the `force:data:soql:query` command, and the SOQL query includes a field that contains JSON content, the results now display the actual JSON content. Previously the results would display the unhelpful `[object Object]` text. (GitHub issue [#1318](https://github.com/forcedotcom/cli/issues/1318))
 
