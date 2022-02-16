@@ -14,7 +14,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.138.0 (Feb 17, 2022) [stable-rc]
+## 7.138.1 (Feb 17, 2022) [stable-rc]
 
 IMPORTANT: Have you tried out the `force:source:beta:*` commands yet? See [this post](https://github.com/forcedotcom/cli/issues/1258) for details. If you haven't, we highly encourage you to take them out for a spin and try to break them. We plan to end the beta of these commands sometime in February, 2022, when we'll update the generally available commands (such as `force:source:push`) with their beta equivalents. We're still hoping for more feedback and issues from our community before then. Thanks in advance for all your help!
 
@@ -31,6 +31,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 * CHANGE: If you specify an invalid scratch org definition file with the `force:org:beta:create` command, we now display more information in the error to help you troubleshoot the problem. When the beta command becomes generally available, the equivalent GA command `force:org:create` will also display the improved error message. 
 
 * CHANGE: The `force:source:*` commands display a warning when they find a `.forceignore` file that incorrectly uses the backslash (`\`) as a folder separator. The correct syntax is to use the slash (`/`), same as the [`.gitignore` syntax](https://git-scm.com/docs/gitignore). While we currently accept both separators, we plan to stop supporting the backslash soon.   
+
+* FIX: You can now successfully create an unlocked package version without getting an error about an invalid ancestor. (GitHub issue [#1403](https://github.com/forcedotcom/cli/issues/1403))
 
 * FIX: You can now run the `info:releasenotes:display` command from behind a Web proxy. (GitHub issue [#1378](https://github.com/forcedotcom/cli/issues/1378))
 
