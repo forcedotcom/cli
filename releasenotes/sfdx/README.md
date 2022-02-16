@@ -14,11 +14,15 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.138.1 (Feb 17, 2022) [stable-rc]
+## 7.139.0 (Feb 24, 2022) [stable-rc]
 
 IMPORTANT: Have you tried out the `force:source:beta:*` commands yet? See [this post](https://github.com/forcedotcom/cli/issues/1258) for details. If you haven't, we highly encourage you to take them out for a spin and try to break them. We plan to end the beta of these commands sometime in February, 2022, when we'll update the generally available commands (such as `force:source:push`) with their beta equivalents. We're still hoping for more feedback and issues from our community before then. Thanks in advance for all your help!
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* FIX: The `force:source:beta:push` command now correctly handles failed deployments of `Settings` metadata component types.  (GitHub issue [#1401](https://github.com/forcedotcom/cli/issues/1401))
+
+## 7.138.1 (Feb 17, 2022) [stable]
 
 * CHANGE: Vroom, vroom, the project to [open-source Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021) continues to speed along! This week we moved these commands into the [plugin-community](https://github.com/salesforcecli/plugin-community) plug-in:
 
@@ -44,7 +48,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `force:data:record:update` command properly parses JSON content when passed as a field value with the `-v` parameter. (GitHub issue [#72](https://github.com/forcedotcom/cli/issues/72))
 
-## 7.137.2 (Feb 10, 2022) [stable]
+## 7.137.1 (Feb 10, 2022)
 
 * NEW: Quickly preview a Visualforce page in your browser by specifying the page to the `force:source:open` command. Visualforce pages have the `.page` suffix.  
 
