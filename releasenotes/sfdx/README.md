@@ -32,7 +32,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * CHANGE: The `force:source:*` commands display a warning when they find a `.forceignore` file that incorrectly uses the backslash (`\`) as a folder separator. The correct syntax is to use the slash (`/`), same as the [`.gitignore` syntax](https://git-scm.com/docs/gitignore). While we currently accept both separators, we plan to stop supporting the backslash soon.   
 
-* FIX: You can now successfully create an unlocked package version without getting an error about an invalid ancestor. (GitHub issue [#1403](https://github.com/forcedotcom/cli/issues/1403))
+* FIX: FIX: You can now successfully create an unlocked package version. Previously the command failed with an error about an invalid ancestor or an invalid subscriber package version ID. (GitHub issue [#1403](https://github.com/forcedotcom/cli/issues/1403))
 
 * FIX: You can now run the `info:releasenotes:display` command from behind a Web proxy. (GitHub issue [#1378](https://github.com/forcedotcom/cli/issues/1378))
 
