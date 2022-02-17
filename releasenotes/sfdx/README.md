@@ -24,6 +24,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `force:source:beta:push` command now correctly handles failed deployments of `Settings` metadata component types.  (GitHub issue [#1401](https://github.com/forcedotcom/cli/issues/1401))
 
+* FIX: The `force:source:beta:push` command correctly handles metadata types that are in folders, such as Document and EmailTemplate. (GitHub issue [#1398](https://github.com/forcedotcom/cli/issues/1398))
+
 * FIX: We've improved the performance of the `force:source:beta:push` command. Special thanks to [mchadwickffdc](https://github.com/mchadwickffdc) and [David Esposito](https://github.com/daveespo) who found the issue and provided excellent data and feedback to help us fix it. Community beta-testing at its best! (GitHub issue [#1394](https://github.com/forcedotcom/cli/issues/1394))
 
 * FIX: We've improved the performance of the `force:source:retrieve` command when deploying StaticResource metadata components. (GitHub issue [#1348](https://github.com/forcedotcom/cli/issues/1348))
