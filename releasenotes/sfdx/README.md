@@ -20,6 +20,8 @@ IMPORTANT: Have you tried out the `force:source:beta:*` commands yet? See [this 
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* CHANGE: The `force:org:beta:create` command is more tolerant when it encounters certain network problems, such as ETIMEDOUT, ECONNRESET, ENOTFOUND and 'socket hang up' errors. The command now keeps trying to connect, at least up to the time specified by the `--wait` parameter. It also displays warnings and debugging information so the user knows what's going on. Previously the command failed on the first connection problem.
+
 * FIX: The `force:source:beta:push` command now correctly handles failed deployments of `Settings` metadata component types.  (GitHub issue [#1401](https://github.com/forcedotcom/cli/issues/1401))
 
 * FIX: We've improved the performance of the `force:source:beta:push` command. Special thanks to [mchadwickffdc](https://github.com/mchadwickffdc) and [David Esposito](https://github.com/daveespo) who found the issue and provided excellent data and feedback to help us fix it. Community beta-testing at its best! (GitHub issue [#1394](https://github.com/forcedotcom/cli/issues/1394))
