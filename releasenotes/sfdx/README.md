@@ -20,9 +20,12 @@ IMPORTANT: Have you tried out the `force:source:beta:*` commands yet? See [this 
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* NEW: We know you love the source-tracking feature of `force:source:push|pull`, and now you can use it with the `force:source:deploy|retrieve|delete` commands too!  Use the new `--tracksource` parameter to enable source-tracking for a single command run. Use `--forceoverwrite` to ignore conflict warnings and overwrite source in the org (when deploying) or locally (when retrieving). 
+* NEW: We know you love the source-tracking feature of `force:source:push|pull`, and now you can use it with the `force:source:deploy|retrieve|delete` commands too!  We've added these Boolean parameters to the three commands:
 
-    Think of all the exciting things you can now do!
+    * `--tracksource` : Enable source-tracking for a single command run. 
+    * `--forceoverwrite` : Ignore conflict warnings and overwrite source in the org (when deploying) or locally (when retrieving). 
+
+    Think of all the exciting things you can now do:
     
     * **Deploy or retrieve only specified changes**. For example, retrieve a single Apex class and update your tracking files rather than having to retrieve _all_ the changes in your org with `force:source:pull`. 
 
@@ -41,7 +44,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * We recommend that you keep using `force:source:push|pull` to sync all changes between your local source and org rather than specific changes.  
     * This new feature doesn't handle deletes. For example, if you delete a metadata component in your org and want to also delete it locally, you must use `force:source:push`. 
     * You can, however, delete local source by specifying the destructive changes parameters (`--postdestructivechanges` and `--predestructivechanges`) of `force:source:delete|deploy`.
-    * **Important** These new source-tracking flags are compatible only with the [new `force:source:beta:` commands](https://github.com/forcedotcom/cli/issues/1258) and can't be used with the source-tracking files from non-beta commands. 
+    * **Important** These new source-tracking flags are compatible only with the [new `force:source:beta:*` commands](https://github.com/forcedotcom/cli/issues/1258) and can't be used with the source-tracking files from non-beta commands. 
     
 * CHANGE: The `force:org:beta:create` command is more tolerant when it encounters certain network problems, such as ETIMEDOUT, ECONNRESET, ENOTFOUND and 'socket hang up' errors. The command now keeps trying to connect, at least up to the time specified by the `--wait` parameter. It also displays warnings and debugging information so the user knows what's going on. Previously the command failed on the first connection problem.
 
