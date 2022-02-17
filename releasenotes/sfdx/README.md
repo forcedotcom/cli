@@ -24,6 +24,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We've improved the performance of the `force:source:beta:push` command. Special thanks to [mchadwickffdc](https://github.com/mchadwickffdc) and [David Esposito](https://github.com/daveespo) who found the issue and provided excellent data and feedback to help us fix it. Community beta-testing at its best! (GitHub issue [#1394](https://github.com/forcedotcom/cli/issues/1394))
 
+* FIX: We've improved the performance of the `force:source:retrieve` command when deploying StaticResource metadata components. (GitHub issue [#1348](https://github.com/forcedotcom/cli/issues/1348))
+
 ## 7.138.1 (Feb 17, 2022) [stable]
 
 * CHANGE: Vroom, vroom, the project to [open-source Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021) continues to speed along! This week we moved these commands into the [plugin-community](https://github.com/salesforcecli/plugin-community) plug-in:
