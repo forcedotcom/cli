@@ -44,7 +44,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * We recommend that you keep using `force:source:push|pull` to sync all changes between your local source and org rather than specific changes.  
     * This new feature doesn't handle deletes. For example, if you delete a metadata component in your org and want to also delete it locally, you must use `force:source:push`. 
     * You can, however, delete local source by specifying the destructive changes parameters (`--postdestructivechanges` and `--predestructivechanges`) of `force:source:delete|deploy`.
-    * **Important** These new source-tracking flags are compatible only with the [new `force:source:beta:*` commands](https://github.com/forcedotcom/cli/issues/1258) and can't be used with the source-tracking files from non-beta commands. 
+    * **Important**: These new source-tracking flags are compatible only with the source-tracking files associated with the [new `force:source:beta:*` commands](https://github.com/forcedotcom/cli/issues/1258). You can't use these flags with source-tracking files associated with the non-beta commands, such as the current `force:source:push`. 
     
 * CHANGE: The `force:org:beta:create` command is more tolerant when it encounters certain network problems, such as ETIMEDOUT, ECONNRESET, ENOTFOUND and 'socket hang up' errors. The command now keeps trying to connect, at least up to the time specified by the `--wait` parameter. It also displays warnings and debugging information so the user knows what's going on. Previously the command failed on the first connection problem.
 
