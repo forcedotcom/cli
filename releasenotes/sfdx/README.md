@@ -14,11 +14,16 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.139.0 (Feb 24, 2022) [stable-rc]
-
-IMPORTANT: Have you tried out the `force:source:beta:*` commands yet? See [this post](https://github.com/forcedotcom/cli/issues/1258) for details. If you haven't, we highly encourage you to take them out for a spin and try to break them. We plan to end the beta of these commands sometime in February, 2022, when we'll update the generally available commands (such as `force:source:push`) with their beta equivalents. We're still hoping for more feedback and issues from our community before then. Thanks in advance for all your help!
+## 7.140.0 (March 3, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* FIX: The `force:source:*` commands now support these metadata types:
+
+	* FlowTest
+	* UiViewDefinition
+ 
+## 7.139.0 (Feb 24, 2022) [stable]
 
 * NEW: We know you love the source-tracking feature of `force:source:push|pull`, and now you can use it with the `force:source:deploy|retrieve|delete` commands too!  We've added these Boolean parameters to the three commands:
 
@@ -58,7 +63,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We've improved the performance of the `force:source:retrieve` command when deploying StaticResource metadata components. (GitHub issue [#1348](https://github.com/forcedotcom/cli/issues/1348))
 
-## 7.138.1 (Feb 17, 2022) [stable]
+## 7.138.1 (Feb 17, 2022)
 
 * CHANGE: Vroom, vroom, the project to [open-source Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021) continues to speed along! This week we moved these commands into the [plugin-community](https://github.com/salesforcecli/plugin-community) plug-in:
 
