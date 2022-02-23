@@ -22,6 +22,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 	* FlowTest
 	* UiViewDefinition
+
+* FIX: The `force:org:beta:create` command correctly sets the new org as your default when you specify the `-s|--setdefaultusername` parameter. (GitHub issue [#1400](https://github.com/forcedotcom/cli/issues/1400))
  
 ## 7.139.0 (Feb 24, 2022) [stable]
 
