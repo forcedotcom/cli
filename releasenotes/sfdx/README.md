@@ -14,11 +14,49 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.139.0 (Feb 24, 2022) [stable-rc]
-
-IMPORTANT: Have you tried out the `force:source:beta:*` commands yet? See [this post](https://github.com/forcedotcom/cli/issues/1258) for details. If you haven't, we highly encourage you to take them out for a spin and try to break them. We plan to end the beta of these commands sometime in February, 2022, when we'll update the generally available commands (such as `force:source:push`) with their beta equivalents. We're still hoping for more feedback and issues from our community before then. Thanks in advance for all your help!
+## 7.140.0 (March 3, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* CHANGE: After a successful beta and great feedback from our community, the following commands that used to be in the `force:source:beta` topic are now generally available: 
+
+    * `force:source:push`
+    * `force:source:pull`
+    * `force:source:status`
+    * `force:source:tracking:clear`
+    * `force:source:tracking:reset`
+
+    What does this mean? The functionality we added to `force:source:beta:push`, for example, is now in `force:source:push`. The functionality in the _old_  `force:source:push` is now in `force:source:legacy:push`. 
+
+    These new commands continue to live in the open-source [plugin-source](https://github.com/salesforcecli/plugin-source) plug-in and use the open-source [source-tracking library](https://github.com/forcedotcom/source-tracking). This library provides direct interaction with your local source-tracking files using git. The commands also use the open-source and better-performing [source-deploy-retrieve](https://github.com/forcedotcom/source-deploy-retrieve) library, just like VSCode and the `force:source:deploy|retrieve` commands.
+
+    A word of warning: we changed the format of the internal files the commands use to track your source. We also store them in different locations than the old commands. As a result, you can’t use the old source-tracking files with the new commands. You have a few options:
+
+    * If you want to use the new commands with an existing scratch org or sandbox, run `force:source:legacy:tracking:clear` or `force:source:legacy:tracking:reset`. If you try to use an existing org without resetting or clearing its tracking files, we display an error and tell you which command to run. 
+    * Create a scratch org or sandbox, which doesn’t have any associated source-tracking files yet.
+    * Keep using the `force:source:legacy:*` commands until you’re ready to make the switch to the new commands using one of the preceding options. 
+
+    We’ve regularly updated these release notes with other exciting changes to the beta commands. These changes now apply to their equivalent GA commands. Here’s a recap:
+
+    * The commands support storing multiple `.gitignore` files in as many places in your packageDirectories as you want. 
+    * The `force:source:status` command has a new `--concise` parameter to display terser output. For example, the output doesn't include ignored files. 
+    * The `force:source:push|pull` commands are more tolerant when they encounter certain network problems, such as ETIMEDOUT, ECONNRESET, ENOTFOUND and 'socket hang up' errors. The commands now keep trying to connect, at least up to the time specified by the `--wait` parameter. They also display warnings and debugging information so the user knows what's going on. Previously the commands failed on the first connection problem. 
+    * The `force:source:push` command uses a new `pushPackageDirectoriesSequentially` option in `sfdx-project.json` to push `packageDirectories` sequentially rather than in one transaction. This change unblocks certain complex deployments. See the [Beta announcement](https://github.com/forcedotcom/cli/issues/1258) for more details and a code example. 
+    * The `force:source:push` command has a new `–quiet` parameter that suppresses the displayed list of successfully deployed metadata components. You still see all the error messages, don’t worry.  
+    * The commands always check your `.forceignore` file and the package directories configured in your `sfdx-project.json` file and immediately pick up any changes.
+    * We removed the `--all` parameter of `force:source:status`. We also no longer accept the combined use of the `--local` and `--remote` parameters. To view source changes in both your local project and an org, run the command with no parameters.
+    * The `force:source:status` command now displays which changes, if any, are covered by your `.forceignore` file. These changes aren’t included in a push or pull.
+
+    We appreciate all your help in testing these beta commands. Thanks a bunch!
+
+* FIX: The `force:source:*` commands now support these metadata types:
+
+	* FlowTest
+	* UiViewDefinition
+
+* FIX: The `force:org:beta:create` command correctly sets the new org as your default when you specify the `-s|--setdefaultusername` parameter. (GitHub issue [#1400](https://github.com/forcedotcom/cli/issues/1400))
+ 
+## 7.139.0 (Feb 24, 2022) [stable]
 
 * NEW: We know you love the source-tracking feature of `force:source:push|pull`, and now you can use it with the `force:source:deploy|retrieve|delete` commands too!  We've added these Boolean parameters to the three commands:
 
@@ -58,7 +96,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We've improved the performance of the `force:source:retrieve` command when deploying StaticResource metadata components. (GitHub issue [#1348](https://github.com/forcedotcom/cli/issues/1348))
 
-## 7.138.1 (Feb 17, 2022) [stable]
+## 7.138.1 (Feb 17, 2022)
 
 * CHANGE: Vroom, vroom, the project to [open-source Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021) continues to speed along! This week we moved these commands into the [plugin-community](https://github.com/salesforcecli/plugin-community) plug-in:
 
