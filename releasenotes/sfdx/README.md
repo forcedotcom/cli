@@ -26,7 +26,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `force:source:tracking:clear`
     * `force:source:tracking:reset`
 
-    What does this mean? The functionality we added to `force:source:beta:push`, for example, is now in `force:source:push`. The functionality in the _old_  `force:source:push` is now in `force:source:legacy:push`. You can always use these `force:source:legacy` commands if you run into issues with the new commands. 
+    What does this mean? The functionality we added to `force:source:beta:push`, for example, is now in `force:source:push`. The functionality in the _old_  `force:source:push` is now in `force:source:legacy:push`. In the short term, you can use these `force:source:legacy` commands if you run into issues with the new commands. 
 
     The new commands continue to live in the open-source [plugin-source](https://github.com/salesforcecli/plugin-source) plug-in and use the open-source [source-tracking library](https://github.com/forcedotcom/source-tracking). This library provides direct interaction with your local source-tracking files using git. The commands also use the open-source and better-performing [source-deploy-retrieve](https://github.com/forcedotcom/source-deploy-retrieve) library, just like VSCode and the `force:source:deploy|retrieve` commands.
 
