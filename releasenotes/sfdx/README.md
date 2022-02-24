@@ -18,6 +18,16 @@ Want to check out the new `sf` executable of Salesforce CLI? [Click here for the
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* NEW: Create a manifest file from all the metadata components in your org with the new `–fromorg` parameter of the `force:source:manifest:create` command. Set the parameter to the username or alias of your org. 
+
+    By default, the command excludes metadata components contained in your org’s packages. To also include these components in your manifest, set the new `–includepackages` parameter to the type of package, either `managed`, `unlocked`, or both. 
+    
+    For example, to generate a manifest file that contains all metadata components in an org with alias `my-scratch` and the components defined in all unlocked and managed packages, run this command:
+    
+    `sfdx force:source:manifest:create –fromorg my-scratch –includepackages managed,unlocked`
+    
+    Many thanks to [Jochen Rinder](https://github.com/jayree) who thought of the nifty new feature and then submitted a PR with the code.
+ 
 * CHANGE: After a successful beta and great feedback from our community, the following commands that used to be in the `force:source:beta` topic are now generally available: 
 
     * `force:source:push`
