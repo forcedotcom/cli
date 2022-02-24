@@ -26,15 +26,15 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `force:source:tracking:clear`
     * `force:source:tracking:reset`
 
-    What does this mean? The functionality we added to `force:source:beta:push`, for example, is now in `force:source:push`. The functionality in the _old_  `force:source:push` is now in `force:source:legacy:push`. Pretty neat, huh. 
+    What does this mean? The functionality we added to `force:source:beta:push`, for example, is now in `force:source:push`. The functionality in the _old_  `force:source:push` is now in `force:source:legacy:push`. 
 
     These new commands continue to live in the open-source [plugin-source](https://github.com/salesforcecli/plugin-source) plug-in and use the open-source [source-tracking library](https://github.com/forcedotcom/source-tracking). This library provides direct interaction with your local source-tracking files using git. The commands also use the open-source and better-performing [source-deploy-retrieve](https://github.com/forcedotcom/source-deploy-retrieve) library, just like VSCode and the `force:source:deploy|retrieve` commands.
 
     A word of warning: we changed the format of the internal files the commands use to track your source. We also store them in different locations than the old commands. As a result, you can’t use the old source-tracking files with the new commands. You have a few options:
 
     * If you want to use the new commands with an existing scratch org or sandbox, run `force:source:legacy:tracking:clear` or `force:source:legacy:tracking:reset`. If you try to use an existing org without resetting or clearing its tracking files, we display an error and tell you which command to run. 
-    * Create a new scratch org or sandbox, which doesn’t have any associated source-tracking files yet.
-    * Keep using the `force:source:legacy:*` commands until you’re ready to do one of the preceding options.
+    * Create a scratch org or sandbox, which doesn’t have any associated source-tracking files yet.
+    * Keep using the `force:source:legacy:*` commands until you’re ready to make the switch to the new commands using one of the preceding options. 
 
     We’ve regularly updated these release notes with other exciting changes to the beta commands. These changes now apply to their equivalent GA commands. Here’s a recap:
 
@@ -44,7 +44,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * The `force:source:push` command uses a new `pushPackageDirectoriesSequentially` option in `sfdx-project.json` to push `packageDirectories` sequentially rather than in one transaction. This change unblocks certain complex deployments. See the [Beta announcement](https://github.com/forcedotcom/cli/issues/1258) for more details and a code example. 
     * The `force:source:push` command has a new `–quiet` parameter that suppresses the displayed list of successfully deployed metadata components. You still see all the error messages, don’t worry.  
     * The commands always check your `.forceignore` file and the package directories configured in your `sfdx-project.json` file and immediately pick up any changes.
-    * We've removed the `--all` parameter of `force:source:status`. We've also no longer accept the combined use of the `--local` and `--remote` parameters. To view source changes in both your local project and an org, run the command with no parameters.
+    * We removed the `--all` parameter of `force:source:status`. We also no longer accept the combined use of the `--local` and `--remote` parameters. To view source changes in both your local project and an org, run the command with no parameters.
     * The `force:source:status` command now displays which changes, if any, are covered by your `.forceignore` file. These changes aren’t included in a push or pull.
 
     We appreciate all your help in testing these beta commands. Thanks a bunch!
