@@ -19,7 +19,30 @@ Want to check out the new `sf` executable of Salesforce CLI? [Click here for the
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
  
  * CHANGE: The project to [open-source Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021) marches along. This week we moved the `force` command into the [plugin-info](https://github.com/salesforcecli/plugin-info) plug-in.
- 
+
+* FIX: The `force:source:*` commands now support these metadata types:
+
+    * ActivationPlatform
+    * AdvAcctForecastDimSource
+    * ApplicationSubtypeDefinition
+    * AppointmentAssignmentPolicy
+    * BusinessProcessTypeDefinition
+    * CareLimitType
+    * DataConnectorIngestApi
+    * DataSourceTenant
+    * ESignatureConfig
+    * ESignatureEnvelopeConfig
+    * ExplainabilityActionDefinition
+    * ExplainabilityActionVersion
+    * InternalDataConnector
+    * MobSecurityCertPinConfig
+    * MobileSecurityAssignment
+    * MobileSecurityPolicy
+    * MobileSecurityPolicySet
+    * OmniInteractionAccessConfig
+    * ProductAttributeSet
+    * RecordAlertCategory
+    * RecordAlertDataSource
  
 ## 7.140.0 (March 3, 2022) [stable]
 
