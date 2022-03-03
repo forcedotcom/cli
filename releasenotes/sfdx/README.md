@@ -14,10 +14,38 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.140.0 (March 3, 2022) [stable-rc]
+## 7.141.0 (March 10, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
  
+ * CHANGE: The project to [open-source Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021) marches along. This week we moved the `force` command into the [plugin-info](https://github.com/salesforcecli/plugin-info) plug-in.
+
+* FIX: The `force:source:*` commands now support these metadata types:
+
+    * ActivationPlatform
+    * AdvAcctForecastDimSource
+    * ApplicationSubtypeDefinition
+    * AppointmentAssignmentPolicy
+    * BusinessProcessTypeDefinition
+    * CareLimitType
+    * DataConnectorIngestApi
+    * DataSourceTenant
+    * ESignatureConfig
+    * ESignatureEnvelopeConfig
+    * ExplainabilityActionDefinition
+    * ExplainabilityActionVersion
+    * InternalDataConnector
+    * MobSecurityCertPinConfig
+    * MobileSecurityAssignment
+    * MobileSecurityPolicy
+    * MobileSecurityPolicySet
+    * OmniInteractionAccessConfig
+    * ProductAttributeSet
+    * RecordAlertCategory
+    * RecordAlertDataSource
+ 
+## 7.140.0 (March 3, 2022) [stable]
+
 * NEW: After a successful beta and great feedback from our community, the following commands that used to be in the `force:source:beta` topic are now generally available: 
 
     * `force:source:push`
@@ -66,7 +94,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `force:org:beta:create` command correctly sets the new org as your default when you specify the `-s|--setdefaultusername` parameter. (GitHub issue [#1400](https://github.com/forcedotcom/cli/issues/1400))
  
-## 7.139.0 (Feb 24, 2022) [stable]
+## 7.139.0 (Feb 24, 2022)
 
 * NEW: We know you love the source-tracking feature of `force:source:push|pull`, and now you can use it with the `force:source:deploy|retrieve|delete` commands too!  We've added these Boolean parameters to the three commands:
 
