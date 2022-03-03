@@ -74,6 +74,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * The commands always check your `.forceignore` file and the package directories configured in your `sfdx-project.json` file and immediately pick up any changes.
     * We removed the `--all` parameter of `force:source:status`. We also no longer accept the combined use of the `--local` and `--remote` parameters. To view source changes in both your local project and an org, run the command with no parameters.
     * The `force:source:status` command now displays which changes, if any, are covered by your `.forceignore` file. These changes aren’t included in a push or pull.
+    * One gotcha: Due to changes in the design and performance of the code for deploying and retrieving metadata, the Salesforce CLI-specific hooks have also changed. In particular, we've removed the redundant `postsourceupdate` hook; use `postretrieve` instead. Also, the hook result types have changed. We've updated the [sample repo])https://github.com/salesforcecli/plugin-metadata-hook-demo/blob/master/README.md) with the changes. We're currently updating the [Hooks topic of the Salesforce CLI Plug-In Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins_customize_hooks.htm) with the new information; check back soon for details. 
 
     We appreciate all your help in testing these beta commands. Thanks a bunch!
 
