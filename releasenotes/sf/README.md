@@ -10,9 +10,7 @@ Run `sfdx update stable-rc` to update to the release candidate for both `sf` and
 
 [Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
 
-## 1.17.0 (March 10, 2020) [stable-rc]
-
-These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+## 1.17.0 (March 10, 2020) [stable]
 
 * FIX: We've improved the error messages returned when you use one of these Salesforce Functions commands to run a JavaScript or TypeScript function that encounters unexpected data:
 
@@ -22,7 +20,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     The improved error messages provide more information about the problem to help you understand what went wrong and how to proceed. 
     
-## 1.16.0 (March 3, 2022) [stable]
+## 1.16.0 (March 3, 2022)
 
 * CHANGE: When you run `sf update`, we now warn you that it has no effect if you installed `sf` using the `sfdx` installer. In this case, to update `sf`, run `sfdx update`.
 
