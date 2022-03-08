@@ -32,7 +32,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `force:source:tracking:clear`
     * `force:source:tracking:reset`
 
-    We apologize for the inconvenience and confusion.
+    We apologize for the inconvenience and confusion. (GitHub issue [#1431](https://github.com/forcedotcom/cli/issues/1431))
 
  * CHANGE: The project to [open-source Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021) marches along. This week we moved the `force` command into the [plugin-info](https://github.com/salesforcecli/plugin-info) plug-in.
 
