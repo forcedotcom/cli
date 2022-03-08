@@ -14,10 +14,26 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.141.0 (March 10, 2022) [stable-rc]
+## 7.141.1 (March 10, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
  
+ * CHANGE: Due to unexpected issues, we reverted the GA of the `force:source:beta:*` commands that we announced on [March 3, 2022](https://github.com/forcedotcom/cli/blob/main/releasenotes/sfdx/README.md#71400-march-3-2022-stable). As a result, for example:
+
+    * `force:source:status` now uses the old pre-Beta functionality.
+    * `force:source:legacy:status` also uses the old functionality.
+    * We readded the `force:source:beta:status` command, which uses the new Beta functionality described in [this release note](https://github.com/forcedotcom/cli/blob/main/releasenotes/sfdx/README.md#71400-march-3-2022-stable).
+
+    The same change applies to all of these commands:
+    
+    * `force:source:push`
+    * `force:source:pull`
+    * `force:source:status`
+    * `force:source:tracking:clear`
+    * `force:source:tracking:reset`
+
+    We apologize for the inconvenience and confusion. (GitHub issue [#1431](https://github.com/forcedotcom/cli/issues/1431))
+
  * CHANGE: The project to [open-source Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021) marches along. This week we moved the `force` command into the [plugin-info](https://github.com/salesforcecli/plugin-info) plug-in.
 
 * FIX: The `force:source:*` commands now support these metadata types:
