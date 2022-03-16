@@ -10,6 +10,37 @@ Run `sfdx update stable-rc` to update to the release candidate for both `sf` and
 
 [Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
 
+## 1.19.0 (March 24, 2022) [stable-rc]
+
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* NEW: Salesforce CLI can now read your mind. Okay, not really, but the `sf` executable got a lot smarter in this release. You can now enter command fragments in any order, and the CLI figures out what you mean. For example, let's say you want to log into an org using JWT but you forgot the exact command. All of the following commands work without returning any `command not found` errors:
+
+    ```bash
+    sf login org jwt
+    sf org login jwt
+    sf jwt org login
+    ```
+
+    But wait, there’s more. If you remember only part of a command, run the partial command anyway to see a handy list of all the commands that contain that part. Use arrows to highlight the one you want, then press return to choose it. For example, let's say you want to list all your orgs, but can't remember the exact command name. Try this:
+
+    ```bash
+    sf list
+    ? Which of these commands do you mean (Use arrow keys)
+    > config list                                                                                    
+    > env list                                                                                               
+    > env logdrain list                                                                            
+    > env var list
+    ```
+
+    To narrow down a long list of possible commands, provide a flag. For example, if you run `sf list –all`, it displays only the `env list` command because it's the only one that has the `–all` flag.
+
+    Each command still has a canonical signature, which we use in the `–help` examples and to organize the [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_unified.htm).  
+
+   Here's a fun activity: discover all the cool `sf` commands by simply entering keywords at the command line!
+
+* NEW: We've improved how the interactive `sf deploy` command handles expired scratch orgs. As before, the command refers to the `target-org` configuration variable when prompting you for the org to which to deploy. If, however, the scratch org it points to has expired, the command now asks if you want to deploy to a different org. If you do, the command gives you a list of orgs to choose from, and then asks if you want to set it as your default. Nice. 
+
 ## 1.18.0 (March 17, 2022) [stable]
 
 * NEW: Add a Heroku user as a collaborator on a compute environment with the new `env compute collaborator add` command. Specify the Heroku user's email address with the `--heroku-user` flag. After running the command, you can attach [Heroku add-ons](https://elements.heroku.com/addons) to the compute environment. For example:
