@@ -18,7 +18,7 @@ Want to check out the new `sf` executable of Salesforce CLI? [Click here for the
 
 * FIX: We fixed some under-the-hood bugs.
 
-## 7.141.1 (March 10, 2022) [stable]
+## 7.141.1 (March 10, 2022)
  
  * CHANGE: Due to unexpected issues, we reverted the GA of the `force:source:beta:*` commands that we announced on [March 3, 2022](https://github.com/forcedotcom/cli/blob/main/releasenotes/sfdx/README.md#71400-march-3-2022-stable). As a result, for example:
 
