@@ -18,7 +18,7 @@ Want to check out the new `sf` executable of Salesforce CLI? [Click here for the
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* FIX: We fixed some under-the-hood bugs.
+* FIX: We fixed the recent performance regression in the `force:source:tracking:reset` command. (GitHub issue [#1427](https://github.com/forcedotcom/cli/issues/1427))
 
 ## 7.142.1 (March 17, 2022) [stable]
 
