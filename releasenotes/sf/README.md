@@ -22,7 +22,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     sf jwt org login
     ```
 
-    But wait, there’s more. If you remember only part of a command, run the partial command anyway to see a handy list of all the commands that contain that part. Use arrows to highlight the one you want, then press return to choose it. For example, let's say you want to list all your orgs, but can't remember the exact command name. Try this:
+    But wait, there’s more. If you remember only part of a command, run the partial command anyway to see a handy list of all the commands that contain that part. Use arrows to highlight the one you want, then press return to choose it. For example, let's say you want to list all your environments, but can't remember the exact command name. Try this:
 
     ```bash
     sf list
@@ -32,7 +32,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     > env logdrain list                                                                            
     > env var list
     ```
-
+    
+    The command to list your environments is, wait for it... `sf env list`!
+    
     To narrow down a long list of possible commands, provide a flag. For example, if you run `sf list –all`, it displays only the `env list` command because it's the only one that has the `–all` flag.
 
     Each command still has a canonical signature, which we use in the `–help` examples and to organize the [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_unified.htm).  
