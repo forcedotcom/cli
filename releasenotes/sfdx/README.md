@@ -26,7 +26,7 @@ Before we describe the changes in this week's release candidate, here's an annou
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* FIX: We fixed some under-the-hood bugs. 
+* FIX: The JSON output of the `force:source:beta:*` commands now matches the structure of the JSON output of their existing non-beta equivalents. (GitHub issue [#1431](https://github.com/forcedotcom/cli/issues/1431)).
 
 ## 7.143.0 (March 24, 2022) [stable]
 
