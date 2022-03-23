@@ -14,13 +14,17 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.143.0 (March 24, 2022) [stable-rc]
+## 7.144.0 (March 31, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* FIX: We fixed some under-the-hood bugs. 
+
+## 7.143.0 (March 24, 2022) [stable]
+
 * FIX: We improved the performance of the `force:source:beta:push` command when pushing a large set of files (many thousands). We also fixed the recent performance regression in the `force:source:tracking:reset` command. (GitHub issues [#1394](https://github.com/forcedotcom/cli/issues/1394), [#1427](https://github.com/forcedotcom/cli/issues/1427))
 
-## 7.142.1 (March 17, 2022) [stable]
+## 7.142.1 (March 17, 2022)
 
 * FIX: We fixed some under-the-hood bugs.
 
