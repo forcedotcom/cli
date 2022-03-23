@@ -16,6 +16,14 @@ Want to check out the new `sf` executable of Salesforce CLI? [Click here for the
 
 ## 7.144.0 (March 31, 2022) [stable-rc]
 
+Before we describe the changes in this week's release candidate, here's an announcement for plug-in developers. We published new major versions of the core Salesforce CLI npm packages `@salesforce/command` and `@salesforce/core`. We're slowly migrating the core Salesforce CLI plug-ins to these new npm package versions. The migration is strictly under-the-covers and won’t have any public-facing changes. To stay current, consider migrating your plug-ins soon too.
+
+* [@salesforce/command](https://github.com/salesforcecli/command): Upgraded to version 5. Contains the `SfdxCommand` class, which is the base class that all Salesforce CLI commands extend to access useful CLI functionality. To be honest, there aren't many changes in this new version, we upgraded it mostly for bookkeeping purposes.
+
+* [@salesforce/core](https://github.com/forcedotcom/sfdx-core/tree/v3): Upgraded to version 3. Library that provides client-side management of Salesforce DX projects, org authentication, connections to Salesforce APIs, and other core functionality. We've made lots of changes in version 3, see [this page](https://github.com/forcedotcom/sfdx-core/blob/v3/MIGRATING_V2-V3.md) for details. Note: As of today, version 3 is still in its own v3 branch and not yet merged into main, although we plan to merge it soon.
+
+---
+
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 * FIX: We fixed some under-the-hood bugs. 
