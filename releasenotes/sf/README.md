@@ -14,7 +14,16 @@ Run `sfdx update stable-rc` to update to the release candidate for both `sf` and
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* FIX: We fixed some under-the-hood bugs.
+* NEW: We've added the following new flags to the `deploy metadata` command that mirror similar functionality in the `sfdx force:source:deploy` command:
+
+    * `--api-version`: API version to use when deployng. 
+    * `--dry-run`: Validate the deploy and run Apex tests but don't save to the org.
+    * `--ignore-errors`: Ignore any errors and don't roll back deployment.
+    * `--ignore-warnings`: Ignore warnings and allow a deployment to complete successfully.
+    * `--tests` : Apex tests to run when `--test-level` is `RunSpecifiedTests`.
+    * `--verbose`: Show verbose output of the deploy result.
+
+* NEW: Get JSON output when running the `env var get` command with the new `--json` flag. 
 
 ## 1.19.0 (March 24, 2022) [stable]
 
