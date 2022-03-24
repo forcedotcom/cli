@@ -10,9 +10,22 @@ Run `sfdx update stable-rc` to update to the release candidate for both `sf` and
 
 [Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
 
-## 1.19.0 (March 24, 2022) [stable-rc]
+## 1.20.0 (March 31, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* NEW: We've added the following new flags to the `deploy metadata` command that mirror similar functionality in the `sfdx force:source:deploy` command:
+
+    * `--api-version`: API version to use when deployng. 
+    * `--dry-run`: Validate the deploy and run Apex tests but don't save to the org.
+    * `--ignore-errors`: Ignore any errors and don't roll back deployment.
+    * `--ignore-warnings`: Ignore warnings and allow a deployment to complete successfully.
+    * `--tests` : Apex tests to run when `--test-level` is `RunSpecifiedTests`.
+    * `--verbose`: Show verbose output of the deploy result.
+
+* NEW: Get JSON output when running the `env var get` command with the new `--json` flag. 
+
+## 1.19.0 (March 24, 2022) [stable]
 
 * NEW: Salesforce CLI can now read your mind. Okay, not really, but the `sf` executable got a lot smarter in this release. You can now enter command fragments in any order, and the CLI figures out what you mean. For example, let's say you want to log into an org using JWT but you forgot the exact command. All of the following commands work without returning any `command not found` errors:
 
@@ -43,7 +56,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: We've improved how the interactive `sf deploy` command handles expired scratch orgs. As before, the command refers to the `target-org` configuration variable when prompting you for the org to which to deploy. If, however, the scratch org it points to has expired, the command now asks if you want to deploy to a different org. If you do, the command gives you a list of orgs to choose from, and then asks if you want to set it as your default. Nice. 
 
-## 1.18.0 (March 17, 2022) [stable]
+## 1.18.0 (March 17, 2022)
 
 * NEW: Add a Heroku user as a collaborator on a compute environment with the new `env compute collaborator add` command. Specify the Heroku user's email address with the `--heroku-user` flag. After running the command, you can attach [Heroku add-ons](https://elements.heroku.com/addons) to the compute environment. For example:
 
@@ -81,7 +94,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     ```bash
     sf update stable-rc
     ```
-    NOTE: These update changes apply only if you installed Salesforce CLI with an installer, not `npm`.
+    NOTE: These update changes apply only if you installed `sf` with its installer. They don't apply if you installed `sf` with either the `sfdx` installer or `npm`.
 
 ## 1.12.0 (Feb 10, 2022)
 

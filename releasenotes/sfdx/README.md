@@ -14,13 +14,48 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.143.0 (March 24, 2022) [stable-rc]
+## 7.144.0 (March 31, 2022) [stable-rc]
+
+Before we describe the changes in this week's release candidate, we have an announcement for our plug-in developers. We published new major versions of the core Salesforce CLI npm packages `@salesforce/command` and `@salesforce/core`. We're slowly migrating the core Salesforce CLI plug-ins to these new npm package versions. The migration is strictly under-the-covers and won’t have any public-facing changes. To stay current, consider migrating your plug-ins soon too.
+
+* [@salesforce/command](https://github.com/salesforcecli/command): Upgraded to version 5. Contains the `SfdxCommand` class, which is the base class that all Salesforce CLI commands extend to access useful CLI functionality. To be honest, there aren't many changes in this new version, we upgraded it mostly for bookkeeping purposes.
+
+* [@salesforce/core](https://github.com/forcedotcom/sfdx-core/tree/v3): Upgraded to version 3. Library that provides client-side management of Salesforce DX projects, org authentication, connections to Salesforce APIs, and other core functionality. We've made lots of changes in version 3, see [this page](https://github.com/forcedotcom/sfdx-core/blob/v3/MIGRATING_V2-V3.md) for details. Note: As of today, version 3 is still in its own v3 branch and not yet merged into main, although we plan to merge it soon.
+
+---
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* NEW: The following commands that used to be in the `force:source:beta` topic are now generally available:
+
+    * `force:source:push`
+    * `force:source:pull`
+    * `force:source:status`
+    * `force:source:tracking:clear`
+    * `force:source:tracking:reset`
+
+    See [these notes](./README.md#71400-march-3-2022) for details.
+
+* CHANGE: As part of the fix for [GitHub issue #1408](https://github.com/forcedotcom/cli/issues/1408), Salesforce CLI now uses rotating log files. By default, every day at midnight the CLI makes a backup copy of the log file and then clears out its entries to start afresh. This new behavior ensures that the log file doesn't get too big. We keep two backup copies, which means you always have log entries for the past two days along with the current day’s logs. 
+
+    Change the default behavior with these new environment variables:
+
+    * SFDX_LOG_ROTATION_PERIOD: How often a new log file is created. For example, a value of `1d` means a new log file is created daily, at midnight. A value of `2w` creates a new file every 2 weeks. See the _period_ entry in [this table](https://github.com/forcedotcom/node-bunyan#stream-type-rotating-file) for other options. Default value is `1d`. 
+    * SFDX_LOG_ROTATION_COUNT: Number of backup files to keep. Default value is `2`. 
+
+    We're also changing the name and location of the log file to `HOME_DIR/.sf/sf.log`. This change will happen gradually over the coming months as we update the core Salesforce CLI plug-ins to v3 of[@salesforce/core](https://github.com/forcedotcom/sfdx-core/tree/v3).
+
+* FIX: The JSON output when a `force:source:beta:*` command encounters an error now matches the structure of the JSON output of their existing non-beta equivalents. (GitHub issue [#1431](https://github.com/forcedotcom/cli/issues/1431)).
+
+* FIX: The `force:mdapi:beta:retrieve` command now generates a correct `package.xml` file that you can then use for deploying. Previously, the `package.xml` file sometimes included an incorrect `<fullname>undefined</fullname>` element; the element is now omitted unless it exists. 
+
+   [Jochen Rinder](https://github.com/jayree), you're going to put us out of work. Once again, you didn't just find and report the problem, you then jumped in and submitted a PR to fix it. Thanks a bunch!
+
+## 7.143.0 (March 24, 2022) [stable]
+
 * FIX: We improved the performance of the `force:source:beta:push` command when pushing a large set of files (many thousands). We also fixed the recent performance regression in the `force:source:tracking:reset` command. (GitHub issues [#1394](https://github.com/forcedotcom/cli/issues/1394), [#1427](https://github.com/forcedotcom/cli/issues/1427))
 
-## 7.142.1 (March 17, 2022) [stable]
+## 7.142.1 (March 17, 2022)
 
 * FIX: We fixed some under-the-hood bugs.
 
