@@ -94,7 +94,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     ```bash
     sf update stable-rc
     ```
-    NOTE: These update changes apply only if you installed Salesforce CLI with an installer, not `npm`.
+    NOTE: These update changes apply only if you installed `sf` with its installer. They don't apply if you installed `sf` with either the `sfdx` installer or `npm`.
 
 ## 1.12.0 (Feb 10, 2022)
 
