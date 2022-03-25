@@ -32,7 +32,7 @@ As a security best practice, we highly recommend that the refresh tokens in your
 
 * If you already authorized an org with `auth:web:login` and didn’t specify the `–clientid parameter`, we created a default connected app in the org called **Salesforce CLI**. However, its refresh tokens are set to _never_ expire. To continue using this default connected app in a secure way, first [install it](https://help.salesforce.com/s/articleView?id=sf.connected_app_how_to_install.htm&type=5), and then edit its policies. 
 
-We're in the process of updating the [Authorization](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth.htm) documentation with these recommendations. Okay, now back to our regular scheduled programming. 
+We're in the process of updating the [Authorization](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth.htm) documentation with these recommendations. Okay, now back to our regularly scheduled programming. 
 
 ---
 
