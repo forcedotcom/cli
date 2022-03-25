@@ -24,6 +24,18 @@ Before we describe the changes in this week's release candidate, we have an anno
 
 ---
 
+One more announcement, and then I promise we'll get to the new and changed features in this release. 
+
+As a security best practice, we highly recommend that the refresh tokens in your authorized orgs expire after 90 days (max). You configure this expiration policy in the connected app you use when you authorize the org. 
+
+* The recommended way to configure this policy is to [create your own connected app](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_connected_app.htm) and set the [Refresh Token Policy field](https://help.salesforce.com/s/articleView?id=sf.connected_app_manage_oauth.htm&type=5) to expire in 90 days or less. You then specify this connected app with the `--clientid` parameter when you authorize an org with either [auth:web:login](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_web_flow.htm) or [auth:jwt:grant](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_jwt_flow.htm). 
+
+* If you already authorized an org with `auth:web:login` and didn’t specify the `–clientid parameter`, we created a default connected app in the org called **Salesforce CLI**. However, its refresh tokens are set to _never_ expire. To continue using this default connected app in a secure way, first [install it](https://help.salesforce.com/s/articleView?id=sf.connected_app_how_to_install.htm&type=5), and then edit its policies. 
+
+We're in the process of updating the [Authorization](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth.htm) documentation with these recommendations. Okay, now back to our regular scheduled programming. 
+
+---
+
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 * NEW: The following commands that used to be in the `force:source:beta` topic are now generally available:
