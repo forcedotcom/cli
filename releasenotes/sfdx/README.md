@@ -20,7 +20,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Setting your default Dev Hub while authorizing it now immediately propagates to your whole CLI environment. As a result, valid scratch org deletions no longer occasionally fail with error `Unable to associate this scratch org with a DevHub`. (GitHub issue [#1423](https://github.com/forcedotcom/cli/issues/1423))
 
-* * FIX: The `force:source:*` commands now support these metadata types:
+* FIX: The `force:source:*` commands now support these metadata types:
 
     * DecisionMatrixDefinition
     * DecisionMatrixDefinitionVersion
