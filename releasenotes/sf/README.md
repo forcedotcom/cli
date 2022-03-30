@@ -10,9 +10,13 @@ Run `sfdx update stable-rc` to update to the release candidate for both `sf` and
 
 [Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
 
-## 1.20.0 (March 31, 2022) [stable-rc]
+## 1.21.0 (April 7, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* FIX: We fixed some under-the-hood bugs. 
+
+## 1.20.0 (March 31, 2022) [stable]
 
 * NEW: We've added the following new flags to the `deploy metadata` command that mirror similar functionality in the `sfdx force:source:deploy` command:
 
@@ -25,7 +29,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: Get JSON output when running the `env var get` command with the new `--json` flag. 
 
-## 1.19.0 (March 24, 2022) [stable]
+## 1.19.0 (March 24, 2022)
 
 * NEW: Salesforce CLI can now read your mind. Okay, not really, but the `sf` executable got a lot smarter in this release. You can now enter command fragments in any order, and the CLI figures out what you mean. For example, let's say you want to log into an org using JWT but you forgot the exact command. All of the following commands work without returning any `command not found` errors:
 
