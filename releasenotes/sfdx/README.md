@@ -47,8 +47,6 @@ We're in the process of updating the [Authorization](https://developer.salesforc
 
 ---
 
-These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
-
 * NEW: The following commands that used to be in the `force:source:beta` topic are now generally available:
 
     * `force:source:push`
