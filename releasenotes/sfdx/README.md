@@ -14,7 +14,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.144.0 (March 31, 2022) [stable-rc]
+## 7.144.2 (March 31, 2022) [stable-rc]
 
 Before we describe the changes in this week's release candidate, we have an announcement for our plug-in developers. We published new major versions of the core Salesforce CLI npm packages `@salesforce/command` and `@salesforce/core`. We're slowly migrating the core Salesforce CLI plug-ins to these new npm package versions. The migration is strictly under-the-covers and won’t have any public-facing changes. To stay current, consider migrating your plug-ins soon too.
 
