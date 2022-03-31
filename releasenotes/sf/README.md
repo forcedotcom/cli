@@ -34,7 +34,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `--tests` : Apex tests to run when `--test-level` is `RunSpecifiedTests`.
     * `--verbose`: Show verbose output of the deploy result.
 
-* NEW: Get JSON output when running the `env var get` command with the new `--json` flag. 
+* NEW: Get JSON output when running the `env var get` command with the `--json` flag. 
 
 ## 1.19.0 (March 24, 2022)
 
