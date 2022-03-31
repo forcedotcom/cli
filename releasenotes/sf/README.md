@@ -10,9 +10,20 @@ Run `sfdx update stable-rc` to update to the release candidate for both `sf` and
 
 [Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
 
-## 1.20.0 (March 31, 2022) [stable-rc]
+## 1.21.0 (April 7, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* CHANGE: As part of the fix for [GitHub issue #1408](https://github.com/forcedotcom/cli/issues/1408), Salesforce CLI now uses rotating log files. By default, every day at midnight the CLI makes a backup copy of the log file and then clears out its entries to start afresh. This new behavior ensures that the log file doesn't get too big. We keep backups for the past two days along with the current day’s logs.
+
+    Change the default behavior with these new environment variables:
+    
+    * SF_LOG_ROTATION_PERIOD: How often a new log file is created. For example, a value of `1d` means a new log file is created daily, at midnight. A value of `2w` creates a new file every 2 weeks. See the _period_ entry in [this table](https://github.com/forcedotcom/node-bunyan#stream-type-rotating-file) for other options. Default value is `1d`. 
+    * SF_LOG_ROTATION_COUNT: Number of backup files to keep. Default value is `2`. 
+
+    For example, if you choose a rotation period of 2 weeks and a count of 2, you always have backups for the four weeks before the first entry in the current log. 
+
+## 1.20.0 (March 31, 2022) [stable]
 
 * NEW: We've added the following new flags to the `deploy metadata` command that mirror similar functionality in the `sfdx force:source:deploy` command:
 
@@ -23,9 +34,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `--tests` : Apex tests to run when `--test-level` is `RunSpecifiedTests`.
     * `--verbose`: Show verbose output of the deploy result.
 
-* NEW: Get JSON output when running the `env var get` command with the new `--json` flag. 
+* NEW: Get JSON output when running the `env var get` command with the `--json` flag. 
 
-## 1.19.0 (March 24, 2022) [stable]
+## 1.19.0 (March 24, 2022)
 
 * NEW: Salesforce CLI can now read your mind. Okay, not really, but the `sf` executable got a lot smarter in this release. You can now enter command fragments in any order, and the CLI figures out what you mean. For example, let's say you want to log into an org using JWT but you forgot the exact command. All of the following commands work without returning any `command not found` errors:
 

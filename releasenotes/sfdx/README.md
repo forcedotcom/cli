@@ -14,7 +14,20 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.144.2 (March 31, 2022) [stable-rc]
+## 7.145.0 (April 7, 2022) [stable-rc]
+
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* FIX: Setting your default Dev Hub while authorizing it now immediately propagates to your whole CLI environment. As a result, valid scratch org deletions no longer occasionally fail with error `Unable to associate this scratch org with a DevHub`. (GitHub issue [#1423](https://github.com/forcedotcom/cli/issues/1423))
+
+* FIX: The `force:source:*` commands now support these metadata types:
+
+    * DecisionMatrixDefinition
+    * DecisionMatrixDefinitionVersion
+    * ExpressionSetDefinitionVersion
+    * ExpressionSetDefinition
+
+## 7.144.2 (March 31, 2022) [stable]
 
 Before we describe the changes in this week's release candidate, we have an announcement for our plug-in developers. We published new major versions of the core Salesforce CLI npm packages `@salesforce/command` and `@salesforce/core`. We're slowly migrating the core Salesforce CLI plug-ins to these new npm package versions. The migration is strictly under-the-covers and won’t have any public-facing changes. To stay current, consider migrating your plug-ins soon too.
 
@@ -35,8 +48,6 @@ As a security best practice, we highly recommend that the refresh tokens in your
 We're in the process of updating the [Authorization](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth.htm) documentation with these recommendations. Okay, now back to our regularly scheduled programming. 
 
 ---
-
-These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 * NEW: The following commands that used to be in the `force:source:beta` topic are now generally available:
 
@@ -65,7 +76,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
    [Jochen Rinder](https://github.com/jayree), you're going to put us out of work. Once again, you didn't just find and report the problem, you then jumped in and submitted a PR to fix it. Thanks a bunch!
 
-## 7.143.0 (March 24, 2022) [stable]
+## 7.143.0 (March 24, 2022)
 
 * FIX: We improved the performance of the `force:source:beta:push` command when pushing a large set of files (many thousands). We also fixed the recent performance regression in the `force:source:tracking:reset` command. (GitHub issues [#1394](https://github.com/forcedotcom/cli/issues/1394), [#1427](https://github.com/forcedotcom/cli/issues/1427))
 
