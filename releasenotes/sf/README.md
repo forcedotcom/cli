@@ -22,6 +22,24 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * SF_LOG_ROTATION_COUNT: Number of backup files to keep. Default value is `2`. 
 
     For example, if you choose a rotation period of 2 weeks and a count of 2, you always have backups for the four weeks before the first entry in the current log. 
+    
+* CHANGE: We've changed the names of these configuration variables to better fit into the unified CLI world: 
+
+    |Old Name|New Name|
+    |--------|--------|
+    |apiVersion|org-api-version|
+    |disableTelemetry|disable-telemetry|
+    |instanceUrl|org-instance-url|
+    |maxQueryLimit|org-max-query-limit|
+    |restDeploy|org-metadata-rest-deploy|
+    
+    The new names [interoperate with the equivalent `sfdx` config values](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_sf_and_sfdx.htm), just like the old names did. But you can no longer use the old names. For example:
+    
+    * If you run `sfdx config:set apiVersion=54.0`, then `org-api-version` is also set to `54.0` in `sf`.
+    * If you run `sf config set org-api-version=54.0`, then `apiVersion` is also set to `54.0`in `sfdx`.
+    * If you run `sf config set apiVersion=54.0`, you get an error. Run `sf config set org-api-verison=54.0` instead. 
+
+    We're in the process of updating the [documentation](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_sf_and_sfdx.htm). 
 
 ## 1.20.0 (March 31, 2022) [stable]
 
