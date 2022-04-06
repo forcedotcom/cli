@@ -18,7 +18,21 @@ Want to check out the new `sf` executable of Salesforce CLI? [Click here for the
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* FIX: We fixed some under-the-hood bugs.
+* FIX: The `force:source:retrieve` and `force:source:pull` commands correctly handle these metadata types:
+
+    * AppointmentAssignmentPolicy
+    * AppointmentSchedulingPolicy
+    * CustomSite
+    * DataSource
+    * FieldRestrictionRule
+    * IndustriesManufacturingSettings
+    * IntegrationHubSettings
+    * ObjectHierarchyRelationship
+    * RestrictionRule
+
+    (GitHub issue [#1448](https://github.com/forcedotcom/cli/issues/1448))
+ 
+ * FIX: The `force:source:deploy` and `force:source:push` commands correctly handle metadata files that contain CDATA sections, such as `        <value><![CDATA[<p>Hello</p>]]></value>`. (GitHub issue [#1467](https://github.com/forcedotcom/cli/issues/1467))
 
 ## 7.145.0 (April 7, 2022) [stable]
 
