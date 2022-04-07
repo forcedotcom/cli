@@ -14,9 +14,27 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.145.0 (April 7, 2022) [stable-rc]
+## 7.146.0 (April 14, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* FIX: The `force:source:retrieve` and `force:source:pull` commands correctly handle these metadata types:
+
+    * AppointmentAssignmentPolicy
+    * AppointmentSchedulingPolicy
+    * CustomSite
+    * DataSource
+    * FieldRestrictionRule
+    * IndustriesManufacturingSettings
+    * IntegrationHubSettings
+    * ObjectHierarchyRelationship
+    * RestrictionRule
+
+    (GitHub issue [#1448](https://github.com/forcedotcom/cli/issues/1448))
+ 
+ * FIX: The `force:source:deploy` and `force:source:push` commands correctly handle metadata files that contain CDATA sections, such as `        <value><![CDATA[<p>Hello</p>]]></value>`. (GitHub issue [#1467](https://github.com/forcedotcom/cli/issues/1467))
+
+## 7.145.0 (April 7, 2022) [stable]
 
 * FIX: Setting your default Dev Hub while authorizing it now immediately propagates to your whole CLI environment. As a result, valid scratch org deletions no longer occasionally fail with error `Unable to associate this scratch org with a DevHub`. (GitHub issue [#1423](https://github.com/forcedotcom/cli/issues/1423))
 
@@ -27,7 +45,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * ExpressionSetDefinitionVersion
     * ExpressionSetDefinition
 
-## 7.144.2 (March 31, 2022) [stable]
+## 7.144.2 (March 31, 2022)
 
 Before we describe the changes in this week's release candidate, we have an announcement for our plug-in developers. We published new major versions of the core Salesforce CLI npm packages `@salesforce/command` and `@salesforce/core`. We're slowly migrating the core Salesforce CLI plug-ins to these new npm package versions. The migration is strictly under-the-covers and won’t have any public-facing changes. To stay current, consider migrating your plug-ins soon too.
 
