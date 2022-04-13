@@ -10,13 +10,17 @@ Run `sfdx update stable-rc` to update to the release candidate for both `sf` and
 
 [Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
 
-## 1.23.0 (April 14, 2022) [stable-rc]
+## 1.24.0 (April 21, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* FIX: We fixed some under-the-hood bugs.
+
+## 1.23.0 (April 14, 2022) [stable]
+
 * FIX: We fixed some under-the-hood bugs. 
 
-## 1.22.0 (April 7, 2022) [stable]
+## 1.22.0 (April 7, 2022)
 
 * CHANGE: As part of the fix for [GitHub issue #1408](https://github.com/forcedotcom/cli/issues/1408), Salesforce CLI now uses rotating log files. By default, every day at midnight the CLI makes a backup copy of the log file and then clears out its entries to start afresh. This new behavior ensures that the log file doesn't get too big. We keep backups for the past two days along with the current day’s logs.
 
