@@ -24,7 +24,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `force:org:shape:delete`
     * `force:org:shape:list`
 
-    The commands are still in beta and work the same as before. 
+    The [Org Shape for Scratch Orgs](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_shape_intro.htm) feature is still beta. The commands work the same as before they moved into their own plug-in. 
  
 * FIX: The `force:org:create` command successfully creates a scratch org when the `sfdx-project.json` file contains any of these options in the `packageDirectories` section:
  
