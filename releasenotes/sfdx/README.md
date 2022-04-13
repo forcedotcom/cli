@@ -14,9 +14,13 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.146.0 (April 14, 2022) [stable-rc]
+## 7.147.0 (April 21, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* FIX: We fixed some under-the-hood bugs.
+
+## 7.146.0 (April 14, 2022) [stable]
 
 * FIX: The `force:source:retrieve` and `force:source:pull` commands correctly handle these metadata types:
 
@@ -34,7 +38,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
  
  * FIX: The `force:source:deploy` and `force:source:push` commands correctly handle metadata files that contain CDATA sections, such as `        <value><![CDATA[<p>Hello</p>]]></value>`. (GitHub issue [#1467](https://github.com/forcedotcom/cli/issues/1467))
 
-## 7.145.0 (April 7, 2022) [stable]
+## 7.145.0 (April 7, 2022)
 
 * FIX: Setting your default Dev Hub while authorizing it now immediately propagates to your whole CLI environment. As a result, valid scratch org deletions no longer occasionally fail with error `Unable to associate this scratch org with a DevHub`. (GitHub issue [#1423](https://github.com/forcedotcom/cli/issues/1423))
 
