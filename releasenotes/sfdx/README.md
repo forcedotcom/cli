@@ -18,7 +18,22 @@ Want to check out the new `sf` executable of Salesforce CLI? [Click here for the
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* FIX: We fixed some under-the-hood bugs.
+ * CHANGE: What's that sound, you ask? It's the whoosh of the [Salesforce CLI open-sourcing](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021) train zipping along. This week we moved these commands into the [plugin-signups](https://github.com/salesforcecli/plugin-signups) plug-in:
+ 
+    * `force:org:shape:create`
+    * `force:org:shape:delete`
+    * `force:org:shape:list`
+
+    The commands are still in beta and work the same as before. 
+ 
+* FIX: The `force:org:create` command successfully creates a scratch org when the `sfdx-project.json` file contains any of these options in the `packageDirectories` section:
+ 
+    * `"ancestorVersion":"HIGHEST|NONE"` 
+    * `"ancestorId":"HIGHEST|NONE"`
+    
+    (GitHub issue [#1392](https://github.com/forcedotcom/cli/issues/1392))
+    
+* FIX: The URLs to download the release candidates of Salesforce CLI in `.tar.xz` format are now pointing to the most recent versions.  (GitHub issue [#1478](https://github.com/forcedotcom/cli/issues/1478))
 
 ## 7.146.0 (April 14, 2022) [stable]
 
