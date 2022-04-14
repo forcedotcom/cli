@@ -33,7 +33,12 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
     (GitHub issue [#1392](https://github.com/forcedotcom/cli/issues/1392))
     
+* FIX: The `force:data:bulk:upsert` command now breaks up a batch if it exceeds the max limit of 10MB characters per batch, even if the batch is below the other limit of 10K records. This fix is particular helpful if your CSV file contains extra long lines, such as when upserting large text areas. 
+
+    Many thanks to [Anthony Heber](https://github.com/aheber) who submitted the GitHub issue, and then went ahead and fixed it. Our awesome community comes through again! (GitHub issue [#1460](https://github.com/forcedotcom/cli/issues/1460))
+   
 * FIX: The URLs to download the release candidates of Salesforce CLI in `.tar.xz` format are now pointing to the most recent versions.  (GitHub issue [#1478](https://github.com/forcedotcom/cli/issues/1478))
+
 
 ## 7.146.0 (April 14, 2022) [stable]
 
