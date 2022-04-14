@@ -22,7 +22,7 @@ A few additional notes:
 * We don't recommend that you use the beta commands in your CI/CD scripts. 
 * We do recommend that you use and test the beta commands in your day to day CLI work and give us feedback early and often by entering [GitHub issues](https://github.com/forcedotcom/cli/issues). 
 * `sf` commands that support GA products and have no `sfdx` equivalents, such as Salesforce Functions, will never be marked as beta. These commands are GA from the moment the product itself goes GA and are subject to our [deprecation policy](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/sfdx_dev_cli_deprecation.htm).
-* New `sf` commands are marked with a beta tag by default. 
+* New `sf` commands are marked with a beta tag by default, unless there are no `sfdx` equivalents and they support a GA product. 
 
 --- 
 
