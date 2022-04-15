@@ -14,9 +14,33 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.146.0 (April 14, 2022) [stable-rc]
+## 7.147.0 (April 21, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+ * CHANGE: What's that sound, you ask? It's the whoosh of the [Salesforce CLI open-sourcing](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021) train zipping along. This week we moved these commands into the [plugin-signups](https://github.com/salesforcecli/plugin-signups) plug-in:
+ 
+    * `force:org:shape:create`
+    * `force:org:shape:delete`
+    * `force:org:shape:list`
+
+    The [Org Shape for Scratch Orgs](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_shape_intro.htm) feature is still beta. The commands work the same as before they moved into their own plug-in. 
+ 
+* FIX: The `force:org:create` command successfully creates a scratch org when the `sfdx-project.json` file contains any of these options in the `packageDirectories` section:
+ 
+    * `"ancestorVersion":"HIGHEST|NONE"` 
+    * `"ancestorId":"HIGHEST|NONE"`
+    
+    (GitHub issue [#1392](https://github.com/forcedotcom/cli/issues/1392))
+    
+* FIX: The `force:data:bulk:upsert` command now breaks up a batch if it exceeds the max limit of 10MB characters per batch, even if the batch is below the other limit of 10K records. This fix is particular helpful if your CSV file contains extra long lines, such as when upserting large text fields. 
+
+    Many thanks to [Anthony Heber](https://github.com/aheber) who submitted the GitHub issue, and then went ahead and fixed it. Our awesome community comes through again! (GitHub issue [#1460](https://github.com/forcedotcom/cli/issues/1460))
+   
+* FIX: The URLs to download the release candidates of Salesforce CLI in `.tar.xz` format are now pointing to the most recent versions.  (GitHub issue [#1478](https://github.com/forcedotcom/cli/issues/1478))
+
+
+## 7.146.0 (April 14, 2022) [stable]
 
 * FIX: The `force:source:retrieve` and `force:source:pull` commands correctly handle these metadata types:
 
@@ -34,7 +58,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
  
  * FIX: The `force:source:deploy` and `force:source:push` commands correctly handle metadata files that contain CDATA sections, such as `        <value><![CDATA[<p>Hello</p>]]></value>`. (GitHub issue [#1467](https://github.com/forcedotcom/cli/issues/1467))
 
-## 7.145.0 (April 7, 2022) [stable]
+## 7.145.0 (April 7, 2022)
 
 * FIX: Setting your default Dev Hub while authorizing it now immediately propagates to your whole CLI environment. As a result, valid scratch org deletions no longer occasionally fail with error `Unable to associate this scratch org with a DevHub`. (GitHub issue [#1423](https://github.com/forcedotcom/cli/issues/1423))
 

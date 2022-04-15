@@ -10,13 +10,34 @@ Run `sfdx update stable-rc` to update to the release candidate for both `sf` and
 
 [Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
 
-## 1.23.0 (April 14, 2022) [stable-rc]
+## 1.24.0 (April 21, 2022) [stable-rc]
+
+Starting today, `sf` commands that we're actively working on, but are publicly available, are marked with a beta tag. We can update these beta commands in any future release. While we try not make any breaking changes in these beta commands, we reserve the right to do so without warning. This process allows us to iteratively build `sf` and get feedback from you as we go. 
+
+As soon as we've finished working on a beta command, and we've provided ample time for improvements based on your feedback, we'll remove the beta tag. At that point, the command is GA and follows our [deprecation policy](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/sfdx_dev_cli_deprecation.htm).
+
+A few additional notes:
+
+* All beta `sf` commands have a corresponding `sfdx` command. 
+* We don't recommend that you use the beta commands in your CI/CD scripts. 
+* We do recommend that you use and test the beta commands in your day to day CLI work and give us feedback early and often by entering [GitHub issues](https://github.com/forcedotcom/cli/issues). 
+* `sf` commands that support GA products and have no `sfdx` equivalents, such as Salesforce Functions, will never be marked as beta. These commands are GA from the moment the product itself goes GA and are subject to our [deprecation policy](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/sfdx_dev_cli_deprecation.htm).
+* New `sf` commands are marked with a beta tag by default, unless there are no `sfdx` equivalents and they support a GA product. 
+
+--- 
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* CHANGE: These commands are now marked beta; they behave the same as before:
+
+    * `sf deploy metadata`
+    * `sf retrieve metadata`
+
+## 1.23.0 (April 14, 2022) [stable]
+
 * FIX: We fixed some under-the-hood bugs. 
 
-## 1.22.0 (April 7, 2022) [stable]
+## 1.22.0 (April 7, 2022)
 
 * CHANGE: As part of the fix for [GitHub issue #1408](https://github.com/forcedotcom/cli/issues/1408), Salesforce CLI now uses rotating log files. By default, every day at midnight the CLI makes a backup copy of the log file and then clears out its entries to start afresh. This new behavior ensures that the log file doesn't get too big. We keep backups for the past two days along with the current day’s logs.
 
