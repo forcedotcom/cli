@@ -10,7 +10,13 @@ Run `sfdx update stable-rc` to update to the release candidate for both `sf` and
 
 [Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
 
-## 1.24.0 (April 21, 2022) [stable-rc]
+## 1.25.0 (April 28, 2022) [stable-rc]
+
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* CHANGE: We no longer support v12 of Node.js because of its fast approaching end-of-life ([April 30, 2022](https://nodejs.org/en/about/releases/)). We bundle Node.js in each operating system-specific Salesforce CLI installer. We include the version of Node.js with Active LTS status and update it in tandem with the Node.js release schedule. If you prefer to install Salesforce CLI using `npm`, we recommend you also use the Active LTS version of Node.js.
+
+## 1.24.0 (April 21, 2022) [stable]
 
 Starting today, `sf` commands that we're actively working on, but are publicly available, are marked with a beta tag. We can update these beta commands in any future release. While we try not make any breaking changes in these beta commands, we reserve the right to do so without warning. This process allows us to iteratively build `sf` and get feedback from you as we go. 
 
@@ -26,14 +32,12 @@ A few additional notes:
 
 --- 
 
-These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
-
 * CHANGE: These commands are now marked beta; they behave the same as before:
 
     * `sf deploy metadata`
     * `sf retrieve metadata`
 
-## 1.23.0 (April 14, 2022) [stable]
+## 1.23.0 (April 14, 2022)
 
 * FIX: We fixed some under-the-hood bugs. 
 
