@@ -20,6 +20,16 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * CHANGE: We no longer support v12 of Node.js because of its fast approaching end-of-life ([April 30, 2022](https://nodejs.org/en/about/releases/)). We bundle Node.js in each operating system-specific Salesforce CLI installer. We include the Active LTS version of Node.js and update it in tandem with the Node.js release schedule. If you prefer to install Salesforce CLI using `npm`, we recommend you also use the Active LTS version of Node.js.
 
+* FIX: If you run `force:source:deploy` with the `--json` parameter and it times out, the JSON error now includes the deployment ID in the `data` property. Use this ID in your scripts to do fancy tricks to handle the timeout. Because we know our customers are experts at fancy tricks!
+
+    ```bash
+    {
+      "data": {
+        "id": "OAf7Q00000AfTMjSAN"
+      }
+    }
+    ```
+
 ## 7.147.1 (April 21, 2022) [stable]
 
  * CHANGE: What's that sound, you ask? It's the whoosh of the [Salesforce CLI open-sourcing](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021) train zipping along. This week we moved these commands into the [plugin-signups](https://github.com/salesforcecli/plugin-signups) plug-in:
