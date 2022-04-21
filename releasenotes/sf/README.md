@@ -14,7 +14,7 @@ Run `sfdx update stable-rc` to update to the release candidate for both `sf` and
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* NEW: Create and manage scratch orgs and sandboxes with these new beta commands:
+* NEW: Manage scratch orgs and sandboxes with these new beta commands:
 
     * `env create scratch`
     * `env resume scratch`
@@ -23,7 +23,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `env resume sandbox`
     * `env delete sandbox`
 
-    The two `create` commands display running information about the background processes, such as sending requests, deploying org settings, and so on. Pretty cool knowing what's going on behind the scenes, no? Use the `resume` command if the original `create` command times out, or you specified the `–async flag` to run the create asynchronously. Use the `delete` commands to, yep, you guessed it, delete a scratch org or sandbox! Let's run through a few scratch org examples to see the new commands in action. 
+    Use the `create` commands to create scratch orgs and sandboxes. While executing, they display running information about the background processes, such as sending requests, deploying org settings, and so on. Pretty cool knowing what's going on behind the scenes, no? Use the `resume` command if the original `create` command times out, or you specified the `–async flag` to run it asynchronously. Use the `delete` commands to, yep, you guessed it, delete a scratch org or sandbox! Let's run through a few scratch org examples to see the new commands in action. 
 
     Create a scratch org from a definition file, set it as your default environment, give it an alias, and use the Dev Hub with alias `DevHub`: 
 
@@ -47,7 +47,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     The sandbox commands work much the same, except they have a few additional flags specific to sandboxes, such as `–license-type` and `–name`. See the `–-help` for all the flags.  
 
-* CHANGE: We no longer support v12 of Node.js because of its fast approaching end-of-life ([April 30, 2022](https://nodejs.org/en/about/releases/)). We bundle Node.js in each operating system-specific Salesforce CLI installer. We include the version of Node.js with Active LTS status and update it in tandem with the Node.js release schedule. If you prefer to install Salesforce CLI using `npm`, we recommend you also use the Active LTS version of Node.js.
+* CHANGE: We no longer support v12 of Node.js because of its fast approaching end-of-life ([April 30, 2022](https://nodejs.org/en/about/releases/)). We bundle Node.js in each operating system-specific Salesforce CLI installer. We include the Active LTS version of Node.js and update it in tandem with the Node.js release schedule. If you prefer to install Salesforce CLI using `npm`, we recommend you also use the Active LTS version of Node.js.
 
 ## 1.24.0 (April 21, 2022) [stable]
 
