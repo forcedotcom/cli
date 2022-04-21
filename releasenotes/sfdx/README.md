@@ -18,7 +18,7 @@ Want to check out the new `sf` executable of Salesforce CLI? [Click here for the
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* CHANGE: We no longer support v12 of Node.js because of its fast approaching end-of-life ([April 30, 2022](https://nodejs.org/en/about/releases/)). We bundle Node.js in each operating system-specific Salesforce CLI installer. We include the version of Node.js with Active LTS status and update it in tandem with the Node.js release schedule. If you prefer to install Salesforce CLI using `npm`, we recommend you also use the Active LTS version of Node.js.
+* CHANGE: We no longer support v12 of Node.js because of its fast approaching end-of-life ([April 30, 2022](https://nodejs.org/en/about/releases/)). We bundle Node.js in each operating system-specific Salesforce CLI installer. We include the Active LTS version of Node.js and update it in tandem with the Node.js release schedule. If you prefer to install Salesforce CLI using `npm`, we recommend you also use the Active LTS version of Node.js.
 
 ## 7.147.1 (April 21, 2022) [stable]
 
