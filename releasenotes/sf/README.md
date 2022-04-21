@@ -47,6 +47,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     The sandbox commands work much the same, except they have a few additional flags specific to sandboxes, such as `–license-type` and `–name`. See the `–-help` for all the flags.  
 
+* NEW: Display log line output from a compute environment with the new `sf env log` command. Specify the number of displayed log lines with the `--num` flag. For example:
+
+    `sf env log --target-compute compute-alias --num 30`
+ 
 * CHANGE: We no longer support v12 of Node.js because of its fast approaching end-of-life ([April 30, 2022](https://nodejs.org/en/about/releases/)). We bundle Node.js in each operating system-specific Salesforce CLI installer. We include the Active LTS version of Node.js and update it in tandem with the Node.js release schedule. If you prefer to install Salesforce CLI using `npm`, we recommend you also use the Active LTS version of Node.js.
 
 ## 1.24.0 (April 21, 2022) [stable]
