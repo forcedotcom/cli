@@ -10,7 +10,9 @@ Run `sfdx update stable-rc` to update to the release candidate for both `sf` and
 
 [Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
 
-## 1.25.0 (April 28, 2022) [stable-rc]
+## 1.26.0 (May 5, 2022) [stable-rc]
+
+## 1.25.2 (April 28, 2022) [stable]
  
 * CHANGE: We no longer support v12 of Node.js because of its fast approaching end-of-life ([April 30, 2022](https://nodejs.org/en/about/releases/)). We bundle Node.js in each operating system-specific Salesforce CLI installer. We include the Active LTS version of Node.js and update it in tandem with the Node.js release schedule. If you prefer to install Salesforce CLI using `npm`, we recommend you also use the Active LTS version of Node.js.
 
