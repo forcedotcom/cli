@@ -20,6 +20,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: `force:source:pull` respects `.forceignore` entries in the format `**.filename.ext`. Thank you @ImJohnMDaniel for [reporting this](https://github.com/forcedotcom/cli/issues/1471) with an excellent repro!
 * FIX: `force:source:push` will correctly push LWC subfolders such as `force-app/lwc/foo/lwc/myLWC/**`. Thank you @yippie for [reporting](https://github.com/forcedotcom/cli/issues/1477) :bow:.
+* FIX: Deploys that time out now [include the deploy ID](https://github.com/forcedotcom/source-deploy-retrieve/pull/614), making various automations possible that otherwise required workarounds.
 
 ## 7.148.3 (April 29, 2022) [stable]
 
