@@ -18,6 +18,8 @@ Want to check out the new `sf` executable of Salesforce CLI? [Click here for the
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* FIX: `force:source:pull` now respects `.forceignore` entries in the format `**.filename.ext`. Thank you @ImJohnMDaniel for [reporting this](https://github.com/forcedotcom/cli/issues/1471) with an excellent repro!
+
 ## 7.148.3 (April 29, 2022) [stable]
 
 > Note: we normally release on Thursdays, so you'd expect this to say April 28.  But since that's also day 2 of TDX, so we'll do the normal release stuff on Friday this week.
