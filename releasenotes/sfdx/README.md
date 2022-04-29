@@ -16,9 +16,12 @@ Want to check out the new `sf` executable of Salesforce CLI? [Click here for the
 
 ## 7.149.0 (May 5, 2022) [stable-rc]
 
+* HEADS-UP: In next week's 7.150 RC, we plan to make the new open-source `mdapi:beta` commands (`convert`, `deploy`, `retrieve`, `deploy:report`, `retrieve:report`) the default, and move the old versions of those commands to the legacy subtopic.  Other than some new features (ex: retrieve AND automatically unzip) you shouldn't see breaking changes, but if that's not the case, you can still use the `legacy` versions of them.  You can try them now via the `beta` subtopic to test them out early and report anything that's not right. 
+  
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* FIX: `force:source:pull` respects `.forceignore` entries in the format `**.filename.ext`. Thank you @ImJohnMDaniel for [reporting this](https://github.com/forcedotcom/cli/issues/1471) with an excellent repro!
+* FIX: `force:source:pull` was not ignoring certain files in your `.forceignore` when the files didn't exist locally, so we fixed that.  Thank you @ImJohnMDaniel for [reporting this](https://github.com/forcedotcom/cli/issues/1471) with an excellent repro!
+* FIX: `force:source:pull` won't create duplicate files you have in your default directory but not under main/default.  More credit to @ImJohnMDaniel for [noticing](https://github.com/forcedotcom/cli/issues/1485)
 * FIX: `force:source:push` will correctly push LWC subfolders such as `force-app/lwc/foo/lwc/myLWC/**`. Thank you @yippie for [reporting](https://github.com/forcedotcom/cli/issues/1477) :bow:.
 * FIX: Deploys that time out now [include the deploy ID](https://github.com/forcedotcom/source-deploy-retrieve/pull/614), making various automations possible that otherwise required workarounds.
 
