@@ -18,7 +18,8 @@ Want to check out the new `sf` executable of Salesforce CLI? [Click here for the
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* FIX: `force:source:pull` now respects `.forceignore` entries in the format `**.filename.ext`. Thank you @ImJohnMDaniel for [reporting this](https://github.com/forcedotcom/cli/issues/1471) with an excellent repro!
+* FIX: `force:source:pull` respects `.forceignore` entries in the format `**.filename.ext`. Thank you @ImJohnMDaniel for [reporting this](https://github.com/forcedotcom/cli/issues/1471) with an excellent repro!
+* FIX: `force:source:push` will correctly push LWC subfolders such as `force-app/lwc/foo/lwc/myLWC/**`. Thank you @yippie for [reporting](https://github.com/forcedotcom/cli/issues/1477) :bow:.
 
 ## 7.148.3 (April 29, 2022) [stable]
 
