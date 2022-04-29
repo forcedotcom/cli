@@ -25,6 +25,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 * FIX: `force:source:push` will correctly push LWC subfolders such as `force-app/lwc/foo/lwc/myLWC/**`. Thank you @yippie for [reporting](https://github.com/forcedotcom/cli/issues/1477) :bow:.
 * FIX: Deploys that time out now [include the deploy ID](https://github.com/forcedotcom/source-deploy-retrieve/pull/614), making various automations possible that otherwise required workarounds.
 
+* CHANGE: `force:org:list --clean` doesn't delete non-scratch orgs.  That's been confusing, so we updated the help to be clearer, which will also show up in the command docs.  Props to @jclark-dot-org for the [feedback](https://github.com/salesforcecli/plugin-org/pull/318)  
+
 ## 7.148.3 (April 29, 2022) [stable]
 
 > Note: we normally release on Thursdays, so you'd expect this to say April 28.  But since that's also day 2 of TDX, so we'll do the normal release stuff on Friday this week.
