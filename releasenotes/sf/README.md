@@ -14,8 +14,42 @@ Run `sfdx update stable-rc` to update to the release candidate for both `sf` and
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* FIX: We fixed some under-the-hood bugs.
+* NEW: Check out these new beta commands that make deploying metadata easier than ever:
 
+    * `deploy metadata validate`: Validate a metadata deployment without actually executing it. 
+    * `deploy metadata quick`: Quick deploy a validated deployment to an org.
+    * `deploy metadata resume`: Resume watching a deploy operation.
+    * `deploy metadata cancel`: Cancel a deploy operation.
+    * `deploy metadata report`: Check the status of a deploy operation. 
+
+    The `validate` and `quick` commands work together. They're useful if the deployment to your production org takes several hours and you don’t want to risk a failed deploy. You validate a deployment to verify whether it will succeed without actually deploying the metadata to your org. The command returns a job ID, which you then pass to the `quick` command to _actually_ deploy the metadata. The quick deploy takes less time because it skips running Apex tests, which ran as part of the validation. Let's look at some examples.  
+    
+    Validate the deployment to the org with alias `my-prod-org` of all source files in the `force-app` directory:
+    
+    `sf deploy metadata validate --source-dir force-app --target-org my-prod-org`
+    
+    When the command completes, you can pass the displayed job ID to the `quick` command:
+    
+    `sf deploy metadata quick --job-id 0Af0x000017yLUFCA2`
+    
+    Use the `--async` flag on either command to run it asynchronously; the command still displays the job ID but immediately returns the control of the terminal to you.  
+    
+    `sf deploy metadata validate --source-dir force-app --target-org my-prod-org --async`
+    
+    Pass the `resume` command a job ID to resume watching the asynchronous command:
+    
+    `sf deploy metadata resume --job-id 0Af0x000017yLUFCA2`
+    
+    Cancel a deploy operation that hasn't yet completed in the org using the `cancel` command. Deploy operations include standard deploys, quick deploys, deploy validations, and deploy cancellations. 
+    
+    `sf deploy metadata cancel --job-id 0Af0x000017yLUFCA2`
+    
+    Want to check the status of a deploy operation? Easy! Use the `report` command:
+    
+     `sf deploy metadata report --job-id 0Af0x000017yLUFCA2`
+     
+     See the `--help` of each command for additional interesting flags and examples. 
+    
 ## 1.26.0 (May 5, 2022) [stable]
 
 * NEW: Manage scratch orgs and sandboxes with these new beta commands:
