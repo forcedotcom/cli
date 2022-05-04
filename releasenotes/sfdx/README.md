@@ -14,11 +14,13 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.149.0 (May 5, 2022) [stable-rc]
+## 7.150.0 (May 12, 2022) [stable-rc]
 
-* HEADS-UP: In next week's 7.150 RC, we plan to make the new open-source `mdapi:beta` commands (`convert`, `deploy`, `retrieve`, `deploy:report`, `retrieve:report`) the default, and move the old versions of those commands to the legacy subtopic.  Other than some new features (ex: retrieve AND automatically unzip) you shouldn't see breaking changes, but if that's not the case, you can still use the `legacy` versions of them.  You can try them now via the `beta` subtopic to test them out early and report anything that's not right. 
-  
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* CHANGE: The new open-source `mdapi:beta` commands (`convert`, `deploy`, `retrieve`, `deploy:report`, `retrieve:report`) are now the default. We've moved the old versions of those commands to the `legacy` subtopic.  Other than some new features (ex: retrieve AND automatically unzip) you shouldn't see breaking changes, but if that's not the case, you can still use the `legacy` versions of them.  
+
+## 7.149.0 (May 5, 2022) [stable]
 
 * FIX: `force:source:pull` was not ignoring certain files in your `.forceignore` when the files didn't exist locally, so we fixed that.  Thank you @ImJohnMDaniel for [reporting this](https://github.com/forcedotcom/cli/issues/1471) with an excellent repro!
 * FIX: `force:source:pull` won't create duplicate files you have in your default directory but not under main/default.  More credit to @ImJohnMDaniel for [noticing](https://github.com/forcedotcom/cli/issues/1485)
@@ -27,7 +29,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * CHANGE: `force:org:list --clean` doesn't delete non-scratch orgs.  That's been confusing, so we updated the help to be clearer, which will also show up in the command docs.  Props to @jclark-dot-org for the [feedback](https://github.com/salesforcecli/plugin-org/pull/318)  
 
-## 7.148.3 (April 29, 2022) [stable]
+## 7.148.3 (April 29, 2022)
 
 > Note: we normally release on Thursdays, so you'd expect this to say April 28.  But since that's also day 2 of TDX, so we'll do the normal release stuff on Friday this week.
 
