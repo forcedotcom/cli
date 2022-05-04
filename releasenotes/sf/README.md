@@ -10,9 +10,13 @@ Run `sfdx update stable-rc` to update to the release candidate for both `sf` and
 
 [Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
 
-## 1.26.0 (May 5, 2022) [stable-rc]
+## 1.27.0 (May 12, 2022) [stable-rc] 
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* FIX: We fixed some under-the-hood bugs.
+
+## 1.26.0 (May 5, 2022) [stable]
 
 * NEW: Manage scratch orgs and sandboxes with these new beta commands:
 
@@ -47,7 +51,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     The sandbox commands work much the same, except they have a few additional flags specific to sandboxes, such as `–license-type` and `–name`. See the `–-help` for all the flags.  
 
-## 1.25.2 (April 28, 2022) [stable]
+## 1.25.2 (April 28, 2022)
  
 * CHANGE: We no longer support v12 of Node.js because of its fast approaching end-of-life ([April 30, 2022](https://nodejs.org/en/about/releases/)). We bundle Node.js in each operating system-specific Salesforce CLI installer. We include the Active LTS version of Node.js and update it in tandem with the Node.js release schedule. If you prefer to install Salesforce CLI using `npm`, we recommend you also use the Active LTS version of Node.js.
 
