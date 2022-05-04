@@ -31,7 +31,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     We’ve regularly updated these release notes with changes to these `force:mdapi:beta` commands. These changes now apply to their equivalent GA commands. Here’s a recap:
     
     * The `force:mdapi:retrieve` command now generates a correct `package.xml` file that you can then use for deploying. 
-    * Get shorter JSON output from running the `force:mdapi:beta:deploy` or `force:mdapi:beta:deploy:report` commands by using the new `--concise` parameter with the `--json` parameter. The new parameter omits success messages from the JSON output. 
+    * Get shorter JSON output from running the `force:mdapi:deploy` or `force:mdapi:deploy:report` commands by using the new `--concise` parameter with the `--json` parameter. The new parameter omits success messages from the JSON output. 
     * When running `force:mdapi:deploy`, specify that deleted components in the destructive changes manifest file are immediately eligible for deletion with the new `--purgeondelete` parameter. By default, deleted components are stored in the Recycle Bin. 
     * Automatically extract files from the retrieved `.zip` file with the new `--unzip` parameter of the `force:mdapi:retrieve` and `force:mdapi:retrieve:report` commands. Use the `--zipfilename` parameter to specify a name for the retrieved `.zip` file.
     * We've improved the performance of the `force:mdapi:convert` command and added a spinner that shows the progress of the conversion. 
