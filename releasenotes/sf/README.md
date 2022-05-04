@@ -12,52 +12,40 @@ Run `sfdx update stable-rc` to update to the release candidate for both `sf` and
 
 ## 1.26.0 (May 5, 2022) [stable-rc]
 
-* NEW: Create and manage scratch orgs and sandboxes with these new beta commands:
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-    ```
-    env create scratch
-    env resume scratch
-    env delete scratch
-    env create sandbox
-    env resume sandbox
-    env delete sandbox
-    ```
+* NEW: Manage scratch orgs and sandboxes with these new beta commands:
 
-    The two `create` commands display running information about the background processes, such as sending requests to the Dev Hub or production org, deploying settings, and so on. Use the `resume` command if the original `create` command times out, or you specified the `--async` flag to run the create asynchronously. Use the `delete` commands to, yep, you guessed it, delete a scratch org or sandbox!
+    * `env create scratch`
+    * `env resume scratch`
+    * `env delete scratch`
+    * `env create sandbox`
+    * `env resume sandbox`
+    * `env delete sandbox`
 
-    Let’s run through a few scratch org examples to see the new commands in action.
+    Use the `create` commands to create scratch orgs and sandboxes. While executing, they display running information about the background processes, such as sending requests, deploying org settings, and so on. Pretty cool knowing what's going on behind the scenes, no? Use the `resume` command if the original `create` command times out, or you specified the `–async flag` to run it asynchronously. Use the `delete` commands to, yep, you guessed it, delete a scratch org or sandbox! Let's run through a few scratch org examples to see the new commands in action. 
 
-    Create a scratch org from a definition file, set it as your default environment, give it an alias, and use the Dev Hub with alias `DevHub`:
+    Create a scratch org from a definition file, set it as your default environment, give it an alias, and use the Dev Hub with alias `DevHub`: 
 
-    ```
-    sf env create scratch --definition-file config/project-scratch-def.json --set-default --alias myscratch --target-dev-hub DevHub
-    ```
+    `sf env create scratch --definition-file config/project-scratch-def.json --set-default --alias myscratch --target-dev-hub DevHub`
 
     Create a Developer Edition scratch org using your default Dev Hub and give it an alias:
 
-    ```
-    sf env create scratch --edition=developer --alias anotherscratch
-    ```
+    `sf env create scratch --edition=developer --alias anotherscratch`
 
     Create a scratch org asynchronously. The command returns control to you right away and displays a job ID:
 
-    ```
-    sf env create scratch --edition=developer --alias happyscratch --async
-    ```
+    `sf env create scratch --edition=developer --alias happyscratch --async`
 
     Resume the scratch org creation by passing the job ID to the `resume` command:
 
-    ```
-    sf env resume scratch --job-id 2SR3u0000008fBDGXD
-    ```
+    `sf env resume scratch --job-id 2SR3u0000008fBDGXD`
 
     Delete the scratch org when you’re done with it:
 
-    ```
-    sf env delete scratch --target-org happyscratch
-    ```
+    `sf env delete scratch --target-org happyscratch`
 
-    The `sandbox` commands work much the same, except they have a few additional flags specific to sandboxes, such as `--license-type` and `--name`. See the `--help` for all the flags.
+    The sandbox commands work much the same, except they have a few additional flags specific to sandboxes, such as `–license-type` and `–name`. See the `–-help` for all the flags.  
 
 ## 1.25.2 (April 28, 2022) [stable]
  
