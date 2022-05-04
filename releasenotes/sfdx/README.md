@@ -18,7 +18,23 @@ Want to check out the new `sf` executable of Salesforce CLI? [Click here for the
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* CHANGE: The new open-source `mdapi:beta` commands (`convert`, `deploy`, `retrieve`, `deploy:report`, `retrieve:report`) are now the default. We've moved the old versions of those commands to the `legacy` subtopic.  Other than some new features (ex: retrieve AND automatically unzip) you shouldn't see breaking changes, but if that's not the case, you can still use the `legacy` versions of them.  
+* NEW: After a successful beta and incorporating feedback from our community, the following commands that used to be in the `force:mdapi:beta` topic are now generally available:
+
+    * `force:mdapi:deploy`
+    * `force:mdapi:retrieve`
+    * `force:mdapi:deploy:report`
+    * `force:mdapi:retrieve:report`
+    * `force:mdapi:convert`
+
+    What does this mean? The functionality we added to `force:mdapi:beta:deploy`, for example, is now in `force:mdapi:deploy`. The functionality in the _old_ `force:mdapi:deploy` is now in `force:mdapi:legacy:deploy`. In the short term, you can use these `force:mdapi:legacy` commands if you run into issues with the new commands. The new commands are open-source and live in the [plugin-source](https://github.com/salesforcecli/plugin-source) plug-in.
+
+    We’ve regularly updated these release notes with changes to these `force:mdapi:beta` commands. These changes now apply to their equivalent GA commands. Here’s a recap:
+    
+    * The `force:mdapi:retrieve` command now generates a correct `package.xml` file that you can then use for deploying. 
+    * Get shorter JSON output from running the `force:mdapi:beta:deploy` or `force:mdapi:beta:deploy:report` commands by using the new `--concise` parameter with the `--json` parameter. The new parameter omits success messages from the JSON output. 
+    * When running `force:mdapi:deploy`, specify that deleted components in the destructive changes manifest file are immediately eligible for deletion with the new `--purgeondelete` parameter. By default, deleted components are stored in the Recycle Bin. 
+    * Automatically extract files from the retrieved `.zip` file with the new `--unzip` parameter of the `force:mdapi:retrieve` and `force:mdapi:retrieve:report` commands. Use the `--zipfilename` parameter to specify a name for the retrieved `.zip` file.
+    * We've improved the performance of the `force:mdapi:convert` command and added a spinner that shows the progress of the conversion. 
 
 ## 7.149.0 (May 5, 2022) [stable]
 
