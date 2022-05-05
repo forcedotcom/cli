@@ -10,9 +10,51 @@ Run `sfdx update stable-rc` to update to the release candidate for both `sf` and
 
 [Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
 
-## 1.26.0 (May 5, 2022) [stable-rc]
+## 1.27.0 (May 12, 2022) [stable-rc] 
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* NEW: Check out these new beta commands that make deploying metadata easier than ever:
+
+    * `deploy metadata validate`: Validate a metadata deployment without actually executing it. 
+    * `deploy metadata quick`: Quick deploy a validated deployment to an org.
+    * `deploy metadata resume`: Resume watching a deploy operation.
+    * `deploy metadata cancel`: Cancel a deploy operation.
+    * `deploy metadata report`: Check the status of a deploy operation. 
+
+    The `validate` and `quick` commands work together. They're useful if the deployment to your production org takes several hours and you don’t want to risk a failed deploy. You first validate a deployment to verify whether it will succeed, without actually deploying the metadata to your org. The command returns a job ID, which you then pass to the `quick` command to _actually_ deploy the metadata. The quick deploy takes less time because it skips running Apex tests, which ran as part of the validation. Let's look at some examples.  
+    
+    Validate the deployment to the org with alias `my-prod-org` of all source files in the `force-app` directory:
+    
+    `sf deploy metadata validate --source-dir force-app --target-org my-prod-org`
+    
+    When the command completes, you can pass the displayed job ID to the `quick` command:
+    
+    `sf deploy metadata quick --job-id 0Af0x000017yLUFCA2`
+    
+    Use the `--async` flag on either command to run it asynchronously; the command still displays the job ID but immediately returns the control of the terminal to you.  
+    
+    `sf deploy metadata validate --source-dir force-app --target-org my-prod-org --async`
+    
+    Resume watching the asynchronous command by passing the job ID to the `resume` command:
+    
+    `sf deploy metadata resume --job-id 0Af0x000017yLUFCA2`
+    
+    Cancel a deploy operation that hasn't yet completed in the org using the `cancel` command. In this context, "deploy operations" include standard deploys, quick deploys, deploy validations, and deploy cancellations. 
+    
+    `sf deploy metadata cancel --job-id 0Af0x000017yLUFCA2`
+    
+    Want to check the status of a deploy operation? Use the `report` command:
+    
+    `sf deploy metadata report --job-id 0Af0x000017yLUFCA2`
+     
+    Lost the job ID? Don't panic! Specify the `--use-most-recent` flag with any command that takes a job ID:
+    
+    `sf deploy metadata resume --use-most-recent`
+     
+    See the `--help` of each command for more interesting flags and examples. 
+    
+## 1.26.0 (May 5, 2022) [stable]
 
 * NEW: Manage scratch orgs and sandboxes with these new beta commands:
 
@@ -47,7 +89,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     The sandbox commands work much the same, except they have a few additional flags specific to sandboxes, such as `–license-type` and `–name`. See the `–-help` for all the flags.  
 
-## 1.25.2 (April 28, 2022) [stable]
+## 1.25.2 (April 28, 2022)
  
 * CHANGE: We no longer support v12 of Node.js because of its fast approaching end-of-life ([April 30, 2022](https://nodejs.org/en/about/releases/)). We bundle Node.js in each operating system-specific Salesforce CLI installer. We include the Active LTS version of Node.js and update it in tandem with the Node.js release schedule. If you prefer to install Salesforce CLI using `npm`, we recommend you also use the Active LTS version of Node.js.
 
