@@ -36,7 +36,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * Automatically extract files from the retrieved `.zip` file with the new `--unzip` parameter of the `force:mdapi:retrieve` and `force:mdapi:retrieve:report` commands. Use the `--zipfilename` parameter to specify a name for the retrieved `.zip` file.
     * We've improved the performance of the `force:mdapi:convert` command and added a spinner that shows the progress of the conversion. 
 
-## 7.149.0 (May 5, 2022) [stable]
+## 7.149.1 (May 5, 2022) [stable]
 
 * CHANGE: We updated the command-line help of `force:org:list --clean` to explain that the command doesn't delete non-scratch orgs. Props to @jclark-dot-org for the [feedback](https://github.com/salesforcecli/plugin-org/pull/318). 
 
