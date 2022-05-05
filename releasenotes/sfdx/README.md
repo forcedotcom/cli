@@ -38,13 +38,17 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ## 7.149.0 (May 5, 2022) [stable]
 
-* FIX: `force:source:pull` was not ignoring certain files in your `.forceignore` when the files didn't exist locally, so we fixed that.  Thank you @ImJohnMDaniel for [reporting this](https://github.com/forcedotcom/cli/issues/1471) with an excellent repro!
-* FIX: `force:source:pull` won't create duplicate files you have in your default directory but not under main/default.  More credit to @ImJohnMDaniel for [noticing](https://github.com/forcedotcom/cli/issues/1485)
-* FIX: `force:source:push` will correctly push LWC subfolders such as `force-app/lwc/foo/lwc/myLWC/**`. Thank you @yippie for [reporting](https://github.com/forcedotcom/cli/issues/1477) :bow:.
-* FIX: Deploys that time out now [include the deploy ID](https://github.com/forcedotcom/source-deploy-retrieve/pull/614), making various automations possible that otherwise required workarounds.
-* FIX: `force:data` commands no longer throw [schema validation errors](https://github.com/forcedotcom/cli/issues/1493) for npm-based installations 
+* CHANGE: We updated the command-line help of `force:org:list --clean` to explain that the command doesn't delete non-scratch orgs. Props to @jclark-dot-org for the [feedback](https://github.com/salesforcecli/plugin-org/pull/318). 
 
-* CHANGE: `force:org:list --clean` doesn't delete non-scratch orgs.  That's been confusing, so we updated the help to be clearer, which will also show up in the command docs.  Props to @jclark-dot-org for the [feedback](https://github.com/salesforcecli/plugin-org/pull/318)  
+* FIX: `force:source:pull` now ignores certain files in your `.forceignore` when the files don't exist locally.  Thank you @ImJohnMDaniel for [reporting the issue](https://github.com/forcedotcom/cli/issues/1471) with an excellent repro!
+
+* FIX: `force:source:pull` doesn't create duplicate files that you have in your default directory but not under `main/default`.  More credit to @ImJohnMDaniel for [noticing the problem](https://github.com/forcedotcom/cli/issues/1485).
+
+* FIX: `force:source:push` correctly pushes LWC subfolders such as `force-app/lwc/foo/lwc/myLWC/**`. Thank you @yippie for [reporting](https://github.com/forcedotcom/cli/issues/1477) :bow:.
+
+* FIX: Deploys that time out now [include the deploy ID](https://github.com/forcedotcom/source-deploy-retrieve/pull/614), making various automations possible that previously required workarounds.
+
+* FIX: `force:data` commands no longer throw [schema validation errors](https://github.com/forcedotcom/cli/issues/1493) for npm-based installations. 
 
 ## 7.148.3 (April 29, 2022)
 
