@@ -10,9 +10,13 @@ Run `sfdx update stable-rc` to update to the release candidate for both `sf` and
 
 [Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
 
-## 1.27.0 (May 12, 2022) [stable-rc] 
+## 1.28.0 (May 19, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* FIX: We fixed some under-the-hood bugs. 
+ 
+## 1.27.0 (May 12, 2022) [stable] 
 
 * NEW: Check out these new beta commands that make deploying metadata easier than ever:
 
@@ -54,7 +58,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
      
     See the `--help` of each command for more interesting flags and examples. 
     
-## 1.26.0 (May 5, 2022) [stable]
+## 1.26.0 (May 5, 2022)
 
 * NEW: Manage scratch orgs and sandboxes with these new beta commands:
 
