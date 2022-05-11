@@ -24,6 +24,11 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `force:org:clone`: Moved to [plugin-org](https://github.com/salesforcecli/plugin-org).
 
     The commands all work the same as before. 
+    
+* FIX: The `force:source:*` commands now support these metadata types:
+
+    * AssessmentQuestion
+    * AssessmentQuestionSet
 
 ## 7.150.0 (May 12, 2022) [stable]
 
