@@ -14,9 +14,18 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.150.0 (May 12, 2022) [stable-rc]
+## 7.151.0 (May 19, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* CHANGE: The project to [open-source Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021) continues to speed along. This week we moved these commands into their own plug-ins:
+
+    * `force:org:shape:create|delete|get|list`: Moved to [plugin-signups](https://github.com/salesforcecli/plugin-signups).
+    * `force:org:clone`: Moved to [plugin-org](https://github.com/salesforcecli/plugin-org).
+
+    The commands all work the same as before. 
+
+## 7.150.0 (May 12, 2022) [stable]
 
 * NEW: After a successful beta and incorporating feedback from our community, the following commands that used to be in the `force:mdapi:beta` topic are now generally available:
 
@@ -28,7 +37,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     What does this mean? The functionality we added to `force:mdapi:beta:deploy`, for example, is now in `force:mdapi:deploy`. The functionality in the _old_ `force:mdapi:deploy` is now in `force:mdapi:legacy:deploy`. In the short term, you can use these `force:mdapi:legacy` commands if you run into issues with the new commands. The new commands are open-source and live in the [plugin-source](https://github.com/salesforcecli/plugin-source) plug-in.
 
-    We’ve regularly updated these release notes with changes to these `force:mdapi:beta` commands. These changes now apply to their equivalent GA commands. Here’s a recap:
+    These changes to `force:mdapi:beta` commands, mentioned in older release notes entries, now apply to their GA versions:
     
     * The `force:mdapi:retrieve` command now generates a correct `package.xml` file that you can then use for deploying. 
     * Get shorter JSON output from running the `force:mdapi:deploy` or `force:mdapi:deploy:report` commands by using the new `--concise` parameter with the `--json` parameter. The new parameter omits success messages from the JSON output. 
@@ -36,7 +45,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * Automatically extract files from the retrieved `.zip` file with the new `--unzip` parameter of the `force:mdapi:retrieve` and `force:mdapi:retrieve:report` commands. Use the `--zipfilename` parameter to specify a name for the retrieved `.zip` file.
     * We've improved the performance of the `force:mdapi:convert` command and added a spinner that shows the progress of the conversion. 
 
-## 7.149.1 (May 5, 2022) [stable]
+* CHANGE: We updated the `force:package:version:report --verbose` command to display a list of Apex classes that aren't passing code coverage requirements. For more details see [Determine Which Apex Classes Have Insufficient Code Coverage](https://help.salesforce.com/s/articleView?id=release-notes.rn_packaging_apex_code_coverage.htm&type=5&release=238) in Salesforce Release Notes.
+
+## 7.149.1 (May 5, 2022)
 
 * CHANGE: We updated the command-line help of `force:org:list --clean` to explain that the command doesn't delete non-scratch orgs. Props to @jclark-dot-org for the [feedback](https://github.com/salesforcecli/plugin-org/pull/318). 
 
