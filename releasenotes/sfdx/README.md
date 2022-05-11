@@ -25,6 +25,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     The commands all work the same as before. We've improved the stability of the `force:org:clone` command.
     
+* FIX: The `force:data:soql:query` command correctly displays the values from multiple relationship fields. (GitHub issue [#1473](https://github.com/forcedotcom/cli/issues/1473))
+
+* FIX: The `force:data:soql:query -r csv -q` command returns a blank for null fields; previously the command return the `null` string. (GitHub issue [#1447](https://github.com/forcedotcom/cli/issues/1447))
+
 * FIX: The `force:source:*` commands now support these metadata types:
 
     * AssessmentQuestion
