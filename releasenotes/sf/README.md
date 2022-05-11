@@ -14,7 +14,10 @@ Run `sfdx update stable-rc` to update to the release candidate for both `sf` and
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* FIX: We fixed some under-the-hood bugs. 
+* FIX: The `sf deploy|retrieve metadata` commands now support these metadata types:
+
+    * AssessmentQuestion
+    * AssessmentQuestionSet
  
 ## 1.27.0 (May 12, 2022) [stable] 
 
