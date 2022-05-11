@@ -23,7 +23,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `force:org:shape:create|delete|get|list`: Moved to [plugin-signups](https://github.com/salesforcecli/plugin-signups).
     * `force:org:clone`: Moved to [plugin-org](https://github.com/salesforcecli/plugin-org).
 
-    The commands all work the same as before. 
+    The commands all work the same as before. We've improved the stability of the `force:org:clone` command.
     
 * FIX: The `force:source:*` commands now support these metadata types:
 
