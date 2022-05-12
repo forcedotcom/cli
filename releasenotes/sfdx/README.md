@@ -25,7 +25,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `force:org:snapshot:create|delete|get|list`: Moved to [plugin-signups](https://github.com/salesforcecli/plugin-signups).
     * `force:org:clone`: Moved to [plugin-org](https://github.com/salesforcecli/plugin-org).
 
-    The commands all work the same as before. We've improved the stability of the `force:org:clone` command.
+    The commands work the same as before. We've improved the stability of the `force:org:clone` command.
     
 * FIX: The `force:data:soql:query` command correctly displays the values from multiple relationship fields. (GitHub issue [#1473](https://github.com/forcedotcom/cli/issues/1473))
 
