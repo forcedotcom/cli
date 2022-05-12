@@ -16,6 +16,8 @@ Want to check out the new `sf` executable of Salesforce CLI? [Click here for the
 
 ## 7.151.0 (May 19, 2022) [stable-rc]
 
+REMINDER: Remember to try out the `force:org:beta:create` command before we make it generally available. While we test new beta commands robustly and thoroughly, it's our awesome community who really puts these new commands through their paces. Thanks in advance! 
+
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 * CHANGE: The project to [open-source Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021) continues to speed along. This week we moved these commands into their own plug-ins:
