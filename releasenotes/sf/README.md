@@ -10,9 +10,29 @@ Run `sfdx update stable-rc` to update to the release candidate for both `sf` and
 
 [Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
 
-## 1.27.0 (May 12, 2022) [stable-rc] 
+## 1.28.0 (May 19, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* NEW: Deploy components in metadata format with these new flags of the `sf deploy metadata` and `sf deploy metadata validate` commands:
+
+    * `--metadata-dir`: Either the root directory or the .zip file that contains the metadata formatted files you want to deploy.
+    * `--single-package`: Indicates that `--metadata-dir` points to a directory structure for a single package. By default, the deploy command assumes the directory is structured for a set of packages.
+ 
+    _Metadata format_ refers to the file format used by the Metadata API. In this format, for example, custom objects are stored in one large metadata file. _Source format_ breaks down these large files into smaller files, which are more digestible and easier to manage with a version control system. Previously, the `sf deploy metadata` and `sf deploy metadata validate` commands deployed files only in source format. 
+    
+    If you use `--metdata-dir` to deploy metadata formatted source files, you can't use the `--metadata`, `--source-dir`, or `--manifest` flags, which apply only to source formatted files.
+    
+    This example deploys the metadata formatted files in the `MyMdComponents.zip` file. It specifies that the files are in a single package directory. The command also runs all the Apex tests in the org as part of the deployment:
+    
+    ```sf deploy metadata --metadata-dir zips/MyMdComponents.zip --single-directory --tests RunAllTestsInOrg```
+  
+* FIX: The `sf deploy|retrieve metadata` commands now support these metadata types:
+
+    * AssessmentQuestion
+    * AssessmentQuestionSet
+ 
+## 1.27.0 (May 12, 2022) [stable] 
 
 * NEW: Check out these new beta commands that make deploying metadata easier than ever:
 
@@ -54,7 +74,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
      
     See the `--help` of each command for more interesting flags and examples. 
     
-## 1.26.0 (May 5, 2022) [stable]
+## 1.26.0 (May 5, 2022)
 
 * NEW: Manage scratch orgs and sandboxes with these new beta commands:
 
