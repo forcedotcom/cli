@@ -20,7 +20,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * CHANGE: The project to [open-source Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021) continues to speed along. This week we moved these commands into their own plug-ins:
 
-    * `force:org:shape:create|delete|get|list`: Moved to [plugin-signups](https://github.com/salesforcecli/plugin-signups).
+    * `force:org:snapshot:create|delete|get|list`: Moved to [plugin-signups](https://github.com/salesforcecli/plugin-signups).
     * `force:org:clone`: Moved to [plugin-org](https://github.com/salesforcecli/plugin-org).
 
     The commands all work the same as before. We've improved the stability of the `force:org:clone` command.
