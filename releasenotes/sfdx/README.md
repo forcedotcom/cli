@@ -37,8 +37,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * AssessmentQuestionSet
     * DataWeaveResource
 
-* FIX: Creating manifests using the --fromorg works better in the weird scenario components don't have a usable `path` (Github issue [#1492](https://github.com/forcedotcom/cli/issues/1492)).  This fix is a perfect example of why we're moving everything in the CLI ot open source.  This bug was
-    * related a feature originally created by [Jochen Rinder](https://github.com/jayree)
+* FIX: Creating manifests with `force:source:manifest:create --fromorg` now works correctly when metadata components don't have a usable `path`. (Github issue [#1492](https://github.com/forcedotcom/cli/issues/1492)). This fix is a perfect example of why we're open-sourcing Salesforce CLI,  because the bug was:
+    * related to a feature originally created by [Jochen Rinder](https://github.com/jayree)
     * found and reported by [Rupert Barrow](https://github.com/RupertBarrow)
     * replicated and fixed in a PR by [Anthony Heber](https://github.com/aheber)
 
