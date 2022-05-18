@@ -44,7 +44,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Passing `--wait -1` to certain `force:mdapi` commands now causes them to wait indefinitely for the operation to complete. This functionality matches that of the corresponding `force:mdapi:legacy` commands. (GitHub issues [#1508](https://github.com/forcedotcom/cli/issues/1508), [#1511](https://github.com/forcedotcom/cli/issues/1511), and [#1519](https://github.com/forcedotcom/cli/issues/1519))
 
-* FIX: Using `debug` logs on `sfdx force:mdapi:deploy` no longers throws a `Converting circular structure to JSON` error (GitHub issue [#1518](https://github.com/forcedotcom/cli/issues/1518))
+* FIX: Using `debug` logs on `force:mdapi:deploy` no longer throws a `Converting circular structure to JSON` error. (GitHub issue [#1518](https://github.com/forcedotcom/cli/issues/1518))
 
 ## 7.150.0 (May 12, 2022) [stable]
 
