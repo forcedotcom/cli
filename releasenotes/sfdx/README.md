@@ -14,7 +14,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.151.0 (May 19, 2022) [stable-rc]
+## 7.151.1 (May 19, 2022) [stable-rc]
 
 REMINDER: Remember to try out the `force:org:beta:create` command before we make it generally available. While we test new beta commands robustly and thoroughly, it's our awesome community who really puts these new commands through their paces. Thanks in advance! 
 
@@ -41,6 +41,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * related a feature originally created by [Jochen Rinder](https://github.com/jayree)
     * found and reported by [Rupert Barrow](https://github.com/RupertBarrow)
     * replicated and fixed in a PR by [Anthony Heber](https://github.com/aheber)
+
+* FIX: Passing `--wait -1` to certain `force:mdapi` commands now waits "indefinitely" to match functionality found in the corresponding `force:mdapi:legacy` commands. Command help text has been updated to clarify this functionality. (GitHub issues [#1508](https://github.com/forcedotcom/cli/issues/1508), [#1511](https://github.com/forcedotcom/cli/issues/1511), and [#1519](https://github.com/forcedotcom/cli/issues/1519))
+
+* FIX: Using `debug` logs on `sfdx force:mdapi:deploy` no longers throws a `Converting circular structure to JSON` error (GitHub issue [#1518](https://github.com/forcedotcom/cli/issues/1518))
 
 ## 7.150.0 (May 12, 2022) [stable]
 
