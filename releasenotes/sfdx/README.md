@@ -14,11 +14,15 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.151.1 (May 19, 2022) [stable-rc]
+## 7.152.0 (May 26, 2022) [stable-rc]
 
 REMINDER: Remember to try out the `force:org:beta:create` command before we make it generally available. While we test new beta commands robustly and thoroughly, it's our awesome community who really puts these new commands through their paces. Thanks in advance! 
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* FIX: We fixed some under-the-hood bugs.
+
+## 7.151.1 (May 19, 2022) [stable]
 
 * CHANGE: The project to [open-source Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021) continues to speed along. This week we moved these commands into their own plug-ins:
 
@@ -46,7 +50,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Using `debug` logs on `force:mdapi:deploy` no longer throws a `Converting circular structure to JSON` error. (GitHub issue [#1518](https://github.com/forcedotcom/cli/issues/1518))
 
-## 7.150.0 (May 12, 2022) [stable]
+## 7.150.0 (May 12, 2022)
 
 * NEW: After a successful beta and incorporating feedback from our community, the following commands that used to be in the `force:mdapi:beta` topic are now generally available:
 
