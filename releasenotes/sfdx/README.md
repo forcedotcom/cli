@@ -20,6 +20,29 @@ REMINDER: Remember to try out the `force:org:beta:create` command before we make
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* NEW: Get the results of your Apex tests in JUnit format and code coverage results in a variety of formats with new parameters of these commands:
+
+	* `force:source:deploy`
+	* `force:source:deploy:report`
+	* `force:mdapi:deploy`
+	* `force:mdapi:deploy:report`
+
+   The new parameters work together with the `--testlevel` parameter, which you use to run Apex tests. Use the new `--junit` parameter to specify JUnit-style tests results. Use the new `--coverageformatters` to specify the format in which code coverage information is reported. The possible values for this flag are:
+   
+   * `clover`: [OpenClover](https://openclover.org/)
+   * `cobertura`: [Cobertura](https://github.com/cobertura/cobertura)
+   * `html-spa`: 
+   * `html`:
+   * `json`: 
+   * `json-summary`
+   * `lcovonly`: 
+   * `none`: 
+   * `teamcity`: 
+   * `text`: 
+   * `text-summary: 
+   
+   Use the `--resultsdir` parameter to specify the name of the output directory; the default value is the deployment ID.  
+ 
 * FIX: The `force:source:*` commands now support the BotTemplate metadata type.
 
 ## 7.152.0 (May 26, 2022) [stable]
