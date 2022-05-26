@@ -43,7 +43,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
    
    Use the `--resultsdir` parameter to specify the name of the directory in which the results are written; the default value is the deployment ID. When the command completes, the results directory contains two subdirectories; `junit` and `coverage`. The `junit` directory contains a single file called `junit.xml` with the JUnit-formatted test results. The `coverage` directory contains files for each code coverage format you specified.  
    
-   This example shows how to deploy the metadata source in the `force-app` directory and run all Apex tests in the org. Apex test results are written in JUnit format to the `test-results/junit/junit.xml` file. Code coverage information is in two files: `test-results/coverage/clover.xml` and `test-results/coverage/cobertura.xml`.
+   This example shows how to deploy the metadata source in the `force-app` directory and run all Apex tests in the org. When the depoy completes, the Apex test results are written in JUnit format to the `test-results/junit/junit.xml` file. Code coverage information is in two files: `test-results/coverage/clover.xml` and `test-results/coverage/cobertura.xml`.
    
    ```bash
    sfdx force:source:deploy -p force-app --testlevel RunAllTestsInOrg --junit --coverageformatters clover,cobertura --resultsdir test-results  
