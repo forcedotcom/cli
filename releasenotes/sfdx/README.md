@@ -20,28 +20,34 @@ REMINDER: Remember to try out the `force:org:beta:create` command before we make
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* NEW: Get the results of your Apex tests in JUnit format and code coverage results in a variety of formats with new parameters of these commands:
+* NEW: Get the results of your Apex tests in JUnit format, and code coverage results in a variety of formats, with three new parameters for these commands:
 
-	* `force:source:deploy`
-	* `force:source:deploy:report`
-	* `force:mdapi:deploy`
-	* `force:mdapi:deploy:report`
+  * `force:source:deploy`
+  * `force:source:deploy:report`
+  * `force:mdapi:deploy`
+  * `force:mdapi:deploy:report`
 
-   The new parameters work together with the `--testlevel` parameter, which you use to run Apex tests. Use the new `--junit` parameter to specify JUnit-style tests results. Use the new `--coverageformatters` to specify the format in which code coverage information is reported. The possible values for this flag are:
+  Use the new Boolean `--junit` parameter to specify you want JUnit-style results of your Apex tests. Use `--coverageformatters` to specify one or more formats for the code coverage information; if you don't specify the parameter, no code coverage information is generated. The possible values for this flag are:
    
-   * `clover`: [OpenClover](https://openclover.org/)
-   * `cobertura`: [Cobertura](https://github.com/cobertura/cobertura)
-   * `html-spa`: 
-   * `html`:
-   * `json`: 
+   * `clover`
+   * `cobertura`
+   * `html-spa`
+   * `html`
+   * `json`
    * `json-summary`
-   * `lcovonly`: 
-   * `none`: 
-   * `teamcity`: 
-   * `text`: 
-   * `text-summary: 
+   * `lcovonly`
+   * `none`
+   * `teamcity`
+   * `text`
+   * `text-summary`
    
-   Use the `--resultsdir` parameter to specify the name of the output directory; the default value is the deployment ID.  
+   Use the `--resultsdir` parameter to specify the name of the directory in which the results are written; the default value is the deployment ID. When the command completes, the results directory contains two subdirectories; `junit` and `coverage`. The `junit` directory contains a single file called `junit.xml` with the JUnit-formatted test results. The `coverage` directory contains files for each code coverage format you specified.  
+   
+   This example shows how to deploy the metadata source in the `force-app` directory and run all Apex tests in the org. Apex test results are written in JUnit format to the `test-results/junit/junit.xml` file. Code coverage information is in two files: `test-results/coverage/clover.xml` and `test-results/coverage/cobertura.xml`.
+   
+   ```bash
+   sfdx force:source:deploy -p force-app --testlevel RunAllTestsInOrg --junit --coverageformatters clover,cobertura --resultsdir test-results  
+   ```
  
 * FIX: The `force:source:*` commands now support the BotTemplate metadata type.
 
