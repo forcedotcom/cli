@@ -14,15 +14,49 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.152.0 (May 26, 2022) [stable-rc]
+## 7.153.0 (June 2, 2022) [stable-rc]
 
 REMINDER: Remember to try out the `force:org:beta:create` command before we make it generally available. While we test new beta commands robustly and thoroughly, it's our awesome community who really puts these new commands through their paces. Thanks in advance! 
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* NEW: Get the results of your Apex tests in JUnit format, and code coverage results in a variety of formats, with three new parameters for these commands:
+
+  * `force:source:deploy`
+  * `force:source:deploy:report`
+  * `force:mdapi:deploy`
+  * `force:mdapi:deploy:report`
+
+  Use the new Boolean `--junit` parameter to specify you want JUnit-style results of your Apex tests. Use `--coverageformatters` to specify one or more formats for the code coverage information; if you don't specify the parameter, no code coverage information is generated. The possible values for this flag are:
+   
+   * `clover`
+   * `cobertura`
+   * `html-spa`
+   * `html`
+   * `json`
+   * `json-summary`
+   * `lcovonly`
+   * `none`
+   * `teamcity`
+   * `text`
+   * `text-summary`
+   
+   Use the `--resultsdir` parameter to specify the name of the directory in which the results are written; the default value is the deployment ID. When the command completes, the results directory contains two subdirectories; `junit` and `coverage`. The `junit` directory contains a single file called `junit.xml` with the JUnit-formatted test results. The `coverage` directory contains files for each code coverage format you specified.  
+   
+   This example shows how to deploy the metadata source in the `force-app` directory and run all Apex tests in the org. When the depoy completes, the Apex test results are written in JUnit format to the `test-results/junit/junit.xml` file. Code coverage information is in two files: `test-results/coverage/clover.xml` and `test-results/coverage/cobertura.xml`.
+   
+   ```bash
+   sfdx force:source:deploy -p force-app --testlevel RunAllTestsInOrg --junit --coverageformatters clover,cobertura --resultsdir test-results  
+   ```
+* FIX: The `force:data:soql:query` command no longer limits the number of returned records to 2000; it once again uses the default value of 10K. (GitHub issue #[1543](https://github.com/forcedotcom/cli/issues/1543))
+  
+* FIX: The `force:source:*` commands now support the BotTemplate metadata type.
+
+## 7.152.0 (May 26, 2022) [stable]
+
 * FIX: We fixed some under-the-hood bugs.
 
-## 7.151.1 (May 19, 2022) [stable]
+## 7.151.1 (May 19, 2022)
 
 * CHANGE: The project to [open-source Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021) continues to speed along. This week we moved these commands into their own plug-ins:
 
