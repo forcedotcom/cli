@@ -10,19 +10,21 @@ Run `sfdx update stable-rc` to update to the release candidate for both `sf` and
 
 [Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
 
-## 1.30.0 (June 2, 2022) [stable-rc]
+## 1.131.0 (June 9, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 * FIX: We fixed some under-the-hood bugs.
+ 
+## 1.30.0 (June 2, 2022) [stable]
 
-## 1.29.0 (May 26, 2022) [stable]
+* FIX: We fixed some under-the-hood bugs.
+
+## 1.29.0 (May 26, 2022)
 
 * FIX: We fixed some under-the-hood bugs.
 
 ## 1.28.0 (May 19, 2022)
-
-These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 * NEW: Deploy components in metadata format with these new flags for the `sf deploy metadata` and `sf deploy metadata validate` commands:
 
