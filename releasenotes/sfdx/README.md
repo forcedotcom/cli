@@ -14,11 +14,16 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.153.0 (June 2, 2022) [stable-rc]
+## 7.154.0 (June 9, 2022) [stable-rc]
 
 REMINDER: Remember to try out the `force:org:beta:create` command before we make it generally available. While we test new beta commands robustly and thoroughly, it's our awesome community who really puts these new commands through their paces. Thanks in advance! 
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* FIX: We fixed some under-the-hood bugs.
+
+
+## 7.153.0 (June 2, 2022) [stable]
 
 * NEW: Get the results of your Apex tests in JUnit format, and code coverage results in a variety of formats, with three new parameters for these commands:
 
@@ -52,7 +57,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
   
 * FIX: The `force:source:*` commands now support the BotTemplate metadata type.
 
-## 7.152.0 (May 26, 2022) [stable]
+## 7.152.0 (May 26, 2022)
 
 * FIX: We fixed some under-the-hood bugs.
 
