@@ -20,8 +20,7 @@ REMINDER: Remember to try out the `force:org:beta:create` command before we make
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* FIX: We fixed some under-the-hood bugs.
-
+* FIX: The package dependency keyword `LATEST` no longer resolves to a deleted package version. (GitHub issue [#1514](https://github.com/forcedotcom/cli/issues/1514))
 
 ## 7.153.0 (June 2, 2022) [stable]
 
