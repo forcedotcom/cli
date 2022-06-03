@@ -51,9 +51,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
    
    ```bash
    sfdx force:source:deploy -p force-app --testlevel RunAllTestsInOrg --junit --coverageformatters clover,cobertura --resultsdir test-results  
-   ```
-* FIX: The `force:data:soql:query` command no longer limits the number of returned records to 2000; it once again uses the default value of 10K. (GitHub issue #[1543](https://github.com/forcedotcom/cli/issues/1543))
-  
+   ```  
 * FIX: The `force:source:*` commands now support the BotTemplate metadata type.
 
 ## 7.152.0 (May 26, 2022)
