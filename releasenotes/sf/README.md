@@ -16,7 +16,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We fixed some under-the-hood bugs.
 
-## 1.131.0 (June 9, 2022) [stable]
+## 1.31.0 (June 9, 2022) [stable]
 
 * FIX: We fixed some under-the-hood bugs.
  
