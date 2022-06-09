@@ -14,15 +14,25 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.154.0 (June 9, 2022) [stable-rc]
+## 7.155.0 (June 16, 2022) [stable-rc]
 
 REMINDER: Remember to try out the `force:org:beta:create` command before we make it generally available. While we test new beta commands robustly and thoroughly, it's our awesome community who really puts these new commands through their paces. Thanks in advance! 
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* NEW: Org Shape for Scratch Orgs is generally available. Use these org shape commands to create a scratch org configuration (shape) based on a specific source org and then manage it:
+
+     * `force:org:shape:create`
+     * `force:org:shape:delete`
+     * `force:org:shape:list`
+
+     See [Create a Scratch Org Based on an Org Shape](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_shape_intro.htm) for details.
+ 
+## 7.154.0 (June 9, 2022) [stable]
+
 * FIX: The package dependency keyword `LATEST` no longer resolves to a deleted package version. (GitHub issue [#1514](https://github.com/forcedotcom/cli/issues/1514))
 
-## 7.153.0 (June 2, 2022) [stable]
+## 7.153.0 (June 2, 2022)
 
 * NEW: Get the results of your Apex tests in JUnit format, and code coverage results in a variety of formats, with three new parameters for these commands:
 
