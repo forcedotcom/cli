@@ -22,6 +22,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `force:data:soql:query` command no longer limits the number of returned records to 2000; it once again uses the default value of 10K. (GitHub issue #[1543](https://github.com/forcedotcom/cli/issues/1543))
 
+* FIX: The `force:org:open` command correctly opens a sandbox with enhanced domains enabled. (GitHub issue #[1556](https://github.com/forcedotcom/cli/issues/1556))
+
+* FIX: We've improved the `force:source` and `force:mdapi` commands so they catch a common Metadata API fault and then retry the deploy or retrieve if necessary. (GitHub issue #[1522](https://github.com/forcedotcom/cli/issues/1522))
+
 ## 7.155.0 (June 16, 2022) [stable]
 
 * NEW: Org Shape for Scratch Orgs is generally available. Use these org shape commands to create a scratch org configuration (shape) based on a specific source org and then manage it:
