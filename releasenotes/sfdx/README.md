@@ -27,6 +27,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
      * `force:org:shape:list`
 
      See [Create a Scratch Org Based on an Org Shape](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_shape_intro.htm) for details.
+     
+* FIX: We've improved the `auth:jwt:grant` command so that it succeeds more often on more types of orgs. 
  
 ## 7.154.0 (June 9, 2022) [stable]
 
