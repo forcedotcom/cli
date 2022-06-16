@@ -14,11 +14,15 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.155.0 (June 16, 2022) [stable-rc]
+## 7.156.0 (June 23, 2022) [stable-rc]
 
 REMINDER: Remember to try out the `force:org:beta:create` command before we make it generally available. While we test new beta commands robustly and thoroughly, it's our awesome community who really puts these new commands through their paces. Thanks in advance! 
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* FIX: The `force:data:soql:query` command no longer limits the number of returned records to 2000; it once again uses the default value of 10K. (GitHub issue #[1543](https://github.com/forcedotcom/cli/issues/1543))
+
+## 7.155.0 (June 16, 2022) [stable]
 
 * NEW: Org Shape for Scratch Orgs is generally available. Use these org shape commands to create a scratch org configuration (shape) based on a specific source org and then manage it:
 
@@ -29,8 +33,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
      See [Create a Scratch Org Based on an Org Shape](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_shape_intro.htm) for details.
      
 * FIX: We've improved the `auth:jwt:grant` command so that it succeeds more often on more types of orgs. 
+
+* FIX: We've improved the `force:source` and `force:mdapi` commands so they catch a common Metadata API fault and then retry the deploy or retrieve if necessary. (GitHub issue #[1522](https://github.com/forcedotcom/cli/issues/1522))
  
-## 7.154.0 (June 9, 2022) [stable]
+## 7.154.0 (June 9, 2022)
 
 * FIX: The package dependency keyword `LATEST` no longer resolves to a deleted package version. (GitHub issue [#1514](https://github.com/forcedotcom/cli/issues/1514))
 
