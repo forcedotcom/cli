@@ -22,6 +22,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `force:data:soql:query` command no longer limits the number of returned records to 2000; it once again uses the default value of 10K. (GitHub issue #[1543](https://github.com/forcedotcom/cli/issues/1543))
 
+* FIX: The `force:mdapi:deploy` command successfully deploys large metadata directories. (GitHub issue #[1531](https://github.com/forcedotcom/cli/issues/1531))
+
 ## 7.155.1 (June 16, 2022) [stable]
 
 * NEW: Org Shape for Scratch Orgs is generally available. Use these org shape commands to create a scratch org configuration (shape) based on a specific source org and then manage it:
