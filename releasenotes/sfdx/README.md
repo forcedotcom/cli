@@ -34,8 +34,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
      
 * FIX: We've improved the `auth:jwt:grant` command so that it succeeds more often on more types of orgs. 
 
-* FIX: The `force:org:open` command correctly opens a sandbox with enhanced domains enabled. (GitHub issue #[1556](https://github.com/forcedotcom/cli/issues/1556))
-
 * FIX: We've improved the `force:source` and `force:mdapi` commands so they catch a common Metadata API fault and then retry the deploy or retrieve if necessary. (GitHub issue #[1522](https://github.com/forcedotcom/cli/issues/1522))
  
 ## 7.154.0 (June 9, 2022)
