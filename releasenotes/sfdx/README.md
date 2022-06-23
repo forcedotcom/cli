@@ -22,6 +22,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `force:org:create` command no longer emits a warning about `rmdirSync` being deprecated. (Pull Request [salesforcecli/toolbelt#256](https://github.com/salesforcecli/toolbelt/pull/256))
 
+* FIX: The `force:source:status` command now correctly respects all forceignored files when using the `--concise` parameter. (Pull Request [salesforcecli/plugin-source#505](https://github.com/salesforcecli/plugin-source/pull/505))
+
 ## 7.156.1 (June 23, 2022) [stable]
 
 * FIX: The `force:data:soql:query` command no longer limits the number of returned records to 2000; it once again uses the default value of 10K. (GitHub issue #[1543](https://github.com/forcedotcom/cli/issues/1543))
