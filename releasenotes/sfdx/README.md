@@ -30,6 +30,13 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: You can now run the `force:mdapi:deploy` command on a production org without specifying the `--testlevel` parameter if your project doesn't contain any Apex classes. Previously it incorrectly failed with the error `INVALID_OPERATION: testLevel of NoTestRun cannot be used in production organizations`. (GitHub issue #[1542](https://github.com/forcedotcom/cli/issues/1542))
 
+* FIX: Username aliases now resolve correctly. Previously, when using an alias instead of a username in some commands in certain conditions, you'd get errors such as:
+
+    * `No authorization information found for <username>`
+    * `ERROR running force:package:version:create: Missing config object`
+ 
+   (GitHub issues #[1576](https://github.com/forcedotcom/cli/issues/1576) and #[1577](https://github.com/forcedotcom/cli/issues/1577))
+   
 ## 7.155.1 (June 16, 2022)
 
 * NEW: Org Shape for Scratch Orgs is generally available. Use these org shape commands to create a scratch org configuration (shape) based on a specific source org and then manage it:
