@@ -20,7 +20,7 @@ REMINDER: Remember to try out the `force:org:beta:create` command before we make
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* FIX: We fixed some under-the-hood bugs.
+* FIX: The `force:org:create` command no longer emits a warning about `rmdirSync` being deprecated. (Pull Request [salesforcecli/toolbelt#256](https://github.com/salesforcecli/toolbelt/pull/256))
 
 ## 7.156.1 (June 23, 2022) [stable]
 
