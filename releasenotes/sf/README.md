@@ -10,13 +10,17 @@ Run `sfdx update stable-rc` to update to the release candidate for both `sf` and
 
 [Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
 
-## 1.33.0 (June 23, 2022) [stable-rc]
+## 1.34.0 (June 30, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 * FIX: We fixed some under-the-hood bugs.
 
-## 1.32.0 (June 16, 2022) [stable]
+## 1.33.0 (June 23, 2022) [stable]
+
+* FIX: We fixed some under-the-hood bugs.
+
+## 1.32.0 (June 16, 2022)
 
 * FIX: We fixed some under-the-hood bugs.
 
