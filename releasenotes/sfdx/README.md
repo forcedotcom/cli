@@ -28,6 +28,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `force:mdapi:deploy` command successfully deploys large metadata directories. (GitHub issue #[1531](https://github.com/forcedotcom/cli/issues/1531))
 
+* FIX: You now run the `force:mdapi:deploy` command on a production org without specifying the `--testlevel` parameter if your project doesn't contain any Apex classes. Previously it incorrectly failed with the error `INVALID_OPERATION: testLevel of NoTestRun cannot be used in production organizations`. (GitHub issue #[1542](https://github.com/forcedotcom/cli/issues/1542))
+
 ## 7.155.1 (June 16, 2022)
 
 * NEW: Org Shape for Scratch Orgs is generally available. Use these org shape commands to create a scratch org configuration (shape) based on a specific source org and then manage it:
