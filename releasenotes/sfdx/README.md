@@ -20,7 +20,9 @@ REMINDER: Remember to try out the `force:org:beta:create` command before we make
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* FIX: We fixed some under-the-hood bugs.
+* FIX: The `force:org:create` command no longer emits a warning about `rmdirSync` being deprecated. (Pull Request [salesforcecli/toolbelt#256](https://github.com/salesforcecli/toolbelt/pull/256))
+
+* FIX: The `force:source:status` command now correctly respects all forceignored files when using the `--concise` parameter. (Pull Request [salesforcecli/plugin-source#505](https://github.com/salesforcecli/plugin-source/pull/505))
 
 ## 7.156.1 (June 23, 2022) [stable]
 
@@ -28,6 +30,15 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `force:mdapi:deploy` command successfully deploys large metadata directories. (GitHub issue #[1531](https://github.com/forcedotcom/cli/issues/1531))
 
+* FIX: You can now run the `force:mdapi:deploy` command on a production org without specifying the `--testlevel` parameter if your project doesn't contain any Apex classes. Previously it incorrectly failed with the error `INVALID_OPERATION: testLevel of NoTestRun cannot be used in production organizations`. (GitHub issue #[1542](https://github.com/forcedotcom/cli/issues/1542))
+
+* FIX: Username aliases now resolve correctly. Previously, when using an alias instead of a username in some commands in certain conditions, you'd get errors such as:
+
+    * `No authorization information found for <username>`
+    * `ERROR running force:package:version:create: Missing config object`
+ 
+   (GitHub issues #[1576](https://github.com/forcedotcom/cli/issues/1576) and #[1577](https://github.com/forcedotcom/cli/issues/1577))
+   
 ## 7.155.1 (June 16, 2022)
 
 * NEW: Org Shape for Scratch Orgs is generally available. Use these org shape commands to create a scratch org configuration (shape) based on a specific source org and then manage it:
