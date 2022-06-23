@@ -34,6 +34,8 @@ _Describe what actually happened_.
 
 ### System Information
 
+- Which shell/terminal are you using? (e.g. bash, zsh, powershell 5, powershell 7, cmd.exe, etc.)
+
 - If you are using `sfdx`
 	- Run `sfdx version --verbose --json`
 - If you are using `sf`
