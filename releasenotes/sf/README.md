@@ -34,6 +34,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     `sf env create scratch --target-dev-hub=MyHub --definition-file config/project-scratch-def.json --no-track-source`
 
+* NEW: Get detailed information about the Salesforce CLI version you're using with the new `--verbose` flag of the `sf version` command. Output includes versions of the core and installed plug-ins, operating system information, and version of Node.js. 
+
 * FIX: Authentication tokens are now consistently and correctly encrypted or decrypted. (GitHub issue #[1314](https://github.com/forcedotcom/cli/issues/1314))
 
 ## 1.34.0 (June 30, 2022) [stable]
