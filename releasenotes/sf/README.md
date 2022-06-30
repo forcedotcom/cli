@@ -10,13 +10,39 @@ Run `sfdx update stable-rc` to update to the release candidate for both `sf` and
 
 [Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
 
-## 1.34.0 (June 30, 2022) [stable-rc]
+## 1.35.0 (July 7, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* NEW: These commands now support source tracking:
+
+    * `sf deploy metadata`
+    * `sf deploy metadata validate`
+    * `sf retrieve metadata`
+
+    The first time you run `sf deploy metadata` on a scratch or sandbox org that allows source tracking, the command deploys all local source files. But when you next run the command, it deploys only the files that changed locally. Narrow the list of deployed files with the `--source-dir`, `--metadata`, or `--manifest` flags. If you don’t specify these flags, then the command deploys all changes in the project, similar to how `force:source:push` in `sfdx` works. 
+
+    The `sf retrieve metadat`a command is the same as deploy, but in reverse. The first time you retrieve, everything is retrieved; the next time only changes in the org are retrieved. If you don’t specify `--source-dir`, `--metadat`a, or `--manifest`, then all changes in the org are retrieved, just like `force:source:pull` in `sfdx`.
+
+    If a command detects a conflict in the files you’re about to deploy or retrieve, the command displays the conflicts. Use the `--ignore-conflicts` flag to force the deployment or retrieval of the changes. This flag is similar to the`--forceoverwrite` parameter of many of the `force:source` commands in `sfdx`. For example:
+
+    `sf deploy metadata --source-dir force-app --ignore-conflicts`
+
+    See [Getting Started with Salesforce CLI Unification](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_sf_intro.htm), which will soon be updated with additional details about source tracking in `sf` and how it’s slightly different from `sfdx`. 
+
+* NEW: Opt out of source tracking when you create a scratch or sandbox org with the new `--no-track-source` flag of the `sf env create scratch|sandbox` commands. Source tracking is enabled by default for orgs that support it. But you sometimes want to disable source tracking, such as in a CI/CD environment to improve performance. This example creates a scratch org with source tracking disabled:
+
+    `sf env create scratch --target-dev-hub=MyHub --definition-file config/project-scratch-def.json --no-track-source`
+
+* NEW: Get detailed information about the Salesforce CLI version you're using with the new `--verbose` flag of the `sf version` command. Output includes versions of the core and installed plug-ins, operating system information, and version of Node.js. 
+
+* FIX: Authentication tokens are now consistently and correctly encrypted or decrypted. (GitHub issue #[1314](https://github.com/forcedotcom/cli/issues/1314))
+
+## 1.34.0 (June 30, 2022) [stable]
+
 * FIX: We fixed some under-the-hood bugs.
 
-## 1.33.0 (June 23, 2022) [stable]
+## 1.33.0 (June 23, 2022)
 
 * FIX: We fixed some under-the-hood bugs.
 

@@ -14,17 +14,23 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.157.0 (June 30, 2022) [stable-rc]
+## 7.158.0 (July 7, 2022) [stable-rc]
 
 REMINDER: Remember to try out the `force:org:beta:create` command before we make it generally available. While we test new beta commands robustly and thoroughly, it's our awesome community who really puts these new commands through their paces. Thanks in advance! 
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* FIX: The `force:org:open` command no longer times out while resolving the Lightning Experience-enabled custom domain in new sandboxes. (GitHub issue #[1556](https://github.com/forcedotcom/cli/issues/1556))
+
+* FIX: Authentication tokens are now consistently and correctly encrypted or decrypted. (GitHub issue #[1314](https://github.com/forcedotcom/cli/issues/1314))
+
+## 7.157.0 (June 30, 2022) [stable]
+
 * FIX: The `force:org:create` command no longer emits a warning about `rmdirSync` being deprecated. (Pull Request [salesforcecli/toolbelt#256](https://github.com/salesforcecli/toolbelt/pull/256))
 
 * FIX: The `force:source:status` command now correctly respects all forceignored files when using the `--concise` parameter. (GitHub issue #[1545](https://github.com/forcedotcom/cli/issues/1545))
 
-## 7.156.1 (June 23, 2022) [stable]
+## 7.156.1 (June 23, 2022)
 
 * FIX: The `force:data:soql:query` command no longer limits the number of returned records to 2000; it once again uses the default value of 10K. (GitHub issue #[1543](https://github.com/forcedotcom/cli/issues/1543))
 
