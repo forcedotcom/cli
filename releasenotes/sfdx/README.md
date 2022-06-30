@@ -22,7 +22,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `force:org:open` command no longer times out while resolving the Lightning Experience-enabled custom domain in new sandboxes. (GitHub issue #[1556](https://github.com/forcedotcom/cli/issues/1556))
 
-* FIX: Fixed an issue where auth tokens were not being encrypted or decrypted correctly sometimes. (GitHub issue #[1314](https://github.com/forcedotcom/cli/issues/1314))
+* FIX: Authentication tokens are now consistently and correctly encrypted or decrypted. (GitHub issue #[1314](https://github.com/forcedotcom/cli/issues/1314))
 
 ## 7.157.0 (June 30, 2022) [stable]
 
