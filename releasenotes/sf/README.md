@@ -34,6 +34,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     `sf env create scratch --target-dev-hub=MyHub --definition-file config/project-scratch-def.json --no-track-source`
 
+* FIX: Fixed an issue where auth tokens were not being encrypted or decrypted correctly sometimes. (GitHub issue #[1314](https://github.com/forcedotcom/cli/issues/1314))
+
 ## 1.34.0 (June 30, 2022) [stable]
 
 * FIX: We fixed some under-the-hood bugs.
