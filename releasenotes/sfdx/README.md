@@ -24,7 +24,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Authentication tokens are now consistently and correctly encrypted or decrypted. (GitHub issue #[1314](https://github.com/forcedotcom/cli/issues/1314))
 
-* FIX: The `force:package:version:list` command with the `--concise` parameter displays correct output. (GitHub issue #[1569](https://github.com/forcedotcom/cli/issues/1569))
+* FIX: The `force:package1:version:list` command displays correct output. (GitHub issue #[1569](https://github.com/forcedotcom/cli/issues/1569))
 
 ## 7.157.0 (June 30, 2022) [stable]
 
