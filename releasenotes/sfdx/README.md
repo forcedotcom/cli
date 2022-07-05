@@ -14,7 +14,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.158.0 (July 7, 2022) [stable-rc]
+## 7.158.1 (July 7, 2022) [stable-rc]
 
 REMINDER: Remember to try out the `force:org:beta:create` command before we make it generally available. While we test new beta commands robustly and thoroughly, it's our awesome community who really puts these new commands through their paces. Thanks in advance! 
 
@@ -23,6 +23,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 * FIX: The `force:org:open` command no longer times out while resolving the Lightning Experience-enabled custom domain in new sandboxes. (GitHub issue #[1556](https://github.com/forcedotcom/cli/issues/1556))
 
 * FIX: Authentication tokens are now consistently and correctly encrypted or decrypted. (GitHub issue #[1314](https://github.com/forcedotcom/cli/issues/1314))
+
+* FIX: The `force:package:version:list` command with the `--concise` parameter displays correct output. (GitHub issue #[1569](https://github.com/forcedotcom/cli/issues/1569))
 
 ## 7.157.0 (June 30, 2022) [stable]
 
