@@ -20,7 +20,7 @@ REMINDER: Remember to try out the `force:org:beta:create` command before we make
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* FIX: The `force:org:open` command no longer times out while resolving the Lightning Experience-enabled custom domain in new sandboxes. (GitHub issue #[1556](https://github.com/forcedotcom/cli/issues/1556))
+* FIX: The `force:org:open` command no longer times out while resolving the Lightning Experience-enabled custom domain in new sandboxes. (GitHub issue #[1556](https://github.com/forcedotcom/cli/issues/1556), #[1603](https://github.com/forcedotcom/cli/issues/1603))
 
 * FIX: Authentication tokens are now consistently and correctly encrypted or decrypted. (GitHub issue #[1314](https://github.com/forcedotcom/cli/issues/1314))
 
