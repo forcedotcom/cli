@@ -24,7 +24,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `force:source:deploy` command respects the `restDeploy` configuration value. (GitHub issue #[1606](https://github.com/forcedotcom/cli/issues/1606))
 
-* FIX: We've strengthened our proxy support so that all commands run correctly when behind a company firewall or web proxy. (GitHub issue #[1597](https://github.com/forcedotcom/cli/issues/1597))
+* FIX: We've strengthened our proxy support so that commands run correctly when behind a company firewall or web proxy. (GitHub issue #[1597](https://github.com/forcedotcom/cli/issues/1597))
 
 ## 7.158.1 (July 7, 2022) [stable]
 
