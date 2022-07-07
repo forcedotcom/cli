@@ -2,12 +2,15 @@
 
 Here are the new and changed features in recent updates of the `sf` executable of Salesforce CLI.
 
-We publish a new stable version of `sf` on Wednesday; if you are using the `sfdx` installers then this version is installed automatically when you install or update `sfdx`. If you installed `sfdx` via `npm` then you will have to install `sf` separately by running `npm install @salesforce/cli -g`. At the same time we also publish an `sf` release candidate that contains changes that we plan to include in next week's `sf` release.
+We publish a new stable version of `sf` on Wednesday. At the same time we also publish an `sf` release candidate that contains changes that we plan to include in next week's `sf` release.
 
-Run `sf version` to display the version installed on your computer. 
+Run `sf version` to display the version of `sf` installed on your computer. 
 
-If you used the `sfdx` installer to install `sf`, run `sfdx update` to update to the latest available stable version.
-Run `sfdx update stable-rc` to update to the release candidate for both `sf` and `sfdx`. To return to the stable version, run `sfdx update stable`.
+**Installation**: If you installed Salesforce CLI with the `sfdx` [installers](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm), then `sf` is also installed automatically. If you installed `sfdx` via `npm` then you must install `sf` separately by running `npm install @salesforce/cli -g`. 
+
+**Update**: If you installed `sf` with the `sfdx` installers, run `sfdx update` to update to the latest available stable version. Run `sfdx update stable-rc` to update to the release candidate. To return to the stable version, run `sfdx update stable`.
+
+If you installed `sf` with `npm`, run `npm install @salesforce/cli@latest-rc -g` to update to the release candidate. To return to the stable version, run `npm install @salesforce/cli@latest -g`. 
 
 [Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
 
