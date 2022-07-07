@@ -14,7 +14,7 @@ Run `sfdx update stable-rc` to update to the release candidate for both `sf` and
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* FIX: We fixed some under-the-hood bugs.
+* FIX: The `sf env create scratch` command correctly labels a scratch org in its internal authentication files. (GitHub issue #[1598](https://github.com/forcedotcom/cli/issues/1598))
 
 ## 1.35.0 (July 7, 2022) [stable]
 
