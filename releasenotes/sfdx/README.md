@@ -20,7 +20,11 @@ REMINDER: Remember to try out the `force:org:beta:create` command before we make
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* FIX: We fixed some under-the-hood bugs.
+* FIX: The `force:org:beta:create` command creates a scratch org when the definition file contains an `objectSettings` entry. (GitHub issue #[1526](https://github.com/forcedotcom/cli/issues/1526))
+
+* FIX: The `force:source:deploy` command respects the `restDeploy` configuration value. (GitHub issue #[1606](https://github.com/forcedotcom/cli/issues/1606))
+
+* FIX: We've strengthened our proxy support so that all commands run correctly when behind a company firewall or web proxy. (GitHub issue #[1597](https://github.com/forcedotcom/cli/issues/1597))
 
 ## 7.158.1 (July 7, 2022) [stable]
 
