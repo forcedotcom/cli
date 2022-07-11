@@ -18,7 +18,7 @@ If you installed `sf` with `npm`, run `npm install @salesforce/cli@latest-rc -g`
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* FIX: The `sf env create scratch` command correctly labels a scratch org in its internal authentication files. (GitHub issue #[1598](https://github.com/forcedotcom/cli/issues/1598))
+* FIX: The `sf env create scratch` command correctly labels a scratch org in its internal authentication files. (GitHub issue https://github.com/forcedotcom/cli/issues/1598)
 
 ## 1.35.0 (July 7, 2022) [stable]
 
