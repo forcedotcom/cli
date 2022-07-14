@@ -30,7 +30,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `sf logout functions`
     * `sf run function`
 
-* NEW: Stream log output for a compute environment with the new `sf env log` command. For example:
+* NEW: Stream log output for a compute environment with the new beta `sf env log` command. For example:
 
     `sf env log --target-compute environment-alias` 
 
