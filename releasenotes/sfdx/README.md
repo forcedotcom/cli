@@ -14,11 +14,24 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.159.0 (July 14, 2022) [stable-rc]
+## 7.160.0 (July 21, 2022) [stable-rc]
 
 REMINDER: Remember to try out the `force:org:beta:create` command before we make it generally available. While we test new beta commands robustly and thoroughly, it's our awesome community who really puts these new commands through their paces. Thanks in advance! 
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* FIX: Refreshing expired access tokens is working as expected. (GitHub issue [#1615](https://github.com/forcedotcom/cli/issues/1615), [sfdx-core PR #619](https://github.com/forcedotcom/sfdx-core/pull/619))
+
+* FIX: The `force:source:*` commands now support these metadata types:
+
+    * AIUsecaseDefinition
+    * DataPackageKitDefinition
+    * DataPackageKitObject
+    * DataSourceBundleDefinition
+    * DataSrcDataModelFieldMap
+    * DataStreamTemplate
+
+## 7.159.0 (July 14, 2022) [stable]
 
 * FIX: The `force:org:beta:create` command creates a scratch org when the definition file contains an `objectSettings` entry. (GitHub issue #[1526](https://github.com/forcedotcom/cli/issues/1526))
 
@@ -26,7 +39,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We've strengthened our proxy support so that commands run correctly when behind a company firewall or web proxy. (GitHub issue #[1597](https://github.com/forcedotcom/cli/issues/1597))
 
-## 7.158.1 (July 7, 2022) [stable]
+## 7.158.1 (July 7, 2022)
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 

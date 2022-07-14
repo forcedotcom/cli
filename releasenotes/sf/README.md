@@ -14,13 +14,26 @@ If you installed `sf` with `npm`, run `npm install @salesforce/cli@latest-rc -g`
 
 [Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
 
-## 1.36.0 (July 14, 2022) [stable-rc]
+## 1.37.0 (July 21, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* FIX: Refreshing expired access tokens is working as expected. (GitHub issue [#1615](https://github.com/forcedotcom/cli/issues/1615), [sfdx-core PR #619](https://github.com/forcedotcom/sfdx-core/pull/619))
+ 
+* FIX: The `sf deploy|retrieve metadata` commands now support these metadata types:
+
+    * AIUsecaseDefinition
+    * DataPackageKitDefinition
+    * DataPackageKitObject
+    * DataSourceBundleDefinition
+    * DataSrcDataModelFieldMap
+    * DataStreamTemplate
+
+## 1.36.0 (July 14, 2022) [stable]
+
 * FIX: The `sf env create scratch` command correctly labels a scratch org in its internal authentication files. (GitHub issue https://github.com/forcedotcom/cli/issues/1598)
 
-## 1.35.0 (July 7, 2022) [stable]
+## 1.35.0 (July 7, 2022)
 
 * NEW: These commands now support source tracking:
 
