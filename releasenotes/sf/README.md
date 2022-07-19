@@ -18,6 +18,22 @@ If you installed `sf` with `npm`, run `npm install @salesforce/cli@latest-rc -g`
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* NEW: Get JSON output from these Salesforce Functions commands with the `--json | -j` flag:
+
+    * `sf deploy functions`
+    * `sf env create compute`
+    * `sf env delete`
+    * `sf env logdrain add`
+    * `sf env logdrain remove`
+    * `sf env var set`
+    * `sf env var unset`
+    * `sf logout functions`
+    * `sf run function`
+
+* NEW: Stream log output for a compute environment with the new beta `sf env log` command. For example:
+
+    `sf env log --target-compute environment-alias` 
+
 * FIX: Refreshing expired access tokens is working as expected. (GitHub issue [#1615](https://github.com/forcedotcom/cli/issues/1615), [sfdx-core PR #619](https://github.com/forcedotcom/sfdx-core/pull/619))
  
 * FIX: The `sf deploy|retrieve metadata` commands now support these metadata types:
