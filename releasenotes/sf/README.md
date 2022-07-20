@@ -20,6 +20,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `sf deploy|retrieve metadata` commands now support these metadata types:
 
+    * IdentityVerificationProcDef
     * ServiceAISetupDefinition
     * ServiceAISetupField
 
