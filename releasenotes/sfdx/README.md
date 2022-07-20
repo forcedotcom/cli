@@ -22,6 +22,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `force:source:*` commands now support these metadata types:
 
+    * IdentityVerificationProcDef
     * ServiceAISetupDefinition
     * ServiceAISetupField
 
