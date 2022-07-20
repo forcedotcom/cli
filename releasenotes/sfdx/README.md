@@ -14,11 +14,18 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.160.0 (July 21, 2022) [stable-rc]
+## 7.161.0 (July 28, 2022) [stable-rc]
 
 REMINDER: Remember to try out the `force:org:beta:create` command before we make it generally available. While we test new beta commands robustly and thoroughly, it's our awesome community who really puts these new commands through their paces. Thanks in advance! 
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* FIX: The `force:source:*` commands now support these metadata types:
+
+    * ServiceAISetupDefinition
+    * ServiceAISetupField
+
+## 7.160.0 (July 21, 2022) [stable]
 
 * FIX: Refreshing expired access tokens is working as expected. (GitHub issue [#1615](https://github.com/forcedotcom/cli/issues/1615), [sfdx-core PR #619](https://github.com/forcedotcom/sfdx-core/pull/619))
 
@@ -31,7 +38,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * DataSrcDataModelFieldMap
     * DataStreamTemplate
 
-## 7.159.0 (July 14, 2022) [stable]
+## 7.159.0 (July 14, 2022)
 
 * FIX: The `force:org:beta:create` command creates a scratch org when the definition file contains an `objectSettings` entry. (GitHub issue #[1526](https://github.com/forcedotcom/cli/issues/1526))
 
