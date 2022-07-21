@@ -28,7 +28,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* NEW: Get JSON output from these Salesforce Functions commands with the `--json | -j` flag:
+* NEW: Get JSON output from these Salesforce Functions commands with the `--json` flag:
 
     * `sf deploy functions`
     * `sf env create compute`
