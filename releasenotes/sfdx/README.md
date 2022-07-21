@@ -20,6 +20,10 @@ REMINDER: Remember to try out the `force:org:beta:create` command before we make
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* FIX: Pushing invalid LWC templates on namespaces orgs gives proper errors. (GitHub issue [#1615](https://github.com/forcedotcom/cli/issues/1602), [SDR PR #619](https://github.com/forcedotcom/sfdx-core/pull/669))
+
+* FIX: You can use either HTTPS_PROXY or HTTP_PROXY (Github issue [#1626](https://github.com/forcedotcom/cli/issues/1626), [jsforce PR #1256](https://github.com/jsforce/jsforce/pull/1256))
+
 * FIX: The `force:source:*` commands now support these metadata types:
 
     * IdentityVerificationProcDef
