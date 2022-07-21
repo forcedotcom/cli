@@ -24,6 +24,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `force:org:beta:create` command sets aliases correctly. (GitHub issue [#1630](https://github.com/forcedotcom/cli/issues/1630), [sfdx-core PR #620](https://github.com/forcedotcom/sfdx-core/pull/620) and [plugin-org PR #357](https://github.com/salesforcecli/plugin-org/pull/357))
 
+* FIX: The older `force:org:create` command was missing some error messages. (GitHub issue [#1638](https://github.com/forcedotcom/cli/issues/1638))
+
 * FIX: Pushing invalid LWC templates with the `force:source:push` command to scratch orgs that have a namespace now returns proper errors. (GitHub issue [#1602](https://github.com/forcedotcom/cli/issues/1602), [SDR PR #669](https://github.com/forcedotcom/source-deploy-retrieve/pull/669))
 
 * FIX: Authorizing orgs now works with either the HTTPS_PROXY or HTTP_PROXY environment variable. (Github issue [#1626](https://github.com/forcedotcom/cli/issues/1626), [jsforce PR #1256](https://github.com/jsforce/jsforce/pull/1256))
