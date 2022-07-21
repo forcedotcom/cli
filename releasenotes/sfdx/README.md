@@ -20,6 +20,10 @@ REMINDER: Remember to try out the `force:org:beta:create` command before we make
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* FIX: When `mdapi:deploy:report` and `source:deploy:report` exceed their `--wait` limit, they return a JSON error containing the expected deploymet details (GitHub issue [#1602](https://github.com/forcedotcom/cli/issues/1612), [plugin-source PR #538](https://github.com/salesforcecli/plugin-source/pull/538))
+
+* FIX: `force:org:beta:create` sets aliases correctly. (GitHub issue [#1602](https://github.com/forcedotcom/cli/issues/1630), [sfdx-core PR #620](https://github.com/forcedotcom/sfdx-core/pull/620) and [plugin-org PR #357](https://github.com/salesforcecli/plugin-org/pull/357))
+
 * FIX: Pushing invalid LWC templates with the `force:source:push` command to scratch orgs that have a namespace now returns proper errors. (GitHub issue [#1602](https://github.com/forcedotcom/cli/issues/1602), [SDR PR #669](https://github.com/forcedotcom/source-deploy-retrieve/pull/669))
 
 * FIX: Authorizing orgs now works with either the HTTPS_PROXY or HTTP_PROXY environment variable. (Github issue [#1626](https://github.com/forcedotcom/cli/issues/1626), [jsforce PR #1256](https://github.com/jsforce/jsforce/pull/1256))
