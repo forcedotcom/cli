@@ -22,6 +22,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 COMING SOON
 
+* FEAT: There's a new `--soqlqueryfile` flag for the `force:data:soql:query` command. So you can now store large queries in a file, and avoid terminal character limits, (GitHub issue [#360](https://github.com/forcedotcom/cli/issues/360), [plugin-data PR #327](https://github.com/salesforcecli/plugin-data/pull/327))
+
 ## 7.161.0 (July 28, 2022) [stable]
 
 * FIX: When `mdapi:deploy:report` and `source:deploy:report` exceed their `--wait` limit, they return a JSON error that contains the expected deploymet details. (GitHub issue [#1612](https://github.com/forcedotcom/cli/issues/1612), [plugin-source PR #538](https://github.com/salesforcecli/plugin-source/pull/538))
