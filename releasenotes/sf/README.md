@@ -18,7 +18,17 @@ If you installed `sf` with `npm`, run `npm install @salesforce/cli@latest-rc -g`
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-COMING SOON
+* FIX: Following our standard conventions, these commands no longer have the `-j` short flag for producing JSON output, only the `--json` long flag:
+
+    * `sf deploy functions`
+    * `sf env create compute`
+    * `sf env delete`
+    * `sf env logdrain add`
+    * `sf env logdrain remove`
+    * `sf env var set`
+    * `sf env var unset`
+    * `sf logout functions`
+    * `sf run function`
 
 ## 1.38.0 (July 28, 2022) [stable]
 
@@ -29,8 +39,6 @@ COMING SOON
     * ServiceAISetupField
 
 ## 1.37.0 (July 21, 2022)
-
-These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 * NEW: Get JSON output from these Salesforce Functions commands with the `--json` flag:
 
