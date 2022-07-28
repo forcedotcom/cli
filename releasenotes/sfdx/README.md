@@ -26,13 +26,15 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
     (GitHub issue [#360](https://github.com/forcedotcom/cli/issues/360), [plugin-data PR #327](https://github.com/salesforcecli/plugin-data/pull/327))
 
-* FIX: The `force:org:clone` command can clone a sandbox org. (GitHub issue [#1637](https://github.com/forcedotcom/cli/issues/1637))
+* FIX: The `force:org:clone` command clones a sandbox org without errors. (GitHub issue [#1637](https://github.com/forcedotcom/cli/issues/1637), [sfdx-core PR #623](https://github.com/forcedotcom/sfdx-core/pull/623))
 
-* FIX: The `force:mdapi:convert` command can successfully convert Custom Labels to source format. (GitHub issue [#1540](https://github.com/forcedotcom/cli/issues/1540))
+* FIX: The `force:mdapi:convert` command converts CustomLabels metadata types to source format. (GitHub issue [#1540](https://github.com/forcedotcom/cli/issues/1540), SDR PRs [#660](https://github.com/forcedotcom/source-deploy-retrieve/pull/660), [#666](https://github.com/forcedotcom/source-deploy-retrieve/pull/666))
 
-* FIX: The `force:org:list` command was excluding scratch orgs that have additional users created in the scratch org. The command now correctly includes those scratch orgs in the results (GitHub issue [#1641](https://github.com/forcedotcom/cli/issues/1641))
+* FIX: The `force:org:list` command displays scratch orgs that have additional users created in them. (GitHub issue [#1641](https://github.com/forcedotcom/cli/issues/1641), [plugin-org PR #359](https://github.com/salesforcecli/plugin-org/pull/359))
 
-* FIX: The `force:data:tree:export` command no longer makes the query lower case. (GitHub issue [#1642](https://github.com/forcedotcom/cli/issues/1642))
+* FIX: The `force:data:tree:export` command no longer converts the SOQL query that you pass it with the `-q` parameter to lowercase. (GitHub issue [#1642](https://github.com/forcedotcom/cli/issues/1642), [plugin-data PR #330](https://github.com/salesforcecli/plugin-data/pull/330))
+
+	Many thanks to [Anthony Heber](https://github.com/aheber) for your fix. Our community comes through again. Keep 'em coming!
 
 ## 7.161.0 (July 28, 2022) [stable]
 
