@@ -26,6 +26,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
     (GitHub issue [#360](https://github.com/forcedotcom/cli/issues/360), [plugin-data PR #327](https://github.com/salesforcecli/plugin-data/pull/327))
 
+* FIX: The `force:org:clone` command can clone a sandbox org. (GitHub issue [#1637](https://github.com/forcedotcom/cli/issues/1637))
+
+* FIX: The `force:mdapi:convert` command can successfully convert Custom Labels to source format. (GitHub issue [#1540](https://github.com/forcedotcom/cli/issues/1540))
+
 ## 7.161.0 (July 28, 2022) [stable]
 
 * FIX: When `mdapi:deploy:report` and `source:deploy:report` exceed their `--wait` limit, they return a JSON error that contains the expected deploymet details. (GitHub issue [#1612](https://github.com/forcedotcom/cli/issues/1612), [plugin-source PR #538](https://github.com/salesforcecli/plugin-source/pull/538))
