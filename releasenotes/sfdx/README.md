@@ -30,6 +30,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `force:mdapi:convert` command can successfully convert Custom Labels to source format. (GitHub issue [#1540](https://github.com/forcedotcom/cli/issues/1540))
 
+* FIX: The `force:org:list` command was excluding scratch orgs that have additional users created in the scratch org. The command now correctly includes those scratch orgs in the results (GitHub issue [#1641](https://github.com/forcedotcom/cli/issues/1641))
+
+* FIX: The `force:data:tree:export` command no longer makes the query lower case. (GitHub issue [#1642](https://github.com/forcedotcom/cli/issues/1642))
+
 ## 7.161.0 (July 28, 2022) [stable]
 
 * FIX: When `mdapi:deploy:report` and `source:deploy:report` exceed their `--wait` limit, they return a JSON error that contains the expected deploymet details. (GitHub issue [#1612](https://github.com/forcedotcom/cli/issues/1612), [plugin-source PR #538](https://github.com/salesforcecli/plugin-source/pull/538))
