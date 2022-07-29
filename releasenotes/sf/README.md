@@ -14,9 +14,23 @@ If you installed `sf` with `npm`, run `npm install @salesforce/cli@latest-rc -g`
 
 [Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
 
-## 1.38.0 (July 28, 2022) [stable-rc]
+## 1.39.0 (Aug 4, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* FIX: Following our standard conventions, these commands no longer have the `-j` short flag for producing JSON output, only the `--json` long flag:
+
+    * `sf deploy functions`
+    * `sf env create compute`
+    * `sf env delete`
+    * `sf env logdrain add`
+    * `sf env logdrain remove`
+    * `sf env var set`
+    * `sf env var unset`
+    * `sf logout functions`
+    * `sf run function`
+
+## 1.38.0 (July 28, 2022) [stable]
 
 * FIX: The `sf deploy|retrieve metadata` commands now support these metadata types:
 
@@ -24,9 +38,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * ServiceAISetupDefinition
     * ServiceAISetupField
 
-## 1.37.0 (July 21, 2022) [stable]
-
-These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+## 1.37.0 (July 21, 2022)
 
 * NEW: Get JSON output from these Salesforce Functions commands with the `--json` flag:
 
