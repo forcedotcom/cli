@@ -14,9 +14,11 @@ If you installed `sf` with `npm`, run `npm install @salesforce/cli@latest-rc -g`
 
 [Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
 
-## 1.39.0 (Aug 4, 2022) [stable-rc]
+## 1.40.0 (Aug 11, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+## 1.39.0 (Aug 4, 2022) [stable]
 
 * FIX: Following our standard conventions, these commands no longer have the `-j` short flag for producing JSON output, only the `--json` long flag:
 
@@ -30,7 +32,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `sf logout functions`
     * `sf run function`
 
-## 1.38.0 (July 28, 2022) [stable]
+## 1.38.0 (July 28, 2022)
 
 * FIX: The `sf deploy|retrieve metadata` commands now support these metadata types:
 
