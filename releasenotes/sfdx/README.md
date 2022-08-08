@@ -14,11 +14,13 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.162.0 (Aug 4, 2022) [stable-rc]
+## 7.163.0 (Aug 11, 2022) [stable-rc]
 
-REMINDER: Remember to try out the `force:org:beta:create` command before we make it generally available. While we test new beta commands robustly and thoroughly, it's our awesome community who really puts these new commands through their paces. Thanks in advance! 
+REMINDER: Remember to try out the `force:org:beta:create` command before we make it generally available. While we test new beta commands robustly and thoroughly, it's our awesome community who really puts these new commands through their paces. Thanks in advance!
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+## 7.162.0 (Aug 4, 2022) [stable]
 
 * NEW: Run large SOQL queries and avoid your operating system's command character limit with the new `--soqlqueryfile` parameter of the `force:data:soql:query` command. Create a text file that contains your SOQL query, then specify the file with the parameter. For example:
 
@@ -36,7 +38,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 	Many thanks to [Anthony Heber](https://github.com/aheber) for your fix. Our community comes through again. Keep 'em coming!
 
-## 7.161.0 (July 28, 2022) [stable]
+## 7.161.0 (July 28, 2022)
 
 * FIX: When `mdapi:deploy:report` and `source:deploy:report` exceed their `--wait` limit, they return a JSON error that contains the expected deploymet details. (GitHub issue [#1612](https://github.com/forcedotcom/cli/issues/1612), [plugin-source PR #538](https://github.com/salesforcecli/plugin-source/pull/538))
 
