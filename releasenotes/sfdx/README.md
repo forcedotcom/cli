@@ -20,6 +20,8 @@ REMINDER: Remember to try out the `force:org:beta:create` command before we make
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* FIX: We fixed some under-the-hood bugs.
+
 ## 7.162.0 (Aug 4, 2022) [stable]
 
 * NEW: Run large SOQL queries and avoid your operating system's command character limit with the new `--soqlqueryfile` parameter of the `force:data:soql:query` command. Create a text file that contains your SOQL query, then specify the file with the parameter. For example:
