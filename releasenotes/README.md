@@ -6,7 +6,9 @@ As of October 7, 2021, Salesforce CLI is a bundle of two executables: `sf` and `
 
 Because each executable has its own version, we're also keeping their release notes separate:
 
-* [sfdx Release Notes](sfdx/README.md): As always, the `sfdx` executable releases a new version and release candidate every Thursday.
-* [sf Release Notes](sf/README.md): For now, the `sf` executable releases a new version as needed. 
+* [sfdx Release Notes](sfdx/README.md)
+* [sf Release Notes](sf/README.md) 
+
+Both executables release a new version and release candidate every Thursday. 
 
 Enjoy!
