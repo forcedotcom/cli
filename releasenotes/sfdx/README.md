@@ -14,15 +14,19 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.163.0 (Aug 11, 2022) [stable-rc]
-
-REMINDER: Remember to try out the `force:org:beta:create` command before we make it generally available. While we test new beta commands robustly and thoroughly, it's our awesome community who really puts these new commands through their paces. Thanks in advance!
+## 7.164.0 (Aug 18, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* NEW: The new open-source `force:org:create` command, which lives in the [plugin-org](https://github.com/salesforcecli/plugin-org) plug-in, is now generally available. This means that the changes we made to the beta version (`force:org:beta:create`) are now in `force:org:create`. The functionality in the _old_ `force:org:create` is now in `force:org:legacy:create`. The new command is functionally the same as the old one. In the short term, you can use the `force:org:legacy:create` command if you run into issues with the new command. 
+
+## 7.163.0 (Aug 11, 2022) [stable]
+
+REMINDER: Remember to try out the `force:org:beta:create` command before we make it generally available. While we test new beta commands robustly and thoroughly, it's our awesome community who really puts these new commands through their paces. Thanks in advance!
+
 * FIX: We fixed some under-the-hood bugs.
 
-## 7.162.0 (Aug 4, 2022) [stable]
+## 7.162.0 (Aug 4, 2022)
 
 * NEW: Run large SOQL queries and avoid your operating system's command character limit with the new `--soqlqueryfile` parameter of the `force:data:soql:query` command. Create a text file that contains your SOQL query, then specify the file with the parameter. For example:
 
