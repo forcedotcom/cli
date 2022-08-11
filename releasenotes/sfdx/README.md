@@ -20,9 +20,22 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: The new open-source `force:org:create` command, which lives in the [plugin-org](https://github.com/salesforcecli/plugin-org) plug-in, is now generally available. This means that the changes we made to the beta version (`force:org:beta:create`) are now in `force:org:create`. The functionality in the _old_ `force:org:create` is now in `force:org:legacy:create`. The new command is functionally the same as the old one. In the short term, you can use the `force:org:legacy:create` command if you run into issues with the new command. 
 
-## 7.163.0 (Aug 11, 2022) [stable]
+* CHANGE: The `force:source:*` commands no longer support these metadata types associated with Connect Center:
 
-REMINDER: Remember to try out the `force:org:beta:create` command before we make it generally available. While we test new beta commands robustly and thoroughly, it's our awesome community who really puts these new commands through their paces. Thanks in advance!
+    * ConnectedSystem
+    * DataMapping
+    * DataMappingObjectDefinition
+    * DataMappingSchema
+    * DataMappingFieldDefinition
+    * FederationDataMappingUsage
+    
+* FIX: Running the `force:source:push` command on a large project with many files no longer returns the `EMFILE: too many open files` error. A second happy result of this fix is better command performance. (GitHub issue [#1555](https://github.com/forcedotcom/cli/issues/1555), [SDR PR #683](https://github.com/forcedotcom/source-deploy-retrieve/pull/683))
+
+* FIX: The `force:source:deploy` command works correctly during Salesforce release transition periods, such as the current transition from API version 55.0 to 56.0. (GitHub issue [#1656](https://github.com/forcedotcom/cli/issues/1656), [SDR PR #684](https://github.com/forcedotcom/source-deploy-retrieve/pull/684))
+
+* 
+
+## 7.163.0 (Aug 11, 2022) [stable]
 
 * FIX: We fixed some under-the-hood bugs.
 
