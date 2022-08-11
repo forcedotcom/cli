@@ -24,7 +24,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
     But hold on a second; if you don't wait for the query to complete, how do you get the results? We thought of that! The preceding command displays an ID that you then pass to the new `force:data:soql:bulk:report` command with the `--bulkqueryid` parameter. Use the optional `--resultformat` parameter to specify the format of the results, such as `csv` or `json`. For example:
     
-    `sfdx force:dta:soql:bulk:report --bulkqueryid 75000woohoo00XXX --resultformat json`
+    `sfdx force:data:soql:bulk:report --bulkqueryid 75000woohoo00XXX --resultformat json`
 
     Many thanks to [Colin Casey](https://github.com/colincasey) for contributing part of this cool new feature.  And to [Doug Ayers](https://github.com/forcedotcom/cli/issues/1223) for requesting it. 
     
