@@ -14,15 +14,42 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.163.0 (Aug 11, 2022) [stable-rc]
-
-REMINDER: Remember to try out the `force:org:beta:create` command before we make it generally available. While we test new beta commands robustly and thoroughly, it's our awesome community who really puts these new commands through their paces. Thanks in advance!
+## 7.164.0 (Aug 18, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* NEW: Retrieve more records when running `force:data:soql:query` with the new `--bulk` parameter, which makes the command use Bulk API 2.0 for the SOQL query. Bulk API 2.0 has higher limits than the default API used by the command. The default maximum number of records returned by the command is 10,000, so use `--bulk` if your SOQL query returns more. When using `--bulk`, the command waits 3 minutes by default for the query to complete. Use the new `--wait` parameter to specify a different number of minutes to wait, or set it to 0 to immediately return control to the terminal. For example, to not wait for the query to complete:
+
+    `sfdx force:data:soql:query --query <long-query> --bulk --wait 0`
+    
+    But hold on a second; if you don't wait for the query to complete, how do you get the results? We thought of that! The preceding command displays an ID that you then pass to the new `force:data:soql:bulk:report` command with the `--bulkqueryid` parameter. Use the optional `--resultformat` parameter to specify the format of the results, such as `csv` or `json`. For example:
+    
+    `sfdx force:dta:soql:bulk:report --bulkqueryid 75000woohoo00XXX --resultformat json`
+
+    Many thanks to [Colin Casey](https://github.com/colincasey) for contributing part of this cool new feature.  And to [Doug Ayers](https://github.com/forcedotcom/cli/issues/1223) for requesting it. 
+    
+* NEW: The new open-source `force:org:create` command, which lives in the [plugin-org](https://github.com/salesforcecli/plugin-org) plug-in, is now generally available. This means that the changes we made to the beta version (`force:org:beta:create`) are now in `force:org:create`. The functionality in the _old_ `force:org:create` is now in `force:org:legacy:create`. The new command is functionally the same as the old one. In the short term, you can use the `force:org:legacy:create` command if you run into issues with the new command. 
+
+* CHANGE: The `force:source:*` commands no longer support these metadata types associated with Connect Center:
+
+    * ConnectedSystem
+    * DataMapping
+    * DataMappingObjectDefinition
+    * DataMappingSchema
+    * DataMappingFieldDefinition
+    * FederationDataMappingUsage
+    
+* FIX: Running the `force:source:push` command on a large project with many files no longer returns the `EMFILE: too many open files` error. A second happy result of this fix is better command performance. (GitHub issue [#1555](https://github.com/forcedotcom/cli/issues/1555), [SDR PR #683](https://github.com/forcedotcom/source-deploy-retrieve/pull/683))
+
+* FIX: The `force:source:deploy` command works correctly during Salesforce release transition periods, such as the current transition from API version 55.0 to 56.0. (GitHub issue [#1656](https://github.com/forcedotcom/cli/issues/1656), [SDR PR #684](https://github.com/forcedotcom/source-deploy-retrieve/pull/684))
+
+* FIX: The `force:source:status` command shows properly filtered results based on your `.forceignore` file. ([source-tracking PR #195](https://github.com/forcedotcom/source-tracking/pull/195))
+
+## 7.163.0 (Aug 11, 2022) [stable]
+
 * FIX: We fixed some under-the-hood bugs.
 
-## 7.162.0 (Aug 4, 2022) [stable]
+## 7.162.0 (Aug 4, 2022)
 
 * NEW: Run large SOQL queries and avoid your operating system's command character limit with the new `--soqlqueryfile` parameter of the `force:data:soql:query` command. Create a text file that contains your SOQL query, then specify the file with the parameter. For example:
 

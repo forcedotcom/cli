@@ -14,13 +14,26 @@ If you installed `sf` with `npm`, run `npm install @salesforce/cli@latest-rc -g`
 
 [Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
 
-## 1.40.0 (Aug 11, 2022) [stable-rc]
+## 1.41.0 (Aug 18, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* NEW: Search the `sf` commands for that special one you've been looking for all your life with the new interactive `sf search` command. 
+
+* CHANGE: The `sf deploy|retrieve metadata` commands no longer support these metadata types associated with Connect Center:
+
+    * ConnectedSystem
+    * DataMapping
+    * DataMappingObjectDefinition
+    * DataMappingSchema
+    * DataMappingFieldDefinition
+    * FederationDataMappingUsage
+
+## 1.40.0 (Aug 11, 2022) [stable]
+
 * FIX: We fixed some under-the-hood bugs.
 
-## 1.39.0 (Aug 4, 2022) [stable]
+## 1.39.0 (Aug 4, 2022)
 
 * FIX: Following our standard conventions, these commands no longer have the `-j` short flag for producing JSON output, only the `--json` long flag:
 
