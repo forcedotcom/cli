@@ -20,6 +20,15 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: Search the `sf` commands for that special one you've been looking for all your life with the new interactive `sf search` command. 
 
+* CHANGE: The `sf deploy|retrieve metadata` commands no longer support these metadata types associated with Connect Center:
+
+    * ConnectedSystem
+    * DataMapping
+    * DataMappingObjectDefinition
+    * DataMappingSchema
+    * DataMappingFieldDefinition
+    * FederationDataMappingUsage
+
 ## 1.40.0 (Aug 11, 2022) [stable]
 
 * FIX: We fixed some under-the-hood bugs.
