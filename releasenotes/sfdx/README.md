@@ -18,11 +18,7 @@ Want to check out the new `sf` executable of Salesforce CLI? [Click here for the
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* FIX: The `force:org:create` command supports mixed-case usernames when you pass them as org definition values at the command line. For example:
-
-    `sfdx force:org:create username=MixedCaseName@mycompany.com --setdefaultusername -f config/project-scratch-def.json`
-
-    In last week's release candidate, the command returned a `No authorization information found` error. Big thanks to [David Esposito](https://github.com/daveespo) for finding and reporting the issue ([GH #1669](https://github.com/forcedotcom/cli/issues/1669)). This is a major reason we create release candidates: so the community can find these little regressions early, and we can fix 'em ([plugin-org](https://github.com/salesforcecli/plugin-org/pull/384)) before they make it into our stable release. Nice work everyone!
+* FIX: We fixed some under-the-hood bugs. 
 
 ## 7.164.2 (Aug 18, 2022) [stable]
 
