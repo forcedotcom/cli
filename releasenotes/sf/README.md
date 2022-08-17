@@ -14,9 +14,13 @@ If you installed `sf` with `npm`, run `npm install @salesforce/cli@latest-rc -g`
 
 [Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
 
-## 1.41.0 (Aug 18, 2022) [stable-rc]
+## 1.42.0 (Aug 25, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* FIX: We fixed some under-the-hood bugs.
+
+## 1.41.0 (Aug 18, 2022) [stable]
 
 * NEW: Search the `sf` commands for that special one you've been looking for all your life with the new interactive `sf search` command. 
 
@@ -29,7 +33,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * DataMappingFieldDefinition
     * FederationDataMappingUsage
 
-## 1.40.0 (Aug 11, 2022) [stable]
+## 1.40.0 (Aug 11, 2022)
 
 * FIX: We fixed some under-the-hood bugs.
 
