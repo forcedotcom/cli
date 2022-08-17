@@ -14,9 +14,13 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.164.2 (Aug 18, 2022) [stable-rc]
+## 7.165.0 (Aug 25, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* FIX: We fixed some under-the-hood bugs.
+
+## 7.164.2 (Aug 18, 2022) [stable]
 
 * NEW: Retrieve more records when running `force:data:soql:query` with the new `--bulk` parameter, which makes the command use Bulk API 2.0 for the SOQL query. Bulk API 2.0 has higher limits than the default API used by the command. The default maximum number of records returned by the command is 10,000, so use `--bulk` if your SOQL query returns more. When using `--bulk`, the command waits 3 minutes by default for the query to complete. Use the new `--wait` parameter to specify a different number of minutes to wait, or set it to 0 to immediately return control to the terminal. For example, to not wait for the query to complete:
 
@@ -45,7 +49,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `force:source:status` command shows properly filtered results based on your `.forceignore` file. ([source-tracking PR #195](https://github.com/forcedotcom/source-tracking/pull/195))
 
-## 7.163.0 (Aug 11, 2022) [stable]
+## 7.163.0 (Aug 11, 2022)
 
 * FIX: We fixed some under-the-hood bugs.
 
