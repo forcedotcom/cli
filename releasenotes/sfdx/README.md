@@ -16,9 +16,9 @@ Want to check out the new `sf` executable of Salesforce CLI? [Click here for the
 
 ## 7.165.0 (Aug 25, 2022) [stable-rc]
 
-These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
-* NEW: When we publish the `sfdx` executable of Salesforce CLI to npm, we lock down its dependencies. As a result, users installing `sfdx` from npm get immutable builds.  
+* NEW: When we publish the `sfdx` executable of Salesforce CLI to npm, we lock down its dependencies. As a result, users installing `sfdx` from npm get immutable builds. See [Locking dependencies with npm shrinkwrap](https://github.com/forcedotcom/cli/issues/1678) for details. 
 
 ## 7.164.2 (Aug 18, 2022) [stable]
 
