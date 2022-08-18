@@ -18,7 +18,7 @@
   },
   "author": "Lisa Morgan",
   "devDependencies": {
-    "@actions/core": "^1.2.5",
+    "@actions/core": "^1.9.1",
     "@actions/github": "^4.0.0",
     "@octokit/webhooks": "^7.11.2",
     "@salesforce/dev-config": "^2.0.0",
