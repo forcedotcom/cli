@@ -39,7 +39,7 @@ _Describe what actually happened_.
 - If you are using `sfdx`
 	- Run `sfdx version --verbose --json`
 - If you are using `sf`
-	- Run `sf version` **AND** `sf plugins --core`
+	- Run `sf version --verbose --json`
 - Paste the output here
 ### Additional information
 
