@@ -14,13 +14,38 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.165.0 (Aug 25, 2022) [stable-rc]
+## 7.166.0 (Sept 1, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
+* CHANGE: Our journey to [open-source Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021) is coming to an end; the finish line is in sight. This week we've created these beta commands in the new [plugin-packaging](https://github.com/salesforcecli/plugin-packaging) plug-in:
+
+    * `force:package:beta:create`
+    * `force:package:beta:delete`
+    * `force:package:beta:install`
+    * `force:package:beta:install:report`
+    * `force:package:beta:installed:list`
+    * `force:package:beta:list`
+    * `force:package:beta:uninstall`
+    * `force:package:beta:version:create`
+    * `force:package:beta:version:create:list`
+    * `force:package:beta:version:create:report`
+    * `force:package:beta:version:delete`
+    * `force:package:beta:version:list`
+    * `force:package:beta:version:promote`
+    * `force:package:beta:version:report`
+    * `force:package1:beta:version:create`
+    * `force:package1:beta:version:create:get`
+    * `force:package1:beta:version:create:display`
+    * `force:package1:beta:version:list`
+    
+    These new beta commands work the same as their equivalent existing commands. Try out these beta commands before we make the open-source versions generally available.
+
+## 7.165.0 (Aug 25, 2022) [stable]
+
 * NEW: When we publish the `sfdx` executable of Salesforce CLI to npm, we lock down its dependencies. As a result, users installing `sfdx` from npm get immutable builds. See [Locking dependencies with npm shrinkwrap](https://github.com/forcedotcom/cli/issues/1678) for details. 
 
-## 7.164.2 (Aug 18, 2022) [stable]
+## 7.164.2 (Aug 18, 2022)
 
 * NEW: Retrieve more records when running `force:data:soql:query` with the new `--bulk` parameter, which makes the command use Bulk API 2.0 for the SOQL query. Bulk API 2.0 has higher limits than the default API used by the command. The default maximum number of records returned by the command is 10,000, so use `--bulk` if your SOQL query returns more. When using `--bulk`, the command waits 3 minutes by default for the query to complete. Use the new `--wait` parameter to specify a different number of minutes to wait, or set it to 0 to immediately return control to the terminal. For example, to not wait for the query to complete:
 
