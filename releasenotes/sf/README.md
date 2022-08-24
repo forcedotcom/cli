@@ -26,8 +26,36 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     The `sf deploy metadata preview` command also supports the flags to narrow what's deployed, such as `--metadata`, `--manifest`, or `--source-dir`. For example:
 
-    `sf deploy metadata preview --metadata ApexClass`
-    `sf deploy metadata preview --source-dir force-app`
+    ```bash
+    sf deploy metadata preview --metadata ApexClass
+    sf deploy metadata preview --source-dir force-app
+    ```
+
+* NEW: Interactively create local Salesforce metadata, such as custom objects and platform events, with these new commands in the new [plugin-sobject](https://github.com/salesforcecli/plugin-sobject) plug-in:
+
+    ```bash
+    sf generate metadata sobject
+    sf generate metadata platformevent
+    sf generate metadata field
+    ```
+    
+    Each command requires the `--label` flag, and then uses the value to provide intelligent suggestions for its prompts, such as its API name. This example shows how to interactively create a custom object:
+
+    `sf generate metadata sobject --label "My Fab Object"`
+
+    Want to automatically enable optional features on the new custom object rather than answer all the prompts? Try this:
+
+    `sf generate metadata sobject --label "My Fab Object" --use-default-features`
+
+    Now create a custom field on your shiny new object; the command prompts you for the object:
+
+    `sf generate metadata field --label "My Field"`
+
+    Remember to run `sf deploy metadata` to deploy the new local source files to your org. Then you can further customize the new components using Setup UI, then `sf retrieve metadata` the changes back to your local project. How fun is that?
+
+* NEW: Create a custom tab for a custom object with the new `sf generate metadata tab` command. You must provide the object's API name, [icon number](https://www.lightningdesignsystem.com/icons/#custom), and local directory to store the files. For example:
+
+    `sf generate metadata tab --object MyFabObject__c --icon 54 --directory force-app/main/default/tabs`
 
 ## 1.42.0 (Aug 25, 2022) [stable]
 
