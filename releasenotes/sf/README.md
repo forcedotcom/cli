@@ -18,7 +18,16 @@ If you installed `sf` with `npm`, run `npm install @salesforce/cli@latest-rc -g`
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* FIX: We fixed some under-the-hood bugs.
+* NEW: Preview a metadata deployment or retrieval with the new `sf deploy|retrieve metadata preview` commands. They're like `sfdx force:source:status`, but smarter.
+
+    The commands display a table of the metadata components that will be deployed or retrieved or deleted. The table also lists the conflicts between the source in your local project and the components in the org. Finally, the table lists components that won't be deployed or retrieved because they're included in your `.forceignore` file. Use the `--ignore-conflicts` to see what is deployed or retrieved when any conflicts are ignored. For example:
+
+    `sf retrieve metadata preview --ignore-conflicts`
+
+    The `sf deploy metadata preview` command also supports the flags to narrow what's deployed, such as `--metadata`, `--manifest`, or `--source-dir`. For example:
+
+    `sf deploy metadata preview --metadata ApexClass`
+    `sf deploy metadata preview --source-dir force-app`
 
 ## 1.42.0 (Aug 25, 2022) [stable]
 
