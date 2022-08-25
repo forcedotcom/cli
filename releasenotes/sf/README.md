@@ -14,13 +14,54 @@ If you installed `sf` with `npm`, run `npm install @salesforce/cli@latest-rc -g`
 
 [Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
 
-## 1.42.0 (Aug 25, 2022) [stable-rc]
+## 1.43.0 (Sept 1, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* NEW: Preview a metadata deployment or retrieval with the new `sf deploy|retrieve metadata preview` beta commands. They're like `sfdx force:source:status`, but smarter.
+
+    The commands display a table of the metadata components that will be deployed or retrieved or deleted. The table also lists the conflicts between the source in your local project and the components in the org. Finally, the table lists components that won't be deployed or retrieved because they're included in your `.forceignore` file. Use the `--ignore-conflicts` to see what is deployed or retrieved when any conflicts are ignored. For example:
+
+    `sf retrieve metadata preview --ignore-conflicts`
+
+    The `sf deploy metadata preview` command also supports the flags to narrow what's deployed, such as `--metadata`, `--manifest`, or `--source-dir`. For example:
+
+    ```bash
+    sf deploy metadata preview --metadata ApexClass
+    sf deploy metadata preview --source-dir force-app
+    ```
+
+* NEW: Interactively create local Salesforce metadata, such as custom objects and platform events, with these new beta commands in the new [plugin-sobject](https://github.com/salesforcecli/plugin-sobject) plug-in:
+
+    ```bash
+    sf generate metadata sobject
+    sf generate metadata platformevent
+    sf generate metadata field
+    ```
+    
+    Each command requires the `--label` flag, and then uses the value to provide intelligent suggestions for its prompts, such as its API name. This example shows how to interactively create a custom object:
+
+    `sf generate metadata sobject --label "My Fab Object"`
+
+    Want to automatically enable optional features on the new custom object rather than answer all the prompts? Try this:
+
+    `sf generate metadata sobject --label "My Fab Object" --use-default-features`
+
+    Now create a custom field on your shiny new object; the command prompts you for the object:
+
+    `sf generate metadata field --label "My Field"`
+
+    Remember to run `sf deploy metadata` to deploy the new local source files to your org. Then you can further customize the new components using Setup UI, then `sf retrieve metadata` the changes back to your local project. How fun is that?
+
+* NEW: Create a custom tab for a custom object with the new `sf generate metadata tab` beta command. You must provide the object's API name, [icon number](https://www.lightningdesignsystem.com/icons/#custom), and local directory to store the files. For example:
+
+    `sf generate metadata tab --object MyFabObject__c --icon 54 --directory force-app/main/default/tabs`
+
+## 1.42.0 (Aug 25, 2022) [stable]
+
 * FIX: We fixed some under-the-hood bugs.
 
-## 1.41.0 (Aug 18, 2022) [stable]
+## 1.41.0 (Aug 18, 2022)
 
 * NEW: Search the `sf` commands for that special one you've been looking for all your life with the new interactive `sf search` command. 
 
