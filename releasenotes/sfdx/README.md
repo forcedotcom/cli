@@ -18,7 +18,7 @@ Want to check out the new `sf` executable of Salesforce CLI? [Click here for the
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
-* FIX: We fixed some under-the-hood bugs.
+* FIX: The `sf deploy|retrieve metadata` commands now support the MarketingAppExtension metadata type.
 
 ## 7.166.1 (Sept 1, 2022) [stable]
 
