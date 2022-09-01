@@ -40,7 +40,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `force:package:beta:version:report`
     * `force:package1:beta:version:create`
     * `force:package1:beta:version:create:get`
-    * `force:package1:beta:version:create:display`
+    * `force:package1:beta:version:display`
     * `force:package1:beta:version:list`
     
     These new beta commands work the same as their equivalent existing commands. Try out these beta commands before we make the open-source versions generally available.
