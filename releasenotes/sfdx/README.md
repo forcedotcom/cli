@@ -18,6 +18,14 @@ Want to check out the new `sf` executable of Salesforce CLI? [Click here for the
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
+* CHANGE: We continue on our [open-source Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021) project with the packaging commands.  We've created these new beta commands in the new [plugin-packaging](https://github.com/salesforcecli/plugin-packaging) plug-in:
+
+    * `force:package:beta:version:list`
+    * `force:package:beta:version:update`
+    * `force:package:beta:update`
+ 
+    These beta commands work the same as their equivalent existing commands. Try out these beta commands before we make the open-source versions generally available.
+
 * FIX: The `sf deploy|retrieve metadata` commands now support the MarketingAppExtension metadata type.
 
 ## 7.166.1 (Sept 1, 2022) [stable]
@@ -35,7 +43,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `force:package:beta:version:create:list`
     * `force:package:beta:version:create:report`
     * `force:package:beta:version:delete`
-    * `force:package:beta:version:list`
     * `force:package:beta:version:promote`
     * `force:package:beta:version:report`
     * `force:package1:beta:version:create`
