@@ -14,9 +14,13 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.166.1 (Sept 1, 2022) [stable-rc]
+## 7.167.0 (Sept 8, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+* FIX: The `sf deploy|retrieve metadata` commands now support the MarketingAppExtension metadata type.
+
+## 7.166.1 (Sept 1, 2022) [stable]
 
 * CHANGE: Our journey to [open-source Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021) is coming to an end; the finish line is in sight. This week we've created these beta commands in the new [plugin-packaging](https://github.com/salesforcecli/plugin-packaging) plug-in:
 
@@ -41,7 +45,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
     These new beta commands work the same as their equivalent existing commands. Try out these beta commands before we make the open-source versions generally available.
 
-## 7.165.0 (Aug 25, 2022) [stable]
+## 7.165.0 (Aug 25, 2022)
 
 * NEW: When we publish the `sfdx` executable of Salesforce CLI to npm, we lock down its dependencies. As a result, users installing `sfdx` from npm get immutable builds. See [Locking dependencies with npm shrinkwrap](https://github.com/forcedotcom/cli/issues/1678) for details. 
 

@@ -14,9 +14,13 @@ If you installed `sf` with `npm`, run `npm install @salesforce/cli@latest-rc -g`
 
 [Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
 
-## 1.43.0 (Sept 1, 2022) [stable-rc]
+## 1.44.0 (Sept 8, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* FIX: The `force:source:*` commands now support the MarketingAppExtension metadata type. 
+
+## 1.43.0 (Sept 1, 2022) [stable]
 
 * NEW: Preview a metadata deployment or retrieval with the new `sf deploy|retrieve metadata preview` beta commands. They're like `sfdx force:source:status`, but smarter.
 
@@ -57,7 +61,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     `sf generate metadata tab --object MyFabObject__c --icon 54 --directory force-app/main/default/tabs`
 
-## 1.42.0 (Aug 25, 2022) [stable]
+## 1.42.0 (Aug 25, 2022)
 
 * FIX: We fixed some under-the-hood bugs.
 
