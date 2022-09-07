@@ -29,7 +29,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     Customize the command output with these other new flags:
 
     * `--single-package`: Indicates that the retrieved ZIP file has a single package directory. 
-    * `--unzip, -z`: Extract the files from the downloaded ZIP file. 
+    * `--unzip, -z`: Automatically extract the files from the downloaded ZIP file. 
     * `--zip-file-name`: Name for the downloaded ZIP file. Default is `unpackaged.zip`.
 
     For example:
