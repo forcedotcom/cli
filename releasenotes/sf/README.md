@@ -22,7 +22,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ## 1.44.0 (Sept 8, 2022) [stable]
 
-* FIX: The `force:source:*` commands now support the MarketingAppExtension metadata type. 
+* FIX: The `sf deploy|retrieve metadata` commands now support the MarketingAppExtension metadata type. 
 
 ## 1.43.0 (Sept 1, 2022)
 
