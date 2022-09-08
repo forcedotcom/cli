@@ -24,6 +24,13 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
  
     These beta commands work the same as their equivalent existing commands. Try them out before we make the open-source versions generally available.
 
+* FIX: The `force:source:*` commands now support these metadata types:
+
+    * ExternalClientApplication
+    * ForecastingFilter
+    * ForecastingFilterCondition
+    * SchedulingObjective
+
 ## 7.167.2 (Sept 8, 2022) [stable]
 
 * CHANGE: We continue on our [open-source Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021) project with the packaging commands.  We've created these new beta commands in the new [plugin-packaging](https://github.com/salesforcecli/plugin-packaging) plug-in:
