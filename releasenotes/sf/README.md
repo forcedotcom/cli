@@ -14,13 +14,34 @@ If you installed `sf` with `npm`, run `npm install @salesforce/cli@latest-rc -g`
 
 [Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
 
-## 1.44.0 (Sept 8, 2022) [stable-rc]
+## 1.45.0 (Sept 15, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* FIX: The `force:source:*` commands now support the MarketingAppExtension metadata type. 
+* NEW: Retrieve components in metadata format with the new `--target-metadata-dir | -t` flag of the `sf retrieve metadata` command. _Metadata format_ refers to the file format used by the Metadata API. Previously, the `sf retrieve metadata` command retrieved files only in source format.
 
-## 1.43.0 (Sept 1, 2022) [stable]
+    With the new `--target-metadata-dir` flag, the components in metadata format are retrieved into a ZIP file called `unpackaged.zip` (by default) in the specified local directory. You must use this flag in combination with one of these flags so the command knows which components to retrieve: `--source-dir`, `--manifest`, `--metadata`, or `--package-name`.    
+
+    For example, this command retrieves all Apex classes from an org with alias `myorg` into a ZIP file called `unpackaged.zip` and puts it in the local directory called `md-output`: 
+
+    `sf retrieve metadata --metadata ApexClass --target-metadata-dir md-output --target-org myorg`
+
+    Customize the command output with these other new flags:
+
+    * `--single-package`: Indicates that the retrieved ZIP file has a single package directory. 
+    * `--unzip, -z`: Automatically extract the files from the downloaded ZIP file. 
+    * `--zip-file-name`: Name for the downloaded ZIP file. Default is `unpackaged.zip`.
+
+    For example:
+
+    `sf retrieve metadata --metadata ApexClass --target-metadata-dir md-output --unzip --target-org myorg`
+
+
+## 1.44.0 (Sept 8, 2022) [stable]
+
+* FIX: The `sf deploy|retrieve metadata` commands now support the MarketingAppExtension metadata type. 
+
+## 1.43.0 (Sept 1, 2022)
 
 * NEW: Preview a metadata deployment or retrieval with the new `sf deploy|retrieve metadata preview` beta commands. They're like `sfdx force:source:status`, but smarter.
 
