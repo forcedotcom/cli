@@ -18,12 +18,6 @@ Want to check out the new `sf` executable of Salesforce CLI? [Click here for the
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
-* CHANGE: We created these new beta commands in the open-source [plugin-packaging](https://github.com/salesforcecli/plugin-packaging) plug-in:
-
-    * `force:package:beta:version:displayancestry`
- 
-    These beta commands work the same as their equivalent existing commands. Try them out before we make the open-source versions generally available.
-
 * FIX: The `force:source:*` commands now support these metadata types:
 
     * ExternalClientApplication
