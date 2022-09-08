@@ -36,6 +36,12 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     `sf retrieve metadata --metadata ApexClass --target-metadata-dir md-output --unzip --target-org myorg`
 
+* FIX: The `sf deploy|retrieve metadata` commands now support these metadata types:
+
+    * ExternalClientApplication
+    * ForecastingFilter
+    * ForecastingFilterCondition
+    * SchedulingObjective
 
 ## 1.44.0 (Sept 8, 2022) [stable]
 
