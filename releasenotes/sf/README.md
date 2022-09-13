@@ -14,9 +14,15 @@ If you installed `sf` with `npm`, run `npm install @salesforce/cli@latest-rc -g`
 
 [Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
 
-## 1.45.0 (Sept 15, 2022) [stable-rc]
+## 1.46.0 (Sept 28, 2022) [stable-rc]
+
+NOTE: Due to the release moratorium around Dreamforce, we aren't releasing a `stable` CLI version on Sept 21, although we plan to release a `stable-rc` version that week. We'll be back to our regular schedule on Sept 28.  
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* FIX: We fixed some under-the-hood bugs.
+
+## 1.45.0 (Sept 14, 2022) [stable]
 
 * NEW: Retrieve components in metadata format with the new `--target-metadata-dir | -t` flag of the `sf retrieve metadata` command. _Metadata format_ refers to the file format used by the Metadata API. Previously, the `sf retrieve metadata` command retrieved files only in source format.
 
@@ -43,7 +49,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * ForecastingFilterCondition
     * SchedulingObjective
 
-## 1.44.0 (Sept 8, 2022) [stable]
+## 1.44.0 (Sept 8, 2022)
 
 * FIX: The `sf deploy|retrieve metadata` commands now support the MarketingAppExtension metadata type. 
 
