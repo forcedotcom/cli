@@ -14,9 +14,17 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.168.0 (Sept 15, 2022) [stable-rc]
+## 7.169.0 (Sept 29, 2022) [stable-rc]
+
+NOTE: Due to the release moratorium around Dreamforce, we aren't releasing a `stable` CLI version on Sept 22, although we plan to release a `stable-rc` version that week. We'll be back to our regular schedule on Sept 29.  
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+* FIX: We fixed some under-the-hood bugs.
+
+## 7.168.0 (Sept 14, 2022) [stable]
+
+NOTE: We're releasing a day early due to the Dreamforce moratorium. 
 
 * FIX: The `force:source:*` commands now support these metadata types:
 
@@ -25,7 +33,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * ForecastingFilterCondition
     * SchedulingObjective
 
-## 7.167.2 (Sept 8, 2022) [stable]
+## 7.167.2 (Sept 8, 2022)
 
 * CHANGE: We continue on our [open-source Salesforce CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021) project with the packaging commands.  We've created these new beta commands in the new [plugin-packaging](https://github.com/salesforcecli/plugin-packaging) plug-in:
 
