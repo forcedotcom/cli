@@ -20,7 +20,11 @@ NOTE: Due to the release moratorium around Dreamforce, we aren't releasing a `st
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
-* FIX: We fixed some under-the-hood bugs.
+* FIX: The `force:source:*` commands now support these metadata types:
+
+    * DigitalExperienceBundle
+    * DigitalExperience
+    * DigitalExperienceConfig
 
 ## 7.168.0 (Sept 14, 2022) [stable]
 
