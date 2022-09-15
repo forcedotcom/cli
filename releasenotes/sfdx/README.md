@@ -26,6 +26,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * DigitalExperience
     * DigitalExperienceConfig
 
+* FIX: Any registered `postorgcreate` hooks, which fire immediately after a new scratch org or sandbox is created, no longer fire twice. (GitHub issue [#1700](https://github.com/forcedotcom/cli/issues/1700), plugin-org PR [#391](https://github.com/salesforcecli/plugin-org/pull/391))
+
 ## 7.168.0 (Sept 14, 2022) [stable]
 
 NOTE: We're releasing a day early due to the Dreamforce moratorium. 
