@@ -28,9 +28,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Any registered `postorgcreate` hooks, which fire immediately after a new scratch org or sandbox is created, no longer fire twice. (GitHub issue [#1700](https://github.com/forcedotcom/cli/issues/1700), plugin-org PR [#391](https://github.com/salesforcecli/plugin-org/pull/391))
 
-## 7.168.0 (Sept 14, 2022) [stable]
+* FIX: You can now correctly deploy empty metadata files; previously you'd get an UNKNOWN_EXCEPTION error. (GitHub issue [#1673](https://github.com/forcedotcom/cli/issues/1673), SDR PR [#705](https://github.com/forcedotcom/source-deploy-retrieve/pull/705))
 
-NOTE: We're releasing a day early due to the Dreamforce moratorium. 
+## 7.168.0 (Sept 14, 2022) [stable]
 
 * FIX: The `force:source:*` commands now support these metadata types:
 
