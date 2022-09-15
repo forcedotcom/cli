@@ -20,6 +20,15 @@ NOTE: Due to the release moratorium around Dreamforce, we aren't releasing a `st
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
+* CHANGE: We've completed [open-sourcing](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021) the packaging commands and created these new beta commands in the new [plugin-packaging](https://github.com/salesforcecli/plugin-packaging) plug-in:
+
+    * `force:package:beta:uninstall:report`
+    * `force:package:beta:version:displayancestry`
+ 
+    These beta commands work the same as their equivalent existing commands. 
+    
+    **IMPORTANT**: Now that we've created open-source beta versions of all the packaging commands, we no longer maintain the current implementations of the `force:package:*` commands. We highly recommend that you start using the equivalent `force:package:beta:*` commands, which are functionally the same. If you run into issues with the current commands, first try the equivalent `force:package:beta` command to see if your issue is fixed. If not, file a report against the `force:package:beta:*` command on https://github.com/forcedotcom/cli/issues. The same applies to the `force:package1:*` commands. We plan to make the beta commands generally available in the near future. 
+
 * FIX: The `force:source:*` commands now support these metadata types:
 
     * DigitalExperienceBundle
