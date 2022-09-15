@@ -27,7 +27,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
  
     These beta commands work the same as their equivalent existing commands. 
     
-    **IMPORTANT**: Now that we've created open-source beta versions of all the packaging commands, we no longer maintain the current implementations of the `force:package:*` commands. We highly recommend that you start using the equivalent `force:package:beta:*` commands, which are functionally the same. If you run into issues with the current commands, first try the equivalent `force:package:beta` command to see if your issue is fixed. If it isn't, file a report against the `force:package:beta:*` command on https://github.com/forcedotcom/cli/issues. The same applies to the `force:package1:*` commands. We plan to make the beta commands generally available in the near future. 
+    Now that we've created open-source beta versions of all the packaging commands, we no longer maintain the current implementations of the `force:package:*` commands. We recommend that you start testing the equivalent `force:package:beta:*` commands, which are functionally the same. If you run into issues with the current commands, first try the equivalent `force:package:beta` command to see if your issue is fixed. If it isn't, file a report against the `force:package:beta:*` command on https://github.com/forcedotcom/cli/issues. The same applies to the `force:package1:*` commands. We plan to make the beta commands generally available in the near future. 
 
 * FIX: The `force:source:*` commands now support these metadata types:
 
