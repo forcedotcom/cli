@@ -26,6 +26,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * DigitalExperience
     * DigitalExperienceConfig
 
+* FIX: You can now correctly deploy empty metadata files; previously you'd get an UNKNOWN_EXCEPTION error. (GitHub issue [#1673](https://github.com/forcedotcom/cli/issues/1673), SDR PR [#705](https://github.com/forcedotcom/source-deploy-retrieve/pull/705))
+
 ## 1.45.0 (Sept 14, 2022) [stable]
 
 * NEW: Retrieve components in metadata format with the new `--target-metadata-dir | -t` flag of the `sf retrieve metadata` command. _Metadata format_ refers to the file format used by the Metadata API. Previously, the `sf retrieve metadata` command retrieved files only in source format.
