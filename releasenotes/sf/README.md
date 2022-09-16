@@ -14,9 +14,7 @@ If you installed `sf` with `npm`, run `npm install @salesforce/cli@latest-rc -g`
 
 [Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
 
-## 1.46.0 (Sept 28, 2022) [stable-rc]
-
-NOTE: Due to the release moratorium around Dreamforce, we aren't releasing a `stable` CLI version on Sept 21, although we plan to release a `stable-rc` version that week. We'll be back to our regular schedule on Sept 28.  
+## 1.46.0 (Sept 21, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
