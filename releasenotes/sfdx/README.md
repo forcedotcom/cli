@@ -14,9 +14,13 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Want to check out the new `sf` executable of Salesforce CLI? [Click here for the release notes.](../sf/README.md)
 
-## 7.169.0 (Sept 22, 2022) [stable-rc]
+## 7.170.0 (Sept 29, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+* FIX: We fixed some under-the-hood bugs. 
+
+## 7.169.0 (Sept 22, 2022) [stable]
 
 * CHANGE: We've completed [open-sourcing](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021) the packaging commands and created these new beta commands in the new [plugin-packaging](https://github.com/salesforcecli/plugin-packaging) plug-in:
 
@@ -37,7 +41,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: You can now correctly deploy empty metadata files; previously you'd get an UNKNOWN_EXCEPTION error. (GitHub issue [#1673](https://github.com/forcedotcom/cli/issues/1673), SDR PR [#705](https://github.com/forcedotcom/source-deploy-retrieve/pull/705))
 
-## 7.168.0 (Sept 14, 2022) [stable]
+## 7.168.0 (Sept 14, 2022)
 
 * FIX: The `force:source:*` commands now support these metadata types:
 
