@@ -1,9 +1,6 @@
-- name: Close Stale Issues
-  uses: actions/stale@v5.2.0
-  permissions:
-    issues: write
-
-name: 'Close stale issues'
+name: Close Stale Issues
+permissions:
+  issues: write
 on:
   workflow_dispatch:
   schedule:
@@ -17,3 +14,4 @@ jobs:
         with:
           stale-issue-label: status
           stale-issue-message: 'This issue has not received a response in 60 days. It will auto-close in 7 days unless a response is posted.'
+          
