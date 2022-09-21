@@ -12,6 +12,6 @@ jobs:
     steps:
       - uses: actions/stale@v5
         with:
-          stale-issue-label: status
+          stale-issue-label: stale
           stale-issue-message: 'This issue has not received a response in 60 days. It will auto-close in 7 days unless a response is posted.'
           
