@@ -18,7 +18,7 @@ If you installed `sf` with `npm`, run `npm install @salesforce/cli@latest-rc -g`
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
-* FIX: We fixed some under-the-hood bugs. 
+* FIX: When you install a plugin with the `sf plugin install` command, `sf` now verifies its signature. If the plugin is unsigned, `sf` prompts you to confirm that you really want to install it. This behavior mimics the existing behavior of `sfdx`. 
 
 ## 1.47.0 (Sept 28, 2022) [stable]
 
