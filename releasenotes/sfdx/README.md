@@ -18,7 +18,7 @@ Want to check out the new `sf` executable of Salesforce CLI? [Click here for the
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
-* FIX: We fixed some under-the-hood bugs. 
+* FIX: The `force:org:create` command now respects the `apiVersion` config value. (GitHub issue [#1719](https://github.com/forcedotcom/cli/issues/1719), sfdx-core PR [#656](https://github.com/forcedotcom/sfdx-core/pull/656))
 
 ## 7.170.0 (Sept 29, 2022) [stable]
 
