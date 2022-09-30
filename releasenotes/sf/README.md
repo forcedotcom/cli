@@ -14,6 +14,14 @@ If you installed `sf` with `npm`, run `npm install @salesforce/cli@latest-rc -g`
 
 [Click here for the release notes for the `sfdx` executable.](../sfdx/README.md)
 
+Additional documentation:
+
+* [Salesforce CLI Command Reference (sf)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_unified.htm)
+* [Get Started with Salesforce CLI Unification](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_sf_intro.htm)
+* [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
+* [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
+
+
 ## 1.48.0 (Oct 5, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
