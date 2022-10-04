@@ -21,13 +21,17 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.171.0 (Oct 6, 2022) [stable-rc]
+## 7.172.0 (Oct 13, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
+* FIX: We fixed some under-the-hood bugs.
+ 
+## 7.171.0 (Oct 6, 2022) [stable]
+
 * FIX: The `force:org:create` command now respects the `apiVersion` config value. (GitHub issue [#1719](https://github.com/forcedotcom/cli/issues/1719), sfdx-core PR [#656](https://github.com/forcedotcom/sfdx-core/pull/656))
 
-## 7.170.0 (Sept 29, 2022) [stable]
+## 7.170.0 (Sept 29, 2022)
 
 * FIX: We fixed some under-the-hood bugs. 
 
