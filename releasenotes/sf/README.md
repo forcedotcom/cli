@@ -21,14 +21,19 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
+## 1.49.0 (Oct 12, 2022) [stable-rc]
 
-## 1.48.0 (Oct 5, 2022) [stable-rc]
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+* FIX: We fixed some under-the-hood bugs.
+
+## 1.48.0 (Oct 5, 2022) [stable]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
 * FIX: When you install a plugin with the `sf plugin install` command, `sf` now verifies its signature. If the plugin is unsigned, `sf` prompts you to confirm that you really want to install it. This behavior mimics the existing behavior of `sfdx`. 
 
-## 1.47.0 (Sept 28, 2022) [stable]
+## 1.47.0 (Sept 28, 2022)
 
 * FIX: We fixed some under-the-hood bugs. 
 
