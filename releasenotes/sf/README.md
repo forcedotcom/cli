@@ -25,7 +25,7 @@ Additional documentation:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
-* FIX: The `sf deploy|retrieve metadata` commands now support the RelationshipGraphDefinition metadata type. 
+* FIX: The `sf deploy|retrieve metadata` commands now support the RelationshipGraphDefinition metadata type. [PR: source-deploy-retrieve [#722](https://github.com/forcedotcom/source-deploy-retrieve/pull/722))
 
 ## 1.48.0 (Oct 5, 2022) [stable]
 
