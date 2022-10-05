@@ -25,6 +25,8 @@ Additional documentation:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
+* FIX: The `force:source:push` and `force:source:deploy` commands correctly deploy any CustomFieldTranslation metadata types that have local changes. (PRs: source-deploy-retrieve [#726](https://github.com/forcedotcom/source-deploy-retrieve/pull/726) and [#728](https://github.com/forcedotcom/source-deploy-retrieve/pull/728), plugin-source [#597](https://github.com/salesforcecli/plugin-source/pull/597), source-tracking [#243](https://github.com/forcedotcom/source-tracking/pull/243))
+
 * FIX: The `force:source:*` commands now support the RelationshipGraphDefinition metadata type. 
  
 ## 7.171.0 (Oct 6, 2022) [stable]
