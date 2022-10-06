@@ -25,6 +25,10 @@ Additional documentation:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
+* FIX: The `sf deploy metadata` command correctly deploys any CustomFieldTranslation metadata types that have local changes. (PRs: source-deploy-retrieve [#726](https://github.com/forcedotcom/source-deploy-retrieve/pull/726) and [#728](https://github.com/forcedotcom/source-deploy-retrieve/pull/728), plugin-source [#597](https://github.com/salesforcecli/plugin-source/pull/597), source-tracking [#243](https://github.com/forcedotcom/source-tracking/pull/243))
+
+* FIX: The `sf deploy metadata` command correctly handles the new enhanced domains in Winter '23 preview sandboxes. [GitHub issue [#1687](https://github.com/forcedotcom/cli/issues/1687).  PRs: jsforce [#1272](https://github.com/jsforce/jsforce/pull/1272), sfdx-core [#667](https://github.com/forcedotcom/sfdx-core/pull/667))
+
 * FIX: The `sf deploy|retrieve metadata` commands now support the RelationshipGraphDefinition metadata type. [PR: source-deploy-retrieve [#722](https://github.com/forcedotcom/source-deploy-retrieve/pull/722))
 
 ## 1.48.0 (Oct 5, 2022) [stable]
