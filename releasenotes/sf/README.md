@@ -21,9 +21,19 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.49.0 (Oct 12, 2022) [stable-rc]
+## 1.50.0 (Oct 19, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+* FIX: The `sf deploy|retrieve metadata` commands now support these metadata types:
+
+    * CallCtrAgentFavTrfrDest
+    * ExternalCredential
+    * MarketSegmentDefinition
+    * MfgProgramTemplate
+    * StreamingAppDataConnector
+
+## 1.49.0 (Oct 12, 2022) [stable]
 
 * FIX: The `sf deploy metadata` command correctly deploys any CustomFieldTranslation metadata types that have local changes. (PRs: source-deploy-retrieve [#726](https://github.com/forcedotcom/source-deploy-retrieve/pull/726) and [#728](https://github.com/forcedotcom/source-deploy-retrieve/pull/728), plugin-source [#597](https://github.com/salesforcecli/plugin-source/pull/597), source-tracking [#243](https://github.com/forcedotcom/source-tracking/pull/243))
 
@@ -31,7 +41,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `sf deploy|retrieve metadata` commands now support the RelationshipGraphDefinition metadata type. [PR: source-deploy-retrieve [#722](https://github.com/forcedotcom/source-deploy-retrieve/pull/722))
 
-## 1.48.0 (Oct 5, 2022) [stable]
+## 1.48.0 (Oct 5, 2022)
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
