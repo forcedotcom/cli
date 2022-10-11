@@ -21,9 +21,19 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.172.0 (Oct 13, 2022) [stable-rc]
+## 7.173.0 (Oct 20, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+* FIX: The `force:source:*` commands now support these metadata types:
+
+    * CallCtrAgentFavTrfrDest
+    * ExternalCredential
+    * MarketSegmentDefinition
+    * MfgProgramTemplate
+    * StreamingAppDataConnector
+
+## 7.172.0 (Oct 13, 2022) [stable]
 
 * FIX: The `force:source:push` and `force:source:deploy` commands correctly deploy any CustomFieldTranslation metadata types that have local changes. (PRs: source-deploy-retrieve [#726](https://github.com/forcedotcom/source-deploy-retrieve/pull/726) and [#728](https://github.com/forcedotcom/source-deploy-retrieve/pull/728), plugin-source [#597](https://github.com/salesforcecli/plugin-source/pull/597), source-tracking [#243](https://github.com/forcedotcom/source-tracking/pull/243))
 
@@ -31,7 +41,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `force:source:*` commands now support the RelationshipGraphDefinition metadata type. [PR: source-deploy-retrieve [#722](https://github.com/forcedotcom/source-deploy-retrieve/pull/722))
  
-## 7.171.0 (Oct 6, 2022) [stable]
+## 7.171.0 (Oct 6, 2022)
 
 * FIX: The `force:org:create` command now respects the `apiVersion` config value. (GitHub issue [#1719](https://github.com/forcedotcom/cli/issues/1719), sfdx-core PR [#656](https://github.com/forcedotcom/sfdx-core/pull/656))
 
