@@ -25,6 +25,8 @@ Additional documentation:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
+* FIX: The `force:apex:test:run|report -r junit` commands now produce valid XML output. (GitHub issue [#280](https://github.com/forcedotcom/salesforcedx-apex/issues/280), salesforcedx-apex PR [#285](https://github.com/forcedotcom/salesforcedx-apex/pull/285))
+
 * FIX: The `force:source:*` commands now support these metadata types:
 
     * CallCtrAgentFavTrfrDest
