@@ -34,6 +34,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * MarketSegmentDefinition
     * MfgProgramTemplate
     * StreamingAppDataConnector
+    
+* FIX: The `force:org:create` command now throws a better error message when it's run against an org that is not a DevHub. (GitHub PR https://github.com/forcedotcom/sfdx-core/pull/669)
 
 ## 7.172.0 (Oct 13, 2022) [stable]
 
