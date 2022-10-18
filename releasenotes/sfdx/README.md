@@ -21,9 +21,13 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.173.0 (Oct 20, 2022) [stable-rc]
+## 7.174.0 (Oct 27, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+* FIX: We fixed some under-the-hood bugs.
+
+## 7.173.0 (Oct 20, 2022) [stable]
 
 * FIX: The `force:apex:test:run|report -r junit` commands now produce valid XML output. (GitHub issue [#280](https://github.com/forcedotcom/salesforcedx-apex/issues/280), salesforcedx-apex PR [#285](https://github.com/forcedotcom/salesforcedx-apex/pull/285))
 
@@ -37,7 +41,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
 * FIX: The `force:org:create` command now throws a better error message when it's run against an org that is not a DevHub. (GitHub PR https://github.com/forcedotcom/sfdx-core/pull/669)
 
-## 7.172.0 (Oct 13, 2022) [stable]
+## 7.172.0 (Oct 13, 2022)
 
 * FIX: The `force:source:push` and `force:source:deploy` commands correctly deploy any CustomFieldTranslation metadata types that have local changes. (PRs: source-deploy-retrieve [#726](https://github.com/forcedotcom/source-deploy-retrieve/pull/726) and [#728](https://github.com/forcedotcom/source-deploy-retrieve/pull/728), plugin-source [#597](https://github.com/salesforcecli/plugin-source/pull/597), source-tracking [#243](https://github.com/forcedotcom/source-tracking/pull/243))
 
