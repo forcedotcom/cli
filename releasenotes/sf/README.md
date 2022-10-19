@@ -21,9 +21,29 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.50.0 (Oct 19, 2022) [stable-rc]
+## 1.51.0 (Oct 26, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+* NEW: Create aliases to simplify how you use the CLI with these new beta commands:
+
+    * `sf alias set`
+    * `sf alias unset`
+    * `sf alias list`
+
+    For example, scratch org usernames are long and unwieldy, such as `test-sadbiytjsupn@example.com`. Creating an alias for the username, such as `my-scratch-org` makes it easy to refer to it. Check the `--help` of a CLI command to determine where you can use an alias.  
+    
+    Here's how to set an alias to a scratch org username:
+    
+    `sf alias set my-scratch-org=test-sadbiytjsupn@example.com`
+    
+    Refer to the alias this way:
+    
+    `sf deploy metadata --target-org my-scratch-org --metadata ApexClass`
+    
+    Enjoy! 
+
+## 1.50.0 (Oct 19, 2022) [stable]
 
 * FIX: The `sf deploy|retrieve metadata` commands now support these metadata types:
 
@@ -33,7 +53,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * MfgProgramTemplate
     * StreamingAppDataConnector
 
-## 1.49.0 (Oct 12, 2022) [stable]
+## 1.49.0 (Oct 12, 2022)
 
 * FIX: The `sf deploy metadata` command correctly deploys any CustomFieldTranslation metadata types that have local changes. (PRs: source-deploy-retrieve [#726](https://github.com/forcedotcom/source-deploy-retrieve/pull/726) and [#728](https://github.com/forcedotcom/source-deploy-retrieve/pull/728), plugin-source [#597](https://github.com/salesforcecli/plugin-source/pull/597), source-tracking [#243](https://github.com/forcedotcom/source-tracking/pull/243))
 
