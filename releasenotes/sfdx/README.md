@@ -25,7 +25,7 @@ Additional documentation:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
-* FIX: We fixed some under-the-hood bugs.
+* FIX: The `force:source:push` command now correctly returns a non-zero exit code when it encounters a [GACK](https://developer.salesforce.com/blogs/tag/gack) and displays the full internal error message. The `force:source:deploy` and `force:mdapi:deploy` commands were already returning a non-zero exit code in this scenario. But they now also display the full message; previously you had to use the `--json` flag to view it. 
 
 ## 7.173.0 (Oct 20, 2022) [stable]
 
