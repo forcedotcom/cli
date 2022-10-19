@@ -25,7 +25,23 @@ Additional documentation:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
-* FIX: We fixed some under-the-hood bugs.
+* NEW: Create aliases to simplify how you use the CLI with these new beta commands:
+
+    * `sf alias set`
+    * `sf alias unset`
+    * `sf alias list`
+
+    For example, scratch org usernames are long and unwieldy, such as `test-sadbiytjsupn@example.com`. Creating an alias for the username, such as `my-scratch-org` makes it easy to refer to it. Check the `--help` of a CLI command to determine where you can use an alias.  
+    
+    Here's how to set an alias to a scratch org username:
+    
+    `sf alias set my-scratch-org=test-sadbiytjsupn@example.com`
+    
+    Refer to the alias this way:
+    
+    `sf deploy metadata --target-org my-scratch-org --metadata ApexClass`
+    
+    Enjoy! 
 
 ## 1.50.0 (Oct 19, 2022) [stable]
 
