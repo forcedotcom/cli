@@ -25,7 +25,7 @@ Additional documentation:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
-* CHANGE: The [Docker images](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_docker.htm) we publish each week now run a more recent version of Ubuntu. Additionally, the `full` images run a more recent minor version of Node.js 16. For details about the supported runtime versions, see the [documentation about the Heroku-22 Stack](https://devcenter.heroku.com/articles/heroku-22-stack), which is the parent image of our Salesforce CLI Docker images.
+* CHANGE: The [Docker images](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_docker.htm) we publish each week now run a more recent version of Ubuntu. Additionally, the `full` images run a more recent minor version of Node.js 16. For details about the supported runtime versions, see the [documentation about the Heroku-20 Stack](https://devcenter.heroku.com/articles/heroku-20-stack), which is the new parent image of our Salesforce CLI Docker images.
 
 * FIX: The `force:source:push` command now correctly returns a non-zero exit code when it encounters a [GACK](https://developer.salesforce.com/blogs/tag/gack) and displays the full internal error message. The `force:source:deploy` and `force:mdapi:deploy` commands were already returning a non-zero exit code in this case. But they now also display the full message; previously you had to use the `--json` flag to view it. 
 
