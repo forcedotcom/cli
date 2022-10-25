@@ -27,7 +27,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `force:source:*` commands now support the BotBlock metadata type. 
 
-* FIX: We've improved the error message thrown by the `force:source` commands when they encounter an invalid metadata type when parsing a manifest file, such as `package.xml`. (GitHub issue [#1187](https://github.com/forcedotcom/cli/issues/1187), PR SDR [#740](https://github.com/forcedotcom/source-deploy-retrieve/pull/740))
+* FIX: We've improved the error message thrown by the `force:source` commands when they encounter an invalid metadata type when parsing a manifest file, such as `package.xml`. (GitHub issue [#1187](https://github.com/forcedotcom/cli/issues/1187), SDR PR [#740](https://github.com/forcedotcom/source-deploy-retrieve/pull/740))
+
+* FIX: The `force:package:beta:version:create` command is working correctly and no longer returns the error `Cannot read properties of undefined (reading 'package')`. (GitHub issue [#1750](https://github.com/forcedotcom/cli/issues/1750), plugin-packaging PR [#129](https://github.com/salesforcecli/plugin-packaging/pull/129))
 
 ## 7.174.0 (Oct 27, 2022) [stable]
 
