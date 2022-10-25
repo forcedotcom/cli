@@ -18,6 +18,9 @@ We work in branches off of `main`, to create a PR you should:
 3. Make your changes and ensure all tests pass
 4. [Create a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
 
+## Code of Conduct
+Please read our [Code of Conduct](CODE_OF_CONDUCT.md).
+
 ## CLA
 External contributors will be required to sign a Contributor's License Agreement. You can do so by going to: https://cla.salesforce.com/sign-cla.
 
