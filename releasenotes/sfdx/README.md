@@ -25,7 +25,14 @@ Additional documentation:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
-* FIX: The `force:source:*` commands now support the BotBlock metadata type. 
+* FIX: The `force:source:*` commands now support these metadata types:
+
+   * BotBlock
+   * ClauseCatgConfiguration
+   * DisclosureType
+   * DisclosureDefinition
+   * DisclosureDefinitionVersion
+   * OmniSupervisorConfig
 
 * FIX: We've improved the error message thrown by the `force:source` commands when they encounter an invalid metadata type when parsing a manifest file, such as `package.xml`. (GitHub issue [#1187](https://github.com/forcedotcom/cli/issues/1187), SDR PR [#740](https://github.com/forcedotcom/source-deploy-retrieve/pull/740))
 
