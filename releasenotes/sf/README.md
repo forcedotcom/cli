@@ -32,6 +32,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
    * DisclosureType
    * DisclosureDefinition
    * DisclosureDefinitionVersion
+   * ExtlClntAppOauthPlcyCnfg
+   * ExtlClntAppOauthSettings
+   * ExtlClntAppMobileSet
    * OmniSupervisorConfig
 
 ## 1.51.0 (Oct 26, 2022) [stable]
