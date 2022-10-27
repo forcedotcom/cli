@@ -21,7 +21,27 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.174.0 (Oct 27, 2022) [stable-rc]
+## 7.175.0 (Nov 3, 2022) [stable-rc]
+
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+* FIX: The `force:source:*` commands now support these metadata types:
+
+   * BotBlock
+   * ClauseCatgConfiguration
+   * DisclosureType
+   * DisclosureDefinition
+   * DisclosureDefinitionVersion
+   * ExtlClntAppOauthPlcyCnfg
+   * ExtlClntAppOauthSettings
+   * ExtlClntAppMobileSet
+   * OmniSupervisorConfig
+
+* FIX: We've improved the error message thrown by the `force:source` commands when they encounter an invalid metadata type when parsing a manifest file, such as `package.xml`. (GitHub issue [#1187](https://github.com/forcedotcom/cli/issues/1187), SDR PR [#740](https://github.com/forcedotcom/source-deploy-retrieve/pull/740))
+
+* FIX: The `force:package:beta:version:create` command is working correctly and no longer returns the error `Cannot read properties of undefined (reading 'package')`. (GitHub issue [#1750](https://github.com/forcedotcom/cli/issues/1750), plugin-packaging PR [#129](https://github.com/salesforcecli/plugin-packaging/pull/129))
+
+## 7.174.0 (Oct 27, 2022) [stable]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
@@ -29,7 +49,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `force:source:push` command now correctly returns a non-zero exit code when it encounters a [GACK](https://developer.salesforce.com/blogs/tag/gack) and displays the full internal error message. The `force:source:deploy` and `force:mdapi:deploy` commands were already returning a non-zero exit code in this case. But they now also display the full message; previously you had to use the `--json` flag to view it. 
 
-## 7.173.0 (Oct 20, 2022) [stable]
+## 7.173.0 (Oct 20, 2022)
 
 * FIX: The `force:apex:test:run|report -r junit` commands now produce valid XML output. (GitHub issue [#280](https://github.com/forcedotcom/salesforcedx-apex/issues/280), salesforcedx-apex PR [#285](https://github.com/forcedotcom/salesforcedx-apex/pull/285))
 
