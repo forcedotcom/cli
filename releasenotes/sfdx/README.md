@@ -32,6 +32,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
    * DisclosureType
    * DisclosureDefinition
    * DisclosureDefinitionVersion
+   * ExtlClntAppOauthPlcyCnfg
+   * ExtlClntAppOauthSettings
+   * ExtlClntAppMobileSet
    * OmniSupervisorConfig
 
 * FIX: We've improved the error message thrown by the `force:source` commands when they encounter an invalid metadata type when parsing a manifest file, such as `package.xml`. (GitHub issue [#1187](https://github.com/forcedotcom/cli/issues/1187), SDR PR [#740](https://github.com/forcedotcom/source-deploy-retrieve/pull/740))
