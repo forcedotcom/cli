@@ -27,11 +27,11 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW:  Quickly gather Salesforce CLI configuration data and run diagnostic tests with the new `doctor` command. Use the command to easily generate informational files that you can attach to [GitHub issues](https://github.com/forcedotcom/cli/issues) or provide to Salesforce Customer Support. 
 
-    Run without parameters, the command first displays basic information, such as whether you're on the latest CLI version. It then writes your configuration and a detailed diagnosis to a JSON file in the current directory. Use the `--outputdir` to specify a different directory. For example:
+    Run without parameters, the command first displays basic information, such as whether you're on the latest CLI version. It then writes your configuration and a detailed diagnosis to a JSON file in the current directory. Use the `--outputdir` parameter to specify a different directory. For example:
 
     `sfdx doctor --outputdir diagnostic-files`
 
-    Use the `--command` parameter to run a specific command in debug mode; the doctor writes both stdout and stderr to separate `*.log` files. Be sure to use double quotes if you specify a command with parameters. For example:
+    Use the `--command` parameter to run a specific command in debug mode; the doctor writes both stdout and stderr to separate `*.log` files. Encapsulate the command in double quotes. For example:
 
     `sfdx doctor --command "force:org:list --all"`
 
