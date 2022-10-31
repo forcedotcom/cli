@@ -21,9 +21,27 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.175.0 (Nov 3, 2022) [stable-rc]
+## 7.176.0 (Nov 10, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+* NEW:  Quickly gather Salesforce CLI configuration data and run diagnostic tests with the new `doctor` command. Use the command to easily generate informational files that you can attach to [GitHub issues](https://github.com/forcedotcom/cli/issues) or provide to Salesforce Customer Support. 
+
+    Run without parameters, the command first displays basic information, such as whether you're on the latest CLI version. It then writes your configuration and a detailed diagnosis to a JSON file in the current directory. Use the `--outputdir` to specify a different directory. For example:
+
+    `sfdx doctor --outputdir diagnostic-files`
+
+    Use the `--command` parameter to run a specific command in debug mode; the doctor writes both stdout and stderr to separate `*.log` files. Be sure to use double quotes if you specify a command with parameters. For example:
+
+    `sfdx doctor --command "force:org:list --all"`
+
+    To run diagnostic tests on a specific plugin rather than the CLI itself, use the `--plugin` parameter. If the plugin isn't listening to the doctor, then you get a warning and no data.
+
+    `sfdx doctor --plugin @salesforce/plugin-source`
+
+    The CLI doctor is in and ready to diagnose all your problems!
+
+## 7.175.0 (Nov 3, 2022) [stable]
 
 * FIX: The `force:source:*` commands now support these metadata types:
 
@@ -41,7 +59,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `force:package:beta:version:create` command is working correctly and no longer returns the error `Cannot read properties of undefined (reading 'package')`. (GitHub issue [#1750](https://github.com/forcedotcom/cli/issues/1750), plugin-packaging PR [#129](https://github.com/salesforcecli/plugin-packaging/pull/129))
 
-## 7.174.0 (Oct 27, 2022) [stable]
+## 7.174.0 (Oct 27, 2022)
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
