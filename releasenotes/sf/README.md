@@ -21,9 +21,27 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.52.0 (Nov 2, 2022) [stable-rc]
+## 1.53.0 (Nov 9, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+* NEW:  Quickly gather Salesforce CLI configuration data and run diagnostic tests with the new `doctor` command. Use the command to easily generate informational files that you can attach to [GitHub issues](https://github.com/forcedotcom/cli/issues) or provide to Salesforce Customer Support. 
+
+    Run without parameters, the command first displays basic information, such as whether you're on the latest CLI version. It then writes your configuration and a detailed diagnosis to a JSON file in the current directory. Use the `--outputdir` flag to specify a different directory. For example:
+
+    `sf doctor --outputdir diagnostic-files`
+
+    Use the `--command` flag to run a specific command in debug mode; the doctor writes both stdout and stderr to separate `*.log` files. Encapsulate the command in double quotes. For example:
+
+    `sf doctor --command "env list --all"`
+
+    To run diagnostic tests on a specific plugin rather than the CLI itself, use the `--plugin` flag. If the plugin isn't listening to the doctor, then you get a warning and no data. 
+
+    `sf doctor --plugin @salesforce/plugin-deploy-retrieve`
+
+    The CLI doctor is in and ready to diagnose all your problems!
+
+## 1.52.0 (Nov 2, 2022) [stable]
 
 * FIX: The `sf deploy|retrieve metadata` commands now these metadata types:
 
@@ -37,7 +55,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
    * ExtlClntAppMobileSet
    * OmniSupervisorConfig
 
-## 1.51.0 (Oct 26, 2022) [stable]
+## 1.51.0 (Oct 26, 2022)
 
 * NEW: Create aliases to simplify how you use the CLI with these new beta commands:
 
