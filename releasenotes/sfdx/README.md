@@ -49,7 +49,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     For example, this `sfdx-project.json` snippet specifies that when you deploy the `force-app/main/default/classes/myClass.cls` source file, all occurrences of the string `replaceMe` are replaced with the value of the `THE_REPLACEMENT` environment variable:
 
-    ```bash
+    ```json
     {
       "packageDirectories": [
          {
@@ -81,7 +81,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     This example is similar to the previous one, except that the replacement occurs only if an environment variable called `DEPLOY_DESTINATION` exists and it has a value of `PROD`.
 
-    ```bash 
+    ```json 
     "replacements": [
       {
         "filename": "force-app/main/default/classes/myClass.cls",
