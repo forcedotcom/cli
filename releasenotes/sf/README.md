@@ -21,9 +21,16 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.53.0 (Nov 9, 2022) [stable-rc]
+## 1.54.0 (Nov 16, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+* FIX: The `sf deploy|retrieve metadata` commands now support these metdata types:
+
+   * ExtlClntAppOauthConfigurablePolicies
+   * ExtlClntAppMobileSettings
+
+## 1.53.0 (Nov 9, 2022) [stable]
 
 * NEW:  Quickly gather Salesforce CLI configuration data and run diagnostic tests with the new `doctor` command. Use the command to easily generate informational files that you can attach to [GitHub issues](https://github.com/forcedotcom/cli/issues) or provide to Salesforce Customer Support. 
 
@@ -43,9 +50,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     The CLI doctor is in and ready to diagnose all your problems!
 
-## 1.52.0 (Nov 2, 2022) [stable]
+## 1.52.0 (Nov 2, 2022)
 
-* FIX: The `sf deploy|retrieve metadata` commands now these metadata types:
+* FIX: The `sf deploy|retrieve metadata` commands now support these metadata types:
 
    * BotBlock
    * ClauseCatgConfiguration
