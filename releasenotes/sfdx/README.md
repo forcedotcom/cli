@@ -51,6 +51,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     Many thanks to [Matthias Rolke](https://github.com/amtrack) for suggesting the cool feature, and then writing a lot of the code!  [plugin-source PR #426](https://github.com/salesforcecli/plugin-source/pull/426)
 
+* CHANGE: We upgraded the version of Node.js contained in the full Salesforce CLI Docker image to LTS v18. (sfdx-cli PR [#720](https://github.com/salesforcecli/sfdx-cli/pull/720))
+
 * FIX: The `force:source:*` commands now support these metdata types:
 
    * ExtlClntAppOauthConfigurablePolicies
