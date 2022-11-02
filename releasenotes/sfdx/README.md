@@ -43,6 +43,60 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     The CLI doctor is in and ready to diagnose all your problems!
     
+* NEW: You can now automatically replace snippets of your metadata source files with specific values right before you deploy the files to an org with the `force:source:deploy|push` commands. Use this new feature to, for example, replace the endpoint in a NamedCredential, depending on whether you're deploying to a production or scratch org. Or specify a password in an ExternalDataSource that you don't want to store in your repo. The use cases are endless!
+
+    To configure string replacement, add a `replacements` property to your `sfdx-project.json` file and use key-value pairs to describe how the string replacement works. 
+
+    For example, this `sfdx-project.json` snippet specifies that when you deploy the `force-app/main/default/classes/myClass.cls` source file, all occurrences of the string `replaceMe` are replaced with the value of the `THE_REPLACEMENT` environment variable:
+
+    ```bash
+    {
+      "packageDirectories": [
+         {
+           "path": "force-app",
+           "default": true
+         }
+      ],
+      "name": "myproj",
+      "replacements": [
+        {
+          "filename": "force-app/main/default/classes/myClass.cls",
+          "stringToReplace": "replaceMe",
+          "replaceWithEnv": "THE_REPLACEMENT"  
+        }
+      ],
+    …
+    }
+    ```
+
+    You can specify these keys in the `replacements` property:
+
+    * `filename`: Single file that contains the string to be replaced.
+    * `glob`: Collection of files that contain the string to be replaced. Example: `**/classes/*.cls`.
+    * `stringToReplace`: The string to be replaced.
+    * `regexToReplace`: Regular expression that specifies a string pattern to be replaced. 
+    * `replaceWithEnv`: Specifies that the string be replaced with the value of the environment variable.
+    * `replaceWithFile`: Specifies that the string be replaced with the contents of a file.
+    * `replaceWhenEnv`: Specifies a condition, using environment variables, for when a string replacement occurs. 
+
+    This example is similar to the previous one, except that the replacement occurs only if an environment variable called `DEPLOY_DESTINATION` exists and it has a value of `PROD`.
+
+    ```bash 
+    "replacements": [
+      {
+        "filename": "force-app/main/default/classes/myClass.cls",
+        "stringToReplace": "replaceMe",
+        "replaceWithEnv": "THE_REPLACEMENT"
+        "replaceWhenEnv": [{
+          "env": "DEPLOY_DESTINATION",
+          "value": "PROD"
+        }]  
+      }
+    ],
+    ```
+
+    We’re updating the [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_develop.htm) with more details and examples; we’ll let you know when it’s available.
+
 * NEW: Retrieve source files into a non-package directory (AKA a directory that _isn't_ configured in your `sfdx-project.json` file) with the new `--retrievetargetdir` parameter of the `force:source:retrieve` command. With this parameter you can now keep your unpackaged source files separate from your packaged files. Then, for example, you can easily prevent these unpackaged files from being deployed to a scratch org because they're not included in any configured package directory. 
 
     This example shows how to retrieve all Apex classes from your default org and put the source-formatted files into the `unpackaged-files` directory. If this directory doesn't exist, the command creates it for you. Your configured package directories are unchanged.
