@@ -43,7 +43,13 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     The CLI doctor is in and ready to diagnose all your problems!
     
-* NEW: Retrieve source files into a non-package directory (AKA a directory that _isn't_ configured in your `sfdx-project.json` file) with the new `--retrievetargetdir` parameter of `force:source:retrieve`. With this parameter you can now retrieve and update unpackaged source files that you want to keep separate from your packaged files and, for example, not deploy them to a scratch org. 
+* NEW: Retrieve source files into a non-package directory (AKA a directory that _isn't_ configured in your `sfdx-project.json` file) with the new `--retrievetargetdir` parameter of the `force:source:retrieve` command. With this parameter you can now keep your unpackaged source files separate from your packaged files. Then, for example, you can easily prevent these unpackaged files from being deployed to a scratch org because they're not included in any configured package directory. 
+
+    This example shows how to retrieve all Apex classes from your default org and put the source-formatted files into the `unpackaged-files` directory. If this directory doesn't exist, the command creates it for you. Your configured package directories are unchanged.
+
+    `sfdx force:source:retrieve --retrievetargetdir ./unpackaged-files --metadata ApexClass`
+
+    Many thanks to [Matthias Rolke](https://github.com/amtrack) for suggesting the cool feature, and then writing a lot of the code!  [plugin-source PR #426](https://github.com/salesforcecli/plugin-source/pull/426)
 
 * FIX: The `force:source:*` commands now support these metdata types:
 
