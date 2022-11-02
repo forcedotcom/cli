@@ -43,7 +43,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     The CLI doctor is in and ready to diagnose all your problems!
     
-* NEW: You can now automatically replace snippets of your metadata source files with specific values right before you deploy the files to an org with the `force:source:deploy|push` commands. Use this new feature to, for example, replace the endpoint in a NamedCredential, depending on whether you're deploying to a production or scratch org. Or specify a password in an ExternalDataSource that you don't want to store in your repo. The use cases are endless!
+* NEW: You can now automatically replace snippets of your metadata source files with specific values right before you deploy the files to an org with the `force:source:deploy|push` commands. This string replacement is "ephemeral" because the changes aren't written to your project; they apply only to the deployed files. Use this new feature to, for example, replace the endpoint in a NamedCredential, depending on whether you're deploying to a production or scratch org. Or specify a password in an ExternalDataSource that you don't want to store in your repo. The use cases are endless!
 
     To configure string replacement, add a `replacements` property to your `sfdx-project.json` file and use key-value pairs to describe how the string replacement works. 
 
@@ -64,8 +64,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
           "stringToReplace": "replaceMe",
           "replaceWithEnv": "THE_REPLACEMENT"  
         }
-      ],
-    …
+      ]
     }
     ```
 
@@ -78,6 +77,11 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `replaceWithEnv`: Specifies that the string be replaced with the value of the environment variable.
     * `replaceWithFile`: Specifies that the string be replaced with the contents of a file.
     * `replaceWhenEnv`: Specifies a condition, using environment variables, for when a string replacement occurs. 
+
+    A few syntax notes:
+    
+    * Always use forward slashes (`/`), even on Windows.
+    * JSON requires that you escape all backlashes (`\`) with another backslash. 
 
     This example is similar to the previous one, except that the replacement occurs only if an environment variable called `DEPLOY_DESTINATION` exists and it has a value of `PROD`.
 
@@ -92,7 +96,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
           "value": "PROD"
         }]  
       }
-    ],
+    ]
     ```
 
     We’re updating the [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_develop.htm) with more details and examples; we’ll let you know when it’s available.
@@ -109,8 +113,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `force:source:*` commands now support these metdata types:
 
-   * ExtlClntAppOauthConfigurablePolicies
-   * ExtlClntAppMobileSettings
+   * ExtlClntAppOauthConfigurablePolicies (previously called ExtlClntAppOauthPlcyCnfg)
+   * ExtlClntAppMobileSettings (previously called ExtlClntAppMobileSet)
 
 ## 7.175.0 (Nov 3, 2022) [stable]
 
