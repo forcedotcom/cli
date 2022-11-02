@@ -38,6 +38,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     To run diagnostic tests on a specific plugin rather than the CLI itself, use the `--plugin` parameter. If the plugin isn't listening to the doctor, then you get a warning and no data.
 
     `sfdx doctor --plugin @salesforce/plugin-source`
+    
+    We've made it really easy to create a GitHub issue: specify the `--createissue` parameter, enter a title at the prompt, and a browser window automatically opens with a partially-filled GitHub issue. Enter the remaining information about your specific issue, click **Submit new issue**, and you're done.  Easy peasy!
 
     The CLI doctor is in and ready to diagnose all your problems!
 
