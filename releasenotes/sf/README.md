@@ -27,8 +27,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `sf deploy|retrieve metadata` commands now support these metdata types:
 
-   * ExtlClntAppOauthConfigurablePolicies
-   * ExtlClntAppMobileSettings
+   * ExtlClntAppOauthConfigurablePolicies (previously called ExtlClntAppOauthPlcyCnfg)
+   * ExtlClntAppMobileSettings (previously called ExtlClntAppMobileSet)
 
 ## 1.53.0 (Nov 9, 2022) [stable]
 
