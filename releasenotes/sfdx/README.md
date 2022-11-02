@@ -42,6 +42,13 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     We've made it really easy to create a GitHub issue: specify the `--createissue` parameter, enter a title at the prompt, and a browser window automatically opens with a partially-filled GitHub issue. Enter the remaining information about your specific issue, click **Submit new issue**, and you're done.  Easy peasy!
 
     The CLI doctor is in and ready to diagnose all your problems!
+    
+* NEW: Retrieve source files into a non-package directory (AKA a directory that _isn't_ configured in your `sfdx-project.json` file) with the new `--retrievetargetdir` parameter of `force:source:retrieve`. With this parameter you can now retrieve and update unpackaged source files that you want to keep separate from your packaged files and, for example, not deploy them to a scratch org. 
+
+* FIX: The `force:source:*` commands now support these metdata types:
+
+   * ExtlClntAppOauthConfigurablePolicies
+   * ExtlClntAppMobileSettings
 
 ## 7.175.0 (Nov 3, 2022) [stable]
 
