@@ -21,9 +21,102 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.175.0 (Nov 3, 2022) [stable-rc]
+## 7.176.0 (Nov 10, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+* NEW:  Quickly gather Salesforce CLI configuration data and run diagnostic tests with the new `doctor` command. Use the command to easily generate informational files that you can attach to [GitHub issues](https://github.com/forcedotcom/cli/issues) or provide to Salesforce Customer Support. 
+
+    Run without parameters, the command first displays basic information, such as whether you're on the latest CLI version. It then writes your configuration and a detailed diagnosis to a JSON file in the current directory. Use the `--outputdir` parameter to specify a different directory. For example:
+
+    `sfdx doctor --outputdir diagnostic-files`
+
+    Use the `--command` parameter to run a specific command in debug mode; the doctor writes both stdout and stderr to separate `*.log` files. Encapsulate the command in double quotes. For example:
+
+    `sfdx doctor --command "force:org:list --all"`
+
+    To run diagnostic tests on a specific plugin rather than the CLI itself, use the `--plugin` parameter. If the plugin isn't listening to the doctor, then you get a warning and no data.
+
+    `sfdx doctor --plugin @salesforce/plugin-source`
+    
+    We've made it really easy to create a GitHub issue: specify the `--createissue` parameter, enter a title at the prompt, and a browser window automatically opens with a partially-filled GitHub issue. Enter the remaining information about your specific issue, click **Submit new issue**, and you're done.  Easy peasy!
+
+    The CLI doctor is in and ready to diagnose all your problems!
+    
+* NEW: You can now automatically replace snippets of your metadata source files with specific values right before you deploy the files to an org with the `force:source:deploy|push` commands. This string replacement is "ephemeral" because the changes aren't written to your project; they apply only to the deployed files. Use this new feature to, for example, replace the endpoint in a NamedCredential, depending on whether you're deploying to a production or scratch org. Or specify a password in an ExternalDataSource that you don't want to store in your repo. The use cases are endless!
+
+    To configure string replacement, add a `replacements` property to your `sfdx-project.json` file and use key-value pairs to describe how the string replacement works. 
+
+    For example, this `sfdx-project.json` snippet specifies that when you deploy the `force-app/main/default/classes/myClass.cls` source file, all occurrences of the string `replaceMe` are replaced with the value of the `THE_REPLACEMENT` environment variable:
+
+    ```json
+    {
+      "packageDirectories": [
+         {
+           "path": "force-app",
+           "default": true
+         }
+      ],
+      "name": "myproj",
+      "replacements": [
+        {
+          "filename": "force-app/main/default/classes/myClass.cls",
+          "stringToReplace": "replaceMe",
+          "replaceWithEnv": "THE_REPLACEMENT"  
+        }
+      ]
+    }
+    ```
+
+    You can specify these keys in the `replacements` property:
+
+    * `filename`: Single file that contains the string to be replaced.
+    * `glob`: Collection of files that contain the string to be replaced. Example: `**/classes/*.cls`.
+    * `stringToReplace`: The string to be replaced.
+    * `regexToReplace`: Regular expression that specifies a string pattern to be replaced. 
+    * `replaceWithEnv`: Specifies that the string be replaced with the value of the environment variable.
+    * `replaceWithFile`: Specifies that the string be replaced with the contents of a file.
+    * `replaceWhenEnv`: Specifies a condition, using environment variables, for when a string replacement occurs. 
+
+    A few syntax notes:
+    
+    * Always use forward slashes (`/`), even on Windows.
+    * JSON requires that you escape all backlashes (`\`) with another backslash. 
+
+    This example is similar to the previous one, except that the replacement occurs only if an environment variable called `DEPLOY_DESTINATION` exists and it has a value of `PROD`.
+
+    ```json 
+    "replacements": [
+      {
+        "filename": "force-app/main/default/classes/myClass.cls",
+        "stringToReplace": "replaceMe",
+        "replaceWithEnv": "THE_REPLACEMENT"
+        "replaceWhenEnv": [{
+          "env": "DEPLOY_DESTINATION",
+          "value": "PROD"
+        }]  
+      }
+    ]
+    ```
+
+    We’re updating the [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_develop.htm) with more details and examples; we’ll let you know when it’s available.
+
+* NEW: Retrieve source files into a non-package directory (AKA a directory that _isn't_ configured in your `sfdx-project.json` file) with the new `--retrievetargetdir` parameter of the `force:source:retrieve` command. With this parameter you can now keep your unpackaged source files separate from your packaged files. Then, for example, you can easily prevent these unpackaged files from being deployed to a scratch org because they're not included in any configured package directory. 
+
+    This example shows how to retrieve all Apex classes from your default org and put the source-formatted files into the `unpackaged-files` directory. If this directory doesn't exist, the command creates it for you. Your configured package directories are unchanged.
+
+    `sfdx force:source:retrieve --retrievetargetdir ./unpackaged-files --metadata ApexClass`
+
+    Many thanks to [Matthias Rolke](https://github.com/amtrack) for suggesting the cool feature, and then writing a lot of the code!  [plugin-source PR #426](https://github.com/salesforcecli/plugin-source/pull/426)
+
+* CHANGE: We upgraded the version of Node.js contained in the full Salesforce CLI Docker image to LTS v18. (sfdx-cli PR [#720](https://github.com/salesforcecli/sfdx-cli/pull/720))
+
+* FIX: The `force:source:*` commands now support these metdata types:
+
+   * ExtlClntAppOauthConfigurablePolicies (previously called ExtlClntAppOauthPlcyCnfg)
+   * ExtlClntAppMobileSettings (previously called ExtlClntAppMobileSet)
+
+## 7.175.0 (Nov 3, 2022) [stable]
 
 * FIX: The `force:source:*` commands now support these metadata types:
 
@@ -41,7 +134,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `force:package:beta:version:create` command is working correctly and no longer returns the error `Cannot read properties of undefined (reading 'package')`. (GitHub issue [#1750](https://github.com/forcedotcom/cli/issues/1750), plugin-packaging PR [#129](https://github.com/salesforcecli/plugin-packaging/pull/129))
 
-## 7.174.0 (Oct 27, 2022) [stable]
+## 7.174.0 (Oct 27, 2022)
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
