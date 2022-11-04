@@ -116,7 +116,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
    * ExtlClntAppOauthConfigurablePolicies (previously called ExtlClntAppOauthPlcyCnfg)
    * ExtlClntAppMobileSettings (previously called ExtlClntAppMobileSet)
 
-* FIX: StaticResources weren't working correctly in the previous version of this week's RC (7.176.0).  Special thanks to @daveespo for his efforts to build a nightly pipeline which uses the RC, for debugging and reporting with a perfect repro in [#1791](https://github.com/forcedotcom/cli/issues/1791).   
+* FIX: StaticResources now deploy correctly; in the previous version of this week's RC (7.176.0) the deploy command would immediately exit.  Special thanks to [David Esposito](https://github.com/daveespo) for building a nightly pipeline that uses the RC, and for debugging and reporting the issue so quickly and with a perfect repro. [#1791](https://github.com/forcedotcom/cli/issues/1791).   
 
 ## 7.175.0 (Nov 3, 2022) [stable]
 
