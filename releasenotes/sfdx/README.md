@@ -21,7 +21,7 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.176.0 (Nov 10, 2022) [stable-rc]
+## 7.176.1 (Nov 10, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
@@ -115,6 +115,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
    * ExtlClntAppOauthConfigurablePolicies (previously called ExtlClntAppOauthPlcyCnfg)
    * ExtlClntAppMobileSettings (previously called ExtlClntAppMobileSet)
+
+* FIX: StaticResources now deploy correctly; in the previous version of this week's RC (7.176.0) the deploy command would immediately exit.  Special thanks to [David Esposito](https://github.com/daveespo) for building a nightly pipeline that uses the RC, and for debugging and reporting the issue so quickly and with a perfect repro. [#1791](https://github.com/forcedotcom/cli/issues/1791).   
 
 ## 7.175.0 (Nov 3, 2022) [stable]
 
