@@ -25,7 +25,17 @@ Additional documentation:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
-* FIX: We fixed some under-the-hood bugs. 
+* FIX: The `force:org:create` command correctly fires configured `postorgcreate` hooks. (GitHub issue [#1722](https://github.com/forcedotcom/cli/issues/1722), plugin-org PR [#485](https://github.com/salesforcecli/plugin-org/pull/485))
+
+* FIX: The `force:package:beta:version:create` command correctly creates a package version.  (GitHub issue [#1789](https://github.com/forcedotcom/cli/issues/1789))
+
+* FIX: The `force:org:status` command is working correctly and no longer returns the error `MediaType of 'application/json,application/json' is not supported by this resource`. (sfdx-core PR [#697](https://github.com/forcedotcom/sfdx-core/pull/697))
+
+* FIX: The `force:package:beta:version:list` command correctly outputs the datetime values in the **Created Date** and **Last Modified Date** columns using the user's locale rather than UTC.  (GitHub issue [#1794](https://github.com/forcedotcom/cli/issues/1794), plugin-packaging PR [#152](https://github.com/salesforcecli/plugin-packaging/pull/152))
+
+* FIX: XX (GitHub issue [#1764](https://github.com/forcedotcom/cli/issues/1764), packaging PR [#117](https://github.com/forcedotcom/packaging/pull/117))
+
+* FIX: XX (GitHub issue [#1743](https://github.com/forcedotcom/cli/issues/1743), packaging PR [#117](https://github.com/forcedotcom/packaging/pull/117))
 
 ## 7.176.1 (Nov 10, 2022) [stable]
 
