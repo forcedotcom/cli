@@ -25,6 +25,15 @@ Additional documentation:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
+* NEW: Determine which plugin a command is in with the new `which` command. For example:
+
+    ```bash
+    $ sf which "deploy metadata"
+    === deploy metadata
+
+    plugin: @salesforce/plugin-deploy-retrieve
+    ```
+ 
 * FIX: The `sf deploy|retrieve metadata` commands now support these metdata types:
 
    * ExtlClntAppOauthConfigurablePolicies (previously called ExtlClntAppOauthPlcyCnfg)
