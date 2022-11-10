@@ -21,9 +21,23 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.176.1 (Nov 10, 2022) [stable-rc]
+## 7.177.0 (Nov 17, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+* FIX: The `force:org:status` command is working correctly and no longer returns the error `MediaType of 'application/json,application/json' is not supported by this resource`. (sfdx-core PR [#697](https://github.com/forcedotcom/sfdx-core/pull/697))
+
+* FIX: The `force:org:create` command correctly fires configured `postorgcreate` hooks. (GitHub issue [#1722](https://github.com/forcedotcom/cli/issues/1722), plugin-org PR [#485](https://github.com/salesforcecli/plugin-org/pull/485))
+
+* FIX: The `force:package:beta:version:create` command includes and installs unpackaged metadata so package version create with code coverage is working correctly.  (GitHub issue [#1743](https://github.com/forcedotcom/cli/issues/1743), packaging PR [#117](https://github.com/forcedotcom/packaging/pull/117))
+
+* FIX: The `force:package:beta:version:create` command adds `dependencies` in the `packageDirectories` section of the `sfdx-project.json` file using the correct `package` key rather than the incorrect `subscriberPackageVersionId` key. (GitHub issue [#1764](https://github.com/forcedotcom/cli/issues/1764), packaging PR [#117](https://github.com/forcedotcom/packaging/pull/117))
+
+* FIX: The `force:package:beta:version:create` command correctly creates a package version and no longer returns the error `Converting circular structure to JSON`.  (GitHub issue [#1789](https://github.com/forcedotcom/cli/issues/1789))
+
+* FIX: The `force:package:beta:version:list` command correctly outputs the datetime values in the **Created Date** and **Last Modified Date** columns using the user's locale rather than UTC.  (GitHub issue [#1794](https://github.com/forcedotcom/cli/issues/1794), plugin-packaging PR [#152](https://github.com/salesforcecli/plugin-packaging/pull/152))
+
+## 7.176.1 (Nov 10, 2022) [stable]
 
 * NEW:  Quickly gather Salesforce CLI configuration data and run diagnostic tests with the new `doctor` command. Use the command to easily generate informational files that you can attach to [GitHub issues](https://github.com/forcedotcom/cli/issues) or provide to Salesforce Customer Support. 
 
@@ -118,7 +132,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: StaticResources now deploy correctly; in the previous version of this week's RC (7.176.0) the deploy command would immediately exit.  Special thanks to [David Esposito](https://github.com/daveespo) for building a nightly pipeline that uses the RC, and for debugging and reporting the issue so quickly and with a perfect repro. [#1791](https://github.com/forcedotcom/cli/issues/1791).   
 
-## 7.175.0 (Nov 3, 2022) [stable]
+## 7.175.0 (Nov 3, 2022)
 
 * FIX: The `force:source:*` commands now support these metadata types:
 
