@@ -31,19 +31,19 @@ Prerequisites:
 * [Yarn v1](https://classic.yarnpkg.com/) (`npm install --global yarn`)
 
 1. Clone the repo: 
- * `sfdx`: `git clone https://github.com/salesforcecli/sfdx-cli.git`
- * `sf`: `git clone https://github.com/salesforcecli/cli.git`
+    * `sfdx`: `git clone https://github.com/salesforcecli/sfdx-cli.git`
+     `sf`: `git clone https://github.com/salesforcecli/cli.git`
 2. Install dependencies: `yarn install`
 3. Build the project: `yarn build`
 4. Run the CLI using the `bin/run` executable as:
-* macOS/linux: `bin/run`
-* Windows: `bin\run.cmd`
+    * macOS/linux: `bin/run`
+    * Windows: `bin\run.cmd`
 
 
 ## Project structure
 For the `sf` CLI, see https://github.com/salesforcecli/cli/blob/main/ARCHITECTURE.md
 
-The same document applies for the `sfdx` CLI but instead the Salesforce plugins bundled in are:
+The same architecture document applies for the `sfdx` CLI, but instead the bundled Salesforce plugins in are:
 
 * [plugin-alias](https://github.com/salesforcecli/plugin-alias/)
 * [plugin-apex](https://github.com/salesforcecli/plugin-apex/)
