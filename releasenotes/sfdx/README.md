@@ -21,7 +21,7 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.177.0 (Nov 17, 2022) [stable-rc]
+## 7.177.1 (Nov 17, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
@@ -36,6 +36,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 * FIX: The `force:package:beta:version:create` command correctly creates a package version and no longer returns the error `Converting circular structure to JSON`.  (GitHub issue [#1789](https://github.com/forcedotcom/cli/issues/1789))
 
 * FIX: The `force:package:beta:version:list` command correctly outputs the datetime values in the **Created Date** and **Last Modified Date** columns using the user's locale rather than UTC.  (GitHub issue [#1794](https://github.com/forcedotcom/cli/issues/1794), plugin-packaging PR [#152](https://github.com/salesforcecli/plugin-packaging/pull/152))
+
+* FIX: The `force:mdapi:deploy` command correctly deploys and returns the expected response.  It would unexpectedly exist on very large files.  Special thanks to [Andrew Goodman](https://github.com/gdman) for helping find the root cause.  (Github issue [#1802](https://github.com/forcedotcom/cli/issues/1802), source-deploy-retrieve PR [#768](https://github.com/forcedotcom/source-deploy-retrieve/pull/768))
 
 ## 7.176.1 (Nov 10, 2022) [stable]
 
