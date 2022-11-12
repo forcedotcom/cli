@@ -37,7 +37,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `force:package:beta:version:list` command correctly outputs the datetime values in the **Created Date** and **Last Modified Date** columns using the user's locale rather than UTC.  (GitHub issue [#1794](https://github.com/forcedotcom/cli/issues/1794), plugin-packaging PR [#152](https://github.com/salesforcecli/plugin-packaging/pull/152))
 
-* FIX: The `force:mdapi:deploy` command correctly deploys and returns the expected response.  It would unexpectedly exist on very large files.  Special thanks to [Andrew Goodman](https://github.com/gdman) for helping find the root cause.  (Github issue [#1802](https://github.com/forcedotcom/cli/issues/1802), source-deploy-retrieve PR [#768](https://github.com/forcedotcom/source-deploy-retrieve/pull/768))
+* FIX: The `force:mdapi:deploy` command correctly deploys and returns the expected response.  It would unexpectedly exit on very large files in 7.176.1 and 7.177.0.  Special thanks to [Andrew Goodman](https://github.com/gdman) for helping find the root cause.  (Github issue [#1802](https://github.com/forcedotcom/cli/issues/1802), source-deploy-retrieve PR [#768](https://github.com/forcedotcom/source-deploy-retrieve/pull/768))
 
 ## 7.176.1 (Nov 10, 2022) [stable]
 
