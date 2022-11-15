@@ -21,9 +21,13 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.177.1 (Nov 17, 2022) [stable-rc]
+## 7.178.0 (Nov 24, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+* FIX: We fixed some under-the-hood bugs.
+
+## 7.177.1 (Nov 17, 2022) [stable]
 
 * FIX: The `force:org:status` command is working correctly and no longer returns the error `MediaType of 'application/json,application/json' is not supported by this resource`. (sfdx-core PR [#697](https://github.com/forcedotcom/sfdx-core/pull/697))
 
@@ -39,7 +43,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `force:mdapi:deploy` command correctly deploys and returns the expected response.  It would unexpectedly exit on very large files in 7.176.1 and 7.177.0.  Special thanks to [Andrew Goodman](https://github.com/gdman) for helping find the root cause.  (Github issue [#1802](https://github.com/forcedotcom/cli/issues/1802), source-deploy-retrieve PR [#768](https://github.com/forcedotcom/source-deploy-retrieve/pull/768))
 
-## 7.176.1 (Nov 10, 2022) [stable]
+## 7.176.1 (Nov 10, 2022)
 
 * NEW:  Quickly gather Salesforce CLI configuration data and run diagnostic tests with the new `doctor` command. Use the command to easily generate informational files that you can attach to [GitHub issues](https://github.com/forcedotcom/cli/issues) or provide to Salesforce Customer Support. 
 
