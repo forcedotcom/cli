@@ -25,7 +25,7 @@ Additional documentation:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
-* FIX: We fixed some under-the-hood bugs.
+* FIX: The `force:source:*` commands support the ExtlClntAppMobileConfigurablePolicies metadata type.
 
 ## 7.177.1 (Nov 17, 2022) [stable]
 
