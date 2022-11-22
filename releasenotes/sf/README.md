@@ -21,13 +21,17 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.55.0 (Nov 23, 2022) [stable-rc]
+## 1.56.0 (Nov 30, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
+* FIX: We fixed some under-the-hood bugs. 
+
+## 1.55.0 (Nov 23, 2022) [stable]
+
 * FIX: The `sf deploy|retrieve metadata` commands now support the ExtlClntAppMobileConfigurablePolicies metadata type. 
 
-## 1.54.0 (Nov 16, 2022) [stable]
+## 1.54.0 (Nov 16, 2022)
 
 * NEW: Determine which plugin a command is in with the new `which` command. For example:
 
