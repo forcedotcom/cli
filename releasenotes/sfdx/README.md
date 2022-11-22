@@ -21,13 +21,17 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.178.0 (Nov 24, 2022) [stable-rc]
+## 7.179.0 (Dec 1, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
+* FIX: We fixed some under-the-hood bugs.
+
+## 7.178.0 (Nov 24, 2022) [stable]
+
 * FIX: The `force:source:*` commands support the ExtlClntAppMobileConfigurablePolicies metadata type.
 
-## 7.177.1 (Nov 17, 2022) [stable]
+## 7.177.1 (Nov 17, 2022)
 
 * FIX: The `force:org:status` command is working correctly and no longer returns the error `MediaType of 'application/json,application/json' is not supported by this resource`. (sfdx-core PR [#697](https://github.com/forcedotcom/sfdx-core/pull/697))
 
