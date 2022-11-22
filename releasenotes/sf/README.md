@@ -25,7 +25,7 @@ Additional documentation:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
-* FIX: We fixed some under-the-hood bugs. 
+* FIX: The `sf env resume scratch` command displays the correct message.  (GitHub issue [#1701](https://github.com/forcedotcom/cli/issues/1701). sfdx-core PR [#706](https://github.com/forcedotcom/sfdx-core/pull/706))
 
 ## 1.55.0 (Nov 23, 2022) [stable]
 
