@@ -25,6 +25,27 @@ Additional documentation:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
+* NEW: Do you write plugins for Salesforce CLI (`sf` executable)?  If so, check out the new `sf dev audit messages` command in [plugin-dev](https://github.com/salesforcecli/plugin-dev). It audits your plugin's messages directory, looking for unused messages and missing messages referenced by your source code. If you don't specify any flags, you must run it from your plugin's top-level directory. First make sure you've installed the plugin:
+
+    ```bash
+    sf plugins install @salesforce/plugin-dev
+    ```
+    
+    Then change to your plugin directory and get an audit of your messages:
+
+    ```bash
+    sf dev audit messages
+    ```
+    
+    Or run the command from anywhere and use the `--project-dir` flag to specify your plugin directory:
+    
+    ```bash
+    sf dev audit messages --project-dir /User/romeo/my-plugin (macOS/Linux)
+    sf dev audit messages --project-dir c:\custom-plugins\my-plugin (Windows)
+    ```
+    
+    Maybe you haven't yet written your own `sf` plugin, but you're curious?  We've made it super easy.  Check out the [sf Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins) for all the deets, or just [plunge right in](https://github.com/salesforcecli/cli/wiki/Get-Started-And-Create-Your-First-Plug-In).  Happy coding!
+    
 * FIX: The `sf env resume scratch` command displays the correct message.  (GitHub issue [#1701](https://github.com/forcedotcom/cli/issues/1701). sfdx-core PR [#706](https://github.com/forcedotcom/sfdx-core/pull/706))
 
 ## 1.55.0 (Nov 23, 2022) [stable]
