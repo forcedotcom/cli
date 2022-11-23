@@ -25,7 +25,11 @@ Additional documentation:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
-* FIX: We fixed some under-the-hood bugs.
+* FIX: The command `force:package:version:create` no longer fails when creating a package version on a package that has a dependency on another package. (GitHub issue [#1742](https://github.com/forcedotcom/cli/issues/1742))
+
+* FIX: The command `force:source:deploy` correctly displays any String errors it encounters while converting metadata. (GitHub issue [#1420[(https://github.com/forcedotcom/cli/issues/1420), SDR PR [#781](https://github.com/forcedotcom/source-deploy-retrieve/pull/781))
+
+* FIX: The `force:source:push` command no longer deletes all Static Resources from the org after you've deleted a single static resource file with contentType `application/zip` from your project.  (GitHub issue [#1589[(https://github.com/forcedotcom/cli/issues/1589), source-tracking PR [#273](https://github.com/forcedotcom/source-tracking/pull/273))
 
 ## 7.178.0 (Nov 24, 2022) [stable]
 
