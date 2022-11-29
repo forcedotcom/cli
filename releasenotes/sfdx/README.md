@@ -21,9 +21,13 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.179.0 (Dec 1, 2022) [stable-rc]
+## 7.180.0 (Dec 8, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+* FIX: We fixed some under-the-hood bugs.
+ 
+## 7.179.0 (Dec 1, 2022) [stable]
 
 * FIX: The command `force:source:deploy` provides more detailed error messages while converting metadata. (GitHub issue [#1420[(https://github.com/forcedotcom/cli/issues/1420), SDR PR [#781](https://github.com/forcedotcom/source-deploy-retrieve/pull/781))
 
@@ -33,7 +37,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Salesforce CLI now correctly performs flag validation that has been specified with a custom `parse` property on a flag. This fix means that when you run a command that has a flag with a custom `parse` property, you now correctly get an error if your passed-in value fails the validation. Previously the invalid value was incorrectly accepted. (command PR [#193](https://github.com/salesforcecli/command/pull/193)) 
 
-## 7.178.0 (Nov 24, 2022) [stable]
+## 7.178.0 (Nov 24, 2022)
 
 * FIX: The `force:source:*` commands support the ExtlClntAppMobileConfigurablePolicies metadata type.
 
