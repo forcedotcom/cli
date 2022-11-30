@@ -25,7 +25,7 @@ Additional documentation:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
-* FIX: We fixed some under-the-hood bugs.
+* FIX: Any configured `postorgcreate` hooks in custom plugins are now firing correctly after you run `sf env create scratch|sandbox`.
 
 ## 1.56.0 (Nov 30, 2022) [stable]
 
