@@ -29,27 +29,18 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     - Use spaces as topic separators, such as `sfdx force org list`. Don't worry, you can still use colons if you prefer, such as `sfdx force:org:list`.
     
-    * When using spaces as topic separators, enter command fragments in any order, and Salesforce CLI figures out what you mean. For example, let's say you want to list all your orgs, but forgot the exact command. All of the following commands work without returning any `command not found` errors:
+    * Enter command fragments in any order, using either spaces or colons as separators, and Salesforce CLI figures out what you mean. For example, let's say you want to list all your orgs, but forgot the exact command. All of the following commands work without returning any `command not found` errors:
     
         ```bash
         sfdx force org list
         sfdx org force list
         sfdx list force org
+        sfdx force:org:list
+        sfdx org:force:list
+        sfdx list:force:org
         ```
     
-        But wait, there's more! If you remember only part of a command, run the partial command to see a handy list of all the commands that contain that part. Use arrows to highlight the one you want, then press return to choose it. For example:
-	
-        ```bash
-        sfdx list
-        ? Which of these commands do you mean (Use arrow keys)
-        > alias list                                                                                    
-        > auth list                                                                                               
-        > config list                                                                            
-        > force org list
-        and so on...
-        ```
-	
-    * Search the `sfdx` commands for that special one you've been looking for all your life with the new interactive `sfdx search` command.
+    * Search the `sfdx` commands for that special one you've been looking for all your life with the new interactive `sfdx search` command. 
 
     * (Changed behavior) The `-h` flag now displays a subset of the full help, specifically the short command and flag descriptions and the command usage. It's great for quick reference information. The `-help` flag continues to display the full help, including long command and flag descriptions and examples. 
     
