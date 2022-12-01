@@ -50,7 +50,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     Thank you, [Mounib](https://github.com/aemounib), for writing the code for this new feature! We love contributions from the community, and look forward to many more. (GitHub issue [#1465](https://github.com/forcedotcom/cli/issues/1465), plugin-auth PR [#537](https://github.com/salesforcecli/plugin-auth/pull/537))
 
-* FIX: The `force:source:deploy:report` command no longer returns the error `ERROR running force:source:deploy:report: Metadata API request failed: The org cannot be found`. (GitHub issue [#1713[(https://github.com/forcedotcom/cli/issues/1713), sfdx-core PR [#712](https://github.com/forcedotcom/sfdx-core/pull/712))
+* FIX: The `force:source:deploy:report` command no longer returns the error `ERROR running force:source:deploy:report: Metadata API request failed: The org cannot be found`. (GitHub issue [#1713](https://github.com/forcedotcom/cli/issues/1713), sfdx-core PR [#712](https://github.com/forcedotcom/sfdx-core/pull/712))
+
+* FIX: The `--retrievetargetdir` flag of the `force:source:retrieve` command is working as expected when retrieving custom labels and when components listed in the manifest don't exist in the org. (GitHub issues [#1827](https://github.com/forcedotcom/cli/issues/1827) and [#1823](https://github.com/forcedotcom/cli/issues/1823), plugin-source PR [#659](https://github.com/salesforcecli/plugin-source/pull/659))
 
 ## 7.179.0 (Dec 1, 2022) [stable]
 
