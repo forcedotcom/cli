@@ -18,13 +18,14 @@ We work in branches off of `main`, to create a PR you should:
 
 1. Fork the plugin/library repo you want to contribute to.
 2. Create a new branch: `git checkout -b fix-bug`
-3. Make your changes and ensure all tests pass
+3. Make your changes and ensure all tests pass.
 4. [Create a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
 
-Note:
+#### Note:
 We use conventional commits in all of our repos. Our CI/CD pipeline relies on each commit type to decide whether or not to publish a new release and we enforce this using a git hook to run `commitlint`, make sure to folow this convention, otherwise `commitlint` will not allow you to commit your change.
 
 Conventional Commits: https://www.conventionalcommits.org/en/v1.0.0/#summary
+
 `commitlint`: https://github.com/conventional-changelog/commitlint/#what-is-commitlint
 
 ## CLA
