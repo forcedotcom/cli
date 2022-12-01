@@ -4,9 +4,13 @@ Here are the new and changed features in recent updates of the `sfdx` executable
 
 We publish a new `stable` version of `sfdx` on Thursdays. At the same time we also publish the `stable-rc` release candidate. The release candidate contains changes that will likely be in the final weekly version.
 
-Run `sfdx version` to display the version installed on your computer. Run `sfdx update` to update to the latest available version. 
+Run `sfdx version` to display the version installed on your computer. Run `sfdx update` to update to the latest available stable version. 
 
-Run `sfdx update stable-rc` to update to the release candidate. To return to the stable version, run `sfdx update stable`. 
+Check out these other update options:
+
+* Run `sfdx update stable-rc` to update to this week's release candidate. To return to the stable version, run `sfdx update stable`. 
+* Use the `--version` flag to update to an older version, such as `sfdx update --version 7.178.0`.  
+* Use the `--available` flag to view all available older versions you can update to or `-interactive` to update interactively. 
 
 If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_autocomplete.htm), run `sfdx autocomplete --refresh-cache` after you update Salesforce CLI to ensure that autocomplete works correctly on any new commands.
 
@@ -21,9 +25,48 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.179.0 (Dec 1, 2022) [stable-rc]
+## 7.180.0 (Dec 8, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+* NEW: We've worked hard to make the [`sf` executable of Salesforce CLI](../sf/README.md) a whiz-bang developer tool that's also fun to use. We like it so much that we decided to add some of its coolest features to `sfdx` too! Check 'em out:
+
+    - Use spaces as topic separators, such as `sfdx force org list`. Don't worry, you can still use colons if you prefer, such as `sfdx force:org:list`.
+    
+    * Enter command fragments in any order, using either spaces or colons as separators, and Salesforce CLI figures out what you mean. For example, let's say you want to list all your orgs, but forgot the exact command. All of the following commands work without returning any `command not found` errors:
+    
+        ```bash
+        sfdx force org list
+        sfdx org force list
+        sfdx list force org
+        sfdx force:org:list
+        sfdx org:force:list
+        sfdx list:force:org
+        ```
+    
+    * Search the `sfdx` commands for that special one you've been looking for all your life with the new interactive `sfdx search` command. 
+
+    * (Changed behavior) The `-h` flag now displays a subset of the full help, specifically the short command and flag descriptions and the command usage. It's great for quick reference information. The `-help` flag continues to display the full help, including long command and flag descriptions and examples. 
+    
+* NEW: If you installed Salesforce CLI with the installers, you can now easily update to an older version with the new `--version` flag. For example, to update to version `7.176.0`:
+    
+    ```bash
+    sfdx update --version 7.176.0
+    ```
+
+    Use the `--available` flag to list all available older versions to which you can update. The output also shows whether you already have a local copy or if it must be downloaded. Use `-interactive` to choose a version interactively. 
+
+* NEW: Specify the browser to use with the `auth:web:login` command with the new `--browser|-b` parameter. Supported browsers are `chrome`, `edge`, and `firefox`. If you don't specify `--browser`, the authorization page opens in your default browser. For example, to authorize an org in Firefox:
+
+    `sfdx auth:web:login --browser firefox`
+
+    Thank you, [Mounib](https://github.com/aemounib), for writing the code for this new feature! We love contributions from the community, and look forward to many more. (GitHub issue [#1465](https://github.com/forcedotcom/cli/issues/1465), plugin-auth PR [#537](https://github.com/salesforcecli/plugin-auth/pull/537))
+
+* FIX: The `force:source:deploy:report` command no longer returns the error `ERROR running force:source:deploy:report: Metadata API request failed: The org cannot be found`. (GitHub issue [#1713](https://github.com/forcedotcom/cli/issues/1713), sfdx-core PR [#712](https://github.com/forcedotcom/sfdx-core/pull/712))
+
+* FIX: The `--retrievetargetdir` flag of the `force:source:retrieve` command is working as expected when retrieving custom labels and when components listed in the manifest don't exist in the org. (GitHub issues [#1827](https://github.com/forcedotcom/cli/issues/1827) and [#1823](https://github.com/forcedotcom/cli/issues/1823), plugin-source PR [#659](https://github.com/salesforcecli/plugin-source/pull/659))
+
+## 7.179.0 (Dec 1, 2022) [stable]
 
 * FIX: The command `force:source:deploy` provides more detailed error messages while converting metadata. (GitHub issue [#1420[(https://github.com/forcedotcom/cli/issues/1420), SDR PR [#781](https://github.com/forcedotcom/source-deploy-retrieve/pull/781))
 
@@ -33,7 +76,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Salesforce CLI now correctly performs flag validation that has been specified with a custom `parse` property on a flag. This fix means that when you run a command that has a flag with a custom `parse` property, you now correctly get an error if your passed-in value fails the validation. Previously the invalid value was incorrectly accepted. (command PR [#193](https://github.com/salesforcecli/command/pull/193)) 
 
-## 7.178.0 (Nov 24, 2022) [stable]
+## 7.178.0 (Nov 24, 2022)
 
 * FIX: The `force:source:*` commands support the ExtlClntAppMobileConfigurablePolicies metadata type.
 
