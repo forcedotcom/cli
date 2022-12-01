@@ -1,11 +1,14 @@
 # Contributing to the Salesforce CLI
 Welcome, and thank you for your interest in contributing to the Salesforce CLI!
 
-There are multiple ways you can contribute:
+There are multiple ways you can contribute. Before you get started, please review our [Code of Conduct](CODE_OF_CONDUCT.md) to help us keep our OSS projects a safe and welcoming environment.
 
 ### Report an issue
 Did you find a bug? First, make sure the bug wasn't already reported by searching on the `issues` section: https://github.com/forcedotcom/cli/issues.
-If you don't find an issue, then open a new one and follow the bug template. Minimal repros are highly encouraged as these help us to quickly identify the root cause of the issue.
+If you cannot find a related issue, then open a new one and follow the bug template. Providing a minimal reproduction is highly encouraged as these help us to quickly identify the root cause of the issue.
+
+### Security
+Please report any security issue to security@salesforce.com as soon as it is discovered.
 
 ### Pull requests
 We accept pull requests for bug fixes and feature requests for any issues labeled with [`help wanted`](https://github.com/forcedotcom/cli/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22).
@@ -18,8 +21,11 @@ We work in branches off of `main`, to create a PR you should:
 3. Make your changes and ensure all tests pass
 4. [Create a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
 
-## Code of Conduct
-Please read our [Code of Conduct](CODE_OF_CONDUCT.md).
+Note:
+We use conventional commits in all of our repos. Our CI/CD pipeline relies on each commit type to decide whether or not to publish a new release and we enforce this using a git hook to run `commitlint`, make sure to folow this convention, otherwise `commitlint` will not allow you to commit your change.
+
+Conventional Commits: https://www.conventionalcommits.org/en/v1.0.0/#summary
+`commitlint`: https://github.com/conventional-changelog/commitlint/#what-is-commitlint
 
 ## CLA
 External contributors will be required to sign a Contributor's License Agreement. You can do so by going to: https://cla.salesforce.com/sign-cla.
@@ -32,7 +38,7 @@ Prerequisites:
 
 1. Clone the repo: 
     * `sfdx`: `git clone https://github.com/salesforcecli/sfdx-cli.git`
-     `sf`: `git clone https://github.com/salesforcecli/cli.git`
+    * `sf`: `git clone https://github.com/salesforcecli/cli.git`
 2. Install dependencies: `yarn install`
 3. Build the project: `yarn build`
 4. Run the CLI using the `bin/run` executable as:
@@ -62,3 +68,5 @@ The same architecture document applies for the `sfdx` CLI, but instead the bundl
 * [plugin-templates](https://github.com/salesforcecli/plugin-templates)
 * [plugin-trust](https://github.com/salesforcecli/plugin-trust)
 * [plugin-user](https://github.com/salesforcecli/plugin-user)
+
+For an up-to-date list of CLI plugins and libraries, see: https://github.com/salesforcecli/status
