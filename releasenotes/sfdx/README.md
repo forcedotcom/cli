@@ -44,6 +44,14 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     * (Changed behavior) The `-h` flag now displays a subset of the full help, specifically the short command and flag descriptions and the command usage. It's great for quick reference information. The `-help` flag continues to display the full help, including long command and flag descriptions and examples. 
     
+* NEW: Specify the browser to use with the `auth:web:login` command with the new `--browser|-b` parameter. Supported browsers are `chrome`, `edge`, and `firefox`. If you don't specify `--browser`, the authorization page opens in your default browser. For example, to authorize an org in Firefox:
+
+    `sfdx auth:web:login --browser firefox`
+
+    Thank you, [Mounib](https://github.com/aemounib), for writing the code for this new feature! We love contributions from the community, and look forward to many more. (GitHub issue [#1465](https://github.com/forcedotcom/cli/issues/1465), plugin-auth PR [#537](https://github.com/salesforcecli/plugin-auth/pull/537))
+
+* FIX: The `force:source:deploy:report` command no longer returns the error `ERROR running force:source:deploy:report: Metadata API request failed: The org cannot be found`. (GitHub issue [#1713[(https://github.com/forcedotcom/cli/issues/1713), sfdx-core PR [#712](https://github.com/forcedotcom/sfdx-core/pull/712))
+
 ## 7.179.0 (Dec 1, 2022) [stable]
 
 * FIX: The command `force:source:deploy` provides more detailed error messages while converting metadata. (GitHub issue [#1420[(https://github.com/forcedotcom/cli/issues/1420), SDR PR [#781](https://github.com/forcedotcom/source-deploy-retrieve/pull/781))
