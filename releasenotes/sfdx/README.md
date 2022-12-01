@@ -4,9 +4,13 @@ Here are the new and changed features in recent updates of the `sfdx` executable
 
 We publish a new `stable` version of `sfdx` on Thursdays. At the same time we also publish the `stable-rc` release candidate. The release candidate contains changes that will likely be in the final weekly version.
 
-Run `sfdx version` to display the version installed on your computer. Run `sfdx update` to update to the latest available version. 
+Run `sfdx version` to display the version installed on your computer. Run `sfdx update` to update to the latest available stable version. 
 
-Run `sfdx update stable-rc` to update to the release candidate. To return to the stable version, run `sfdx update stable`. 
+Check out these other update options:
+
+* Run `sfdx update stable-rc` to update to this week's release candidate. To return to the stable version, run `sfdx update stable`. 
+* Use the `--version` flag to update to an older version, such as `sfdx update --version 7.178.0`.  
+* Use the `--available` flag to view all available older versions you can update to or `-interactive` to update interactively. 
 
 If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_autocomplete.htm), run `sfdx autocomplete --refresh-cache` after you update Salesforce CLI to ensure that autocomplete works correctly on any new commands.
 
@@ -44,6 +48,14 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     * (Changed behavior) The `-h` flag now displays a subset of the full help, specifically the short command and flag descriptions and the command usage. It's great for quick reference information. The `-help` flag continues to display the full help, including long command and flag descriptions and examples. 
     
+* NEW: If you installed Salesforce CLI with the installers, you can now easily update to an older version with the new `--version` flag. For example, to update to version `7.176.0`:
+    
+    ```bash
+    sfdx update --version 7.176.0
+    ```
+
+    Use the `--available` flag to list all available older versions to which you can update. The output also shows whether you already have a local copy or if it must be downloaded. Use `-interactive` to choose a version interactively. 
+
 * NEW: Specify the browser to use with the `auth:web:login` command with the new `--browser|-b` parameter. Supported browsers are `chrome`, `edge`, and `firefox`. If you don't specify `--browser`, the authorization page opens in your default browser. For example, to authorize an org in Firefox:
 
     `sfdx auth:web:login --browser firefox`
