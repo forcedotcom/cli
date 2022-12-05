@@ -21,13 +21,17 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.57.0 (Dec 7, 2022) [stable-rc]
+## 1.58.0 (Dec 14, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
+* FIX: We fixed some under-the-hood bugs. 
+
+## 1.57.0 (Dec 7, 2022) [stable]
+
 * FIX: Any configured `postorgcreate` hooks in custom plugins are now firing correctly after you run `sf env create scratch|sandbox`.
 
-## 1.56.0 (Nov 30, 2022) [stable]
+## 1.56.0 (Nov 30, 2022)
 
 * NEW: Do you write plugins for Salesforce CLI (`sf` executable)?  If so, check out the new `sf dev audit messages` command in [plugin-dev](https://github.com/salesforcecli/plugin-dev). It audits your plugin's messages directory, looking for unused messages and missing messages referenced by your source code. If you don't specify any flags, you must run it from your plugin's top-level directory. First make sure you've installed the plugin:
 
