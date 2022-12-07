@@ -29,7 +29,9 @@ Additional documentation:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
-* FIX: We fixed some under-the-hood bugs. 
+* FIX: Running the command `force:package:beta:version:create:report` on a package that failed to build correctly now displays the full list of errors that caused the package build to fail. (GitHub issue [#1779](https://github.com/forcedotcom/cli/issues/1779), plugin-packaging PR [#181](https://github.com/salesforcecli/plugin-packaging/pull/181))
+
+* FIX: The `sfdx:force:data:record:create|update` commands correctly handle field values passed to the `--values` flag that contain a single or double quote, such as `--values "customfield__c=Won't Fix"`. (GitHub issue [#1820](https://github.com/forcedotcom/cli/issues/1820), plugin-data PR [#427](https://github.com/salesforcecli/plugin-data/pull/427))
 
 ## 7.180.0 (Dec 8, 2022) [stable]
 
