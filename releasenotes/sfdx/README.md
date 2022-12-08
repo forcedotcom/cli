@@ -25,9 +25,15 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.180.0 (Dec 8, 2022) [stable-rc]
+## 7.181.0 (Dec 15, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+* FIX: Running the command `force:package:beta:version:create:report` on a package that failed to build correctly now displays the full list of errors that caused the package build to fail. (GitHub issue [#1779](https://github.com/forcedotcom/cli/issues/1779), plugin-packaging PR [#181](https://github.com/salesforcecli/plugin-packaging/pull/181))
+
+* FIX: The `sfdx:force:data:record:create|update` commands correctly handle field values passed to the `--values` flag that contain a single or double quote, such as `--values "customfield__c=Won't Fix"`. (GitHub issue [#1820](https://github.com/forcedotcom/cli/issues/1820), plugin-data PR [#427](https://github.com/salesforcecli/plugin-data/pull/427))
+
+## 7.180.0 (Dec 8, 2022) [stable]
 
 * NEW: We've worked hard to make the [`sf` executable of Salesforce CLI](../sf/README.md) a whiz-bang developer tool that's also fun to use. We like it so much that we decided to add some of its coolest features to `sfdx` too! Check 'em out:
 
@@ -66,7 +72,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `--retrievetargetdir` flag of the `force:source:retrieve` command is working as expected when retrieving custom labels and when components listed in the manifest don't exist in the org. (GitHub issues [#1827](https://github.com/forcedotcom/cli/issues/1827) and [#1823](https://github.com/forcedotcom/cli/issues/1823), plugin-source PR [#659](https://github.com/salesforcecli/plugin-source/pull/659))
 
-## 7.179.0 (Dec 1, 2022) [stable]
+## 7.179.0 (Dec 1, 2022)
 
 * FIX: The command `force:source:deploy` provides more detailed error messages while converting metadata. (GitHub issue [#1420[(https://github.com/forcedotcom/cli/issues/1420), SDR PR [#781](https://github.com/forcedotcom/source-deploy-retrieve/pull/781))
 
