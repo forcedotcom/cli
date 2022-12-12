@@ -33,6 +33,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `sfdx:force:data:record:create|update` commands correctly handle field values passed to the `--values` flag that contain a single or double quote, such as `--values "customfield__c=Won't Fix"`. (GitHub issue [#1820](https://github.com/forcedotcom/cli/issues/1820), plugin-data PR [#427](https://github.com/salesforcecli/plugin-data/pull/427))
 
+* FIX:  The `force:org:create` command now correctly displays all errors encountered when attempting to create a sandbox. (plugin-org PR [#517](https://github.com/salesforcecli/plugin-org/pull/517))
+
 ## 7.180.0 (Dec 8, 2022) [stable]
 
 * NEW: We've worked hard to make the [`sf` executable of Salesforce CLI](../sf/README.md) a whiz-bang developer tool that's also fun to use. We like it so much that we decided to add some of its coolest features to `sfdx` too! Check 'em out:
