@@ -25,9 +25,13 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.181.1 (Dec 15, 2022) [stable-rc]
+## 7.182.0 (Dec 22, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+* FIX: We fixed some under-the-hood bugs.
+
+## 7.181.1 (Dec 15, 2022) [stable]
 
 * FIX: Running the command `force:package:beta:version:create:report` on a package that failed to build correctly now displays the full list of errors that caused the package build to fail. (GitHub issue [#1779](https://github.com/forcedotcom/cli/issues/1779), plugin-packaging PR [#181](https://github.com/salesforcecli/plugin-packaging/pull/181))
 
@@ -35,7 +39,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX:  The `force:org:create` command now correctly displays all errors encountered when attempting to create a sandbox. (plugin-org PR [#517](https://github.com/salesforcecli/plugin-org/pull/517))
 
-## 7.180.0 (Dec 8, 2022) [stable]
+## 7.180.0 (Dec 8, 2022)
 
 * NEW: We've worked hard to make the [`sf` executable of Salesforce CLI](../sf/README.md) a whiz-bang developer tool that's also fun to use. We like it so much that we decided to add some of its coolest features to `sfdx` too! Check 'em out:
 
