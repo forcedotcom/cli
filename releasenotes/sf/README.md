@@ -28,6 +28,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 * NEW: Get debugging information about any command execution with the new `--dev-debug` flag. Each line in the debug output starts with the name of a function or plugin, such as `sf:core`. Use these values to filter the debug output with the `--debug-filter` flag. For example:
 
      `sf env list --dev-debug --debug-filter sf:core`
+     
+     (salesforce/cli PR [#452](https://github.com/salesforcecli/cli/pull/452)) 
 
 ## 1.58.0 (Dec 14, 2022) [stable]
 
