@@ -21,13 +21,21 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.58.0 (Dec 14, 2022) [stable-rc]
+## 1.59.0 (Dec 21, 2022) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
+* NEW: Get debugging information about any command execution with the new `--dev-debug` flag. Each line in the debug output starts with the name of a function or plugin, such as `sf:core`. Use these values to filter the debug output with the `--debug-filter` flag. For example:
+
+     `sf env list --dev-debug --debug-filter sf:core`
+     
+     (salesforce/cli PR [#452](https://github.com/salesforcecli/cli/pull/452)) 
+
+## 1.58.0 (Dec 14, 2022) [stable]
+
 * FIX: We fixed some under-the-hood bugs. 
 
-## 1.57.0 (Dec 7, 2022) [stable]
+## 1.57.0 (Dec 7, 2022)
 
 * FIX: Any configured `postorgcreate` hooks in custom plugins are now firing correctly after you run `sf env create scratch|sandbox`.
 
