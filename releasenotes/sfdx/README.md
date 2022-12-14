@@ -29,7 +29,15 @@ Additional documentation:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
-* FIX: We fixed some under-the-hood bugs.
+* FIX: Salesforce CLI now strictly enforces [this order of priority](https://github.com/forcedotcom/source-deploy-retrieve/pull/791) when determining the value of `apiVersion` and `sourceApiVersion` to deploy|retrieve source to|from an org. As a reminder, `apiVersion` refers to the core Metadata API version used to service the HTTPS request or response via either SOAP or REST; `sourceApiVersion` refers to the shape of the metadata itself. 
+
+    For example, let's say you set the global `apiVersion` configuration value to 55.0 but then run `force:source:deploy` with the `--apiversion 56.0` flag. The command uses 56.0 as the `apiVersion` when deploying. Similarly, say you set the `sourceApiVersion` property in the `sfdx-project.json` file to 57.0, but the `<version>` element in the `package.xml` manifest file is 56.0. The command uses 56.0 as the `sourceApiVersion`. 
+
+    This fix applies to all of these commands: `force:source:deploy|retrieve`, `force:source:push|pull`, and `force:mdapi:deploy|retrieve`. 
+    
+    We've also improved the message that's displayed when you deploy or retrieve source with one of these commands. In this sample retrieve message, the `apiVersion` is 54.0, the `sourceApiVersion` is 57.0, and the retrieve uses SOAP API: 
+    
+    `Retrieving v54.0 metadata from test-xktpgkdbuyp7@example.com using the v57.0 SOAP API`
 
 ## 7.181.1 (Dec 15, 2022) [stable]
 
