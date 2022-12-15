@@ -44,7 +44,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
       (Move up and down to reveal more choices)
     ```
 
-    Notice that we display the commands using [spaces as separators](./README.md#71800-dec-8-2022-stable). You can still use colons if you want, don't worry. 
+    Notice that we display the commands using [spaces as separators](./README.md#71800-dec-8-2022-stable). You can still use colons to run a command if you want, don't worry. 
     
  * FIX: When deploying or retrieving source to or from an org, Salesforce CLI now strictly enforces [this order of priority](https://github.com/forcedotcom/source-deploy-retrieve/pull/791#issue-1479939776) to determine the value of `apiVersion` and `sourceApiVersion`. As a reminder, `apiVersion` refers to the core Metadata API version used to service the HTTPS request or response via either SOAP or REST; `sourceApiVersion` refers to the shape of the metadata itself. 
 
@@ -59,6 +59,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     Yep, we know this API version stuff is tricky. We're in the process of updating the docs with more information and examples. 
     
     (PRs: SDR [#791](https://github.com/forcedotcom/source-deploy-retrieve/pull/791) and [#797](https://github.com/forcedotcom/source-deploy-retrieve/pull/797), plugin-source [#673](https://github.com/salesforcecli/plugin-source/pull/673))
+    
+* FIX: The `auth:list` command correctly displays `No results found` again when it doesn't find any authenticated orgs; previously it printed an empty table. 
+
+   Well look at that: we put out a call for help with this issue, and [Mounib](https://github.com/aemounib) answered it. Thanks for your (second!) contribution, we look forward to more! (GitHub issue [#1798](https://github.com/forcedotcom/cli/issues/1796), PR plugin-auth [#552](https://github.com/salesforcecli/plugin-auth/pull/552))
 
 ## 7.181.1 (Dec 15, 2022) [stable]
 
