@@ -30,23 +30,6 @@ Additional documentation:
 ANNOUNCEMENT: Be sure you read [this pinned issue](https://github.com/forcedotcom/cli/issues/1838) that describes how the Salesforce CLI dev team is working and releasing over the holidays. 
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
-
-* NEW: We added another cool [`sf` feature](../sf/README.md) to `sfdx`, one that's useful when your brain freezes and you can't remember the exact name of a command. Simply type the command fragments that you DO remember, in any order, and `sfdx` either displays a list of possible commands or automatically runs the command if there's only one choice. For example, if you type `sfdx list`, you see this handy little dialogue where you can choose the specific list command you want:
-
-    ```bash
-   $ sfdx list
-    ? Which of these commands do you mean (Use arrow keys)
-    ❯ alias list 
-      force community template list 
-      force apex log list 
-      auth list 
-      config list 
-      force schema sobject list 
-      force package beta installed list 
-      (Move up and down to reveal more choices)
-    ```
-
-    Notice that we display the commands using [spaces as separators](./README.md#71800-dec-8-2022-stable). You can still use colons to run a command if you want, don't worry. (PR sfdx-cli [#806](https://github.com/salesforcecli/sfdx-cli/pull/806))
     
  * FIX: When deploying or retrieving source to or from an org, Salesforce CLI now strictly enforces [this order of priority](https://github.com/forcedotcom/source-deploy-retrieve/pull/791#issue-1479939776) to determine the value of `apiVersion` and `sourceApiVersion`. As a reminder, `apiVersion` refers to the core Metadata API version used to service the HTTPS request or response via either SOAP or REST; `sourceApiVersion` refers to the shape of the metadata itself. 
 
