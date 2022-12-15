@@ -29,13 +29,30 @@ Additional documentation:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
-* FIX: When deploying or retrieving source to or from an org, Salesforce CLI now strictly enforces [this order of priority](https://github.com/forcedotcom/source-deploy-retrieve/pull/791#issue-1479939776) to determine the value of `apiVersion` and `sourceApiVersion`. As a reminder, `apiVersion` refers to the core Metadata API version used to service the HTTPS request or response via either SOAP or REST; `sourceApiVersion` refers to the shape of the metadata itself. 
+* NEW: We've added another cool [`sf` feature](../sf/README.md) to `sfdx`, one that's handy when your brain freezes and you can't remember the exact name of a command. Simply type the command fragments that you DO remember, in any order, and `sfdx` either displays a list of possible commands or automatically runs the command if there's only one choice. For example, if you type `sfdx list`, you see this handy little dialogue where you can choose the specific list command you want:
+
+    ```bash
+   $ sfdx list
+    ? Which of these commands do you mean (Use arrow keys)
+    ❯ alias list 
+      force community template list 
+      force apex log list 
+      auth list 
+      config list 
+      force schema sobject list 
+      force package beta installed list 
+      (Move up and down to reveal more choices)
+    ```
+
+    Notice that we display the commands using [spaces as separators](./README.md#71800-dec-8-2022-stable). You can still use colons if you want, don't worry. 
+    
+ * FIX: When deploying or retrieving source to or from an org, Salesforce CLI now strictly enforces [this order of priority](https://github.com/forcedotcom/source-deploy-retrieve/pull/791#issue-1479939776) to determine the value of `apiVersion` and `sourceApiVersion`. As a reminder, `apiVersion` refers to the core Metadata API version used to service the HTTPS request or response via either SOAP or REST; `sourceApiVersion` refers to the shape of the metadata itself. 
 
     For example, let's say you set the global `apiVersion` configuration value to 55.0 but then run `force:source:deploy` with the `--apiversion 56.0` flag. The command uses 56.0 as the `apiVersion` when deploying. Similarly, say you set the `sourceApiVersion` property in the `sfdx-project.json` file to 57.0, but the `<version>` element in the `package.xml` manifest file is 56.0. The command uses 56.0 as the `sourceApiVersion`. 
 
     This fix applies to all of these commands: `force:source:deploy|retrieve`, `force:source:push|pull`, and `force:mdapi:deploy|retrieve`. 
     
-    We've also improved the message that's displayed when you deploy or retrieve source with one of these commands. In this sample retrieve message, the `apiVersion` is 54.0, the `sourceApiVersion` is 57.0, and the retrieve uses SOAP API: 
+    We've also improved the message that's displayed when you deploy or retrieve source with one of these commands. In this sample retrieve message, the `sourceApiVersion` is 54.0, the `apiVersion` is 57.0, and the retrieve uses SOAP API: 
     
     `Retrieving v54.0 metadata from test-xktpgkdbuyp7@example.com using the v57.0 SOAP API`
     
