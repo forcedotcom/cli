@@ -27,9 +27,11 @@ Additional documentation:
 
 ## 7.182.0 (Dec 22, 2022) [stable-rc]
 
+ANNOUNCEMENT: Be sure you read [this pinned issue](https://github.com/forcedotcom/cli/issues/1838) that describes how the Salesforce CLI dev team is working and releasing over the holidays. 
+
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
-* NEW: We've added another cool [`sf` feature](../sf/README.md) to `sfdx`, one that's handy when your brain freezes and you can't remember the exact name of a command. Simply type the command fragments that you DO remember, in any order, and `sfdx` either displays a list of possible commands or automatically runs the command if there's only one choice. For example, if you type `sfdx list`, you see this handy little dialogue where you can choose the specific list command you want:
+* NEW: We added another cool [`sf` feature](../sf/README.md) to `sfdx`, one that's useful when your brain freezes and you can't remember the exact name of a command. Simply type the command fragments that you DO remember, in any order, and `sfdx` either displays a list of possible commands or automatically runs the command if there's only one choice. For example, if you type `sfdx list`, you see this handy little dialogue where you can choose the specific list command you want:
 
     ```bash
    $ sfdx list
@@ -44,7 +46,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
       (Move up and down to reveal more choices)
     ```
 
-    Notice that we display the commands using [spaces as separators](./README.md#71800-dec-8-2022-stable). You can still use colons to run a command if you want, don't worry. 
+    Notice that we display the commands using [spaces as separators](./README.md#71800-dec-8-2022-stable). You can still use colons to run a command if you want, don't worry. (PR sfdx-cli [#806](https://github.com/salesforcecli/sfdx-cli/pull/806))
     
  * FIX: When deploying or retrieving source to or from an org, Salesforce CLI now strictly enforces [this order of priority](https://github.com/forcedotcom/source-deploy-retrieve/pull/791#issue-1479939776) to determine the value of `apiVersion` and `sourceApiVersion`. As a reminder, `apiVersion` refers to the core Metadata API version used to service the HTTPS request or response via either SOAP or REST; `sourceApiVersion` refers to the shape of the metadata itself. 
 
@@ -62,7 +64,14 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
 * FIX: The `auth:list` command correctly displays `No results found` again when it doesn't find any authenticated orgs; previously it printed an empty table. 
 
-   Well look at that: we put out a call for help with this issue, and [Mounib](https://github.com/aemounib) answered it. Thanks for your (second!) contribution, we look forward to more! (GitHub issue [#1798](https://github.com/forcedotcom/cli/issues/1796), PR plugin-auth [#552](https://github.com/salesforcecli/plugin-auth/pull/552))
+   Here's some awesomeness: we put out a call for help with this issue, and [Mounib](https://github.com/aemounib) graciously answered it. Thanks for your (second!) contribution, we look forward to more! (GitHub issue [#1798](https://github.com/forcedotcom/cli/issues/1796), PR plugin-auth [#552](https://github.com/salesforcecli/plugin-auth/pull/552))
+
+* FIX: Salesforce CLI retries the command if it encounters either of these errors from the server during metadata deploy operations:
+
+    * `INVALID_QUERY_LOCATOR`
+    * `<h1>Bad Message 400</h1><pre>reason: Bad Request</pre>`
+    
+    (GitHub issues [#1727](https://github.com/forcedotcom/cli/issues/1727) and [#1835](https://github.com/forcedotcom/cli/issues/1835), PR SDR [#792](https://github.com/forcedotcom/source-deploy-retrieve/pull/792))
 
 ## 7.181.1 (Dec 15, 2022) [stable]
 
