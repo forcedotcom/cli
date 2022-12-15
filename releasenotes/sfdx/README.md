@@ -73,7 +73,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
     (GitHub issues [#1727](https://github.com/forcedotcom/cli/issues/1727) and [#1835](https://github.com/forcedotcom/cli/issues/1835), PR SDR [#792](https://github.com/forcedotcom/source-deploy-retrieve/pull/792))
 
-* FIX: The `force:source:*` commands now support these metdata types used by Sustainability
+* FIX: The `force:source:*` commands now support these metdata types used by Net Zero Cloud:
 
    * FuelType
    * FuelTypeSustnUom
