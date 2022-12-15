@@ -23,6 +23,8 @@ Additional documentation:
 
 ## 1.59.0 (Dec 21, 2022) [stable-rc]
 
+ANNOUNCEMENT: Be sure you read [this pinned issue](https://github.com/forcedotcom/cli/issues/1838) that describes how the Salesforce CLI dev team is working and releasing over the holidays. 
+
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
 * NEW: Get debugging information about any command execution with the new `--dev-debug` flag. Each line in the debug output starts with the name of a function or plugin, such as `sf:core`. Use these values to filter the debug output with the `--debug-filter` flag. For example:
