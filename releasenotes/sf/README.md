@@ -30,6 +30,13 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
      `sf env list --dev-debug --debug-filter sf:core`
      
      (salesforce/cli PR [#452](https://github.com/salesforcecli/cli/pull/452)) 
+     
+* FIX: The `sf deploy|retrieve metadata` commands now support these metdata types used by Net Zero Cloud:
+
+   * FuelType
+   * FuelTypeSustnUom
+   * SustainabilityUom
+   * SustnUomConversion
 
 ## 1.58.0 (Dec 14, 2022) [stable]
 
