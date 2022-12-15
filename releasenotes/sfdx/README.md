@@ -73,6 +73,13 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
     (GitHub issues [#1727](https://github.com/forcedotcom/cli/issues/1727) and [#1835](https://github.com/forcedotcom/cli/issues/1835), PR SDR [#792](https://github.com/forcedotcom/source-deploy-retrieve/pull/792))
 
+* FIX: The `force:source:*` commands now support these metdata types used by Sustainability
+
+   * FuelType
+   * FuelTypeSustnUom
+   * SustainabilityUom
+   * SustnUomConversion
+   
 ## 7.181.1 (Dec 15, 2022) [stable]
 
 * FIX: Running the command `force:package:beta:version:create:report` on a package that failed to build correctly now displays the full list of errors that caused the package build to fail. (GitHub issue [#1779](https://github.com/forcedotcom/cli/issues/1779), plugin-packaging PR [#181](https://github.com/salesforcecli/plugin-packaging/pull/181))
