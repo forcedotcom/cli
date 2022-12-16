@@ -25,7 +25,7 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.182.0 (Dec 22, 2022) [stable-rc]
+## 7.182.1 (Dec 22, 2022) [stable-rc]
 
 ANNOUNCEMENT: Be sure you read [this pinned issue](https://github.com/forcedotcom/cli/issues/1838) that describes how the Salesforce CLI dev team is working and releasing over the holidays. 
 
