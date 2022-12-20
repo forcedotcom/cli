@@ -21,11 +21,9 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.59.0 (Dec 21, 2022) [stable-rc]
+## 1.59.0 (Dec 21, 2022) [stable]
 
 ANNOUNCEMENT: Be sure you read [this pinned issue](https://github.com/forcedotcom/cli/issues/1838) that describes how the Salesforce CLI dev team is working and releasing over the holidays. 
-
-These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
 * NEW: Get debugging information about any command execution with the new `--dev-debug` flag. Each line in the debug output starts with the name of a function or plugin, such as `sf:core`. Use these values to filter the debug output with the `--debug-filter` flag. For example:
 
@@ -40,7 +38,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
    * SustainabilityUom
    * SustnUomConversion
 
-## 1.58.0 (Dec 14, 2022) [stable]
+## 1.58.0 (Dec 14, 2022)
 
 * FIX: We fixed some under-the-hood bugs. 
 
