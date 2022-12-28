@@ -25,12 +25,10 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.182.1 (Dec 22, 2022) [stable-rc]
+## 7.182.1 (Dec 22, 2022) [stable]
 
 ANNOUNCEMENT: Be sure you read [this pinned issue](https://github.com/forcedotcom/cli/issues/1838) that describes how the Salesforce CLI dev team is working and releasing over the holidays. 
 
-These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
-    
  * FIX: When deploying or retrieving source to or from an org, Salesforce CLI now strictly enforces [this order of priority](https://github.com/forcedotcom/source-deploy-retrieve/pull/791#issue-1479939776) to determine the value of `apiVersion` and `sourceApiVersion`. As a reminder, `apiVersion` refers to the core Metadata API version used to service the HTTPS request or response via either SOAP or REST; `sourceApiVersion` refers to the shape of the metadata itself. 
 
     For example, let's say you set the global `apiVersion` configuration value to 55.0 but then run `force:source:deploy` with the `--apiversion 56.0` flag. The command uses 56.0 as the `apiVersion` when deploying. Similarly, say you set the `sourceApiVersion` property in the `sfdx-project.json` file to 57.0, but the `<version>` element in the `package.xml` manifest file is 56.0. The command uses 56.0 as the `sourceApiVersion`. 
@@ -63,7 +61,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
    * SustainabilityUom
    * SustnUomConversion
    
-## 7.181.1 (Dec 15, 2022) [stable]
+## 7.181.1 (Dec 15, 2022)
 
 * FIX: Running the command `force:package:beta:version:create:report` on a package that failed to build correctly now displays the full list of errors that caused the package build to fail. (GitHub issue [#1779](https://github.com/forcedotcom/cli/issues/1779), plugin-packaging PR [#181](https://github.com/salesforcecli/plugin-packaging/pull/181))
 
