@@ -35,11 +35,14 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     What does this mean? Let's look at an example: the functionality we added to `force:package:beta:create` is now in `force:package:create`.  The functionality in the _old_ `force:package:create` is now in `force:package:legacy:create`. In the short term, you can use the `force:package1:legacy:*` and `force:package:legacy:*` commands if you run into issues with the new commands. The new commands are open-source, live in the [plugin-packaging](https://github.com/salesforcecli/plugin-packaging) plugin, and are semantically (name, flags) and functionally equivalent as the old commands. 
     
+* NEW: As described in [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli), we're updating many of the existing `sfdx` commands to use the improvements we made in `sf`. We're doing this work plugin by plugin, starting this week with the commands in [plugin-limits](https://github.com/salesforcecli/plugin-limits) and [plugin-schema](https://github.com/salesforcecli/plugin-schema). Don't worry, the commands and their flags still work _exactly_ the same as before! But you now also have the option to run them using the `sf` style, such as spaces instead of colons and new flag names.  Let's summarize the changes.  Here are new command names you can use:
+
+
 * NEW: Change the source-tracked file batch size during a deploy or retrieve with the new `SFDX_SOURCE_TRACKING_BATCH_SIZE` environment variable. The default value for this env var is 8,000 (Windows) and 15,000 (Linux/macOS). 
 
     `SFDX_SOURCE_TRACKING_BATCH_SIZE` is useful when deploying or retrieving a large project that contains many source-tracked files, and you exceed your operating system open file limit. While the deploy or retrieve likely complete successfully, source-tracking can run into errors in this case. Either increase your open file limit, such as with the `ulimit -Hn <number>` Linux/macOS command, or set the `SFDX_SOURCE_TRACKING_BATCH_SIZE` environment variable to a number significantly lower than the output of `ulimit -Hn`. 
     
-    This new feature fixes these GitHub issues: [#1711](https://github.com/forcedotcom/cli/issues/1711), [#1676](https://github.com/forcedotcom/cli/issues/1676), and [#1504](https://github.com/forcedotcom/cli/issues/1504). 
+    This new feature fixes these GitHub issues: [#1711](https://github.com/forcedotcom/cli/issues/1711), [#1676](https://github.com/forcedotcom/cli/issues/1676), and [#1504](https://github.com/forcedotcom/cli/issues/1504). Here's the source-tracking PR: [#295](https://github.com/forcedotcom/source-tracking/pull/295). 
 
 ## 7.182.1 (Dec 22, 2022) [stable]
 
