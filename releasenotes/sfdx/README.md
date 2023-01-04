@@ -33,7 +33,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: After a [successful beta](https://github.com/forcedotcom/cli/issues/1721) and incorporating feedback from our community, the commands that used to be in the `force:package1:beta` and `force:package:beta` topics are now generally available.
 
-    What does this mean? Let's look at an example: the functionality we added to `force:package:beta:create` is now in `force:package:create`.  The functionality in the _old_ `force:package:create` is now in `force:package:legacy:create`. In the short term, you can use the `force:package1:legacy:*` and `force:package:legacy:*` commands if you run into issues with the new commands. The new commands are open-source, live in the [plugin-packaging](https://github.com/salesforcecli/plugin-packaging) plugin, and are semantically (name, flags) and functionally equivalent. 
+    What does this mean? Let's look at an example: the functionality we added to `force:package:beta:create` is now in `force:package:create`.  The functionality in the _old_ `force:package:create` is now in `force:package:legacy:create`. In the short term, you can use the `force:package1:legacy:*` and `force:package:legacy:*` commands if you run into issues with the new commands. The new commands are open-source, live in the [plugin-packaging](https://github.com/salesforcecli/plugin-packaging) plugin, and are semantically (name, flags) and functionally equivalent as the old commands. 
     
 ## 7.182.1 (Dec 22, 2022) [stable]
 
