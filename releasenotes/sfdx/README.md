@@ -57,7 +57,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |`force:schema:sobject:describe`|`--usetoolingapi`|`--use-tooling-api`|
     |`force:schema:sobject:list`|`--sobjecttype`|`--sobject`|
     
-    Finally, for all four commands, the existing `--loglevel` flag is deprecated and has no effect.
+    For all four commands, the existing `--loglevel` flag is deprecated and has no effect. We've also updated the `--help` for each command to use the new command and flag names, to gently encourage you to start switching over to the new style. Fun tip: use the `-h` flag to get a condensed view of the help, for when you don't need long descriptions and examples. 
     
     Let's look at an example, such as this command:
     
@@ -70,8 +70,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     ```bash
     sfdx sobject describe --sobject ApexCodeCoverage --use-tooling-api --target-org my-scratch-org
     ```
-   
-    And just in case we weren't clear, the existing commands work exactly as before! But give this new stuff a try, it's pretty cool.
+    
+    Finally, just in case we weren't clear, the existing commands work exactly as before! But give this new stuff a try, it's pretty cool.
     
 * NEW: Change the source-tracked file batch size during a deploy or retrieve with the new `SFDX_SOURCE_TRACKING_BATCH_SIZE` environment variable. The default value for this env var is 8,000 (Windows) and 15,000 (Linux/macOS). 
 
