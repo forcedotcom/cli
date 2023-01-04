@@ -81,6 +81,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
     This new feature fixes these GitHub issues: [#1711](https://github.com/forcedotcom/cli/issues/1711), [#1676](https://github.com/forcedotcom/cli/issues/1676), and [#1504](https://github.com/forcedotcom/cli/issues/1504). Here's the source-tracking PR: [#295](https://github.com/forcedotcom/source-tracking/pull/295). 
 
+* FIX: The `force:package:beta:delete --package <packageID>` command now correctly deletes a package even if the associated packageAlias is not listed in the `sfdx-project.json` file. As of this release, `force:package:beta:delete` is now `force:package:delete`. (GitHub issue [#1858](https://github.com/forcedotcom/cli/issues/1858), packaging PR [#179](https://github.com/forcedotcom/packaging/pull/179))
+
 ## 7.182.1 (Dec 22, 2022) [stable]
 
  * FIX: When deploying or retrieving source to or from an org, Salesforce CLI now strictly enforces [this order of priority](https://github.com/forcedotcom/source-deploy-retrieve/pull/791#issue-1479939776) to determine the value of `apiVersion` and `sourceApiVersion`. As a reminder, `apiVersion` refers to the core Metadata API version used to service the HTTPS request or response via either SOAP or REST; `sourceApiVersion` refers to the shape of the metadata itself. 
