@@ -37,6 +37,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `sf sobject list`: List all Salesforce objects of a specified category.
 
     As always, run the commands with `--help` to see the list of flags, examples, and usage information. We'll be releasing other updated plugins over the next weeks. Enjoy!
+    
+* CHANGE: Salesforce CLI has always automatically run a partial command if it finds only one option. For example, if you run `sf open`, the CLI runs `sf env open` automatically because it's the only command that contains the fragment `open`.  But now we warn you about it, just so you know exactly what command you just ran.  [cli PR [#475](https://github.com/salesforcecli/cli/pull/475))
 
 ## 1.59.0 (Dec 21, 2022) [stable]
 
