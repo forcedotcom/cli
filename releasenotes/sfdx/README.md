@@ -73,6 +73,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
     Finally, just in case we weren't clear, the existing commands work exactly as before! But give this new stuff a try, it's pretty cool.
     
+* NEW: Don't remember the exact name of a command? We got you: simply type the command fragments that you do remember, in any order, and press return. Then `sfdx` either displays a list of possible commands that you can choose from, or it automatically runs the command if there's only one choice. You get a friendly warning for the latter, so you know exactly what the CLI is doing. You're welcome.
+
 * NEW: Change the source-tracked file batch size during a deploy or retrieve with the new `SFDX_SOURCE_TRACKING_BATCH_SIZE` environment variable. The default value for this env var is 8,000 (Windows) and 15,000 (Linux/macOS). 
 
     `SFDX_SOURCE_TRACKING_BATCH_SIZE` is useful when deploying or retrieving a large project that contains many source-tracked files, and you exceed your operating system open file limit. While the deploy or retrieve likely complete successfully, source-tracking can run into errors in this case. Either increase your open file limit, such as with the `ulimit -Hn <number>` Linux/macOS command, or set the `SFDX_SOURCE_TRACKING_BATCH_SIZE` environment variable to a number significantly lower than the output of `ulimit -Hn`. 
