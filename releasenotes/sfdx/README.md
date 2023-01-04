@@ -35,7 +35,11 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     What does this mean? Let's look at an example: the functionality we added to `force:package:beta:create` is now in `force:package:create`.  The functionality in the _old_ `force:package:create` is now in `force:package:legacy:create`. In the short term, you can use the `force:package1:legacy:*` and `force:package:legacy:*` commands if you run into issues with the new commands. The new commands are open-source, live in the [plugin-packaging](https://github.com/salesforcecli/plugin-packaging) plugin, and are semantically (name, flags) and functionally equivalent as the old commands. 
     
-* NEW: Change the number of source tracked files that are batched during a deploy or retrieve with the new `SFDX_SOURCE_TRACKING_BATCH_SIZE` environment variable. The default batch size is 8,000 (Windows) and 15,000 (Linux/macOS). This environment variable is useful if source-tracking stops working correctly when deploying or retrieving large projects due to exceeding your user-specific operating system file limits. 
+* NEW: Change the source-tracked file batch size during a deploy or retrieve with the new `SFDX_SOURCE_TRACKING_BATCH_SIZE` environment variable. The default value for this env var is 8,000 (Windows) and 15,000 (Linux/macOS). 
+
+    `SFDX_SOURCE_TRACKING_BATCH_SIZE` is useful when deploying or retrieving a large project that contains many source-tracked files, and you exceed your operating system open file limit. While the deploy or retrieve likely complete successfully, source-tracking can run into errors in this case. Either increase your open file limit, such as with the `ulimit -Hn <number>` Linux/macOS command, or set the `SFDX_SOURCE_TRACKING_BATCH_SIZE` environment variable to a number significantly lower than the output of `ulimit -Hn`. 
+    
+    This new feature fixes these GitHub issues: [#1711](https://github.com/forcedotcom/cli/issues/1711), [#1676](https://github.com/forcedotcom/cli/issues/1676), and [#1504](https://github.com/forcedotcom/cli/issues/1504). 
 
 ## 7.182.1 (Dec 22, 2022) [stable]
 
