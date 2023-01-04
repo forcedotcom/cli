@@ -35,9 +35,44 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     What does this mean? Let's look at an example: the functionality we added to `force:package:beta:create` is now in `force:package:create`.  The functionality in the _old_ `force:package:create` is now in `force:package:legacy:create`. In the short term, you can use the `force:package1:legacy:*` and `force:package:legacy:*` commands if you run into issues with the new commands. The new commands are open-source, live in the [plugin-packaging](https://github.com/salesforcecli/plugin-packaging) plugin, and are semantically (name, flags) and functionally equivalent as the old commands. 
     
-* NEW: As described in [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli), we're updating many of the existing `sfdx` commands to use the improvements we made in `sf`. We're doing this work plugin by plugin, starting this week with the commands in [plugin-limits](https://github.com/salesforcecli/plugin-limits) and [plugin-schema](https://github.com/salesforcecli/plugin-schema). Don't worry, the commands and their flags still work _exactly_ the same as before! But you now also have the option to run them using the `sf` style, such as spaces instead of colons and new flag names.  Let's summarize the changes.  Here are new command names you can use:
+* NEW: As described in [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli), we're updating many of the existing `sfdx` commands to use the improvements we made in `sf`. We're doing this work plugin by plugin, starting this week with the commands in [plugin-limits](https://github.com/salesforcecli/plugin-limits) and [plugin-schema](https://github.com/salesforcecli/plugin-schema). Don't worry, the `sfdx` commands and their flags still work _exactly_ the same as before! But you can now run them using the `sf` style, such as spaces instead of colons and new flag names; we highly recommend you give it a try. 
 
-
+    These are the new command names.
+    
+    |Existing Command Name|New Command Names|
+    |-------------------------------------|---------|
+    |`force:limits:api:display`|`limits:api:display` (or `limits api display`)|
+    |`force:limits:recordcounts:display`|`limits:recordcounts:display` (or `limits recordcounts display`)|
+    |`force:schema:sobject:describe`|`sobject:describe` (or `sobject describe`)|
+    |`force:schema:sobject:list`|`sobject:list` (or `sobject list`)|
+    
+    And these are the new flag names. 
+    
+    |Existing Command|Existing Flag Name|New Flag Name|
+    |---------|------|---|
+    |All four commands|`--apiversion`|`--api-version`|
+    |All four commands|`--targetusername`|`--target-org` (new short name `-o`)|
+    |`force:limits:recordcounts:display`|`--sobjecttype`|`--sobject` |
+    |`force:schema:sobject:describe`|`--sobjecttype`|`--sobject`|
+    |`force:schema:sobject:describe`|`--usetoolingapi`|`--use-tooling-api`|
+    |`force:schema:sobject:list`|`--sobjecttype`|`--sobject`|
+    
+    Finally, for all four commands, the existing `--loglevel` flag is deprecated and has no effect.
+    
+    Let's look at an example, such as this command:
+    
+    ```bash
+    sfdx force:schema:sobject:describe --sobjecttype ApexCodeCoverage --usetoolingapi --targetusername my-scratch-org
+    ```
+    
+   You can now run it this way, using the `sf` style:
+    
+    ```bash
+    sfdx sobject describe --sobject ApexCodeCoverage --use-tooling-api --target-org my-scratch-org
+    ```
+   
+    And just in case we weren't clear, the existing commands work exactly as before! But give this new stuff a try, it's pretty cool.
+    
 * NEW: Change the source-tracked file batch size during a deploy or retrieve with the new `SFDX_SOURCE_TRACKING_BATCH_SIZE` environment variable. The default value for this env var is 8,000 (Windows) and 15,000 (Linux/macOS). 
 
     `SFDX_SOURCE_TRACKING_BATCH_SIZE` is useful when deploying or retrieving a large project that contains many source-tracked files, and you exceed your operating system open file limit. While the deploy or retrieve likely complete successfully, source-tracking can run into errors in this case. Either increase your open file limit, such as with the `ulimit -Hn <number>` Linux/macOS command, or set the `SFDX_SOURCE_TRACKING_BATCH_SIZE` environment variable to a number significantly lower than the output of `ulimit -Hn`. 
