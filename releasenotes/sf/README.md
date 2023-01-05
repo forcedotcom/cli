@@ -21,9 +21,26 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.59.0 (Dec 21, 2022) [stable]
+## 1.60.0 (Jan 4, 2023) [stable-rc]
 
-ANNOUNCEMENT: Be sure you read [this pinned issue](https://github.com/forcedotcom/cli/issues/1838) that describes how the Salesforce CLI dev team is working and releasing over the holidays. 
+ANNOUNCEMENT: Happy new year, Salesforce CLI community! Be sure to read our latest [blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) that describes some of the big improvements that are coming in Salesforce CLI this year. And now back to our regular schedule. 
+
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+* NEW: As described in [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli), we're updating many of the existing `sfdx` commands to use the improvements we made in `sf`. We're doing this work plugin by plugin. When a Salesforce CLI release includes an updated plugin, you can execute the plugin's commands in both `sfdx` AND `sf`. Let's see how this works. 
+
+   This week's release candidate includes updated [plugin-limits](https://github.com/salesforcecli/plugin-limits) and [plugin-schema](https://github.com/salesforcecli/plugin-schema). As a result, you can now run these existing `sfdx` commands in `sf`:
+    
+    * `sf limits api display`: Display information about limits in your org.
+    * `sf limits recordcounts display`: Display record counts for the specified standard or custom objects.
+    * `sf sobject describe`: Display the metadata for a standard or custom object or a Tooling API object.
+    * `sf sobject list`: List all Salesforce objects of a specified category.
+
+    As always, run the commands with `--help` to see the list of flags, examples, and usage information. We'll be releasing other updated plugins over the next weeks. Enjoy!
+    
+* CHANGE: Salesforce CLI has always automatically run a partial command if it finds only one option. For example, if you run `sf open`, the CLI runs `sf env open` automatically because it's the only command that contains the fragment `open`.  But now we warn you about it, just so you know exactly what command you just ran.  [cli PR [#475](https://github.com/salesforcecli/cli/pull/475))
+
+## 1.59.0 (Dec 21, 2022) [stable]
 
 * NEW: Get debugging information about any command execution with the new `--dev-debug` flag. Each line in the debug output starts with the name of a function or plugin, such as `sf:core`. Use these values to filter the debug output with the `--debug-filter` flag. For example:
 
