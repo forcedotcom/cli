@@ -29,7 +29,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: As described in [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli), we're updating many of the existing `sfdx` commands to use the improvements we made in `sf`. We're doing this work plugin by plugin. When a Salesforce CLI release includes an updated plugin, you can execute the plugin's commands in both `sfdx` AND `sf`. Let's see how this works. 
 
-   This week's release candidate includes updated [plugin-limits](https://github.com/salesforcecli/plugin-limits) and [plugin-schema](https://github.com/salesforcecli/plugin-schema). As a result, you can now run these existing `sfdx` commands in `sf`:
+   This week's release includes updated [plugin-limits](https://github.com/salesforcecli/plugin-limits) and [plugin-schema](https://github.com/salesforcecli/plugin-schema). As a result, you can now run these existing `sfdx` commands in `sf`:
     
     * `sf limits api display`: Display information about limits in your org.
     * `sf limits recordcounts display`: Display record counts for the specified standard or custom objects.
