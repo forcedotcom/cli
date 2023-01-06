@@ -25,9 +25,65 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.182.1 (Dec 22, 2022) [stable]
+## 7.183.0 (Jan 5, 2023) [stable-rc]
 
-ANNOUNCEMENT: Be sure you read [this pinned issue](https://github.com/forcedotcom/cli/issues/1838) that describes how the Salesforce CLI dev team is working and releasing over the holidays. 
+ANNOUNCEMENT: Happy new year, Salesforce CLI community! Be sure to read our latest [blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) that describes some of the big improvements that are coming in Salesforce CLI this year. And now back to our regular schedule. 
+
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+* NEW: After a [successful beta](https://github.com/forcedotcom/cli/issues/1721) and incorporating feedback from our community, the commands that used to be in the `force:package1:beta` and `force:package:beta` topics are now generally available.
+
+    What does this mean? Let's look at an example: the functionality we added to `force:package:beta:create` is now in `force:package:create`.  The functionality in the _old_ `force:package:create` is now in `force:package:legacy:create`. In the short term, you can use the `force:package1:legacy:*` and `force:package:legacy:*` commands if you run into issues with the new commands. The new commands are open-source, live in the [plugin-packaging](https://github.com/salesforcecli/plugin-packaging) plugin, and are semantically (name, flags) and functionally equivalent as the old commands. 
+    
+* NEW: As described in [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli), we're updating many of the existing `sfdx` commands to use the improvements we made in `sf`. We're doing this work plugin by plugin, starting this week with the commands in [plugin-limits](https://github.com/salesforcecli/plugin-limits) and [plugin-schema](https://github.com/salesforcecli/plugin-schema). Don't worry, the `sfdx` commands and their flags still work _exactly_ the same as before! But you can now run them using the `sf` style, such as spaces instead of colons and new flag names; we highly recommend you give it a try. 
+
+    These are the new command names.
+    
+    |Existing Command Name|New Command Names|
+    |-------------------------------------|---------|
+    |`force:limits:api:display`|`limits:api:display` (or `limits api display`)|
+    |`force:limits:recordcounts:display`|`limits:recordcounts:display` (or `limits recordcounts display`)|
+    |`force:schema:sobject:describe`|`sobject:describe` (or `sobject describe`)|
+    |`force:schema:sobject:list`|`sobject:list` (or `sobject list`)|
+    
+    And these are the new flag names. 
+    
+    |Existing Command|Existing Flag Name|New Flag Name|
+    |---------|------|---|
+    |All four commands|`--apiversion`|`--api-version`|
+    |All four commands|`--targetusername`|`--target-org` (new short name `-o`)|
+    |`force:limits:recordcounts:display`|`--sobjecttype`|`--sobject` |
+    |`force:schema:sobject:describe`|`--sobjecttype`|`--sobject`|
+    |`force:schema:sobject:describe`|`--usetoolingapi`|`--use-tooling-api`|
+    |`force:schema:sobject:list`|`--sobjecttype`|`--sobject`|
+    
+    For all four commands, the existing `--loglevel` flag is deprecated and has no effect. We've also updated the `--help` for each command to use the new command and flag names, to gently encourage you to start switching over to the new style. Fun tip: use the `-h` flag to get a condensed view of the help, for when you don't need long descriptions and examples. 
+    
+    Let's look at an example, such as this command:
+    
+    ```bash
+    sfdx force:schema:sobject:describe --sobjecttype ApexCodeCoverage --usetoolingapi --targetusername my-scratch-org
+    ```
+    
+   You can now run it this way, using the `sf` style:
+    
+    ```bash
+    sfdx sobject describe --sobject ApexCodeCoverage --use-tooling-api --target-org my-scratch-org
+    ```
+    
+    Finally, just in case we weren't clear, the existing commands work exactly as before! But give this new stuff a try, it's pretty cool.
+    
+* NEW: Don't remember the exact name of a command? We got you: simply type the command fragments that you do remember, in any order, and press return. Then `sfdx` either displays a list of possible commands that you can choose from, or it automatically runs the command if there's only one choice. You get a friendly warning for the latter, so you know exactly what the CLI is doing. You're welcome.
+
+* NEW: Change the source-tracked file batch size during a deploy or retrieve with the new `SFDX_SOURCE_TRACKING_BATCH_SIZE` environment variable. The default value for this env var is 8,000 (Windows) and 15,000 (Linux/macOS). 
+
+    `SFDX_SOURCE_TRACKING_BATCH_SIZE` is useful when deploying or retrieving a large project that contains many source-tracked files, and you exceed your operating system open file limit. While the deploy or retrieve likely complete successfully, source-tracking can run into errors in this case. Either increase your open file limit, such as with the `ulimit -Hn <number>` Linux/macOS command, or set the `SFDX_SOURCE_TRACKING_BATCH_SIZE` environment variable to a number significantly lower than the output of `ulimit -Hn`. 
+    
+    This new feature fixes these GitHub issues: [#1711](https://github.com/forcedotcom/cli/issues/1711), [#1676](https://github.com/forcedotcom/cli/issues/1676), and [#1504](https://github.com/forcedotcom/cli/issues/1504). Here's the source-tracking PR: [#295](https://github.com/forcedotcom/source-tracking/pull/295). 
+
+* FIX: The `force:package:beta:delete --package <packageID>` command now correctly deletes a package even if the associated packageAlias is not listed in the `sfdx-project.json` file. As of this release, `force:package:beta:delete` is now `force:package:delete`. (GitHub issue [#1858](https://github.com/forcedotcom/cli/issues/1858), packaging PR [#179](https://github.com/forcedotcom/packaging/pull/179))
+
+## 7.182.1 (Dec 22, 2022) [stable]
 
  * FIX: When deploying or retrieving source to or from an org, Salesforce CLI now strictly enforces [this order of priority](https://github.com/forcedotcom/source-deploy-retrieve/pull/791#issue-1479939776) to determine the value of `apiVersion` and `sourceApiVersion`. As a reminder, `apiVersion` refers to the core Metadata API version used to service the HTTPS request or response via either SOAP or REST; `sourceApiVersion` refers to the shape of the metadata itself. 
 
@@ -253,8 +309,6 @@ ANNOUNCEMENT: Be sure you read [this pinned issue](https://github.com/forcedotco
 
 ## 7.174.0 (Oct 27, 2022)
 
-These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
-
 * CHANGE: The [Docker images](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_docker.htm) we publish each week now run a more recent version of Ubuntu. Additionally, the `full` images run a more recent minor version of Node.js 16. For details about the supported runtime versions, see the [documentation about the Heroku-20 Stack](https://devcenter.heroku.com/articles/heroku-20-stack), which is the new parent image of our Salesforce CLI Docker images.
 
 * FIX: The `force:source:push` command now correctly returns a non-zero exit code when it encounters a [GACK](https://developer.salesforce.com/blogs/tag/gack) and displays the full internal error message. The `force:source:deploy` and `force:mdapi:deploy` commands were already returning a non-zero exit code in this case. But they now also display the full message; previously you had to use the `--json` flag to view it. 
@@ -456,8 +510,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 * FIX: We've strengthened our proxy support so that commands run correctly when behind a company firewall or web proxy. (GitHub issue #[1597](https://github.com/forcedotcom/cli/issues/1597))
 
 ## 7.158.1 (July 7, 2022)
-
-These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 * FIX: The `force:org:open` command no longer times out while resolving the Lightning Experience-enabled custom domain in new sandboxes. (GitHub issue #[1556](https://github.com/forcedotcom/cli/issues/1556), #[1603](https://github.com/forcedotcom/cli/issues/1603))
 
@@ -1131,8 +1183,6 @@ NOTE: Because of the holidays, we're not publishing a new `stable-rc` release to
 
 
 ## 7.121.8 (Oct 7, 2021)
-
-These changes are in the Salesforce CLI (`sfdx` executable) release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 * CHANGE: As we announced on [March 18, 2021](./README.md#5140-march-18-2021---cli-7920), the `--json` output of the `force:org:list` command no longer returns the property `connectedStatus` for scratch orgs. We've also removed the warning. 
 
