@@ -309,8 +309,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ## 7.174.0 (Oct 27, 2022)
 
-These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
-
 * CHANGE: The [Docker images](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_docker.htm) we publish each week now run a more recent version of Ubuntu. Additionally, the `full` images run a more recent minor version of Node.js 16. For details about the supported runtime versions, see the [documentation about the Heroku-20 Stack](https://devcenter.heroku.com/articles/heroku-20-stack), which is the new parent image of our Salesforce CLI Docker images.
 
 * FIX: The `force:source:push` command now correctly returns a non-zero exit code when it encounters a [GACK](https://developer.salesforce.com/blogs/tag/gack) and displays the full internal error message. The `force:source:deploy` and `force:mdapi:deploy` commands were already returning a non-zero exit code in this case. But they now also display the full message; previously you had to use the `--json` flag to view it. 
@@ -512,8 +510,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 * FIX: We've strengthened our proxy support so that commands run correctly when behind a company firewall or web proxy. (GitHub issue #[1597](https://github.com/forcedotcom/cli/issues/1597))
 
 ## 7.158.1 (July 7, 2022)
-
-These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 * FIX: The `force:org:open` command no longer times out while resolving the Lightning Experience-enabled custom domain in new sandboxes. (GitHub issue #[1556](https://github.com/forcedotcom/cli/issues/1556), #[1603](https://github.com/forcedotcom/cli/issues/1603))
 
@@ -1187,8 +1183,6 @@ NOTE: Because of the holidays, we're not publishing a new `stable-rc` release to
 
 
 ## 7.121.8 (Oct 7, 2021)
-
-These changes are in the Salesforce CLI (`sfdx` executable) release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 * CHANGE: As we announced on [March 18, 2021](./README.md#5140-march-18-2021---cli-7920), the `--json` output of the `force:org:list` command no longer returns the property `connectedStatus` for scratch orgs. We've also removed the warning. 
 
