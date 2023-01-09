@@ -25,11 +25,33 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.183.0 (Jan 5, 2023) [stable-rc]
-
-ANNOUNCEMENT: Happy new year, Salesforce CLI community! Be sure to read our latest [blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) that describes some of the big improvements that are coming in Salesforce CLI this year. And now back to our regular schedule. 
+## 7.184.0 (Jan 12, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+* NEW: We continue to update existing `sfdx` commands to use the improvements we made in `sf`. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. We're doing this work plugin by plugin. This week's release includes updated [plugin-data](https://github.com/salesforcecli/plugin-data), [plugin-community](https://github.com/salesforcecli/plugin-community), and [plugin-data](https://github.com/salesforcecli/plugin-custom-metadata). Don't worry, the `sfdx` commands and their flags still work _exactly_ the same as before! But you can now run them using the `sf` style, such as spaces instead of colons and new flag names; we highly recommend you give it a try. 
+
+    These are the new command names.
+    
+    |Existing Command Name|New Command Names|
+    |-------------------------------------|---------|
+    |TBD | TBD|
+    
+    And these are the new flag names. 
+    
+    |Existing Command|Existing Flag Name|New Flag Name|
+    |---------|------|---|
+    |TBD|TBD|TBD|
+    
+    For all commands, the existing `--loglevel` flag is deprecated and has no effect. We've also updated the `--help` for each command to use the new command and flag names, to gently encourage you to start switching over to the new style. Fun tip: use the `-h` flag to get a condensed view of the help, for when you don't need long descriptions and examples. 
+    
+    Let's look at an example. 
+    
+    Finally, just in case we weren't clear, the existing commands work exactly as before! But give this new stuff a try, it's pretty cool.
+    
+## 7.183.0 (Jan 5, 2023) [stable]
+
+ANNOUNCEMENT: Happy new year, Salesforce CLI community! Be sure to read our latest [blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) that describes some of the big improvements that are coming in Salesforce CLI this year. And now back to our regular schedule. 
 
 * NEW: After a [successful beta](https://github.com/forcedotcom/cli/issues/1721) and incorporating feedback from our community, the commands that used to be in the `force:package1:beta` and `force:package:beta` topics are now generally available.
 
@@ -83,7 +105,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `force:package:beta:delete --package <packageID>` command now correctly deletes a package even if the associated packageAlias is not listed in the `sfdx-project.json` file. As of this release, `force:package:beta:delete` is now `force:package:delete`. (GitHub issue [#1858](https://github.com/forcedotcom/cli/issues/1858), packaging PR [#179](https://github.com/forcedotcom/packaging/pull/179))
 
-## 7.182.1 (Dec 22, 2022) [stable]
+## 7.182.1 (Dec 22, 2022)
 
  * FIX: When deploying or retrieving source to or from an org, Salesforce CLI now strictly enforces [this order of priority](https://github.com/forcedotcom/source-deploy-retrieve/pull/791#issue-1479939776) to determine the value of `apiVersion` and `sourceApiVersion`. As a reminder, `apiVersion` refers to the core Metadata API version used to service the HTTPS request or response via either SOAP or REST; `sourceApiVersion` refers to the shape of the metadata itself. 
 
