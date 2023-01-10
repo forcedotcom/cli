@@ -25,7 +25,7 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.183.0 (Jan 5, 2023) [stable-rc]
+## 7.183.1 (Jan 5, 2023) [stable-rc]
 
 ANNOUNCEMENT: Happy new year, Salesforce CLI community! Be sure to read our latest [blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) that describes some of the big improvements that are coming in Salesforce CLI this year. And now back to our regular schedule. 
 
@@ -82,6 +82,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     This new feature fixes these GitHub issues: [#1711](https://github.com/forcedotcom/cli/issues/1711), [#1676](https://github.com/forcedotcom/cli/issues/1676), and [#1504](https://github.com/forcedotcom/cli/issues/1504). Here's the source-tracking PR: [#295](https://github.com/forcedotcom/source-tracking/pull/295). 
 
 * FIX: The `force:package:beta:delete --package <packageID>` command now correctly deletes a package even if the associated packageAlias is not listed in the `sfdx-project.json` file. As of this release, `force:package:beta:delete` is now `force:package:delete`. (GitHub issue [#1858](https://github.com/forcedotcom/cli/issues/1858), packaging PR [#179](https://github.com/forcedotcom/packaging/pull/179))
+
+* FIX: To keep the new `force:package:version:create` command consistent with its legacy version, we updated the new command so you can use the `--package` and `--path` flags together in a single command execution. However, we also added a warning to say that the usage is deprecated and will be removed in the future. (GitHub issue [#1865](https://github.com/forcedotcom/cli/issues/1865), plugin-packaging PR [#211](https://github.com/salesforcecli/plugin-packaging/pull/211))
+
+* FIX: The `force:package:version:create` command now correctly resolves the package directory when you specify both a package ID with the `--package` flag on the command and as the value for the `package` property in the `packageDirectories` section of `sfdx-project.json`. (GitHub issue [#1865](https://github.com/forcedotcom/cli/issues/1865), plugin-packaging PR [#211](https://github.com/salesforcecli/plugin-packaging/pull/211))
 
 ## 7.182.1 (Dec 22, 2022) [stable]
 
