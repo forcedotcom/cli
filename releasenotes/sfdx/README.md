@@ -35,11 +35,11 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
     |Existing Command Name|New Command Names|
     |-----------------------|---------|
-    |`force:cmdt:create`|`cmdt create`|
-    |`force:cmdt:field:create`|`cmdt field create`|
-    |`force:cmdt:generate`|`cmdt generate`|
-    |`force:cmdt:record:create`|`cmdt record create`|
-    |`force:cmdt:record:insert`|`cmdt record insert`|
+    |`force:cmdt:create`|`generate cmdt object`|
+    |`force:cmdt:field:create`|`generate cmdt field`|
+    |`force:cmdt:generate`|`generate cmdt fromorg`|
+    |`force:cmdt:record:create`|`generate cmdt record`|
+    |`force:cmdt:record:insert`|`generate cmdt records`|
     |`force:community:create`|`community create`|
     |`force:community:publish`|`community publish`|
     |`force:community:template:list`|`community list template`|
