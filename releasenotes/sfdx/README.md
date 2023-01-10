@@ -55,7 +55,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |`force:data:tree:export`|`data export tree`|
     |`force:data:tree:import`|`data import tree`|
     
-    These are new flag names for the `force:cmdt:*` commands. If the existing flag name isn't listed in the table, it has the same name in the new command name.
+    These are new flag names for the `force:cmdt:*` commands. If an existing flag name isn't listed in the table, it has the same name in the new command name.
     
     |Existing Flag Name|New Flag Name|Affected Existing Commands|
     |---------------|----------------------|-----------------------|
@@ -76,14 +76,14 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |`--typeoutputdir`|`--type-output-directory`|`force:cmdt:generate`|
     |`--typename`|`--type-name`|`force:cmdt:create`, `force:cmdt:record:create`, `force:cmdt:record:insert`|
     
-    These are the new flag names for the `force:community:*` commands. 
+    These are the new flag names for the `force:community:*` commands. If an existing flag name isn't listed in the table, it has the same name in the new command name.
     
     |Existing Flag Name|New Flag Name|Affected Existing Commands|
     |---|---|---|
     |`--templatename`|`--template-name`|`force:community:create`|
     |`--urlpath-prefix`|`--url-path-prefix`|`force:community:create`|
     
-    These are the new flag names (and one new flag!) for the `force:data:*` commands.
+    These are the new flag names (and one new flag!) for the `force:data:*` commands. If an existing flag name isn't listed in the table, it has the same name in the new command name.
     
     |Existing Flag Name|New Flag Name|Affected Existing Commands|
     |---|---|---|
