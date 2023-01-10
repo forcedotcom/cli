@@ -83,7 +83,35 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |`--templatename`|`--template-name`|`force:community:create`|
     |`--urlpath-prefix`|`--url-path-prefix`|`force:community:create`|
     
-    For all commands, the existing `--loglevel` flag is deprecated and has no effect. We've also updated the `--help` for each command to use the new command and flag names, to gently encourage you to start switching over to the new style. Fun tip: use the `-h` flag to get a condensed view of the help, for when you don't need long descriptions and examples. 
+    These are the new flag names (and one new flag!) for the `force:data:*` commands.
+    
+    |Existing Flag Name|New Flag Name|Affected Existing Commands|
+    |---|---|---|
+    |(new flag)|`--async`|`force:data:soql:query|
+    |`--sobjectype`|`--sobject`|`force:data:record:create`, `force:data:bulk:delete`, `force:data:record:delete`, `force:data:record:get`, `force:data:record:update`, `force:data:bulk:upsert`|
+    |`--usetoolingapi`|`--use-tooling-api`|`force:data:record:create`, `force:data:record:delete`, `force:data:record:get`, `force:data:record:update`, `force:data:soql:query`|
+    |`--csvfile`|`--file`|`force:data:bulk:delete`, `force:data:bulk:upsert`|
+    |`--sobjectid`|`--record-id`|`force:data:record:delete`, `force:data:record:get`, `force:data:record:update`|
+    |`--outputdir`|`--output-dir`|`force:data:tree:export`|
+    |`--sobjecttreefiles`|`--files`|`force:data:tree:import`|
+    |`--confighelp`|`--config-help`|`force:data:tree:import`|
+    |`--soqlqueryfile`|`--file`|`force:data:soql:query`|
+    |`--resultformat`|`--result-format`|`force:data:soql:query`, `force:data:soql:bulk:report|
+    |`--bulkqueryid`|`--bulk-query-id`|`force:data:soql:bulk:report`|
+    |`--batchid`|`--batch-id`|`force:data:bulk:status`|
+    |`--jobid`|`--job-id`|`force:data:bulk:status`|
+    |`--external-id`|`--external-id`|`force:data:bulk:upsert``|
+
+    These flags are deprecated and have no effect.
+
+    |Existing Command|Deprecated Flags|
+    |---|---|
+    |All commands|`--loglevel`|
+    |`force:data:record:create`|`--perflog`|
+    |`force:data:record:update`|`--perflog`|
+    |`force:data:soql:bulk:report`|`--perflog`, `--wait`, `--bulk`, `--usetoolingapi`, `--soqlqueryfile`, `--query`|
+    
+    We've also updated the `--help` for each command to use the new command and flag names, to gently encourage you to start switching over to the new style. Fun tip: use the `-h` flag to get a condensed view of the help, for when you don't need long descriptions and examples. 
     
     Let's look at an example. 
     
