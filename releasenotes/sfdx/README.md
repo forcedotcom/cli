@@ -81,7 +81,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |Existing Flag Name|New Flag Name|Affected Existing Commands|
     |---|---|---|
     |`--templatename`|`--template-name`|`force:community:create`|
-    |`--urlpath-prefix`|`--url-path-prefix`|`force:community:create`|
+    |`--urlpathprefix`|`--url-path-prefix`|`force:community:create`|
     
     These are the new flag names (and one new flag!) for the `force:data:*` commands. If an existing flag name isn't listed in the table, it has the same name in the new command name.
     
@@ -100,7 +100,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |`--bulkqueryid`|`--bulk-query-id`|`force:data:soql:bulk:report`|
     |`--batchid`|`--batch-id`|`force:data:bulk:status`|
     |`--jobid`|`--job-id`|`force:data:bulk:status`|
-    |`--external-id`|`--external-id`|`force:data:bulk:upsert`|
+    |`--externalid`|`--external-id`|`force:data:bulk:upsert`|
 
     These flags are deprecated and have no effect.
 
@@ -113,7 +113,17 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
     We've also updated the `--help` for each command to use the new command and flag names, to gently encourage you to start switching over to the new style. Fun tip: use the `-h` flag to get a condensed view of the help, for when you don't need long descriptions and examples. 
     
-    Let's look at an example. 
+    Let's look at an example, such as this command (IDs truncated for security):
+    
+    ```bash
+    sfdx force:data:record:get --usetoolingapi --sobjecttype TraceFlag --sobjectid 7tf8H --targetusername MyScratch
+    ```
+    
+    You can now run it this way using the `sf` style:
+    
+    ```bash
+    sfdx data get record --use-tooling-api --sobject TraceFlag --record-id 7tf8H --target-org MyScratch
+    ```
     
     Finally, just in case we weren't clear, the existing commands work exactly as before! But give this new stuff a try, it's pretty cool.
     
