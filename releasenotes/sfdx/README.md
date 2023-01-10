@@ -31,7 +31,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: We continue to update existing `sfdx` commands to use the improvements we made in `sf`. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. We're doing this work plugin by plugin. This week's release includes updated [plugin-data](https://github.com/salesforcecli/plugin-data), [plugin-community](https://github.com/salesforcecli/plugin-community), and [plugin-data](https://github.com/salesforcecli/plugin-custom-metadata). Don't worry, the `sfdx` commands and their flags still work _exactly_ the same as before! But you can now run them using the `sf` style, such as spaces instead of colons and new flag names; we highly recommend you give it a try. 
 
-    These are the new command names. For each command, you can still use colons instead of spaces, such as `cmdt:create`. 
+    These are the new command names. For each command, you can still use colons instead of spaces, such as `generate:cmdt:object`. 
     
     |Existing Command Name|New Command Names|
     |-----------------------|---------|
