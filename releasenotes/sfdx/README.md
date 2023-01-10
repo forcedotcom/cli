@@ -55,11 +55,33 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |`force:data:tree:export`|`data export tree`|
     |`force:data:tree:import`|`data import tree`|
     
-    And these are the new flag names. 
+    These are new flag names for the `force:cmdt:*` commands. If the existing flag name isn't listed in the table, it has the same name in the new command name.
     
-    |Existing Command|Existing Flag Name|New Flag Name|
-    |---------|------|---|
-    |TBD|TBD|TBD|
+    |Existing Flag Name|New Flag Name|Affected Existing Commands|
+    |---------------|----------------------|-----------------------|
+    |`--decimalplaces`|`--decimal-places`|`force:cmdt:field:create`|
+    |`--devname`|`--dev-name`|`force:cmdt:generate`|
+    |`--fieldname`|`--name`|`force:cmdt:field:create`|
+    |`--fieldtype`|`--type`|`force:cmdt:field:create`|
+    |`--filepath`|`--csv`|`force:cmdt:record:insert`|
+    |`--ignoreunsupported`|`--ignore-unsupported`|`force:cmdt:generate`|
+    |`--inputdir`|`--input-directory`|`force:cmdt:record:create`, `force:cmdt:record:insert`|
+    |`--namecolumn`|`--name-column`|`force:cmdt:record:insert`|
+    |`--outputdir`|`--output-directory`|`force:cmdt:field:create`, `force:cmdt:create`, `force:cmdt:record:create`, `force:cmdt:record:insert`|
+    |`--picklistvalues`|`--picklist-values`|`force:cmdt:field:create`|
+    |`--plurallabel`|`--plural-label`|`force:cmdt:generate`, `force:cmdt:create`|
+    |`--recordname`|`--record-name`|`force:cmdt:record:create`|
+    |`--recordsoutputdir`|`--records-output-dir`|`force:cmdt:generate`|
+    |`--sobjectname`|`--sobject`|`force:cmdt:generate`|
+    |`--typeoutputdir`|`--type-output-directory`|`force:cmdt:generate`|
+    |`--typename`|`--type-name`|`force:cmdt:create`, `force:cmdt:record:create`, `force:cmdt:record:insert`|
+    
+    These are the new flag names for the `force:community:*` commands. 
+    
+    |Existing Flag Name|New Flag Name|Affected Existing Commands|
+    |---|---|---|
+    |`--templatename`|`--template-name`|`force:community:create`|
+    |`--urlpath-prefix`|`--url-path-prefix`|`force:community:create`|
     
     For all commands, the existing `--loglevel` flag is deprecated and has no effect. We've also updated the `--help` for each command to use the new command and flag names, to gently encourage you to start switching over to the new style. Fun tip: use the `-h` flag to get a condensed view of the help, for when you don't need long descriptions and examples. 
     
