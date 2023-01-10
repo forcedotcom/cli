@@ -96,11 +96,11 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |`--sobjecttreefiles`|`--files`|`force:data:tree:import`|
     |`--confighelp`|`--config-help`|`force:data:tree:import`|
     |`--soqlqueryfile`|`--file`|`force:data:soql:query`|
-    |`--resultformat`|`--result-format`|`force:data:soql:query`, `force:data:soql:bulk:report|
+    |`--resultformat`|`--result-format`|`force:data:soql:query`, `force:data:soql:bulk:report`|
     |`--bulkqueryid`|`--bulk-query-id`|`force:data:soql:bulk:report`|
     |`--batchid`|`--batch-id`|`force:data:bulk:status`|
     |`--jobid`|`--job-id`|`force:data:bulk:status`|
-    |`--external-id`|`--external-id`|`force:data:bulk:upsert``|
+    |`--external-id`|`--external-id`|`force:data:bulk:upsert`|
 
     These flags are deprecated and have no effect.
 
