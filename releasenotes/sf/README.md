@@ -29,11 +29,11 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
    This week's release includes updated [plugin-data](https://github.com/salesforcecli/plugin-data), [plugin-community](https://github.com/salesforcecli/plugin-community), and [plugin-data](https://github.com/salesforcecli/plugin-custom-metadata). As a result, you can now run these existing `sfdx` commands in `sf`:
 
-    * `sf cmdt create` : Generate a new custom metadata type in the current project.                  
-    * `sf cmdt field create` : Generate a field for a custom metadata type based on the provided field type.             
-    * `sf cmdt generate` : Generate a custom metadata type and all its records from a Salesforce object.                
-    * `sf cmdt record create` : Generate a new record for a given custom metadata type in the current project.           
-    * `sf cmdt record insert` : Generate new custom metadata type records from a CSV file.            
+    * `sf generate cmdt object` : Generate a new custom metadata type in the current project.                  
+    * `sf generate cmdt field ` : Generate a field for a custom metadata type based on the provided field type.             
+    * `sf generate cmdt fromorg` : Generate a custom metadata type and all its records from a Salesforce object.                
+    * `sf generate cmdt record` : Generate a new record for a given custom metadata type in the current project.           
+    * `sf generate cmdt records` : Generate new custom metadata type records from a CSV file.            
     * `sf community create` :  Create an Experience Cloud site using a template.             
     * `sf community list template` :  Retrieve the list of templates available in your org.       
     * `sf community publish` : Publish an Experience Builder site to make it live.  
