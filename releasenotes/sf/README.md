@@ -51,7 +51,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     As always, run the commands with `--help` to see the list of flags, examples, and usage information. We'll be releasing other updated plugins over the next weeks. Enjoy!
     
-## 1.60.0 (Jan 4, 2023) [stable]
+## 1.60.0 (Jan 11, 2023) [stable]
 
 ANNOUNCEMENT: Happy new year, Salesforce CLI community! Be sure to read our latest [blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) that describes some of the big improvements that are coming in Salesforce CLI this year. And now back to our regular schedule. 
 
