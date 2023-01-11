@@ -29,17 +29,12 @@ Additional documentation:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
-* NEW: We continue to improve the usability of existing `sfdx` commands, such as more intuitive flag names and using spaces as separators, similar to how `sf` works. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. We're doing this work plugin by plugin. This week's release includes updated [plugin-data](https://github.com/salesforcecli/plugin-data), [plugin-community](https://github.com/salesforcecli/plugin-community), and [plugin-data](https://github.com/salesforcecli/plugin-custom-metadata). Don't worry, the `sfdx` commands and their flags still work _exactly_ the same as before! But give the new style a try -- we think you'll like it.
+* NEW: We continue to improve the usability of existing `sfdx` commands, such as more intuitive flag names and using spaces as separators, similar to how `sf` works. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. We're doing this work plugin by plugin. This week's release includes updated [plugin-data](https://github.com/salesforcecli/plugin-data), [plugin-community](https://github.com/salesforcecli/plugin-community), and [plugin-custom-metadata](https://github.com/salesforcecli/plugin-custom-metadata). Don't worry, the `sfdx` commands and their flags still work _exactly_ the same as before! But give the new style a try -- we think you'll like it.
 
-    These are the new command names. For each command, you can still use colons instead of spaces, such as `generate:cmdt:object`. 
+    These are the new command names. For each command, you can still use colons instead of spaces, such as `community:create`. 
     
     |Existing Command Name|New Command Names|
     |-----------------------|---------|
-    |`force:cmdt:create`|`generate cmdt object`|
-    |`force:cmdt:field:create`|`generate cmdt field`|
-    |`force:cmdt:generate`|`generate cmdt fromorg`|
-    |`force:cmdt:record:create`|`generate cmdt record`|
-    |`force:cmdt:record:insert`|`generate cmdt records`|
     |`force:community:create`|`community create`|
     |`force:community:publish`|`community publish`|
     |`force:community:template:list`|`community list template`|
@@ -54,7 +49,38 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |`force:data:soql:query`|`data query`|
     |`force:data:tree:export`|`data export tree`|
     |`force:data:tree:import`|`data import tree`|
+    |`force:cmdt:create`|`generate cmdt object`|
+    |`force:cmdt:field:create`|`generate cmdt field`|
+    |`force:cmdt:generate`|`generate cmdt fromorg`|
+    |`force:cmdt:record:create`|`generate cmdt record`|
+    |`force:cmdt:record:insert`|`generate cmdt records`|
     
+    These are the new flag names for the `force:community:*` commands. If an existing flag name isn't listed in the table, it has the same name in the new command name.
+    
+    |Existing Flag Name|New Flag Name|Affected Existing Commands|
+    |---|---|---|
+    |`--templatename`|`--template-name`|`force:community:create`|
+    |`--urlpathprefix`|`--url-path-prefix`|`force:community:create`|
+    
+    These are the new flag names (and one new flag!) for the `force:data:*` commands. If an existing flag name isn't listed in the table, it has the same name in the new command name.
+    
+    |Existing Flag Name|New Flag Name|Affected Existing Commands|
+    |---|---|---|
+    |(new flag)|`--async`|`force:data:soql:query`|
+    |`--sobjectype`|`--sobject`|`force:data:record:create`, `force:data:bulk:delete`, `force:data:record:delete`, `force:data:record:get`, `force:data:record:update`, `force:data:bulk:upsert`|
+    |`--usetoolingapi`|`--use-tooling-api`|`force:data:record:create`, `force:data:record:delete`, `force:data:record:get`, `force:data:record:update`, `force:data:soql:query`|
+    |`--csvfile`|`--file`|`force:data:bulk:delete`, `force:data:bulk:upsert`|
+    |`--sobjectid`|`--record-id`|`force:data:record:delete`, `force:data:record:get`, `force:data:record:update`|
+    |`--outputdir`|`--output-dir`|`force:data:tree:export`|
+    |`--sobjecttreefiles`|`--files`|`force:data:tree:import`|
+    |`--confighelp`|`--config-help`|`force:data:tree:import`|
+    |`--soqlqueryfile`|`--file`|`force:data:soql:query`|
+    |`--resultformat`|`--result-format`|`force:data:soql:query`, `force:data:soql:bulk:report`|
+    |`--bulkqueryid`|`--bulk-query-id`|`force:data:soql:bulk:report`|
+    |`--batchid`|`--batch-id`|`force:data:bulk:status`|
+    |`--jobid`|`--job-id`|`force:data:bulk:status`|
+    |`--externalid`|`--external-id`|`force:data:bulk:upsert`|
+
     These are new flag names for the `force:cmdt:*` commands. If an existing flag name isn't listed in the table, it has the same name in the new command name.
     
     |Existing Flag Name|New Flag Name|Affected Existing Commands|
@@ -76,32 +102,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |`--typeoutputdir`|`--type-output-directory`|`force:cmdt:generate`|
     |`--typename`|`--type-name`|`force:cmdt:create`, `force:cmdt:record:create`, `force:cmdt:record:insert`|
     
-    These are the new flag names for the `force:community:*` commands. If an existing flag name isn't listed in the table, it has the same name in the new command name.
-    
-    |Existing Flag Name|New Flag Name|Affected Existing Commands|
-    |---|---|---|
-    |`--templatename`|`--template-name`|`force:community:create`|
-    |`--urlpathprefix`|`--url-path-prefix`|`force:community:create`|
-    
-    These are the new flag names (and one new flag!) for the `force:data:*` commands. If an existing flag name isn't listed in the table, it has the same name in the new command name.
-    
-    |Existing Flag Name|New Flag Name|Affected Existing Commands|
-    |---|---|---|
-    |(new flag)|`--async`|`force:data:soql:query|
-    |`--sobjectype`|`--sobject`|`force:data:record:create`, `force:data:bulk:delete`, `force:data:record:delete`, `force:data:record:get`, `force:data:record:update`, `force:data:bulk:upsert`|
-    |`--usetoolingapi`|`--use-tooling-api`|`force:data:record:create`, `force:data:record:delete`, `force:data:record:get`, `force:data:record:update`, `force:data:soql:query`|
-    |`--csvfile`|`--file`|`force:data:bulk:delete`, `force:data:bulk:upsert`|
-    |`--sobjectid`|`--record-id`|`force:data:record:delete`, `force:data:record:get`, `force:data:record:update`|
-    |`--outputdir`|`--output-dir`|`force:data:tree:export`|
-    |`--sobjecttreefiles`|`--files`|`force:data:tree:import`|
-    |`--confighelp`|`--config-help`|`force:data:tree:import`|
-    |`--soqlqueryfile`|`--file`|`force:data:soql:query`|
-    |`--resultformat`|`--result-format`|`force:data:soql:query`, `force:data:soql:bulk:report`|
-    |`--bulkqueryid`|`--bulk-query-id`|`force:data:soql:bulk:report`|
-    |`--batchid`|`--batch-id`|`force:data:bulk:status`|
-    |`--jobid`|`--job-id`|`force:data:bulk:status`|
-    |`--externalid`|`--external-id`|`force:data:bulk:upsert`|
-
     These flags are deprecated and have no effect.
 
     |Existing Command|Deprecated Flags|
@@ -111,7 +111,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |`force:data:record:update`|`--perflog`|
     |`force:data:soql:bulk:report`|`--perflog`, `--wait`, `--bulk`, `--usetoolingapi`, `--soqlqueryfile`, `--query`|
     
-    We've also updated the `--help` for each command to use the new command and flag names, to gently encourage you to start switching over to the new style. Fun tip: use the `-h` flag to get a condensed view of the help, for when you don't need long descriptions and examples. 
+    We also updated the `--help` for each command to use the new command and flag names, to gently encourage you to start switching over to the new style. Fun tip: use the `-h` flag to get a condensed view of the help, for when you don't need long descriptions and examples. 
     
     Let's look at an example, such as this command (IDs truncated for security):
     
