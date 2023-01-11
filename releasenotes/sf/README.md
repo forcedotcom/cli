@@ -27,13 +27,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: We continue to improve the usability of existing `sfdx` commands so they work like the `sf` commands. We're doing this work plugin by plugin. As a result of this work, when a Salesforce CLI release includes an updated plugin, you can execute the plugin's commands in both `sfdx` AND `sf`. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. 
 
-   This week's release includes updated [plugin-data](https://github.com/salesforcecli/plugin-data), [plugin-community](https://github.com/salesforcecli/plugin-community), and [plugin-data](https://github.com/salesforcecli/plugin-custom-metadata). Consequently, you can now run these existing `sfdx` commands in `sf`:
+   This week's release includes updated [plugin-data](https://github.com/salesforcecli/plugin-data), [plugin-community](https://github.com/salesforcecli/plugin-community), and [plugin-custom-metadata](https://github.com/salesforcecli/plugin-custom-metadata). Consequently, you can now run these existing `sfdx` commands in `sf`:
 
-    * `sf generate cmdt object` : Generate a new custom metadata type in the current project.                  
-    * `sf generate cmdt field ` : Generate a field for a custom metadata type based on the provided field type.             
-    * `sf generate cmdt fromorg` : Generate a custom metadata type and all its records from a Salesforce object.                
-    * `sf generate cmdt record` : Generate a new record for a given custom metadata type in the current project.           
-    * `sf generate cmdt records` : Generate new custom metadata type records from a CSV file.            
     * `sf community create` :  Create an Experience Cloud site using a template.             
     * `sf community list template` :  Retrieve the list of templates available in your org.       
     * `sf community publish` : Publish an Experience Builder site to make it live.  
@@ -47,7 +42,12 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `sf data query resume` : View the status of a bulk query.             
     * `sf data resume` : View the status of a bulk data load job or batch.                   
     * `sf data update record` : Updates a single record of a Salesforce or Tooling API object.            
-    * `sf data upsert bulk` : Bulk upsert records to an org from a CSV file.                                 
+    * `sf data upsert bulk` : Bulk upsert records to an org from a CSV file.
+    * `sf generate cmdt object` : Generate a new custom metadata type in the current project.                  
+    * `sf generate cmdt field ` : Generate a field for a custom metadata type based on the provided field type.             
+    * `sf generate cmdt fromorg` : Generate a custom metadata type and all its records from a Salesforce object.                
+    * `sf generate cmdt record` : Generate a new record for a given custom metadata type in the current project.           
+    * `sf generate cmdt records` : Generate new custom metadata type records from a CSV file.            
 
     As always, run the commands with `--help` to see the list of flags, examples, and usage information. We'll be releasing other updated plugins over the next weeks. Enjoy!
     
