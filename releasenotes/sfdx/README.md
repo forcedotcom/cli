@@ -127,6 +127,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
     Finally, just in case we weren't clear, the existing commands work exactly as before! But give this new stuff a try, it's pretty cool.
     
+* FIX: Plugins that are linked locally with the `sfdx plugins link` command now automatically compile when you make a local change to them. Previously you had to run `yarn build` each time you made a change. (GitHub issue [#1664](https://github.com/forcedotcom/cli/issues/1664), oclif PR [#517](https://github.com/oclif/plugin-plugins/pull/517))
+    
 ## 7.183.1 (Jan 12, 2023) [stable]
 
 ANNOUNCEMENT: Happy new year, Salesforce CLI community! Be sure to read our latest [blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) that describes some of the big improvements that are coming in Salesforce CLI this year. And now back to our regular schedule. 
