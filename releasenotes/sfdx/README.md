@@ -25,11 +25,115 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.183.1 (Jan 5, 2023) [stable-rc]
-
-ANNOUNCEMENT: Happy new year, Salesforce CLI community! Be sure to read our latest [blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) that describes some of the big improvements that are coming in Salesforce CLI this year. And now back to our regular schedule. 
+## 7.184.0 (Jan 19, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+* NEW: We continue to improve the usability of existing `sfdx` commands, such as more intuitive flag names and using spaces as separators, similar to how `sf` works. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. We're doing this work plugin by plugin. This week's release includes updated [plugin-data](https://github.com/salesforcecli/plugin-data), [plugin-community](https://github.com/salesforcecli/plugin-community), and [plugin-custom-metadata](https://github.com/salesforcecli/plugin-custom-metadata). Don't worry, the `sfdx` commands and their flags still work _exactly_ the same as before! But give the new style a try -- we think you'll like it.
+
+    These are the new command names. For each command, you can still use colons instead of spaces, such as `community:create`. 
+    
+    |Existing Command Name|New Command Names|
+    |-----------------------|---------|
+    |`force:community:create`|`community create`|
+    |`force:community:publish`|`community publish`|
+    |`force:community:template:list`|`community list template`|
+    |`force:data:bulk:delete`|`data delete bulk`|
+    |`force:data:bulk:status`|`data resume`|
+    |`force:data:bulk:upsert`|`data upsert bulk`|
+    |`force:data:record:create`|`data create record`|
+    |`force:data:record:delete`|`data delete record`|
+    |`force:data:record:get`|`data get record`|
+    |`force:data:record:update`|`data update record`|
+    |`force:data:soql:bulk:report`|`data query resume`|
+    |`force:data:soql:query`|`data query`|
+    |`force:data:tree:export`|`data export tree`|
+    |`force:data:tree:import`|`data import tree`|
+    |`force:cmdt:create`|`generate cmdt object`|
+    |`force:cmdt:field:create`|`generate cmdt field`|
+    |`force:cmdt:generate`|`generate cmdt fromorg`|
+    |`force:cmdt:record:create`|`generate cmdt record`|
+    |`force:cmdt:record:insert`|`generate cmdt records`|
+    
+    These are the new flag names for the `force:community:*` commands. If an existing flag name isn't listed in the table, it has the same name in the new command name.
+    
+    |Existing Flag Name|New Flag Name|Affected Existing Commands|
+    |---|---|---|
+    |`--templatename`|`--template-name`|`force:community:create`|
+    |`--urlpathprefix`|`--url-path-prefix`|`force:community:create`|
+    
+    These are the new flag names (and one new flag!) for the `force:data:*` commands. If an existing flag name isn't listed in the table, it has the same name in the new command name.
+    
+    |Existing Flag Name|New Flag Name|Affected Existing Commands|
+    |---|---|---|
+    |(new flag)|`--async`|`force:data:soql:query`|
+    |`--sobjectype`|`--sobject`|`force:data:record:create`, `force:data:bulk:delete`, `force:data:record:delete`, `force:data:record:get`, `force:data:record:update`, `force:data:bulk:upsert`|
+    |`--usetoolingapi`|`--use-tooling-api`|`force:data:record:create`, `force:data:record:delete`, `force:data:record:get`, `force:data:record:update`, `force:data:soql:query`|
+    |`--csvfile`|`--file`|`force:data:bulk:delete`, `force:data:bulk:upsert`|
+    |`--sobjectid`|`--record-id`|`force:data:record:delete`, `force:data:record:get`, `force:data:record:update`|
+    |`--outputdir`|`--output-dir`|`force:data:tree:export`|
+    |`--sobjecttreefiles`|`--files`|`force:data:tree:import`|
+    |`--confighelp`|`--config-help`|`force:data:tree:import`|
+    |`--soqlqueryfile`|`--file`|`force:data:soql:query`|
+    |`--resultformat`|`--result-format`|`force:data:soql:query`, `force:data:soql:bulk:report`|
+    |`--bulkqueryid`|`--bulk-query-id`|`force:data:soql:bulk:report`|
+    |`--batchid`|`--batch-id`|`force:data:bulk:status`|
+    |`--jobid`|`--job-id`|`force:data:bulk:status`|
+    |`--externalid`|`--external-id`|`force:data:bulk:upsert`|
+
+    These are new flag names for the `force:cmdt:*` commands. If an existing flag name isn't listed in the table, it has the same name in the new command name.
+    
+    |Existing Flag Name|New Flag Name|Affected Existing Commands|
+    |---------------|----------------------|-----------------------|
+    |`--decimalplaces`|`--decimal-places`|`force:cmdt:field:create`|
+    |`--devname`|`--dev-name`|`force:cmdt:generate`|
+    |`--fieldname`|`--name`|`force:cmdt:field:create`|
+    |`--fieldtype`|`--type`|`force:cmdt:field:create`|
+    |`--filepath`|`--csv`|`force:cmdt:record:insert`|
+    |`--ignoreunsupported`|`--ignore-unsupported`|`force:cmdt:generate`|
+    |`--inputdir`|`--input-directory`|`force:cmdt:record:create`, `force:cmdt:record:insert`|
+    |`--namecolumn`|`--name-column`|`force:cmdt:record:insert`|
+    |`--outputdir`|`--output-directory`|`force:cmdt:field:create`, `force:cmdt:create`, `force:cmdt:record:create`, `force:cmdt:record:insert`|
+    |`--picklistvalues`|`--picklist-values`|`force:cmdt:field:create`|
+    |`--plurallabel`|`--plural-label`|`force:cmdt:generate`, `force:cmdt:create`|
+    |`--recordname`|`--record-name`|`force:cmdt:record:create`|
+    |`--recordsoutputdir`|`--records-output-dir`|`force:cmdt:generate`|
+    |`--sobjectname`|`--sobject`|`force:cmdt:generate`|
+    |`--typeoutputdir`|`--type-output-directory`|`force:cmdt:generate`|
+    |`--typename`|`--type-name`|`force:cmdt:create`, `force:cmdt:record:create`, `force:cmdt:record:insert`|
+    
+    These flags are deprecated and have no effect.
+
+    |Existing Command|Deprecated Flags|
+    |---|---|
+    |All commands|`--loglevel`|
+    |`force:data:record:create`|`--perflog`|
+    |`force:data:record:update`|`--perflog`|
+    |`force:data:soql:bulk:report`|`--perflog`, `--wait`, `--bulk`, `--usetoolingapi`, `--soqlqueryfile`, `--query`|
+    
+    We also updated the `--help` for each command to use the new command and flag names, to gently encourage you to start switching over to the new style. Fun tip: use the `-h` flag to get a condensed view of the help, for when you don't need long descriptions and examples. 
+    
+    Let's look at an example, such as this command (IDs truncated for security):
+    
+    ```bash
+    sfdx force:data:record:get --usetoolingapi --sobjecttype TraceFlag --sobjectid 7tf8H --targetusername MyScratch
+    ```
+    
+    You can now run it this way using the `sf` style:
+    
+    ```bash
+    sfdx data get record --use-tooling-api --sobject TraceFlag --record-id 7tf8H --target-org MyScratch
+    ```
+    
+    Finally, just in case we weren't clear, the existing commands work exactly as before! But give this new stuff a try, it's pretty cool.
+
+* NEW: The plugin that contains the `cmdt` commands is now [open source](https://github.com/salesforcecli/plugin-custom-metadata).  With the exclusion of the remaining `legacy` commands, the entire CLI is now open!  
+  
+* FIX: Plugins that are linked locally with the `sfdx plugins link` command now automatically compile when you make a local change to them. Previously you had to run `yarn build` each time you made a change. (GitHub issue [#1664](https://github.com/forcedotcom/cli/issues/1664), oclif PR [#517](https://github.com/oclif/plugin-plugins/pull/517))
+    
+## 7.183.1 (Jan 12, 2023) [stable]
+
+ANNOUNCEMENT: Happy new year, Salesforce CLI community! Be sure to read our latest [blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) that describes some of the big improvements that are coming in Salesforce CLI this year. And now back to our regular schedule. 
 
 * NEW: After a [successful beta](https://github.com/forcedotcom/cli/issues/1721) and incorporating feedback from our community, the commands that used to be in the `force:package1:beta` and `force:package:beta` topics are now generally available.
 
@@ -87,7 +191,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `force:package:version:create` command now correctly resolves the package directory when you specify both a package ID with the `--package` flag on the command and as the value for the `package` property in the `packageDirectories` section of `sfdx-project.json`. (GitHub issue [#1865](https://github.com/forcedotcom/cli/issues/1865), plugin-packaging PR [#211](https://github.com/salesforcecli/plugin-packaging/pull/211))
 
-## 7.182.1 (Dec 22, 2022) [stable]
+## 7.182.1 (Dec 22, 2022)
 
  * FIX: When deploying or retrieving source to or from an org, Salesforce CLI now strictly enforces [this order of priority](https://github.com/forcedotcom/source-deploy-retrieve/pull/791#issue-1479939776) to determine the value of `apiVersion` and `sourceApiVersion`. As a reminder, `apiVersion` refers to the core Metadata API version used to service the HTTPS request or response via either SOAP or REST; `sourceApiVersion` refers to the shape of the metadata itself. 
 
