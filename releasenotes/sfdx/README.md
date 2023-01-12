@@ -126,7 +126,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     ```
     
     Finally, just in case we weren't clear, the existing commands work exactly as before! But give this new stuff a try, it's pretty cool.
-    
+
+* NEW: The plugin that contains the `cmdt` commands is now [open source](https://github.com/salesforcecli/plugin-custom-metadata).  With the exclusion of the remaining `legacy` commands, the entire CLI is now open!  
+  
 * FIX: Plugins that are linked locally with the `sfdx plugins link` command now automatically compile when you make a local change to them. Previously you had to run `yarn build` each time you made a change. (GitHub issue [#1664](https://github.com/forcedotcom/cli/issues/1664), oclif PR [#517](https://github.com/oclif/plugin-plugins/pull/517))
     
 ## 7.183.1 (Jan 12, 2023) [stable]
