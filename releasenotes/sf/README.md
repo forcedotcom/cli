@@ -21,11 +21,39 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.60.0 (Jan 4, 2023) [stable-rc]
-
-ANNOUNCEMENT: Happy new year, Salesforce CLI community! Be sure to read our latest [blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) that describes some of the big improvements that are coming in Salesforce CLI this year. And now back to our regular schedule. 
+## 1.61.0 (Jan 18, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+* NEW: We continue to improve the usability of existing `sfdx` commands so they work like the `sf` commands. We're doing this work plugin by plugin. As a result of this work, when a Salesforce CLI release includes an updated plugin, you can execute the plugin's commands in both `sfdx` AND `sf`. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. 
+
+   This week's release includes updated [plugin-data](https://github.com/salesforcecli/plugin-data), [plugin-community](https://github.com/salesforcecli/plugin-community), and [plugin-custom-metadata](https://github.com/salesforcecli/plugin-custom-metadata). Consequently, you can now run these existing `sfdx` commands in `sf`:
+
+    * `sf community create` :  Create an Experience Cloud site using a template.             
+    * `sf community list template` :  Retrieve the list of templates available in your org.       
+    * `sf community publish` : Publish an Experience Builder site to make it live.  
+    * `sf data create record` : Create and insert a record into a Salesforce or Tooling API object.              
+    * `sf data delete bulk` : Bulk delete records from an org using a CSV file.                  
+    * `sf data delete record` : Deletes a single record from a Salesforce or Tooling API object.            
+    * `sf data export tree` : Export data from an org into one or more JSON files.              
+    * `sf data get record` : Retrieve and display a single record of a Salesforce or Tooling API object.               
+    * `sf data import tree` : Import data from one or more JSON files into an org.              
+    * `sf data query` : Execute a SOQL query.                    
+    * `sf data query resume` : View the status of a bulk query.             
+    * `sf data resume` : View the status of a bulk data load job or batch.                   
+    * `sf data update record` : Updates a single record of a Salesforce or Tooling API object.            
+    * `sf data upsert bulk` : Bulk upsert records to an org from a CSV file.
+    * `sf generate cmdt object` : Generate a new custom metadata type in the current project.                  
+    * `sf generate cmdt field ` : Generate a field for a custom metadata type based on the provided field type.             
+    * `sf generate cmdt fromorg` : Generate a custom metadata type and all its records from a Salesforce object.                
+    * `sf generate cmdt record` : Generate a new record for a given custom metadata type in the current project.           
+    * `sf generate cmdt records` : Generate new custom metadata type records from a CSV file.            
+
+    As always, run the commands with `--help` to see the list of flags, examples, and usage information. We'll be releasing other updated plugins over the next weeks. Enjoy!
+    
+## 1.60.0 (Jan 11, 2023) [stable]
+
+ANNOUNCEMENT: Happy new year, Salesforce CLI community! Be sure to read our latest [blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) that describes some of the big improvements that are coming in Salesforce CLI this year. And now back to our regular schedule. 
 
 * NEW: As described in [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli), we're updating many of the existing `sfdx` commands to use the improvements we made in `sf`. We're doing this work plugin by plugin. When a Salesforce CLI release includes an updated plugin, you can execute the plugin's commands in both `sfdx` AND `sf`. Let's see how this works. 
 
@@ -40,7 +68,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
 * CHANGE: Salesforce CLI has always automatically run a partial command if it finds only one option. For example, if you run `sf open`, the CLI runs `sf env open` automatically because it's the only command that contains the fragment `open`.  But now we warn you about it, just so you know exactly what command you just ran.  [cli PR [#475](https://github.com/salesforcecli/cli/pull/475))
 
-## 1.59.0 (Dec 21, 2022) [stable]
+## 1.59.0 (Dec 21, 2022)
 
 * NEW: Get debugging information about any command execution with the new `--dev-debug` flag. Each line in the debug output starts with the name of a function or plugin, such as `sf:core`. Use these values to filter the debug output with the `--debug-filter` flag. For example:
 
