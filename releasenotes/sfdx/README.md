@@ -47,11 +47,13 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
     |Existing Flag Name|New Flag Name|Affected Existing Commands|
     |---|---|---|
+    |`--apiversion`|`--api-version`|All `force:org:shape:*` commands|
     
     These are the new flag names for the `force:org:snapshot:*` pilot commands. If an existing flag name isn't listed in the table, it has the same name in the new command name.
     
     |Existing Flag Name|New Flag Name|Affected Existing Commands|
     |---|---|---|
+    |`--apiversion`|`--api-version`|All `force:org:snapshot:*` commands|
 
     These flags are deprecated and have no effect.
 
