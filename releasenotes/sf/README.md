@@ -25,7 +25,19 @@ Additional documentation:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-TBD
+* NEW: We continue to improve the usability of existing `sfdx` commands so they work like the `sf` commands. We're doing this work plugin by plugin. As a result of this work, when a Salesforce CLI release includes an updated plugin, you can execute the plugin's commands in both `sfdx` AND `sf`. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. 
+
+   This week's release includes updated [plugin-signups](https://github.com/salesforcecli/plugin-signups). Consequently, you can now run these existing `sfdx` commands in `sf`:
+
+    * `sf org create shape` : Create a scratch org configuration (shape) based on the specified source org.
+    * `sf org delete shape` : Delete all org shapes for a target org.
+    * `sf org list shape` : List all org shapes you’ve created.
+    * `sf org create snapshot` : Create a snapshot of a scratch org. (Pilot)
+    * `sf org delete snapshot` : Delete a scratch org snapshot. (Pilot)
+    * `sf org get snapshot` : Get details about a scratch org snapshot. (Pilot)
+    * `sf org list snapshot` : List scratch org snapshots. (Pilot)
+
+    As always, run the commands with `--help` to see the list of flags, examples, and usage information. We'll be releasing other updated plugins over the next weeks. Enjoy!
 
 ## 1.61.1 (Jan 18, 2023) [stable]
 
