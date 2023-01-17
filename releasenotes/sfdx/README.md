@@ -59,6 +59,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
     |Existing Flag Name|New Flag Name|Affected Existing Commands|
     |---|---|---|
+    |`--apiversion`|`--api-version`|All `force:community:*` commands|
     |`--templatename`|`--template-name`|`force:community:create`|
     |`--urlpathprefix`|`--url-path-prefix`|`force:community:create`|
     
@@ -67,6 +68,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |Existing Flag Name|New Flag Name|Affected Existing Commands|
     |---|---|---|
     |(new flag)|`--async`|`force:data:soql:query`|
+    |`--apiversion`|`--api-version`|All `force:data:*` commands|
     |`--sobjectype`|`--sobject`|`force:data:record:create`, `force:data:bulk:delete`, `force:data:record:delete`, `force:data:record:get`, `force:data:record:update`, `force:data:bulk:upsert`|
     |`--usetoolingapi`|`--use-tooling-api`|`force:data:record:create`, `force:data:record:delete`, `force:data:record:get`, `force:data:record:update`, `force:data:soql:query`|
     |`--csvfile`|`--file`|`force:data:bulk:delete`, `force:data:bulk:upsert`|
@@ -85,6 +87,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
     |Existing Flag Name|New Flag Name|Affected Existing Commands|
     |---------------|----------------------|-----------------------|
+    |`--apiversion`|`--api-version`|All `force:cmdt:*` commands|
     |`--decimalplaces`|`--decimal-places`|`force:cmdt:field:create`|
     |`--devname`|`--dev-name`|`force:cmdt:generate`|
     |`--fieldname`|`--name`|`force:cmdt:field:create`|
