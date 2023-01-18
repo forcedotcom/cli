@@ -41,8 +41,12 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: You can now automatically replace snippets of your metadata source files with specific values right before you deploy the files to an org with the `sf deploy metadata` command. This string replacement is "ephemeral" because the changes aren't written to your project; they apply only to the deployed files. Use this new feature to, for example, replace the endpoint in a NamedCredential, depending on whether you're deploying to a production or scratch org. Or specify a password in an ExternalDataSource that you don't want to store in your repo. The use cases are endless!
 
-    To configure string replacement, add a `replacements` property to your `sfdx-project.json` file and use key-value pairs to describe how the string replacement works. See [Replace Strings in Code Before Deploying](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_string_replace.htm) for details.  (The topic uses the `force:source:deploy|push` sfdx commands in the examples, but they apply equally to `sf deploy metadata`.) 
-
+    To configure string replacement, add a `replacements` property to your `sfdx-project.json` file and use key-value pairs to describe how the string replacement works. See [Replace Strings in Code Before Deploying](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_string_replace.htm) for details and examples. This topic uses the `force:source:deploy|push` sfdx commands in the examples, but they apply equally to `sf deploy metadata`.
+    
+    Note these `sf`-specific considerations:
+    
+    * By default, if you specify the `--json` flag for `sf metadata deploy`, the JSON output includes a `replacements` property that lists the affected files and the string that was replaced. Specify the `--concise` flag to omit this information.
+    * To view string replacement information in the `sf metadata deploy` human-readable output, specify `--verbose`.
 
 ## 1.61.1 (Jan 18, 2023) [stable]
 
