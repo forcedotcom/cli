@@ -48,18 +48,24 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |Existing Flag Name|New Flag Name|Affected Existing Commands|
     |---|---|---|
     |`--apiversion`|`--api-version`|All `force:org:shape:*` commands|
+    |`--targetusername`|`--target-org`, new short name `-o`|`force:org:shape:create`, `force:org:shape:delete`|
+    |`--noprompt`|`--no-prompt`|`force:org:shape:delete`|
     
     These are the new flag names for the `force:org:snapshot:*` pilot commands. If an existing flag name isn't listed in the table, it has the same name in the new command name.
     
     |Existing Flag Name|New Flag Name|Affected Existing Commands|
     |---|---|---|
     |`--apiversion`|`--api-version`|All `force:org:snapshot:*` commands|
+    |`--targetdevhubusername`|`--target-dev-hub`|All `force:org:snapshot:*` commands|
+    |`--snapshotname`|`--name`|`force:org:snapshot:create`|
+    |`--sourceorg`|`--source-org`|`force:org:snapshot:create`|
 
     These flags are deprecated and have no effect.
 
     |Existing Command|Deprecated Flags|
     |---|---|
     |All commands|`--loglevel`|
+    |`force:org:shape:list`|`--verbose`|
     
     We also updated the `--help` for each command to use the new command and flag names, to gently encourage you to start switching over to the new style. Fun tip: use the `-h` flag to get a condensed view of the help, for when you don't need long descriptions and examples. 
     
