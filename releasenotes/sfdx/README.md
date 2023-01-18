@@ -82,6 +82,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     ```
     
     We've said this a lot, but here it is again: the existing commands work exactly as before. But give this new stuff a try, you might like it.
+    
+* FIX: You can now correctly execute `force:package:version:create` when the org definition file specified by the `--definitionfile` flag uses the `language` option to specify a default language. (plugin-packaging PR [#218](https://github.com/salesforcecli/plugin-packaging/pull/218))
 
 ## 7.184.2 (Jan 19, 2023) [stable]
 
