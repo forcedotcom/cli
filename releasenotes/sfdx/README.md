@@ -48,7 +48,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |Existing Flag Name|New Flag Name|Affected Existing Commands|
     |---|---|---|
     |`--apiversion`|`--api-version`|All `force:org:shape:*` commands|
-    |`--targetusername`|`--target-org`, new short name `-o`|`force:org:shape:create`, `force:org:shape:delete`|
+    |`--targetusername`|`--target-org`, with new short name `-o`|`force:org:shape:create`, `force:org:shape:delete`|
     |`--noprompt`|`--no-prompt`|`force:org:shape:delete`|
     
     These are the new flag names for the `force:org:snapshot:*` pilot commands. If an existing flag name isn't listed in the table, it has the same name in the new command name.
@@ -70,6 +70,18 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     We also updated the `--help` for each command to use the new command and flag names, to gently encourage you to start switching over to the new style. Fun tip: use the `-h` flag to get a condensed view of the help, for when you don't need long descriptions and examples. 
     
     Let's look at an example, such as this command:
+    
+    ```bash
+    sfdx force:org:snapshot:create --sourceorg myuser@myorg.com --snapshotname NightlyBranch --description 'Contains PkgA v2.1.0' --targetdevhubusername NightlyDevHub
+    ```
+    
+    You can now run it this way using the `sf` style:
+    
+    ```bash
+    sfdx org create snapshot --source-org myuser@myorg.com --name NightlyBranch --description 'Contains PkgA v2.1.0' --target-dev-hub NightlyDevHub
+    ```
+    
+    We've said this a lot, but here it is again: the existing commands work exactly as before. But give this new stuff a try, you might like it.
 
 ## 7.184.2 (Jan 19, 2023) [stable]
 
