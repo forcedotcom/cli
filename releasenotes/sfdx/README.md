@@ -25,15 +25,73 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.184.2 (Jan 19, 2023) [stable-rc]
+## 7.185.0 (Jan 26, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+* NEW: We continue to improve the usability of existing `sfdx` commands, such as more intuitive flag names and using spaces as separators, similar to how `sf` works. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. We're doing this work plugin by plugin. This week's release includes updated [plugin-signups](https://github.com/salesforcecli/plugin-signups). Don't worry, the `sfdx` commands and their flags still work _exactly_ the same as before! But give the new style a try -- we think you'll like it.
+
+    These are the new command names. For each command, you can still use colons instead of spaces, such as `org:create:shape`. 
+    
+    |Existing Command Name|New Command Name|
+    |-----------------------|---------|
+    |`force:org:shape:create`|`org create shape`|
+    |`force:org:shape:delete`|`org delete shape`|
+    |`force:org:shape:list`|`org list shape`|
+    |`force:org:snapshot:create` (Pilot)|`org create snapshot` (Pilot)|
+    |`force:org:snapshot:delete` (Pilot)|`org delete snapshot` (Pilot)|
+    |`force:org:snapshot:get` (Pilot)|`org get snapshot` (Pilot)|
+    |`force:org:snapshot:list` (Pilot)|`org list snapshot` (Pilot)|
+
+    These are the new flag names for the `force:org:shape::*` commands. If an existing flag name isn't listed in the table, it has the same name in the new command name.
+    
+    |Existing Flag Name|New Flag Name|Affected Existing Commands|
+    |---|---|---|
+    |`--apiversion`|`--api-version`|All `force:org:shape:*` commands|
+    |`--targetusername`|`--target-org`, with new short name `-o`|`force:org:shape:create`, `force:org:shape:delete`|
+    |`--noprompt`|`--no-prompt`|`force:org:shape:delete`|
+    
+    These are the new flag names for the `force:org:snapshot:*` pilot commands. If an existing flag name isn't listed in the table, it has the same name in the new command name.
+    
+    |Existing Flag Name|New Flag Name|Affected Existing Commands|
+    |---|---|---|
+    |`--apiversion`|`--api-version`|All `force:org:snapshot:*` commands|
+    |`--targetdevhubusername`|`--target-dev-hub`|All `force:org:snapshot:*` commands|
+    |`--snapshotname`|`--name`|`force:org:snapshot:create`|
+    |`--sourceorg`|`--source-org`|`force:org:snapshot:create`|
+
+    These flags are deprecated and have no effect.
+
+    |Existing Command|Deprecated Flags|
+    |---|---|
+    |All commands|`--loglevel`|
+    |`force:org:shape:list`|`--verbose`|
+    
+    We also updated the `--help` for each command to use the new command and flag names, to gently encourage you to start switching over to the new style. Fun tip: use the `-h` flag to get a condensed view of the help, for when you don't need long descriptions and examples. 
+    
+    Let's look at an example, such as this command:
+    
+    ```bash
+    sfdx force:org:snapshot:create --sourceorg myuser@myorg.com --snapshotname NightlyBranch --description 'Contains PkgA v2.1.0' --targetdevhubusername NightlyDevHub
+    ```
+    
+    You can now run it this way using the `sf` style:
+    
+    ```bash
+    sfdx org create snapshot --source-org myuser@myorg.com --name NightlyBranch --description 'Contains PkgA v2.1.0' --target-dev-hub NightlyDevHub
+    ```
+    
+    We've said this a lot, but here it is again: the existing commands work exactly as before. But give this new stuff a try, you might like it.
+    
+* FIX: You can now correctly execute `force:package:version:create` when the org definition file specified by the `--definitionfile` flag uses the `language` option to specify a default language. (plugin-packaging PR [#218](https://github.com/salesforcecli/plugin-packaging/pull/218))
+
+## 7.184.2 (Jan 19, 2023) [stable]
 
 * NEW: We continue to improve the usability of existing `sfdx` commands, such as more intuitive flag names and using spaces as separators, similar to how `sf` works. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. We're doing this work plugin by plugin. This week's release includes updated [plugin-data](https://github.com/salesforcecli/plugin-data), [plugin-community](https://github.com/salesforcecli/plugin-community), and [plugin-custom-metadata](https://github.com/salesforcecli/plugin-custom-metadata). Don't worry, the `sfdx` commands and their flags still work _exactly_ the same as before! But give the new style a try -- we think you'll like it.
 
     These are the new command names. For each command, you can still use colons instead of spaces, such as `community:create`. 
     
-    |Existing Command Name|New Command Names|
+    |Existing Command Name|New Command Name|
     |-----------------------|---------|
     |`force:community:create`|`community create`|
     |`force:community:publish`|`community publish`|
@@ -134,7 +192,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
   
 * FIX: Plugins that are linked locally with the `sfdx plugins link` command now automatically compile when you make a local change to them. Previously you had to run `yarn build` each time you made a change. (GitHub issue [#1664](https://github.com/forcedotcom/cli/issues/1664), oclif PR [#517](https://github.com/oclif/plugin-plugins/pull/517))
     
-## 7.183.1 (Jan 12, 2023) [stable]
+## 7.183.1 (Jan 12, 2023)
 
 ANNOUNCEMENT: Happy new year, Salesforce CLI community! Be sure to read our latest [blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) that describes some of the big improvements that are coming in Salesforce CLI this year. And now back to our regular schedule. 
 
