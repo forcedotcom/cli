@@ -21,9 +21,34 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.61.1 (Jan 18, 2023) [stable-rc]
+## 1.62.0 (Jan 25, 2023) [stable-rc]
 
-These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* NEW: We continue to improve the usability of existing `sfdx` commands so they work like the `sf` commands. We're doing this work plugin by plugin. As a result of this work, when a Salesforce CLI release includes an updated plugin, you can execute the plugin's commands in both `sfdx` AND `sf`. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. 
+
+   This week's release includes updated [plugin-signups](https://github.com/salesforcecli/plugin-signups). Consequently, you can now run these existing `sfdx` commands in `sf`:
+
+    * `sf org create shape` : Create a scratch org configuration (shape) based on the specified source org.
+    * `sf org delete shape` : Delete all org shapes for a target org.
+    * `sf org list shape` : List all org shapes you’ve created.
+    * `sf org create snapshot` : Create a snapshot of a scratch org. (Pilot)
+    * `sf org delete snapshot` : Delete a scratch org snapshot. (Pilot)
+    * `sf org get snapshot` : Get details about a scratch org snapshot. (Pilot)
+    * `sf org list snapshot` : List scratch org snapshots. (Pilot)
+
+    As always, run the commands with `--help` to see the list of flags, examples, and usage information. We'll be releasing other updated plugins over the next weeks. Enjoy!
+
+* NEW: You can now automatically replace snippets of your metadata source files with specific values right before you deploy the files to an org with the `sf deploy metadata` command. This string replacement is "ephemeral" because the changes aren't written to your project; they apply only to the deployed files. Use this new feature to, for example, replace the endpoint in a NamedCredential, depending on whether you're deploying to a production or scratch org. Or specify a password in an ExternalDataSource that you don't want to store in your repo. The use cases are endless!
+
+    To configure string replacement, add a `replacements` property to your `sfdx-project.json` file and use key-value pairs to describe how the string replacement works. See [Replace Strings in Code Before Deploying](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_string_replace.htm) for details and examples. This topic uses the `force:source:deploy|push` sfdx commands in the examples, but they apply equally to `sf deploy metadata`.
+    
+    Note these `sf`-specific considerations:
+    
+    * By default, if you specify the `--json` flag for `sf metadata deploy`, the JSON output includes a `replacements` property that lists the affected files and the string that was replaced. Specify the `--concise` flag to omit this information.
+    * To view string replacement information in the `sf metadata deploy` human-readable output, specify `--verbose`.
+
+## 1.61.1 (Jan 18, 2023) [stable]
 
 * NEW: We continue to improve the usability of existing `sfdx` commands so they work like the `sf` commands. We're doing this work plugin by plugin. As a result of this work, when a Salesforce CLI release includes an updated plugin, you can execute the plugin's commands in both `sfdx` AND `sf`. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. 
 
@@ -51,7 +76,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     As always, run the commands with `--help` to see the list of flags, examples, and usage information. We'll be releasing other updated plugins over the next weeks. Enjoy!
     
-## 1.60.0 (Jan 11, 2023) [stable]
+## 1.60.0 (Jan 11, 2023)
 
 ANNOUNCEMENT: Happy new year, Salesforce CLI community! Be sure to read our latest [blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) that describes some of the big improvements that are coming in Salesforce CLI this year. And now back to our regular schedule. 
 
