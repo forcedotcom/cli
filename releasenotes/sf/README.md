@@ -21,9 +21,46 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.62.0 (Jan 25, 2023) [stable-rc]
+## 1.63.0 (Feb 1, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* NEW: We continue to improve the usability of existing `sfdx` commands so they work like the `sf` commands. We're doing this work plugin by plugin. As a result of this work, when a Salesforce CLI release includes an updated plugin, you can execute the plugin's commands in both `sfdx` AND `sf`. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. 
+
+   This week's release includes updated [plugin-packaging](https://github.com/salesforcecli/plugin-packaging) and [plugin-user](https://github.com/salesforcecli/plugin-user). Consequently, you can now run these existing `sfdx` commands in `sf`:
+
+    * `sf org assign permset` : Assign a permission set to one or more users of a scratch org.                       
+    * `sf org assign permsetlicense` : Assign a permission set license to one or more users of a scratch org.                
+    * `sf org create user` : Create a user for a scratch org.                          
+    * `sf org display user` : Display information about a Salesforce user.                         
+    * `sf org generate password` : Generate a random password for scratch org users.                    
+    * `sf org list users` : List all locally-authenticated users of an org.                  
+    * `sf package1 version create` : Create a first-generation package version in the release org.
+    * `sf package1 version create get` : Retrieve the status of a package version creation request. 
+    * `sf package1 version display` : Display details about a first-generation package version.
+    * `sf package1 version list` : List package versions for the specified first-generation package or for the org.
+    * `sf package create`: Create a package.
+    * `sf package delete` : Delete a package.
+    * `sf package install`: Install a version of a package in the target org.
+    * `sf package install report` : Retrieve the status of a package installation request.
+    * `sf package installed list` : List the org’s installed packages.
+    * `sf package list` : List all packages in the Dev Hub org.
+    * `sf package uninstall` : Uninstall a second-generation package from the target org.
+    * `sf package uninstall report` : Retrieve the status of a package uninstall request.
+    * `sf package update` : Update package details.
+    * `sf package version create` : Create a package version in the Dev Hub org.
+    * `sf package version create list` : List package version creation requests.
+    * `sf package version create report` : Retrieve details about a package version creation request.
+    * `sf package version delete` : Delete a package version.
+    * `sf package version displayancestry` : Display the ancestry tree for a 2GP managed package version.
+    * `sf package version list` : List all package versions in the Dev Hub org.
+    * `sf package version promote` : Promote a package version to released.
+    * `sf package version report` : Retrieve details about a package version in the Dev Hub org.
+    * `sf package version update` : Update a package version.
+
+    As always, run the commands with `--help` to see the list of flags, examples, and usage information. We'll be releasing other updated plugins over the next weeks. Enjoy!
+
+## 1.62.0 (Jan 25, 2023) [stable]
 
 * NEW: We continue to improve the usability of existing `sfdx` commands so they work like the `sf` commands. We're doing this work plugin by plugin. As a result of this work, when a Salesforce CLI release includes an updated plugin, you can execute the plugin's commands in both `sfdx` AND `sf`. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. 
 
@@ -48,7 +85,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * By default, if you specify the `--json` flag for `sf metadata deploy`, the JSON output includes a `replacements` property that lists the affected files and the string that was replaced. Specify the `--concise` flag to omit this information.
     * To view string replacement information in the `sf metadata deploy` human-readable output, specify `--verbose`.
 
-## 1.61.1 (Jan 18, 2023) [stable]
+## 1.61.1 (Jan 18, 2023)
 
 * NEW: We continue to improve the usability of existing `sfdx` commands so they work like the `sf` commands. We're doing this work plugin by plugin. As a result of this work, when a Salesforce CLI release includes an updated plugin, you can execute the plugin's commands in both `sfdx` AND `sf`. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. 
 
