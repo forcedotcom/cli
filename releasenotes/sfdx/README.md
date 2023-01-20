@@ -31,6 +31,46 @@ ANNOUNCEMENT: Do you use the `force:apex:execute` command? If so, read [this pos
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
+* NEW: We continue to improve the usability of existing `sfdx` commands, such as more intuitive flag names and using spaces as separators, similar to how `sf` works. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. We're doing this work plugin by plugin. This week's release includes updated[plugin-packaging](https://github.com/salesforcecli/plugin-packaging) and [plugin-user](https://github.com/salesforcecli/plugin-user). Don't worry, the `sfdx` commands and their flags still work _exactly_ the same as before! But give the new style a try -- we think you'll like it.
+
+    These are the new command names. For each command, you can still use colons instead of spaces, such as `org:create:user`. 
+    
+    |Existing Command Name|New Command Name|
+    |-----------------------|---------|
+    |`force:user:create`|`org create user`|
+    |`force:user:display`|`org display user`|
+    |`force:user:list`|`org list users`|
+    |`force:user:password:generate`|`org generate password`|
+    |`force:user:permset:generate`|`org assign permset`|
+    |`force:user:permsetlicense:generate`|`org assign permsetlicense`|
+    |`force:package1:version:create`|`package1 version create`|
+    |`force:package1:version:create:get`|`package1 version create get`|
+    |`force:package1:version:display`|`package1 version display`|
+    |`force:package1:version:list`|`package1 version list`|
+    |`force:package:create`|`package create`|
+    |`force:package:delete`|`package delete`|
+    |`force:package:install`|`package install`|
+    |`force:package:install:report`|`package install report`|
+    |`force:package:installed:list`|`package installed list`|
+    |`force:package:list`|`package list`|
+    |`force:package:uninstall`|`package uninstall`|
+    |`force:package:uninstall:report`|`package uninstall report`|
+    |`force:package:update`|`package update`|
+    |`force:package:version:create`|`package version create`|
+    |`force:package:version:create:list`|`package version create list`|
+    |`force:package:version:create:report`|`package version create report`|
+    |`force:package:version:delete`|`package version delete`|
+    |`force:package:version:displayancestry`|`package version displayancestry`|
+    |`force:package:version:list`|`package version list`|
+    |`force:package:version:promote`|`package version promote`|
+    |`force:package:version:report`|`package version report`|
+    |`force:package:version:update`|`package version update`|
+
+
+## 7.185.0 (Jan 26, 2023) [stable]
+
+ANNOUNCEMENT: Do you use the `force:apex:execute` command? If so, read [this post](https://github.com/forcedotcom/cli/issues/1889) that describes a small breaking change we'll be making soon with the goal of improving the command. 
+
 * NEW: We continue to improve the usability of existing `sfdx` commands, such as more intuitive flag names and using spaces as separators, similar to how `sf` works. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. We're doing this work plugin by plugin. This week's release includes updated [plugin-signups](https://github.com/salesforcecli/plugin-signups). Don't worry, the `sfdx` commands and their flags still work _exactly_ the same as before! But give the new style a try -- we think you'll like it.
 
     These are the new command names. For each command, you can still use colons instead of spaces, such as `org:create:shape`. 
@@ -87,7 +127,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
 * FIX: You can now correctly execute `force:package:version:create` when the org definition file specified by the `--definitionfile` flag uses the `language` option to specify a default language. (plugin-packaging PR [#218](https://github.com/salesforcecli/plugin-packaging/pull/218))
 
-## 7.184.2 (Jan 19, 2023) [stable]
+## 7.184.2 (Jan 19, 2023)
 
 * NEW: We continue to improve the usability of existing `sfdx` commands, such as more intuitive flag names and using spaces as separators, similar to how `sf` works. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. We're doing this work plugin by plugin. This week's release includes updated [plugin-data](https://github.com/salesforcecli/plugin-data), [plugin-community](https://github.com/salesforcecli/plugin-community), and [plugin-custom-metadata](https://github.com/salesforcecli/plugin-custom-metadata). Don't worry, the `sfdx` commands and their flags still work _exactly_ the same as before! But give the new style a try -- we think you'll like it.
 
