@@ -25,6 +25,8 @@ Additional documentation:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* NEW: We now install some plugins just when you need them, rather than include them automatically in a Salesforce CLI release. Let's use the [updated]((https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli)) [plugin-packaging](https://github.com/salesforcecli/plugin-packaging) as an example. This plugin isn't included in `sf` by default. Instead, when you first run one of its commands, such as `sf package version create`, Salesforce CLI installs the latest released version of the plugin. The installation happens automatically, although we display a little message so you know what's going on. Just in time magic!
+
 * NEW: We continue to improve the usability of existing `sfdx` commands so they work like the `sf` commands. We're doing this work plugin by plugin. As a result of this work, when a Salesforce CLI release includes an updated plugin, you can execute the plugin's commands in both `sfdx` AND `sf`. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. 
 
    This week's release includes the updated [plugin-user](https://github.com/salesforcecli/plugin-user). Consequently, you can now run these existing `sfdx` commands in `sf`:
@@ -36,7 +38,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `sf org generate password` : Generate a random password for scratch org users.                    
     * `sf org list users` : List all locally-authenticated users of an org. 
     
-    We also updated [plugin-packaging](https://github.com/salesforcecli/plugin-packaging). However, because not all of you use the packaging commands regularly, we're doing something new: just-in-time plugin installation. Salesforce CLI doesn't include `plugin-packaging` by default, but it _knows_ about it. The first time you run one of the `sf package1` or `sf package` commands, the CLI first installs the latest released version of the plugin, and then runs the command. At that point, you can run these existing `sfdx` commands in `sf`:
+    We also updated [plugin-packaging](https://github.com/salesforcecli/plugin-packaging). However, because not all of you use the packaging commands regularly, we're doing something new: just-in-time plugin installation, as described in the previous release note. Salesforce CLI doesn't include `plugin-packaging` by default, but it _knows_ about it. The first time you run one of the `sf package1` or `sf package` commands, the CLI first installs the latest released version of the plugin, and then runs the command. At that point, you can run these existing `sfdx` commands in `sf`:
     
     * `sf package1 version create` : Create a first-generation package version in the release org.
     * `sf package1 version create get` : Retrieve the status of a package version creation request. 
