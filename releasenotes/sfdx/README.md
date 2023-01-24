@@ -66,6 +66,77 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |`force:package:version:report`|`package version report`|
     |`force:package:version:update`|`package version update`|
 
+    These are the new flag names for the `force:package1:*` commands. If an existing flag name isn't listed in the table, it has the same name in the new command name.
+
+    |Existing Flag Name|New Flag Name|Affected Existing Commands|
+    |---|---|---|
+    |`--apiversion`|`--api-version`|All `force:package1:*` commands|
+    |`--installationkey`|`--installation-key` | `force:package1:version:create`|
+    |`--managedrelease`|`--managed-release` | `force:package1:version:create`|
+    |`--packageid`|`--package-id` | `force:package1:version:create`, `force:package1:version:list`|
+    |`--packageversionid`|`--package-version-id` | `force:package1:version:display`|
+    |`--postinstallurl`|`--post-install-url` | `force:package1:version:create`|
+    |`--releasenotesurl`|`--release-notes-url` | `force:package1:version:create`|
+    |`--requestid`|`--request-id` | `force:package1:version:create:get`|
+    |`--targetusername`|`--target-org`, with new short name `-o` | `force:package1:version:create`, `force:package1:create:get`, `force:package1:display`, `force:package1:list`|
+
+    These are the new flag names for the `force:package:*` commands. If an existing flag name isn't listed in the table, it has the same name in the new command name.
+
+    |Existing Flag Name|New Flag Name|Affected Existing Commands|
+    |---|---|---|
+    |`--apexcompile`|`--apex-compile`|`force:package:install`|
+    |`--codecoverage`|`--code-coverage`|`force:package:version:create`|
+    |`--createdlastdays`|`--created-last-days`|`force:package:version:create:list`, `force:package:version:list`|
+    |`--definitionfile`|`--definition-file`|`force:package:version:create`|
+    |`--dotcode`|`--dot-code`|`force:package:version:displayancestry`|
+    |`--errornotificationusername`|`--error-notification-username`|`force:package:create`, `force:package:update`|
+    |`--installationkey`|`--installation-key`|`force:package:install`, `force:package:version:create`, `force:package:version:update`|
+    |`--installationkeybypass`|`--installation-key-bypass`|`force:package:version:create`|
+    |`--modifiedlastdays`|`--modified-last-days`|`force:package:version:list`|
+    |`--nonamespace`|`--no-namespace`|`force:package:create`|
+    |`--noprompt`|`--no-prompt`|`force:package:delete`, `force:package:install`, `force:package:version:delete`, `force:package:version:promote`|
+    |`--orderby`|`--order-by`|`force:package:version:list`|
+    |`--orgdependent`|`--org-dependent`|`force:package:create`|
+    |`--packagecreaterequestid`|`--package-create-request-id`|`force:package:version:create:report`|
+    |`--packagetype`|`--package-type`|`force:package:create`|
+    |`--postinstallscript`|`--post-install-script`|`force:package:version:create`|
+    |`--postinstallurl`|`--post-install-url`|`force:package:version:create`|
+    |`--publishwait`|`--publish-wait`|`force:package:install`|
+    |`--releasenotesurl`|`--releasenotes-url`|`force:package:version:create`|
+    |`--requestid`|`--request-id`|`force:package:install:report`, `force:package:uninstall:report`|
+    |`--securitytype`|`--security-type`|`force:package:install`|
+    |`--skipancestorcheck`|`--skip-ancestor-check`|`force:package:version:create`|
+    |`--skipvalidation`|`--skip-validation`|`force:package:version:create`|
+    |`--targetdevhubusername`|`--target-hub-org`|`force:package:create`, `force:package:delete`, `force:package:list`, `force:package:update`, `force:package:version:create`, `force:package:version:create:list`, `force:package:version:create:report`, `force:package:version:delete`, `force:package:version:displayancestry`, `force:package:version:list`, `force:package:version:promote`, `force:package:version:report`, `force:package:version:update`|
+    |`--targetusername`|`--target-org`, with new short name `-o` | `force:package:install`, `force:package:install:report`, `force:package:installed:list`, `force:package:uninstall`, `force:package:uninstall:report`|
+    |`--uninstallscript`|`--uninstall-script`|`force:package:version:create`|
+    |`--upgradetype`|`--upgrade-type`|`force:package:install`|
+    |`--versiondescription`|`--version-description`|`force:package:version:create`, `force:package:version:update`|
+    |`--versionname`|`--version-name`|`force:package:version:create`, `force:package:version:update`|
+    |`--versionnumber`|`--version-number`|`force:package:version:create`|
+
+    These flags are deprecated and have no effect.
+
+    |Existing Command|Deprecated Flags|
+    |---|---|
+    |All commands|`--loglevel`|
+
+    We also updated the `--help` for each command to use the new command and flag names, to gently encourage you to start switching over to the new style. Fun tip: use the `-h` flag to get a condensed view of the help, for when you don't need long descriptions and examples. 
+    
+    Let's look at an example, such as this command (IDs truncated for security):
+    
+    ```bash
+    sfdx force:package:version:create --package "Your Package Alias" --installationkey password123 --skipvalidation --targetdevhubusername devhub@example.com
+    ```
+    
+    You can now run it this way using the `sf` style:
+    
+    ```bash
+    sfdx package version create --package "Your Package Alias" --installation-key password123 --skip-validation --target-hub-org devhub@example.com
+    ```
+    
+    Finally, just in case we weren't clear, the existing commands work exactly as before! But give this new stuff a try, it's pretty cool.
+
 
 ## 7.185.0 (Jan 26, 2023) [stable]
 
