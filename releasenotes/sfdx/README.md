@@ -31,7 +31,7 @@ ANNOUNCEMENT: Do you use the `force:apex:execute` command? If so, read [this pos
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
-* NEW: We continue to improve the usability of existing `sfdx` commands, such as more intuitive flag names and using spaces as separators, similar to how `sf` works. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. We're doing this work plugin by plugin. This week's release includes updated[plugin-packaging](https://github.com/salesforcecli/plugin-packaging) and [plugin-user](https://github.com/salesforcecli/plugin-user). Don't worry, the `sfdx` commands and their flags still work _exactly_ the same as before! But give the new style a try -- we think you'll like it.
+* NEW: We continue to improve the usability of existing `sfdx` commands, such as more intuitive flag names and using spaces as separators, similar to how `sf` works. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. We're doing this work plugin by plugin. This week's release includes updated [plugin-packaging](https://github.com/salesforcecli/plugin-packaging) and [plugin-user](https://github.com/salesforcecli/plugin-user). Don't worry, the `sfdx` commands and their flags still work the same as before! But give the new style a try -- we think you'll like it.
 
     These are the new command names. For each command, you can still use colons instead of spaces, such as `org:create:user`. 
     
@@ -115,11 +115,24 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |`--versionname`|`--version-name`|`force:package:version:create`, `force:package:version:update`|
     |`--versionnumber`|`--version-number`|`force:package:version:create`|
 
+    These are the new flag names for the `force:user:*` commands. If an existing flag name isn't listed in the table, it has the same name in the new command name.
+    
+    |Existing Flag Name|New Flag Name|Affected Existing Commands|
+    |---|---|---|
+    |`--apiversion`|`--api-version`|All `force:user:*` commands|
+    |`--targetusername`|`--target-org`, with new short name `-o` | `force:user:permset:generate`, `force:user:permsetlicense:generate`, `force:user:create`, `force:user:display`, `force:user:password:generate`, `force:user:list`|
+    |`--onbehalfof`|`--on-behalf-of` , with new short name `-b`| `force:user:permset:generate`, `force:user:permsetlicense:generate`, `force:user:password:generate`|
+    |`--permsetname`|`--name` | `force:user:permset:generate`|
+    |`--setalias`|`--set-alias` | `force:user:create`|
+    |`--definitionfile`|`--definition-file` | `force:user:create`|
+    |`--setuniqueusername`|`--set-unique-username` | `force:user:create`|
+    
     These flags are deprecated and have no effect.
 
     |Existing Command|Deprecated Flags|
     |---|---|
     |All commands|`--loglevel`|
+    |All `force:user:*` commands| `--targetdevhubusername`|
 
     We also updated the `--help` for each command to use the new command and flag names, to gently encourage you to start switching over to the new style. Fun tip: use the `-h` flag to get a condensed view of the help, for when you don't need long descriptions and examples. 
     
