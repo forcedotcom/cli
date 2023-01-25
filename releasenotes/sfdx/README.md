@@ -160,11 +160,13 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |`generate cmdt record`|`cmdt generate record`|
     |`generate cmdt records`|`cmdt generate records`|
     
-* FIX: When running `force:org:delete` to delete a scratch org, all local source tracking files associated with the deleted scratch org are cleaned up correctly. (GH issue [#1879](https://github.com/forcedotcom/cli/issues/1879), sfdx-core PR [#754](https://github.com/forcedotcom/sfdx-core/pull/754))
+* FIX: When running `force:org:delete` to delete a scratch org, all local source tracking files associated with the deleted scratch org are cleaned up correctly. (GitHub issue [#1879](https://github.com/forcedotcom/cli/issues/1879), sfdx-core PR [#754](https://github.com/forcedotcom/sfdx-core/pull/754))
 
-* FIX: When deploying multiple package directories sequentially (by including `"pushPackageDirectoriesSequentially" : true` in your `sfdx-project.json` file), the deploy command no longer displays duplicate log entries. (GH issue [#1879](https://github.com/forcedotcom/cli/issues/1879), SDR PR [#825}(https://github.com/forcedotcom/source-deploy-retrieve/pull/825), plugin-source PR [#698](https://github.com/salesforcecli/plugin-source/pull/698))
+* FIX: When deploying multiple package directories sequentially (by including `"pushPackageDirectoriesSequentially" : true` in your `sfdx-project.json` file), the deploy command no longer displays duplicate log entries. (GitHub issue [#1879](https://github.com/forcedotcom/cli/issues/1879), SDR PR [#825}(https://github.com/forcedotcom/source-deploy-retrieve/pull/825), plugin-source PR [#698](https://github.com/salesforcecli/plugin-source/pull/698))
 
-* FIX: The `force:source:manifest:generate --fromorg` command now correctly includes the StandardValueSets metadata type if it's present in your org. (GH issue [#1877](https://github.com/forcedotcom/cli/issues/1877), SDR PR [#824](https://github.com/forcedotcom/source-deploy-retrieve/pull/824))
+* FIX: The `force:source:manifest:generate --fromorg` command now correctly includes the StandardValueSets metadata type if it's present in your org. (GitHub issue [#1877](https://github.com/forcedotcom/cli/issues/1877), SDR PR [#824](https://github.com/forcedotcom/source-deploy-retrieve/pull/824))
+
+* FIX: The `force:cmdt:record:create` command is now working correctly and no longer returns `Error: Unexpected arguments`. (GitHub issue [#1893](https://github.com/forcedotcom/cli/issues/1893), plugin-custom-metadata PR [#380](https://github.com/salesforcecli/plugin-custom-metadata/pull/380))
 
 ## 7.185.0 (Jan 26, 2023) [stable]
 
