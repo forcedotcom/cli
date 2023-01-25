@@ -150,6 +150,15 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
     Finally, just in case we weren't clear, the existing commands work exactly as before! But give this new stuff a try, it's pretty cool.
 
+* CHANGE: Remember how we [updated the `force:cmdt` commands](./README.md#71842-jan-19-2023) to be in the style of `sf`?  We changed their official new names: 
+
+    | Existing Command Name | New Command Name|
+    |---|---|
+    |`generate cmdt object`|`cmdt generate object`|
+    |`generate cmdt field `|`cmdt generate field `|
+    |`generate cmdt fromorg`|`cmdt generate fromorg`|
+    |`generate cmdt record`|`cmdt generate record`|
+    |`generate cmdt records`|`cmdt generate records`|
 
 ## 7.185.0 (Jan 26, 2023) [stable]
 
