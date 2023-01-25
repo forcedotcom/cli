@@ -21,7 +21,7 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.63.0 (Feb 1, 2023) [stable-rc]
+## 1.63.1 (Feb 1, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
@@ -64,6 +64,24 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `sf package version update` : Update a package version.
 
     As always, run the commands with `--help` to see the list of flags, examples, and usage information. We'll be releasing other updated plugins over the next weeks. Enjoy!
+    
+* CHANGE: We changed the official names of these `sf` commands that we recently added:
+
+    | Old command name | New command name|
+    |---|---|
+    |`sf generate cmdt object`|`sf cmdt generate object`|
+    |`sf generate cmdt field `|`sf cmdt generate field `|
+    |`sf generate cmdt fromorg`|`sf cmdt generate fromorg`|
+    |`sf generate cmdt record`|`sf cmdt generate record`|
+    |`sf generate cmdt records`|`sf cmdt generate records`|
+    |`sf generate metadata field` |`sf schema generate field`|
+    |`sf generate metadata platformevent` |`sf schema generate platformevent`|
+    |`sf generate metadata sobject` |`sf schema generate sobject`|
+    |`sf generate metadata tab` |`sf schema generate tab`|  
+    
+* FIX: When running `sf env delete scratch|sandbox` to delete a scratch or sandbox org, all local source tracking files associated with the deleted org are cleaned up correctly. (GitHub issue [#1879](https://github.com/forcedotcom/cli/issues/1879), sfdx-core PR [#754](https://github.com/forcedotcom/sfdx-core/pull/754))
+
+* FIX: The `cmdt generate record` command is now working correctly and no longer returns `Error: Unexpected arguments`. (GitHub issue [#1893](https://github.com/forcedotcom/cli/issues/1893), plugin-custom-metadata PR [#380](https://github.com/salesforcecli/plugin-custom-metadata/pull/380))
 
 ## 1.62.2 (Jan 25, 2023) [stable]
 
