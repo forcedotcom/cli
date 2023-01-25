@@ -78,6 +78,12 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |`sf generate metadata platformevent` |`sf schema generate platformevent`|
     |`sf generate metadata sobject` |`sf schema generate sobject`|
     |`sf generate metadata tab` |`sf schema generate tab`|  
+    
+* FIX: When running `sf env delete scratch|sandbox` to delete a scratch or sandbox org, all local source tracking files associated with the deleted org are cleaned up correctly. (GitHub issue [#1879](https://github.com/forcedotcom/cli/issues/1879), sfdx-core PR [#754](https://github.com/forcedotcom/sfdx-core/pull/754))
+
+* FIX: When deploying multiple package directories sequentially (by including `"pushPackageDirectoriesSequentially" : true` in your `sfdx-project.json` file), the deploy command no longer displays duplicate log entries. (GitHub issue [#1879](https://github.com/forcedotcom/cli/issues/1879), SDR PR [#825}(https://github.com/forcedotcom/source-deploy-retrieve/pull/825), plugin-source PR [#698](https://github.com/salesforcecli/plugin-source/pull/698))
+
+* FIX: The `cmdt generate record` command is now working correctly and no longer returns `Error: Unexpected arguments`. (GitHub issue [#1893](https://github.com/forcedotcom/cli/issues/1893), plugin-custom-metadata PR [#380](https://github.com/salesforcecli/plugin-custom-metadata/pull/380))
 
 ## 1.62.2 (Jan 25, 2023) [stable]
 
