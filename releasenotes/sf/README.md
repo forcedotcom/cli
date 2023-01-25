@@ -64,6 +64,20 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `sf package version update` : Update a package version.
 
     As always, run the commands with `--help` to see the list of flags, examples, and usage information. We'll be releasing other updated plugins over the next weeks. Enjoy!
+    
+* CHANGE: We changed the official names of these `sf` commands that we recently added:
+
+    | Old command name | New command name|
+    |---|---|
+    |`sf generate cmdt object`|`sf cmdt generate object`|
+    |`sf generate cmdt field `|`sf cmdt generate field `|
+    |`sf generate cmdt fromorg`|`sf cmdt generate fromorg`|
+    |`sf generate cmdt record`|`sf cmdt generate record`|
+    |`sf generate cmdt records`|`sf cmdt generate records`|
+    |`sf generate metadata field` |`sf schema generate field`|
+    |`sf generate metadata platformevent` |`sf schema generate platformevent`|
+    |`sf generate metadata sobject` |`sf schema generate sobject`|
+    |`sf generate metadata tab` |`sf schema generate tab`|  
 
 ## 1.62.2 (Jan 25, 2023) [stable]
 
