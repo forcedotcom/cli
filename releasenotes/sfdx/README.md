@@ -25,11 +25,152 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.185.0 (Jan 26, 2023) [stable-rc]
+## 7.186.0 (Feb 2, 2023) [stable-rc]
 
 ANNOUNCEMENT: Do you use the `force:apex:execute` command? If so, read [this post](https://github.com/forcedotcom/cli/issues/1889) that describes a small breaking change we'll be making soon with the goal of improving the command. 
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+* NEW: We continue to improve the usability of existing `sfdx` commands, such as more intuitive flag names and using spaces as separators, similar to how `sf` works. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. We're doing this work plugin by plugin. This week's release includes updated [plugin-packaging](https://github.com/salesforcecli/plugin-packaging) and [plugin-user](https://github.com/salesforcecli/plugin-user). Don't worry, the `sfdx` commands and their flags still work the same as before! But give the new style a try -- we think you'll like it.
+
+    These are the new command names. For each command, you can still use colons instead of spaces, such as `org:create:user`. 
+    
+    |Existing Command Name|New Command Name|
+    |-----------------------|---------|
+    |`force:user:create`|`org create user`|
+    |`force:user:display`|`org display user`|
+    |`force:user:list`|`org list users`|
+    |`force:user:password:generate`|`org generate password`|
+    |`force:user:permset:generate`|`org assign permset`|
+    |`force:user:permsetlicense:generate`|`org assign permsetlicense`|
+    |`force:package1:version:create`|`package1 version create`|
+    |`force:package1:version:create:get`|`package1 version create get`|
+    |`force:package1:version:display`|`package1 version display`|
+    |`force:package1:version:list`|`package1 version list`|
+    |`force:package:create`|`package create`|
+    |`force:package:delete`|`package delete`|
+    |`force:package:install`|`package install`|
+    |`force:package:install:report`|`package install report`|
+    |`force:package:installed:list`|`package installed list`|
+    |`force:package:list`|`package list`|
+    |`force:package:uninstall`|`package uninstall`|
+    |`force:package:uninstall:report`|`package uninstall report`|
+    |`force:package:update`|`package update`|
+    |`force:package:version:create`|`package version create`|
+    |`force:package:version:create:list`|`package version create list`|
+    |`force:package:version:create:report`|`package version create report`|
+    |`force:package:version:delete`|`package version delete`|
+    |`force:package:version:displayancestry`|`package version displayancestry`|
+    |`force:package:version:list`|`package version list`|
+    |`force:package:version:promote`|`package version promote`|
+    |`force:package:version:report`|`package version report`|
+    |`force:package:version:update`|`package version update`|
+
+    These are the new flag names for the `force:package1:*` commands. If an existing flag name isn't listed in the table, it has the same name in the new command name.
+
+    |Existing Flag Name|New Flag Name|Affected Existing Commands|
+    |---|---|---|
+    |`--apiversion`|`--api-version`|All `force:package1:*` commands|
+    |`--installationkey`|`--installation-key` | `force:package1:version:create`|
+    |`--managedrelease`|`--managed-release` | `force:package1:version:create`|
+    |`--packageid`|`--package-id` | `force:package1:version:create`, `force:package1:version:list`|
+    |`--packageversionid`|`--package-version-id` | `force:package1:version:display`|
+    |`--postinstallurl`|`--post-install-url` | `force:package1:version:create`|
+    |`--releasenotesurl`|`--release-notes-url` | `force:package1:version:create`|
+    |`--requestid`|`--request-id` | `force:package1:version:create:get`|
+    |`--targetusername`|`--target-org`, with new short name `-o` | `force:package1:version:create`, `force:package1:create:get`, `force:package1:display`, `force:package1:list`|
+
+    These are the new flag names for the `force:package:*` commands. If an existing flag name isn't listed in the table, it has the same name in the new command name.
+
+    |Existing Flag Name|New Flag Name|Affected Existing Commands|
+    |---|---|---|
+    |`--apexcompile`|`--apex-compile`|`force:package:install`|
+    |`--codecoverage`|`--code-coverage`|`force:package:version:create`|
+    |`--createdlastdays`|`--created-last-days`|`force:package:version:create:list`, `force:package:version:list`|
+    |`--definitionfile`|`--definition-file`|`force:package:version:create`|
+    |`--dotcode`|`--dot-code`|`force:package:version:displayancestry`|
+    |`--errornotificationusername`|`--error-notification-username`|`force:package:create`, `force:package:update`|
+    |`--installationkey`|`--installation-key`|`force:package:install`, `force:package:version:create`, `force:package:version:update`|
+    |`--installationkeybypass`|`--installation-key-bypass`|`force:package:version:create`|
+    |`--modifiedlastdays`|`--modified-last-days`|`force:package:version:list`|
+    |`--nonamespace`|`--no-namespace`|`force:package:create`|
+    |`--noprompt`|`--no-prompt`|`force:package:delete`, `force:package:install`, `force:package:version:delete`, `force:package:version:promote`|
+    |`--orderby`|`--order-by`|`force:package:version:list`|
+    |`--orgdependent`|`--org-dependent`|`force:package:create`|
+    |`--packagecreaterequestid`|`--package-create-request-id`|`force:package:version:create:report`|
+    |`--packagetype`|`--package-type`|`force:package:create`|
+    |`--postinstallscript`|`--post-install-script`|`force:package:version:create`|
+    |`--postinstallurl`|`--post-install-url`|`force:package:version:create`|
+    |`--publishwait`|`--publish-wait`|`force:package:install`|
+    |`--releasenotesurl`|`--releasenotes-url`|`force:package:version:create`|
+    |`--requestid`|`--request-id`|`force:package:install:report`, `force:package:uninstall:report`|
+    |`--securitytype`|`--security-type`|`force:package:install`|
+    |`--skipancestorcheck`|`--skip-ancestor-check`|`force:package:version:create`|
+    |`--skipvalidation`|`--skip-validation`|`force:package:version:create`|
+    |`--targetdevhubusername`|`--target-hub-org`|`force:package:create`, `force:package:delete`, `force:package:list`, `force:package:update`, `force:package:version:create`, `force:package:version:create:list`, `force:package:version:create:report`, `force:package:version:delete`, `force:package:version:displayancestry`, `force:package:version:list`, `force:package:version:promote`, `force:package:version:report`, `force:package:version:update`|
+    |`--targetusername`|`--target-org`, with new short name `-o` | `force:package:install`, `force:package:install:report`, `force:package:installed:list`, `force:package:uninstall`, `force:package:uninstall:report`|
+    |`--uninstallscript`|`--uninstall-script`|`force:package:version:create`|
+    |`--upgradetype`|`--upgrade-type`|`force:package:install`|
+    |`--versiondescription`|`--version-description`|`force:package:version:create`, `force:package:version:update`|
+    |`--versionname`|`--version-name`|`force:package:version:create`, `force:package:version:update`|
+    |`--versionnumber`|`--version-number`|`force:package:version:create`|
+
+    These are the new flag names for the `force:user:*` commands. If an existing flag name isn't listed in the table, it has the same name in the new command name.
+    
+    |Existing Flag Name|New Flag Name|Affected Existing Commands|
+    |---|---|---|
+    |`--apiversion`|`--api-version`|All `force:user:*` commands|
+    |`--targetusername`|`--target-org`, with new short name `-o` | `force:user:permset:generate`, `force:user:permsetlicense:generate`, `force:user:create`, `force:user:display`, `force:user:password:generate`, `force:user:list`|
+    |`--onbehalfof`|`--on-behalf-of` , with new short name `-b`| `force:user:permset:generate`, `force:user:permsetlicense:generate`, `force:user:password:generate`|
+    |`--permsetname`|`--name` | `force:user:permset:generate`|
+    |`--setalias`|`--set-alias` | `force:user:create`|
+    |`--definitionfile`|`--definition-file` | `force:user:create`|
+    |`--setuniqueusername`|`--set-unique-username` | `force:user:create`|
+    
+    These flags are deprecated and have no effect.
+
+    |Existing Command|Deprecated Flags|
+    |---|---|
+    |All commands|`--loglevel`|
+    |All `force:user:*` commands| `--targetdevhubusername`|
+
+    We also updated the `--help` for each command to use the new command and flag names, to gently encourage you to start switching over to the new style. Fun tip: use the `-h` flag to get a condensed view of the help, for when you don't need long descriptions and examples. 
+    
+    Let's look at an example, such as this command (IDs truncated for security):
+    
+    ```bash
+    sfdx force:package:version:create --package "Your Package Alias" --installationkey password123 --skipvalidation --targetdevhubusername devhub@example.com
+    ```
+    
+    You can now run it this way using the `sf` style:
+    
+    ```bash
+    sfdx package version create --package "Your Package Alias" --installation-key password123 --skip-validation --target-hub-org devhub@example.com
+    ```
+    
+    Finally, just in case we weren't clear, the existing commands work exactly as before! But give this new stuff a try, it's pretty cool.
+
+* CHANGE: Remember how we [updated the `force:cmdt` commands](./README.md#71842-jan-19-2023) to be in the style of `sf`?  We changed their official new names: 
+
+    | Existing Command Name | New Command Name|
+    |---|---|
+    |`generate cmdt object`|`cmdt generate object`|
+    |`generate cmdt field `|`cmdt generate field `|
+    |`generate cmdt fromorg`|`cmdt generate fromorg`|
+    |`generate cmdt record`|`cmdt generate record`|
+    |`generate cmdt records`|`cmdt generate records`|
+    
+* FIX: When running `force:org:delete` to delete a scratch or sandbox org, all local source tracking files associated with the deleted org are cleaned up correctly. (GitHub issue [#1879](https://github.com/forcedotcom/cli/issues/1879), sfdx-core PR [#754](https://github.com/forcedotcom/sfdx-core/pull/754))
+
+* FIX: When deploying multiple package directories sequentially (by including `"pushPackageDirectoriesSequentially" : true` in your `sfdx-project.json` file), the deploy command no longer displays duplicate log entries. (GitHub issue [#1879](https://github.com/forcedotcom/cli/issues/1879), SDR PR [#825}(https://github.com/forcedotcom/source-deploy-retrieve/pull/825), plugin-source PR [#698](https://github.com/salesforcecli/plugin-source/pull/698))
+
+* FIX: The `force:source:manifest:generate --fromorg` command now correctly includes the StandardValueSets metadata type if it's present in your org. (GitHub issue [#1877](https://github.com/forcedotcom/cli/issues/1877), SDR PR [#824](https://github.com/forcedotcom/source-deploy-retrieve/pull/824))
+
+* FIX: The `force:cmdt:record:create` command is now working correctly and no longer returns `Error: Unexpected arguments`. (GitHub issue [#1893](https://github.com/forcedotcom/cli/issues/1893), plugin-custom-metadata PR [#380](https://github.com/salesforcecli/plugin-custom-metadata/pull/380))
+
+## 7.185.0 (Jan 26, 2023) [stable]
+
+ANNOUNCEMENT: Do you use the `force:apex:execute` command? If so, read [this post](https://github.com/forcedotcom/cli/issues/1889) that describes a small breaking change we'll be making soon with the goal of improving the command. 
 
 * NEW: We continue to improve the usability of existing `sfdx` commands, such as more intuitive flag names and using spaces as separators, similar to how `sf` works. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. We're doing this work plugin by plugin. This week's release includes updated [plugin-signups](https://github.com/salesforcecli/plugin-signups). Don't worry, the `sfdx` commands and their flags still work _exactly_ the same as before! But give the new style a try -- we think you'll like it.
 
@@ -87,7 +228,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
 * FIX: You can now correctly execute `force:package:version:create` when the org definition file specified by the `--definitionfile` flag uses the `language` option to specify a default language. (plugin-packaging PR [#218](https://github.com/salesforcecli/plugin-packaging/pull/218))
 
-## 7.184.2 (Jan 19, 2023) [stable]
+## 7.184.2 (Jan 19, 2023)
 
 * NEW: We continue to improve the usability of existing `sfdx` commands, such as more intuitive flag names and using spaces as separators, similar to how `sf` works. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. We're doing this work plugin by plugin. This week's release includes updated [plugin-data](https://github.com/salesforcecli/plugin-data), [plugin-community](https://github.com/salesforcecli/plugin-community), and [plugin-custom-metadata](https://github.com/salesforcecli/plugin-custom-metadata). Don't worry, the `sfdx` commands and their flags still work _exactly_ the same as before! But give the new style a try -- we think you'll like it.
 
