@@ -41,7 +41,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |`force:org:list`|`org list`|
     |`force:org:display`|`org display`|
     
-    These are the deprecated commands, and the command you should use instead. For each command, you can still use colons instead of spaces, such as `org:create:sandbox`. 
+    These are the deprecated commands, along with the command you should use instead. For each command, you can still use colons instead of spaces, such as `org:create:sandbox`. 
     
     |Deprecated command|Use this command instead|
     |-----------------------|---------|
@@ -55,15 +55,22 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |Existing Flag Name|New Flag Name|Affected Existing Commands|
     |---|---|---|
     |`--apiversion`|`--api-version`|All commands|
-    |`--targetusername`|`--target-org`|All commands|
-    |`--targetdevhubusername`|`--target-dev-hub`|All commands|
+    |`--clientid`|`--client-id`|`force:org:create`|
+    |`--definitionfile`|`--definition-file`|`force:org:create`, `force:org:clone`|
+    |`--durationdays`|`--duration-days`|`force:org:create`|
+    |`--noancestors`|`--no-ancestors`|`force:org:create`|
+    |`--nonamespace`|`--no-namespace`|`force:org:create`|
     |`--noprompt`|`--no-prompt`|All commands|
+    |`--setalias`|`--alias`|`force:org:create`, `force:org:clone`|
+    |`--setdefaultusername`|`--set-default`|`force:org:clone`, `force:org:create`, `force:org:status`|
     |`--skipconnectionstatus`|`--skip-connection-status`|`force:org:list`|
+    |`--targetdevhubusername`|`--target-dev-hub`|All commands|
+    |`--targetusername`|`--target-org`|All commands|
     |`--urlonly`|`--url-only`|`force:org:open`|
 
     These flags are deprecated and have no effect.
 
-    |Existing Command|Deprecated Flags|
+    |Existing Command|Deprecated Flag|
     |---|---|
     |All commands|`--loglevel`|
     
