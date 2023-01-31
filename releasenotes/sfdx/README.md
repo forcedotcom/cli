@@ -31,8 +31,56 @@ ANNOUNCEMENT: Do you use the `force:apex:execute` command? If so, read [this pos
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
-TBD
+* NEW: We continue to [improve the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands. This week's release includes updated [plugin-org](https://github.com/salesforcecli/plugin-org). The existing `sfdx` commands and their flags still work the same as before, although we've deprecated some commands and flags. Here's a summary.
 
+    These are the new command names. For each command, you can still use colons instead of spaces, such as `org:open`. 
+    
+    |Existing Command Name|New Command Name|
+    |-----------------------|---------|
+    |`force:org:open`|`org open`|
+    |`force:org:list`|`org list`|
+    |`force:org:display`|`org display`|
+    
+    These are the deprecated commands, and the command you should use instead. For each command, you can still use colons instead of spaces, such as `org:create:sandbox`. 
+    
+    |Deprecated command|Use this command instead|
+    |-----------------------|---------|
+    |`force:org:create`|`org create sandbox` or `org create scratch`|
+    |`force:org:delete`|`org delete sandbox` or `org delete scratch`|
+    |`force:org:status`|`org resume sandbox`|
+    |`force:org:clone`|`org create sandbox`|
+
+    These are the new flag names for the `force:org:*` commands. If an existing flag name isn't listed in the table, it has the same name in the new command name.
+
+    |Existing Flag Name|New Flag Name|Affected Existing Commands|
+    |---|---|---|
+    |`--apiversion`|`--api-version`|All commands|
+    |`--targetusername`|`--target-org`|All commands|
+    |`--targetdevhubusername`|`--target-dev-hub`|All commands|
+    |`--noprompt`|`--no-prompt`|All commands|
+    |`--skipconnectionstatus`|`--skip-connection-status`|`force:org:list`|
+    |`--urlonly`|`--url-only`|`force:org:open`|
+
+    These flags are deprecated and have no effect.
+
+    |Existing Command|Deprecated Flags|
+    |---|---|
+    |All commands|`--loglevel`|
+    
+    We also updated the `--help` for each command to use the new command and flag names, to gently encourage you to start switching over to the new style. Fun tip: use the `-h` flag to get a condensed view of the help, for when you don't need long descriptions and examples. 
+    
+    Let's look at an example, such as this command:
+    
+    ```bash
+    sfdx force:org:create 
+    ```
+    
+    You can now run it this way using the `sf` style:
+    
+    ```bash
+    sfdx org create 
+    ```
+    
 ## 7.186.2 (Feb 2, 2023) [stable]
 
 ANNOUNCEMENT: Do you use the `force:apex:execute` command? If so, read [this post](https://github.com/forcedotcom/cli/issues/1889) that describes a small breaking change we'll be making soon with the goal of improving the command. 
