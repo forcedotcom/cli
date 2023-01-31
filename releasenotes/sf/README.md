@@ -21,7 +21,42 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.63.1 (Feb 1, 2023) [stable-rc]
+## 1.64.0 (Feb 8, 2023) [stable-rc]
+
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* NEW: We now install some plugins just when you need them, rather than include them automatically in a Salesforce CLI release. Let's use the [updated]((https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli)) [plugin-packaging](https://github.com/salesforcecli/plugin-packaging) as an example. This plugin isn't included in `sf` by default, but `sf` _knows_ about it. When you run one of its commands for the first time, such as `sf package version create`, Salesforce CLI installs the latest released version of the plugin and then runs the command. The installation happens automatically, although we display a little message so you know what's going on. From then on, run any of the commands contained in the plugin as usual. When you update Salesforce CLI with `sfdx update`, the plugin is also updated to its latest release. Just a little just-in-time magic!
+
+* NEW: We continue to improve the usability of existing `sfdx` commands so they work like the `sf` commands. We're doing this work plugin by plugin. As a result of this work, when a Salesforce CLI release includes an updated plugin, you can execute the plugin's commands in both `sfdx` AND `sf`. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. 
+
+    This week we're adding [plugin-packaging](https://github.com/salesforcecli/plugin-packaging) as a just-in-time plugin, because not all of you use the packaging commands regularly. See the previous release note about how this type of installation works. After Salesforce CLI installs the plugin, you can run these existing `sfdx` commands in `sf`:
+
+    * `sf package1 version create` : Create a first-generation package version in the release org.
+    * `sf package1 version create get` : Retrieve the status of a package version creation request. 
+    * `sf package1 version display` : Display details about a first-generation package version.
+    * `sf package1 version list` : List package versions for the specified first-generation package or for the org.
+    * `sf package create`: Create a package.
+    * `sf package delete` : Delete a package.
+    * `sf package install`: Install a version of a package in the target org.
+    * `sf package install report` : Retrieve the status of a package installation request.
+    * `sf package installed list` : List the org’s installed packages.
+    * `sf package list` : List all packages in the Dev Hub org.
+    * `sf package uninstall` : Uninstall a second-generation package from the target org.
+    * `sf package uninstall report` : Retrieve the status of a package uninstall request.
+    * `sf package update` : Update package details.
+    * `sf package version create` : Create a package version in the Dev Hub org.
+    * `sf package version create list` : List package version creation requests.
+    * `sf package version create report` : Retrieve details about a package version creation request.
+    * `sf package version delete` : Delete a package version.
+    * `sf package version displayancestry` : Display the ancestry tree for a 2GP managed package version.
+    * `sf package version list` : List all package versions in the Dev Hub org.
+    * `sf package version promote` : Promote a package version to released.
+    * `sf package version report` : Retrieve details about a package version in the Dev Hub org.
+    * `sf package version update` : Update a package version.
+
+    As always, run the commands with `--help` to see the list of flags, examples, and usage information. We'll be releasing other updated plugins over the next weeks. Enjoy!
+
+## 1.63.2 (Feb 1, 2023) [stable]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
@@ -56,7 +91,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `cmdt generate record` command is now working correctly and no longer returns `Error: Unexpected arguments`. (GitHub issue [#1893](https://github.com/forcedotcom/cli/issues/1893), plugin-custom-metadata PR [#380](https://github.com/salesforcecli/plugin-custom-metadata/pull/380))
 
-## 1.62.2 (Jan 25, 2023) [stable]
+## 1.62.2 (Jan 25, 2023)
 
 * NEW: We continue to improve the usability of existing `sfdx` commands so they work like the `sf` commands. We're doing this work plugin by plugin. As a result of this work, when a Salesforce CLI release includes an updated plugin, you can execute the plugin's commands in both `sfdx` AND `sf`. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. 
 
