@@ -25,7 +25,7 @@ Additional documentation:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* NEW: We now install some plugins just when you need them, rather than include them automatically in a Salesforce CLI release. Let's use the [updated]((https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli)) [plugin-packaging](https://github.com/salesforcecli/plugin-packaging) as an example. This plugin isn't included in `sf` by default, but `sf` _knows_ about it. When you run one of its commands for the first time, such as `sf package version create`, Salesforce CLI installs the latest released version of the plugin and then runs the command. The installation happens automatically, although we display a little message so you know what's going on. From then on, run any of the commands contained in the plugin as usual. When you update Salesforce CLI with `sfdx update`, the plugin is also updated to its latest release. Just a little just-in-time magic!
+* NEW: We now install some plugins just when you need them, rather than include them automatically in a Salesforce CLI release. Let's use the [updated]((https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli)) [plugin-packaging](https://github.com/salesforcecli/plugin-packaging) as an example. The plugin isn't included in `sf` by default, although `sf` _knows_ about it. When you run one of the plugin's commands for the first time, such as `sf package version create`, Salesforce CLI installs the latest released version of the plugin and then runs the command. The installation happens automatically, although we display a little message so you know what's going on. From then on, run any of the commands contained in the plugin as usual. When you update Salesforce CLI with `sfdx update`, the plugin is also updated to its latest release. Just a little just-in-time magic!
 
 * NEW: We continue to improve the usability of existing `sfdx` commands so they work like the `sf` commands. We're doing this work plugin by plugin. As a result of this work, when a Salesforce CLI release includes an updated plugin, you can execute the plugin's commands in both `sfdx` AND `sf`. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. 
 
@@ -55,6 +55,25 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `sf package version update` : Update a package version.
 
     As always, run the commands with `--help` to see the list of flags, examples, and usage information. We'll be releasing other updated plugins over the next weeks. Enjoy!
+    
+* CHANGE: As part of [this project](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli), we changed the official name of these existing `sf` commands: 
+
+    | Old command name | New command name|
+    |---|---|
+    |`sf env create sandbox`|`sf org create sandbox`|
+    |`sf env create scratch`|`sf org create scratch`|
+    |`sf env delete sandbox`|`sf org delete sandbox`|
+    |`sf env delete scratch`|`sf org delete scratch`|
+    |`sf env resume sandbox`|`sf org resume sandbox`|
+    |`sf env resume scratch`|`sf org resume scratch`|
+
+    We also brought over these org-specific `sfdx` commands:
+    
+    * `sf org display` : Display information about an org.
+    * `sf org list` : List all orgs you’ve created or authenticated to.
+    * `sf org open` : Open your default scratch org, or another specified org, in a browser.
+    
+    We recommand you use their `env` equivalents (`sf env display|list|open`) for Salesforce Functions. 
 
 ## 1.63.2 (Feb 1, 2023) [stable]
 
