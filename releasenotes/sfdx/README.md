@@ -31,7 +31,7 @@ ANNOUNCEMENT: Do you use the `force:apex:execute` command? If so, read [this pos
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
-* NEW: We continue to [improve the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands. This week's release includes updated [plugin-org](https://github.com/salesforcecli/plugin-org). The existing `sfdx` commands and their flags still work the same as before, although we've deprecated some commands and flags. Here's a summary.
+* NEW: We continue to [improve the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands. This week's release includes updated [plugin-org](https://github.com/salesforcecli/plugin-org). The existing `sfdx` commands and their flags still work the same as before, although we've deprecated some commands and flags and added new ones. Here's a summary.
 
     These are the new command names. For each command, you can still use colons instead of spaces, such as `org:open`. 
     
@@ -41,7 +41,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |`force:org:list`|`org list`|
     |`force:org:display`|`org display`|
     
-    These are the deprecated commands, along with the command you should use instead. For each command, you can still use colons instead of spaces, such as `org:create:sandbox`. 
+    These are the deprecated commands, along with the new commands you should use instead. For each command, you can still use colons instead of spaces, such as `org:create:sandbox`. 
     
     |Deprecated command|Use this command instead|
     |-----------------------|---------|
@@ -50,43 +50,69 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |`force:org:status`|`org resume sandbox`|
     |`force:org:clone`|`org create sandbox`|
 
-    These are the new flag names for the `force:org:*` commands. If an existing flag name isn't listed in the table, it has the same name in the new command name.
+    These are the new flag names for the `force:org:*` commands. If an existing flag name isn't listed in the table, it has the same name in the new command.
 
     |Existing Flag Name|New Flag Name|Affected Existing Commands|
     |---|---|---|
     |`--apiversion`|`--api-version`|All commands|
     |`--clientid`|`--client-id`|`force:org:create`|
     |`--definitionfile`|`--definition-file`|`force:org:create`, `force:org:clone`|
-    |`--durationdays`|`--duration-days`|`force:org:create`|
+    |`--durationdays`|`--duration-days`, with new short name `-y`|`force:org:create`|
     |`--noancestors`|`--no-ancestors`|`force:org:create`|
-    |`--nonamespace`|`--no-namespace`|`force:org:create`|
+    |`--nonamespace`|`--no-namespace`, with new short name `-m`|`force:org:create`|
     |`--noprompt`|`--no-prompt`|All commands|
     |`--setalias`|`--alias`|`force:org:create`, `force:org:clone`|
-    |`--setdefaultusername`|`--set-default`|`force:org:clone`, `force:org:create`, `force:org:status`|
+    |`--setdefaultusername`|`--set-default`, with new short name `-d`|`force:org:clone`, `force:org:create`, `force:org:status`|
     |`--skipconnectionstatus`|`--skip-connection-status`|`force:org:list`|
     |`--targetdevhubusername`|`--target-dev-hub`|All commands|
-    |`--targetusername`|`--target-org`|All commands|
+    |`--targetusername`|`--target-org`, with new short name `-o`|All commands|
     |`--urlonly`|`--url-only`|`force:org:open`|
 
     These flags are deprecated and have no effect.
 
-    |Existing Command|Deprecated Flag|
+    |Deprecated Flag|Affected Existing Command|
     |---|---|
-    |All commands|`--loglevel`|
+    |`--loglevel`|All commands|
     
     We also updated the `--help` for each command to use the new command and flag names, to gently encourage you to start switching over to the new style. Fun tip: use the `-h` flag to get a condensed view of the help, for when you don't need long descriptions and examples. 
     
-    Let's look at an example, such as this command:
+    The new commands to manage sandboxes and scratch orgs work a bit differently from the `force:org:*` commands, so let's look at a few examples.  This command to create a scratch org:
     
     ```bash
-    sfdx force:org:create 
+    sfdx force:org:create --definitionfile config/enterprise-scratch-def.json --setalias MyScratchOrg --targetdevhubusername MyDevHub --nonamespace --setdefaultusername
     ```
-    
-    You can now run it this way using the `sf` style:
+   Looks like this in the `sf` style:
     
     ```bash
-    sfdx org create 
+    sfdx org create scratch --definition-file config/enterprise-scratch-def.json --alias MyScratchOrg --target-dev-hub MyDevHub --no-namespace --set-default
     ```
+    
+    This command to create a sandbox:
+    
+    ```bash
+    sfdx force:org:create --type sandbox --definitionfile config/dev-sandbox-def.json --setalias MyDevSandbox --targetusername ProdOrg
+    ```
+    
+   Looks like this in the `sf` style:
+    
+    ```bash
+    sfdx org create sandbox --definition-file config/dev-sandbox-def.json --alias MyDevSandbox --target-org ProdOrg
+    ```
+    
+    Finally, this command to delete a scratch org:
+    
+    ```bash
+    sfdx force:org:delete --targetusername MyDevSandbox --noprompt
+    ```
+    
+   Looks like this in the `sf` style:
+    
+    ```bash
+    sfdx org delete sandbox --target-org MyDevSandbox --no-prompt
+    ```
+    
+    
+    Enjoy!
     
 ## 7.186.2 (Feb 2, 2023) [stable]
 
