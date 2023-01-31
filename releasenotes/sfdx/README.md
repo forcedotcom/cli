@@ -47,8 +47,8 @@ ANNOUNCEMENT: Do you use the `force:apex:execute` command? If so, read [this pos
     |`force:user:display`|`org display user`|
     |`force:user:list`|`org list users`|
     |`force:user:password:generate`|`org generate password`|
-    |`force:user:permset:generate`|`org assign permset`|
-    |`force:user:permsetlicense:generate`|`org assign permsetlicense`|
+    |`force:user:permset:assign`|`org assign permset`|
+    |`force:user:permsetlicense:assign`|`org assign permsetlicense`|
     |`force:package1:version:create`|`package1 version create`|
     |`force:package1:version:create:get`|`package1 version create get`|
     |`force:package1:version:display`|`package1 version display`|
