@@ -73,7 +73,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `sf org list` : List all orgs you’ve created or authenticated to.
     * `sf org open` : Open your default scratch org, or another specified org, in a browser.
     
-    We recommand you use their `env` equivalents (`sf env display|list|open`) for Salesforce Functions. 
+    We recommend you use their `env` equivalents (`sf env display|list|open`) for Salesforce Functions. 
 
 ## 1.63.2 (Feb 1, 2023) [stable]
 
