@@ -128,6 +128,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
    ```
    Cool beans, no?  Enjoy!
     
+* NEW: Use the new `--verbose` flag of `force:package:version:create` to display a new line of status and timeout data for each poll request. By default, the command displays a spinner with a message that updates on every poll request. This new flag is useful in CI systems to prevent timeouts that can occur during long periods of no output from commands. (GitHub issue [#1894](https://github.com/forcedotcom/cli/issues/1894), plugin-packaging PR [#236](https://github.com/salesforcecli/plugin-packaging/pull/236))
+
 * FIX: The `force:source:*` commands now support these metadata types:
 
     * AccountingFieldMapping
@@ -140,6 +142,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * PersonAccountOwnerPowerUser
     * PipelineInspMetricConfig
     * ProductSpecificationTypeDefinition
+    
+* FIX: The `force:source:retrieve` command, run with either the `--metadata` or `--sourcepath` flag, correctly ignores the `_tests_` directory if it's listed in the `.forceignore` file. (GitHub issue [#1904](https://github.com/forcedotcom/cli/issues/1904))
+
 
 ## 7.186.2 (Feb 2, 2023) [stable]
 
