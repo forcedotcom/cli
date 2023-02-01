@@ -21,7 +21,43 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.63.1 (Feb 1, 2023) [stable-rc]
+## 1.64.0 (Feb 8, 2023) [stable-rc]
+
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+    
+* CHANGE: As part of [this project](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli), we changed the official name of these existing `sf` commands: 
+
+    | Old command name | New command name|
+    |---|---|
+    |`sf env create sandbox`|`sf org create sandbox`|
+    |`sf env create scratch`|`sf org create scratch`|
+    |`sf env delete sandbox`|`sf org delete sandbox`|
+    |`sf env delete scratch`|`sf org delete scratch`|
+    |`sf env resume sandbox`|`sf org resume sandbox`|
+    |`sf env resume scratch`|`sf org resume scratch`|
+
+    We also brought over these org-specific `sfdx` commands:
+    
+    * `sf org display` : Display information about an org.
+    * `sf org list` : List all orgs you’ve created or authenticated to.
+    * `sf org open` : Open your default scratch org, or another specified org, in a browser.
+    
+    We recommend you use their `env` equivalents (`sf env display|list|open`) for Salesforce Functions. 
+    
+* FIX: The `sf deploy|retrieve metadata` commands now support these metadata types:
+
+    * AccountingFieldMapping
+    * AccountingModelConfig
+    * ActionLauncherItemDef
+    * ActionableListDefinition
+    * ExplainabilityMsgTemplate
+    * IntegrationProviderDef
+    * LocationUse
+    * PersonAccountOwnerPowerUser
+    * PipelineInspMetricConfig
+    * ProductSpecificationTypeDefinition
+
+## 1.63.2 (Feb 1, 2023) [stable]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
@@ -56,7 +92,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `cmdt generate record` command is now working correctly and no longer returns `Error: Unexpected arguments`. (GitHub issue [#1893](https://github.com/forcedotcom/cli/issues/1893), plugin-custom-metadata PR [#380](https://github.com/salesforcecli/plugin-custom-metadata/pull/380))
 
-## 1.62.2 (Jan 25, 2023) [stable]
+## 1.62.2 (Jan 25, 2023)
 
 * NEW: We continue to improve the usability of existing `sfdx` commands so they work like the `sf` commands. We're doing this work plugin by plugin. As a result of this work, when a Salesforce CLI release includes an updated plugin, you can execute the plugin's commands in both `sfdx` AND `sf`. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. 
 
