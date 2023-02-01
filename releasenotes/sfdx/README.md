@@ -76,7 +76,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
     We also updated the `--help` for each command to use the new command and flag names, to gently encourage you to start switching over to the new style. Fun tip: use the `-h` flag to get a condensed view of the help, for when you don't need long descriptions and examples. 
     
-    The new commands to manage sandboxes and scratch orgs work a bit differently from the `force:org:*` commands, so let's look at a few examples.  This command to create a scratch org:
+    The new commands to manage sandboxes and scratch orgs work a bit differently from the `force:org:*` commands. For example, we split `force:org:create` into two commands, one each for scratch orgs and sandboxes, which is more intuitive. We also introduced commands to resume org creation, which is particularly useful when a scratch org creation times out. Previously you could no longer connect to it and you had to manually delete it from your Dev Hub. Now you can easily resume where it left off using a job ID. When the creation finishes, the command automatically authenticates to the org, saves the org info locally, and deploys any configured settings. Let's look at a few examples to get you started with these new commands.  
+    
+    This existing way to create a scratch org:
     
     ```bash
     sfdx force:org:create --definitionfile config/enterprise-scratch-def.json --setalias MyScratchOrg --targetdevhubusername MyDevHub --nonamespace --setdefaultusername
@@ -93,25 +95,38 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     sfdx force:org:create --type sandbox --definitionfile config/dev-sandbox-def.json --setalias MyDevSandbox --targetusername ProdOrg
     ```
     
-   Looks like this in the `sf` style:
+   Now looks like this in the `sf` style:
     
     ```bash
     sfdx org create sandbox --definition-file config/dev-sandbox-def.json --alias MyDevSandbox --target-org ProdOrg
     ```
     
-    Finally, this command to delete a scratch org:
+   This command to delete a scratch org:
     
     ```bash
     sfdx force:org:delete --targetusername MyDevSandbox --noprompt
     ```
-    
    Looks like this in the `sf` style:
     
     ```bash
     sfdx org delete sandbox --target-org MyDevSandbox --no-prompt
     ```
-    
-    Enjoy!
+   Here's an example of resuming a timed-out scratch org creation. Let's say you run this command:
+   
+    ```bash
+    sfdx org create scratch --definition-file config/enterprise-scratch-def.json --wait 3 --alias MyScratchOrg --target-dev-hub MyDevHub 
+    ```
+   If the scratch org creation doesn't complete in 3 minutes, Salesforce CLI returns control of the terminal to you and displays a job ID.  Pass the ID to the `sfdx org resume scratch` command to resume the job:
+   
+   ```bash
+   sfdx org resume scratch --job-id 2SR3u0000008fBDGAY
+   ```
+   Alternatively, use the handy `--use-most-recent` flag to, yep, resume the most recent scratch org create job:
+   
+   ```bash
+   sfdx org resume scratch --use-most-recent
+   ```
+   Cool beans, no?  Enjoy!
     
 * FIX: The `force:source:*` commands now support these metadata types:
 
