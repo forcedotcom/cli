@@ -41,7 +41,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |`force:org:list`|`org list`|
     |`force:org:display`|`org display`|
     
-    These are the deprecated commands, along with the new commands you should use instead. For each command, you can still use colons instead of spaces, such as `org:create:sandbox`. 
+    These are the deprecated commands, along with the new commands you should use instead. For each command, you can still use colons instead of spaces, such as `org:create:sandbox`.
     
     |Deprecated command|Use this command instead|
     |-----------------------|---------|
@@ -111,9 +111,21 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     sfdx org delete sandbox --target-org MyDevSandbox --no-prompt
     ```
     
-    
     Enjoy!
     
+* FIX: The `force:source:*` commands now support these metadata types:
+
+    * AccountingFieldMapping
+    * AccountingModelConfig
+    * ActionLauncherItemDef
+    * ActionableListDefinition
+    * ExplainabilityMsgTemplate
+    * IntegrationProviderDef
+    * LocationUse
+    * PersonAccountOwnerPowerUser
+    * PipelineInspMetricConfig
+    * ProductSpecificationTypeDefinition
+
 ## 7.186.2 (Feb 2, 2023) [stable]
 
 ANNOUNCEMENT: Do you use the `force:apex:execute` command? If so, read [this post](https://github.com/forcedotcom/cli/issues/1889) that describes a small breaking change we'll be making soon with the goal of improving the command. 
