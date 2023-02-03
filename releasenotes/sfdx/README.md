@@ -25,11 +25,131 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.186.2 (Feb 2, 2023) [stable-rc]
+## 7.187.0 (Feb 9, 2023) [stable-rc]
 
 ANNOUNCEMENT: Do you use the `force:apex:execute` command? If so, read [this post](https://github.com/forcedotcom/cli/issues/1889) that describes a small breaking change we'll be making soon with the goal of improving the command. 
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+* NEW: We continue to [improve the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands. This week's release includes updated [plugin-org](https://github.com/salesforcecli/plugin-org). The existing `sfdx` commands and their flags still work the same as before, although we've deprecated some commands and flags and added new ones. Here's a summary.
+
+    These are the new command names. For each command, you can still use colons instead of spaces, such as `org:open`. 
+    
+    |Existing Command Name|New Command Name|
+    |-----------------------|---------|
+    |`force:org:open`|`org open`|
+    |`force:org:list`|`org list`|
+    |`force:org:display`|`org display`|
+    
+    These are the deprecated commands, along with the new commands you should use instead. For each command, you can still use colons instead of spaces, such as `org:create:sandbox`.
+    
+    |Deprecated command|Use this command instead|
+    |-----------------------|---------|
+    |`force:org:create`|`org create sandbox` or `org create scratch`|
+    |`force:org:delete`|`org delete sandbox` or `org delete scratch`|
+    |`force:org:status`|`org resume sandbox`|
+    |`force:org:clone`|`org create sandbox`|
+
+    These are the new flag names for the `force:org:*` commands. If an existing flag name isn't listed in the table, it has the same name in the new command.
+
+    |Existing Flag Name|New Flag Name|Affected Existing Commands|
+    |---|---|---|
+    |`--apiversion`|`--api-version`|All commands|
+    |`--clientid`|`--client-id`|`force:org:create`|
+    |`--definitionfile`|`--definition-file`|`force:org:create`, `force:org:clone`|
+    |`--durationdays`|`--duration-days`, with new short name `-y`|`force:org:create`|
+    |`--noancestors`|`--no-ancestors`|`force:org:create`|
+    |`--nonamespace`|`--no-namespace`, with new short name `-m`|`force:org:create`|
+    |`--noprompt`|`--no-prompt`|All commands|
+    |`--setalias`|`--alias`|`force:org:create`, `force:org:clone`|
+    |`--setdefaultusername`|`--set-default`, with new short name `-d`|`force:org:clone`, `force:org:create`, `force:org:status`|
+    |`--skipconnectionstatus`|`--skip-connection-status`|`force:org:list`|
+    |`--targetdevhubusername`|`--target-dev-hub`|All commands|
+    |`--targetusername`|`--target-org`, with new short name `-o`|All commands|
+    |`--urlonly`|`--url-only`|`force:org:open`|
+
+    These flags are deprecated and have no effect.
+
+    |Deprecated Flag|Affected Existing Command|
+    |---|---|
+    |`--loglevel`|All commands|
+    
+    We also updated the `--help` for each command to use the new command and flag names, to gently encourage you to start switching over to the new style. Fun tip: use the `-h` flag to get a condensed view of the help, for when you don't need long descriptions and examples. 
+    
+    The new commands to manage sandboxes and scratch orgs work a bit differently from the `force:org:*` commands. For example, we split `force:org:create` into two commands, one each for scratch orgs and sandboxes, which is more intuitive. We also introduced commands to resume org creation, which is particularly useful when a scratch org creation times out. Previously you could no longer connect to it and you had to manually delete it from your Dev Hub. Now you can easily resume where it left off using a job ID. When the creation finishes, the command automatically authenticates to the org, saves the org info locally, and deploys any configured settings. Let's look at a few examples to get you started with these new commands.  
+    
+    This existing way to create a scratch org:
+    
+    ```bash
+    sfdx force:org:create --definitionfile config/enterprise-scratch-def.json --setalias MyScratchOrg --targetdevhubusername MyDevHub --nonamespace --setdefaultusername
+    ```
+   Looks like this in the `sf` style:
+    
+    ```bash
+    sfdx org create scratch --definition-file config/enterprise-scratch-def.json --alias MyScratchOrg --target-dev-hub MyDevHub --no-namespace --set-default
+    ```
+    
+    This command to create a sandbox:
+    
+    ```bash
+    sfdx force:org:create --type sandbox --definitionfile config/dev-sandbox-def.json --setalias MyDevSandbox --targetusername ProdOrg
+    ```
+    
+   Now looks like this in the `sf` style:
+    
+    ```bash
+    sfdx org create sandbox --definition-file config/dev-sandbox-def.json --alias MyDevSandbox --target-org ProdOrg
+    ```
+    
+   This command to delete a scratch org:
+    
+    ```bash
+    sfdx force:org:delete --targetusername MyDevSandbox --noprompt
+    ```
+   Looks like this in the `sf` style:
+    
+    ```bash
+    sfdx org delete sandbox --target-org MyDevSandbox --no-prompt
+    ```
+   Here's an example of resuming a timed-out scratch org creation. Let's say you run this command:
+   
+    ```bash
+    sfdx org create scratch --definition-file config/enterprise-scratch-def.json --wait 3 --alias MyScratchOrg --target-dev-hub MyDevHub 
+    ```
+   If the scratch org creation doesn't complete in 3 minutes, Salesforce CLI returns control of the terminal to you and displays a job ID.  Pass the ID to the `sfdx org resume scratch` command to resume the job:
+   
+   ```bash
+   sfdx org resume scratch --job-id 2SR3u0000008fBDGAY
+   ```
+   Alternatively, use the handy `--use-most-recent` flag to, yep, resume the most recent scratch org create job:
+   
+   ```bash
+   sfdx org resume scratch --use-most-recent
+   ```
+   Cool beans, no?  Enjoy!
+    
+* NEW: Use the new `--verbose` flag of `force:package:version:create` to display a new line of status and timeout data for each poll request. By default, the command displays a spinner with a message that updates on every poll request. This new flag is useful in CI systems to prevent timeouts that can occur during long periods of no output from commands. (GitHub issue [#1894](https://github.com/forcedotcom/cli/issues/1894), plugin-packaging PR [#236](https://github.com/salesforcecli/plugin-packaging/pull/236))
+
+* FIX: The `force:source:retrieve` command, run with either the `--metadata` or `--sourcepath` flag, correctly ignores the `_tests_` directory if it's listed in the `.forceignore` file. (GitHub issue [#1904](https://github.com/forcedotcom/cli/issues/1904))
+
+* FIX: The `--publishwait` flag of `force:package:install` correctly waits for the specified amount of time for the subscriber package version ID to become available in the target org. (GitHub issue [#1895](https://github.com/forcedotcom/cli/issues/1895), plugin-packaging PR [#235](https://github.com/salesforcecli/plugin-packaging/pull/235))
+
+* FIX: The `force:source:*` commands now support these metadata types:
+
+    * AccountingFieldMapping
+    * AccountingModelConfig
+    * ActionLauncherItemDef
+    * ActionableListDefinition
+    * ExplainabilityMsgTemplate
+    * IntegrationProviderDef
+    * LocationUse
+    * PersonAccountOwnerPowerUser
+    * PipelineInspMetricConfig
+    * ProductSpecificationTypeDefinition
+
+## 7.186.2 (Feb 2, 2023) [stable]
+
+ANNOUNCEMENT: Do you use the `force:apex:execute` command? If so, read [this post](https://github.com/forcedotcom/cli/issues/1889) that describes a small breaking change we'll be making soon with the goal of improving the command. 
 
 * NEW: We continue to improve the usability of existing `sfdx` commands, such as more intuitive flag names and using spaces as separators, similar to how `sf` works. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. We're doing this work plugin by plugin. This week's release includes updated [plugin-packaging](https://github.com/salesforcecli/plugin-packaging) and [plugin-user](https://github.com/salesforcecli/plugin-user). Don't worry, the `sfdx` commands and their flags still work the same as before! But give the new style a try -- we think you'll like it.
 
@@ -41,8 +161,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |`force:user:display`|`org display user`|
     |`force:user:list`|`org list users`|
     |`force:user:password:generate`|`org generate password`|
-    |`force:user:permset:generate`|`org assign permset`|
-    |`force:user:permsetlicense:generate`|`org assign permsetlicense`|
+    |`force:user:permset:assign`|`org assign permset`|
+    |`force:user:permsetlicense:assign`|`org assign permsetlicense`|
     |`force:package1:version:create`|`package1 version create`|
     |`force:package1:version:create:get`|`package1 version create get`|
     |`force:package1:version:display`|`package1 version display`|
@@ -168,9 +288,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `force:cmdt:record:create` command is now working correctly and no longer returns `Error: Unexpected arguments`. (GitHub issue [#1893](https://github.com/forcedotcom/cli/issues/1893), plugin-custom-metadata PR [#380](https://github.com/salesforcecli/plugin-custom-metadata/pull/380))
 
-## 7.185.0 (Jan 26, 2023) [stable]
-
-ANNOUNCEMENT: Do you use the `force:apex:execute` command? If so, read [this post](https://github.com/forcedotcom/cli/issues/1889) that describes a small breaking change we'll be making soon with the goal of improving the command. 
+## 7.185.0 (Jan 26, 2023)
 
 * NEW: We continue to improve the usability of existing `sfdx` commands, such as more intuitive flag names and using spaces as separators, similar to how `sf` works. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. We're doing this work plugin by plugin. This week's release includes updated [plugin-signups](https://github.com/salesforcecli/plugin-signups). Don't worry, the `sfdx` commands and their flags still work _exactly_ the same as before! But give the new style a try -- we think you'll like it.
 
