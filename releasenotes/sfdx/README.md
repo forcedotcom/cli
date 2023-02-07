@@ -31,6 +31,8 @@ ANNOUNCEMENT: Do you use the `force:apex:execute` command? If so, read [this pos
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
+* NEW: We provide the `arm64` flavor of the `.pkg` and TAR files for installing Salesforce CLI on macOS. The new files include a version of Node.js that's built for Apple Silicon CPUs. If your computer uses an Apple Silicon CPU, you might get a small performance boost if you uninstall your current version of Salesforce CLI and then reinstall using the `.pkg` or TAR file labeled "Apple Silicon".  
+
 ## 7.187.1 (Feb 9, 2023) [stable]
 
 ANNOUNCEMENT: Do you use the `force:apex:execute` command? If so, read [this post](https://github.com/forcedotcom/cli/issues/1889) that describes a small breaking change we'll be making soon with the goal of improving the command. 
