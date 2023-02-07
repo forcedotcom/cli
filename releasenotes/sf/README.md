@@ -21,9 +21,12 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.64.0 (Feb 8, 2023) [stable-rc]
+## 1.65.0 (Feb 15, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+
+## 1.64.0 (Feb 8, 2023) [stable]
     
 * CHANGE: As part of [this project](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli), we changed the official name of these existing `sf` commands: 
 
@@ -57,7 +60,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * PipelineInspMetricConfig
     * ProductSpecificationTypeDefinition
 
-## 1.63.2 (Feb 1, 2023) [stable]
+## 1.63.2 (Feb 1, 2023)
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
