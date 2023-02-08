@@ -21,9 +21,19 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.64.0 (Feb 8, 2023) [stable-rc]
+## 1.65.0 (Feb 15, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+    
+* CHANGE: We upgraded the version of Node.js contained in the [Salesforce CLI installers and TAR files](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm) to [v18.14.0](https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V18.md#2023-02-02-version-18140-hydrogen-lts-bethgriggs-prepared-by-juanarbol). 
+
+* FIX: The `sf data query` command no longer suppresess or nullifies the value of `0` (in human-readable output) when it's returned by a SOQL query. (GitHub issue [#1892](https://github.com/forcedotcom/cli/issues/1892), plugin-data PR [#470](https://github.com/salesforcecli/plugin-data/pull/470))
+
+    Many thanks to [Leo Stewart](https://github.com/leostewart) for reporting the issue, and then providing the fix. We're stoked with your contribution, and we look forward to more from you and community!
+
+* FIX: The `sf deploy|retrieve metadata` commands now support the ExperiencePropertyTypeBundle metadata type.
+
+## 1.64.0 (Feb 8, 2023) [stable]
     
 * CHANGE: As part of [this project](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli), we changed the official name of these existing `sf` commands: 
 
@@ -57,7 +67,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * PipelineInspMetricConfig
     * ProductSpecificationTypeDefinition
 
-## 1.63.2 (Feb 1, 2023) [stable]
+## 1.63.2 (Feb 1, 2023)
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
