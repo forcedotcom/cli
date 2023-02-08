@@ -31,7 +31,11 @@ ANNOUNCEMENT: Do you use the `force:apex:execute` command? If so, read [this pos
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
-* NEW: We provide the `arm64` flavor of the `.pkg` and TAR files for installing Salesforce CLI on macOS. The new files include a version of Node.js that's built for Apple Silicon CPUs. If your computer uses an Apple Silicon CPU, you might get a small performance boost if you uninstall your current version of Salesforce CLI and then reinstall using the `.pkg` or TAR file labeled "Apple Silicon".  
+* NEW: We now provide the `arm64` flavor of the `.pkg` and TAR files for installing Salesforce CLI on macOS. The new files include a version of Node.js that's built for Apple Silicon CPUs. If your computer uses an Apple Silicon CPU, you'll likely get a small performance boost if you [uninstall your current version of Salesforce CLI](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_uninstall.htm) and then [reinstall](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm#sfdx_setup_install_cli_macos) using the [.pkg installer](https://developer.salesforce.com/tools/sfdxcli#) or [TAR file](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm#sfdx_setup_install_cli_linux) labeled "Apple Silicon".
+
+* FIX: The `sfdx data query` command no longer suppresess or nullifies the value of `0` (in human-readable output) when it's returned by a SOQL query. (GitHub issue [#1892](https://github.com/forcedotcom/cli/issues/1892), plugin-data PR [#470](https://github.com/salesforcecli/plugin-data/pull/470))
+
+   Many thanks to [Leo Stewart](https://github.com/leostewart) for reporting the issue, and then providing the fix. We look forward to more contributions from you and community!
 
 ## 7.187.1 (Feb 9, 2023) [stable]
 
