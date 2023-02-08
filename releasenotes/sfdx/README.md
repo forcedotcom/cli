@@ -55,25 +55,29 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |Existing Flag Name|New Flag Name|Affected Existing Commands|
     |---|---|---|
     |`--apiversion`|`--api-version`|All commands|
+    |`--outputdir`|`--output-dir`|All commands|
+    |`--XXname`, such as `--classname` of `force:apex:class:create` or `--appname` of `force:lightning:app:create`|`--name`|All commands.|
+    |`--triggerevents`|`--event`|`force:apex:trigger:create`|
+    |`--defaultpackagedir`|`--default-package-dir`|`force:project:create`|
     
    This flag is deprecated and has no effect.
 
-    |Existing Command|Deprecated Flags|
+    |Deprecated Flag|Affected Existing Command|
     |---|---|
-    |All commands|`--loglevel`|
+    |`--loglevel`|All commands|
     
     We also updated the `--help` for each command to use the new command and flag names, to gently encourage you to start switching over to the new style. Use the `-h` flag to get a condensed view of the help, for when you don't need long descriptions and examples. 
     
     Let's look at an example, such as this command: 
     
     ```bash
-    sfdx force:...
+    sfdx force:apex:trigger:create --triggername MyTrigger --sobject Account --triggerevents "before insert,after insert"
     ```
     
     You can now run it this way using the `sf` style:
     
     ```bash
-    sfdx ...
+    sfdx apex generate trigger --name MyTrigger --sobject Account --event "before insert,after insert"
     ```
     
     Finally, just in case we weren't clear, the existing commands work exactly as before! But give this new stuff a try, it's pretty cool.
