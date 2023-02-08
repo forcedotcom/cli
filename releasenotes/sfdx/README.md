@@ -86,14 +86,13 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
 * NEW: We now provide the `arm64` flavor of the `.pkg` and TAR files for installing Salesforce CLI on macOS. The new files include a version of Node.js that's built for Apple Silicon CPUs. If your computer uses an Apple Silicon CPU, you'll likely get a small performance boost if you [uninstall your current version of Salesforce CLI](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_uninstall.htm) and then [reinstall](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm#sfdx_setup_install_cli_macos) using the [.pkg installer](https://developer.salesforce.com/tools/sfdxcli#) or [TAR file](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm#sfdx_setup_install_cli_linux) labeled "Apple Silicon".
 
-* CHANGE: Do you develop custom Salesforce CLI plugins?  If so, this note is for you. We marked `SfdxCommand` and other code in [this repo](https://github.com/salesforcecli/command) as deprecated. We plan to continue updating dependencies in the repo for a while longer, but start looking at [this repo](https://github.com/salesforcecli/sf-plugins-core) for all your plugin command needs. Check out [Migrate Plugins Build for sfdx](https://github.com/salesforcecli/cli/wiki/Migrate-Plugins-Built-For-Sfdx) for details. 
+* CHANGE: Do you develop custom Salesforce CLI plugins?  If so, this note is for you. We marked `SfdxCommand` (the base class for `sfdx` plugins) and other code in [this repo](https://github.com/salesforcecli/command) as deprecated. We plan to continue updating dependencies in the repo for a while longer, but we recommend you start looking at [this repo](https://github.com/salesforcecli/sf-plugins-core) for all your plugin command needs, such as `SfCommand`. Check out [Migrate Plugins Build for sfdx](https://github.com/salesforcecli/cli/wiki/Migrate-Plugins-Built-For-Sfdx) for details. 
 
 * FIX: The `sfdx data query` command no longer suppresess or nullifies the value of `0` (in human-readable output) when it's returned by a SOQL query. (GitHub issue [#1892](https://github.com/forcedotcom/cli/issues/1892), plugin-data PR [#470](https://github.com/salesforcecli/plugin-data/pull/470))
 
    Many thanks to [Leo Stewart](https://github.com/leostewart) for reporting the issue, and then providing the fix. We're stoked with your contribution, and we look forward to more from you and community!
 
 * FIX: The `force:source:*` commands now support the ExperiencePropertyTypeBundle metadata type.
-
 
 ## 7.187.1 (Feb 9, 2023) [stable]
 
