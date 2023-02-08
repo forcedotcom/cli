@@ -90,6 +90,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
    Many thanks to [Leo Stewart](https://github.com/leostewart) for reporting the issue, and then providing the fix. We're stoked with your contribution, and we look forward to more from you and community!
 
+* FIX: The `force:source:*` commands now support the ExperiencePropertyTypeBundle metadata type.
+
+
 ## 7.187.1 (Feb 9, 2023) [stable]
 
 ANNOUNCEMENT: Do you use the `force:apex:execute` command? If so, read [this post](https://github.com/forcedotcom/cli/issues/1889) that describes a small breaking change we'll be making soon with the goal of improving the command. 
