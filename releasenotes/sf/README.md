@@ -50,6 +50,12 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     We also changed the official name of the existing `sf generate project` command to `sf project generate`
     
     As always, run the commands with `--help` to see the list of flags, examples, and usage information. We'll be releasing other updated plugins over the next weeks. Enjoy!
+    
+* CHANGE: We upgraded the version of Node.js contained in the [Salesforce CLI installers and TAR files](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm) to [v18.14.0](https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V18.md#2023-02-02-version-18140-hydrogen-lts-bethgriggs-prepared-by-juanarbol). 
+
+* FIX: The `sf data query` command no longer suppresess or nullifies the value of `0` (in human-readable output) when it's returned by a SOQL query. (GitHub issue [#1892](https://github.com/forcedotcom/cli/issues/1892), plugin-data PR [#470](https://github.com/salesforcecli/plugin-data/pull/470))
+
+    Many thanks to [Leo Stewart](https://github.com/leostewart) for reporting the issue, and then providing the fix. We look forward to more contributions from you and community!
 
 ## 1.64.0 (Feb 8, 2023) [stable]
     
