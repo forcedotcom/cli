@@ -31,7 +31,7 @@ ANNOUNCEMENT: Do you use the `force:apex:execute` command? If so, read [this pos
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
-* NEW: We continue to [improve the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands. This week's release includes updated [plugin-apex](https://github.com/salesforcecli/plugin-apex) and [plugin-templates](https://github.com/salesforcecli/plugin-templates). The `sfdx` commands and their flags still work the same as before. 
+* NEW: We continue to [improve the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands. This week's release includes updated [plugin-templates](https://github.com/salesforcecli/plugin-templates). The `sfdx` commands and their flags still work the same as before. 
 
     These are the new command names. For each command, you can still use colons instead of spaces, such as `analytics:generate:template`. 
     
@@ -39,12 +39,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |------------|-------------|
     |`force:analytics:template:create`|`analytics generate template`|
     |`force:apex:class:create`|`apex generate class`|
-    |`force:apex:execute`|`apex execute`|
-    |`force:apex:log:get`|`apex log get`|
-    |`force:apex:log:list`|`apex log list`|
-    |`force:apex:log:tail`|`apex log tail`|
-    |`force:apex:test:report`|`apex test report`|
-    |`force:apex:test:run`|`apex test run`|
     |`force:apex:trigger:create`|`apex generate trigger`|
     |`force:lightning:app:create`|`lightning generate app`|
     |`force:lightning:component:create`|`lightning generate component`|
