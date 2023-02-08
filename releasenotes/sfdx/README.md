@@ -88,7 +88,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `sfdx data query` command no longer suppresess or nullifies the value of `0` (in human-readable output) when it's returned by a SOQL query. (GitHub issue [#1892](https://github.com/forcedotcom/cli/issues/1892), plugin-data PR [#470](https://github.com/salesforcecli/plugin-data/pull/470))
 
-   Many thanks to [Leo Stewart](https://github.com/leostewart) for reporting the issue, and then providing the fix. We look forward to more contributions from you and community!
+   Many thanks to [Leo Stewart](https://github.com/leostewart) for reporting the issue, and then providing the fix. We're stoked with your contribution, and we look forward to more from you and community!
 
 ## 7.187.1 (Feb 9, 2023) [stable]
 
