@@ -24,32 +24,6 @@ Additional documentation:
 ## 1.65.0 (Feb 15, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
-
-* NEW: We continue to improve the usability of existing `sfdx` commands so they work like the `sf` commands. We're doing this work plugin by plugin. As a result of this work, when a Salesforce CLI release includes an updated plugin, you can execute the plugin's commands in both `sfdx` AND `sf`. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. 
-
-   This week's release includes the updated [plugin-apex](https://github.com/salesforcecli/plugin-apex) and [plugin-templates](https://github.com/salesforcecli/plugin-templates). Consequently, you can now run these existing `sfdx` commands in `sf`:
-
-    * `sf analytics generate template` : Create a simple Analytics template. 
-    * `sf apex execute` : Execute anonymous Apex code entered on the command line or from a local file.                                                 
-    * `sf apex generate class` : Create an Apex class.                                           
-    * `sf apex generate trigger` : Create an Apex trigger.
-    * `sf apex log get` : Fetch the specified log or given number of most recent logs from the org.
-    * `sf apex log list` : Display a list of IDs and general information about debug logs.            
-    * `sf apex log tail` : Activate debug logging and display logs in the terminal.            
-    * `sf apex test report` : Display test results for a specific asynchronous test run.         
-    * `sf apex test run` : Invoke Apex tests in an org.            
-    * `sf lightning generate app` : Create a Lightning App.   
-    * `sf lightning generate component` : Create a bundle for an Aura component or a Lightning web component.
-    * `sf lightning generate event` : Create a Lightning Event. 
-    * `sf lightning generate interface` : Create a Lightning Interface.
-    * `sf lightning generate test` : Create a Lightning test.  
-    * `sf static-resource generate` : Create a static resource. 
-    * `sf visualforce generate component` : Create a Visualforce Component.
-    * `sf visualforce generate page` : Create a Visualforce Page.
-    
-    We also changed the official name of the existing `sf generate project` command to `sf project generate`
-    
-    As always, run the commands with `--help` to see the list of flags, examples, and usage information. We'll be releasing other updated plugins over the next weeks. Enjoy!
     
 * CHANGE: We upgraded the version of Node.js contained in the [Salesforce CLI installers and TAR files](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm) to [v18.14.0](https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V18.md#2023-02-02-version-18140-hydrogen-lts-bethgriggs-prepared-by-juanarbol). 
 
