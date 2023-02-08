@@ -57,6 +57,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     Many thanks to [Leo Stewart](https://github.com/leostewart) for reporting the issue, and then providing the fix. We're stoked with your contribution, and we look forward to more from you and community!
 
+* FIX: The `sf deploy|retrieve metadata` commands now support the ExperiencePropertyTypeBundle metadata type.
+
 ## 1.64.0 (Feb 8, 2023) [stable]
     
 * CHANGE: As part of [this project](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli), we changed the official name of these existing `sf` commands: 
