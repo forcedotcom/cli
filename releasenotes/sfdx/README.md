@@ -88,11 +88,17 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * CHANGE: Do you develop custom Salesforce CLI plugins?  If so, this note is for you. We marked `SfdxCommand` (the base class for `sfdx` plugins) and other code in [this repo](https://github.com/salesforcecli/command) as deprecated. We plan to continue updating dependencies in the repo for a while longer, but we recommend you start looking at [this repo](https://github.com/salesforcecli/sf-plugins-core) for all your plugin command needs, such as `SfCommand`. Check out [Migrate Plugins Build for sfdx](https://github.com/salesforcecli/cli/wiki/Migrate-Plugins-Built-For-Sfdx) for details. 
 
-* FIX: The `sfdx data query` command no longer suppresess or nullifies the value of `0` (in human-readable output) when it's returned by a SOQL query. (GitHub issue [#1892](https://github.com/forcedotcom/cli/issues/1892), plugin-data PR [#470](https://github.com/salesforcecli/plugin-data/pull/470))
+* FIX: The `data query` command no longer suppresess or nullifies the value of `0` (in human-readable output) when it's returned by a SOQL query. (GitHub issue [#1892](https://github.com/forcedotcom/cli/issues/1892), plugin-data PR [#470](https://github.com/salesforcecli/plugin-data/pull/470))
 
    Many thanks to [Leo Stewart](https://github.com/leostewart) for reporting the issue, and then providing the fix. We're stoked with your contribution, and we look forward to more from you and community!
 
-* FIX: The `force:source:*` commands now support the ExperiencePropertyTypeBundle metadata type.
+* FIX: The `package version list` command now supports multiple packages specified as comma-delimited entries. (GitHub issue [#1912](https://github.com/forcedotcom/cli/issues/1912), plugin-packaging PR [#249](https://github.com/salesforcecli/plugin-packaging/pull/249))
+
+* FIX: The `package version create` command runs successfully even if your `sfdx-project.json` file doesn't contain a `versionName` option for defining the package. (GitHub issue [#1907](https://github.com/forcedotcom/cli/issues/1907), packaging PR [#219](https://github.com/forcedotcom/packaging/pull/219))
+
+* FIX: When retrieving bundle metadata types (e.g. LWC or LightningWebComponent) forceignored files and directories are not deleted."
+
+* FIX: The `force source` commands now support the ExperiencePropertyTypeBundle metadata type.
 
 ## 7.187.1 (Feb 9, 2023) [stable]
 
