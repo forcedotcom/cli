@@ -77,9 +77,15 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     You can now run it this way using the `sf` style:
     
     ```bash
-    sfdx apex generate trigger --name MyTrigger --sobject Account --event "before insert,after insert"
+    sfdx apex generate trigger --name MyTrigger --sobject Account --event "before insert" --event "after insert"
     ```
     
+    Note that we split up the values to `--event`, which is the `sf` way of passing multiple values to a flag.  You could also do it this way: 
+    
+    ```bash
+    sfdx apex generate trigger --name MyTrigger --sobject Account --event "before insert" "after insert"
+    ```
+
     Finally, just in case we weren't clear, the existing commands work exactly as before! But give this new stuff a try, it's pretty cool.
     
 * NEW: We now provide the `arm64` flavor of the `.pkg` and TAR files for installing Salesforce CLI on macOS. The new files include a version of Node.js that's built for Apple Silicon CPUs. If your computer uses an Apple Silicon CPU, you'll likely get a small performance boost if you [uninstall your current version of Salesforce CLI](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_uninstall.htm) and then [reinstall](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm#sfdx_setup_install_cli_macos) using the [.pkg installer](https://developer.salesforce.com/tools/sfdxcli#) or [TAR file](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm#sfdx_setup_install_cli_linux) labeled "Apple Silicon" (GitHub issue [#1045](https://github.com/forcedotcom/cli/issues/1045) and [#768](https://github.com/forcedotcom/cli/issues/768)).
