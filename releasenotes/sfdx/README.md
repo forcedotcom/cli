@@ -96,7 +96,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `package version create` command runs successfully even if your `sfdx-project.json` file doesn't contain a `versionName` option for defining the package. (GitHub issue [#1907](https://github.com/forcedotcom/cli/issues/1907), packaging PR [#219](https://github.com/forcedotcom/packaging/pull/219))
 
-* FIX: When retrieving bundle metadata types (e.g. LWC or LightningWebComponent) forceignored files and directories are not deleted."
+* FIX: When using `force source retrieve` to retrieve bundle metadata types, such as LightningComponentBundle, the files and directories listed in the `.forceignore` file are correctly ignored.  (GitHub issue [#1904](https://github.com/forcedotcom/cli/issues/1904), SDR PR [#847](https://github.com/forcedotcom/source-deploy-retrieve/pull/847))
 
 * FIX: The `force source` commands now support the ExperiencePropertyTypeBundle metadata type.
 
