@@ -25,11 +25,90 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.187.1 (Feb 9, 2023) [stable-rc]
+## 7.188.0 (Feb 16, 2023) [stable-rc]
 
 ANNOUNCEMENT: Do you use the `force:apex:execute` command? If so, read [this post](https://github.com/forcedotcom/cli/issues/1889) that describes a small breaking change we'll be making soon with the goal of improving the command. 
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+* NEW: We continue to [improve the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands. This week's release includes updated [plugin-templates](https://github.com/salesforcecli/plugin-templates). The `sfdx` commands and their flags still work the same as before. 
+
+    These are the new command names. For each command, you can still use colons instead of spaces, such as `analytics:generate:template`. 
+    
+    |Existing Command Name|New Command Name|
+    |------------|-------------|
+    |`force:analytics:template:create`|`analytics generate template`|
+    |`force:apex:class:create`|`apex generate class`|
+    |`force:apex:trigger:create`|`apex generate trigger`|
+    |`force:lightning:app:create`|`lightning generate app`|
+    |`force:lightning:component:create`|`lightning generate component`|
+    |`force:lightning:event:create`|`lightning generate event`|
+    |`force:lightning:interface:create`|`lightning generate interface`|
+    |`force:lightning:test:create`|`lightning generate test`|
+    |`force:project:create`|`project generate`|
+    |`force:staticresource:create`|`static-resource generate`|
+    |`force:visualforce:component:create`|`visualforce generate component`|
+    |`force:visualforce:page:create`|`visualforce generate page`|
+    
+    These are the new flag names for the new command names listed above. If an existing flag name isn't listed in the table, it has the same name in the new command name.
+
+    |Existing Flag Name|New Flag Name|Affected Existing Commands|
+    |---|---|---|
+    |`--apiversion`|`--api-version`|All commands|
+    |`--outputdir`|`--output-dir`|All commands|
+    |`--XXname`, such as `--classname` of `force:apex:class:create` or `--appname` of `force:lightning:app:create`|`--name`|All commands.|
+    |`--triggerevents`|`--event`|`force:apex:trigger:create`|
+    |`--defaultpackagedir`|`--default-package-dir`|`force:project:create`|
+    
+   This flag is deprecated and has no effect.
+
+    |Deprecated Flag|Affected Existing Command|
+    |---|---|
+    |`--loglevel`|All commands|
+    
+    We also updated the `--help` for each command to use the new command and flag names, to gently encourage you to start switching over to the new style. Use the `-h` flag to get a condensed view of the help, for when you don't need long descriptions and examples. 
+    
+    Let's look at an example, such as this command: 
+    
+    ```bash
+    sfdx force:apex:trigger:create --triggername MyTrigger --sobject Account --triggerevents "before insert,after insert"
+    ```
+    
+    You can now run it this way using the `sf` style:
+    
+    ```bash
+    sfdx apex generate trigger --name MyTrigger --sobject Account --event "before insert" --event "after insert"
+    ```
+    
+    Note that we split up the values to `--event`, which is the `sf` way of passing multiple values to a flag.  You could also do it this way: 
+    
+    ```bash
+    sfdx apex generate trigger --name MyTrigger --sobject Account --event "before insert" "after insert"
+    ```
+
+    Finally, just in case we weren't clear, the existing commands work exactly as before! But give this new stuff a try, it's pretty cool.
+    
+* NEW: We now provide the `arm64` flavor of the `.pkg` and TAR files for installing Salesforce CLI on macOS. The new files include a version of Node.js that's built for Apple Silicon CPUs. If your computer uses an Apple Silicon CPU, you'll likely get a small performance boost if you [uninstall your current version of Salesforce CLI](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_uninstall.htm) and then [reinstall](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm#sfdx_setup_install_cli_macos) using the [.pkg installer](https://developer.salesforce.com/tools/sfdxcli#) or [TAR file](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm#sfdx_setup_install_cli_linux) labeled "Apple Silicon" (GitHub issue [#1045](https://github.com/forcedotcom/cli/issues/1045) and [#768](https://github.com/forcedotcom/cli/issues/768)).
+
+* CHANGE: We upgraded the version of Node.js contained in the [Salesforce CLI installers, TAR files, and Docker images](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm) to [v18.14.0](https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V18.md#2023-02-02-version-18140-hydrogen-lts-bethgriggs-prepared-by-juanarbol). 
+
+* CHANGE: Do you develop custom Salesforce CLI plugins?  If so, this note is for you. We marked `SfdxCommand` (the base class for `sfdx` plugins) and other code in [this repo](https://github.com/salesforcecli/command) as deprecated. We plan to continue updating dependencies in the repo for a while longer, but we recommend you start looking at [this repo](https://github.com/salesforcecli/sf-plugins-core) for all your plugin command needs, such as `SfCommand`. Check out [Migrate Plugins Build for sfdx](https://github.com/salesforcecli/cli/wiki/Migrate-Plugins-Built-For-Sfdx) for details. 
+
+* FIX: The `data query` command no longer suppresess or nullifies the value of `0` (in human-readable output) when it's returned by a SOQL query. (GitHub issue [#1892](https://github.com/forcedotcom/cli/issues/1892), plugin-data PR [#470](https://github.com/salesforcecli/plugin-data/pull/470))
+
+   Many thanks to [Leo Stewart](https://github.com/leostewart) for reporting the issue, and then providing the fix. We're stoked with your contribution, and we look forward to more from you and community!
+
+* FIX: The `package version list` command now supports multiple packages specified as comma-delimited entries. (GitHub issue [#1912](https://github.com/forcedotcom/cli/issues/1912), plugin-packaging PR [#249](https://github.com/salesforcecli/plugin-packaging/pull/249))
+
+* FIX: The `package version create` command runs successfully even if your `sfdx-project.json` file doesn't contain a `versionName` option for defining the package. (GitHub issue [#1907](https://github.com/forcedotcom/cli/issues/1907), packaging PR [#219](https://github.com/forcedotcom/packaging/pull/219))
+
+* FIX: When using `force source retrieve` to retrieve bundle metadata types, such as LightningComponentBundle, the files and directories listed in the `.forceignore` file are correctly ignored.  (GitHub issue [#1904](https://github.com/forcedotcom/cli/issues/1904), SDR PR [#847](https://github.com/forcedotcom/source-deploy-retrieve/pull/847))
+
+* FIX: The `force source` commands now support the ExperiencePropertyTypeBundle metadata type.
+
+## 7.187.1 (Feb 9, 2023) [stable]
+
+ANNOUNCEMENT: Do you use the `force:apex:execute` command? If so, read [this post](https://github.com/forcedotcom/cli/issues/1889) that describes a small breaking change we'll be making soon with the goal of improving the command. 
 
 * NEW: We continue to [improve the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands. This week's release includes updated [plugin-org](https://github.com/salesforcecli/plugin-org). The existing `sfdx` commands and their flags still work the same as before, although we've deprecated some commands and flags and added new ones. Here's a summary.
 
@@ -147,7 +226,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * PipelineInspMetricConfig
     * ProductSpecificationTypeDefinition
 
-## 7.186.2 (Feb 2, 2023) [stable]
+## 7.186.2 (Feb 2, 2023)
 
 ANNOUNCEMENT: Do you use the `force:apex:execute` command? If so, read [this post](https://github.com/forcedotcom/cli/issues/1889) that describes a small breaking change we'll be making soon with the goal of improving the command. 
 
