@@ -25,7 +25,7 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.188.0 (Feb 16, 2023) [stable-rc]
+## 7.188.1 (Feb 16, 2023) [stable-rc]
 
 ANNOUNCEMENT: Do you use the `force:apex:execute` command? If so, read [this post](https://github.com/forcedotcom/cli/issues/1889) that describes a small breaking change we'll be making soon with the goal of improving the command. 
 
@@ -105,6 +105,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 * FIX: When using `force source retrieve` to retrieve bundle metadata types, such as LightningComponentBundle, the files and directories listed in the `.forceignore` file are correctly ignored.  (GitHub issue [#1904](https://github.com/forcedotcom/cli/issues/1904), SDR PR [#847](https://github.com/forcedotcom/source-deploy-retrieve/pull/847))
 
 * FIX: The `force source` commands now support the ExperiencePropertyTypeBundle metadata type.
+
+* FIX: Commands that have transitioned to the new `sf` style now emit their warnings to stderr instead of stdout.  (GitHub issue [#1926](https://github.com/forcedotcom/cli/issues/1926), sf-plugins-core PR [#216](https://github.com/salesforcecli/sf-plugins-core/pull/216)).
 
 ## 7.187.1 (Feb 9, 2023) [stable]
 
