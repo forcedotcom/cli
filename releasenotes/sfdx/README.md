@@ -31,9 +31,35 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: We continue to [improve the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands. This week's release includes updated [plugin-apex](https://github.com/salesforcecli/plugin-apex). The `sfdx` commands and their flags still work the same as before. 
 
-    These are the new command names. For each command, you can still use colons instead of spaces, such as `apex:execute`. 
+    These are the new command names. For each command, you can still use colons instead of spaces, such as `apex:run`. 
+    
+    |Existing Command Name|New Command Name|
+    |------------|-------------|
+    |`force:apex:execute`|`apex run`|
+    |`force:apex:log:get`|`apex get log`|
+    |`force:apex:log:list`|`apex list log`|
+    |`force:apex:log:tail`|`apex tail log`|
+    |`force:apex:test:report`|`apex get test`|
+    |`force:apex:test:run`|`apex run test`|
     
     These are the new flag names for the new command names listed above. If an existing flag name isn't listed in the table, it has the same name in the new command name.
+    
+    |Existing Flag Name|New Flag Name|Affected Existing Commands|
+    |---|---|---|
+    |`--apiversion`|`--api-version`|All commands|
+    |`--targetusername`|`--target-org`, with new short name `-o`|All commands|
+    |`--outputdir`|`--output-dir`|`force:apex:log:get`, `force:apex:test:report`, `force:apex:test:run`|
+    |`--logid`|`--log-id`|`force:apex:log:get`|
+    |`--codecoverage`|`--code-coverage`|`force:apex:test:run`, `force:apex:test:report`|
+    |`--testrunid`|`--test-run-id`|`force:apex:test:report`|
+    |`--resultformat`|`--result-format`|`force:apex:test:report`, `force:apex:test:run`|
+    |`--apexcodefile`|`--file`|`force:apex:execute`|
+    |`--testlevel`|`--test-level`|`force:apex:execute`|
+    |`--classnames`|`--class-names`|`force:apex:execute`|
+    |`--suitenames`|`--suite-names`|`force:apex:execute`|
+    |`--detailedcoverage`|`--detailed-coverage`|`force:apex:execute`|
+    |`--debuglevel`|`--debug-level`|`force:apex:log:tail`|
+    |`--skiptraceflag`|`--skip-trace-flag`|`force:apex:log:tail`|
     
     This flag is deprecated and has no effect.
 
@@ -46,13 +72,13 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     Let's look at an example, such as this command: 
     
     ```bash
-    sfdx force:apex:..."
+    sfdx force:apex:test:run --suitenames "MySuite,MyOtherSuite" --codecoverage --detailedcoverage --targetusename my-scratch --outputdir tests/output"
     ```
     
     You can now run it this way using the `sf` style:
     
     ```bash
-    sfdx apex ..."
+    sfdx apex run test --suite-names "MySuite,MyOtherSuite" --code-coverage --detailed-coverage --target-org my-scratch --output-dir tests/output"
     ```
 
 ## 7.188.1 (Feb 16, 2023) [stable]
