@@ -32,14 +32,14 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
    This week's release includes the updated [plugin-apex](https://github.com/salesforcecli/plugin-apex) and [plugin-templates](https://github.com/salesforcecli/plugin-templates). Consequently, you can now run these existing `sfdx` commands in `sf`:
 
     * `sf analytics generate template` : Create a simple Analytics template. 
-    * `sf apex execute` : Execute anonymous Apex code entered on the command line or from a local file.                                                 
+    * `sf apex run` : Execute anonymous Apex code entered on the command line or from a local file.                                                 
     * `sf apex generate class` : Create an Apex class.                                           
     * `sf apex generate trigger` : Create an Apex trigger.
-    * `sf apex log get` : Fetch the specified log or given number of most recent logs from the org.
-    * `sf apex log list` : Display a list of IDs and general information about debug logs.            
-    * `sf apex log tail` : Activate debug logging and display logs in the terminal.            
-    * `sf apex test report` : Display test results for a specific asynchronous test run.         
-    * `sf apex test run` : Invoke Apex tests in an org.            
+    * `sf apex get log` : Fetch the specified log or given number of most recent logs from the org.
+    * `sf apex list log` : Display a list of IDs and general information about debug logs.            
+    * `sf apex tail log` : Activate debug logging and display logs in the terminal.            
+    * `sf apex get test` : Display test results for a specific asynchronous test run.         
+    * `sf apex run test` : Invoke Apex tests in an org.            
     * `sf lightning generate app` : Create a Lightning App.   
     * `sf lightning generate component` : Create a bundle for an Aura component or a Lightning web component.
     * `sf lightning generate event` : Create a Lightning Event. 
