@@ -29,6 +29,14 @@ Additional documentation:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
+* CHANGE: Michelangelo created David, NASA put an astronaut on the moon, and Beethoven composed his Ninth Symphony. Not to be undone, the Salesforce CLI dev team delivered an almost-equal accomplishment this week: a truly and completely [open-source CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021)! After breaking up the original `salesforce-alm` plugin into smaller open-source plugins, we've removed the `salesforce-alm` from the CLI, because we no longer need it. The only noticeable change is that  commands with `legacy` in their name are no longer available. But don't worry, if you want them back, you can always re-install the plugin like this:
+
+    ```bash
+    sfdx plugins install salesforce-alm
+    ```
+    
+    We're working on the third and final installment of our open-source journey -- stay tuned!
+
 * NEW: We continue to [improve the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands. This week's release includes updated [plugin-apex](https://github.com/salesforcecli/plugin-apex). The `sfdx` commands and their flags still work the same as before. 
 
     These are the new command names. For each command, you can still use colons instead of spaces, such as `apex:run`. 
@@ -81,6 +89,14 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     sfdx apex run test --suite-names "MySuite,MyOtherSuite" --code-coverage --detailed-coverage --target-org my-scratch --output-dir tests/output"
     ```
 
+* CHANGE: Michelangelo created David, NASA put an astronaut on the moon, and Beethoven composed his Ninth Symphony. Not to be outdone, the Salesforce CLI dev team delivered an almost-equal accomplishment this week: a 100% [open-source CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021)! After breaking up the original `salesforce-alm` plugin into smaller open-source plugins, we removed the `salesforce-alm` from the CLI this week, because we no longer need it. The only noticeable change is that commands with `legacy` in their name are no longer available. But don't worry, if you want them back, you can always re-install the plugin like this:
+
+    ```bash
+    sfdx plugins install salesforce-alm
+    ```
+    
+    We're working on the third and final [blog post](https://developer.salesforce.com/blogs) about our open-source journey -- stay tuned!
+    
 ## 7.188.1 (Feb 16, 2023) [stable]
 
 * NEW: We continue to [improve the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands. This week's release includes updated [plugin-templates](https://github.com/salesforcecli/plugin-templates). The `sfdx` commands and their flags still work the same as before. 
