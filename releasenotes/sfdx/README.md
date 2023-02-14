@@ -87,7 +87,12 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     sfdx plugins install salesforce-alm
     ```
     
-    We're working on the third and final [blog post](https://developer.salesforce.com/blogs) about our open-source journey -- keep an eye out!
+   Alternatively, install a version of Salesforce CLI that still contains the `salesforce-alm` plugin, such as `7.188.1`:
+   
+   ```bash
+   sfdx update --version 7.188.1
+   ```
+   We're working on the third and final [blog post](https://developer.salesforce.com/blogs) about our open-source journey -- keep an eye out!
     
 ## 7.188.1 (Feb 16, 2023) [stable]
 
