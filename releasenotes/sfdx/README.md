@@ -81,7 +81,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     sfdx apex run test --suite-names "MySuite,MyOtherSuite" --code-coverage --detailed-coverage --target-org my-scratch --output-dir tests/output"
     ```
 
-* CHANGE: Michelangelo created David, NASA put an astronaut on the moon, and Beyonce just won her 32nd GRAMMY. Not to be outdone, the Salesforce CLI team delivered an equally impressive accomplishment this week: a 100% [open-source CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021). After methodically breaking up the original `salesforce-alm` plugin into smaller open-source plugins, we finally removed `salesforce-alm` from the CLI this week, because we no longer need it. The only noticeable change is that commands with `legacy` in their name are no longer available. But don't worry, if you want them back, you can always reinstall the plugin like this:
+* CHANGE: Michelangelo created David, NASA put an astronaut on the moon, and Beyoncé just won her 32nd GRAMMY. Not to be outdone, the Salesforce CLI team delivered an equally impressive accomplishment this week: a 100% [open-source CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021). After methodically breaking up the original `salesforce-alm` plugin into smaller open-source plugins, we finally removed `salesforce-alm` from the CLI this week, because we no longer need it. The only noticeable change is that commands with `legacy` in their name are no longer available. But don't worry, if you want them back, you can always reinstall the plugin like this:
 
     ```bash
     sfdx plugins install salesforce-alm
