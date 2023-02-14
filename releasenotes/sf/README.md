@@ -78,6 +78,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     As always, run the commands with `--help` to see the list of flags, examples, and usage information. We'll be releasing other updated plugins over the next weeks. Enjoy!
 
+* NEW: The `sf org display` output now includes the API version of the org at the time you authorized it with the `sf login org` command. We cache the value locally, so if Salesforce updates your org to a new release, the API version will be incorrect. Re-login to your org to refresh the API version information in the `sf org display` output. (GitHub issue [#314](https://github.com/forcedotcom/cli/issues/314), plugin-org PR [#580](https://github.com/salesforcecli/plugin-org/pull/580))
+
 * CHANGE: Remember when we added [`plugin-custom-metadata`](#cmdt-community), [`plugin-signups`](#signups), and [`plugin-community`](#cmdt-community) to `sf`?  We're changing them to just-in-time plugins, because, like packaging, not all of you use these commands regularly.  
 
 ## 1.65.0 (Feb 15, 2023) [stable]
