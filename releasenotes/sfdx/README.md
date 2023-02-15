@@ -81,7 +81,32 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     sfdx apex run test --suite-names "MySuite,MyOtherSuite" --code-coverage --detailed-coverage --target-org my-scratch --output-dir tests/output"
     ```
 
-* CHANGE: Michelangelo created David, NASA put an astronaut on the moon, and Beyoncé just won her 32nd GRAMMY. Not to be outdone, the Salesforce CLI team delivered an equally impressive accomplishment this week: a 100% [open-source CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021). After methodically breaking up the original `salesforce-alm` plugin into smaller open-source plugins, we finally removed `salesforce-alm` from the CLI this week, because we no longer need it. The only noticeable change is that commands with `legacy` in their name are no longer available. But don't worry, if you want them back, you can always reinstall the plugin like this:
+* NEW: Configure autocomplete on Zsh for commands that use spaces as separators by running this command:
+
+    ```bash
+    sfdx autocomplete
+    ```
+    Follow the displayed instructions to set up autocomplete in your environment. Then use the tab key to autocomplete commands. For example, if you type `sf data ` then press TAB, you'll get a list of data commands to chose from. You can also autocomplete flags: 
+    
+    * Type `-` to see suggestions that show both the long and short flag names. For example, if you type `sf data query -` then press TAB, zsh displays all the flags for this command, including both short and long names. If you type `sf data query --`, then only the long names are shown. 
+    * For flags that define a set of valid values, type `--<flagname>` to see the list. For example, if you type `sf data query --result-format` then press TAB, zsh suggests the valid options for this flag, which are `human`, `json`, or `csv`. 
+    * Flags that can be specified multiple times are still suggested, even if you've already used it. 
+    
+    If you currently use autocomplete for colon-separated commands, you must regenerate the autocomplete cache to get this new behavior; nothing in your environment changes otherwise:
+    
+    ```bash
+    sfdx autocomplete --refresh-cache
+    ``` 
+    
+    If you regenerate the cache, but then want to go back to autocompleting commands that use `:` as a separator, first set this environment variable:
+    
+    ```bash
+    OCLIF_AUTOCOMPLETE_TOPIC_SEPARATOR=colon
+    ```
+
+     Then regenerate the autocomplete cache again (`sfdx autocomplete --refresh-cache`).
+    
+* CHANGE: Michelangelo created David, NASA put an astronaut on the moon, and Beyoncé just won her 32nd GRAMMY. Not to be outdone, the Salesforce CLI team delivered an equally impressive accomplishment this week: a 100% [open-source CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021). After methodically breaking up the original `salesforce-alm` plugin into smaller open-source plugins, we finally removed it completely from Salesforce CLI this week. It was the last remaining private plugin. The only noticeable change is that commands with `legacy` in their name are no longer available. But don't worry, if you want them back, you can always reinstall the plugin like this:
 
     ```bash
     sfdx plugins install salesforce-alm
@@ -92,7 +117,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
    ```bash
    sfdx update --version 7.188.1
    ```
-   We're working on the third and final [blog post](https://developer.salesforce.com/blogs) about our open-source journey -- keep an eye out!
+   We're working on the third and final [blog post](https://developer.salesforce.com/blogs) about our open-source journey -- stay tuned. Congratulations, team, on achieving a significant goal that's been a long-time coming!
     
 ## 7.188.1 (Feb 16, 2023) [stable]
 
