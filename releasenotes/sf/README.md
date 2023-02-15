@@ -91,13 +91,13 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * For flags that define a set of valid values, type `--<flagname>` to see the list. For example, if you type `sf data query --result-format` then press TAB, zsh suggests the valid options for this flag, which are `human`, `json`, or `csv`. 
     * Flags that can be specified multiple times are still suggested, even if you've already used it. 
     
-    If you currently use autocomplete for colon-separated commands, nothing changes in your environment until you regenerate the autocomplete cache:
+    If you currently use autocomplete for colon-separated commands, you must regenerate the autocomplete cache to get this new behavior; nothing in your environment changes otherwise:
     
     ```bash
     sf autocomplete --refresh-cache
     ``` 
     
-    If you regenerated the cache, but then want to go back to autocompleting commands that use `:` as a separator, first set this environment variable:
+    If you regenerate the cache, but then want to go back to autocompleting commands that use `:` as a separator, first set this environment variable:
     
     ```bash
     OCLIF_AUTOCOMPLETE_TOPIC_SEPARATOR=colon
