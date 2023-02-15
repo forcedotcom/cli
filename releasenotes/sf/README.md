@@ -80,6 +80,25 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: The `sf org display` output now includes the API version of the org at the time you authorized it with the `sf login org` command. We cache the value locally, so if Salesforce updates your org to a new release, the API version will be incorrect. Re-login to your org to refresh the API version information in the `sf org display` output. (GitHub issue [#314](https://github.com/forcedotcom/cli/issues/314), plugin-org PR [#580](https://github.com/salesforcecli/plugin-org/pull/580))
 
+* NEW: (Bash and Zsh only) Use autocomplete on commands that use spaces by installing the [latest `plugin-autocomplete`](https://github.com/oclif/plugin-autocomplete/releases/tag/2.1.0):
+
+    ```bash
+    sf autocomplete
+    ```
+    Follow the displayed instructions to set it up in your environment. Then use the tab key to autocomplete commands as usual.  But wait, you get these new features too:
+    
+    * Type `--` to get suggestions for flags that define a [known set of options](https://oclif.io/docs/flags).
+    * Flags that can be specified multiple times are still suggested, even if you've already used it. 
+    * Type `-` to get suggestions of short flag names.
+    
+    If you currently use autocomplete for colon-separated commands, nothing changes in your environment until you explicitly update to the latest `plugin-autocomplete` version. If you updated, but want to go back to autocompleting commands that use `:` as a separator, set this environment variable:
+    
+    ```bash
+    OCLIF_AUTOCOMPLETE_TOPIC_SEPARATOR=colon
+    ```
+
+    Autocomplete away!
+    
 * CHANGE: Remember when we added [`plugin-custom-metadata`](#cmdt-community), [`plugin-signups`](#signups), and [`plugin-community`](#cmdt-community) to `sf`?  We're changing them to just-in-time plugins, because, like packaging, not all of you use these commands regularly.  
 
 ## 1.65.0 (Feb 15, 2023) [stable]
