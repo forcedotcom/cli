@@ -21,9 +21,93 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.65.0 (Feb 15, 2023) [stable-rc]
+## 1.66.0 (Feb 22, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* NEW: We now install some plugins just when you need them, rather than include them automatically in a Salesforce CLI release. Let's use the [updated]((https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli)) [plugin-packaging](https://github.com/salesforcecli/plugin-packaging) as an example. The plugin isn't included in `sf` by default, although `sf` _knows_ about it. When you run one of the plugin's commands for the first time, such as `sf package version create`, Salesforce CLI installs the latest released version of the plugin and then runs the command. The installation happens automatically, although we display a little message so you know what's going on. From then on, run any of the commands contained in the plugin as usual. When you update Salesforce CLI with `sfdx update`, the plugin is also updated to its latest release. Just a little just-in-time magic!    
+    
+* NEW: We continue to improve the usability of existing `sfdx` commands so they work like the `sf` commands. We're doing this work plugin by plugin. As a result of this work, when a Salesforce CLI release includes an updated plugin, you can execute the plugin's commands in both `sfdx` AND `sf`. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. 
+
+   This week's release includes the updated [plugin-apex](https://github.com/salesforcecli/plugin-apex) and [plugin-templates](https://github.com/salesforcecli/plugin-templates). Consequently, you can now run these existing `sfdx` commands in `sf`:
+
+    * `sf analytics generate template` : Create a simple Analytics template. 
+    * `sf apex run` : Execute anonymous Apex code entered on the command line or from a local file.                                                 
+    * `sf apex generate class` : Create an Apex class.                                           
+    * `sf apex generate trigger` : Create an Apex trigger.
+    * `sf apex get log` : Fetch the specified log or given number of most recent logs from the org.
+    * `sf apex list log` : Display a list of IDs and general information about debug logs.            
+    * `sf apex tail log` : Activate debug logging and display logs in the terminal.            
+    * `sf apex get test` : Display test results for a specific asynchronous test run.         
+    * `sf apex run test` : Invoke Apex tests in an org.            
+    * `sf lightning generate app` : Create a Lightning App.   
+    * `sf lightning generate component` : Create a bundle for an Aura component or a Lightning web component.
+    * `sf lightning generate event` : Create a Lightning Event. 
+    * `sf lightning generate interface` : Create a Lightning Interface.
+    * `sf lightning generate test` : Create a Lightning test.  
+    * `sf static-resource generate` : Create a static resource. 
+    * `sf visualforce generate component` : Create a Visualforce Component.
+    * `sf visualforce generate page` : Create a Visualforce Page.
+
+    We also changed the official name of the existing `sf generate project` command to `sf project generate`.
+
+    In addition to the two new _included_ plugins, we also added [plugin-packaging](https://github.com/salesforcecli/plugin-packaging) as a just-in-time plugin. We decided to make it a just-in-time plugin because not all of you use the packaging commands regularly. See the previous release note about how this type of plugin works. After Salesforce CLI installs the plugin, you can run these existing `sfdx` commands in `sf`:
+
+    * `sf package1 version create` : Create a first-generation package version in the release org.
+    * `sf package1 version create get` : Retrieve the status of a package version creation request. 
+    * `sf package1 version display` : Display details about a first-generation package version.
+    * `sf package1 version list` : List package versions for the specified first-generation package or for the org.
+    * `sf package create`: Create a package.
+    * `sf package delete` : Delete a package.
+    * `sf package install`: Install a version of a package in the target org.
+    * `sf package install report` : Retrieve the status of a package installation request.
+    * `sf package installed list` : List the org’s installed packages.
+    * `sf package list` : List all packages in the Dev Hub org.
+    * `sf package uninstall` : Uninstall a second-generation package from the target org.
+    * `sf package uninstall report` : Retrieve the status of a package uninstall request.
+    * `sf package update` : Update package details.
+    * `sf package version create` : Create a package version in the Dev Hub org.
+    * `sf package version create list` : List package version creation requests.
+    * `sf package version create report` : Retrieve details about a package version creation request.
+    * `sf package version delete` : Delete a package version.
+    * `sf package version displayancestry` : Display the ancestry tree for a 2GP managed package version.
+    * `sf package version list` : List all package versions in the Dev Hub org.
+    * `sf package version promote` : Promote a package version to released.
+    * `sf package version report` : Retrieve details about a package version in the Dev Hub org.
+    * `sf package version update` : Update a package version.
+
+    As always, run the commands with `--help` to see the list of flags, examples, and usage information. We'll be releasing other updated plugins over the next weeks. Enjoy!
+
+* NEW: The `sf org display` output now includes the API version of the org at the time you authorized it with the `sf login org` command. We cache the value locally, so if Salesforce updates your org to a new release, the API version will be incorrect. Re-login to your org to refresh the API version information in the `sf org display` output. (GitHub issue [#314](https://github.com/forcedotcom/cli/issues/314), plugin-org PR [#580](https://github.com/salesforcecli/plugin-org/pull/580))
+
+* NEW: Configure autocomplete on Zsh for commands that use spaces as separators by running this command:
+
+    ```bash
+    sf autocomplete
+    ```
+    Follow the displayed instructions to set up autocomplete in your environment. Then use the tab key to autocomplete commands. For example, if you type `sf data ` then press TAB, you'll get a list of data commands to chose from. You can also autocomplete flags: 
+    
+    * Type `-` to see suggestions that show both the long and short flag names. For example, if you type `sf data query -` then press TAB, zsh displays all the flags for this command, including both short and long names. If you type `sf data query --`, then only the long names are shown. 
+    * For flags that define a set of valid values, type `--<flagname>` to see the list. For example, if you type `sf data query --result-format` then press TAB, zsh suggests the valid options for this flag, which are `human`, `json`, or `csv`. 
+    * Flags that can be specified multiple times are still suggested, even if you've already used it. 
+    
+    If you currently use autocomplete for colon-separated commands, nothing changes in your environment until you regenerate the autocomplete cache:
+    
+    ```bash
+    sf autocomplete --refresh-cache
+    ``` 
+    
+    If you regenerated the cache, but then want to go back to autocompleting commands that use `:` as a separator, first set this environment variable:
+    
+    ```bash
+    OCLIF_AUTOCOMPLETE_TOPIC_SEPARATOR=colon
+    ```
+
+     Then regenerate the autocomplete cache (`sf autocomplete --refresh-cache`).
+    
+* CHANGE: Remember when we added [`plugin-custom-metadata`](#cmdt-community), [`plugin-signups`](#signups), and [`plugin-community`](#cmdt-community) to `sf`?  We're changing them to just-in-time plugins, because, like packaging, not all of you use these commands regularly.  
+
+## 1.65.0 (Feb 15, 2023) [stable]
     
 * CHANGE: We upgraded the version of Node.js contained in the [Salesforce CLI installers and TAR files](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm) to [v18.14.0](https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V18.md#2023-02-02-version-18140-hydrogen-lts-bethgriggs-prepared-by-juanarbol). 
 
@@ -33,7 +117,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `sf deploy|retrieve metadata` commands now support the ExperiencePropertyTypeBundle metadata type.
 
-## 1.64.0 (Feb 8, 2023) [stable]
+## 1.64.0 (Feb 8, 2023)
     
 * CHANGE: As part of [this project](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli), we changed the official name of these existing `sf` commands: 
 
@@ -102,6 +186,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `cmdt generate record` command is now working correctly and no longer returns `Error: Unexpected arguments`. (GitHub issue [#1893](https://github.com/forcedotcom/cli/issues/1893), plugin-custom-metadata PR [#380](https://github.com/salesforcecli/plugin-custom-metadata/pull/380))
 
+<a name="signups">
+
 ## 1.62.2 (Jan 25, 2023)
 
 * NEW: We continue to improve the usability of existing `sfdx` commands so they work like the `sf` commands. We're doing this work plugin by plugin. As a result of this work, when a Salesforce CLI release includes an updated plugin, you can execute the plugin's commands in both `sfdx` AND `sf`. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. 
@@ -126,6 +212,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
     * By default, if you specify the `--json` flag for `sf metadata deploy`, the JSON output includes a `replacements` property that lists the affected files and the string that was replaced. Specify the `--concise` flag to omit this information.
     * To view string replacement information in the `sf metadata deploy` human-readable output, specify `--verbose`.
+
+<a name="cmdt-community">
 
 ## 1.61.1 (Jan 18, 2023)
 
