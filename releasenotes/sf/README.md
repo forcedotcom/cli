@@ -80,7 +80,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: The `sf org display` output now includes the API version of the org at the time you authorized it with the `sf login org` command. We cache the value locally, so if Salesforce updates your org to a new release, the API version will be incorrect. Re-login to your org to refresh the API version information in the `sf org display` output. (GitHub issue [#314](https://github.com/forcedotcom/cli/issues/314), plugin-org PR [#580](https://github.com/salesforcecli/plugin-org/pull/580))
 
-* NEW: (Bash and Zsh only) Use autocomplete on commands that use spaces by installing the [latest `plugin-autocomplete`](https://github.com/oclif/plugin-autocomplete/releases/tag/2.1.0):
+* NEW: (Zsh only) Use autocomplete on commands that use spaces by installing the [latest `plugin-autocomplete`](https://github.com/oclif/plugin-autocomplete/releases/tag/2.1.0):
 
     ```bash
     sf autocomplete
