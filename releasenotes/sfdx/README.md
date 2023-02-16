@@ -125,6 +125,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     Thank you, [Matthias Rolke](https://github.com/amtrack), for contributing the fix. We love it. Keep 'em coming!
     
+* FIX: Commands are no longer duplicated in the output of `sfdx commands --json`. (GitHub issue [#1777](https://github.com/forcedotcom/cli/issues/1777), plugin-commands PR [#382](https://github.com/oclif/plugin-commands/pull/382))
+    
 ## 7.188.1 (Feb 16, 2023) [stable]
 
 * NEW: We continue to [improve the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands. This week's release includes updated [plugin-templates](https://github.com/salesforcecli/plugin-templates). The `sfdx` commands and their flags still work the same as before. 
