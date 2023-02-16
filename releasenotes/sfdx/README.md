@@ -25,11 +25,109 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.188.1 (Feb 16, 2023) [stable-rc]
-
-ANNOUNCEMENT: Do you use the `force:apex:execute` command? If so, read [this post](https://github.com/forcedotcom/cli/issues/1889) that describes a small breaking change we'll be making soon with the goal of improving the command. 
+## 7.189.0 (Feb 23, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+* NEW: We continue to [improve the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands. This week's release includes updated [plugin-apex](https://github.com/salesforcecli/plugin-apex). The `sfdx` commands and their flags still work the same as before. 
+
+    These are the new command names. For each command, you can still use colons instead of spaces, such as `apex:run`. 
+    
+    |Existing Command Name|New Command Name|
+    |------------|-------------|
+    |`force:apex:execute`|`apex run`|
+    |`force:apex:log:get`|`apex get log`|
+    |`force:apex:log:list`|`apex list log`|
+    |`force:apex:log:tail`|`apex tail log`|
+    |`force:apex:test:report`|`apex get test`|
+    |`force:apex:test:run`|`apex run test`|
+    
+    These are the new flag names for the new command names listed above. If an existing flag name isn't listed in the table, it has the same name in the new command name.
+    
+    |Existing Flag Name|New Flag Name|Affected Existing Commands|
+    |---|---|---|
+    |`--apiversion`|`--api-version`|All commands|
+    |`--targetusername`|`--target-org`, with new short name `-o`|All commands|
+    |`--outputdir`|`--output-dir`|`force:apex:log:get`, `force:apex:test:report`, `force:apex:test:run`|
+    |`--logid`|`--log-id`|`force:apex:log:get`|
+    |`--codecoverage`|`--code-coverage`|`force:apex:test:run`, `force:apex:test:report`|
+    |`--testrunid`|`--test-run-id`|`force:apex:test:report`|
+    |`--resultformat`|`--result-format`|`force:apex:test:report`, `force:apex:test:run`|
+    |`--apexcodefile`|`--file`|`force:apex:execute`|
+    |`--testlevel`|`--test-level`|`force:apex:execute`|
+    |`--classnames`|`--class-names`|`force:apex:execute`|
+    |`--suitenames`|`--suite-names`|`force:apex:execute`|
+    |`--detailedcoverage`|`--detailed-coverage`|`force:apex:execute`|
+    |`--debuglevel`|`--debug-level`|`force:apex:log:tail`|
+    |`--skiptraceflag`|`--skip-trace-flag`|`force:apex:log:tail`|
+    
+    This flag is deprecated and has no effect.
+
+    |Deprecated Flag|Affected Existing Command|
+    |---|---|
+    |`--loglevel`|All commands|
+    
+    We also updated the `--help` for each command to use the new command and flag names, to gently encourage you to start switching over to the new style. Use the `-h` flag to get a condensed view of the help, for when you don't need long descriptions and examples. 
+    
+    Let's look at an example, such as this command: 
+    
+    ```bash
+    sfdx force:apex:test:run --suitenames "MySuite,MyOtherSuite" --codecoverage --detailedcoverage --targetusename my-scratch --outputdir tests/output"
+    ```
+    
+    You can now run it this way using the `sf` style:
+    
+    ```bash
+    sfdx apex run test --suite-names "MySuite,MyOtherSuite" --code-coverage --detailed-coverage --target-org my-scratch --output-dir tests/output"
+    ```
+
+* NEW: Configure autocomplete on Zsh for commands that use spaces as separators by running this command:
+
+    ```bash
+    sfdx autocomplete
+    ```
+    Follow the displayed instructions to set up autocomplete in your environment. Then use the tab key to autocomplete commands. For example, if you type `sf data ` then press TAB, you'll get a list of data commands to chose from. You can also autocomplete flags: 
+    
+    * Type `-` to see suggestions that show both the long and short flag names. For example, if you type `sf data query -` then press TAB, zsh displays all the flags for this command, including both short and long names. If you type `sf data query --`, then only the long names are shown. 
+    * For flags that define a set of valid values, type `--<flagname>` to see the list. For example, if you type `sf data query --result-format` then press TAB, zsh suggests the valid options for this flag, which are `human`, `json`, or `csv`. 
+    * Flags that can be specified multiple times are still suggested, even if you've already used it. 
+    
+    If you currently use autocomplete for colon-separated commands, you must regenerate the autocomplete cache to get this new behavior; nothing in your environment changes otherwise:
+    
+    ```bash
+    sfdx autocomplete --refresh-cache
+    ``` 
+    
+    If you regenerate the cache, but then want to go back to autocompleting commands that use `:` as a separator, first set this environment variable:
+    
+    ```bash
+    OCLIF_AUTOCOMPLETE_TOPIC_SEPARATOR=colon
+    ```
+
+     Then regenerate the autocomplete cache again (`sfdx autocomplete --refresh-cache`).
+    
+* NEW: The `sfdx org display` (`force:org:display`) output now includes the API version of the org at the time you authorized it with the `sfdx auth:*` commands. We cache the value locally, so if Salesforce updates your org to a new release, the API version will be incorrect. Re-login to your org to refresh the API version information in the `sfdx org display` output. (GitHub issue [#314](https://github.com/forcedotcom/cli/issues/314), plugin-org PR [#580](https://github.com/salesforcecli/plugin-org/pull/580))
+
+* CHANGE: Michelangelo created David, NASA put an astronaut on the moon, and Beyoncé just won her 32nd GRAMMY. Not to be outdone, the Salesforce CLI team delivered an equally impressive accomplishment this week: a 100% [open-source CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021). After methodically breaking up the original `salesforce-alm` plugin into smaller open-source plugins, we finally removed it completely from Salesforce CLI this week. It was the last remaining private plugin. The only noticeable change is that commands with `legacy` in their name are no longer available. But don't worry, if you want them back, you can always reinstall the plugin like this:
+
+    ```bash
+    sfdx plugins install salesforce-alm
+    ```
+    
+   Alternatively, install a version of Salesforce CLI that still contains the `salesforce-alm` plugin, such as `7.188.1`:
+   
+   ```bash
+   sfdx update --version 7.188.1
+   ```
+   We're working on the third and final [blog post](https://developer.salesforce.com/blogs) about our open-source journey -- stay tuned. Congratulations, team, on achieving a significant goal that's been a long-time coming!
+   
+* CHANGE: If you run `force:apex:execute` and the compilation or execution of the anonymous Apex code fails, you now get a non-zero exit code, which is more intuitive. Previously the command execution was still considered a success (zero exit code). NOTE that this is a breaking change. After we [announced it](https://github.com/forcedotcom/cli/issues/1889), we got lots of positive feedback, so we made the change. Thanks for your input. 
+
+    Thank you, [Matthias Rolke](https://github.com/amtrack), for contributing the fix. We love it. Keep 'em coming!
+    
+* FIX: Commands are no longer duplicated in the output of `sfdx commands --json`. (GitHub issue [#1777](https://github.com/forcedotcom/cli/issues/1777), plugin-commands PR [#382](https://github.com/oclif/plugin-commands/pull/382))
+    
+## 7.188.1 (Feb 16, 2023) [stable]
 
 * NEW: We continue to [improve the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands. This week's release includes updated [plugin-templates](https://github.com/salesforcecli/plugin-templates). The `sfdx` commands and their flags still work the same as before. 
 
@@ -108,9 +206,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Commands that have transitioned to the new `sf` style now emit their warnings to stderr instead of stdout.  (GitHub issue [#1926](https://github.com/forcedotcom/cli/issues/1926), sf-plugins-core PR [#216](https://github.com/salesforcecli/sf-plugins-core/pull/216)).
 
-## 7.187.1 (Feb 9, 2023) [stable]
-
-ANNOUNCEMENT: Do you use the `force:apex:execute` command? If so, read [this post](https://github.com/forcedotcom/cli/issues/1889) that describes a small breaking change we'll be making soon with the goal of improving the command. 
+## 7.187.1 (Feb 9, 2023)
 
 * NEW: We continue to [improve the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands. This week's release includes updated [plugin-org](https://github.com/salesforcecli/plugin-org). The existing `sfdx` commands and their flags still work the same as before, although we've deprecated some commands and flags and added new ones. Here's a summary.
 
@@ -229,8 +325,6 @@ ANNOUNCEMENT: Do you use the `force:apex:execute` command? If so, read [this pos
     * ProductSpecificationTypeDefinition
 
 ## 7.186.2 (Feb 2, 2023)
-
-ANNOUNCEMENT: Do you use the `force:apex:execute` command? If so, read [this post](https://github.com/forcedotcom/cli/issues/1889) that describes a small breaking change we'll be making soon with the goal of improving the command. 
 
 * NEW: We continue to improve the usability of existing `sfdx` commands, such as more intuitive flag names and using spaces as separators, similar to how `sf` works. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. We're doing this work plugin by plugin. This week's release includes updated [plugin-packaging](https://github.com/salesforcecli/plugin-packaging) and [plugin-user](https://github.com/salesforcecli/plugin-user). Don't worry, the `sfdx` commands and their flags still work the same as before! But give the new style a try -- we think you'll like it.
 
