@@ -119,7 +119,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
    ```bash
    sfdx update --version 7.188.1
    ```
-   We're working on the third and final [blog post](https://developer.salesforce.com/blogs) about our open-source journey -- stay tuned. Congratulations, team, on achieving a significant goal that's been a long-time coming!
+   We're working on the third and final [blog post](https://developer.salesforce.com/blogs) about our open-source journey -- stay tuned. And [here's](https://github.com/forcedotcom/cli/issues/1945) a pinned GitHub issue with a bit more information. Congratulations, team, on achieving a significant goal that's been a long-time coming!
    
 * CHANGE: If you run `force:apex:execute` and the compilation or execution of the anonymous Apex code fails, you now get a non-zero exit code, which is more intuitive. Previously the command execution was still considered a success (zero exit code). NOTE that this is a breaking change. After we [announced it](https://github.com/forcedotcom/cli/issues/1889), we got lots of positive feedback, so we made the change. Thanks for your input. 
 
