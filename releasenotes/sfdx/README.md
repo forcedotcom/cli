@@ -126,6 +126,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     Thank you, [Matthias Rolke](https://github.com/amtrack), for contributing the fix. We love it. Keep 'em coming!
     
 * FIX: Commands are no longer duplicated in the output of `sfdx commands --json`. (GitHub issue [#1777](https://github.com/forcedotcom/cli/issues/1777), plugin-commands PR [#382](https://github.com/oclif/plugin-commands/pull/382))
+
+* FIX: Packaging commands support aliases with spaces in them. (GitHub issue [#1936](https://github.com/forcedotcom/cli/issues/1936), oclif-core PR [#614](https://github.com/oclif/core/pull/614))  
     
 ## 7.188.1 (Feb 16, 2023) [stable]
 
