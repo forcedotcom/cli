@@ -21,9 +21,12 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.66.2 (Feb 22, 2023) [stable-rc]
+## 1.67.0 (March 1, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+
+## 1.66.2 (Feb 22, 2023) [stable]
 
 * NEW: We now install some plugins just when you need them, rather than include them automatically in a Salesforce CLI release. Let's use the [updated]((https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli)) [plugin-packaging](https://github.com/salesforcecli/plugin-packaging) as an example. The plugin isn't included in `sf` by default, although `sf` _knows_ about it. When you run one of the plugin's commands for the first time, such as `sf package version create`, Salesforce CLI installs the latest released version of the plugin and then runs the command. The installation happens automatically, although we display a little message so you know what's going on. From then on, run any of the commands contained in the plugin as usual. When you update Salesforce CLI with `sfdx update`, the plugin is also updated to its latest release. Just a little just-in-time magic!    
     
@@ -107,7 +110,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
 * CHANGE: Remember when we added [`plugin-custom-metadata`](#cmdt-community), [`plugin-signups`](#signups), and [`plugin-community`](#cmdt-community) to `sf`?  We're changing them to just-in-time plugins, because, like packaging, not all of you use these commands regularly.  
 
-## 1.65.0 (Feb 15, 2023) [stable]
+## 1.65.0 (Feb 15, 2023)
     
 * CHANGE: We upgraded the version of Node.js contained in the [Salesforce CLI installers and TAR files](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm) to [v18.14.0](https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V18.md#2023-02-02-version-18140-hydrogen-lts-bethgriggs-prepared-by-juanarbol). 
 
