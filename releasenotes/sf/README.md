@@ -25,6 +25,32 @@ Additional documentation:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* NEW: We continue to improve the usability of existing `sfdx` commands so they work like the `sf` commands. We're doing this work plugin by plugin. As a result of this work, when a Salesforce CLI release includes an updated plugin, you can execute the plugin's commands in both `sfdx` AND `sf`. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. 
+
+    This week we've reconciled the various authentication and login commands between `sfdx` and `sf`. We've added the updated `sfdx` [plugin-auth](https://github.com/salesforcecli/plugin-auth) to `sf`, and made changes to the existing `sf` [plugin-env](https://github.com/salesforcecli/plugin-env) and [plugin-login](https://github.com/salesforcecli/plugin-login). Here's a summary of the changes.
+
+    Use these commands to log in and authenticate to an org: 
+    
+    * `sf org login jwt` : Log in to a Salesforce org using a JSON web token (JWT).
+    * `sf org login web` : Log in to a Salesforce org using the web server flow.
+    * `sf org logout` : Log out of a Salesforce org.
+    * `sf org list auth` : List authorization information about the orgs you created or logged into.
+    * `sf org login access-token` : Authorize an org using an existing Salesforce access token.
+    * `sf org login device` : Authorize an org using a device code
+    * `sf org login sfdx-url` : Authorize an org using a Salesforce DX authorization URL stored in a file.
+    
+    Here's how the existing `sf` commands have changed:
+    
+    |Existing command|Changes|
+    |-----|-----|
+    |`sf login org jwt`|Original command has been removed, use `sf org login jwt` instead.|
+    |`sf login org`|Original command has been removed, use `sf org login web` instead|
+    |`sf logout org`|Original command has been removed, use `sf org logout` instead|
+    |`sf logout`|Command is deprecated and no longer works on orgs. Use `sf org logout` instead|
+    |`sf login`|Command is deprecated and no longer works on orgs. Use `sf org login web` instead|
+    |`sf env display`|Works only with compute environments, not with orgs. Use `sf org display` instead.|
+    |`sf env list`|Works only with compute environments, not with orgs. Use `sf org list auth` or `sf org list` instead.|
+    |`sf env open`|Works only with compute environments, not with orgs. Use `sf org open` instead.|    
 
 ## 1.66.2 (Feb 22, 2023) [stable]
 
