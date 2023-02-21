@@ -79,6 +79,40 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     sfdx org ...
     ```
 
+* NEW: Interactively create local Salesforce metadata, such as custom objects and platform events, with these new beta commands in the just-in-time [plugin-sobject](https://github.com/salesforcecli/plugin-sobject) plugin:
+
+    ```bash
+    sfdx schema generate sobject
+    sfdx schema generate platformevent
+    sfdx schema generate field
+    ```
+    The plugin isn't automatically included in Salesforce CLI; instead, it's automatically installed the first time you run one of its commands.
+    
+    Each command requires the `--label` flag, and then uses the value to provide intelligent suggestions for its prompts, such as its API name. You must run these commands in a Salesforce DX project directory. This example shows how to interactively create a custom object:
+
+    ```bash
+    sfdx schema generate sobject --label "My Fab Object"
+    ```
+
+    Want to automatically enable optional features on the new custom object rather than answer all the prompts? Try this:
+
+    ```bash
+    sfdx schema generate sobject --label "My Fab Object" --use-default-features
+    ```
+
+    Now create a custom field on your shiny new object; the command prompts you for the object:
+
+    ```bash
+    sfdx schema generate  field --label "My Field"
+    ```
+
+    Also, while not an interactive commands, you can also create a custom tab for a custom object with the new `sfdx schema generate tab` beta command. You must provide the object's API name, [icon number](https://www.lightningdesignsystem.com/icons/#custom), and local directory to store the files. For example:
+
+    ```bash
+    sfdx schema generate tab --object MyFabObject__c --icon 54 --directory force-app/main/default/tabs
+    ```
+ 
+    Remember to run `sfdx force:source:deploy` to deploy the new local source files to your org. Then you can further customize the new components using Setup UI, then `sfdx force:source:retrieve` the changes back to your local project. How fun is that?
 
 ## 7.189.3 (Feb 23, 2023) [stable]
 
