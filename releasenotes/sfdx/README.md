@@ -29,6 +29,47 @@ Additional documentation:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
+* NEW: We continue to [improve the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands. This week's release includes updated [plugin-auth](https://github.com/salesforcecli/plugin-auth). The `sfdx` commands and their flags still work the same as before. 
+
+    These are the new command names. For each command, you can still use colons instead of spaces, such as `org:login:web`.
+   
+    |Existing Command Name|New Command Name|
+    |------------|-------------|
+    |`auth:web:login`|`org login web|
+    |`auth:jwt:grant`|`org login jwt|
+    |`auth:logout`|`org logout|
+    |`auth:list`|`org list auth`|
+    |`auth:accesstoken:store`|`org login access-token`|
+    |`auth:device:login`|`org login device|
+    |`auth:sfdxurl:store`|`org login sfdx-url|
+
+    These are the new flag names for the new command names listed above. If an existing flag name isn't listed in the table, it has the same name in the new command name.
+    
+    |Existing Flag Name|New Flag Name|Affected Existing Commands|
+    |---|---|---|
+    |`--apiversion`|`--api-version`|All commands|
+    
+    This flag is deprecated and has no effect.
+
+    |Deprecated Flag|Affected Existing Command|
+    |---|---|
+    |`--loglevel`|All commands|
+    
+    We also updated the `--help` for each command to use the new command and flag names, to gently encourage you to start switching over to the new style. Use the `-h` flag to get a condensed view of the help, for when you don't need long descriptions and examples. 
+    
+    Let's look at an example, such as this command: 
+    
+    ```bash
+    sfdx auth:...
+    ```
+    
+    You can now run it this way using the `sf` style:
+    
+    ```bash
+    sfdx org ...
+    ```
+
+
 ## 7.189.3 (Feb 23, 2023) [stable]
 
 * NEW: We continue to [improve the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands. This week's release includes updated [plugin-apex](https://github.com/salesforcecli/plugin-apex). The `sfdx` commands and their flags still work the same as before. 
