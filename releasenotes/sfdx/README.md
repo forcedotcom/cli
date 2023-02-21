@@ -108,7 +108,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
 * NEW: The `sfdx org display` (`force:org:display`) output now includes the API version of the org at the time you authorized it with the `sfdx auth:*` commands. We cache the value locally, so if Salesforce updates your org to a new release, the API version will be incorrect. Re-login to your org to refresh the API version information in the `sfdx org display` output. (GitHub issue [#314](https://github.com/forcedotcom/cli/issues/314), plugin-org PR [#580](https://github.com/salesforcecli/plugin-org/pull/580))
 
-* CHANGE: Michelangelo created David, NASA put an astronaut on the moon, and Beyoncé just won her 32nd GRAMMY. Not to be outdone, the Salesforce CLI team delivered an equally impressive accomplishment this week: a 100% [open-source CLI](https://developer.salesforce.com/blogs/2021/02/open-sourcing-salesforce-cli-update-feb-2021). After methodically breaking up the original `salesforce-alm` plugin into smaller open-source plugins, we finally removed it completely from Salesforce CLI this week. It was the last remaining private plugin. The only noticeable change is that commands with `legacy` in their name are no longer available. But don't worry, if you want them back, you can always reinstall the plugin like this:
+* CHANGE: Michelangelo created David, NASA put an astronaut on the moon, and Beyoncé just won her 32nd GRAMMY. Not to be outdone, the Salesforce CLI team delivered an equally impressive accomplishment this week: a 100% [open-source CLI](https://developer.salesforce.com/blogs/2023/02/achieving-an-open-source-salesforce-cli). After methodically breaking up the original `salesforce-alm` plugin into smaller open-source plugins, we finally removed it completely from Salesforce CLI this week. It was the last remaining private plugin. The only noticeable change is that commands with `legacy` in their name are no longer available. But don't worry, if you want them back, you can always reinstall the plugin like this:
 
     ```bash
     sfdx plugins install salesforce-alm
@@ -119,7 +119,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
    ```bash
    sfdx update --version 7.188.1
    ```
-   We're working on the third and final [blog post](https://developer.salesforce.com/blogs) about our open-source journey -- stay tuned. And [here's](https://github.com/forcedotcom/cli/issues/1945) a pinned GitHub issue with a bit more information. Congratulations, team, on achieving a significant goal that's been a long-time coming!
+  Congratulations, team, on achieving a significant goal that's been a long-time coming!
    
 * CHANGE: If you run `force:apex:execute` and the compilation or execution of the anonymous Apex code fails, you now get a non-zero exit code, which is more intuitive. Previously the command execution was still considered a success (zero exit code). NOTE that this is a breaking change. After we [announced it](https://github.com/forcedotcom/cli/issues/1889), we got lots of positive feedback, so we made the change. Thanks for your input. 
 
