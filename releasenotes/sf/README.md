@@ -52,6 +52,36 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |`sf env list`|Works only with compute environments, not with orgs. Use `sf org list auth` or `sf org list` instead.|
     |`sf env open`|Works only with compute environments, not with orgs. Use `sf org open` instead.|    
 
+* NEW: Use Bulk API 2.0 to upsert and delete data to and from your org with these new commands:
+
+    * `sf data delete bulk` : Bulk delete records from an org using a CSV file. Uses Bulk API 2.0.
+    * `sf data delete resume` : Resume a bulk delete job that you previously started. Uses Bulk API 2.0.
+    * `sf data upsert bulk` : Bulk upsert records to an org from a CSV file. Uses Bulk API 2.0.
+    * `sf data upsert resume` : Resume a bulk upsert job that you previously started. Uses Bulk API 2.0.
+    
+    For example, bulk upsert records from a CSV file to the Contact object in your default org with this command:
+
+    ```bash
+    sf data upsert bulk --sobject Contact --file files/contacts.csv --external-id Id 
+    ```
+    
+    The preceding command returns control to you immediately and runs the bulk upsert asynchronously. Resume the job to see the results with this command:
+
+    ```bash
+    $ sf data upsert resume --use-most-recent
+    ```
+   
+    These new commands that use Bulk API 2.0 don't support serial execution. The existing `force:data:bulk:upsert` command uses Bulk API 1.0 and includes a `--serial` flag to run bulk upserts serially. We recommend that you use the Bulk API 2.0 commands for most of your data needs. If, however, you have a specific reason to run bulk upsert jobs serially, or simply want to continue using Bulk API 1.0, use these existing commands:
+    
+    * `sf force data bulk delete` 
+    * `sf force data bulk upsert` 
+    * `sf force data bulk report` 
+    
+    Run the commands with `--help` to see examples.  
+    
+    Finally, note that the `sf data resume` command is deprecated.  Use `sf data delete resume` or `sf data upsert resume` instead. 
+
+
 ## 1.66.2 (Feb 22, 2023) [stable]
 
 * NEW: We now install some plugins just when you need them, rather than include them automatically in a Salesforce CLI release. Let's use the [updated]((https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli)) [plugin-packaging](https://github.com/salesforcecli/plugin-packaging) as an example. The plugin isn't included in `sf` by default, although `sf` _knows_ about it. When you run one of the plugin's commands for the first time, such as `sf package version create`, Salesforce CLI installs the latest released version of the plugin and then runs the command. The installation happens automatically, although we display a little message so you know what's going on. From then on, run any of the commands contained in the plugin as usual. When you update Salesforce CLI with `sfdx update`, the plugin is also updated to its latest release. Just a little just-in-time magic!    
