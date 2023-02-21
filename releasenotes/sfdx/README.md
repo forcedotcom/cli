@@ -35,19 +35,29 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
    
     |Existing Command Name|New Command Name|
     |------------|-------------|
-    |`auth:web:login`|`org login web|
-    |`auth:jwt:grant`|`org login jwt|
-    |`auth:logout`|`org logout|
+    |`auth:web:login`|`org login web`|
+    |`auth:jwt:grant`|`org login jwt`|
+    |`auth:logout`|`org logout`|
     |`auth:list`|`org list auth`|
     |`auth:accesstoken:store`|`org login access-token`|
-    |`auth:device:login`|`org login device|
-    |`auth:sfdxurl:store`|`org login sfdx-url|
+    |`auth:device:login`|`org login device`|
+    |`auth:sfdxurl:store`|`org login sfdx-url`|
 
     These are the new flag names for the new command names listed above. If an existing flag name isn't listed in the table, it has the same name in the new command name.
     
     |Existing Flag Name|New Flag Name|Affected Existing Commands|
     |---|---|---|
-    |`--apiversion`|`--api-version`|All commands|
+    |`--jwtkeyfile`|`--jwt-key-file`|`auth:jwt:grant`|
+    |`--clientid`|`--client-id`|`auth:jwt:grant`, `auth:web:login`, `auth:device:login`|
+    |`--setdefaultdevhubusername`|`--set-default-dev-hub`|All commands except `auth:logout`|
+    |`--setalias`|`--alias`|`auth:jwt:grant`, `auth:web:login`, `auth:accesstoken:store`, `auth:device:login`, `auth:sfdxurl:store`|
+    |`--username`|Same, but new short flag name is `-o`|`auth:jwt:grant`|
+    |`--instanceurl`|`--instance-url`|`auth:jwt:grant`, `auth:web:login`, `auth:accesstoken:store`, `auth:device:login`|
+    |`--setdefaultusername`|`--set-default`|`auth:jwt:grant`, `auth:web:login`, `auth:accesstoken:store`, `auth:device:login`, `auth:sfdxurl:store`|
+    |`--targetusername`|`--target-org`, with new short flag name `-o`|`auth:logout`|
+    |`--noprompt`|`--no-prompt`|`auth:logout`, `auth:accesstoken:store`|
+    |`--sfdxurlfile`|`--sfdx-url-file`|`auth:sfdxurl:store`|
+    |`--apiversion`|Removed|`auth:logout`|
     
     This flag is deprecated and has no effect.
 
