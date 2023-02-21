@@ -25,9 +25,11 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.189.2 (Feb 23, 2023) [stable-rc]
+## 7.190.0 (March 2, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+## 7.189.2 (Feb 23, 2023) [stable]
 
 * NEW: We continue to [improve the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands. This week's release includes updated [plugin-apex](https://github.com/salesforcecli/plugin-apex). The `sfdx` commands and their flags still work the same as before. 
 
@@ -129,7 +131,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Packaging commands support aliases with spaces in them. (GitHub issue [#1936](https://github.com/forcedotcom/cli/issues/1936), oclif-core PR [#614](https://github.com/oclif/core/pull/614))  
     
-## 7.188.1 (Feb 16, 2023) [stable]
+## 7.188.1 (Feb 16, 2023)
 
 * NEW: We continue to [improve the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands. This week's release includes updated [plugin-templates](https://github.com/salesforcecli/plugin-templates). The `sfdx` commands and their flags still work the same as before. 
 
