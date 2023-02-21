@@ -112,7 +112,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     sfdx schema generate tab --object MyFabObject__c --icon 54 --directory force-app/main/default/tabs
     ```
  
-    Remember to run `sfdx force:source:deploy` to deploy the new local source files to your org. Then you can further customize the new components using Setup UI, then `sfdx force:source:retrieve` the changes back to your local project. How fun is that?
+    Remember to run `sfdx force:source:deploy` to deploy the new local source files to your org. Then you can further customize the new components using Setup UI, then `sfdx force:source:retrieve` the changes back to your local project. 
+    
+* NEW: When you type a command fragment and `sfdx` displays a list of possible commands for you to choose from, we now also display the command summary. The summaries make it easier for you to pick the command you want.
 
 ## 7.189.3 (Feb 23, 2023) [stable]
 
