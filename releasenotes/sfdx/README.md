@@ -157,6 +157,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: If you run into authentication errors when running `sfdx org list shape` (`force:org:shape:list`), such as an expired refresh token, the displayed table now shows information for orgs the command can connect to, and an appropriate warning for orgs it can't connect to.  (GitHub issue [#1882](https://github.com/forcedotcom/cli/issues/1882), plugin-signups PR [#216](https://github.com/salesforcecli/plugin-signups/pull/216))
 
+* FIX: The `--publishwait` flag of `force:package:install` correctly waits for the specified amount of time for the subscriber package version ID to become available in the target org. And this time we mean it! (GitHub issue [#1895](https://github.com/forcedotcom/cli/issues/1895), plugin-packaging PR [#235](https://github.com/salesforcecli/plugin-packaging/pull/235))
+
 ## 7.189.3 (Feb 23, 2023) [stable]
 
 * NEW: We continue to [improve the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands. This week's release includes updated [plugin-apex](https://github.com/salesforcecli/plugin-apex). The `sfdx` commands and their flags still work the same as before. 
