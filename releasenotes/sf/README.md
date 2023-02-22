@@ -83,9 +83,13 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: When you type a command fragment and `sf` displays a list of possible commands for you to choose from, we now also display the command summary. The summaries make it easier for you to pick the command you want. 
 
-* FIX: You can now specify `packageAliases` that contain spaces in the `sfdx-project.json` file and execute `package` commands that use the alias without getting an error.  (GitHub issue [#1925](https://github.com/forcedotcom/cli/issues/1925), oclif PR [#614](https://github.com/oclif/core/pull/614))
+* FIX: You can now specify `packageAliases` that contain spaces in the `sfdx-project.json` file and execute `package` commands that use the alias without getting an error.  (GitHub issue [#1936](https://github.com/forcedotcom/cli/issues/1936), oclif PR [#614](https://github.com/oclif/core/pull/614))
 
-* FIX: For backwards compatibility, we added the `-v|--targetdevhubusername` flag back to the `force org delete` and `org delete scratch` commands, even though the flag doesn't do anything and is deprecated. (GitHub issue [#1936](https://github.com/forcedotcom/cli/issues/1936), plugin-org PR [#581](https://github.com/salesforcecli/plugin-org/pull/581))
+* FIX: For backwards compatibility, we added the `-v|--targetdevhubusername` flag back to the `force org delete` and `org delete scratch` commands, even though the flag doesn't do anything and is deprecated. (GitHub issue [#1925](https://github.com/forcedotcom/cli/issues/1925), plugin-org PR [#581](https://github.com/salesforcecli/plugin-org/pull/581))
+
+* FIX: The `sf org create scratch` command now honors the value of the `--wait` flag. (GitHub issue [#1817](https://github.com/forcedotcom/cli/issues/1817), sfdx-core PR [#771](https://github.com/forcedotcom/sfdx-core/pull/771))
+
+* FIX: If you run into authentication errors when running `sf org list shape`, such as an expired refresh token, the displayed table now shows information for orgs the command can connect to, and an appropriate error for orgs it can't connect to.  (GitHub issue [#1882](https://github.com/forcedotcom/cli/issues/1882), plugin-signups PR [#216](https://github.com/salesforcecli/plugin-signups/pull/216))
 
 ## 1.66.2 (Feb 22, 2023) [stable]
 
