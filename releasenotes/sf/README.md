@@ -89,7 +89,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `sf org create scratch` command now honors the value of the `--wait` flag. (GitHub issue [#1817](https://github.com/forcedotcom/cli/issues/1817), sfdx-core PR [#771](https://github.com/forcedotcom/sfdx-core/pull/771))
 
-* FIX: If you run into authentication errors when running `sf org list shape`, such as an expired refresh token, the displayed table now shows information for orgs the command can connect to, and an appropriate error for orgs it can't connect to.  (GitHub issue [#1882](https://github.com/forcedotcom/cli/issues/1882), plugin-signups PR [#216](https://github.com/salesforcecli/plugin-signups/pull/216))
+* FIX: If you run into authentication errors when running `sf org list shape`, such as an expired refresh token, the displayed table now shows information for orgs the command can connect to, and an appropriate warning for orgs it can't connect to.  (GitHub issue [#1882](https://github.com/forcedotcom/cli/issues/1882), plugin-signups PR [#216](https://github.com/salesforcecli/plugin-signups/pull/216))
 
 ## 1.66.2 (Feb 22, 2023) [stable]
 
