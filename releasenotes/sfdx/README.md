@@ -29,7 +29,7 @@ Additional documentation:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
-* NEW: We continue to [improve the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands. This week's release includes updated [plugin-auth](https://github.com/salesforcecli/plugin-auth). The `sfdx` commands and their flags still work the same as before. 
+* NEW: We continue to [improve the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands. This week's release includes updated [plugin-auth](https://github.com/salesforcecli/plugin-auth). The existing `sfdx` commands and their flags still work the same as before. 
 
     These are the new command names. For each command, you can still use colons instead of spaces, such as `org:login:web`.
    
@@ -70,14 +70,16 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     Let's look at an example, such as this command: 
     
     ```bash
-    sfdx auth:...
+    sfdx auth:jwt:grant --username jdoe@example.org --jwtkeyfile /Users/jdoe/JWT/server.key --clientid 123456 --setdefaultdevhubusername
     ```
     
     You can now run it this way using the `sf` style:
     
     ```bash
-    sfdx org ...
+    sfdx org login jwt --username jdoe@example.org --jwt-key-file /Users/jdoe/JWT/server.key --client-id 123456 --set-default-dev-hub
     ```
+    
+    Finally, just in case we weren't clear, the existing commands work exactly as before! But give this new stuff a try, we think you'll like it.
 
 * NEW: Interactively create local Salesforce metadata, such as custom objects and platform events, with these new beta commands in the just-in-time [plugin-sobject](https://github.com/salesforcecli/plugin-sobject) plugin:
 
@@ -114,7 +116,38 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
  
     Remember to run `sfdx force:source:deploy` to deploy the new local source files to your org. Then you can further customize the new components using Setup UI, then `sfdx force:source:retrieve` the changes back to your local project. 
     
+* NEW: Use Bulk API 2.0 to upsert and delete data to and from your org with these new commands:
+
+    * `sfdx data delete bulk` : Bulk delete records from an org using a CSV file. Uses Bulk API 2.0.
+    * `sfdx data delete resume` : Resume a bulk delete job that you previously started. Uses Bulk API 2.0.
+    * `sfdx data upsert bulk` : Bulk upsert records to an org from a CSV file. Uses Bulk API 2.0.
+    * `sfdx data upsert resume` : Resume a bulk upsert job that you previously started. Uses Bulk API 2.0.
+    
+    For example, bulk upsert records from a CSV file to the Contact object in your default org with this command:
+
+    ```bash
+    sfdx data upsert bulk --sobject Contact --file files/contacts.csv --external-id Id 
+    ```
+    
+    The preceding command returns control to you immediately and runs the bulk upsert asynchronously. Resume the job to see the results with this command:
+
+    ```bash
+    $ sfdx data upsert resume --use-most-recent
+    ```
+   
+    We recommend that you start using these new Bulk API 2.0 commands rather than the existing `sf force data bulk` commands, which are based on Bulk API 1.0. However, one reason to keep using the existing `sf force data bulk upsert` command is if you want to run the upsert serially with the `--serial` flag. The new Bulk API 2.0 commands don't support serial execution. In this case, or if you simply want to continue using Bulk API 1.0, use these commands:
+    
+    * `sfdx force data bulk delete` 
+    * `sfdx force data bulk upsert` 
+    * `sfdx force data bulk status` 
+    
+    Run the commands with `--help` to see examples.  
+    
+    Finally, the `sfdx data resume` command is deprecated.  Use `sfdx data delete resume` or `sfdx data upsert resume` instead. 
+
 * NEW: When you type a command fragment and `sfdx` displays a list of possible commands for you to choose from, we now also display the command summary. The summaries make it easier for you to pick the command you want.
+
+* FIX: You can now specify `packageAliases` that contain spaces in the `sfdx-project.json` file and execute `package` commands that use the alias without getting an error.  (GitHub issue [#1936](https://github.com/forcedotcom/cli/issues/1936), oclif PR [#614](https://github.com/oclif/core/pull/614))
 
 * FIX: The `sfdx org create scratch` (`force:org:create`) command now honors the value of the `--wait` flag. (GitHub issue [#1817](https://github.com/forcedotcom/cli/issues/1817), sfdx-core PR [#771](https://github.com/forcedotcom/sfdx-core/pull/771))
 
