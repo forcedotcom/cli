@@ -75,7 +75,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
     * `sf force data bulk delete` 
     * `sf force data bulk upsert` 
-    * `sf force data bulk report` 
+    * `sf force data bulk status` 
     
     Run the commands with `--help` to see examples.  
     
