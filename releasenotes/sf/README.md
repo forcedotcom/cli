@@ -29,7 +29,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     This week we've reconciled the various authentication and login commands between `sfdx` and `sf`. We've added the updated `sfdx` [plugin-auth](https://github.com/salesforcecli/plugin-auth) to `sf`, and made changes to the existing `sf` [plugin-env](https://github.com/salesforcecli/plugin-env) and [plugin-login](https://github.com/salesforcecli/plugin-login). Here's a summary of the changes.
 
-    Use these commands to log in and authenticate to an org: 
+    Use these commands to log in and authorize an org: 
     
     * `sf org login jwt` : Log in to a Salesforce org using a JSON web token (JWT).
     * `sf org login web` : Log in to a Salesforce org using the web server flow.
@@ -86,7 +86,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 * FIX: You can now specify `packageAliases` that contain spaces in the `sfdx-project.json` file and execute `package` commands that use the alias without getting an error.  (GitHub issue [#1925](https://github.com/forcedotcom/cli/issues/1925), oclif PR [#614](https://github.com/oclif/core/pull/614))
 
 * FIX: For backwards compatibility, we added the `-v|--targetdevhubusername` flag back to the `force org delete` and `org delete scratch` commands, even though the flag doesn't do anything and is deprecated. (GitHub issue [#1936](https://github.com/forcedotcom/cli/issues/1936), plugin-org PR [#581](https://github.com/salesforcecli/plugin-org/pull/581))
-
 
 ## 1.66.2 (Feb 22, 2023) [stable]
 
