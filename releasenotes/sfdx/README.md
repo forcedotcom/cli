@@ -29,6 +29,8 @@ Additional documentation:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
+* NEW: We now install some plugins just when you need them, rather than include them automatically in a Salesforce CLI release. Let's use this week's new [plugin-sobject](https://github.com/salesforcecli/plugin-sobject) as an example. The plugin isn't included in `sfdx` by default, although `sfdx` _knows_ about it. When you run one of the plugin's commands for the first time, such as `sfdx schema generate sobject`, Salesforce CLI installs the latest released version of the plugin and then runs the command. The installation happens automatically, although we display a little message so you know what's going on. From then on, run any of the commands contained in the plugin as usual. When the plugin releases a new version, the plugin is automatically updated when you next run one of its commands. Just a little just-in-time magic!    
+
 * NEW: We continue to [improve the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands. This week's release includes updated [plugin-auth](https://github.com/salesforcecli/plugin-auth). The existing `sfdx` commands and their flags still work the same as before. 
 
     These are the new command names. For each command, you can still use colons instead of spaces, such as `org:login:web`.
@@ -149,7 +151,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: You can now specify `packageAliases` that contain spaces in the `sfdx-project.json` file and execute `package` commands that use the alias without getting an error.  (GitHub issue [#1936](https://github.com/forcedotcom/cli/issues/1936), oclif PR [#614](https://github.com/oclif/core/pull/614))
 
-* FIX: The `sfdx org create scratch` (`force:org:create`) command now honors the value of the `--wait` flag. (GitHub issue [#1817](https://github.com/forcedotcom/cli/issues/1817), sfdx-core PR [#771](https://github.com/forcedotcom/sfdx-core/pull/771))
+* FIX: For backwards compatibility, we added the `-v|--targetdevhubusername` flag back to the `force org delete` and `org delete scratch` commands, even though the flag doesn't do anything and is deprecated. (GitHub issue [#1925](https://github.com/forcedotcom/cli/issues/1925), plugin-org PR [#581](https://github.com/salesforcecli/plugin-org/pull/581))
+
+* FIX:  When the `sfdx org create scratch` command deploys the org settings, it waits for the amount of time left from the specified `--wait` value.  Previously it waited for a maximum of 10 minutes for this step, regardless of the value of `--wait`. (GitHub issue [#1817](https://github.com/forcedotcom/cli/issues/1817), sfdx-core PR [#771](https://github.com/forcedotcom/sfdx-core/pull/771))
 
 * FIX: If you run into authentication errors when running `sfdx org list shape` (`force:org:shape:list`), such as an expired refresh token, the displayed table now shows information for orgs the command can connect to, and an appropriate warning for orgs it can't connect to.  (GitHub issue [#1882](https://github.com/forcedotcom/cli/issues/1882), plugin-signups PR [#216](https://github.com/salesforcecli/plugin-signups/pull/216))
 
