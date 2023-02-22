@@ -41,7 +41,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
     Here's how the existing `sf` commands have changed:
     
-    |Existing command|Changes|
+    |Existing Command|Changes|
     |-----|-----|
     |`sf login org jwt`|Original command has been removed, use `sf org login jwt` instead.|
     |`sf login org`|Original command has been removed, use `sf org login web` instead|
@@ -71,7 +71,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     $ sf data upsert resume --use-most-recent
     ```
    
-    These new commands that use Bulk API 2.0 don't support serial execution. The existing `force:data:bulk:upsert` command uses Bulk API 1.0 and includes a `--serial` flag to run bulk upserts serially. We recommend that you use the Bulk API 2.0 commands for most of your data needs. If, however, you have a specific reason to run bulk upsert jobs serially, or simply want to continue using Bulk API 1.0, use these existing commands:
+    We recommend that you start using these new Bulk API 2.0 commands rather than the existing `sf force data bulk` commands, which are based on Bulk API 1.0. However, one reason to keep using the existing `sf force data bulk upsert` command is if you want to run the upsert serially with the `--serial` flag. The new Bulk API 2.0 commands don't support serial execution. In this case, or if you simply want to continue using Bulk API 1.0, use these commands:
     
     * `sf force data bulk delete` 
     * `sf force data bulk upsert` 
@@ -79,7 +79,13 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
     Run the commands with `--help` to see examples.  
     
-    Finally, note that the `sf data resume` command is deprecated.  Use `sf data delete resume` or `sf data upsert resume` instead. 
+    Finally, the `sf data resume` command is deprecated.  Use `sf data delete resume` or `sf data upsert resume` instead. 
+
+* NEW: When you type a command fragment and `sf` displays a list of possible commands for you to choose from, we now also display the command summary. The summaries make it easier for you to pick the command you want. 
+
+* FIX: You can now specify `packageAliases` that contain spaces in the `sfdx-project.json` file and execute `package` commands that use the alias without getting an error.  (GitHub issue [#1925](https://github.com/forcedotcom/cli/issues/1925), oclif PR [#614](https://github.com/oclif/core/pull/614))
+
+* FIX: For backwards compatibility, we added the `-v|--targetdevhubusername` flag back to the `force org delete` and `org delete scratch` commands, even though the flag doesn't do anything and is deprecated. (GitHub issue [#1936](https://github.com/forcedotcom/cli/issues/1936), plugin-org PR [#581](https://github.com/salesforcecli/plugin-org/pull/581))
 
 
 ## 1.66.2 (Feb 22, 2023) [stable]
