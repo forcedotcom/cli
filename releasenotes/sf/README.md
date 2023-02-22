@@ -21,9 +21,73 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.66.2 (Feb 22, 2023) [stable-rc]
+## 1.67.0 (March 1, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* NEW: We continue to improve the usability of existing `sfdx` commands so they work like the `sf` commands. We're doing this work plugin by plugin. As a result of this work, when a Salesforce CLI release includes an updated plugin, you can execute the plugin's commands in both `sfdx` AND `sf`. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. 
+
+    This week we've reconciled the various authentication and login commands between `sfdx` and `sf`. We've added the updated `sfdx` [plugin-auth](https://github.com/salesforcecli/plugin-auth) to `sf`, and made changes to the existing `sf` [plugin-env](https://github.com/salesforcecli/plugin-env) and [plugin-login](https://github.com/salesforcecli/plugin-login). Here's a summary of the changes.
+
+    Use these commands to log in and authorize an org: 
+    
+    * `sf org login jwt` : Log in to a Salesforce org using a JSON web token (JWT).
+    * `sf org login web` : Log in to a Salesforce org using the web server flow.
+    * `sf org logout` : Log out of a Salesforce org.
+    * `sf org list auth` : List authorization information about the orgs you created or logged into.
+    * `sf org login access-token` : Authorize an org using an existing Salesforce access token.
+    * `sf org login device` : Authorize an org using a device code
+    * `sf org login sfdx-url` : Authorize an org using a Salesforce DX authorization URL stored in a file.
+    
+    Here's how the existing `sf` commands have changed:
+    
+    |Existing Command|Changes|
+    |-----|-----|
+    |`sf login org jwt`|Original command has been removed, use `sf org login jwt` instead.|
+    |`sf login org`|Original command has been removed, use `sf org login web` instead|
+    |`sf logout org`|Original command has been removed, use `sf org logout` instead|
+    |`sf logout`|Command is deprecated and no longer works on orgs. Use `sf org logout` instead|
+    |`sf login`|Command is deprecated and no longer works on orgs. Use `sf org login web` instead|
+    |`sf env display`|Works only with compute environments, not with orgs. Use `sf org display` instead.|
+    |`sf env list`|Works only with compute environments, not with orgs. Use `sf org list auth` or `sf org list` instead.|
+    |`sf env open`|Works only with compute environments, not with orgs. Use `sf org open` instead.|    
+
+* NEW: Use Bulk API 2.0 to upsert and delete data to and from your org with these new commands:
+
+    * `sf data delete bulk` : Bulk delete records from an org using a CSV file. Uses Bulk API 2.0.
+    * `sf data delete resume` : Resume a bulk delete job that you previously started. Uses Bulk API 2.0.
+    * `sf data upsert bulk` : Bulk upsert records to an org from a CSV file. Uses Bulk API 2.0.
+    * `sf data upsert resume` : Resume a bulk upsert job that you previously started. Uses Bulk API 2.0.
+    
+    For example, bulk upsert records from a CSV file to the Contact object in your default org with this command:
+
+    ```bash
+    sf data upsert bulk --sobject Contact --file files/contacts.csv --external-id Id 
+    ```
+    
+    The preceding command returns control to you immediately and runs the bulk upsert asynchronously. Resume the job to see the results with this command:
+
+    ```bash
+    $ sf data upsert resume --use-most-recent
+    ```
+   
+    We recommend that you start using these new Bulk API 2.0 commands rather than the existing `sf force data bulk` commands, which are based on Bulk API 1.0. However, one reason to keep using the existing `sf force data bulk upsert` command is if you want to run the upsert serially with the `--serial` flag. The new Bulk API 2.0 commands don't support serial execution. In this case, or if you simply want to continue using Bulk API 1.0, use these commands:
+    
+    * `sf force data bulk delete` 
+    * `sf force data bulk upsert` 
+    * `sf force data bulk status` 
+    
+    Run the commands with `--help` to see examples.  
+    
+    Finally, the `sf data resume` command is deprecated.  Use `sf data delete resume` or `sf data upsert resume` instead. 
+
+* NEW: When you type a command fragment and `sf` displays a list of possible commands for you to choose from, we now also display the command summary. The summaries make it easier for you to pick the command you want. 
+
+* FIX: You can now specify `packageAliases` that contain spaces in the `sfdx-project.json` file and execute `package` commands that use the alias without getting an error.  (GitHub issue [#1925](https://github.com/forcedotcom/cli/issues/1925), oclif PR [#614](https://github.com/oclif/core/pull/614))
+
+* FIX: For backwards compatibility, we added the `-v|--targetdevhubusername` flag back to the `force org delete` and `org delete scratch` commands, even though the flag doesn't do anything and is deprecated. (GitHub issue [#1936](https://github.com/forcedotcom/cli/issues/1936), plugin-org PR [#581](https://github.com/salesforcecli/plugin-org/pull/581))
+
+## 1.66.2 (Feb 22, 2023) [stable]
 
 * NEW: We now install some plugins just when you need them, rather than include them automatically in a Salesforce CLI release. Let's use the [updated]((https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli)) [plugin-packaging](https://github.com/salesforcecli/plugin-packaging) as an example. The plugin isn't included in `sf` by default, although `sf` _knows_ about it. When you run one of the plugin's commands for the first time, such as `sf package version create`, Salesforce CLI installs the latest released version of the plugin and then runs the command. The installation happens automatically, although we display a little message so you know what's going on. From then on, run any of the commands contained in the plugin as usual. When you update Salesforce CLI with `sfdx update`, the plugin is also updated to its latest release. Just a little just-in-time magic!    
     
@@ -107,7 +171,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
 * CHANGE: Remember when we added [`plugin-custom-metadata`](#cmdt-community), [`plugin-signups`](#signups), and [`plugin-community`](#cmdt-community) to `sf`?  We're changing them to just-in-time plugins, because, like packaging, not all of you use these commands regularly.  
 
-## 1.65.0 (Feb 15, 2023) [stable]
+## 1.65.0 (Feb 15, 2023)
     
 * CHANGE: We upgraded the version of Node.js contained in the [Salesforce CLI installers and TAR files](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm) to [v18.14.0](https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V18.md#2023-02-02-version-18140-hydrogen-lts-bethgriggs-prepared-by-juanarbol). 
 
