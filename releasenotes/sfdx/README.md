@@ -25,7 +25,9 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.189.2 (Feb 23, 2023) [stable-rc]
+## 7.190.0 (Mar 2, 2023) [stable-rc]
+
+We didn't like the 7.189.x releases candidates and some 7.190 changes had snuck in early, so we're not promoting any of them to `stable`/`latest`.  If you did update to one of those versions, updating again will take you back to 7.188.1.  If you hadn't updated, it'll feel just like "no release on Feb 23."
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
