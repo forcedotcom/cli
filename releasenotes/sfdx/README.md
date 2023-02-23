@@ -27,9 +27,139 @@ Additional documentation:
 
 ## 7.190.0 (Mar 2, 2023) [stable-rc]
 
-We didn't like the 7.189.x releases candidates and some 7.190 changes had snuck in early, so we're not promoting any of them to `stable`/`latest`.  If you did update to one of those versions, updating again will take you back to 7.188.1.  If you hadn't updated, it'll feel just like "no release on Feb 23."
+**NOTE**: Due to various issues with the `7.189.x` releases candidates and some `7.190` changes that snuck in early, we're not promoting any them to `stable` or `latest` this week.  If you updated to one of those versions, updating again will take you back to `7.188.1`.  If you didn't update, carry on!  It'll just feel like there wasn't a release on Feb 23. 
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+* NEW: We now install some plugins just when you need them, rather than include them automatically in a Salesforce CLI release. Let's use this week's new [plugin-sobject](https://github.com/salesforcecli/plugin-sobject) as an example. The plugin isn't included in `sfdx` by default, although `sfdx` _knows_ about it. When you run one of the plugin's commands for the first time, such as `sfdx schema generate sobject`, Salesforce CLI installs the latest released version of the plugin and then runs the command. The installation happens automatically, although we display a little message so you know what's going on. From then on, run any of the commands contained in the plugin as usual. When the plugin releases a new version, the plugin is automatically updated when you next run one of its commands. Just a little just-in-time magic!    
+
+* NEW: We continue to [improve the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands. This week's release includes updated [plugin-auth](https://github.com/salesforcecli/plugin-auth). The existing `sfdx` commands and their flags still work the same as before. 
+
+    These are the new command names. For each command, you can still use colons instead of spaces, such as `org:login:web`.
+
+    |Existing Command Name|New Command Name|
+    |------------|-------------|
+    |`auth:web:login`|`org login web`|
+    |`auth:jwt:grant`|`org login jwt`|
+    |`auth:logout`|`org logout`|
+    |`auth:list`|`org list auth`|
+    |`auth:accesstoken:store`|`org login access-token`|
+    |`auth:device:login`|`org login device`|
+    |`auth:sfdxurl:store`|`org login sfdx-url`|
+
+    These are the new flag names for the new command names listed above. If an existing flag name isn't listed in the table, it has the same name in the new command name.
+
+    |Existing Flag Name|New Flag Name|Affected Existing Commands|
+    |---|---|---|
+    |`--jwtkeyfile`|`--jwt-key-file`|`auth:jwt:grant`|
+    |`--clientid`|`--client-id`|`auth:jwt:grant`, `auth:web:login`, `auth:device:login`|
+    |`--setdefaultdevhubusername`|`--set-default-dev-hub`|All commands except `auth:logout`|
+    |`--setalias`|`--alias`|`auth:jwt:grant`, `auth:web:login`, `auth:accesstoken:store`, `auth:device:login`, `auth:sfdxurl:store`|
+    |`--username`|Same, but new short flag name is `-o`|`auth:jwt:grant`|
+    |`--instanceurl`|`--instance-url`|`auth:jwt:grant`, `auth:web:login`, `auth:accesstoken:store`, `auth:device:login`|
+    |`--setdefaultusername`|`--set-default`|`auth:jwt:grant`, `auth:web:login`, `auth:accesstoken:store`, `auth:device:login`, `auth:sfdxurl:store`|
+    |`--targetusername`|`--target-org`, with new short flag name `-o`|`auth:logout`|
+    |`--noprompt`|`--no-prompt`|`auth:logout`, `auth:accesstoken:store`|
+    |`--sfdxurlfile`|`--sfdx-url-file`|`auth:sfdxurl:store`|
+    |`--apiversion`|Removed|`auth:logout`|
+
+    This flag is deprecated and has no effect.
+
+    |Deprecated Flag|Affected Existing Command|
+    |---|---|
+    |`--loglevel`|All commands|
+
+    We also updated the `--help` for each command to use the new command and flag names, to gently encourage you to start switching over to the new style. Use the `-h` flag to get a condensed view of the help, for when you don't need long descriptions and examples. 
+
+    Let's look at an example, such as this command: 
+
+    ```bash
+    sfdx auth:jwt:grant --username jdoe@example.org --jwtkeyfile /Users/jdoe/JWT/server.key --clientid 123456 --setdefaultdevhubusername
+    ```
+
+    You can now run it this way using the `sf` style:
+
+    ```bash
+    sfdx org login jwt --username jdoe@example.org --jwt-key-file /Users/jdoe/JWT/server.key --client-id 123456 --set-default-dev-hub
+    ```
+
+    Finally, just in case we weren't clear, the existing commands work exactly as before! But give this new stuff a try, we think you'll like it.
+
+* NEW: Interactively create local Salesforce metadata, such as custom objects and platform events, with these new beta commands in the just-in-time [plugin-sobject](https://github.com/salesforcecli/plugin-sobject) plugin:
+
+    ```bash
+    sfdx schema generate sobject
+    sfdx schema generate platformevent
+    sfdx schema generate field
+    ```
+    The plugin isn't automatically included in Salesforce CLI; instead, it's automatically installed the first time you run one of its commands.
+
+    Each command requires the `--label` flag, and then uses the value to provide intelligent suggestions for its prompts, such as its API name. You must run these commands in a Salesforce DX project directory. This example shows how to interactively create a custom object:
+
+    ```bash
+    sfdx schema generate sobject --label "My Fab Object"
+    ```
+
+    Want to automatically enable optional features on the new custom object rather than answer all the prompts? Try this:
+
+    ```bash
+    sfdx schema generate sobject --label "My Fab Object" --use-default-features
+    ```
+
+    Now create a custom field on your shiny new object; the command prompts you for the object:
+
+    ```bash
+    sfdx schema generate  field --label "My Field"
+    ```
+
+    Also, while not an interactive commands, you can also create a custom tab for a custom object with the new `sfdx schema generate tab` beta command. You must provide the object's API name, [icon number](https://www.lightningdesignsystem.com/icons/#custom), and local directory to store the files. For example:
+
+    ```bash
+    sfdx schema generate tab --object MyFabObject__c --icon 54 --directory force-app/main/default/tabs
+    ```
+
+    Remember to run `sfdx force:source:deploy` to deploy the new local source files to your org. Then you can further customize the new components using Setup UI, then `sfdx force:source:retrieve` the changes back to your local project. 
+
+* NEW: Use Bulk API 2.0 to upsert and delete data to and from your org with these new commands:
+
+    * `sfdx data delete bulk` : Bulk delete records from an org using a CSV file. Uses Bulk API 2.0.
+    * `sfdx data delete resume` : Resume a bulk delete job that you previously started. Uses Bulk API 2.0.
+    * `sfdx data upsert bulk` : Bulk upsert records to an org from a CSV file. Uses Bulk API 2.0.
+    * `sfdx data upsert resume` : Resume a bulk upsert job that you previously started. Uses Bulk API 2.0.
+
+    For example, bulk upsert records from a CSV file to the Contact object in your default org with this command:
+
+    ```bash
+    sfdx data upsert bulk --sobject Contact --file files/contacts.csv --external-id Id 
+    ```
+
+    The preceding command returns control to you immediately and runs the bulk upsert asynchronously. Resume the job to see the results with this command:
+
+    ```bash
+    $ sfdx data upsert resume --use-most-recent
+    ```
+
+    We recommend that you start using these new Bulk API 2.0 commands rather than the existing `sf force data bulk` commands, which are based on Bulk API 1.0. However, one reason to keep using the existing `sf force data bulk upsert` command is if you want to run the upsert serially with the `--serial` flag. The new Bulk API 2.0 commands don't support serial execution. In this case, or if you simply want to continue using Bulk API 1.0, use these commands:
+
+    * `sfdx force data bulk delete` 
+    * `sfdx force data bulk upsert` 
+    * `sfdx force data bulk status` 
+
+    Run the commands with `--help` to see examples.  
+
+    Finally, the `sfdx data resume` command is deprecated.  Use `sfdx data delete resume` or `sfdx data upsert resume` instead. 
+
+* NEW: Generate your own custom `sf`-style plugins, commands, flags, and more with the commands in the just-in-time [plugin-dev](https://github.com/salesforcecli/plugin-dev). If you haven't already installed this plugin, simply type one of its commands and Salesforce CLI automatically installs it for you. For example, run this command to interactively generate the initial files and directory hierarchy for a new custom plugin; the command prompts you for the required information:
+
+    ```bash
+    sfdx dev generate plugin
+    ```
+
+    **Important**: The new interactive `sfdx dev generate plugin` command _replaces_ the existing `sfdx plugins generate` command. The existing command generates `sfdx`-style plugins that are based on deprecated code, which we don't want you to use anymore. 
+
+    See [Get Started and Create Your Own Plugin](https://github.com/salesforcecli/cli/wiki/Get-Started-And-Create-Your-First-Plug-In) for simple examples of using the new commands.  See [Generate Stuff](https://github.com/salesforcecli/cli/wiki/Code-Your-Plugin#generate-stu) for the full list. 
+
+* NEW: When you type a command fragment and `sfdx` displays a list of possible commands for you to choose from, we now also display the command summary. The summaries make it easier for you to pick the command you want.
 
 * NEW: We continue to [improve the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands. This week's release includes updated [plugin-apex](https://github.com/salesforcecli/plugin-apex). The `sfdx` commands and their flags still work the same as before. 
 
@@ -122,10 +252,20 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
    sfdx update --version 7.188.1
    ```
   Congratulations, team, on achieving a significant goal that's been a long-time coming!
-   
+  
 * CHANGE: If you run `force:apex:execute` and the compilation or execution of the anonymous Apex code fails, you now get a non-zero exit code, which is more intuitive. Previously the command execution was still considered a success (zero exit code). NOTE that this is a breaking change. After we [announced it](https://github.com/forcedotcom/cli/issues/1889), we got lots of positive feedback, so we made the change. Thanks for your input. 
 
     Thank you, [Matthias Rolke](https://github.com/amtrack), for contributing the fix. We love it. Keep 'em coming!
+    
+* FIX: You can now specify `packageAliases` that contain spaces in the `sfdx-project.json` file and execute `package` commands that use the alias without getting an error.  (GitHub issue [#1936](https://github.com/forcedotcom/cli/issues/1936), oclif PR [#614](https://github.com/oclif/core/pull/614))
+
+* FIX: For backwards compatibility, we added the `-v|--targetdevhubusername` flag back to the `force org delete` and `org delete scratch` commands, even though the flag doesn't do anything and is deprecated. (GitHub issue [#1925](https://github.com/forcedotcom/cli/issues/1925), plugin-org PR [#581](https://github.com/salesforcecli/plugin-org/pull/581))
+
+* FIX:  When the `sfdx org create scratch` command deploys the org settings, it waits for the amount of time left from the specified `--wait` value.  Previously it waited for a maximum of 10 minutes for this step, regardless of the value of `--wait`. (GitHub issue [#1817](https://github.com/forcedotcom/cli/issues/1817), sfdx-core PR [#771](https://github.com/forcedotcom/sfdx-core/pull/771))
+
+* FIX: If you run into authentication errors when running `sfdx org list shape` (`force:org:shape:list`), such as an expired refresh token, the displayed table now shows information for orgs the command can connect to, and an appropriate warning for orgs it can't connect to.  (GitHub issue [#1882](https://github.com/forcedotcom/cli/issues/1882), plugin-signups PR [#216](https://github.com/salesforcecli/plugin-signups/pull/216))
+
+* FIX: The `--publishwait` flag of `force:package:install` correctly waits for the specified amount of time for the subscriber package version ID to become available in the target org. And this time we mean it! (GitHub issue [#1895](https://github.com/forcedotcom/cli/issues/1895), plugin-packaging PR [#235](https://github.com/salesforcecli/plugin-packaging/pull/235))
     
 * FIX: Commands are no longer duplicated in the output of `sfdx commands --json`. (GitHub issue [#1777](https://github.com/forcedotcom/cli/issues/1777), plugin-commands PR [#382](https://github.com/oclif/plugin-commands/pull/382))
 
