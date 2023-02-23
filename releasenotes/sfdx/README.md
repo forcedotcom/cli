@@ -27,7 +27,7 @@ Additional documentation:
 
 ## 7.190.0 (Mar 2, 2023) [stable-rc]
 
-**NOTE**: Due to various issues with the `7.189.x` releases candidates and some `7.190` changes that snuck in early, we're not promoting any them to `stable` or `latest` this week.  If you updated to one of those versions, updating again will take you back to `7.188.1`.  If you didn't update, carry on!  It'll just feel like there wasn't a release on Feb 23. 
+**NOTE**: Due to various issues with the `7.189.x` releases candidates and some `7.190` changes that snuck in early, we're not promoting any them to `stable` or `latest` this week.  If you updated to one of those versions, update again to go back to `7.188.1`.  If you didn't update, carry on!  It'll just feel like there wasn't a release on Feb 23. 
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
