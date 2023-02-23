@@ -147,6 +147,16 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
     Finally, the `sfdx data resume` command is deprecated.  Use `sfdx data delete resume` or `sfdx data upsert resume` instead. 
 
+* NEW: Generate your own custom `sf`-style plugins, commands, flags, and more with the commands in the just-in-time [plugin-dev](https://github.com/salesforcecli/plugin-dev). If you haven't already installed this plugin, simply type one of its commands and Salesforce CLI automatically installs it for you. For example, run this command to interactively generate the initial files and directory hierarchy for a new custom plugin; the command prompts you for the required information:
+
+    ```bash
+    sfdx dev generate plugin
+    ```
+
+    **Important**: The new interactive `sfdx dev generate plugin` command _replaces_ the existing `sfdx plugins generate` command. The existing command generates `sfdx`-style plugins that are based on deprecated code, which we don't want you to use anymore. 
+
+    See [Get Started and Create Your Own Plugin](https://github.com/salesforcecli/cli/wiki/Get-Started-And-Create-Your-First-Plug-In) for simple examples of using the new commands.  See [Generate Stuff](https://github.com/salesforcecli/cli/wiki/Code-Your-Plugin#generate-stu) for the full list. 
+
 * NEW: When you type a command fragment and `sfdx` displays a list of possible commands for you to choose from, we now also display the command summary. The summaries make it easier for you to pick the command you want.
 
 * FIX: You can now specify `packageAliases` that contain spaces in the `sfdx-project.json` file and execute `package` commands that use the alias without getting an error.  (GitHub issue [#1936](https://github.com/forcedotcom/cli/issues/1936), oclif PR [#614](https://github.com/oclif/core/pull/614))
