@@ -159,7 +159,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `--publishwait` flag of `force:package:install` correctly waits for the specified amount of time for the subscriber package version ID to become available in the target org. And this time we mean it! (GitHub issue [#1895](https://github.com/forcedotcom/cli/issues/1895), plugin-packaging PR [#235](https://github.com/salesforcecli/plugin-packaging/pull/235))
 
-## 7.189.3 (Feb 23, 2023) [stable]
+## 7.189.5 (Feb 23, 2023) [stable]
 
 * NEW: We continue to [improve the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands. This week's release includes updated [plugin-apex](https://github.com/salesforcecli/plugin-apex). The `sfdx` commands and their flags still work the same as before. 
 
