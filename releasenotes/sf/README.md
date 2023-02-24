@@ -83,6 +83,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: When you type a command fragment and `sf` displays a list of possible commands for you to choose from, we now also display the command summary. The summaries make it easier for you to pick the command you want. 
 
+* CHANGE: Due to low usage and high complexity, we removed the Salesforce Functions `sf run function start container` command; use `sf run function start` instead. 
+ 
 * FIX: You can now specify `packageAliases` that contain spaces in the `sfdx-project.json` file and execute `package` commands that use the alias without getting an error.  (GitHub issue [#1936](https://github.com/forcedotcom/cli/issues/1936), oclif PR [#614](https://github.com/oclif/core/pull/614))
 
 * FIX: For backwards compatibility, we added the `-v|--targetdevhubusername` flag back to the `force org delete` and `org delete scratch` commands, even though the flag doesn't do anything and is deprecated. (GitHub issue [#1925](https://github.com/forcedotcom/cli/issues/1925), plugin-org PR [#581](https://github.com/salesforcecli/plugin-org/pull/581))
