@@ -21,9 +21,12 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.67.0 (March 1, 2023) [stable-rc]
+## 1.68.0 (March 8, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+
+## 1.67.0 (March 1, 2023) [stable]
 
 * NEW: We continue to improve the usability of existing `sfdx` commands so they work like the `sf` commands. We're doing this work plugin by plugin. As a result of this work, when a Salesforce CLI release includes an updated plugin, you can execute the plugin's commands in both `sfdx` AND `sf`. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. 
 
@@ -93,7 +96,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: If you run into authentication errors when running `sf org list shape`, such as an expired refresh token, the displayed table now shows information for orgs the command can connect to, and an appropriate warning for orgs it can't connect to.  (GitHub issue [#1882](https://github.com/forcedotcom/cli/issues/1882), plugin-signups PR [#216](https://github.com/salesforcecli/plugin-signups/pull/216))
 
-## 1.66.2 (Feb 22, 2023) [stable]
+## 1.66.2 (Feb 22, 2023)
 
 * NEW: We now install some plugins just when you need them, rather than include them automatically in a Salesforce CLI release. Let's use the [updated]((https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli)) [plugin-packaging](https://github.com/salesforcecli/plugin-packaging) as an example. The plugin isn't included in `sf` by default, although `sf` _knows_ about it. When you run one of the plugin's commands for the first time, such as `sf package version create`, Salesforce CLI installs the latest released version of the plugin and then runs the command. The installation happens automatically, although we display a little message so you know what's going on. From then on, run any of the commands contained in the plugin as usual. When the plugin releases a new version, the plugin is automatically updated when you next run one of its commands. Just a little just-in-time magic!    
     
