@@ -25,11 +25,13 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.190.0 (Mar 2, 2023) [stable-rc]
-
-**NOTE**: Due to various issues with the `7.189.x` releases candidates and some `7.190` changes that snuck in early, we're not promoting any them to `stable` or `latest` this week.  If you updated to one of those versions, update again to go back to `7.188.1`.  If you didn't update, carry on!  It'll just feel like there wasn't a release on Feb 23. 
+## 7.191.0 (March 9, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+## 7.190.0 (Mar 2, 2023) [stable]
+
+**NOTE**: Due to various issues with the `7.189.x` releases candidates, and some `7.190` changes that snuck in early, we didn't promote any of them to `stable` or `latest` last week. 
 
 * NEW: We now install some plugins just when you need them, rather than include them automatically in a Salesforce CLI release. Let's use this week's new [plugin-sobject](https://github.com/salesforcecli/plugin-sobject) as an example. The plugin isn't included in `sfdx` by default, although `sfdx` _knows_ about it. When you run one of the plugin's commands for the first time, such as `sfdx schema generate sobject`, Salesforce CLI installs the latest released version of the plugin and then runs the command. The installation happens automatically, although we display a little message so you know what's going on. From then on, run any of the commands contained in the plugin as usual. When the plugin releases a new version, the plugin is automatically updated when you next run one of its commands. Just a little just-in-time magic!    
 
@@ -271,7 +273,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Packaging commands support aliases with spaces in them. (GitHub issue [#1936](https://github.com/forcedotcom/cli/issues/1936), oclif-core PR [#614](https://github.com/oclif/core/pull/614))  
     
-## 7.188.1 (Feb 16, 2023) [stable]
+## 7.188.1 (Feb 16, 2023)
 
 * NEW: We continue to [improve the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands. This week's release includes updated [plugin-templates](https://github.com/salesforcecli/plugin-templates). The `sfdx` commands and their flags still work the same as before. 
 
