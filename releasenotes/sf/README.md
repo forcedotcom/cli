@@ -25,6 +25,7 @@ Additional documentation:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* NEW: We've made it easier for you to develop secure code by adding [Salesforce Code Analyzer](https://forcedotcom.github.io/sfdx-scanner/) as a "just-in-time" plugin. Simply type one of the commands, such as `sf scanner run`, and if the plugin isn't already installed, Salesforce CLI automatically installs the latest version. Then use the `sf scanner` commands to detect quality issues and security vulnerabilities in your code. As always, run a command with `--help` to see more information. And be sure to check the [prerequisites page](https://forcedotcom.github.io/sfdx-scanner/en/v3.x/getting-started/prerequisites/).  
 
 ## 1.67.0 (March 1, 2023) [stable]
 
