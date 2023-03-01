@@ -29,6 +29,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: We've made it easier for you to develop secure code by adding [Salesforce Code Analyzer](https://forcedotcom.github.io/sfdx-scanner/) as a "just-in-time" plugin. Simply type one of the commands, such as `sf scanner run`, and if the plugin isn't already installed, Salesforce CLI automatically installs the latest version. Then use the `sf scanner` commands to detect quality issues and security vulnerabilities in your code. As always, run a command with `--help` to see more information. And be sure to check the [prerequisites page](https://forcedotcom.github.io/sfdx-scanner/en/v3.x/getting-started/prerequisites/).  
 
+* CHANGE: When running any `sf retrieve metadata` command with the `--json` flag, we no longer include the `zipfile` property in the `result`. (plugin-deploy-retrieve PR [#514](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/514))
+
 ## 1.67.0 (March 1, 2023) [stable]
 
 * NEW: We continue to improve the usability of existing `sfdx` commands so they work like the `sf` commands. We're doing this work plugin by plugin. As a result of this work, when a Salesforce CLI release includes an updated plugin, you can execute the plugin's commands in both `sfdx` AND `sf`. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. 
