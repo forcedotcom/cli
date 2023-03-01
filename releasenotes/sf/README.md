@@ -27,6 +27,48 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: We've made it easier for you to develop secure code by adding [Salesforce Code Analyzer](https://forcedotcom.github.io/sfdx-scanner/) as a "just-in-time" plugin. Simply type one of the commands, such as `sf scanner run`, and if the plugin isn't already installed, Salesforce CLI automatically installs the latest version. Then use the `sf scanner` commands to detect quality issues and security vulnerabilities in your code. As always, run a command with `--help` to see more information. And be sure to check the [prerequisites page](https://forcedotcom.github.io/sfdx-scanner/en/v3.x/getting-started/prerequisites/).  
 
+* CHANGE: As part of [improving the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands so they work like the `sf` commands, we reconciled all `config` and `alias` commands into one plugin: [plugin-settings](https://github.com/salesforcecli/plugin-settings). The commands work the same as before, with one breaking change: the `sf config set --json` and `sf config unset --json` commands produce slightly different JSON output. For example, this command:
+
+    ```bash
+    sf config set org-instance-url=https://test.salesforce.com --json 
+    ```
+    
+    Now produces this output:
+    
+    ```json
+    {
+      "status": 0,
+      "result": {
+        "successes": [
+          {
+            "name": "org-instance-url",
+            "value": "https://test.salesforce.com",
+            "success": true
+          }
+        ],
+        "failures": []
+      },
+      "warnings": []
+    }
+    ```
+    
+    Previously it produced this output:
+    
+    ```json
+    {
+      "status": 0,
+      "result": [
+        {
+          "name": "org-instance-url",
+          "value": "https://test.salesforce.com",
+          "success": true
+        }
+      ],
+      "warnings": []
+    }
+    ```
+    
+
 ## 1.67.0 (March 1, 2023) [stable]
 
 * NEW: We continue to improve the usability of existing `sfdx` commands so they work like the `sf` commands. We're doing this work plugin by plugin. As a result of this work, when a Salesforce CLI release includes an updated plugin, you can execute the plugin's commands in both `sfdx` AND `sf`. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. 
