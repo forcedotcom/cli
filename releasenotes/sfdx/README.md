@@ -31,6 +31,29 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: We've made it easier for you to develop secure code by adding [Salesforce Code Analyzer](https://forcedotcom.github.io/sfdx-scanner/) as a "just-in-time" plugin. Simply type one of the commands, such as `sfdx scanner run`, and if the plugin isn't already installed, Salesforce CLI automatically installs the latest version. Then use the `sfdx scanner` commands to detect quality issues and security vulnerabilities in your code. As always, run a command with `--help` to see more information. And be sure to check the [prerequisites page](https://forcedotcom.github.io/sfdx-scanner/en/v3.x/getting-started/prerequisites/).  
 
+* NEW: As part of [improving the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands so they work like the `sf` commands, we reconciled all `config` and `alias` commands in both executables into a single plugin: [plugin-settings](https://github.com/salesforcecli/plugin-settings). The commands work the same as before. Actually, some of the `config` commands work _better_ than before because you can now enter a slightly-misspelled configuration variable and the command prompts you with the correct name. Super handy if you forget the exact name of a config var. For example:
+
+    ```bash
+    $ sfdx config set version=57.0
+      ? Did you mean org-api-version? Yes
+      Set Config
+      ===============================
+      | Name            Value Success 
+      | ─────────────── ───── ─────── 
+      | org-api-version 57.0  true
+    ```
+    
+    We also deprecated the old names of the configuration variables in favor of the new `sf` ones. You can still set the old names, but we display a deprecation warning to nudge you towards the new names. We recommend that you start using the new names as soon as possible.  Here's a summary:
+    
+    |Old Name|New Name|
+    |---|---|
+    |`apiVersion`|`org-api-version`|
+    |`customOrgMetadataTemplates`|`org-custom-metadata-templates`|
+    |`defaultdevhubusername`|`target-dev-hub`|
+    |`defaultusername`|`target-org`|
+    |`instanceUrl`|`org-instance-url`|
+    |`maxQueryLimit`|`org-max-query-limit`|
+
 ## 7.190.0 (Mar 2, 2023) [stable]
 
 **NOTE**: Due to various issues with the `7.189.x` releases candidates, and some `7.190` changes that snuck in early, we didn't promote any of them to `stable` or `latest` last week. 
