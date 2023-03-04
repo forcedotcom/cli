@@ -21,7 +21,7 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.68.0 (March 8, 2023) [stable-rc]
+## 1.68.2 (March 8, 2023) [stable-rc]
 
 ANNOUNCEMENT: Be sure to read [this pinned issue](https://github.com/forcedotcom/cli/issues/1970) that describes a breaking change in the JSON output of `sf config set --json` and `sf config unset --json` that we plan to release soon.
 
@@ -29,6 +29,14 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: We've made it easier for you to develop secure code by adding [Salesforce Code Analyzer](https://forcedotcom.github.io/sfdx-scanner/) as a "just-in-time" plugin. Simply type one of the commands, such as `sf scanner run`, and if the plugin isn't already installed, Salesforce CLI automatically installs the latest version. Then use the `sf scanner` commands to detect quality issues and security vulnerabilities in your code. As always, run a command with `--help` to see more information. And be sure to check the [prerequisites page](https://forcedotcom.github.io/sfdx-scanner/en/v3.x/getting-started/prerequisites/).  
 
+* NEW: Generate your own custom plugins, commands, flags, and more with the commands in the just-in-time [plugin-dev](https://github.com/salesforcecli/plugin-dev). If you haven't already installed this plugin, simply type one of its commands and Salesforce CLI automatically installs it for you. For example, run this command to interactively generate the initial files and directory hierarchy for a new custom plugin; the command prompts you for the required information:
+
+    ```bash
+    sf dev generate plugin
+    ```
+    
+    See [Get Started and Create Your Own Plugin](https://github.com/salesforcecli/cli/wiki/Get-Started-And-Create-Your-First-Plug-In) for simple examples of using the new commands.  See [Generate Stuff](https://github.com/salesforcecli/cli/wiki/Code-Your-Plugin#generate-stu) for the full list. 
+    
 * CHANGE: When running any `sf retrieve metadata` command with the `--json` flag, we no longer include the `zipfile` property in the `result`. (plugin-deploy-retrieve PR [#514](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/514))
 
 ## 1.67.0 (March 1, 2023) [stable]
