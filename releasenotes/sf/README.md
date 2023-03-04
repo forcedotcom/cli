@@ -21,7 +21,7 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.68.0 (March 8, 2023) [stable-rc]
+## 1.68.2 (March 8, 2023) [stable-rc]
 
 ANNOUNCEMENT: Be sure to read [this pinned issue](https://github.com/forcedotcom/cli/issues/1970) that describes a breaking change in the JSON output of `sf config set --json` and `sf config unset --json` that we plan to release soon.
 
