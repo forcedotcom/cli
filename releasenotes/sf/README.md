@@ -21,7 +21,13 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.68.2 (March 8, 2023) [stable-rc]
+## 1.69.0 (March 15, 2023) [stable-rc]
+
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+ADD STUFF HERE
+
+## 1.68.2 (March 8, 2023) [stable]
 
 ANNOUNCEMENT: Be sure to read [this pinned issue](https://github.com/forcedotcom/cli/issues/1970) that describes a breaking change in the JSON output of `sf config set --json` and `sf config unset --json` that we plan to release soon.
 
@@ -39,7 +45,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
 * CHANGE: When running any `sf retrieve metadata` command with the `--json` flag, we no longer include the `zipfile` property in the `result`. (plugin-deploy-retrieve PR [#514](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/514))
 
-## 1.67.0 (March 1, 2023) [stable]
+## 1.67.0 (March 1, 2023)
 
 * NEW: We continue to improve the usability of existing `sfdx` commands so they work like the `sf` commands. We're doing this work plugin by plugin. As a result of this work, when a Salesforce CLI release includes an updated plugin, you can execute the plugin's commands in both `sfdx` AND `sf`. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. 
 
