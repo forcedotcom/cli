@@ -25,59 +25,7 @@ Additional documentation:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* NEW: As part of [improving the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands so they work like the `sf` commands, we reconciled all `config` and `alias` commands in both executables into a single plugin: [plugin-settings](https://github.com/salesforcecli/plugin-settings). The commands work the same as before. Actually, some of the `config` commands work _better_ than before because you can now enter a slightly-misspelled configuration variable and the command prompts you with the correct name. Super handy if you forget the exact name of a config var. For example:
-
-    ```bash
-    $ sf config set version=57.0
-      ? Did you mean org-api-version? Yes
-      Set Config
-      ===============================
-      | Name            Value Success 
-      | ─────────────── ───── ─────── 
-      | org-api-version 57.0  true
-    ```
-    
-    **Important**: As announced [here](https://github.com/forcedotcom/cli/issues/1970), we introduced a breaking change in what the `sf config set --json` and `sf config unset --json` commands display; specifically they now produce slightly different JSON output. For example, this command:
-
-    ```bash
-    sf config set org-instance-url=https://test.salesforce.com --json 
-    ```
-    
-    Now produces this output:
-    
-    ```json
-    {
-      "status": 0,
-      "result": {
-        "successes": [
-          {
-            "name": "org-instance-url",
-            "value": "https://test.salesforce.com",
-            "success": true
-          }
-        ],
-        "failures": []
-      },
-      "warnings": []
-    }
-    ```
-    
-    Previously it produced this output:
-    
-    ```json
-    {
-      "status": 0,
-      "result": [
-        {
-          "name": "org-instance-url",
-          "value": "https://test.salesforce.com",
-          "success": true
-        }
-      ],
-      "warnings": []
-    }
-    ```
-    The JSON output of `sf config unset --json` changed similarly. There is no change in the other `config` and `alias` commands. 
+ADD STUFF HERE
 
 ## 1.68.2 (March 8, 2023) [stable]
 
