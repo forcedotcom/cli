@@ -37,6 +37,60 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
     See [Get Started and Create Your Own Plugin](https://github.com/salesforcecli/cli/wiki/Get-Started-And-Create-Your-First-Plug-In) for simple examples of using the new commands.  See [Generate Stuff](https://github.com/salesforcecli/cli/wiki/Code-Your-Plugin#generate-stu) for the full list. 
     
+* NEW: As part of [improving the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands so they work like the `sf` commands, we reconciled all `config` and `alias` commands in both executables into a single plugin: [plugin-settings](https://github.com/salesforcecli/plugin-settings). The commands work the same as before. Actually, some of the `config` commands work _better_ than before because you can now enter a slightly-misspelled configuration variable and the command prompts you with the correct name. Super handy if you forget the exact name of a config var. For example:
+
+    ```bash
+    $ sf config set version=57.0
+      ? Did you mean org-api-version? Yes
+      Set Config
+      ===============================
+      | Name            Value Success 
+      | ─────────────── ───── ─────── 
+      | org-api-version 57.0  true
+    ```
+    
+    **Important**: As announced [here](https://github.com/forcedotcom/cli/issues/1970), we introduced a breaking change in what the `sf config set --json` and `sf config unset --json` commands display; specifically they now produce slightly different JSON output. For example, this command:
+
+    ```bash
+    sf config set org-instance-url=https://test.salesforce.com --json 
+    ```
+    
+    Now produces this output:
+    
+    ```json
+    {
+      "status": 0,
+      "result": {
+        "successes": [
+          {
+            "name": "org-instance-url",
+            "value": "https://test.salesforce.com",
+            "success": true
+          }
+        ],
+        "failures": []
+      },
+      "warnings": []
+    }
+    ```
+    
+    Previously it produced this output:
+    
+    ```json
+    {
+      "status": 0,
+      "result": [
+        {
+          "name": "org-instance-url",
+          "value": "https://test.salesforce.com",
+          "success": true
+        }
+      ],
+      "warnings": []
+    }
+    ```
+    The JSON output of `sf config unset --json` changed similarly. There is no change in the other `config` and `alias` commands. 
+
 * CHANGE: When running any `sf retrieve metadata` command with the `--json` flag, we no longer include the `zipfile` property in the `result`. (plugin-deploy-retrieve PR [#514](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/514))
 
 ## 1.67.0 (March 1, 2023) [stable]
