@@ -21,9 +21,15 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.68.2 (March 8, 2023) [stable-rc]
+## 1.69.0 (March 15, 2023) [stable-rc]
+
+ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+ADD STUFF HERE
+
+## 1.68.2 (March 8, 2023) [stable-rc]
 
 * NEW: We've made it easier for you to develop secure code by adding [Salesforce Code Analyzer](https://forcedotcom.github.io/sfdx-scanner/) as a "just-in-time" plugin. Simply type one of the commands, such as `sf scanner run`, and if the plugin isn't already installed, Salesforce CLI automatically installs the latest version. Then use the `sf scanner` commands to detect quality issues and security vulnerabilities in your code. As always, run a command with `--help` to see more information. And be sure to check the [prerequisites page](https://forcedotcom.github.io/sfdx-scanner/en/v3.x/getting-started/prerequisites/).  
 
