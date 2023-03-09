@@ -31,7 +31,7 @@ ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 1
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
-ADD STUFF HERE
+* FIX: The `package version create` command now uses the `language` attribute in the scratch org definition file as the default language of the build org. (GitHub issue [#1921](https://github.com/forcedotcom/cli/issues/1921), packaging PR [#239](https://github.com/forcedotcom/packaging/pull/239))
 
 ## 7.191.1 (March 9, 2023) [stable]
 
