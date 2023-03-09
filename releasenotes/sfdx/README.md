@@ -59,8 +59,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |`customOrgMetadataTemplates`|`org-custom-metadata-templates`|
     |`defaultdevhubusername`|`target-dev-hub`|
     |`defaultusername`|`target-org`|
+    |`disableTelemetry`|`disable-telemetry`|
     |`instanceUrl`|`org-instance-url`|
     |`maxQueryLimit`|`org-max-query-limit`|
+    |`restDeploy`|`org-metadata-rest-deploy`|
 
 ## 7.190.0 (Mar 2, 2023)
 
