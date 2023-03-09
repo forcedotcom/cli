@@ -27,7 +27,7 @@ ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 1
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-ADD STUFF HERE
+FIX: We fixed some under-the-hood bugs.
 
 ## 1.68.2 (March 8, 2023) [stable-rc]
 
