@@ -25,15 +25,17 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.192.2 (March 16, 2023) [stable-rc]
+## 7.193.0 (March 23, 2023) [stable-rc]
 
 ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
+## 7.192.2 (March 16, 2023) [stable]
+
 * FIX: The `package version create` command now applies the `language` attribute from the scratch org definition file. (GitHub issue [#1921](https://github.com/forcedotcom/cli/issues/1921), packaging PR [#239](https://github.com/forcedotcom/packaging/pull/239))
 
-## 7.191.1 (March 9, 2023) [stable]
+## 7.191.1 (March 9, 2023)
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
