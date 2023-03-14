@@ -27,6 +27,13 @@ ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 1
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* NEW: As part of [improving the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands so they work like the `sf` commands, we've added these two new commands to `sf`:
+
+    * `sf org list metadata` : List the metadata components and properties of a specified type.
+    * `sf org list metadata-types` : Display details about the metadata types that are enabled for your org.  
+    
+    We also added the `--source-file` flag to `sf open org` command so you can open a Lightning page in Lightning App Builder in your org. 
+
 ## 1.69.0 (March 15, 2023) [stable]
 
 FIX: We fixed some under-the-hood bugs.
