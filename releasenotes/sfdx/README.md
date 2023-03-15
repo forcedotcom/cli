@@ -75,7 +75,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     sfdx org open --source-path force-app/main/default/flexipages/Hello.flexipage-meta.xml --target-org my-org-alias --browser firefox
     ```
     
-    The new flag works the same as the existing `force:source:open` command. But you can now also specify the browser with the `--browser` flag of `org open`. 
+    The new flag replaces the existing `force:source:open` command, which you can still use but you'll get those pesky deprecation warnings. The change is part of SCUIC ([Salesforce CLI Usability Improvement Campaign](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli)). Note that you now have more options; for example, you can open a page in Lightning App Builder and specify the browser, as shown in the previous example.  
 
 * FIX: We fixed the examples for the `sfdx apex run` command so they use the correct flag: `--file` instead of the incorrect `--apex-code-file`. (GitHub issue [#1999](https://github.com/forcedotcom/cli/issues/1999), plugin-apex PR [#71](https://github.com/salesforcecli/plugin-apex/pull/71)) 
 
