@@ -21,15 +21,28 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.69.0 (March 15, 2023) [stable-rc]
+## 1.70.0 (March 22, 2023) [stable-rc]
 
 ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* NEW: As part of [improving the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands so they work like the `sf` commands, we've added these two new commands to `sf`:
+
+    * `sf org list metadata` : List the metadata components and properties of a specified type.
+    * `sf org list metadata-types` : Display details about the metadata types that are enabled for your org.  
+    
+    We also added the `--source-file` flag to `sf open org` command so you can open a Lightning page in Lightning App Builder in your org. 
+    
+* CHANGE:  Instead of bundling the [Salesforce Functions plugin](https://github.com/salesforcecli/plugin-functions) in the core Salesforce CLI, we now automatically install it the first time you run one of its commands. We made this change because not all of you use the Salesforce Functions commands regularly. (This change applies only to new Salesforce CLI installations. If the plugin is already installed in your Salesforce CLI, there's no change.)  
+
+* FIX: We fixed the examples for the `sf apex run` command so they use the correct flag: `--file` instead of the incorrect `--apex-code-file`. (GitHub issue [#1999](https://github.com/forcedotcom/cli/issues/1999), plugin-apex PR [#71](https://github.com/salesforcecli/plugin-apex/pull/71)) 
+
+## 1.69.0 (March 15, 2023) [stable]
+
 FIX: We fixed some under-the-hood bugs.
 
-## 1.68.2 (March 8, 2023) [stable]
+## 1.68.2 (March 8, 2023)
 
 * NEW: We've made it easier for you to develop secure code by adding [Salesforce Code Analyzer](https://forcedotcom.github.io/sfdx-scanner/) as a "just-in-time" plugin. Simply type one of the commands, such as `sf scanner run`, and if the plugin isn't already installed, Salesforce CLI automatically installs the latest version. Then use the `sf scanner` commands to detect quality issues and security vulnerabilities in your code. As always, run a command with `--help` to see more information. And be sure to check the [prerequisites page](https://forcedotcom.github.io/sfdx-scanner/en/v3.x/getting-started/prerequisites/).  
 
