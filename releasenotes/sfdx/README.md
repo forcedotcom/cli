@@ -31,6 +31,45 @@ ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 1
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
+* NEW: We continue to [improve the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands. We are slowly updating the commands in [plugin-source](https://github.com/salesforcecli/plugin-sobject) to the new `sf` styles; you'll see changes over the next few weeks. 
+
+    These are the new command names this week. For each command, you can still use colons instead of spaces, such as `org:list:metadata`.
+
+    |Existing Command Name|New Command Name|
+    |------------|-------------|
+    |`force:mdapi:listmetadata`|`org list metadata`|
+    |`force:mdapi:describemetadata`|`org list metadata-types`|
+
+    These are the new flag names for the new command names listed above. If an existing flag name isn't listed in the table, it has the same name in the new command name.
+
+    |Existing Flag Name|New Flag Name|Affected Existing Commands|
+    |---|---|---|
+    |`--apiversion`. The `-a` short flag name  is deprecated.|`--api-version`|Both commands. |
+    |`--metadatatype`|`--metadata-type`|`force:mdapi:listmetadata`|
+    |`--resultfile`|`--output-file`|Both commands|
+    |`--targetusername`|`--target-org`, with new short flag name `-o`.|Both commands|
+
+    This flag is deprecated and has no effect.
+
+    |Deprecated Flag|Affected Existing Command|
+    |---|---|
+    |`--loglevel`|Both commands|
+    
+    Let's look at an example, such as this command: 
+
+    ```bash
+    sfdx force:mdapi:listmetadata --metadatatype CustomObject --apiversion 57.0 --resultfile /path/to/outputfile.txt --targetusername my-org-alias
+    ```
+
+    You can now run it this way using the `sf` style:
+
+    ```bash
+    sfdx org list metadata --metadata-type CustomObject --api-version 57.0 --output-file /path/to/outputfile.txt --target-org my-org-alias
+    ```
+
+    The existing commands work exactly as before. But give this new stuff a try, we think you'll like it.
+
+
 * FIX: We fixed the examples for the `sfdx apex run` command so they use the correct flag: `--file` instead of the incorrect `--apex-code-file`. (GitHub issue [#1999](https://github.com/forcedotcom/cli/issues/1999), plugin-apex PR [#71](https://github.com/salesforcecli/plugin-apex/pull/71)) 
 
 ## 7.192.2 (March 16, 2023) [stable]
