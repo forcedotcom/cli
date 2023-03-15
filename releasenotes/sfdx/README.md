@@ -69,6 +69,13 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     The existing commands work exactly as before. But give this new stuff a try, we think you'll like it.
 
+* NEW: Open a Lightning Page from your local project in Lightning App Builder with the new `--source-file` flag of the `org open` command. For example:
+
+    ```bash
+    sfdx org open --source-path force-app/main/default/flexipages/Hello.flexipage-meta.xml --target-org my-org-alias --browser firefox
+    ```
+    
+    The new flag works the same as the existing `force:source:open` command. But you can now also specify the browser with the `--browser` flag of `org open`. 
 
 * FIX: We fixed the examples for the `sfdx apex run` command so they use the correct flag: `--file` instead of the incorrect `--apex-code-file`. (GitHub issue [#1999](https://github.com/forcedotcom/cli/issues/1999), plugin-apex PR [#71](https://github.com/salesforcecli/plugin-apex/pull/71)) 
 
