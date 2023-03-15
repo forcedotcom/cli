@@ -33,6 +33,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `sf org list metadata-types` : Display details about the metadata types that are enabled for your org.  
     
     We also added the `--source-file` flag to `sf open org` command so you can open a Lightning page in Lightning App Builder in your org. 
+    
+* FIX: We fixed the examples for the `sf apex run` command so they use the correct flag: `--file` instead of the incorrect `--apex-code-file`. (GitHub issue [#1999](https://github.com/forcedotcom/cli/issues/1999), plugin-apex PR [#71](https://github.com/salesforcecli/plugin-apex/pull/71)) 
 
 ## 1.69.0 (March 15, 2023) [stable]
 
