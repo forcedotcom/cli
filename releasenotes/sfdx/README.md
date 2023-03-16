@@ -77,6 +77,25 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
     The new flag replaces the existing `force:source:open` command, which you can still use but you'll get those pesky deprecation warnings. The change is part of SCUIC ([Salesforce CLI Usability Improvement Campaign](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli)). Note that you now have more options; for example, you can open a page in Lightning App Builder and specify the browser, as shown in the previous example.  
 
+* CHANGE: We changed the long name of the flag to specify a Dev Hub org from `--target-hub-org` to `--target-dev-hub` for these packaging commands:
+
+    * `package:convert`
+    * `package:create`
+    * `package:delete`
+    * `package:list`
+    * `package:update`
+    * `package:version:create`
+    * `package:version:create:list`
+    * `package:version:create:report`
+    * `package:version:delete`
+    * `package:version:displayancestry`
+    * `package:version:list`
+    * `package:version:promote`
+    * `package:version:report`
+    * `package:version:update
+    
+    We aliased the old long name to the new one, so nothing will break. But we highly recommend you update your scripts to use the new flag name. The short flag name (`-v`) didn't change. We made this change so the flag name matches the other `sfdx` commands. 
+
 * FIX: We fixed the examples for the `sfdx apex run` command so they use the correct flag: `--file` instead of the incorrect `--apex-code-file`. (GitHub issue [#1999](https://github.com/forcedotcom/cli/issues/1999), plugin-apex PR [#71](https://github.com/salesforcecli/plugin-apex/pull/71)) 
 
 ## 7.192.2 (March 16, 2023) [stable]
