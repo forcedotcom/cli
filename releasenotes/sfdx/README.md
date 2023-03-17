@@ -25,15 +25,84 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.192.2 (March 16, 2023) [stable-rc]
+## 7.193.2 (March 23, 2023) [stable-rc]
 
 ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
+* NEW: We continue to [improve the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands. We are slowly updating the commands in [plugin-source](https://github.com/salesforcecli/plugin-sobject) to the new `sf` styles; you'll see changes over the next few weeks. 
+
+    These are the new command names this week. For each command, you can still use colons instead of spaces, such as `org:list:metadata`.
+
+    |Existing Command Name|New Command Name|
+    |------------|-------------|
+    |`force:mdapi:listmetadata`|`org list metadata`|
+    |`force:mdapi:describemetadata`|`org list metadata-types`|
+
+    These are the new flag names for the new command names listed above. If an existing flag name isn't listed in the table, it has the same name in the new command name.
+
+    |Existing Flag Name|New Flag Name|Affected Existing Commands|
+    |---|---|---|
+    |`--apiversion`. The `-a` short flag name  is deprecated.|`--api-version`|Both commands. |
+    |`--metadatatype`|`--metadata-type`|`force:mdapi:listmetadata`|
+    |`--resultfile`|`--output-file`|Both commands|
+    |`--targetusername`|`--target-org`, with new short flag name `-o`.|Both commands|
+
+    This flag is deprecated and has no effect.
+
+    |Deprecated Flag|Affected Existing Command|
+    |---|---|
+    |`--loglevel`|Both commands|
+    
+    Let's look at an example, such as this command: 
+
+    ```bash
+    sfdx force:mdapi:listmetadata --metadatatype CustomObject --apiversion 57.0 --resultfile /path/to/outputfile.txt --targetusername my-org-alias
+    ```
+
+    You can now run it this way using the `sf` style:
+
+    ```bash
+    sfdx org list metadata --metadata-type CustomObject --api-version 57.0 --output-file /path/to/outputfile.txt --target-org my-org-alias
+    ```
+
+    The existing commands work exactly as before. But give this new stuff a try, we think you'll like it.
+
+* NEW: Open a Lightning Page from your local project in Lightning App Builder with the new `--source-file` flag of the `org open` command. For example:
+
+    ```bash
+    sfdx org open --source-path force-app/main/default/flexipages/Hello.flexipage-meta.xml --target-org my-org-alias --browser firefox
+    ```
+    
+    The new flag replaces the existing `force:source:open` command, which you can still use but you'll get those pesky deprecation warnings. The change is part of SCUIC ([Salesforce CLI Usability Improvement Campaign](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli)). Note that you now have more options; for example, you can open a page in Lightning App Builder and specify the browser, as shown in the previous example.  
+
+* CHANGE: We changed the long name of the flag to specify a Dev Hub org from `--target-hub-org` to `--target-dev-hub` for these packaging commands:
+
+    * `package:convert`
+    * `package:create`
+    * `package:delete`
+    * `package:list`
+    * `package:update`
+    * `package:version:create`
+    * `package:version:create:list`
+    * `package:version:create:report`
+    * `package:version:delete`
+    * `package:version:displayancestry`
+    * `package:version:list`
+    * `package:version:promote`
+    * `package:version:report`
+    * `package:version:update
+    
+    We aliased the old long name to the new one, so nothing will break. But we highly recommend you update your scripts to use the new flag name. The short flag name (`-v`) didn't change. We made this change so the flag name matches the other `sfdx` commands. 
+
+* FIX: We fixed the examples for the `sfdx apex run` command so they use the correct flag: `--file` instead of the incorrect `--apex-code-file`. (GitHub issue [#1999](https://github.com/forcedotcom/cli/issues/1999), plugin-apex PR [#71](https://github.com/salesforcecli/plugin-apex/pull/71)) 
+
+## 7.192.2 (March 16, 2023) [stable]
+
 * FIX: The `package version create` command now applies the `language` attribute from the scratch org definition file. (GitHub issue [#1921](https://github.com/forcedotcom/cli/issues/1921), packaging PR [#239](https://github.com/forcedotcom/packaging/pull/239))
 
-## 7.191.1 (March 9, 2023) [stable]
+## 7.191.1 (March 9, 2023)
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
