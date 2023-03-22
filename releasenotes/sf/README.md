@@ -45,6 +45,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `package version update
     
     We aliased the old long name to the new one, so nothing will break. But we highly recommend you update your scripts to use the new flag name. The short flag name (`-v`) didn't change. We made this change so the flag name matches the other `sf` commands. 
+    
+* FIX: Executing the `apex get log` command with the `--log-id` flag now correctly fetches the log with the specified ID.  (GitHub issue [#2006](https://github.com/forcedotcom/cli/issues/2006), plugin-apex PR [#79](https://github.com/salesforcecli/plugin-apex/pull/79))
+
+* FIX: The `--url-path-prefix` flag of the `community create` command is no longer required, which is the correct behavior. (GitHub issue [#2005](https://github.com/forcedotcom/cli/issues/2005), plugin-community PR [#303](https://github.com/salesforcecli/plugin-community/pull/303))
 
 ## 1.70.0 (March 22, 2023) [stable]
 
