@@ -50,6 +50,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `--url-path-prefix` flag of the `community create` command is no longer required, which is the correct behavior. (GitHub issue [#2005](https://github.com/forcedotcom/cli/issues/2005), plugin-community PR [#303](https://github.com/salesforcecli/plugin-community/pull/303))
 
+* FIX: The `sf deploy|retrieve metadata` commands now support the ExtlClntAppGlobalOauthSettings metadata type.
+
 ## 1.70.0 (March 22, 2023) [stable]
 
 * NEW: As part of [improving the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands so they work like the `sf` commands, we've added these two new commands to `sf`:
