@@ -25,11 +25,23 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.193.2 (March 23, 2023) [stable-rc]
+## 7.194.0 (March 30, 2023) [stable-rc]
 
 ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+* FIX: Executing the `apex get log` command with the `--log-id` flag now correctly fetches the log with the specified ID.  (GitHub issue [#2006](https://github.com/forcedotcom/cli/issues/2006), plugin-apex PR [#79](https://github.com/salesforcecli/plugin-apex/pull/79))
+
+* FIX: The `--url-path-prefix` flag of the `community create` command is no longer required, which is the correct behavior. (GitHub issue [#2005](https://github.com/forcedotcom/cli/issues/2005), plugin-community PR [#303](https://github.com/salesforcecli/plugin-community/pull/303))
+
+* FIX: Let's say you log into a Dev Hub org, and then log into a scratch org that's associated with it, but you created this scratch org from a different computer. Running `org list` on the first computer now correctly lists the scratch org and its expiration date in the appropriate section. (GitHub issue [#1941](https://github.com/forcedotcom/cli/issues/1941), sfdx-core PR [#775](https://github.com/forcedotcom/sfdx-core/pull/775))
+
+* FIX: When you run `force:source:deploy --verbose` with the progress bar turned off (`SFDX_USE_PROGRESS_BAR=false`), we now display the deploy status with every poll. With this change, CI systems that have low output timeouts don't exit during long-running deploys in which the results aren't outputted for many minutes.  (GitHub issue [#1839](https://github.com/forcedotcom/cli/issues/1839), plugin-source PR [#757](https://github.com/salesforcecli/plugin-source/pull/757))
+
+* FIX: The `force source` commands now support the ExtlClntAppGlobalOauthSettings metadata type.
+
+## 7.193.2 (March 23, 2023) [stable]
 
 * NEW: We continue to [improve the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands. We are slowly updating the commands in [plugin-source](https://github.com/salesforcecli/plugin-sobject) to the new `sf` styles; you'll see changes over the next few weeks. 
 
@@ -98,7 +110,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We fixed the examples for the `sfdx apex run` command so they use the correct flag: `--file` instead of the incorrect `--apex-code-file`. (GitHub issue [#1999](https://github.com/forcedotcom/cli/issues/1999), plugin-apex PR [#71](https://github.com/salesforcecli/plugin-apex/pull/71)) 
 
-## 7.192.2 (March 16, 2023) [stable]
+## 7.192.2 (March 16, 2023)
 
 * FIX: The `package version create` command now applies the `language` attribute from the scratch org definition file. (GitHub issue [#1921](https://github.com/forcedotcom/cli/issues/1921), packaging PR [#239](https://github.com/forcedotcom/packaging/pull/239))
 
