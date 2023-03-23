@@ -21,11 +21,40 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.70.0 (March 22, 2023) [stable-rc]
+## 1.71.0 (March 29, 2023) [stable-rc]
 
 ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* CHANGE: We changed the long name of the flag to specify a Dev Hub org from `--target-hub-org` to `--target-dev-hub` for these packaging commands:
+
+    * `package convert`
+    * `package create`
+    * `package delete`
+    * `package list`
+    * `package update`
+    * `package version create`
+    * `package version create list`
+    * `package version create report`
+    * `package version delete`
+    * `package version displayancestry`
+    * `package version list`
+    * `package version promote`
+    * `package version report`
+    * `package version update
+    
+    We aliased the old long name to the new one, so nothing will break. But we highly recommend you update your scripts to use the new flag name. The short flag name (`-v`) didn't change. We made this change so the flag name matches the other `sf` commands. 
+    
+* FIX: Executing the `apex get log` command with the `--log-id` flag now correctly fetches the log with the specified ID.  (GitHub issue [#2006](https://github.com/forcedotcom/cli/issues/2006), plugin-apex PR [#79](https://github.com/salesforcecli/plugin-apex/pull/79))
+
+* FIX: The `--url-path-prefix` flag of the `community create` command is no longer required, which is the correct behavior. (GitHub issue [#2005](https://github.com/forcedotcom/cli/issues/2005), plugin-community PR [#303](https://github.com/salesforcecli/plugin-community/pull/303))
+
+* FIX: Let's say you log into a Dev Hub org, and then log into a scratch org that's associated with it, but you created this scratch org from a different computer. Running `org list` on the first computer now correctly lists the scratch org and its expiration date in the appropriate section. (GitHub issue [#1941](https://github.com/forcedotcom/cli/issues/1941), sfdx-core PR [#775](https://github.com/forcedotcom/sfdx-core/pull/775))
+
+* FIX: The `sf deploy|retrieve metadata` commands now support the ExtlClntAppGlobalOauthSettings metadata type.
+
+## 1.70.0 (March 22, 2023) [stable]
 
 * NEW: As part of [improving the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands so they work like the `sf` commands, we've added these two new commands to `sf`:
 
@@ -38,7 +67,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We fixed the examples for the `sf apex run` command so they use the correct flag: `--file` instead of the incorrect `--apex-code-file`. (GitHub issue [#1999](https://github.com/forcedotcom/cli/issues/1999), plugin-apex PR [#71](https://github.com/salesforcecli/plugin-apex/pull/71)) 
 
-## 1.69.0 (March 15, 2023) [stable]
+## 1.69.0 (March 15, 2023)
 
 FIX: We fixed some under-the-hood bugs.
 
