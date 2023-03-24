@@ -33,17 +33,17 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: We continue to [improve the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands. A [few weeks ago](./README.md#71932-march-23-2023) we started updating the commands in [plugin-source](https://github.com/salesforcecli/plugin-sobject) to the new `sf` styles; this week we finish up.  
 
-    The following existing commands have new names (and the old name is deprecated), but both work the same. For each command, you can still use colons instead of spaces, such as `project:convert:mdapi`.
+    The following existing commands have new names (and the old name is deprecated), but both work the same. For each command, you can still use colons instead of spaces, such as `project:convert:mdapi`.  
     
-    |Existing Command Name|New Command Name|Old Flag Name ==> New Flag Name|
+    |Existing Command Name|New Command Name|Flag Name Changes|
     |-----|------|---|
-    |`force:mdapi:convert`|`project convert mdapi`|<ul> <li>`--api-version` (new flag!)</li> <li>`--metadatapath` ==> `--metadata-dir`</li> <li>`--outputdir` ==> `--output-dir`</li><li>`--rootdir` ==> `--root-dir`</li> </ul>|
-    |`force:source:convert`|`project convert source`|<ul> <li>`--api-version` (new flag!)</li><li>`--outputdir` ==> `--output-dir`</li> <li>`--packagename` ==> `--package-name`</li>  <li>`--rootdir` ==> `--root-dir`</li> <li>`--sourcepath` ==> `--source-path`</li> <ul>|
-    |`force:source:delete`|`project delete source`|<ul> <li>`--apiversion` ==> `--api-version`</li> <li>`--checkonly` ==> `--check-only`</li><li>`--forceoverwrite` ==> `--force-overwrite`</li><li>`--noprompt` ==> `--no-prompt`</li> <li>`--sourcepath` ==> `--source-path`</li> <li>`--targetusername` ==> `--target-org` (new short name `-o`)</li>   <li>`--testlevel` ==> `--test-level`</li> <li>`--tracksource` ==> `--track-source`</li> <ul>|
-    |`force:source:ignored:list`|`project list ignored`|<ul> <li>`--sourcepath` ==> `--source-path`</li></ul>|
-    |`force:source:manifest:create`|`project generate manifest`|<ul> <li>`--apiversion` ==> `--api-version`</li> <li>`--fromorg` ==> `--from-org`</li> <li>`--includepackages` ==> `--include-packages`</li> <li>`--manifestname` ==> `--manifest-name`</li> <li>`--manifesttype` ==> `--manifest-type`</li> <li>`--outputdir` ==> `--output-dir`</li> <li>`--sourcepath` ==> `--source-path`</li> </ul>|
-    |`force:source:tracking:clear`|`project delete tracking`|<ul> <li>`--apiversion` ==> `--api-version`</li><li>`--noprompt` ==> `--no-prompt`</li> <li>`--targetusername` ==> `--target-org` (new short name `-o`)</li> </ul>|
-    |`force:source:tracking:reset`|`project reset tracking`|<ul> <li>`--apiversion` ==> `--api-version`</li><li>`--noprompt` ==> `--no-prompt`</li> <li>`--targetusername` ==> `--target-org` (new short name `-o`)</li> </ul>|
+    |`force:mdapi:convert`|`project convert mdapi`|<ul> <li>`--metadatapath` ==> `--metadata-dir`</li> <li>`--outputdir` ==> `--output-dir`</li><li>`--rootdir` ==> `--root-dir`</li> <li>New flag: `--api-version`</li> <li>Deprecated flag: `--loglevel`</li></ul>|
+    |`force:source:convert`|`project convert source`|<ul> <li>`--outputdir` ==> `--output-dir`</li> <li>`--packagename` ==> `--package-name`</li>  <li>`--rootdir` ==> `--root-dir`</li> <li>`--sourcepath` ==> `--source-path`</li> <li>New flag: `--api-version`</li> <li>Deprecated flag: `--loglevel`</li><ul>|
+    |`force:source:delete`|`project delete source`|<ul> <li>`--apiversion` ==> `--api-version`</li> <li>`--checkonly` ==> `--check-only`</li><li>`--forceoverwrite` ==> `--force-overwrite`</li><li>`--noprompt` ==> `--no-prompt`</li> <li>`--sourcepath` ==> `--source-path`</li> <li>`--targetusername` ==> `--target-org` (new short name `-o`)</li>   <li>`--testlevel` ==> `--test-level`</li> <li>`--tracksource` ==> `--track-source`</li> <li>Deprecated flag: `--loglevel`</li><ul>|
+    |`force:source:ignored:list`|`project list ignored`|<ul> <li>`--sourcepath` ==> `--source-path`</li><li>Deprecated flag: `--loglevel`</li></ul>|
+    |`force:source:manifest:create`|`project generate manifest`|<ul> <li>`--apiversion` ==> `--api-version`</li> <li>`--fromorg` ==> `--from-org`</li> <li>`--includepackages` ==> `--include-packages`</li> <li>`--manifestname` ==> `--manifest-name`</li> <li>`--manifesttype` ==> `--manifest-type`</li> <li>`--outputdir` ==> `--output-dir`</li> <li>`--sourcepath` ==> `--source-path`</li> <li>Deprecated flag: `--loglevel`</li></ul>|
+    |`force:source:tracking:clear`|`project delete tracking`|<ul> <li>`--apiversion` ==> `--api-version`</li><li>`--noprompt` ==> `--no-prompt`</li> <li>`--targetusername` ==> `--target-org` (new short name `-o`)</li> <li>Deprecated flag: `--loglevel`</li></ul>|
+    |`force:source:tracking:reset`|`project reset tracking`|<ul> <li>`--apiversion` ==> `--api-version`</li><li>`--noprompt` ==> `--no-prompt`</li> <li>`--targetusername` ==> `--target-org` (new short name `-o`)</li> <li>Deprecated flag: `--loglevel`</li></ul>|
 
     We plan to deprecated the following existing commands in the future, although they'll still be around for a while. Each existing command has an equivalent new command with almost the same functionality, except for what we note.  We suggest you start using the new commands as soon as possible. 
 
@@ -59,10 +59,17 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |`force:source:deploy:report`|`project deploy report\|resume`|X|
     |`force:source:open`|`org open --source-path`|X|
     |`force:source:pull`|`project retrieve start`|X|
-    |`force:source:push`|`project deploy start`|X|
+    |`force:source:push`|`project deploy start`|The `pushPackageDirectoriesSequentially` property of `sfdx-project.json` doesn't affect how `project deploy start` works. |
     |`force:source:retrieve`|`project retrieve start`|X|
     |`force:source:status`|`project deploy preview`|X|
 
+    Be aware of these additional changes:
+    
+    * We removed these beta commands:
+        * `force:source:beta:tracking:reset`
+	* `force:source:beta:tracking:clear`
+	* `force:mdapi:beta:convert`
+    * 
 
 ## 7.194.0 (March 30, 2023) [stable]
 
