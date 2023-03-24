@@ -51,25 +51,25 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |----|----|----|
     |`force:mdapi:deploy`|`project deploy start`|X|
     |`force:mdapi:deploy:cancel`|`project deploy cancel`|X|
-    |`force:mdapi:deploy:report`|`project deploy report\|resume`|X|
+    |`force:mdapi:deploy:report`|`project deploy report\|resume`|The `force:mdapi:deploy:report` command does more than just report: it also resumes a deployment, which is confusing. We've now provide two commands for each task (`project deploy report` and `project deploy resume`) which is more intuitive. We've also removed the `--wait -1` functionality in the new commands, which means "wait forever".  Specify a very large number with the new commands instead. |
     |`force:mdapi:retrieve`|`project retrieve start`|X|
-    |`force:mdapi:retrieve:report`|No equivalent|X|
-    |`force:source:deploy`|`project deploy start`|X|
+    |`force:mdapi:retrieve:report`|No equivalent|We've removed this command because it didn't really do much.|
+    |`force:source:deploy`|`project deploy start`|The new command keeps track of your source if the org is enabled for source-tracking.  If you don't want to use source tracking, create an org that doesn't have source tracking enabled.|
     |`force:source:deploy:cancel`|`project deploy cancel`|X|
-    |`force:source:deploy:report`|`project deploy report\|resume`|X|
+    |`force:source:deploy:report`|`project deploy report\|resume`|The `force:source:deploy:report` command does more than just report: it also resumes a deployment, which is confusing. We've now provide two commands for each task (`project deploy report` and `project deploy resume`) which is more intuitive. |
     |`force:source:open`|`org open --source-path`|X|
     |`force:source:pull`|`project retrieve start`|X|
-    |`force:source:push`|`project deploy start`|The `pushPackageDirectoriesSequentially` property of `sfdx-project.json` doesn't affect how `project deploy start` works. |
-    |`force:source:retrieve`|`project retrieve start`|X|
-    |`force:source:status`|`project deploy preview`|X|
+    |`force:source:push`|`project deploy start`|`force:source:push` supports the `pushPackageDirectoriesSequentially` property of `sfdx-project.json` to deploy packages sequentially, but it doesn't work for `project deploy start`. Use separate commands in the desired order to deploy sequentially. |
+    |`force:source:retrieve`|`project retrieve start`|The new command keeps track of your source if the org is enabled for source-tracking.  If you don't want to use source tracking, create an org that doesn't have source tracking enabled.|
+    |`force:source:status`|`project deploy\|retrieve preview`|We now provide two separate commands to preview what a deploy or a retrieve will do, which is more intuitive. These `preview` commands have the same flags as their non-preview commands, such as `project deploy start`. The `force:source:status` command showed both local and remote changes, which was confusing. |
 
-    Be aware of these additional changes:
+    A few more important notes:
     
+    * The `project deploy *` and `project retrieve *` commands work for both source format and metadata format files; we no longer have separate commands for each format. Use flags to specify the format you're deploying. For example, `project deploy start` deploys source formatted files by default, but you can use `--metadata-dir` to deploy metadata format files. 
     * We removed these beta commands:
         * `force:source:beta:tracking:reset`
-	* `force:source:beta:tracking:clear`
-	* `force:mdapi:beta:convert`
-    * 
+        * `force:source:beta:tracking:clear`
+        * `force:mdapi:beta:convert`
 
 ## 7.194.0 (March 30, 2023) [stable]
 
