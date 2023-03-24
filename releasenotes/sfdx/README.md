@@ -25,11 +25,46 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.194.0 (March 30, 2023) [stable-rc]
+## 7.195.0 (April 6, 2023) [stable-rc]
 
 ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+* NEW: We continue to [improve the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands. A [few weeks ago](./README.md#71932-march-23-2023) we started updating the commands in [plugin-source](https://github.com/salesforcecli/plugin-sobject) to the new `sf` styles; this week we finish up.  
+
+    The following existing commands have new names, but both work the same. For each command, you can still use colons instead of spaces, such as `project:convert:mdapi`.
+    
+    |Existing Command Name|New Command Name|Flag Name Changes|
+    |-----|------|---|
+    |`force:mdapi:convert`|`project convert mdapi`|X|
+    |`force:source:convert`|`project convert source`|X|
+    |`force:source:delete`|`project delete source`|X|
+    |`force:source:manifest:create`|`project manifest create`|X|
+    |`force:source:tracking:clear`|`project delete tracking`|X|
+    |`force:source:tracking:reset`|`project reset tracking`|X|
+
+    We plan to deprecated the following existing commands in the future, although they'll still be around for a while. Each existing command has an equivalent new command with almost the same functionality, except for what we note.  We suggest you start using the new commands as soon as possible. 
+
+    |Existing Command|New Equivalent Command|Functionality changes and additions|
+    |----|----|----|
+    |`force:mdapi:deploy`|`project deploy start`|X|
+    |`force:mdapi:deploy:cancel`|`project deploy cancel`|X|
+    |`force:mdapi:deploy:report`|`project deploy report\|resume`|X|
+    |`force:mdapi:retrieve`|`project retrieve start`|X|
+    |`force:mdapi:retrieve:report`|No equivalent|X|
+    |`force:source:deploy`|`project deploy start`|X|
+    |`force:source:deploy:cancel`|`project deploy cancel`|X|
+    |`force:source:deploy:report`|`project deploy report\|resume`|X|
+    |`force:source:ignored:list`|`project list ignored`|X|
+    |`force:source:open`|`org open --source-path`|X|
+    |`force:source:pull`|`project retrieve start`|X|
+    |`force:source:push`|`project deploy start`|X|
+    |`force:source:retrieve`|`project retrieve start`|X|
+    |`force:source:status`|`project deploy preview`|X|
+
+
+## 7.194.0 (March 30, 2023) [stable]
 
 * FIX: Executing the `apex get log` command with the `--log-id` flag now correctly fetches the log with the specified ID.  (GitHub issue [#2006](https://github.com/forcedotcom/cli/issues/2006), plugin-apex PR [#79](https://github.com/salesforcecli/plugin-apex/pull/79))
 
@@ -41,7 +76,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `force source` commands now support the ExtlClntAppGlobalOauthSettings metadata type.
 
-## 7.193.2 (March 23, 2023) [stable]
+## 7.193.2 (March 23, 2023)
 
 * NEW: We continue to [improve the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands. We are slowly updating the commands in [plugin-source](https://github.com/salesforcecli/plugin-sobject) to the new `sf` styles; you'll see changes over the next few weeks. 
 
