@@ -35,10 +35,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     The following existing commands have new names (and the old name is deprecated), but both work the same. For each command, you can still use colons instead of spaces, such as `project:convert:mdapi`.
     
-    |Existing Command Name|New Command Name|Flag Name Changes|
+    |Existing Command Name|New Command Name|Old Flag Name ==> New Flag Name|
     |-----|------|---|
-    |`force:mdapi:convert`|`project convert mdapi`|X|
-    |`force:source:convert`|`project convert source`|X|
+    |`force:mdapi:convert`|`project convert mdapi`|<ul> <li>`--outputdir` ==> `--output-dir`</li> <li>`--metadatapath` ==> `--metadata-dir`</li> <li>`--rootdir` ==> `--root-dir`</li> </ul>|
+    |`force:source:convert`|`project convert source`|<ul> <li>`--outputdir` ==> `--output-dir`</li> <li>`--rootdir` ==> `--root-dir`</li> <li>`--sourcepath` ==> `--source-path`</li> <li>`--packagename` ==> `--package-name`</li> <ul>|
     |`force:source:delete`|`project delete source`|X|
     |`force:source:ignored:list`|`project list ignored`|X|
     |`force:source:manifest:create`|`project generate manifest`|X|
