@@ -37,9 +37,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
     |Existing Command Name|New Command Name|Old Flag Name ==> New Flag Name|
     |-----|------|---|
-    |`force:mdapi:convert`|`project convert mdapi`|<ul> <li>`--outputdir` ==> `--output-dir`</li> <li>`--metadatapath` ==> `--metadata-dir`</li> <li>`--rootdir` ==> `--root-dir`</li> </ul>|
-    |`force:source:convert`|`project convert source`|<ul> <li>`--outputdir` ==> `--output-dir`</li> <li>`--rootdir` ==> `--root-dir`</li> <li>`--sourcepath` ==> `--source-path`</li> <li>`--packagename` ==> `--package-name`</li> <ul>|
-    |`force:source:delete`|`project delete source`|X|
+    |`force:mdapi:convert`|`project convert mdapi`|<ul> <li>`--api-version` (new flag!)</li> <li>`--metadatapath` ==> `--metadata-dir`</li> <li>`--outputdir` ==> `--output-dir`</li><li>`--rootdir` ==> `--root-dir`</li> </ul>|
+    |`force:source:convert`|`project convert source`|<ul> <li>`--api-version` (new flag!)</li><li>`--outputdir` ==> `--output-dir`</li> <li>`--packagename` ==> `--package-name`</li>  <li>`--rootdir` ==> `--root-dir`</li> <li>`--sourcepath` ==> `--source-path`</li> <ul>|
+    |`force:source:delete`|`project delete source`|<ul> <li>`--apiversion` ==> `--api-version`</li> <li>`--checkonly` ==> `--check-only`</li><li>`--forceoverwrite` ==> `--force-overwrite`</li><li>`--noprompt` ==> `--no-prompt`</li> <li>`--sourcepath` ==> `--source-path`</li> <li>`--targetusername` ==> `--target-org` (new short name `-o`)</li>   <li>`--testlevel` ==> `--test-level`</li> <li>`--tracksource` ==> `--track-source`</li> <ul>|
     |`force:source:ignored:list`|`project list ignored`|X|
     |`force:source:manifest:create`|`project generate manifest`|X|
     |`force:source:tracking:clear`|`project delete tracking`|X|
