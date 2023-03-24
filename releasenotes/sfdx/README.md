@@ -33,14 +33,15 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: We continue to [improve the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands. A [few weeks ago](./README.md#71932-march-23-2023) we started updating the commands in [plugin-source](https://github.com/salesforcecli/plugin-sobject) to the new `sf` styles; this week we finish up.  
 
-    The following existing commands have new names, but both work the same. For each command, you can still use colons instead of spaces, such as `project:convert:mdapi`.
+    The following existing commands have new names (and the old name is deprecated), but both work the same. For each command, you can still use colons instead of spaces, such as `project:convert:mdapi`.
     
     |Existing Command Name|New Command Name|Flag Name Changes|
     |-----|------|---|
     |`force:mdapi:convert`|`project convert mdapi`|X|
     |`force:source:convert`|`project convert source`|X|
     |`force:source:delete`|`project delete source`|X|
-    |`force:source:manifest:create`|`project manifest create`|X|
+    |`force:source:ignored:list`|`project list ignored`|X|
+    |`force:source:manifest:create`|`project generate manifest`|X|
     |`force:source:tracking:clear`|`project delete tracking`|X|
     |`force:source:tracking:reset`|`project reset tracking`|X|
 
@@ -56,7 +57,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |`force:source:deploy`|`project deploy start`|X|
     |`force:source:deploy:cancel`|`project deploy cancel`|X|
     |`force:source:deploy:report`|`project deploy report\|resume`|X|
-    |`force:source:ignored:list`|`project list ignored`|X|
     |`force:source:open`|`org open --source-path`|X|
     |`force:source:pull`|`project retrieve start`|X|
     |`force:source:push`|`project deploy start`|X|
