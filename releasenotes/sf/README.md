@@ -33,25 +33,25 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
     |Old Command Name|New Command Name|New Flags|
     |--------|--------|---|
-    |`deploy metadata` | `project deploy start`|XX|
-    |`deploy metadata cancel` | `project deploy cancel`|XX|
-    |`deploy metadata preview` | `project deploy preview`|XX|
-    |`deploy metadata quick` | `project deploy quick`|XX|
-    |`deploy metadata report` | `project deploy report`|XX|
-    |`deploy metadata resume` | `project deploy resume`|XX|
-    |`deploy metadata validate` | `project deploy validate`|XX|
-    |`retrieve metadata` | `project retrieve start`|XX|
-    |`retrieve metadata preview` | `project retrieve preview`|XX|
+    |`deploy metadata` | `project deploy start`|<ul> <li>`--coverage-formatters`</li> <li>`--junit`</li> <li>`--post-destructive-changes`</li> <li>`--pre-destructive-changes`</li> <li>`--purge-on-delete`</li> <li>`--results-dir`</li> </ul>|
+    |`deploy metadata cancel` | `project deploy cancel`|No new flags.|
+    |`deploy metadata preview` | `project deploy preview`|No new flags.|
+    |`deploy metadata quick` | `project deploy quick`|No new flags.|
+    |`deploy metadata report` | `project deploy report`|<ul> <li>`--target-org` \| `-o`</li> <li>`--api-version`</li> <li>`--coverage-formatters`</li> <li>`--junit`</li> <li>`--results-dir`</li> </ul>|
+    |`deploy metadata resume` | `project deploy resume`|<ul> <li>`--coverage-formatters`</li> <li>`--junit`</li> <li>`--results-dir`</li> </ul>|
+    |`deploy metadata validate` | `project deploy validate`|No new flags.|
+    |`retrieve metadata` | `project retrieve start`|No new flags.|
+    |`retrieve metadata preview` | `project retrieve preview`|No new flags.|
 
     These commands are new:
 
-    * `project convert mdapi` : XX
-    * `project convert source` : XX
-    * `project delete source` : XX
-    * `project delete tracking` : XX
-    * `project list ignored` : XX
-    * `project generate manifest` : XX
-    * `project reset tracking` : XX
+    * `project convert mdapi` : Convert metadata retrieved via Metadata API into the source format used in Salesforce DX projects.
+    * `project convert source` :  Convert source-formatted files into metadata that you can deploy using Metadata API.
+    * `project delete source` : Delete source from your project and from a non-source-tracked org.
+    * `project delete tracking` : Delete all local source tracking information.
+    * `project list ignored` : Check your local project package directories for forceignored files.
+    * `project manifest create` : Create a project manifest that lists the metadata components you want to deploy or retrieve.
+    * `project reset tracking` : Reset local and remote source tracking.
 
     We deprecated the `sf deploy` command; use `project deploy start` or `deploy function` instead. 
     
