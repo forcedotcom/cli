@@ -21,11 +21,47 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.71.0 (March 29, 2023) [stable-rc]
+## 1.72.0 (April 5, 2023) [stable-rc]
 
 ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* NEW: As part of [improving the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands so they work like the `sf` commands, we've made changes to the existing commands to deploy and retrieve metadata and we've added some new commands.  
+
+    We renamed these existing commands and added flags:
+    
+    |Old Command Name|New Command Name|New Flags|
+    |--------|--------|---|
+    |`deploy metadata` | `project deploy start`|XX|
+    |`deploy metadata cancel` | `project deploy cancel`|XX|
+    |`deploy metadata preview` | `project deploy preview`|XX|
+    |`deploy metadata quick` | `project deploy quick`|XX|
+    |`deploy metadata report` | `project deploy report`|XX|
+    |`deploy metadata resume` | `project deploy resume`|XX|
+    |`deploy metadata validate` | `project deploy validate`|XX|
+    |`retrieve metadata` | `project retrieve start`|XX|
+    |`retrieve metadata preview` | `project retrieve preview`|XX|
+
+    These commands are new:
+
+    * `project convert mdapi` : XX
+    * `project convert source` : XX
+    * `project delete source` : XX
+    * `project delete tracking` : XX
+    * `project list ignored` : XX
+    * `project generate manifest` : XX
+    * `project reset tracking` : XX
+
+    We deprecated the `sf deploy` command; use `project deploy start` or `deploy function` instead. 
+    
+    A few other important usage notes:
+    
+    * All beta commands are now generally available.
+    * We added “start” to the deploy|retrieve commands, because it really is what the command does: start a deploy or retrieve which happens in the background. 
+
+
+## 1.71.0 (March 29, 2023) [stable]
 
 * CHANGE: We changed the long name of the flag to specify a Dev Hub org from `--target-hub-org` to `--target-dev-hub` for these packaging commands:
 
@@ -54,7 +90,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `sf deploy|retrieve metadata` commands now support the ExtlClntAppGlobalOauthSettings metadata type.
 
-## 1.70.0 (March 22, 2023) [stable]
+## 1.70.0 (March 22, 2023)
 
 * NEW: As part of [improving the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands so they work like the `sf` commands, we've added these two new commands to `sf`:
 
