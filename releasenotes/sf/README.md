@@ -27,9 +27,19 @@ ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 1
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* NEW: As part of [improving the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands so they work like the `sf` commands, we've made changes to the existing commands to deploy and retrieve metadata and we've added some new commands.  
+* NEW: As part of [improving the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands so they work like the `sf` commands, we've reconciled the deploy and retrieve commands in [plugin-deploy-retrieve](https://github.com/salesforcecli/plugin-deploy-retrieve) and [plugin-source](https://github.com/salesforcecli/plugin-source). As a result, some existing `sf` command names have changed, and some `sfdx` commands now work in `sf`. Here's a summary. 
 
-    We renamed these existing commands and added flags:
+    These commands are new:
+
+    * `project convert mdapi` : Convert metadata retrieved via Metadata API into the source format used in Salesforce DX projects.
+    * `project convert source` :  Convert source-formatted files into metadata that you can deploy using Metadata API.
+    * `project delete source` : Delete source from your project and from a non-source-tracked org.
+    * `project delete tracking` : Delete all local source tracking information.
+    * `project list ignored` : Check your local project package directories for forceignored files.
+    * `project manifest create` : Create a project manifest that lists the metadata components you want to deploy or retrieve.
+    * `project reset tracking` : Reset local and remote source tracking.
+
+    We renamed the following existing `sf` commands, but aliased the old names so you can still use them. But we recommend you start using the new names.  We also added a few flags to some commands. And all previously beta commands are now generally available. 
     
     |Old Command Name|New Command Name|New Flags|
     |--------|--------|---|
@@ -43,23 +53,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |`retrieve metadata` | `project retrieve start`|No new flags.|
     |`retrieve metadata preview` | `project retrieve preview`|No new flags.|
 
-    These commands are new:
-
-    * `project convert mdapi` : Convert metadata retrieved via Metadata API into the source format used in Salesforce DX projects.
-    * `project convert source` :  Convert source-formatted files into metadata that you can deploy using Metadata API.
-    * `project delete source` : Delete source from your project and from a non-source-tracked org.
-    * `project delete tracking` : Delete all local source tracking information.
-    * `project list ignored` : Check your local project package directories for forceignored files.
-    * `project manifest create` : Create a project manifest that lists the metadata components you want to deploy or retrieve.
-    * `project reset tracking` : Reset local and remote source tracking.
-
-    We deprecated the `sf deploy` command; use `project deploy start` or `deploy function` instead. 
+    Finally, we deprecated the interactive `sf deploy` command; use `project deploy start` or `deploy function` instead. 
     
-    A few other important usage notes:
-    
-    * All beta commands are now generally available.
-    * We added “start” to the deploy|retrieve commands, because it really is what the command does: start a deploy or retrieve which happens in the background. 
-
+    As always, run the commands with the `--help` flag to get more information. 
 
 ## 1.71.0 (March 29, 2023) [stable]
 
