@@ -36,10 +36,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `project delete source` : Delete source from your project and from a non-source-tracked org.
     * `project delete tracking` : Delete all local source tracking information.
     * `project list ignored` : Check your local project package directories for forceignored files.
-    * `project manifest create` : Create a project manifest that lists the metadata components you want to deploy or retrieve.
+    * `project generate manifest` : Create a project manifest that lists the metadata components you want to deploy or retrieve.
     * `project reset tracking` : Reset local and remote source tracking.
 
-    We renamed the following existing `sf` commands, but aliased the old names so you can still use them. But we recommend you start using the new names.  We also added a few flags to some commands. And all previously beta commands are now generally available. 
+    We renamed the following existing `sf` commands, but aliased the old names so you can still use them. We recommend you start using the new names soon. We also added a few flags to some commands. And all previously beta commands are now generally available. 
     
     |Old Command Name|New Command Name|New Flags|
     |--------|--------|---|
@@ -47,7 +47,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |`deploy metadata cancel` | `project deploy cancel`|No new flags.|
     |`deploy metadata preview` | `project deploy preview`|No new flags.|
     |`deploy metadata quick` | `project deploy quick`|No new flags.|
-    |`deploy metadata report` | `project deploy report`|<ul> <li>`--target-org` \| `-o`</li> <li>`--api-version`</li> <li>`--coverage-formatters`</li> <li>`--junit`</li> <li>`--results-dir`</li> </ul>|
+    |`deploy metadata report` | `project deploy report`|<ul> <li>`--api-version`</li> <li>`--coverage-formatters`</li> <li>`--junit`</li> <li>`--results-dir`</li> </ul>|
     |`deploy metadata resume` | `project deploy resume`|<ul> <li>`--coverage-formatters`</li> <li>`--junit`</li> <li>`--results-dir`</li> </ul>|
     |`deploy metadata validate` | `project deploy validate`|No new flags.|
     |`retrieve metadata` | `project retrieve start`|No new flags.|
@@ -55,7 +55,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     Finally, we deprecated the interactive `sf deploy` command; use `project deploy start` or `deploy function` instead. 
     
-    As always, run the commands with the `--help` flag to get more information. 
+    As always, run the new and existing commands with the `--help` flag to get detailed information, or `-h` for a quick look. 
 
 ## 1.71.0 (March 29, 2023) [stable]
 
