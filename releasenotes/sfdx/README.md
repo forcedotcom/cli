@@ -2176,6 +2176,7 @@ NOTE: Because of the holidays, we're not publishing a new `stable-rc` release to
 ## 7.113.0 (August 12, 2021)
 
 * FIX: We fixed some under-the-hood bugs.
+<!-- testing html comment -->
 
 ## 7.112.0 (August 4, 2021)
 
