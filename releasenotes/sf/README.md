@@ -21,11 +21,43 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.71.0 (March 29, 2023) [stable-rc]
+## 1.72.0 (April 5, 2023) [stable-rc]
 
 ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* NEW: As part of [improving the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands so they work like the `sf` commands, we've reconciled the deploy and retrieve commands in [plugin-deploy-retrieve](https://github.com/salesforcecli/plugin-deploy-retrieve) and [plugin-source](https://github.com/salesforcecli/plugin-source). As a result, some existing `sf` command names have changed, and some `sfdx` commands now work in `sf`. Here's a summary. 
+
+    These commands are new:
+
+    * `project convert mdapi` : Convert metadata retrieved via Metadata API into the source format used in Salesforce DX projects.
+    * `project convert source` :  Convert source-formatted files into metadata that you can deploy using Metadata API.
+    * `project delete source` : Delete source from your project and from a non-source-tracked org.
+    * `project delete tracking` : Delete all local source tracking information.
+    * `project list ignored` : Check your local project package directories for forceignored files.
+    * `project generate manifest` : Create a project manifest that lists the metadata components you want to deploy or retrieve.
+    * `project reset tracking` : Reset local and remote source tracking.
+
+    We renamed the following existing `sf` commands, but aliased the old names so you can still use them. We recommend you start using the new names soon. We also added a few flags to some commands. And all previously beta commands are now generally available. 
+    
+    |Old Command Name|New Command Name|New Flags|
+    |--------|--------|---|
+    |`deploy metadata` | `project deploy start`|<ul> <li>`--coverage-formatters`</li> <li>`--junit`</li> <li>`--post-destructive-changes`</li> <li>`--pre-destructive-changes`</li> <li>`--purge-on-delete`</li> <li>`--results-dir`</li> </ul>|
+    |`deploy metadata cancel` | `project deploy cancel`|No new flags.|
+    |`deploy metadata preview` | `project deploy preview`|No new flags.|
+    |`deploy metadata quick` | `project deploy quick`|No new flags.|
+    |`deploy metadata report` | `project deploy report`|<ul> <li>`--api-version`</li> <li>`--coverage-formatters`</li> <li>`--junit`</li> <li>`--results-dir`</li> </ul>|
+    |`deploy metadata resume` | `project deploy resume`|<ul> <li>`--coverage-formatters`</li> <li>`--junit`</li> <li>`--results-dir`</li> </ul>|
+    |`deploy metadata validate` | `project deploy validate`|No new flags.|
+    |`retrieve metadata` | `project retrieve start`|No new flags.|
+    |`retrieve metadata preview` | `project retrieve preview`|No new flags.|
+
+    Finally, we deprecated the interactive `sf deploy` command; use `project deploy start` or `deploy function` instead. 
+    
+    As always, run the new and existing commands with the `--help` flag to get detailed information, or `-h` for a quick look. 
+
+## 1.71.0 (March 29, 2023) [stable]
 
 * CHANGE: We changed the long name of the flag to specify a Dev Hub org from `--target-hub-org` to `--target-dev-hub` for these packaging commands:
 
@@ -54,7 +86,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `sf deploy|retrieve metadata` commands now support the ExtlClntAppGlobalOauthSettings metadata type.
 
-## 1.70.0 (March 22, 2023) [stable]
+## 1.70.0 (March 22, 2023)
 
 * NEW: As part of [improving the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands so they work like the `sf` commands, we've added these two new commands to `sf`:
 
