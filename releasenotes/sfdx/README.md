@@ -49,10 +49,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     |Existing Command|New Equivalent Command|Functionality changes and additions|
     |---------------------------|----------------------|----|
-    |`force:mdapi:deploy`|`project deploy start`|None.|
+    |`force:mdapi:deploy`|`project deploy start`|The `project deploy start` command works for _both_ source format and metadata format (mdapi) files. Use flags to specify the format you're deploying. For example, the `project deploy start` command deploys source formatted files by default, but you can use `--metadata-dir` to deploy metadata format files.|
     |`force:mdapi:deploy:cancel`|`project deploy cancel`|None.|
     |`force:mdapi:deploy:report`|`project deploy report\|resume`|The existing `force:mdapi:deploy:report` command does more than just report: it also resumes a deployment, which is confusing. We now provide two new commands for each task (`project deploy report` and `project deploy resume`) which is more intuitive. <br><br>The new commands don't support the `--wait -1` existing flag (which means "wait forever"). Instead, specify a very large number with the new commands. |
-    |`force:mdapi:retrieve`|`project retrieve start`|None.|
+    |`force:mdapi:retrieve`|`project retrieve start`|The `project retrieve start` command works for _both_ source format and metadata format (mdapi) files. Use flags to specify the format you're retrieving. For example, the `project retrieve start` command retrieves source formatted files by default, but you can use `--target-metadata-dir` to retrieve metadata format files.|
     |`force:mdapi:retrieve:report`|No equivalent|We removed this command.|
     |`force:source:deploy`|`project deploy start`|The new command always keeps track of your source if the org is enabled for source-tracking.  If you don't want to use source tracking, create an org that doesn't have source tracking enabled.|
     |`force:source:deploy:cancel`|`project deploy cancel`|None.|
@@ -63,16 +63,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |`force:source:retrieve`|`project retrieve start`|The new command keeps track of your source if the org is enabled for source-tracking.  If you don't want to use source tracking, create an org that doesn't have source tracking enabled.|
     |`force:source:status`|`project deploy\|retrieve preview`|We now provide two separate commands to preview what a deploy or a retrieve will do, which is more intuitive. These `preview` commands have the same flags as their non-preview commands, such as `project deploy start`. The `force:source:status` command shows both local and remote changes, which is confusing. |
 
-    A few more important notes and clarifications:
-    
-    * The `project deploy *` and `project retrieve *` commands work for _both_ source format and metadata format (mdapi) files, rather than having separate commands for each format (such as `force:mdapi:deploy` and `force:source:deploy`). Use flags to specify the format you're deploying. 
-    
-        For example, the `project deploy start` command deploys source formatted files by default, but you can use `--metadata-dir` to deploy metadata format files. 
-    
-    * We removed these beta commands:
-        * `force:source:beta:tracking:reset`
-        * `force:source:beta:tracking:clear`
-        * `force:mdapi:beta:convert`
+    We also removed these beta commands:
+    * `force:source:beta:tracking:reset`: Use `project reset tracking`. 
+    * `force:source:beta:tracking:clear`: Use `project delete tracking`.
+    * `force:mdapi:beta:convert`: Use `project convert mdapi`.
 
     Let's look at some examples. This command:
     
