@@ -25,11 +25,82 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.194.0 (March 30, 2023) [stable-rc]
+## 7.195.0 (April 6, 2023) [stable-rc]
 
 ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+* NEW: We continue to [improve the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands. A [few weeks ago](./README.md#71932-march-23-2023) we started updating the commands in [plugin-source](https://github.com/salesforcecli/plugin-sobject) to the new `sf` styles; this week we finish up.  
+
+    The following existing commands have new names; both names work interchangeably. Some command flags also have new names, but just like the commands, both names work interchangeably. Note that the old names are deprecated, so we recommend you start using the new names as soon as you can. 
+    
+    |Existing Command Name|New Command Name|Flag Name Changes|
+    |-----|------|---|
+    |`force:mdapi:convert`|`project convert mdapi`|<ul> <li>`--metadatapath` ==> `--metadata-dir`</li> <li>`--outputdir` ==> `--output-dir`</li><li>`--rootdir` ==> `--root-dir`</li> <li>New flag: `--api-version`</li> <li>Deprecated flag: `--loglevel`</li></ul>|
+    |`force:source:convert`|`project convert source`|<ul> <li>`--outputdir` ==> `--output-dir`</li> <li>`--packagename` ==> `--package-name`</li>  <li>`--rootdir` ==> `--root-dir`</li> <li>`--sourcepath` ==> `--source-dir`</li> <li>New flag: `--api-version`</li> <li>Deprecated flag: `--loglevel`</li><ul>|
+    |`force:source:delete`|`project delete source`|<ul> <li>`--apiversion` ==> `--api-version`</li> <li>`--checkonly` ==> `--check-only`</li><li>`--forceoverwrite` ==> `--force-overwrite`</li><li>`--noprompt` ==> `--no-prompt`</li> <li>`--sourcepath` ==> `--source-dir`</li> <li>`--targetusername` ==> `--target-org` (new short name `-o`)</li>   <li>`--testlevel` ==> `--test-level`</li> <li>`--tracksource` ==> `--track-source`</li> <li>Deprecated flag: `--loglevel`</li><ul>|
+    |`force:source:ignored:list`|`project list ignored`|<ul> <li>`--sourcepath` ==> `--source-dir`</li><li>Deprecated flag: `--loglevel`</li></ul>|
+    |`force:source:manifest:create`|`project generate manifest`|<ul> <li>`--apiversion` ==> `--api-version`</li> <li>`--fromorg` ==> `--from-org`</li> <li>`--includepackages` ==> `--include-packages`</li> <li>`--manifestname` ==> `--manifest-name`</li> <li>`--manifesttype` ==> `--manifest-type`</li> <li>`--outputdir` ==> `--output-dir`</li> <li>`--sourcepath` ==> `--source-dir`</li> <li>Deprecated flag: `--loglevel`</li></ul>|
+    |`force:source:tracking:clear`|`project delete tracking`|<ul> <li>`--apiversion` ==> `--api-version`</li><li>`--noprompt` ==> `--no-prompt`</li> <li>`--targetusername` ==> `--target-org` (new short name `-o`)</li> <li>Deprecated flag: `--loglevel`</li></ul>|
+    |`force:source:tracking:reset`|`project reset tracking`|<ul> <li>`--apiversion` ==> `--api-version`</li><li>`--noprompt` ==> `--no-prompt`</li> <li>`--targetusername` ==> `--target-org` (new short name `-o`)</li> <li>Deprecated flag: `--loglevel`</li></ul>|
+
+    We plan to deprecated the following existing commands in the future, although they'll still be around for a while, don't worry. Each existing command has an equivalent new command with almost the same functionality, except for what we note in the table.  We suggest you start using the new commands as soon as possible. As always, run the new commands with the `--help` flag to see details and examples and new flag names. 
+
+    |Existing Command|New Equivalent Command|Functionality changes and additions|
+    |---------------------------|----------------------|----|
+    |`force:mdapi:deploy`|`project deploy start`|None.|
+    |`force:mdapi:deploy:cancel`|`project deploy cancel`|None.|
+    |`force:mdapi:deploy:report`|`project deploy report\|resume`|The existing `force:mdapi:deploy:report` command does more than just report: it also resumes a deployment, which is confusing. We now provide two new commands for each task (`project deploy report` and `project deploy resume`) which is more intuitive. <br><br>The new commands don't support the `--wait -1` existing flag (which means "wait forever"). Instead, specify a very large number with the new commands. |
+    |`force:mdapi:retrieve`|`project retrieve start`|None.|
+    |`force:mdapi:retrieve:report`|No equivalent|We removed this command.|
+    |`force:source:deploy`|`project deploy start`|The new command always keeps track of your source if the org is enabled for source-tracking.  If you don't want to use source tracking, create an org that doesn't have source tracking enabled.|
+    |`force:source:deploy:cancel`|`project deploy cancel`|None.|
+    |`force:source:deploy:report`|`project deploy report\|resume`|The `force:source:deploy:report` command does more than just report: it also resumes a deployment, which is confusing. We've now provide two new commands for each task (`project deploy report` and `project deploy resume`) which is more intuitive. |
+    |`force:source:open`|`org open --source-path`|None.|
+    |`force:source:pull`|`project retrieve start`|None.|
+    |`force:source:push`|`project deploy start`|The new command doesn't support the `pushPackageDirectoriesSequentially` property of `sfdx-project.json`.  The `force:source:push` command uses this property to deploy packages sequentially. If you need to deploy packages sequentially and in a specific order, use separate `project deploy start` commands in the desired order. |
+    |`force:source:retrieve`|`project retrieve start`|The new command keeps track of your source if the org is enabled for source-tracking.  If you don't want to use source tracking, create an org that doesn't have source tracking enabled.|
+    |`force:source:status`|`project deploy\|retrieve preview`|We now provide two separate commands to preview what a deploy or a retrieve will do, which is more intuitive. These `preview` commands have the same flags as their non-preview commands, such as `project deploy start`. The `force:source:status` command shows both local and remote changes, which is confusing. |
+
+    A few more important notes and clarifications:
+    
+    * The `project deploy *` and `project retrieve *` commands work for _both_ source format and metadata format (mdapi) files, rather than having separate commands for each format (such as `force:mdapi:deploy` and `force:source:deploy`). Use flags to specify the format you're deploying. 
+    
+        For example, the `project deploy start` command deploys source formatted files by default, but you can use `--metadata-dir` to deploy metadata format files. 
+    
+    * We removed these beta commands:
+        * `force:source:beta:tracking:reset`
+        * `force:source:beta:tracking:clear`
+        * `force:mdapi:beta:convert`
+
+    Let's look at some examples. This command:
+    
+    ```bash
+    sfdx force:source:deploy --metadata "ApexClass,CustomObject" --testlevel RunSpecifiedTests --runtests MyTests --targetusername my-scratch
+    ```
+    
+    Can be run this way:
+    
+    ```bash
+    sf project deploy start --metadata ApexClass --metadata CustomObject --test-level RunSpecifiedTests --tests MyTests --target-org my-scratch
+    ```
+    This command:
+    
+    ```bash
+    sfdx force:source:delete --sourcepath force-app/main/default/flows --targetusername my-scratch --forceoverwrite --noprompt
+    ```
+    
+    Can be run this way:
+    
+    ```bash
+    sf project delete source --source-dir force-app/main/default/flows --target-org my-scratch --force-overwrite --no-prompt
+    ```
+    Have fun with these new commands!
+
+* FIX: Running the `force source convert` command on Windows on a directory with Digital Experiences in it no longer produces a `package.xml` file with invalid entries.  (GitHub issue [#2014](https://github.com/forcedotcom/cli/issues/2014), SDR PR [#911](https://github.com/forcedotcom/source-deploy-retrieve/pull/911))
+
+## 7.194.0 (March 30, 2023) [stable]
 
 * FIX: Executing the `apex get log` command with the `--log-id` flag now correctly fetches the log with the specified ID.  (GitHub issue [#2006](https://github.com/forcedotcom/cli/issues/2006), plugin-apex PR [#79](https://github.com/salesforcecli/plugin-apex/pull/79))
 
@@ -41,7 +112,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `force source` commands now support the ExtlClntAppGlobalOauthSettings metadata type.
 
-## 7.193.2 (March 23, 2023) [stable]
+## 7.193.2 (March 23, 2023)
 
 * NEW: We continue to [improve the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands. We are slowly updating the commands in [plugin-source](https://github.com/salesforcecli/plugin-sobject) to the new `sf` styles; you'll see changes over the next few weeks. 
 
