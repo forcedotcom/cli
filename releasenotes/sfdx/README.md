@@ -45,7 +45,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |`force:source:tracking:clear`|`project delete tracking`|<ul> <li>`--apiversion` ==> `--api-version`</li><li>`--noprompt` ==> `--no-prompt`</li> <li>`--targetusername` ==> `--target-org` (new short name `-o`)</li> <li>Deprecated flag: `--loglevel`</li></ul>|
     |`force:source:tracking:reset`|`project reset tracking`|<ul> <li>`--apiversion` ==> `--api-version`</li><li>`--noprompt` ==> `--no-prompt`</li> <li>`--targetusername` ==> `--target-org` (new short name `-o`)</li> <li>Deprecated flag: `--loglevel`</li></ul>|
 
-    We plan to deprecated the following existing commands in the future, although they'll still be around for a while, don't worry. Each existing command has an equivalent new command with almost the same functionality, except for what we note in the table.  We suggest you start using the new commands as soon as possible. As always, run the new commands with the `--help` flag to see details and examples and new flag names. 
+    We plan to deprecate the following existing commands in the future, although don't worry, they'll still be around for a while. Each existing command has an equivalent new command with almost the same functionality, except for what we note in the table.  We suggest you start using the new commands as soon as possible. As always, run the new commands with the `--help` flag to see details and examples and new flag names. 
 
     |Existing Command|New Equivalent Command|Functionality changes and additions|
     |---------------------------|----------------------|----|
@@ -57,16 +57,19 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |`force:source:deploy`|`project deploy start`|The new command always keeps track of your source if the org is enabled for source-tracking.  If you don't want to use source tracking, create an org that doesn't have source tracking enabled.|
     |`force:source:deploy:cancel`|`project deploy cancel`|None.|
     |`force:source:deploy:report`|`project deploy report\|resume`|The `force:source:deploy:report` command does more than just report: it also resumes a deployment, which is confusing. We've now provide two new commands for each task (`project deploy report` and `project deploy resume`) which is more intuitive. |
-    |`force:source:open`|`org open --source-path`|None.|
+    |`force:source:open`|`org open --source-path`|The `force:source:open` command is now the `--source-path` flag on the `org open` command. You can now also specify the browser.|
     |`force:source:pull`|`project retrieve start`|None.|
     |`force:source:push`|`project deploy start`|The new command doesn't support the `pushPackageDirectoriesSequentially` property of `sfdx-project.json`.  The `force:source:push` command uses this property to deploy packages sequentially. If you need to deploy packages sequentially and in a specific order, use separate `project deploy start` commands in the desired order. |
     |`force:source:retrieve`|`project retrieve start`|The new command keeps track of your source if the org is enabled for source-tracking.  If you don't want to use source tracking, create an org that doesn't have source tracking enabled.|
     |`force:source:status`|`project deploy\|retrieve preview`|We now provide two separate commands to preview what a deploy or a retrieve will do, which is more intuitive. These `preview` commands have the same flags as their non-preview commands, such as `project deploy start`. The `force:source:status` command shows both local and remote changes, which is confusing. |
 
-    We also removed these beta commands:
-    * `force:source:beta:tracking:reset`: Use `project reset tracking`. 
-    * `force:source:beta:tracking:clear`: Use `project delete tracking`.
-    * `force:mdapi:beta:convert`: Use `project convert mdapi`.
+    Finally, we removed these beta commands.
+
+    |Removed Beta Command|Use This Command Instead| 
+    |----|----|
+    |`force:source:beta:tracking:reset`|`project reset tracking`|
+    |`force:source:beta:tracking:clear`|`project delete tracking`|
+    |`force:mdapi:beta:convert`|`project convert mdapi`|
 
     Let's look at some examples. This command:
     
