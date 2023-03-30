@@ -38,10 +38,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |Existing Command Name|New Command Name|Flag Name Changes|
     |-----|------|---|
     |`force:mdapi:convert`|`project convert mdapi`|<ul> <li>`--metadatapath` ==> `--metadata-dir`</li> <li>`--outputdir` ==> `--output-dir`</li><li>`--rootdir` ==> `--root-dir`</li> <li>New flag: `--api-version`</li> <li>Deprecated flag: `--loglevel`</li></ul>|
-    |`force:source:convert`|`project convert source`|<ul> <li>`--outputdir` ==> `--output-dir`</li> <li>`--packagename` ==> `--package-name`</li>  <li>`--rootdir` ==> `--root-dir`</li> <li>`--sourcepath` ==> `--source-path`</li> <li>New flag: `--api-version`</li> <li>Deprecated flag: `--loglevel`</li><ul>|
-    |`force:source:delete`|`project delete source`|<ul> <li>`--apiversion` ==> `--api-version`</li> <li>`--checkonly` ==> `--check-only`</li><li>`--forceoverwrite` ==> `--force-overwrite`</li><li>`--noprompt` ==> `--no-prompt`</li> <li>`--sourcepath` ==> `--source-path`</li> <li>`--targetusername` ==> `--target-org` (new short name `-o`)</li>   <li>`--testlevel` ==> `--test-level`</li> <li>`--tracksource` ==> `--track-source`</li> <li>Deprecated flag: `--loglevel`</li><ul>|
-    |`force:source:ignored:list`|`project list ignored`|<ul> <li>`--sourcepath` ==> `--source-path`</li><li>Deprecated flag: `--loglevel`</li></ul>|
-    |`force:source:manifest:create`|`project generate manifest`|<ul> <li>`--apiversion` ==> `--api-version`</li> <li>`--fromorg` ==> `--from-org`</li> <li>`--includepackages` ==> `--include-packages`</li> <li>`--manifestname` ==> `--manifest-name`</li> <li>`--manifesttype` ==> `--manifest-type`</li> <li>`--outputdir` ==> `--output-dir`</li> <li>`--sourcepath` ==> `--source-path`</li> <li>Deprecated flag: `--loglevel`</li></ul>|
+    |`force:source:convert`|`project convert source`|<ul> <li>`--outputdir` ==> `--output-dir`</li> <li>`--packagename` ==> `--package-name`</li>  <li>`--rootdir` ==> `--root-dir`</li> <li>`--sourcepath` ==> `--source-dir`</li> <li>New flag: `--api-version`</li> <li>Deprecated flag: `--loglevel`</li><ul>|
+    |`force:source:delete`|`project delete source`|<ul> <li>`--apiversion` ==> `--api-version`</li> <li>`--checkonly` ==> `--check-only`</li><li>`--forceoverwrite` ==> `--force-overwrite`</li><li>`--noprompt` ==> `--no-prompt`</li> <li>`--sourcepath` ==> `--source-dir`</li> <li>`--targetusername` ==> `--target-org` (new short name `-o`)</li>   <li>`--testlevel` ==> `--test-level`</li> <li>`--tracksource` ==> `--track-source`</li> <li>Deprecated flag: `--loglevel`</li><ul>|
+    |`force:source:ignored:list`|`project list ignored`|<ul> <li>`--sourcepath` ==> `--source-dir`</li><li>Deprecated flag: `--loglevel`</li></ul>|
+    |`force:source:manifest:create`|`project generate manifest`|<ul> <li>`--apiversion` ==> `--api-version`</li> <li>`--fromorg` ==> `--from-org`</li> <li>`--includepackages` ==> `--include-packages`</li> <li>`--manifestname` ==> `--manifest-name`</li> <li>`--manifesttype` ==> `--manifest-type`</li> <li>`--outputdir` ==> `--output-dir`</li> <li>`--sourcepath` ==> `--source-dir`</li> <li>Deprecated flag: `--loglevel`</li></ul>|
     |`force:source:tracking:clear`|`project delete tracking`|<ul> <li>`--apiversion` ==> `--api-version`</li><li>`--noprompt` ==> `--no-prompt`</li> <li>`--targetusername` ==> `--target-org` (new short name `-o`)</li> <li>Deprecated flag: `--loglevel`</li></ul>|
     |`force:source:tracking:reset`|`project reset tracking`|<ul> <li>`--apiversion` ==> `--api-version`</li><li>`--noprompt` ==> `--no-prompt`</li> <li>`--targetusername` ==> `--target-org` (new short name `-o`)</li> <li>Deprecated flag: `--loglevel`</li></ul>|
 
@@ -73,6 +73,30 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
         * `force:source:beta:tracking:reset`
         * `force:source:beta:tracking:clear`
         * `force:mdapi:beta:convert`
+
+    Let's look at some examples. This command:
+    
+    ```bash
+    sfdx force:source:deploy --metadata "ApexClass,CustomObject" --testlevel RunSpecifiedTests --runtests MyTests --targetusername my-scratch
+    ```
+    
+    Can be run this way:
+    
+    ```bash
+    sf project deploy start --metadata ApexClass --metadata CustomObject --test-level RunSpecifiedTests --tests MyTests --target-org my-scratch
+    ```
+    This command:
+    
+    ```bash
+    sfdx force:source:delete --sourcepath force-app/main/default/flows --targetusername my-scratch --forceoverwrite --noprompt
+    ```
+    
+    Can be run this way:
+    
+    ```bash
+    sf project delete source --source-dir force-app/main/default/flows --target-org my-scratch --force-overwrite --no-prompt
+    ```
+    Have fun with these new commands!
 
 * FIX: Running the `force source convert` command on Windows on a directory with Digital Experiences in it no longer produces a `package.xml` file with invalid entries.  (GitHub issue [#2014](https://github.com/forcedotcom/cli/issues/2014), SDR PR [#911](https://github.com/forcedotcom/source-deploy-retrieve/pull/911))
 
