@@ -21,11 +21,23 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.72.0 (April 5, 2023) [stable-rc]
+## 1.73.0 (April 12, 2023) [stable-rc]
 
 ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* NEW: We continue to improve the usability of existing `sfdx` commands so they work like the `sf` commands. As a result of this work, when a Salesforce CLI release includes an updated plugin, you can execute the plugin's commands in both `sfdx` AND `sf`. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. 
+
+    This week's release includes the updated [plugin-lwc-test](https://github.com/salesforcecli/plugin-lwc-test). Consequently, you can now run these existing `sfdx` commands in `sf`:
+   
+    * `lightning generate lwc test` : Create a Lightning web component test file. 
+    * `lightning run lwc test` : Invoke Lightning Web Components Jest unit tests. 
+    * `lightning setup lwc test` : Install Jest unit testing tools for Lightning Web Components. 
+
+## 1.72.0 (April 5, 2023) [stable]
+
+ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 
 * NEW: As part of [improving the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands so they work like the `sf` commands, we've reconciled the deploy and retrieve commands in [plugin-deploy-retrieve](https://github.com/salesforcecli/plugin-deploy-retrieve) and [plugin-source](https://github.com/salesforcecli/plugin-source). As a result, some existing `sf` command names have changed, and some `sfdx` commands now work in `sf`. Here's a summary. 
 
@@ -57,7 +69,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
     As always, run the new and existing commands with the `--help` flag to get detailed information, or `-h` for a quick look. 
 
-## 1.71.0 (March 29, 2023) [stable]
+## 1.71.0 (March 29, 2023)
 
 * CHANGE: We changed the long name of the flag to specify a Dev Hub org from `--target-hub-org` to `--target-dev-hub` for these packaging commands:
 
