@@ -21,11 +21,19 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.72.0 (April 5, 2023) [stable-rc]
+## 1.73.0 (April 12, 2023) [stable-rc]
 
 ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* CHANGE: Instead of bundling [plugin-env](https://github.com/salesforcecli/plugin-env) in the core Salesforce CLI, we now automatically install it the first time you run one of its commands. As we announced on [March 1, 2023](./README.md#1670-march-1-2023), the commands in `plugin-env` (`env list|display|open`) work only with compute environments (Salesforce Functions). Because not all our customers use these commands regularly, we decided to make the plugin a just-in-time one. NOTE: This change applies only to _new_ Salesforce CLI installations. If the plugin is already installed in your Salesforce CLI, there's no change.
+
+* FIX: Running the `force source convert` command on Windows on a directory with Digital Experiences in it no longer produces a `package.xml` file with invalid entries.  (GitHub issue [#2014](https://github.com/forcedotcom/cli/issues/2014), SDR PR [#911](https://github.com/forcedotcom/source-deploy-retrieve/pull/911))
+
+## 1.72.0 (April 5, 2023) [stable]
+
+ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 
 * NEW: As part of [improving the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands so they work like the `sf` commands, we've reconciled the deploy and retrieve commands in [plugin-deploy-retrieve](https://github.com/salesforcecli/plugin-deploy-retrieve) and [plugin-source](https://github.com/salesforcecli/plugin-source). As a result, some existing `sf` command names have changed, and some `sfdx` commands now work in `sf`. Here's a summary. 
 
@@ -57,7 +65,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
     As always, run the new and existing commands with the `--help` flag to get detailed information, or `-h` for a quick look. 
 
-## 1.71.0 (March 29, 2023) [stable]
+## 1.71.0 (March 29, 2023)
 
 * CHANGE: We changed the long name of the flag to specify a Dev Hub org from `--target-hub-org` to `--target-dev-hub` for these packaging commands:
 
