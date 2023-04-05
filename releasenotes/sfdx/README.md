@@ -29,7 +29,9 @@ Additional documentation:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
-* FIX: We fixed some under-the-hood bugs. Enjoy the short release notes this week, after the reams of words we've tossed at you recently. Maybe use the time you just saved to sit back, have a cup of tea, and ponder the beauty of the [nautilus](https://en.wikipedia.org/wiki/Nautilus). 
+* FIX: We fixed some under-the-hood bugs. 
+
+Enjoy the short release notes this week, after the reams of words we've tossed you recently. Maybe use the extra time to sit back, have a soothing cup of tea, and ponder the beauty of the [leafy seadragon](https://en.wikipedia.org/wiki/Leafy_seadragon). 
 
 ## 7.195.2 (April 6, 2023) [stable]
 
