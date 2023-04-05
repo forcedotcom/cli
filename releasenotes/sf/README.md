@@ -27,7 +27,7 @@ ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 1
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* CHANGE: Instead of bundling [plugin-env](https://github.com/salesforcecli/plugin-env) in the core Salesforce CLI, we now automatically install it the first time you run one of its commands. As we announced on [March 1, 2023](./README.md#1670-march-1-2023), the commands in `plugin-env` (`env list|display|open`) work only with compute environments (Salesforce Functions). Because not all of you use these commands regularly, we decided to make the plugin a just-in-time one. NOTE: This change applies only to _new_ Salesforce CLI installations. If the plugin is already installed in your Salesforce CLI, there's no change.
+* CHANGE: Instead of bundling [plugin-env](https://github.com/salesforcecli/plugin-env) in the core Salesforce CLI, we now automatically install it the first time you run one of its commands. As we announced on [March 1, 2023](./README.md#1670-march-1-2023), the commands in `plugin-env` (`env list|display|open`) work only with compute environments (Salesforce Functions). Because not all our customers use these commands regularly, we decided to make the plugin a just-in-time one. NOTE: This change applies only to _new_ Salesforce CLI installations. If the plugin is already installed in your Salesforce CLI, there's no change.
 
 ## 1.72.0 (April 5, 2023) [stable]
 
