@@ -27,13 +27,7 @@ ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 1
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* NEW: We continue to improve the usability of existing `sfdx` commands so they work like the `sf` commands. As a result of this work, when a Salesforce CLI release includes an updated plugin, you can execute the plugin's commands in both `sfdx` AND `sf`. See [this blog post](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) for details. 
-
-    This week's release includes the updated [plugin-lwc-test](https://github.com/salesforcecli/plugin-lwc-test). Consequently, you can now run these existing `sfdx` commands in `sf`:
-   
-    * `lightning generate lwc test` : Create a Lightning web component test file. 
-    * `lightning run lwc test` : Invoke Lightning Web Components Jest unit tests. 
-    * `lightning setup lwc test` : Install Jest unit testing tools for Lightning Web Components. 
+* CHANGE: Instead of bundling [plugin-env](https://github.com/salesforcecli/plugin-env) in the core Salesforce CLI, we now automatically install it the first time you run one of its commands. As we announced on [March 1, 2023](./README.md#1670-march-1-2023), the commands in `plugin-env` (`env list|display|open`) work only with compute environments (Salesforce Functions). Because not all of you use these commands regularly, we decided to make the plugin a just-in-time one. NOTE: This change applies only to _new_ Salesforce CLI installations. If the plugin is already installed in your Salesforce CLI, there's no change.
 
 ## 1.72.0 (April 5, 2023) [stable]
 
