@@ -29,6 +29,8 @@ Additional documentation:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
+* FIX: We fixed some under-the-hood bugs. Enjoy the short release notes this week, after the reams of words we've tossed at you recently. Maybe use the time you just saved to sit back, have a cup of tea, and ponder the beauty of the [nautilus](https://en.wikipedia.org/wiki/Nautilus). 
+
 ## 7.195.2 (April 6, 2023) [stable]
 
 ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
