@@ -25,11 +25,15 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.196.5 (April 13, 2023) [stable-rc]
+## 7.197.0 (April 20, 2023) [stable-rc]
 
 ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+## 7.196.6 (April 13, 2023) [stable]
+
+ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 
 * NEW: We continue to [improve the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands. A [few weeks ago](./README.md#71932-march-23-2023) we started updating the commands in [plugin-source](https://github.com/salesforcecli/plugin-sobject) to the new `sf` styles; this week we finish up.  
 
@@ -97,9 +101,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Running the `force source convert` command on Windows on a directory with Digital Experiences in it no longer produces a `package.xml` file with invalid entries.  (GitHub issue [#2014](https://github.com/forcedotcom/cli/issues/2014), SDR PR [#911](https://github.com/forcedotcom/source-deploy-retrieve/pull/911))
 
-## 7.194.1 (March 30, 2023) [stable]
-
-ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
+## 7.194.1 (March 30, 2023)
 
 * FIX: Executing the `apex get log` command with the `--log-id` flag now correctly fetches the log with the specified ID.  (GitHub issue [#2006](https://github.com/forcedotcom/cli/issues/2006), plugin-apex PR [#79](https://github.com/salesforcecli/plugin-apex/pull/79))
 
