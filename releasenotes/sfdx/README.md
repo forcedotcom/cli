@@ -31,6 +31,10 @@ ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 1
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
+* FIX: We've recently done a lot of work in the [source-deploy-retrieve](https://github.com/forcedotcom/source-deploy-retrieve) (SDR) library to address various issues that result in the error `Cannot read properties of undefined (reading 'something')`. These issues are often caused by metadata files being in an unexpected location or format. In addition to addressing these issues, we also now provide more useful errors with details about the name, type, and location of the file in your project that is causing the error. Our goal is to make it easier for you to find and fix the error if it's on your side, or quickly determine if it's actually a bug with Salesforce CLI. 
+
+* FIX: The `sfdx apex run test` command now correctly runs Apex tests asynchronously by default. (GitHub issue [#2035](https://github.com/forcedotcom/cli/issues/2035), plugin-apex PR [#91](https://github.com/salesforcecli/plugin-apex/pull/91))
+
 ## 7.196.6 (April 13, 2023) [stable]
 
 ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
