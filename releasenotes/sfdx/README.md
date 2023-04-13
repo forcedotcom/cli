@@ -57,7 +57,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |`force:source:deploy`|`project deploy start`|The new command always keeps track of your source if the org is enabled for source-tracking.  If you don't want to use source tracking, create an org that doesn't have source tracking enabled.|
     |`force:source:deploy:cancel`|`project deploy cancel`|None.|
     |`force:source:deploy:report`|`project deploy report\|resume`|The `force:source:deploy:report` command does more than just report: it also resumes a deployment, which is confusing. We've now provide two new commands for each task (`project deploy report` and `project deploy resume`) which is more intuitive. |
-    |`force:source:open`|`org open --source-path`|The `force:source:open` command is now the `--source-path` flag on the `org open` command. You can now also specify the browser.|
+    |`force:source:open`|`org open --source-file`|The `force:source:open` command is now the `--source-file` flag on the `org open` command. You can now also specify the browser.|
     |`force:source:pull`|`project retrieve start`|None.|
     |`force:source:push`|`project deploy start`|The new command doesn't support the `pushPackageDirectoriesSequentially` property of `sfdx-project.json`.  The `force:source:push` command uses this property to deploy packages sequentially. If you need to deploy packages sequentially and in a specific order, use separate `project deploy start` commands in the desired order. |
     |`force:source:retrieve`|`project retrieve start`|The new command keeps track of your source if the org is enabled for source-tracking.  If you don't want to use source tracking, create an org that doesn't have source tracking enabled.|
