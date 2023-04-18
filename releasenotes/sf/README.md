@@ -27,6 +27,14 @@ ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 1
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* NEW: As part of [improving the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands so they work like the `sf` commands, we've added these commands to `sf`:
+
+    * `lightning generate lwc test` : Create a Lightning web component test file. 
+    * `lightning run lwc test` : Invoke Lightning Web Components Jest unit tests. 
+    * `lightning setup lwc test` : Install Jest unit testing tools for Lightning Web Components. 
+
+    The commands are in the JIT [plugin-lwc-test](https://github.com/salesforcecli/plugin-lwc-test) plugin. Rather than bundle it in the core Salesforce CLI, we automatically install the plugin the first time you run one of its commands, such as `lightning generate lwc test`. 
+
 ## 1.74.7 (April 19, 2023) [stable]
 
 ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
