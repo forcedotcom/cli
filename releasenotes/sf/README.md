@@ -21,11 +21,15 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.74.7 (April 19, 2023) [stable-rc]
+## 1.75.0 (April 26, 2023) [stable-rc]
 
 ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+## 1.74.7 (April 19, 2023) [stable]
+
+ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 
 * FIX: We've recently done a lot of work in the [source-deploy-retrieve](https://github.com/forcedotcom/source-deploy-retrieve) (SDR) library to address various issues that result in the error `Cannot read properties of undefined (reading 'something')`. These issues are often caused by metadata files being in an unexpected location or format. In addition to addressing these issues, we also now provide more useful errors with details about the name, type, and location of the file in your project that is causing the error. Our goal is to make it easier for you to find and fix the error if it's on your side, or quickly determine if it's actually a bug with Salesforce CLI. 
 
@@ -33,9 +37,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `sf apex run test` command now correctly runs Apex tests asynchronously by default. (GitHub issue [#2035](https://github.com/forcedotcom/cli/issues/2035), plugin-apex PR [#91](https://github.com/salesforcecli/plugin-apex/pull/91))
 
-## 1.73.0 (April 12, 2023) [stable]
-
-ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
+## 1.73.0 (April 12, 2023)
 
 * CHANGE: Instead of bundling [plugin-env](https://github.com/salesforcecli/plugin-env) in the core Salesforce CLI, we now automatically install it the first time you run one of its commands. As we announced on [March 1, 2023](./README.md#1670-march-1-2023), the commands in `plugin-env` (`env list|display|open`) work only with compute environments (Salesforce Functions). Because not all our customers use these commands regularly, we decided to make the plugin a just-in-time one. NOTE: This change applies only to _new_ Salesforce CLI installations. If the plugin is already installed in your Salesforce CLI, there's no change.
 
