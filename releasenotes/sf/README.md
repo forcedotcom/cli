@@ -27,6 +27,30 @@ ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 1
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* NEW: When you create a scratch org, you specify a definition file that contains options or use the` --edition` flag to specify the one required option. For either method, you can now also use these flags; if you use them with `--definition-file`, they override their equivalent option in the scratch org definition file:
+
+    * `--description`
+    * `--name`  (equivalent to the `orgName` option)
+    * `--username`
+    * `--release`
+    * `--edition`
+
+    Note that now you can use `--definition-file` and `--edition` in a single command; previously you had to pick one or the other. If you want to set options other than the preceding ones, such as org features or settings, you must use a definition file. 
+    
+    In this example, the command uses a scratch org definition file but overrides its `edition` and `description` options:
+    
+    ```bash
+    sf org create scratch --definition-file config/project-scratch-def.json --edition enterprise --description "Enterprise Edition scratch org" --target-dev-hub DevHub --set-default
+    ```
+    
+    In this example, the command specifies all the options at the command line:
+    
+    ```bash
+    sf org create scratch --edition enterprise --description "Enterprise Edition scratch org" --name "My Company" --target-dev-hub DevHub --set-default 
+    ```
+    
+    (GitHub Feature Request [#2016](https://github.com/forcedotcom/cli/issues/2016), plugin-org PR [#641](https://github.com/salesforcecli/plugin-org/pull/641))
+    
 * NEW: As part of [improving the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands so they work like the `sf` commands, we've added these commands to `sf`:
 
     * `force lightning lwc test create` : Create a Lightning web component test file. 
