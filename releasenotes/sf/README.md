@@ -27,7 +27,7 @@ ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 1
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* NEW: When you create a scratch org, you specify a definition file that contains options or use the` --edition` flag to specify the one required option. For either method, you can now also use these flags; if you use them with `--definition-file`, they override their equivalent option in the scratch org definition file:
+* NEW: When you create a scratch org with `org create scratch`, you specify a definition file that contains options or use the` --edition` flag to specify the one required option. For either method, you can now also use these flags; if you use them with `--definition-file`, they override their equivalent option in the scratch org definition file:
 
     * `--description`
     * `--name`  (equivalent to the `orgName` option)
@@ -60,6 +60,12 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     The commands are in the JIT [plugin-lwc-test](https://github.com/salesforcecli/plugin-lwc-test) plugin. Rather than bundle it in the core Salesforce CLI, we automatically install the plugin the first time you run one of its commands, such as `force lightning lwc test create`. 
     
     NOTE: If you use these commands, you must use version 16 of Node.js at this time due to an indirect dependency on `sa11y` which doesn't yet support version 18, the current LTS.  See [this feature request](https://github.com/salesforce/sa11y/issues/376) for `sa11y` to support Node.js 18.  See more information about Node.js versions [here](https://github.com/forcedotcom/cli/issues/1985). 
+    
+* FIX: If the `project deploy start` command fails, source-tracking information is updated correctly.  (GitHub issue [#2057](https://github.com/forcedotcom/cli/issues/2057), source-tracking PR [#368](https://github.com/forcedotcom/source-tracking/pull/368))
+
+* FIX: The `cmdt generate records` command correct generates custom metadata type records and no longer returns the error `ModuleLoadError: [MODULE_NOT_FOUND]`. (GitHub issue [#2058](https://github.com/forcedotcom/cli/issues/2058), plugin-custom-metadata PR [#445](https://github.com/salesforcecli/plugin-custom-metadata/pull/445))
+
+* FIX: Retrieving a reactivated PicklistValue metadata type no longer returns an erroneous error message. (GitHub issue [#960](https://github.com/forcedotcom/cli/issues/960), source-tracking PR [#960](https://github.com/forcedotcom/cli/issues/960))
 
 ## 1.74.7 (April 19, 2023) [stable]
 
