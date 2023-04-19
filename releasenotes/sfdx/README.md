@@ -31,6 +31,45 @@ ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 1
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
+* NEW: When you create a scratch org with `org create scratch`, you specify a definition file that contains options or use the` --edition` flag to specify the one required option. For either method, you can now also use these flags; if you use them with `--definition-file`, they override their equivalent option in the scratch org definition file:
+
+    * `--description`
+    * `--name`  (equivalent to the `orgName` option)
+    * `--username`
+    * `--release`
+    * `--edition`
+
+    Note that now you can use `--definition-file` and `--edition` in a single command; previously you had to pick one or the other. If you want to set options other than the preceding ones, such as org features or settings, you must use a definition file. 
+    
+    In this example, the command uses a scratch org definition file but overrides its `edition` and `description` options:
+    
+    ```bash
+    sfdx org create scratch --definition-file config/project-scratch-def.json --edition enterprise --description "Enterprise Edition scratch org" --target-dev-hub DevHub --set-default
+    ```
+    
+    In this example, the command specifies all the options at the command line:
+    
+    ```bash
+    sfdx org create scratch --edition enterprise --description "Enterprise Edition scratch org" --name "My Company" --target-dev-hub DevHub --set-default 
+    ```
+    
+    (GitHub Feature Request [#2016](https://github.com/forcedotcom/cli/issues/2016), plugin-org PR [#641](https://github.com/salesforcecli/plugin-org/pull/641))
+
+* CHANGE: Instead of bundling [plugin-lwc-test](https://github.com/salesforcecli/plugin-lwc-test) in the core Salesforce CLI, we now automatically install it the first time you run one of its commands:
+
+    * `force lightning lwc test create` 
+    * `force lightning lwc test run`  
+    * `force lightning lwc test setup`  
+
+    Because not all our customers regularly test Lightning web components, we decided to make the plugin a just-in-time one. Note that this change applies only to _new_ Salesforce CLI installations. If the plugin is already installed in your Salesforce CLI, there's no change.
+
+    NOTE: If you use these commands, you must use version 16 of Node.js at this time due to an indirect dependency on `sa11y` which doesn't yet support version 18, the current LTS.  See [this feature request](https://github.com/salesforce/sa11y/issues/376) for `sa11y` to support Node.js 18.  See more information about Node.js versions [here](https://github.com/forcedotcom/cli/issues/1985). 
+    
+* FIX: If the `project deploy start` command fails, source-tracking information is updated correctly.  (GitHub issue [#2057](https://github.com/forcedotcom/cli/issues/2057), source-tracking PR [#368](https://github.com/forcedotcom/source-tracking/pull/368))
+
+* FIX: The `cmdt generate records` command correct generates custom metadata type records and no longer returns the error `ModuleLoadError: [MODULE_NOT_FOUND]`. (GitHub issue [#2058](https://github.com/forcedotcom/cli/issues/2058), plugin-custom-metadata PR [#445](https://github.com/salesforcecli/plugin-custom-metadata/pull/445))
+
+* FIX: Retrieving a reactivated PicklistValue metadata type no longer returns an erroneous error message. (GitHub issue [#960](https://github.com/forcedotcom/cli/issues/960), source-tracking PR [#960](https://github.com/forcedotcom/cli/issues/960))
 
 ## 7.197.7 (April 20, 2023) [stable]
 
