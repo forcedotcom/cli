@@ -51,13 +51,13 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
     (GitHub Feature Request [#2016](https://github.com/forcedotcom/cli/issues/2016), plugin-org PR [#641](https://github.com/salesforcecli/plugin-org/pull/641))
     
-* NEW: As part of [improving the usability](https://developer.salesforce.com/blogs/2022/12/big-improvements-coming-to-the-salesforce-cli) of existing `sfdx` commands so they work like the `sf` commands, we've added these commands to `sf`:
+* NEW: Test Lightning web components with these `sfdx` commands that we added to `sf`:
 
     * `force lightning lwc test create` : Create a Lightning web component test file. 
     * `force lightning lwc test run` : Invoke Lightning Web Components Jest unit tests. 
     * `force lightning lwc test setup` : Install Jest unit testing tools for Lightning Web Components. 
 
-    The commands are in the JIT [plugin-lwc-test](https://github.com/salesforcecli/plugin-lwc-test) plugin. Rather than bundle it in the core Salesforce CLI, we automatically install the plugin the first time you run one of its commands, such as `lightning generate lwc test`. 
+    The commands are in the JIT [plugin-lwc-test](https://github.com/salesforcecli/plugin-lwc-test) plugin. Rather than bundle it in the core Salesforce CLI, we automatically install the plugin the first time you run one of its commands, such as `force lightning lwc test create`. 
 
 ## 1.74.7 (April 19, 2023) [stable]
 
