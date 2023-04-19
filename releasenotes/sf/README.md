@@ -59,7 +59,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     The commands are in the JIT [plugin-lwc-test](https://github.com/salesforcecli/plugin-lwc-test) plugin. Rather than bundle it in the core Salesforce CLI, we automatically install the plugin the first time you run one of its commands, such as `force lightning lwc test create`. 
     
-    NOTE: If you use these commands, be sure you read [this issue](https://github.com/salesforce/sfdx-lwc-jest/issues/301) for information about Node.js versions, a [known bug](https://github.com/facebook/jest/issues/11956) in their `jest` dependency, and the various workarounds and tradeoffs.
+    NOTE: If you use these commands, you must use version 16 of Node.js at this time due to an indirect dependency on `sa11y` which doesn't yet support version 18, the current LTS.  See [this feature request](https://github.com/salesforce/sa11y/issues/376) for `sa11y` to support Node.js 18.  See more information about Node.js versions [here](https://github.com/forcedotcom/cli/issues/1985). 
 
 ## 1.74.7 (April 19, 2023) [stable]
 
