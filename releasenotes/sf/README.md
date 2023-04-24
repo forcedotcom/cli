@@ -63,7 +63,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
 * FIX: If the `project deploy start` command fails, source-tracking information is updated correctly.  (GitHub issue [#2057](https://github.com/forcedotcom/cli/issues/2057), source-tracking PR [#368](https://github.com/forcedotcom/source-tracking/pull/368))
 
-* FIX: The `cmdt generate records` command correct generates custom metadata type records and no longer returns the error `ModuleLoadError: [MODULE_NOT_FOUND]`. (GitHub issue [#2058](https://github.com/forcedotcom/cli/issues/2058), plugin-custom-metadata PR [#445](https://github.com/salesforcecli/plugin-custom-metadata/pull/445))
+* FIX: The `cmdt generate records` command correctly generates custom metadata type records and no longer returns the error `ModuleLoadError: [MODULE_NOT_FOUND]`. (GitHub issue [#2058](https://github.com/forcedotcom/cli/issues/2058), plugin-custom-metadata PR [#445](https://github.com/salesforcecli/plugin-custom-metadata/pull/445))
 
 * FIX: Retrieving a reactivated PicklistValue metadata type no longer returns an erroneous error message. (GitHub issue [#960](https://github.com/forcedotcom/cli/issues/960), source-tracking PR [#960](https://github.com/forcedotcom/cli/issues/960))
 
