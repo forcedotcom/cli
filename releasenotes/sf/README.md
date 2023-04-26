@@ -21,11 +21,17 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.75.0 (April 26, 2023) [stable-rc]
+## 1.76.0 (May 3, 2023) [stable-rc]
 
 ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* FIX: Salesforce CLI no longer creates massive log files when certain criteria are met. (GitHub issues [#1942](https://github.com/forcedotcom/cli/issues/1942) and [#1408](https://github.com/forcedotcom/cli/issues/1408), sfdx-core PR [#818](https://github.com/forcedotcom/sfdx-core/pull/818))
+
+## 1.75.0 (April 26, 2023) [stable]
+
+ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 
 * NEW: When you create a scratch org with `org create scratch`, you specify a definition file that contains options or use the` --edition` flag to specify the one required option. For either method, you can now also use these flags; if you use them with `--definition-file`, they override their equivalent option in the scratch org definition file:
 
@@ -67,9 +73,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Retrieving a reactivated PicklistValue metadata type no longer returns an erroneous error message. (GitHub issue [#960](https://github.com/forcedotcom/cli/issues/960), source-tracking PR [#960](https://github.com/forcedotcom/cli/issues/960))
 
-## 1.74.7 (April 19, 2023) [stable]
-
-ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
+## 1.74.7 (April 19, 2023)
 
 * FIX: We've recently done a lot of work in the [source-deploy-retrieve](https://github.com/forcedotcom/source-deploy-retrieve) (SDR) library to address various issues that result in the error `Cannot read properties of undefined (reading 'something')`. These issues are often caused by metadata files being in an unexpected location or format. In addition to addressing these issues, we also now provide more useful errors with details about the name, type, and location of the file in your project that is causing the error. Our goal is to make it easier for you to find and fix the error if it's on your side, or quickly determine if it's actually a bug with Salesforce CLI. 
 
