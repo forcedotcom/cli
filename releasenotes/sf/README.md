@@ -29,6 +29,14 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * CHANGE: After you run `org login web` and log into your org, you're now redirected to a web page that displays either success or failure, depending on whether you were able to log in successfully. You're no longer redirected to Salesforce's [frontdoor.jsp page](https://help.salesforce.com/s/articleView?id=sf.security_frontdoorjsp.htm&type=5). (sfdx-core PR [#811](https://github.com/forcedotcom/sfdx-core/pull/811)
 
+* FIX: We fixed the `directoryName` property for these two metadata types (associated with OAuth and mobile policies) in Salesforce CLI's metadata registry: ExtlClntAppOauthConfigurablePolicies and ExtlClntAppMobileConfigurablePolicies. (SDR PR [#947](https://github.com/forcedotcom/source-deploy-retrieve/pull/947))
+
+* FIX: When you install a Salesforce CLI plugin, the CLI now validates that the package name is a valid npm package.  This validation prevents accidents and increases security. (GitHub issue [#594](https://github.com/oclif/plugin-plugins/issues/594), oclif plugin-plugin PR [#597](https://github.com/oclif/plugin-plugins/pull/597))
+
+* FIX: We've added a warning when you run `force:org:create` to say that it's been replaced by these two commands: `org create scratch` or `org create sandbox`. (plugin-org PR [#668](https://github.com/salesforcecli/plugin-org/pull/668))
+
+* FIX: The `package1 version list` command now displays all results, not just the first 2000. (GitHub issue [#2073](https://github.com/forcedotcom/cli/issues/2073), packaging PR [#277](https://github.com/forcedotcom/packaging/pull/277))
+
 ## 1.76.2 (May 3, 2023) [stable]
 
 ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
