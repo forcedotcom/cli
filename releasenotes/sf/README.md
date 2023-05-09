@@ -25,6 +25,8 @@ Additional documentation:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* NEW: When the `project generate manifest` command runs into an unknown metadata type, such as from a misspelled metadata file, the command now correctly returns an error. The error includes a handy suggestion for a similar-sounding metadata type that the command _does_ know about. (source-deploy-retrieve PR [#948](https://github.com/forcedotcom/source-deploy-retrieve/pull/948)
+
 * FIX: The JUnit test results after a successful execution of `project deploy start --junit` no longer include an empty failure tag. 
  
      Many thanks to [Robin Windey](https://github.com/R0Wi) who contributed the fix. We love it, and hope to see more from you and the community! (GitHub issue [#2076](https://github.com/forcedotcom/cli/issues/2076), plugin-deploy-retrieve PR [#610](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/610))
@@ -40,6 +42,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 * FIX: String replacements before deploying metadata to the org are now working consistently on Windows, regardless of the shell you use.  
 
     Special thanks to [micha79x](https://github.com/micha79x) for an excellent repo that reproduced the problem, and for doing most of the detective work. (GitHub issue [#1885](https://github.com/forcedotcom/cli/issues/1885), source-deploy-retrieve PR [#958](https://github.com/forcedotcom/source-deploy-retrieve/pull/958))
+    
+* FIX: The `dev generate command` and `dev generate field` commands now work correctly on Windows. (GitHub issue [#2051](https://github.com/forcedotcom/cli/issues/2051), plugin-dev PR [#317](https://github.com/salesforcecli/plugin-dev/pull/317))
 
 ## 1.77.0 (May 10, 2023) [stable]
 
