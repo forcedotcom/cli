@@ -33,6 +33,12 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
  
 * NEW: When the `project generate manifest` command runs into an unknown metadata type, such as from a misspelled metadata file, the command now correctly returns an error. The error includes a handy suggestion for a similar-sounding metadata type that the command _does_ know about. (source-deploy-retrieve PR [#948](https://github.com/forcedotcom/source-deploy-retrieve/pull/948)
 
+* FIX: The `project deploy|retrieve start` commands now support these metadata types:
+
+    * AIScoringModelDefinition
+    * AIScoringModelDefVersion
+    * SkillType
+
 * FIX: The JUnit test results after a successful execution of `project deploy start --junit` no longer include an empty failure tag. 
  
      Many thanks to [Robin Windey](https://github.com/R0Wi) who contributed the fix. We love it, and hope to see more from you and the community! (GitHub issue [#2076](https://github.com/forcedotcom/cli/issues/2076), plugin-deploy-retrieve PR [#610](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/610))
