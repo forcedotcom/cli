@@ -21,11 +21,14 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.77.0 (May 10, 2023) [stable-rc]
-
-ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
+## 1.78.0 (May 17, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+
+## 1.77.0 (May 10, 2023) [stable]
+
+ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 
 * CHANGE: After you run `org login web` and log into your org, you're now redirected to a web page that displays either success or failure, depending on whether you were able to log in successfully. You're no longer redirected to Salesforce's [frontdoor.jsp page](https://help.salesforce.com/s/articleView?id=sf.security_frontdoorjsp.htm&type=5). (sfdx-core PR [#811](https://github.com/forcedotcom/sfdx-core/pull/811)
 
@@ -37,9 +40,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `package1 version list` command now displays all results, not just the first 2000. (GitHub issue [#2073](https://github.com/forcedotcom/cli/issues/2073), packaging PR [#277](https://github.com/forcedotcom/packaging/pull/277))
 
-## 1.76.2 (May 3, 2023) [stable]
-
-ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
+## 1.76.2 (May 3, 2023)
 
 * FIX: Salesforce CLI no longer creates massive log files when certain criteria are met. (GitHub issues [#1942](https://github.com/forcedotcom/cli/issues/1942) and [#1408](https://github.com/forcedotcom/cli/issues/1408), sfdx-core PR [#818](https://github.com/forcedotcom/sfdx-core/pull/818))
 
