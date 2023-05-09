@@ -28,6 +28,14 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 * FIX: The JUnit test results after a successful execution of `project deploy start --junit` no longer include an empty failure tag. 
  
      Many thanks to [Robin Windey](https://github.com/R0Wi) who contributed the fix. We love it, and hope to see more from you and the community! (GitHub issue [#2076](https://github.com/forcedotcom/cli/issues/2076), plugin-deploy-retrieve PR [#610](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/610))
+     
+* FIX: If a deploy encounters a `Socket connection timeout` error, the command now keeps retrying the deploy up to the retry limit. (GitHub issue [#2086](https://github.com/forcedotcom/cli/issues/2086), source-deploy-retrieve PR [#957](https://github.com/forcedotcom/source-deploy-retrieve/pull/957))
+
+* FIX: We've improved the error message when you specify an invalid value for a flag of type `duration`, such as the `--wait` flag of `project deploy start`. (GitHub issue [#2109](https://github.com/forcedotcom/cli/issues/2109), sf-plugins-core PR [#287](https://github.com/salesforcecli/sf-plugins-core/pull/287))
+
+* FIX: The `apex test run` command now correctly returns an error if you pass `-1` to its `--wait` flag. Previously the command would ignore the value and wait for the default 1 minute. The minimum value for this flag is `0`. (GitHub issue [#2110](https://github.com/forcedotcom/cli/issues/2110), plugin-apex PR [#116](https://github.com/salesforcecli/plugin-apex/pull/116))
+
+* FIX: The `--license-type` flag of `org create sandbox` is now playing nice. In particular, its default value doesn't override the `licenseType` setting in the sandbox definition type when you don't specify the flag. And you no longer get an error when you specify both the flag and the `licenseType` definition file option. (GitHub issue [#2026](https://github.com/forcedotcom/cli/issues/2026), plugin-org [#667](https://github.com/salesforcecli/plugin-org/pull/667))
 
 ## 1.77.0 (May 10, 2023) [stable]
 
