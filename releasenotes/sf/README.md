@@ -43,7 +43,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
  
      Many thanks to [Robin Windey](https://github.com/R0Wi) who contributed the fix. We love it, and hope to see more from you and the community! (GitHub issue [#2076](https://github.com/forcedotcom/cli/issues/2076), plugin-deploy-retrieve PR [#610](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/610))
      
-* FIX: If a deploy encounters a `Socket connection timeout` error, the command now keeps retrying the deploy up to the retry limit. (GitHub issue [#2086](https://github.com/forcedotcom/cli/issues/2086), source-deploy-retrieve PR [#957](https://github.com/forcedotcom/source-deploy-retrieve/pull/957))
+* FIX: If a deploy or retrieve encounters a `Socket connection timeout` error, the command now keeps retrying the deploy up to the retry limit. (GitHub issue [#2086](https://github.com/forcedotcom/cli/issues/2086), source-deploy-retrieve PR [#957](https://github.com/forcedotcom/source-deploy-retrieve/pull/957))
 
 * FIX: We've improved the error message when you specify an invalid value for a flag of type `duration`, such as the `--wait` flag of `project deploy start`. (GitHub issue [#2109](https://github.com/forcedotcom/cli/issues/2109), sf-plugins-core PR [#287](https://github.com/salesforcecli/sf-plugins-core/pull/287))
 
