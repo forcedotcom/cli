@@ -31,7 +31,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
    2. Follow the displayed instructions.
    3. If autocomplete doesn’t work immediately after installation, run `sf autocomplete --refresh-cache`. Then open a new PowerShell window.
  
-* NEW: When the `project generate manifest` command runs into an unknown metadata type, such as from a misspelled metadata file, the command now correctly returns an error. The error includes a handy suggestion for a similar-sounding metadata type that the command _does_ know about. (source-deploy-retrieve PR [#948](https://github.com/forcedotcom/source-deploy-retrieve/pull/948)
+* NEW: When the `project generate manifest` command runs into an unknown metadata type, such as from a misspelled metadata file, the error now includes handy suggestions for one or more similar metadata types that the command _does_ know about. (source-deploy-retrieve PR [#948](https://github.com/forcedotcom/source-deploy-retrieve/pull/948)
 
 * FIX: The `project deploy|retrieve start` commands now support these metadata types:
 
