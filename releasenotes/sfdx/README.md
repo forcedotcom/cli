@@ -31,6 +31,39 @@ ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 1
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
+* NEW: Autocomplete now works on Windows [PowerShell](https://learn.microsoft.com/en-us/powershell/)! Partially type a Salesforce CLI command or flag, then press Tab to see all the available commands or flags. Install the feature with these steps:
+
+   1. From a PowerShell window, run `sfdx autocomplete powershell`. 
+   2. Follow the displayed instructions.
+   3. If autocomplete doesn’t work immediately after installation, run `sfdx autocomplete --refresh-cache`. Then open a new PowerShell window.
+
+    Your work-life on Windows just got a little easier, how great is that?
+
+* NEW: When the `project generate manifest` command runs into an unknown metadata type, such as from a misspelled metadata file, the error now includes handy suggestions for one or more similar metadata types that the command _does_ know about. (source-deploy-retrieve PR [#948](https://github.com/forcedotcom/source-deploy-retrieve/pull/948)
+
+* FIX: The `project deploy|retrieve start` commands now support these metadata types:
+
+    * AIScoringModelDefinition
+    * AIScoringModelDefVersion
+    * SkillType
+
+* FIX: The JUnit test results after a successful execution of `project deploy start --junit` no longer include an empty failure tag. 
+
+     Many thanks to [Robin Windey](https://github.com/R0Wi) who contributed the fix. We love it, and hope to see more from you and the community! (GitHub issue [#2076](https://github.com/forcedotcom/cli/issues/2076), plugin-deploy-retrieve PR [#610](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/610))
+
+* FIX: If a deploy or retrieve encounters a `Socket connection timeout` error, the command now keeps retrying the deploy up to the retry limit. (GitHub issue [#2086](https://github.com/forcedotcom/cli/issues/2086), source-deploy-retrieve PR [#957](https://github.com/forcedotcom/source-deploy-retrieve/pull/957))
+
+* FIX: We've improved the error message when you specify an invalid value for a flag of type `duration`, such as the `--wait` flag of `project deploy start`. (GitHub issue [#2109](https://github.com/forcedotcom/cli/issues/2109), sf-plugins-core PR [#287](https://github.com/salesforcecli/sf-plugins-core/pull/287))
+
+* FIX: The `apex test run` command now correctly returns an error if you pass `-1` to its `--wait` flag. Previously the command would ignore the value and wait for the default 1 minute. The minimum value for this flag is `0`. (GitHub issue [#2110](https://github.com/forcedotcom/cli/issues/2110), plugin-apex PR [#116](https://github.com/salesforcecli/plugin-apex/pull/116))
+
+* FIX: The `--license-type` flag of `org create sandbox` is now playing nice. In particular, its default value doesn't override the `licenseType` setting in the sandbox definition type when you don't specify the flag. And you no longer get an error when you specify both the flag and the `licenseType` definition file option. (GitHub issue [#2026](https://github.com/forcedotcom/cli/issues/2026), plugin-org [#667](https://github.com/salesforcecli/plugin-org/pull/667))
+
+* FIX: String replacements before deploying metadata to the org are now working consistently on Windows, regardless of the shell you use.  
+
+    Special thanks to [micha79x](https://github.com/micha79x) for an excellent repo that reproduced the problem, and for doing most of the detective work. (GitHub issue [#1885](https://github.com/forcedotcom/cli/issues/1885), source-deploy-retrieve PR [#958](https://github.com/forcedotcom/source-deploy-retrieve/pull/958))
+
+* FIX: The `dev generate command` and `dev generate field` commands now work correctly on Windows. (GitHub issue [#2051](https://github.com/forcedotcom/cli/issues/2051), plugin-dev PR [#317](https://github.com/salesforcecli/plugin-dev/pull/317))
 
 ## 7.200.0 (May 11, 2023) [stable]
 
