@@ -25,11 +25,13 @@ Additional documentation:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* NEW: Autocomplete now works on Windows [PowerShell](https://learn.microsoft.com/en-us/powershell/)! Partially type a Salesforce CLI command or flag, then press Tab to autocomplete it or press Tab twice to see all the available commands or flags. Install the feature with these steps:
+* NEW: Autocomplete now works on Windows [PowerShell](https://learn.microsoft.com/en-us/powershell/)! Partially type a Salesforce CLI command or flag, then press Tab to see all the available commands or flags. Install the feature with these steps:
 
    1. From a PowerShell window, run `sf autocomplete powershell`. 
    2. Follow the displayed instructions.
    3. If autocomplete doesn’t work immediately after installation, run `sf autocomplete --refresh-cache`. Then open a new PowerShell window.
+
+    Your work-life on Windows just got a little easier, how great is that?
  
 * NEW: When the `project generate manifest` command runs into an unknown metadata type, such as from a misspelled metadata file, the error now includes handy suggestions for one or more similar metadata types that the command _does_ know about. (source-deploy-retrieve PR [#948](https://github.com/forcedotcom/source-deploy-retrieve/pull/948)
 
