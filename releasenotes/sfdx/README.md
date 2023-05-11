@@ -40,8 +40,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     Your work-life on Windows just got a little easier, how great is that?
 
 * NEW: When the `project generate manifest` command runs into an unknown metadata type, such as from a misspelled metadata file, the error now includes handy suggestions for one or more similar metadata types that the command _does_ know about. (source-deploy-retrieve PR [#948](https://github.com/forcedotcom/source-deploy-retrieve/pull/948)
-
-* FIX: We now bundle Node.js version 18.15.0 in the installers. When we upgraded to 18.16.0, we saw issues around source conversion, deployment, and retrieval. If you install with `npm`, we recommend you not use Node.js 18.16.0 at this time. See [this pinned issue](https://github.com/forcedotcom/cli/issues/2125) for details. 
  
 * FIX: The `project deploy|retrieve start` commands now support these metadata types:
 
@@ -71,6 +69,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 
+* FIX: We now bundle Node.js version 18.15.0 in the installers. When we upgraded to 18.16.0, we saw issues around source conversion, deployment, and retrieval. If you install with `npm`, we recommend you not use Node.js 18.16.0 at this time. See [this pinned issue](https://github.com/forcedotcom/cli/issues/2125) for details. 
+ 
 * FIX: We fixed the `directoryName` property for these two metadata types (associated with OAuth and mobile policies) in Salesforce CLI's metadata registry: ExtlClntAppOauthConfigurablePolicies and ExtlClntAppMobileConfigurablePolicies. (SDR PR [#947](https://github.com/forcedotcom/source-deploy-retrieve/pull/947))
 
 * FIX: When you install a Salesforce CLI plugin, the CLI now validates that the package name is a valid npm package.  This validation prevents accidents and increases security. (GitHub issue [#594](https://github.com/oclif/plugin-plugins/issues/594), oclif plugin-plugin PR [#597](https://github.com/oclif/plugin-plugins/pull/597))
