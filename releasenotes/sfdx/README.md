@@ -67,7 +67,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `dev generate command` and `dev generate field` commands now work correctly on Windows. (GitHub issue [#2051](https://github.com/forcedotcom/cli/issues/2051), plugin-dev PR [#317](https://github.com/salesforcecli/plugin-dev/pull/317))
 
-## 7.200.0 (May 11, 2023) [stable]
+## 7.200.7 (May 11, 2023) [stable]
 
 ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 
