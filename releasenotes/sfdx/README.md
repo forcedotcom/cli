@@ -41,6 +41,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: When the `project generate manifest` command runs into an unknown metadata type, such as from a misspelled metadata file, the error now includes handy suggestions for one or more similar metadata types that the command _does_ know about. (source-deploy-retrieve PR [#948](https://github.com/forcedotcom/source-deploy-retrieve/pull/948)
 
+* FIX: We now bundle Node.js version 18.15.0 in the installers. When we upgraded to 18.16.0, we saw issues around source conversion, deployment, and retrieval. See [this pinned issue](https://github.com/forcedotcom/cli/issues/2125) for details. 
+ 
 * FIX: The `project deploy|retrieve start` commands now support these metadata types:
 
     * AIScoringModelDefinition
