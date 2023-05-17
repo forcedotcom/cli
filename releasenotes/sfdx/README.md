@@ -25,11 +25,21 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.201.0 (May 18, 2023) [stable-rc]
+## 7.202.0 (May 25, 2023) [stable-rc]
 
-ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
+ANNOUNCEMENTS:
+* Check out the beta of [`sf` (v2)](https://github.com/forcedotcom/cli/issues/2132)!
+* If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
+------------------------------------------------------------
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+## 7.201.6 (May 18, 2023) [stable]
+
+ANNOUNCEMENTS:
+* Check out the beta of [`sf` (v2)](https://github.com/forcedotcom/cli/issues/2132)!
+* If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
+------------------------------------------------------------
 
 * NEW: Autocomplete now works on Windows [PowerShell](https://learn.microsoft.com/en-us/powershell/)! Partially type a Salesforce CLI command or flag, then press Tab to see all the available commands or flags. Install the feature with these steps:
 
@@ -65,9 +75,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `dev generate command` and `dev generate field` commands now work correctly on Windows. (GitHub issue [#2051](https://github.com/forcedotcom/cli/issues/2051), plugin-dev PR [#317](https://github.com/salesforcecli/plugin-dev/pull/317))
 
-## 7.200.7 (May 11, 2023) [stable]
-
-ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
+## 7.200.7 (May 11, 2023)
 
 * FIX: We now bundle Node.js version 18.15.0 in the installers. When we upgraded to 18.16.0, we saw issues around source conversion, deployment, and retrieval. If you install with `npm`, we recommend you not use Node.js 18.16.0 at this time. See [this pinned issue](https://github.com/forcedotcom/cli/issues/2125) for details. 
  
