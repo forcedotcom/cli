@@ -27,6 +27,9 @@ ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 1
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* NEW: the `project deploy` commands now leave the test-level undefined by default.  This lets the org decide what tests need to run.  If you don't specify the flag,
+  - non-production orgs won't run any tests
+  - production orgs will run tests if the deployment includes some apex 
 * NEW: You can now specify these two scratch org definition file options as command-line flags when you run `org create scratch`:
 
     * `--admin-email`: Email address that's applied to the org's admin user. Equivalent to the `adminEmail` option in the scratch org definition file.
