@@ -30,6 +30,20 @@ ANNOUNCEMENTS:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* NEW: You can now specify these two scratch org definition file options as command-line flags when you run `org create scratch`:
+
+    * `--admin-email`: Email address that's applied to the org's admin user. Equivalent to the `adminEmail` option in the scratch org definition file.
+    * `--source-org`: 15-character ID of the org whose shape the new scratch org is based on. Equivalent to the `sourceOrg` option in the scratch org definition file.
+
+    As always, if you set the option in the scratch org definition file, and also specify its equivalent flag, the flag overrides the defintion file setting. 
+    
+    For example, let's say you set `adminEmail` in the scratch org definition file to `milo@tollbooth.com`. When you run this command, however, the scratch org admin's email address is actually set to `tock@phantom.com`:
+    
+    ```bash
+    sf org create scratch --definition-file config/project-scratch-def.json --admin-email tock@phantom.com --target-dev-hub DevHub
+    ```
+    (GitHub Feature Request [#2130](https://github.com/forcedotcom/cli/issues/2130), plugin-org PR [#681](https://github.com/salesforcecli/plugin-org/pull/681))
+        
 ## 1.78.0 (May 17, 2023) [stable]
 
 ANNOUNCEMENTS:
