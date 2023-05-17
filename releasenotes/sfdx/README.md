@@ -27,19 +27,48 @@ Additional documentation:
 
 ## 7.202.0 (May 25, 2023) [stable-rc]
 
-ANNOUNCEMENTS:
-* Check out the beta of [`sf` (v2)](https://github.com/forcedotcom/cli/issues/2132)!
-* If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
-------------------------------------------------------------
+ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
+* NEW: You can now specify these two scratch org definition file options as command-line flags when you run `org create scratch`:
+
+    * `--admin-email`: Email address that's applied to the org's admin user. Equivalent to the `adminEmail` option in the scratch org definition file.
+    * `--source-org`: 15-character ID of the org whose shape the new scratch org is based on. Equivalent to the `sourceOrg` option in the scratch org definition file.
+
+    As always, if you set the option in the scratch org definition file, and also specify its equivalent flag, the flag overrides the defintion file setting. 
+    
+    For example, let's say you set `adminEmail` in the scratch org definition file to `milo@tollbooth.com`. When you run this command, however, the scratch org admin's email address is actually set to `tock@phantom.com`:
+    
+    ```bash
+    sf org create scratch --definition-file config/project-scratch-def.json --admin-email tock@phantom.com --target-dev-hub DevHub
+    ```
+    (GitHub Feature Request [#2130](https://github.com/forcedotcom/cli/issues/2130), plugin-org PR [#681](https://github.com/salesforcecli/plugin-org/pull/681))
+    
+* NEW: Salesforce DX projects now support the UserAccessPolicy metadata type. 
+
+* CHANGE: the `project deploy` commands now leave the `--test-level` flag undefined by default and let the org decide what tests run.  If you don't specify the flag:
+
+  - Non-production orgs don't run any tests.
+  - Production orgs run tests if the deployment includes Apex classes or triggers. 
+
+* FIX: We cleaned up the `--help` for the `project deploy start` command around specifying multiple Apex tests or code coverage formats with the `--tests` and `--coverage-formatters` flags. You no longer use a comma-separated list; instead, specify the flags multiple times or separate the values with spaces. (GitHub issue [#2117](https://github.com/forcedotcom/cli/issues/2117), plugin-deploy-retrieve PRs [#609](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/609) and [#662](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/622))
+
+* FIX: We updated the `--help` for `org logout` to clarify that you don't get a list of orgs to interactively log out of if you've set your default org in your environment, such as with the `target-org` config variable. (GitHub issue [#2128](https://github.com/forcedotcom/cli/issues/2128), plugin-auth PR [#696](https://github.com/salesforcecli/plugin-auth/pull/696))
+
+* FIX: The `orgID` value in the JSON output resulting from running `sf org create scratch <flags> --json` now contains the actual scratch org ID (starts with 00D) rather than the ScratchOrgInfo record ID (starts with 2SR). (GitHub issue [#2131](https://github.com/forcedotcom/cli/issues/2131), plugin-org PR [#675](https://github.com/salesforcecli/plugin-org/pull/675))
+
+* FIX: All commands now know about the `org-metadata-rest-deploy` configuration variable, which is the new `sf`-style name for the `restDeploy` configuration variable. (GitHub issue [#2127](https://github.com/forcedotcom/cli/issues/2127), sfdx-core PR [#834](https://github.com/forcedotcom/sfdx-core/pull/834), plugin-signups PR [#276](https://github.com/salesforcecli/plugin-signups/pull/276))
+
+* FIX: You can now run `project deploy start --metadata-dir`, which deploys source in metadata format, from outside a Salesforce DX project. Similarly, `project retrieve start --target-metadata-dir` also works outside of a project. (GitHub issue [#2089](https://github.com/forcedotcom/cli/issues/2089), plugin-deploy-retrieve PR [#619](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/619)).   
+ 
+* FIX: You can now run `project retrieve start --pacakge-name` on an org that doesn't have source-tracking enabled. (GitHub issue [#2091](https://github.com/forcedotcom/cli/issues/2091), plugin-deploy-retrieve PR [#619](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/619))
+
+* FIX: When you run `project deploy start` without any of the flags that specify exactly what you want to deploy (such as `--source-dir`, `--manifest`, or `--metadata`), and nothing is deployed, the command now exits with a `0` code. Previously it exited with a `1` code. (GitHub discussion [#2065](https://github.com/forcedotcom/cli/discussions/2065), plugin-deploy-retrieve PR [#619](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/619))
+
 ## 7.201.6 (May 18, 2023) [stable]
 
-ANNOUNCEMENTS:
-* Check out the beta of [`sf` (v2)](https://github.com/forcedotcom/cli/issues/2132)!
-* If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
-------------------------------------------------------------
+ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 
 * NEW: Autocomplete now works on Windows [PowerShell](https://learn.microsoft.com/en-us/powershell/)! Partially type a Salesforce CLI command or flag, then press Tab to see all the available commands or flags. Install the feature with these steps:
 
