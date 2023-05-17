@@ -27,9 +27,6 @@ ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 1
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* NEW: the `project deploy` commands now leave the test-level undefined by default.  This lets the org decide what tests need to run.  If you don't specify the flag,
-  - non-production orgs won't run any tests
-  - production orgs will run tests if the deployment includes some apex 
 * NEW: You can now specify these two scratch org definition file options as command-line flags when you run `org create scratch`:
 
     * `--admin-email`: Email address that's applied to the org's admin user. Equivalent to the `adminEmail` option in the scratch org definition file.
@@ -44,6 +41,11 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     ```
     (GitHub Feature Request [#2130](https://github.com/forcedotcom/cli/issues/2130), plugin-org PR [#681](https://github.com/salesforcecli/plugin-org/pull/681))
     
+* CHANGE: the `project deploy` commands now leave the `--test-level` flag undefined by default and let the org decide what tests run.  If you don't specify the flag:
+
+  - Non-production orgs don't run any tests.
+  - Production orgs run tests if the deployment includes Apex classes or triggers. 
+
 * FIX: We cleaned up the `--help` for the `project deploy start` command around specifying multiple Apex tests or code coverage formats with the `--tests` and `--coverage-formatters` flags. You no longer use a comma-separated list; instead, specify the flags multiple times or separate the values with spaces. (GitHub issue [#2117](https://github.com/forcedotcom/cli/issues/2117), plugin-deploy-retrieve PRs [#609](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/609) and [#662](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/622))
 
 * FIX: We updated the `--help` for `org logout` to clarify that you don't get a list of orgs to interactively log out of if you've set your default org in your environment, such as with the `target-org` config variable. (GitHub issue [#2128](https://github.com/forcedotcom/cli/issues/2128), plugin-auth PR [#696](https://github.com/salesforcecli/plugin-auth/pull/696))
@@ -52,9 +54,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: All commands now know about the `org-metadata-rest-deploy` configuration variable, which is the new `sf`-style name for the `restDeploy` configuration variable. (GitHub issue [#2127](https://github.com/forcedotcom/cli/issues/2127), sfdx-core PR [#834](https://github.com/forcedotcom/sfdx-core/pull/834), plugin-signups PR [#276](https://github.com/salesforcecli/plugin-signups/pull/276))
 
-* NEW: Projects now support the UserAccessPolicy metadata type. 
+* NEW: Salesforce DX projects now support the UserAccessPolicy metadata type. 
 
-* FIX: You can now run `project deploy start --metadata-dir`, which deploys source in metadata format, from outside a Salesforce DX project. (GitHub issue [#2089](https://github.com/forcedotcom/cli/issues/2089), plugin-deploy-retrieve PR [#619](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/619)).  While we were at it, we made `project retrieve start` work outside a project, too, when using `target-metadata-dir`. 
+* FIX: You can now run `project deploy start --metadata-dir`, which deploys source in metadata format, from outside a Salesforce DX project. Similarly, `project retrieve start --target-metadata-dir` also works outside of a project. (GitHub issue [#2089](https://github.com/forcedotcom/cli/issues/2089), plugin-deploy-retrieve PR [#619](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/619)).   
  
 * FIX: You can now run `project retrieve start --pacakge-name` on an org that doesn't have source-tracking enabled. (GitHub issue [#2091](https://github.com/forcedotcom/cli/issues/2091), plugin-deploy-retrieve PR [#619](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/619))
 
