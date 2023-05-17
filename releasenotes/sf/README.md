@@ -41,6 +41,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     ```
     (GitHub Feature Request [#2130](https://github.com/forcedotcom/cli/issues/2130), plugin-org PR [#681](https://github.com/salesforcecli/plugin-org/pull/681))
     
+* NEW: Salesforce DX projects now support the UserAccessPolicy metadata type. 
+ 
 * CHANGE: the `project deploy` commands now leave the `--test-level` flag undefined by default and let the org decide what tests run.  If you don't specify the flag:
 
   - Non-production orgs don't run any tests.
@@ -53,8 +55,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 * FIX: The `orgID` value in the JSON output resulting from running `sf org create scratch <flags> --json` now contains the actual scratch org ID (starts with 00D) rather than the ScratchOrgInfo record ID (starts with 2SR). (GitHub issue [#2131](https://github.com/forcedotcom/cli/issues/2131), plugin-org PR [#675](https://github.com/salesforcecli/plugin-org/pull/675))
 
 * FIX: All commands now know about the `org-metadata-rest-deploy` configuration variable, which is the new `sf`-style name for the `restDeploy` configuration variable. (GitHub issue [#2127](https://github.com/forcedotcom/cli/issues/2127), sfdx-core PR [#834](https://github.com/forcedotcom/sfdx-core/pull/834), plugin-signups PR [#276](https://github.com/salesforcecli/plugin-signups/pull/276))
-
-* NEW: Salesforce DX projects now support the UserAccessPolicy metadata type. 
 
 * FIX: You can now run `project deploy start --metadata-dir`, which deploys source in metadata format, from outside a Salesforce DX project. Similarly, `project retrieve start --target-metadata-dir` also works outside of a project. (GitHub issue [#2089](https://github.com/forcedotcom/cli/issues/2089), plugin-deploy-retrieve PR [#619](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/619)).   
  
