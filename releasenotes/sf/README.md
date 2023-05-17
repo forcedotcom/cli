@@ -21,9 +21,21 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.78.0 (May 17, 2023) [stable-rc]
+## 1.79.0 (May 24, 2023) [stable-rc]
+
+ANNOUNCEMENTS:
+* Check out the beta of [`sf` (v2)](https://github.com/forcedotcom/cli/issues/2132)!
+* If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
+------------------------------------------------------------
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+## 1.78.0 (May 17, 2023) [stable]
+
+ANNOUNCEMENTS:
+* Check out the beta of [`sf` (v2)](https://github.com/forcedotcom/cli/issues/2132)!
+* If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
+------------------------------------------------------------
 
 * NEW: Autocomplete now works on Windows [PowerShell](https://learn.microsoft.com/en-us/powershell/)! Partially type a Salesforce CLI command or flag, then press Tab to see all the available commands or flags. Install the feature with these steps:
 
@@ -59,9 +71,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
 * FIX: The `dev generate command` and `dev generate field` commands now work correctly on Windows. (GitHub issue [#2051](https://github.com/forcedotcom/cli/issues/2051), plugin-dev PR [#317](https://github.com/salesforcecli/plugin-dev/pull/317))
 
-## 1.77.6 (May 10, 2023) [stable]
-
-ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
+## 1.77.6 (May 10, 2023)
 
 * CHANGE: After you run `org login web` and log into your org, you're now redirected to a web page that displays either success or failure, depending on whether you were able to log in successfully. You're no longer redirected to Salesforce's [frontdoor.jsp page](https://help.salesforce.com/s/articleView?id=sf.security_frontdoorjsp.htm&type=5). (sfdx-core PR [#811](https://github.com/forcedotcom/sfdx-core/pull/811)
 
