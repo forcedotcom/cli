@@ -23,10 +23,7 @@ Additional documentation:
 
 ## 1.79.0 (May 24, 2023) [stable-rc]
 
-ANNOUNCEMENTS:
-* Check out the beta of [`sf` (v2)](https://github.com/forcedotcom/cli/issues/2132)!
-* If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
-------------------------------------------------------------
+ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
@@ -43,13 +40,16 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     sf org create scratch --definition-file config/project-scratch-def.json --admin-email tock@phantom.com --target-dev-hub DevHub
     ```
     (GitHub Feature Request [#2130](https://github.com/forcedotcom/cli/issues/2130), plugin-org PR [#681](https://github.com/salesforcecli/plugin-org/pull/681))
+    
+* FIX: We cleaned up the `--help` for the `project deploy start` command around specifying multiple Apex tests or code coverage formats with the `--tests` and `--coverage-formatters` flags. You no longer use a comma-separated list; instead, specify the flags multiple times or separate the values with spaces. (GitHub issue [#2117](https://github.com/forcedotcom/cli/issues/2117), plugin-deploy-retrieve PRs [#609](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/609) and [#662](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/622))
+
+* FIX: We updated the `--help` for `org logout` to clarify that you don't get a list of orgs to interactively log out of if you've set your default org in your environment, such as with the `target-org` config variable. (GitHub issue [#2128](https://github.com/forcedotcom/cli/issues/2128), plugin-auth PR [#696](https://github.com/salesforcecli/plugin-auth/pull/696))
+
+* FIX: The `orgID` value in the JSON output resulting from running `sf org create scratch <flags> --json` now contains the actual scratch org ID (starts with 00D) rather than the ScratchOrgInfo record ID (starts with 2SR). (GitHub issue [#2131](https://github.com/forcedotcom/cli/issues/2131), plugin-org PR [#675](https://github.com/salesforcecli/plugin-org/pull/675))
         
 ## 1.78.0 (May 17, 2023) [stable]
 
-ANNOUNCEMENTS:
-* Check out the beta of [`sf` (v2)](https://github.com/forcedotcom/cli/issues/2132)!
-* If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
-------------------------------------------------------------
+ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 
 * NEW: Autocomplete now works on Windows [PowerShell](https://learn.microsoft.com/en-us/powershell/)! Partially type a Salesforce CLI command or flag, then press Tab to see all the available commands or flags. Install the feature with these steps:
 
