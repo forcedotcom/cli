@@ -54,7 +54,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: Projects now support the UserAccessPolicy metadata type. 
 
-* FIX: You can now run `project deploy start --metadata-dir`, which deploys source in metadata format, from outside a Salesforce DX project. (GitHub issue [#2089](https://github.com/forcedotcom/cli/issues/2089), plugin-deploy-retrieve PR [#619](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/619))
+* FIX: You can now run `project deploy start --metadata-dir`, which deploys source in metadata format, from outside a Salesforce DX project. (GitHub issue [#2089](https://github.com/forcedotcom/cli/issues/2089), plugin-deploy-retrieve PR [#619](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/619)).  While we were at it, we made `project retrieve start` work outside a project, too, when using `target-metadata-dir`. 
  
 * FIX: You can now run `project retrieve start --pacakge-name` on an org that doesn't have source-tracking enabled. (GitHub issue [#2091](https://github.com/forcedotcom/cli/issues/2091), plugin-deploy-retrieve PR [#619](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/619))
 
