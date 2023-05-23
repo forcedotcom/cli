@@ -58,7 +58,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: You can now run `project deploy start --metadata-dir`, which deploys source in metadata format, from outside a Salesforce DX project. Similarly, `project retrieve start --target-metadata-dir` also works outside of a project. (GitHub issue [#2089](https://github.com/forcedotcom/cli/issues/2089), plugin-deploy-retrieve PR [#619](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/619)).   
  
-* FIX: You can now run `project retrieve start --pacakge-name` on an org that doesn't have source-tracking enabled. (GitHub issue [#2091](https://github.com/forcedotcom/cli/issues/2091), plugin-deploy-retrieve PR [#619](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/619))
+* FIX: You can now run `project retrieve start --package-name` on an org that doesn't have source-tracking enabled. (GitHub issue [#2091](https://github.com/forcedotcom/cli/issues/2091), plugin-deploy-retrieve PR [#619](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/619))
 
 * FIX: When you run `project deploy start` without any of the flags that specify exactly what you want to deploy (such as `--source-dir`, `--manifest`, or `--metadata`), and nothing is deployed, the command now exits with a `0` code. Previously it exited with a `1` code. (GitHub discussion [#2065](https://github.com/forcedotcom/cli/discussions/2065), plugin-deploy-retrieve PR [#619](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/619))
         
@@ -74,7 +74,7 @@ ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 1
 
     Your work-life on Windows just got a little easier, how great is that?
  
-* NEW: When the `project generate manifest` command runs into an unknown metadata type, such as from a misspelled metadata file, the error now includes handy suggestions for one or more similar metadata types that the command _does_ know about. (source-deploy-retrieve PR [#948](https://github.com/forcedotcom/source-deploy-retrieve/pull/948)
+* NEW: When the `project generate manifest` command runs into an unknown metadata type, such as from a misspelled metadata file, the error now includes handy suggestions for one or more similar metadata types that the command _does_ know about. (source-deploy-retrieve PR [#948](https://github.com/forcedotcom/source-deploy-retrieve/pull/948))
 
 * FIX: The `project deploy|retrieve start` commands now support these metadata types:
 
@@ -102,7 +102,7 @@ ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 1
 
 ## 1.77.6 (May 10, 2023)
 
-* CHANGE: After you run `org login web` and log into your org, you're now redirected to a web page that displays either success or failure, depending on whether you were able to log in successfully. You're no longer redirected to Salesforce's [frontdoor.jsp page](https://help.salesforce.com/s/articleView?id=sf.security_frontdoorjsp.htm&type=5). (sfdx-core PR [#811](https://github.com/forcedotcom/sfdx-core/pull/811)
+* CHANGE: After you run `org login web` and log into your org, you're now redirected to a web page that displays either success or failure, depending on whether you were able to log in successfully. You're no longer redirected to Salesforce's [frontdoor.jsp page](https://help.salesforce.com/s/articleView?id=sf.security_frontdoorjsp.htm&type=5). (sfdx-core PR [#811](https://github.com/forcedotcom/sfdx-core/pull/811))
 
 * FIX: We fixed the `directoryName` property for these two metadata types (associated with OAuth and mobile policies) in Salesforce CLI's metadata registry: ExtlClntAppOauthConfigurablePolicies and ExtlClntAppMobileConfigurablePolicies. (SDR PR [#947](https://github.com/forcedotcom/source-deploy-retrieve/pull/947))
 
