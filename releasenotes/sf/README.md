@@ -27,6 +27,8 @@ ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 1
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* NEW: We've grouped the multiple flags of `project deploy|retrieve start` in the `-h|--help` output so you can easily find that special flag you love so much. For example, we group the testing flags under TEST FLAGS and deleting metadata under DELETE FLAGS.  (plugin-deploy-retrieve PR [#626](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/626))
+ 
 * FIX: You can now generate a custom field of type `Number` on an object using the `schema generate field` command. (GitHub issue [#2142](https://github.com/forcedotcom/cli/issues/2142), plugin-sobject PR [#292](https://github.com/salesforcecli/plugin-sobject/pull/292)) 
 
 ## 1.79.0 (May 24, 2023) [stable]
