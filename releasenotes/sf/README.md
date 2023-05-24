@@ -29,7 +29,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: We've grouped the multiple flags of `project deploy|retrieve start` in the `-h|--help` output so you can easily find that special flag you love so much. For example, we group the testing flags under TEST FLAGS and deleting metadata under DELETE FLAGS.  (plugin-deploy-retrieve PR [#626](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/626))
  
-* NEW: Retrieve source files from your org into a directory other than the defined package directories with the new `--output-dir` flag of `project retrieve start`. If the output directory matches one of the package directories in your `sfdx-project.json` file, the command fails. (plugin-deploy-retrieve PR [#627](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/627))
+* NEW: Retrieve source files from your org into a directory other than the defined package directories with the new `--output-dir` (`-r`) flag of `project retrieve start`. If the output directory matches one of the package directories in your `sfdx-project.json` file, the command fails. (plugin-deploy-retrieve PR [#627](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/627))
  
 * FIX: You can now generate a custom field of type `Number` on an object using the `schema generate field` command. (GitHub issue [#2142](https://github.com/forcedotcom/cli/issues/2142), plugin-sobject PR [#292](https://github.com/salesforcecli/plugin-sobject/pull/292)) 
 
