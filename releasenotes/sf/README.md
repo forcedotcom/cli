@@ -21,11 +21,25 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.79.0 (May 24, 2023) [stable-rc]
+## 1.80.0 (May 31, 2023) [stable-rc]
 
 ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* NEW: We now group the multiple flags of `project deploy|retrieve start` and `org create scratch` in the `-h|--help` output so you can easily find that special flag you love so much. For example, we group the testing flags of `project deploy start` under TEST FLAGS. For `org create scratch`, we group the flags that override options in the scratch org definition file under DEFINITION FILE OVERRIDE FLAGS.  (plugin-deploy-retrieve PR [#626](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/626), plugin-org [#685](https://github.com/salesforcecli/plugin-org/pull/685))
+ 
+* NEW: Retrieve source files from your org into a directory other than the defined package directories with the new `--output-dir` (`-r`) flag of `project retrieve start`. If the output directory matches one of the package directories in your `sfdx-project.json` file, the command fails. (plugin-deploy-retrieve PR [#627](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/627))
+ 
+* FIX: You can now generate a custom field of type `Number` on an object using the `schema generate field` command. (GitHub issue [#2142](https://github.com/forcedotcom/cli/issues/2142), plugin-sobject PR [#292](https://github.com/salesforcecli/plugin-sobject/pull/292)) 
+
+* FIX: The description for the `--test-level` flag of the `project deploy start|validate` commands in their `--help` correctly refers to the `--tests` flag; previously it mentioned the non-existent `--run-tests` flag. (GitHub issue [#2117](https://github.com/forcedotcom/cli/issues/2117), plugin-deploy-retrieve PR [#622](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/622))
+
+* FIX: Deleting a single custom label component with the `project source delete` command, or with one of the destructive changes flags of `project deploy start` command, no longer deletes the entire `CustomLabels.labels-meta.xml` file. (GitHub issue [#2118](https://github.com/forcedotcom/cli/issues/2118), plugin-deploy-retrieve PR [#613](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/613))
+
+## 1.79.0 (May 24, 2023) [stable]
+
+ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 
 * NEW: You can now specify these two scratch org definition file options as command-line flags when you run `org create scratch`:
 
@@ -62,9 +76,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: When you run `project deploy start` without any of the flags that specify exactly what you want to deploy (such as `--source-dir`, `--manifest`, or `--metadata`), and nothing is deployed, the command now exits with a `0` code. Previously it exited with a `1` code. (GitHub discussion [#2065](https://github.com/forcedotcom/cli/discussions/2065), plugin-deploy-retrieve PR [#619](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/619))
         
-## 1.78.0 (May 17, 2023) [stable]
-
-ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
+## 1.78.0 (May 17, 2023)
 
 * NEW: Autocomplete now works on Windows [PowerShell](https://learn.microsoft.com/en-us/powershell/)! Partially type a Salesforce CLI command or flag, then press Tab to see all the available commands or flags. Install the feature with these steps:
 
