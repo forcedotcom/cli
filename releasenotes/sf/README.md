@@ -35,6 +35,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The description for the `--test-level` flag of the `project deploy start|validate` commands in their `--help` correctly refers to the `--tests` flag; previously it mentioned the non-existent `--run-tests` flag. (GitHub issue [#2117](https://github.com/forcedotcom/cli/issues/2117), plugin-deploy-retrieve PR [#622](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/622))
 
+* FIX: Deleting a single custom label component with the `project source delete` command, or with one of the destructive changes flags of `project deploy start` command, no longer deletes the entire `CustomLabels.labels-meta.xml` file. (GitHub issue [#2118](https://github.com/forcedotcom/cli/issues/2118), plugin-deploy-retrieve PR [#613](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/613))
+
 ## 1.79.0 (May 24, 2023) [stable]
 
 ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
