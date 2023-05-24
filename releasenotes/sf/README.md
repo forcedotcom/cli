@@ -27,11 +27,13 @@ ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 1
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* NEW: We've grouped the multiple flags of `project deploy|retrieve start` in the `-h|--help` output so you can easily find that special flag you love so much. For example, we group the testing flags under TEST FLAGS and deleting metadata under DELETE FLAGS.  (plugin-deploy-retrieve PR [#626](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/626))
+* NEW: We now group the multiple flags of `project deploy|retrieve start` and `org create scratch` in the `-h|--help` output so you can easily find that special flag you love so much. For example, we group the testing flags of `project deploy start` under TEST FLAGS. For `org create scratch`, we group the flags that override options in the scratch org definition file under DEFINITION FILE OVERRIDE FLAGS.  (plugin-deploy-retrieve PR [#626](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/626), plugin-org [#685](https://github.com/salesforcecli/plugin-org/pull/685))
  
 * NEW: Retrieve source files from your org into a directory other than the defined package directories with the new `--output-dir` (`-r`) flag of `project retrieve start`. If the output directory matches one of the package directories in your `sfdx-project.json` file, the command fails. (plugin-deploy-retrieve PR [#627](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/627))
  
 * FIX: You can now generate a custom field of type `Number` on an object using the `schema generate field` command. (GitHub issue [#2142](https://github.com/forcedotcom/cli/issues/2142), plugin-sobject PR [#292](https://github.com/salesforcecli/plugin-sobject/pull/292)) 
+
+* FIX: The description for the `--test-level` flag of the `project deploy start|validate` commands in their `--help` correctly refers to the `--tests` flag; previously it mentioned the non-existent `--run-tests` flag. (GitHub issue [#2117](https://github.com/forcedotcom/cli/issues/2117), plugin-deploy-retrieve PR [#622](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/622))
 
 ## 1.79.0 (May 24, 2023) [stable]
 
