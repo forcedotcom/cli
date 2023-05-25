@@ -30,6 +30,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 * NEW: We now group the multiple flags of `project deploy|retrieve start` and `org create scratch` in the `-h|--help` output so you can easily find that special flag you love so much. For example, we group the testing flags of `project deploy start` under TEST FLAGS. For `org create scratch`, we group the flags that override options in the scratch org definition file under DEFINITION FILE OVERRIDE FLAGS.  (plugin-deploy-retrieve PR [#626](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/626), plugin-org [#685](https://github.com/salesforcecli/plugin-org/pull/685))
  
 * NEW: Retrieve source files from your org into a directory other than the defined package directories with the new `--output-dir` (`-r`) flag of `project retrieve start`. If the output directory matches one of the package directories in your `sfdx-project.json` file, the command fails. (plugin-deploy-retrieve PR [#627](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/627))
+
+* NEW: Salesforce DX projects now support the ScoreCategory metadata type.
  
 * FIX: You can now generate a custom field of type `Number` on an object using the `schema generate field` command. (GitHub issue [#2142](https://github.com/forcedotcom/cli/issues/2142), plugin-sobject PR [#292](https://github.com/salesforcecli/plugin-sobject/pull/292)) 
 
