@@ -42,6 +42,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 * FIX: The description for the `--test-level` flag of the `project deploy start|validate` commands in their `--help` correctly refers to the `--tests` flag; previously it mentioned the non-existent `--run-tests` flag. (GitHub issue [#2117](https://github.com/forcedotcom/cli/issues/2117), plugin-deploy-retrieve PR [#622](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/622))
 
 * FIX: Deleting a single custom label component with the `project source delete` command, or with one of the destructive changes flags of `project deploy start` command, no longer deletes the entire `CustomLabels.labels-meta.xml` file. (GitHub issue [#2118](https://github.com/forcedotcom/cli/issues/2118), plugin-deploy-retrieve PR [#613](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/613))
+
+* FIX: Get JSON output from the `sfdx plugins` command with the new `--json` flag. (GitHub issue [#267]( https://github.com/forcedotcom/cli/issues/267), oclif plugin-plugin PR [#609](https://github.com/oclif/plugin-plugins/pull/609))
  
 ## 7.202.0 (May 25, 2023) [stable]
 
