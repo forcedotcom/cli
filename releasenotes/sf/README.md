@@ -29,6 +29,12 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Get JSON output from the `sf plugins` command with the new `--json` flag. (GitHub issue [#267]( https://github.com/forcedotcom/cli/issues/267), oclif plugin-plugin PR [#609](https://github.com/oclif/plugin-plugins/pull/609))
 
+* FIX: The `cmdt generate records` command correctly handles spaces and other non-alphanumeric characters in the CSV file when generating custom metadata type records. (GitHub issue [#2158](https://github.com/forcedotcom/cli/issues/2158), plugin-custom-metadata PR [#481](https://github.com/salesforcecli/plugin-custom-metadata/pull/481))
+
+* FIX: The `project deploy start` command no longer return the error `Cannot read properties of null (reading 'replace')` when Apex tests fail.  (GitHub issue [#2149](https://github.com/forcedotcom/cli/issues/2149), plugin-deploy-retrieve PR [#633](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/633))
+
+* FIX: When pushing invalid metadata components with the (deprecated) `force:source:push` command, the command incorrectly succeeds when it should fail.  The `project deploy start` command is working correctly.  (GitHub issue [#2008](https://github.com/forcedotcom/cli/issues/2008), plugin-deploy-retrieve PR [#623](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/623))
+
 ## 1.80.0 (May 31, 2023) [stable]
 
 ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
