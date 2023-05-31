@@ -27,15 +27,13 @@ ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 1
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* NEW: Use the new `jobId` value to check the status of your Experience Cloud site during the site creation or site publish process. The site creation and site publish processes are async jobs that generate a `jobId`. When you run `community create` or `community publish`, we include the `jobId` in the command results. To check the status of your site creation or site publish job, query the BackgroundOperation object and enter the `jobId` as the Id. Completed site creation and site publish jobs expire after 24 hours and are removed from the database. (plugin-community PR [#353](https://github.com/salesforcecli/plugin-community/pull/353))
- 
 * FIX: Get JSON output from the `sf plugins` command with the new `--json` flag. (GitHub issue [#267]( https://github.com/forcedotcom/cli/issues/267), oclif plugin-plugin PR [#609](https://github.com/oclif/plugin-plugins/pull/609))
 
 * FIX: The `cmdt generate records` command correctly handles spaces and other non-alphanumeric characters in the CSV file when generating custom metadata type records. (GitHub issue [#2158](https://github.com/forcedotcom/cli/issues/2158), plugin-custom-metadata PR [#481](https://github.com/salesforcecli/plugin-custom-metadata/pull/481))
 
 * FIX: The `project deploy start` command no longer return the error `Cannot read properties of null (reading 'replace')` when Apex tests fail.  (GitHub issue [#2149](https://github.com/forcedotcom/cli/issues/2149), plugin-deploy-retrieve PR [#633](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/633))
 
-* FIX: When pushing invalid metadata components with the (deprecated) `force:source:push` command, the command incorrectly succeeds when it should fail.  The `project deploy start` command is working correctly.  (GitHub issue [#2008](https://github.com/forcedotcom/cli/issues/2008), plugin-deploy-retrieve PR [#623](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/623))
+* FIX: The `project deploy start` command now displays metadata component failures in its command-line output. (GitHub issue [#2008](https://github.com/forcedotcom/cli/issues/2008), plugin-deploy-retrieve PR [#623](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/623))
 
 ## 1.80.0 (May 31, 2023) [stable]
 
