@@ -50,6 +50,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `project deploy start` command now displays metadata component failures in its command-line output. (GitHub issue [#2008](https://github.com/forcedotcom/cli/issues/2008), plugin-deploy-retrieve PR [#623](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/623))
 
+* FIX: We've fixed a number of issues related to Node.js v18.16.0. If you followed [our suggestions](https://github.com/forcedotcom/cli/issues/2125) for working around the issues, you can now return to the version of Node.js you were using before and update Salesforce CLI to the latest version. (GitHub issue [#2125](https://github.com/forcedotcom/cli/issues/2125), source-deploy-retrieve PR [#975](https://github.com/forcedotcom/source-deploy-retrieve/pull/975))
+
 ## 7.203.0 (June 1, 2023) [stable]
 
 ANNOUNCEMENTS: 
