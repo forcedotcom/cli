@@ -25,7 +25,7 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.204.0 (June 8, 2023) [stable-rc]
+## 7.204.6 (June 8, 2023) [stable-rc]
 
 ANNOUNCEMENTS: 
 
@@ -52,7 +52,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We've fixed a number of issues related to Node.js v18.16.0. If you followed [our suggestions](https://github.com/forcedotcom/cli/issues/2125) for working around the issues, you can now return to the version of Node.js you were using before and update Salesforce CLI to the latest version. (GitHub issue [#2125](https://github.com/forcedotcom/cli/issues/2125), source-deploy-retrieve PR [#975](https://github.com/forcedotcom/source-deploy-retrieve/pull/975))
 
-## 7.203.0 (June 1, 2023) [stable]
+## 7.203.6 (June 1, 2023) [stable]
 
 ANNOUNCEMENTS: 
 
