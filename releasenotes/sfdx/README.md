@@ -25,12 +25,40 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.203.0 (July 1, 2023) [stable-rc]
+## 7.204.6 (June 8, 2023) [stable-rc]
 
-ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
+ANNOUNCEMENTS: 
 
+* Check out `sf` (v2), which is now in Beta! See our [Trailblazer announcement](https://trailhead.salesforce.com/trailblazer-community/feed/0D54S00000Pf2wKSAR) for more information. 
+* If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
+--------------------------------------------
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
+* NEW: Use the new `jobId` value to check the status of your Experience Cloud site during the site creation or site publish process. The site creation and site publish processes are async jobs that generate a `jobId`. When you run `community create` or `community publish`, we include the `jobId` in the command results. To check the status of your site creation or site publish job, query the BackgroundOperation object and enter the `jobId` as the Id. Experience Cloud site IDs start with `08P`. 
+
+    For example, if you ran the `community create` command on an org with alias `community`, use this command to query its status (replace `08Pxxx` with your specific `jobID`):
+
+    ```bash
+    sf data query --query "SELECT Status FROM BackgroundOperation WHERE Id = '08Pxxx'" --target-org community
+    ```
+    
+    Completed site creation and site publish jobs expire after 24 hours and are removed from the database. (plugin-community PR [#353](https://github.com/salesforcecli/plugin-community/pull/353))
+
+* FIX: The `cmdt generate records` command correctly handles spaces and other non-alphanumeric characters in the CSV file when generating custom metadata type records. (GitHub issue [#2158](https://github.com/forcedotcom/cli/issues/2158), plugin-custom-metadata PR [#481](https://github.com/salesforcecli/plugin-custom-metadata/pull/481))
+
+* FIX: The `project deploy start` command no longer return the error `Cannot read properties of null (reading 'replace')` when Apex tests fail.  (GitHub issue [#2149](https://github.com/forcedotcom/cli/issues/2149), plugin-deploy-retrieve PR [#633](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/633))
+
+* FIX: The `project deploy start` command now displays metadata component failures in its command-line output. (GitHub issue [#2008](https://github.com/forcedotcom/cli/issues/2008), plugin-deploy-retrieve PR [#623](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/623))
+
+* FIX: We've fixed a number of issues related to Node.js v18.16.0. If you followed [our suggestions](https://github.com/forcedotcom/cli/issues/2125) for working around the issues, you can now return to the version of Node.js you were using before and update Salesforce CLI to the latest version. (GitHub issue [#2125](https://github.com/forcedotcom/cli/issues/2125), source-deploy-retrieve PR [#975](https://github.com/forcedotcom/source-deploy-retrieve/pull/975))
+
+## 7.203.6 (June 1, 2023) [stable]
+
+ANNOUNCEMENTS: 
+
+* Check out `sf` (v2), which is now in Beta! See our [Trailblazer announcement](https://trailhead.salesforce.com/trailblazer-community/feed/0D54S00000Pf2wKSAR) for more information. 
+* If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
+--------------------------------------------
 * NEW: We now group the multiple flags of `project deploy|retrieve start` and `org create scratch` in the `-h|--help` output so you can easily find that special flag you love so much. For example, we group the testing flags of `project deploy start` under TEST FLAGS. For `org create scratch`, we group the flags that override options in the scratch org definition file under DEFINITION FILE OVERRIDE FLAGS.  (plugin-deploy-retrieve PR [#626](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/626), plugin-org [#685](https://github.com/salesforcecli/plugin-org/pull/685))
  
 * NEW: Retrieve source files from your org into a directory other than the defined package directories with the new `--output-dir` (`-r`) flag of `project retrieve start`. If the output directory matches one of the package directories in your `sfdx-project.json` file, the command fails. (plugin-deploy-retrieve PR [#627](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/627))
@@ -45,9 +73,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Get JSON output from the `sfdx plugins` command with the new `--json` flag. (GitHub issue [#267]( https://github.com/forcedotcom/cli/issues/267), oclif plugin-plugin PR [#609](https://github.com/oclif/plugin-plugins/pull/609))
  
-## 7.202.0 (May 25, 2023) [stable]
-
-ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
+## 7.202.0 (May 25, 2023)
 
 * NEW: You can now specify these two scratch org definition file options as command-line flags when you run `org create scratch`:
 
