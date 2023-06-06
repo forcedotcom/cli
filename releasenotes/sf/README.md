@@ -48,6 +48,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: When running `project deploy start` with the `--json` flag, you can now also use the `--junit` and `--coverage-formatters` flags to output JUnit local test results. Previously the results weren't created if you specified `--json`. (GitHub issue [#2172](https://github.com/forcedotcom/cli/issues/2172), plugin-deploy-retrieve PR [#650](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/650))
 
+* FIX: You can now successfully add a sibling sub-topic with the `dev generate command` command. Previously, if you tried to add a sibling topic when one already existed in the plugin, the first topic was overwritten in the plugin's `package.json` file.  Now all works as expected and life is good again. (GitHub issue [#1805](https://github.com/forcedotcom/cli/issues/1805), plugin-dev PR [#335](https://github.com/salesforcecli/plugin-dev/pull/335))
+
+    Thank you [KevinGossentCap](https://github.com/KevinGossentCap) for contributing the fix!  We love it. 
+
 ## 1.81.0 (June 7, 2023) [stable]
 
 ANNOUNCEMENTS: 
