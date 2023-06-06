@@ -44,7 +44,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `project` commands that have the `-x|--manifest` flag, such as `project convert source` or `project deploy start`, correctly return an error if the specified manifest XML file is invalid. When possible, the commands also display information about what makes the file invalid.  Previously the commands silently ignored the component with the invalid XML and incorrectly displayed a successful result.  (source-deploy-retrieve PR [#996](https://github.com/forcedotcom/source-deploy-retrieve/pull/996))
 
-* FIX: Running multiple `org create scratch --alias` in parallel now correctly sets the alias for each new org. (GitHub issue [#1806](https://github.com/forcedotcom/cli/issues/1806), sfdx-core PR [#842](https://github.com/forcedotcom/sfdx-core/pull/842))
+* FIX: Running multiple commands that set an alias in parallel, such as `org create scratch --alias`, now correctly set the aliases for all the commands. Previously only one alias would be set. (GitHub issue [#1806](https://github.com/forcedotcom/cli/issues/1806), sfdx-core PR [#842](https://github.com/forcedotcom/sfdx-core/pull/842))
 
 ## 1.81.0 (June 7, 2023) [stable]
 
