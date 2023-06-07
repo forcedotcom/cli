@@ -52,7 +52,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     Many thanks to [KevinGossentCap](https://github.com/KevinGossentCap) for contributing the fix!  We love it. 
     
-* FIX: When you run `package version create|update`, Salesforce CLI now resolves dependencies using the `branch` attribute of the `dependencies` key in the `sfdx-project.json` file and not the value of the `--branch` flag, if both are set. The value of the `--branch` flag is used only if the `branch` attribute isn't specified in `sfdx-project.json`. (packaging PR [#310](https://github.com/forcedotcom/packaging/pull/310))
+* FIX: When you run `package version create|update`, Salesforce CLI now resolves dependencies using the `branch` attribute of the `dependencies` key in the `sfdx-project.json` file and not the value of the `--branch` flag, if both are set. The value of the `--branch` flag is used only if the `branch` attribute isn't specified in `sfdx-project.json`. (GitHub issue [#2183](https://github.com/forcedotcom/cli/issues/2183), packaging PR [#310](https://github.com/forcedotcom/packaging/pull/310))
 
     Woo-hoos and thanks to [David Polehonski](https://github.com/David-Polehonski) for finding the issue, and then contributing the fix. We love this one too. 
 
