@@ -43,6 +43,11 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 * FIX: You can now successfully add a sibling sub-topic with the `dev generate command` command. Previously, if you tried to add a sibling topic when one already existed in the plugin, the first topic was overwritten in the plugin's `package.json` file.  Now all works as expected and life is good again. (GitHub issue [#1805](https://github.com/forcedotcom/cli/issues/1805), plugin-dev PR [#335](https://github.com/salesforcecli/plugin-dev/pull/335))
 
     Thank you [KevinGossentCap](https://github.com/KevinGossentCap) for contributing the fix!  We love it. 
+    
+* FIX: When you run `package version create|update`, Salesforce CLI now resolves dependencies using the `branch` attribute of the `dependencies` key in the `sfdx-project.json` file and not the value of the `--branch` flag, if both are set. The value of the `--branch` flag is used only if the `branch` attribute isn't specified in `sfdx-project.json`. (packaging PR [#310](https://github.com/forcedotcom/packaging/pull/310))
+
+    Woo-hoos and thanks to [David Polehonski](https://github.com/David-Polehonski) for finding the issue, and then contributing the fix. We love this one too. 
+
 
 ## 7.204.6 (June 8, 2023) [stable]
 
