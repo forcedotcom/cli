@@ -25,7 +25,31 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.204.6 (June 8, 2023) [stable-rc]
+## 7.205.6 (June 15, 2023) [stable-rc]
+
+ANNOUNCEMENTS: 
+
+* Check out `sf` (v2), which is now in Beta! See our [Trailblazer announcement](https://trailhead.salesforce.com/trailblazer-community/feed/0D54S00000Pf2wKSAR) for more information. 
+* If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
+--------------------------------------------
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+* FIX: The `project` commands that have the `-x|--manifest` flag, such as `project convert source` or `project deploy start`, correctly return an error if the specified manifest XML file is invalid. When possible, the commands also display information about what makes the file invalid.  Previously the commands silently ignored the component with the invalid XML and incorrectly displayed a successful result.  (source-deploy-retrieve PR [#996](https://github.com/forcedotcom/source-deploy-retrieve/pull/996))
+
+* FIX: Running multiple commands that set an alias in parallel, such as `org create scratch --alias`, now correctly set the aliases for all the commands. Previously only one alias would be set. (GitHub issue [#1806](https://github.com/forcedotcom/cli/issues/1806), sfdx-core PR [#842](https://github.com/forcedotcom/sfdx-core/pull/842))
+
+* FIX: When running `project deploy start` with the `--json` flag, you can now also use the `--junit` and `--coverage-formatters` flags to output JUnit local test results. Previously the results weren't created if you specified `--json`. (GitHub issue [#2172](https://github.com/forcedotcom/cli/issues/2172), plugin-deploy-retrieve PR [#650](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/650))
+
+* FIX: You can now successfully add a sibling sub-topic with the `dev generate command` command. Previously, if you tried to add a sibling topic when one already existed in the plugin, the first topic was overwritten in the plugin's `package.json` file.  Now all works as expected and life is good again. (GitHub issue [#1805](https://github.com/forcedotcom/cli/issues/1805), plugin-dev PR [#335](https://github.com/salesforcecli/plugin-dev/pull/335))
+
+    Thank you [KevinGossentCap](https://github.com/KevinGossentCap) for contributing the fix!  We love it. 
+    
+* FIX: When you run `package version create|update`, Salesforce CLI now resolves dependencies using the `branch` attribute of the `dependencies` key in the `sfdx-project.json` file and not the value of the `--branch` flag, if both are set. The value of the `--branch` flag is used only if the `branch` attribute isn't specified in `sfdx-project.json`. (GitHub issue [#2183](https://github.com/forcedotcom/cli/issues/2183), packaging PR [#310](https://github.com/forcedotcom/packaging/pull/310))
+
+    Woo-hoos and thanks to [David Polehonski](https://github.com/David-Polehonski) for finding the issue, and then contributing the fix. We love this one too. 
+
+
+## 7.204.6 (June 8, 2023) [stable]
 
 ANNOUNCEMENTS: 
 
@@ -52,13 +76,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We've fixed a number of issues related to Node.js v18.16.0. If you followed [our suggestions](https://github.com/forcedotcom/cli/issues/2125) for working around the issues, you can now return to the version of Node.js you were using before and update Salesforce CLI to the latest version. (GitHub issue [#2125](https://github.com/forcedotcom/cli/issues/2125), source-deploy-retrieve PR [#975](https://github.com/forcedotcom/source-deploy-retrieve/pull/975))
 
-## 7.203.6 (June 1, 2023) [stable]
+## 7.203.6 (June 1, 2023)
 
-ANNOUNCEMENTS: 
-
-* Check out `sf` (v2), which is now in Beta! See our [Trailblazer announcement](https://trailhead.salesforce.com/trailblazer-community/feed/0D54S00000Pf2wKSAR) for more information. 
-* If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
---------------------------------------------
 * NEW: We now group the multiple flags of `project deploy|retrieve start` and `org create scratch` in the `-h|--help` output so you can easily find that special flag you love so much. For example, we group the testing flags of `project deploy start` under TEST FLAGS. For `org create scratch`, we group the flags that override options in the scratch org definition file under DEFINITION FILE OVERRIDE FLAGS.  (plugin-deploy-retrieve PR [#626](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/626), plugin-org [#685](https://github.com/salesforcecli/plugin-org/pull/685))
  
 * NEW: Retrieve source files from your org into a directory other than the defined package directories with the new `--output-dir` (`-r`) flag of `project retrieve start`. If the output directory matches one of the package directories in your `sfdx-project.json` file, the command fails. (plugin-deploy-retrieve PR [#627](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/627))
