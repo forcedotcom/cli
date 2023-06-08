@@ -44,7 +44,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `project` commands that have the `-x|--manifest` flag, such as `project convert source` or `project deploy start`, correctly return an error if the specified manifest XML file is invalid. When possible, the commands also display information about what makes the file invalid.  Previously the commands silently ignored the component with the invalid XML and incorrectly displayed a successful result.  (source-deploy-retrieve PR [#996](https://github.com/forcedotcom/source-deploy-retrieve/pull/996))
 
-* FIX: Running multiple commands that set an alias in parallel, such as `org create scratch --alias`, now correctly set the aliases for all the commands. Previously only one alias would be set. (GitHub issue [#1806](https://github.com/forcedotcom/cli/issues/1806), sfdx-core PR [#842](https://github.com/forcedotcom/sfdx-core/pull/842))
+* FIX: Running multiple commands that set an alias in parallel, such as `org create scratch --alias`, now correctly set the aliases for all the commands. Previously only one alias would be set. (GitHub issues [#1810](https://github.com/forcedotcom/cli/issues/1810) and [#1806](https://github.com/forcedotcom/cli/issues/1806), sfdx-core PR [#842](https://github.com/forcedotcom/sfdx-core/pull/842))
 
 * FIX: When running `project deploy start` with the `--json` flag, you can now also use the `--junit` and `--coverage-formatters` flags to output JUnit local test results. Previously the results weren't created if you specified `--json`. (GitHub issue [#2172](https://github.com/forcedotcom/cli/issues/2172), plugin-deploy-retrieve PR [#650](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/650))
 
