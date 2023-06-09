@@ -21,7 +21,7 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.82.0 (June 14, 2023) [stable-rc]
+## 1.82.6 (June 14, 2023) [stable-rc]
 
 ANNOUNCEMENTS: 
 
@@ -56,7 +56,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     Woo-hoos and thanks to [David Polehonski](https://github.com/David-Polehonski) for finding the issue, and then contributing the fix. We love this one too. 
 
-## 1.81.0 (June 7, 2023) [stable]
+## 1.81.6 (June 7, 2023) [stable]
 
 ANNOUNCEMENTS: 
 
@@ -71,7 +71,7 @@ ANNOUNCEMENTS:
 
 * FIX: The `project deploy start` command now displays metadata component failures in its command-line output. (GitHub issue [#2008](https://github.com/forcedotcom/cli/issues/2008), plugin-deploy-retrieve PR [#623](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/623))
 
-## 1.80.0 (May 31, 2023)
+## 1.80.6 (May 31, 2023)
 
 * NEW: We now group the multiple flags of `project deploy|retrieve start` and `org create scratch` in the `-h|--help` output so you can easily find that special flag you love so much. For example, we group the testing flags of `project deploy start` under TEST FLAGS. For `org create scratch`, we group the flags that override options in the scratch org definition file under DEFINITION FILE OVERRIDE FLAGS.  (plugin-deploy-retrieve PR [#626](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/626), plugin-org [#685](https://github.com/salesforcecli/plugin-org/pull/685))
  
