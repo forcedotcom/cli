@@ -92,7 +92,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Get JSON output from the `sfdx plugins` command with the new `--json` flag. (GitHub issue [#267]( https://github.com/forcedotcom/cli/issues/267), oclif plugin-plugin PR [#609](https://github.com/oclif/plugin-plugins/pull/609))
  
-## 7.202.0 (May 25, 2023)
+## 7.202.6 (May 25, 2023)
 
 * NEW: You can now specify these two scratch org definition file options as command-line flags when you run `org create scratch`:
 
