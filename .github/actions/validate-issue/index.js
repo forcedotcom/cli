@@ -5,7 +5,7 @@ const { context, getOctokit } = require("@actions/github");
 const execSync = require("child_process").execSync;
 const semver = require("semver");
 
-(async function() {
+async function run() {
   try {
     // Set this env var to true to test locally
     // Example: GHA_VALIDATE_ISSUE_LOCAL=true node .github/actions/validate-issue/index.js
@@ -28,55 +28,87 @@ const semver = require("semver");
     const repo = context.repo.repo;
     const issue_number = issue.number;
 
+    console.log("Issue URL:", issue.html_url);
+
     const { body } = issue;
+    const { login: author } = issue.user;
+    const { data: comments } = await getAllComments();
 
-    const sfVersionRegex = "@salesforce/cli/([0-9]+.[0-9]+.[0-9]+(-[a-zA-Z0-9]+.[0-9]+)?)";
-    const sfdxVersionRegex = "sfdx-cli/([0-9]+.[0-9]+.[0-9]+(-[a-zA-Z0-9]+.[0-9]+)?)";
-    const pluginVersionsRegex = "pluginVersions|Plugin Version:";
+    // For version checks, we only care about comments from the author
+    const authorComments = comments.filter((comment) => comment.user.login === author);
+    // Build an array of the issue body and all of the comment bodies
+    const bodies = [body, ...authorComments.map((comment) => comment.body)];
 
-    const sfVersion = body.match(sfVersionRegex)?.[1];
-    const sfdxVersion = body.match(sfdxVersionRegex)?.[1];
-    const pluginVersionsIncluded = body.match(pluginVersionsRegex);
+    const sfVersionRegex = /@salesforce\/cli\/([0-9]+.[0-9]+.[0-9]+(-[a-zA-Z0-9]+.[0-9]+)?)/g;
+    const sfdxVersionRegex = /sfdx-cli\/([0-9]+.[0-9]+.[0-9]+(-[a-zA-Z0-9]+.[0-9]+)?)/g;
+    const pluginVersionsRegex = /pluginVersions|Plugin Version:/;
 
-    if ((sfVersion || sfdxVersion) && pluginVersionsIncluded) {
+    // Search all bodies and get an array of all versions found (first capture group)
+    const sfVersions = bodies.map((body) => [...body.matchAll(sfVersionRegex)].map((match) => match[1])).flat();
+    const sfdxVersions = bodies.map((body) => [...body.matchAll(sfdxVersionRegex)].map((match) => match[1])).flat();
+    // If we match pluginVersionRegex anywhere, we assume the user has provided the full --verbose output
+    const pluginVersionsIncluded = bodies.some((body) => body.match(pluginVersionsRegex));
+
+    console.log("sfVersions", sfVersions);
+    console.log("sfdxVersions", sfdxVersions);
+    console.log("pluginVersionsIncluded", pluginVersionsIncluded);
+
+    if ((sfVersions.length > 0 || sfdxVersions.length > 0) && pluginVersionsIncluded) {
       // FUTURE TODO:
       // - Check for bundled plugins that are user installed (user) or linked (link)
       // - Could do a check to see if the users has a prerelease version installed
+      let valid = true;
 
-      if (sfVersion && sfVersion.startsWith("1.")) {
-        // TODO: Eventually suggest using sf@v2
-        const { old, latest } = compareVersions("@salesforce/cli", sfVersion);
+      if (sfVersions.length > 0) {
+        const sfLatest = getLatestVersion("@salesforce/cli");
+        const oneSatisfies = sfVersions.some((version) => semver.gte(version, sfLatest));
 
-        if (old) {
-          const oldSf = getFile("./messages/old-cli.md", { THE_USER: issue.user.login, USER_CLI: "sf", USER_VERSION: sfVersion, LATEST_VERSION: latest });
+        if (!oneSatisfies) {
+          const oldSf = getFile("./messages/old-cli.md", { THE_AUTHOR: author, USER_CLI: "sf", USER_VERSION: sfVersions.join("`, `"), LATEST_VERSION: sfLatest });
           postComment(oldSf);
-          addMoreInfoLabel();
+          valid = false;
         }
       }
-      if (sfdxVersion && sfdxVersion.startsWith("7.")) {
-        // TODO: Eventually suggest using sf@v2
-        const { old, latest } = compareVersions("sfdx-cli", sfdxVersion);
+      if (sfdxVersions.length > 0) {
+        // TODO: Eventually suggest using sf@v2, a new md template could be created
+        const sfdxLatest = getLatestVersion("sfdx-cli");
+        const oneSatisfies = sfdxVersions.some((version) => semver.gte(version, sfdxLatest));
 
-        if (old) {
-          const oldSfdx = getFile("./messages/old-cli.md", { THE_USER: issue.user.login, USER_CLI: "sfdx", USER_VERSION: sfdxVersion, LATEST_VERSION: latest });
+        if (!oneSatisfies) {
+          const oldSfdx = getFile("./messages/old-cli.md", { THE_AUTHOR: author, USER_CLI: "sfdx", USER_VERSION: sfdxVersions.join("`, `"), LATEST_VERSION: sfdxLatest });
           postComment(oldSfdx);
-          addMoreInfoLabel();
+          valid = false;
         }
       }
 
-      return;
+      if (valid) {
+        console.log("All information provided is valid!");
+        removeLabel("more information needed");
+        addLabel("investigating");
+        // This label will prevent the action from running again after version info has been confirmed
+        // Otherwise, this action will continue to trigger after every weekly release as `latest` is bumped
+        addLabel("validated");
+      } else {
+        console.log("Information provided is NOT valid");
+        addLabel("more information needed");
+        removeLabel("investigating");
+      }
     } else {
-      const message = getFile("./messages/provide-version.md", { THE_USER: issue.user.login });
+      console.log("Full version information was not provided");
+      const message = getFile("./messages/provide-version.md", { THE_AUTHOR: issue.user.login });
       postComment(message);
-      addMoreInfoLabel();
+      addLabel("more information needed");
+      removeLabel("investigating");
     }
 
     // ---------
     // FUNCTIONS
     // ---------
-    async function postComment(body) {
-      const { data: comments } = await octokit.rest.issues.listComments({ owner, repo, issue_number });
+    async function getAllComments() {
+      return await octokit.rest.issues.listComments({ owner, repo, issue_number });
+    }
 
+    async function postComment(body) {
       // Check that this comment has not been previously commented
       if (comments.length) {
         if (comments.some((comment) => comment.body === body)) {
@@ -85,37 +117,42 @@ const semver = require("semver");
         }
       }
 
-      return octokit.rest.issues.createComment({ owner, repo, issue_number, body });
+      return await octokit.rest.issues.createComment({ owner, repo, issue_number, body });
     }
 
-    function addMoreInfoLabel() {
-      return octokit.rest.issues.addLabels({
-        owner,
-        repo,
-        issue_number,
-        labels: ["more information needed"],
-      });
-      return;
+    async function addLabel(label) {
+      await octokit.rest.issues.addLabels({ owner, repo, issue_number, labels: [label] });
     }
 
-    function compareVersions(plugin, installed) {
+    async function removeLabel(label) {
+      try {
+        await octokit.rest.issues.removeLabel({ owner, repo, issue_number, name: label });
+      } catch (error) {
+        if (error.status === 404) {
+          console.log(`Cannot remove label '${label}' since it was not applied`);
+          return;
+        }
+        throw error;
+      }
+    }
+
+    function getLatestVersion(plugin) {
       const distTags = execSync(`npm view ${plugin} dist-tags --json`).toString();
-      const latest = JSON.parse(distTags).latest;
-      const old = semver.lt(installed, latest);
-
-      return {
-        old,
-        latest,
-      };
+      return JSON.parse(distTags).latest;
     }
 
     function getFile(filename, replacements) {
-      const contents = fs.readFileSync(path.join(__dirname, filename), "utf8");
-      return Object.entries(replacements || {}).reduce((acc, [key, value]) => {
-        return acc.replace(new RegExp(key, "g"), value);
-      }, contents);
+      let contents = fs.readFileSync(path.join(__dirname, filename), "utf8");
+
+      Object.entries(replacements || {}).map(([key, value]) => {
+        contents = contents.replaceAll(key, value);
+      });
+
+      return contents;
     }
   } catch (error) {
     setFailed(error.message);
   }
-})();
+}
+
+run();

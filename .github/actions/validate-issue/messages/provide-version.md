@@ -1,4 +1,4 @@
-Hello @THE_USER :wave: It looks like you didn't include the full Salesforce CLI version information in your issue.
+Hello @THE_AUTHOR :wave: It looks like you didn't include the full Salesforce CLI version information in your issue.
 Please provide the output of `version --verbose --json` for the CLI you're using (`sf` or `sfdx`).
 
 A few more things to check:
