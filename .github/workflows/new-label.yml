@@ -46,6 +46,21 @@ jobs:
           If you require immediate assistance, contact Salesforce Customer Support.
     - name: log action output
       run: echo ${{steps.run_action.outputs.message}}
+  validate-new-issue:
+    if: ${{ github.event.label.name == 'investigating' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3.0.0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+      - name: Install dependencies
+        run: yarn install
+      - name: Validate issue
+        id: validate-issue
+        uses: ./.github/actions/validate-issue
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN}}
   new-feature:
     if: ${{ github.event.label.name == 'feature' && !contains(github.event.issue.labels.*.name, 'owned by another team') }}
     runs-on: ubuntu-latest
