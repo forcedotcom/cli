@@ -30,6 +30,12 @@ ANNOUNCEMENTS:
 --------------------------------------------
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
+* FIX: Running `project deploy start` with the environment variable `SFDX_USE_PROGRESS_BAR=false` now produces the expected output, similar to how the `force:source:deploy` worked. Specifically, the output doesn't include the bar graphics, it does include test completion and errors, and the output goes to stderr. (GitHub issue [#2103](https://github.com/forcedotcom/cli/issues/2103), plugin-deploy-retrieve PR [#662](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/662))
+
+* FIX: When the `project deploy start` command fails, the output now wraps if your terminal is too narrow; previously the information was truncated. (GitHub issue [#2048](https://github.com/forcedotcom/cli/issues/2048 ), plugin-deploy-retrieve PR [#654](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/654))
+
+* FIX: The `project retrieve start --package-name <packagename>` now retrieves only the specified package, and not the `unpackaged` package. (GitHub issue [#2148](https://github.com/forcedotcom/cli/issues/2148), plugin-deploy-retrieve PR [#658](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/658))
+
 
 ## 1.82.6 (June 14, 2023) [stable]
 
