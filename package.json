@@ -1,6 +1,6 @@
 {
   "name": "cli",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "Issues Only repository for the community to submit feedback, raise issues and propose enhancements to the Salesforce CLI.",
   "scripts": {
     "build": "tsc --build"
