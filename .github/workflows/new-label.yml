@@ -23,7 +23,7 @@ jobs:
         run: yarn install
       - name: issue comment
         id: issue_comment
-        uses: ./
+        uses: ./.github/actions/new-issue
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           label: "owned by another team"
@@ -45,7 +45,7 @@ jobs:
         run: yarn install
       - name: issue comment
         id: issue_comment
-        uses: ./
+        uses: ./.github/actions/new-issue
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           label: "investigating"
@@ -82,7 +82,7 @@ jobs:
         run: yarn install
       - name: issue comment
         id: issue_comment
-        uses: ./
+        uses: ./.github/actions/new-issue
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           label: "feature"
@@ -105,7 +105,7 @@ jobs:
         run: yarn install
       - name: issue comment
         id: issue_comment
-        uses: ./
+        uses: ./.github/actions/new-issue
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           message: >
