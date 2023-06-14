@@ -1,16 +1,22 @@
-const fs = require("fs");
-const path = require("path");
-const { getInput, setOutput, setFailed } = require("@actions/core");
-const { context, getOctokit } = require("@actions/github");
-const execSync = require("child_process").execSync;
-const semver = require("semver");
+/*
+ * Copyright (c) 2023, salesforce.com, inc.
+ * All rights reserved.
+ * Licensed under the BSD 3-Clause license.
+ * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+ */
+
+import { getInput, setFailed } from "@actions/core";
+import { context, getOctokit } from "@actions/github";
+import { execSync } from "child_process";
+import * as semver from "semver";
+import { readFileSync } from "fs";
+import * as path from "path";
 
 async function run() {
   try {
-    // Set this env var to true to test locally
-    // Example: GHA_VALIDATE_ISSUE_LOCAL=true node .github/actions/validate-issue/index.js
-    const local = process.env.GHA_VALIDATE_ISSUE_LOCAL;
-    const issue = local ? JSON.parse(getFile("./sample-context.json")) : context.payload.issue;
+    // Uncomment for local testing
+    // const issue = JSON.parse(getFile("./mock/sample-context.json"));
+    const issue = context.payload.issue;
 
     if (!issue) {
       setFailed("github.context.payload.issue does not exist");
@@ -27,13 +33,13 @@ async function run() {
       return;
     }
 
-    const token = local ? process.env.GH_TOKEN : getInput("repo-token");
-
     // Create a GitHub client
+    const token = getInput("repo-token");
     const octokit = getOctokit(token);
 
     // Get owner and repo from context
-    if (local) process.env.GITHUB_REPOSITORY = "iowillhoit/gha-sandbox";
+    // uncomment env var for local testing
+    // process.env.GITHUB_REPOSITORY = "iowillhoit/gha-sandbox";
     const owner = context.repo.owner;
     const repo = context.repo.repo;
     const issue_number = issue.number;
@@ -45,9 +51,9 @@ async function run() {
     const { data: comments } = await getAllComments();
 
     // For version checks, we only care about comments from the author
-    const authorComments = comments.filter((comment) => comment.user.login === author);
+    const authorComments = comments.filter((comment) => comment?.user?.login === author);
     // Build an array of the issue body and all of the comment bodies
-    const bodies = [body, ...authorComments.map((comment) => comment.body)];
+    const bodies = [body, ...authorComments.map((comment) => comment.body)].filter((body): body is string => body !== undefined);
 
     const sfVersionRegex = /@salesforce\/cli\/([0-9]+.[0-9]+.[0-9]+(-[a-zA-Z0-9]+.[0-9]+)?)/g;
     const sfdxVersionRegex = /sfdx-cli\/([0-9]+.[0-9]+.[0-9]+(-[a-zA-Z0-9]+.[0-9]+)?)/g;
@@ -57,7 +63,7 @@ async function run() {
     const sfVersions = bodies.map((body) => [...body.matchAll(sfVersionRegex)].map((match) => match[1])).flat();
     const sfdxVersions = bodies.map((body) => [...body.matchAll(sfdxVersionRegex)].map((match) => match[1])).flat();
     // If we match pluginVersionRegex anywhere, we assume the user has provided the full --verbose output
-    const pluginVersionsIncluded = bodies.some((body) => body.match(pluginVersionsRegex));
+    const pluginVersionsIncluded = bodies.some((body) => body?.match(pluginVersionsRegex));
 
     console.log("sfVersions", sfVersions);
     console.log("sfdxVersions", sfdxVersions);
@@ -118,7 +124,7 @@ async function run() {
       return await octokit.rest.issues.listComments({ owner, repo, issue_number });
     }
 
-    async function postComment(body) {
+    async function postComment(body: string) {
       // Check that this comment has not been previously commented
       if (comments.length) {
         if (comments.some((comment) => comment.body === body)) {
@@ -130,14 +136,15 @@ async function run() {
       return await octokit.rest.issues.createComment({ owner, repo, issue_number, body });
     }
 
-    async function addLabel(label) {
+    async function addLabel(label: string) {
       await octokit.rest.issues.addLabels({ owner, repo, issue_number, labels: [label] });
     }
 
-    async function removeLabel(label) {
+    async function removeLabel(label: string) {
       try {
         await octokit.rest.issues.removeLabel({ owner, repo, issue_number, name: label });
-      } catch (error) {
+      } catch (err) {
+        const error = err as Error & { status: number };
         if (error.status === 404) {
           console.log(`Cannot remove label '${label}' since it was not applied`);
           return;
@@ -146,13 +153,13 @@ async function run() {
       }
     }
 
-    function getLatestVersion(plugin) {
+    function getLatestVersion(plugin: string) {
       const distTags = execSync(`npm view ${plugin} dist-tags --json`).toString();
       return JSON.parse(distTags).latest;
     }
 
-    function getFile(filename, replacements) {
-      let contents = fs.readFileSync(path.join(__dirname, filename), "utf8");
+    function getFile(filename: string, replacements: { [key: string]: string } | undefined) {
+      let contents = readFileSync(path.join(__dirname, filename), "utf8");
 
       Object.entries(replacements || {}).map(([key, value]) => {
         contents = contents.replaceAll(key, value);
@@ -160,7 +167,8 @@ async function run() {
 
       return contents;
     }
-  } catch (error) {
+  } catch (err) {
+    const error = err as Error;
     setFailed(error.message);
   }
 }

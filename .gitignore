@@ -31,7 +31,6 @@ Thumbs.db
 
 # Ignore built ts files
 __tests__/runner/*
-lib
 
 package-lock.json
 /.idea

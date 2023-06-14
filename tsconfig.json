@@ -1,7 +1,7 @@
 {
-  "extends": "@salesforce/dev-config/tsconfig-strict",
-  "compilerOptions": {
-    "outDir": "./lib"
-  },
-  "include": ["src/**/*.ts"]
+  "files": [],
+  "references": [
+    { "path": "./.github/actions/new-issue" },
+    { "path": "./.github/actions/validate-issue" }
+  ]
 }

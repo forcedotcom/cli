@@ -12,6 +12,8 @@ NOTICE: GitHub is not a mechanism for receiving support under any agreement or S
 
 If you are interested in contributing, please take a look at the [CONTRIBUTING](.github/CONTRIBUTING.md) guide.
 
+When contributing to Github Actions, modify the `.github/actions/**/src` files. A pre-commit hook will build and commit the compiled `lib` files. When adding a new action, add the path to the `references` in the base `tsconfig.json`
+
 # A note on CLI Unification
 
 We recently introduced a new executable `sf` to Salesforce CLI. This is the realization of our strategy to unify our developer tooling across all Salesforce clouds and brands. See [Get Started with CLI Unification](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_sf_intro.htm) for more information.
