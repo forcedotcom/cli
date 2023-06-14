@@ -38,7 +38,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `project retrieve start --package-name <packagename>` now retrieves only the specified package, and not the `unpackaged` package. (GitHub issue [#2148](https://github.com/forcedotcom/cli/issues/2148), plugin-deploy-retrieve PR [#658](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/658))
 
-* FIX: Tables in command output are now not truncated by default. As a result, when you run `org display --verbose`, for example, you now see the entire Access Token and Sfdx Auth Url values. (GitHub issue [#1974](https://github.com/forcedotcom/cli/issues/1974), sf-plugins-core PR [#318](https://github.com/salesforcecli/sf-plugins-core/pull/318))
+* FIX: Tables in command output are no longer truncated by default. As a result, when you run `org display --verbose`, for example, you now see the entire Access Token and Sfdx Auth Url values. (GitHub issue [#1974](https://github.com/forcedotcom/cli/issues/1974), sf-plugins-core PR [#318](https://github.com/salesforcecli/sf-plugins-core/pull/318))
 
 * FIX: The `project retrieve start` command now correctly ignores files in non-default package directories if the files are listed in the `.forceignore` file.  (GitHub issue [#2126](https://github.com/forcedotcom/cli/issues/2126), plugin-deploy-retrieve PR [#652](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/652), source-tracking PR [#412](https://github.com/forcedotcom/source-tracking/pull/412))
 
