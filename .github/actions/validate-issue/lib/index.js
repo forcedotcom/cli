@@ -15,7 +15,7 @@ const path = require("path");
 async function run() {
     try {
         // Uncomment for local testing
-        // const issue = JSON.parse(getFile("./mock/sample-context.json"));
+        // const issue = JSON.parse(getFile("../mock/sample-context.json"));
         const issue = github_1.context.payload.issue;
         if (!issue) {
             (0, core_1.setFailed)("github.context.payload.issue does not exist");
@@ -67,7 +67,7 @@ async function run() {
                 const sfLatest = getLatestVersion("@salesforce/cli");
                 const oneSatisfies = sfVersions.some((version) => semver.gte(version, sfLatest));
                 if (!oneSatisfies) {
-                    const oldSf = getFile("./messages/old-cli.md", { THE_AUTHOR: author, USER_CLI: "sf", USER_VERSION: sfVersions.join("`, `"), LATEST_VERSION: sfLatest });
+                    const oldSf = getFile("../messages/old-cli.md", { THE_AUTHOR: author, USER_CLI: "sf", USER_VERSION: sfVersions.join("`, `"), LATEST_VERSION: sfLatest });
                     postComment(oldSf);
                     valid = false;
                 }
@@ -77,7 +77,7 @@ async function run() {
                 const sfdxLatest = getLatestVersion("sfdx-cli");
                 const oneSatisfies = sfdxVersions.some((version) => semver.gte(version, sfdxLatest));
                 if (!oneSatisfies) {
-                    const oldSfdx = getFile("./messages/old-cli.md", { THE_AUTHOR: author, USER_CLI: "sfdx", USER_VERSION: sfdxVersions.join("`, `"), LATEST_VERSION: sfdxLatest });
+                    const oldSfdx = getFile("../messages/old-cli.md", { THE_AUTHOR: author, USER_CLI: "sfdx", USER_VERSION: sfdxVersions.join("`, `"), LATEST_VERSION: sfdxLatest });
                     postComment(oldSfdx);
                     valid = false;
                 }
@@ -98,7 +98,7 @@ async function run() {
         }
         else {
             console.log("Full version information was not provided");
-            const message = getFile("./messages/provide-version.md", { THE_AUTHOR: issue.user.login });
+            const message = getFile("../messages/provide-version.md", { THE_AUTHOR: issue.user.login });
             postComment(message);
             addLabel("more information needed");
             removeLabel("investigating");
