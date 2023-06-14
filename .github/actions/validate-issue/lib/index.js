@@ -25,9 +25,9 @@ async function run() {
         // This will prevent noise on tickets already being investigated
         // This can be removed once the action has been running for a while
         const creationDate = new Date(issue.created_at);
-        const cutoffDate = new Date("2023-06-11T00:00:00Z");
+        const cutoffDate = new Date("2023-06-14T00:00:00Z");
         if (creationDate < cutoffDate) {
-            console.log("Issue was created before 6/11/2023, skipping");
+            console.log("Issue was created before 6/14/2023, skipping");
             return;
         }
         // Create a GitHub client
