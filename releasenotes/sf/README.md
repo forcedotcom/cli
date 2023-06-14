@@ -30,6 +30,8 @@ ANNOUNCEMENTS:
 --------------------------------------------
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
+* CHANGE: We've removed all the `beta` aliases for the `force package` and `force package1` commands. As a result, you can no longer run commands like `force package beta version create`; use `package version create` instead. (plugin-packaging PR [#356](https://github.com/salesforcecli/plugin-packaging/pull/356))
+
 * FIX: Running `project deploy start` with the environment variable `SFDX_USE_PROGRESS_BAR=false` now produces the expected output, similar to how the `force:source:deploy` worked. Specifically, the output doesn't include the bar graphics, it does include test completion and errors, and the output goes to stderr. (GitHub issue [#2103](https://github.com/forcedotcom/cli/issues/2103), plugin-deploy-retrieve PR [#662](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/662))
 
 * FIX: When the `project deploy start` command fails, the output now wraps if your terminal is too narrow; previously the information was truncated. (GitHub issue [#2048](https://github.com/forcedotcom/cli/issues/2048 ), plugin-deploy-retrieve PR [#654](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/654))
@@ -40,6 +42,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `project retrieve start` command now correctly ignores files in non-default package directories if the files are listed in the `.forceignore` file.  (GitHub issue [#2126](https://github.com/forcedotcom/cli/issues/2126), plugin-deploy-retrieve PR [#652](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/652), source-tracking PR [#412](https://github.com/forcedotcom/source-tracking/pull/412))
 
+* FIX: Let's say you run `project deploy start --dry-run --metadata-dir` to validate a deploy of files in metadata format. You can now run `project deploy quick` without errors. (GitHub issue [#2098](https://github.com/forcedotcom/cli/issues/2098), plugin-deploy-retrieve PR [#651](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/651))
+
+* FIX: When you run `project deploy start|validate` and it fails due to insufficient code coverage, you now get a warning; previously it failed without explanation. (GitHub issue [#2179](https://github.com/forcedotcom/cli/issues/2179), plugin-deploy-retrieve PR [#656](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/656))
 
 ## 1.82.6 (June 14, 2023) [stable]
 
