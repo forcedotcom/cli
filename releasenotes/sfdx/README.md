@@ -25,14 +25,39 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.205.6 (June 15, 2023) [stable-rc]
+## 7.206.6 (June 22, 2023) [stable-rc]
+
+ANNOUNCEMENTS: 
+
+* Check out `sf` (v2), which is now in Beta! See our [Trailblazer announcement](https://trailhead.salesforce.com/trailblazer-community/feed/0D54S00000Pf2wKSAR) for more information. 
+* Looking for information to help you migrate your `sfdx`-style commands to their `sf`-style equivalents?  Read the new migration topics in the [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_migrate.htm). 
+* If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
+--------------------------------------------
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+
+* CHANGE: We've removed all the `beta` aliases for the `force package` and `force package1` commands. As a result, you can no longer run commands like `force package beta version create`; use `package version create` instead. (plugin-packaging PR [#356](https://github.com/salesforcecli/plugin-packaging/pull/356))
+
+* FIX: Running `project deploy start` with the environment variable `SFDX_USE_PROGRESS_BAR=false` now produces the expected output, similar to how the `force:source:deploy` worked. Specifically, the output doesn't include the bar graphics, it does include test completion and errors, and the output goes to stderr. (GitHub issue [#2103](https://github.com/forcedotcom/cli/issues/2103), plugin-deploy-retrieve PR [#662](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/662))
+
+* FIX: When the `project deploy start` command fails, the output now wraps if your terminal is too narrow; previously the information was truncated. (GitHub issue [#2048](https://github.com/forcedotcom/cli/issues/2048 ), plugin-deploy-retrieve PR [#654](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/654))
+
+* FIX: The `project retrieve start --package-name <packagename>` now retrieves only the specified package, and not the `unpackaged` package. (GitHub issue [#2148](https://github.com/forcedotcom/cli/issues/2148), plugin-deploy-retrieve PR [#658](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/658))
+
+* FIX: Tables in command output are no longer truncated by default. As a result, when you run `org display --verbose`, for example, you now see the entire Access Token and Sfdx Auth Url values. (GitHub issue [#1974](https://github.com/forcedotcom/cli/issues/1974), sf-plugins-core PR [#318](https://github.com/salesforcecli/sf-plugins-core/pull/318))
+
+* FIX: The `project retrieve start` command now correctly ignores files in non-default package directories if the files are listed in the `.forceignore` file.  (GitHub issue [#2126](https://github.com/forcedotcom/cli/issues/2126), plugin-deploy-retrieve PR [#652](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/652), source-tracking PR [#412](https://github.com/forcedotcom/source-tracking/pull/412))
+
+* FIX: Let's say you run `project deploy start --dry-run --metadata-dir` to validate a deploy of files in metadata format. You can now run `project deploy quick` on the validated job without errors. (GitHub issue [#2098](https://github.com/forcedotcom/cli/issues/2098), plugin-deploy-retrieve PR [#651](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/651))
+
+* FIX: When you run `project deploy start|validate` and it fails due to insufficient code coverage, you now get a warning; previously it failed without explanation. (GitHub issue [#2179](https://github.com/forcedotcom/cli/issues/2179), plugin-deploy-retrieve PR [#656](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/656))
+ 
+## 7.205.6 (June 15, 2023) [stable]
 
 ANNOUNCEMENTS: 
 
 * Check out `sf` (v2), which is now in Beta! See our [Trailblazer announcement](https://trailhead.salesforce.com/trailblazer-community/feed/0D54S00000Pf2wKSAR) for more information. 
 * If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 --------------------------------------------
-These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
 
 * FIX: The `project` commands that have the `-x|--manifest` flag, such as `project convert source` or `project deploy start`, correctly return an error if the specified manifest XML file is invalid. When possible, the commands also display information about what makes the file invalid.  Previously the commands silently ignored the component with the invalid XML and incorrectly displayed a successful result.  (source-deploy-retrieve PR [#996](https://github.com/forcedotcom/source-deploy-retrieve/pull/996))
 
@@ -49,14 +74,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     Woo-hoos and thanks to [David Polehonski](https://github.com/David-Polehonski) for finding the issue, and then contributing the fix. We love this one too. 
 
 
-## 7.204.6 (June 8, 2023) [stable]
-
-ANNOUNCEMENTS: 
-
-* Check out `sf` (v2), which is now in Beta! See our [Trailblazer announcement](https://trailhead.salesforce.com/trailblazer-community/feed/0D54S00000Pf2wKSAR) for more information. 
-* If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
---------------------------------------------
-These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+## 7.204.6 (June 8, 2023)
 
 * NEW: Use the new `jobId` value to check the status of your Experience Cloud site during the site creation or site publish process. The site creation and site publish processes are async jobs that generate a `jobId`. When you run `community create` or `community publish`, we include the `jobId` in the command results. To check the status of your site creation or site publish job, query the BackgroundOperation object and enter the `jobId` as the Id. Experience Cloud site IDs start with `08P`. 
 
