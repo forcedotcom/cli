@@ -30,6 +30,7 @@ Additional documentation:
 ANNOUNCEMENTS: 
 
 * Check out `sf` (v2), which is now in Beta! See our [Trailblazer announcement](https://trailhead.salesforce.com/trailblazer-community/feed/0D54S00000Pf2wKSAR) for more information. 
+* Looking for information to help you migrate your `sfdx`-style commands to their `sf`-style equivalents?  Read the new migration topics in the [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_migrate.htm). 
 * If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 --------------------------------------------
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
