@@ -39,6 +39,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We now display a message with useful information when `org create scratch` fails due to a problem in the `settings` in the definition file. (GitHub issue [#2227](https://github.com/forcedotcom/cli/issues/2227), [sfdx-core](https://github.com/forcedotcom/sfdx-core/commit/39d1124804ee845533888878c9a7aeb2c0ed8c25))
 
+* FIX: If you pass a config variable with a typo to `config unset`, the command asks if you meant the var with the correct spelling. If you answer `Y`, and the command is successful, it no longer displays the `Unknown config name` error.  (GitHub issue [2019](https://github.com/forcedotcom/cli/issues/2019), plugin-settings PR [#291](https://github.com/salesforcecli/plugin-settings/pull/291))
+
+* FIX: We reverted to the previous release of [`isomorphic-git`](https://isomorphic-git.org/) (a Salesforce CLI dependency) due to issues in version `1.24.0`. (GitHub issue [#2194](https://github.com/forcedotcom/cli/issues/2194), source-tracking PR [#417](https://github.com/forcedotcom/source-tracking/pull/417))
+
 ## 1.83.6 (June 21, 2023) [stable]
 
 ANNOUNCEMENTS: 
