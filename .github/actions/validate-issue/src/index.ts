@@ -99,21 +99,21 @@ async function run() {
 
       if (valid) {
         console.log("All information provided is valid!");
-        removeLabel("more information needed");
+        removeLabel("more information required");
         addLabel("investigating");
         // This label will prevent the action from running again after version info has been confirmed
         // Otherwise, this action will continue to trigger after every weekly release as `latest` is bumped
         addLabel("validated");
       } else {
         console.log("Information provided is NOT valid");
-        addLabel("more information needed");
+        addLabel("more information required");
         removeLabel("investigating");
       }
     } else {
       console.log("Full version information was not provided");
       const message = getFile("../messages/provide-version.md", { THE_AUTHOR: issue.user.login });
       postComment(message);
-      addLabel("more information needed");
+      addLabel("more information required");
       removeLabel("investigating");
     }
 
