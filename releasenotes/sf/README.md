@@ -28,7 +28,16 @@ ANNOUNCEMENTS:
 * Check out `sf` (v2), which is now in Beta! See our [Trailblazer announcement](https://trailhead.salesforce.com/trailblazer-community/feed/0D54S00000Pf2wKSAR) for more information. 
 * If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 --------------------------------------------
-These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* NEW: Run specific Apex tests when run `project delete source` with the new `RunSpecifiedTests` value of the `--test-level` flag. Just like the `project deploy start` command, specify the tests with the new `--tests` flag.  Previously you were required to run either all local or org tests.  For example:
+
+    ```bash
+    sf project delete source --metadata ApexClass:ExcitingClass --test-level RunSpecifiedTests --tests ApexClass:TestExcitingClass --target-org myorg
+    ```
+    (GitHub issue [#2175](https://github.com/forcedotcom/cli/issues/2175), plugin-deploy-retrieve [#659](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/659))
+
+* FIX: We now display a message with useful information when `org create scratch` fails due to a problem in the `settings` in the definition file. (GitHub issue [#2227](https://github.com/forcedotcom/cli/issues/2227), [sfdx-core](https://github.com/forcedotcom/sfdx-core/commit/39d1124804ee845533888878c9a7aeb2c0ed8c25))
 
 ## 1.83.6 (June 21, 2023) [stable]
 
