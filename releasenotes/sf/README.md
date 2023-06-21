@@ -30,6 +30,24 @@ ANNOUNCEMENTS:
 --------------------------------------------
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* NEW: Are you ready to convert your CI scripts to start using the `sf`-style commands? For example, you want to start using `org create scratch` to create a scratch org rather than `force:org:create`. If you're ready, use our new `dev convert script` command to convert most, if not all, of a script. First install the `plugin-dev` plugin.
+
+    ```bash
+    sf plugins install @salesforce/plugin-dev
+    ```
+
+    Then pass your script file to the `dev convert script` command with the `--script` flag.
+
+    ```bash
+    sf dev convert script --script ./myScript.yml
+    ```
+
+    The command scans your script file; when it finds an `sfdx` command or flag, it prompts whether you want to replace it with the new `sf` equivalent. Don't worry, the command doesn’t change your original file; instead it creates a file with the replacements, such as `myScript-converted.yml`.
+
+   There's not always a one-to-one mapping between the `sfdx` and `sf` commands. As a result, `dev convert script` can convert a large portion of your script, but it likely can’t convert _all_ of it. In these cases, the command doesn't replace the `sfdx` command but instead adds a comment that starts with `#ERROR`.
+
+  Finally, remember to test the converted script to make sure it's working as you expect! And check out the new [migration topics](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_migrate.htm) in the Salesforce CLI Reference Guide. 
+
 * NEW: Run specific Apex tests when run `project delete source` with the new `RunSpecifiedTests` value of the `--test-level` flag. Just like the `project deploy start` command, specify the tests with the new `--tests` flag.  Previously you were required to run either all local or org tests.  For example:
 
     ```bash
