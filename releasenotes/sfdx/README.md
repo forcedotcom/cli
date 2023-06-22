@@ -25,7 +25,46 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.206.6 (June 22, 2023) [stable-rc]
+## 7.207.6 (June 29, 2023) [stable-rc]
+ANNOUNCEMENTS: 
+
+* Check out `sf` (v2), which is now in Beta! See our [Trailblazer announcement](https://trailhead.salesforce.com/trailblazer-community/feed/0D54S00000Pf2wKSAR) for more information. 
+* If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
+--------------------------------------------
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* NEW: Are you ready to convert your CI scripts to start using the `sf`-style commands? For example, you want to start using `org create scratch` to create a scratch org rather than `force:org:create`. If you're ready, use our new `dev convert script` command to convert most, if not all, of a script. First install the `plugin-dev` plugin.
+
+    ```bash
+    sf plugins install @salesforce/plugin-dev
+    ```
+
+    Then pass your script file to the `dev convert script` command with the `--script` flag.
+
+    ```bash
+    sf dev convert script --script ./myScript.yml
+    ```
+
+    The command scans your script file; when it finds an `sfdx` command or flag, it prompts whether you want to replace it with the new `sf` equivalent. Don't worry, the command doesn’t change your original file; instead it creates a file with the replacements, such as `myScript-converted.yml`.
+
+   There's not always a one-to-one mapping between the `sfdx` and `sf` commands. As a result, `dev convert script` can convert a large portion of your script, but it likely can’t convert _all_ of it. In these cases, the command doesn't replace the `sfdx` command but instead adds a comment that starts with `#ERROR`.
+
+  Finally, remember to test the converted script to make sure it's working as you expect! And check out the new [migration topics](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_migrate.htm) in the Salesforce CLI Reference Guide.
+
+* NEW: Run specific Apex tests when run `project delete source` with the new `RunSpecifiedTests` value of the `--test-level` flag. Just like the `project deploy start` command, specify the tests with the new `--tests` flag.  Previously you were required to run either all local or org tests.  For example:
+
+    ```bash
+    sf project delete source --metadata ApexClass:ExcitingClass --test-level RunSpecifiedTests --tests ApexClass:TestExcitingClass --target-org myorg
+    ```
+    (GitHub issue [#2175](https://github.com/forcedotcom/cli/issues/2175), plugin-deploy-retrieve [#659](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/659))
+
+* FIX: We now display a message with useful information when `org create scratch` fails due to a problem in the `settings` in the definition file. (GitHub issue [#2227](https://github.com/forcedotcom/cli/issues/2227), [sfdx-core](https://github.com/forcedotcom/sfdx-core/commit/39d1124804ee845533888878c9a7aeb2c0ed8c25))
+
+* FIX: If you pass a config variable with a typo to `config unset`, the command asks if you meant the var with the correct spelling. If you answer `Y`, and the command is successful, it no longer displays the `Unknown config name` error.  (GitHub issue [2019](https://github.com/forcedotcom/cli/issues/2019), plugin-settings PR [#291](https://github.com/salesforcecli/plugin-settings/pull/291))
+
+* FIX: We reverted to the previous release of [`isomorphic-git`](https://isomorphic-git.org/) (a Salesforce CLI dependency) due to issues in version `1.24.0`. (GitHub issue [#2194](https://github.com/forcedotcom/cli/issues/2194), source-tracking PR [#417](https://github.com/forcedotcom/source-tracking/pull/417))
+  
+## 7.206.6 (June 22, 2023) [stable]
 
 ANNOUNCEMENTS: 
 
@@ -51,7 +90,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: When you run `project deploy start|validate` and it fails due to insufficient code coverage, you now get a warning; previously it failed without explanation. (GitHub issue [#2179](https://github.com/forcedotcom/cli/issues/2179), plugin-deploy-retrieve PR [#656](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/656))
  
-## 7.205.6 (June 15, 2023) [stable]
+## 7.205.6 (June 15, 2023)
 
 ANNOUNCEMENTS: 
 
@@ -72,7 +111,6 @@ ANNOUNCEMENTS:
 * FIX: When you run `package version create|update`, Salesforce CLI now resolves dependencies using the `branch` attribute of the `dependencies` key in the `sfdx-project.json` file and not the value of the `--branch` flag, if both are set. The value of the `--branch` flag is used only if the `branch` attribute isn't specified in `sfdx-project.json`. (GitHub issue [#2183](https://github.com/forcedotcom/cli/issues/2183), packaging PR [#310](https://github.com/forcedotcom/packaging/pull/310))
 
     Woo-hoos and thanks to [David Polehonski](https://github.com/David-Polehonski) for finding the issue, and then contributing the fix. We love this one too. 
-
 
 ## 7.204.6 (June 8, 2023)
 
