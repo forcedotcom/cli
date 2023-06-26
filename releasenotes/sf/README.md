@@ -21,7 +21,7 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.84.6 (June 28, 2023) [stable-rc]
+## 1.84.4 (June 28, 2023) [stable-rc]
 
 ANNOUNCEMENTS: 
 
