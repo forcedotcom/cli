@@ -21,7 +21,7 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.84.6 (June 28, 2023) [stable-rc]
+## 1.85.6 (July 5, 2023) [stable-rc]
 
 ANNOUNCEMENTS: 
 
@@ -29,6 +29,14 @@ ANNOUNCEMENTS:
 * If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 --------------------------------------------
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+## 1.84.6 (June 28, 2023) [stable]
+
+ANNOUNCEMENTS: 
+
+* Check out `sf` (v2), which is now in Beta! See our [Trailblazer announcement](https://trailhead.salesforce.com/trailblazer-community/feed/0D54S00000Pf2wKSAR) for more information. 
+* If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
+--------------------------------------------
 
 * NEW: Are you ready to convert your CI scripts to start using the `sf`-style commands? For example, you want to start using `org create scratch` to create a scratch org rather than `force:org:create`. If you're ready, use our new `dev convert script` command to convert most, if not all, of a script. First install the `plugin-dev` plugin.
 
@@ -61,13 +69,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We reverted to the previous release of [`isomorphic-git`](https://isomorphic-git.org/) (a Salesforce CLI dependency) due to issues in version `1.24.0`. (GitHub issue [#2194](https://github.com/forcedotcom/cli/issues/2194), source-tracking PR [#417](https://github.com/forcedotcom/source-tracking/pull/417))
 
-## 1.83.6 (June 21, 2023) [stable]
-
-ANNOUNCEMENTS: 
-
-* Check out `sf` (v2), which is now in Beta! See our [Trailblazer announcement](https://trailhead.salesforce.com/trailblazer-community/feed/0D54S00000Pf2wKSAR) for more information. 
-* If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
---------------------------------------------
+## 1.83.6 (June 21, 2023)
 
 * CHANGE: We've removed all the `beta` aliases for the `force package` and `force package1` commands. As a result, you can no longer run commands like `force package beta version create`; use `package version create` instead. (plugin-packaging PR [#356](https://github.com/salesforcecli/plugin-packaging/pull/356))
 
