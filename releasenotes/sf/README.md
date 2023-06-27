@@ -45,6 +45,20 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
      ```
      (GitHub issue [#1959](https://github.com/forcedotcom/cli/issues/1959), plugin-data PR [#602](https://github.com/salesforcecli/plugin-data/pull/602))
 
+* NEW: When using the [pre-deployment string replacement feature](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_string_replace.htm), you can now specify that if an environment variable isn’t set, then _remove_ a string from the source file. Use the new `allowUnsetEnvVariable` property together with the `replaceWithEnv` property in the `replacements` section of your `sfdx-project.json` file.  In this example, if the environment variable SOME_ENV_THAT_CAN_BE_BLANK isn’t set, the string `myNS__` in the `myClass.cls` file is removed when the file is deployed. If the environment variable is set to a value, then that value replaces the `myNS__` string. 
+
+    ```json
+    "replacements": [
+      {
+        "filename": "/force-app/main/default/classes/myClass.cls",
+        "stringToReplace": "myNS__",
+        "replaceWithEnv": "SOME_ENV_THAT_CAN_BE_BLANK",
+        "allowUnsetEnvVariable": true
+      }
+    ]
+  ```
+    (GitHub issue [#2070](https://github.com/forcedotcom/cli/issues/2070), source-deploy-retrieve PR [#1019](https://github.com/forcedotcom/source-deploy-retrieve/pull/1019))
+
 * FIX: We no longer display `Unexpected end of JSON input` when you run `org list` and one of your org authorization files is corrupt. We now display information for all orgs whose authorization files are fine, and a warning about the org that has the corrupt auth file. You can then delete the corrupt file and reauthorize the org.   (GitHub issue [#2066](https://github.com/forcedotcom/cli/issues/2066), sfdx-core PR [#869](https://github.com/forcedotcom/sfdx-core/pull/869))
 
 * FIX: We now provide a better error message if your `.forceignore` file includes only one of the two source files for MetadataWithContent metadata types and you try to deploy or retrieve the type. For example, the `MyClass` Apex class consist of two source files: `MyClass.cls` and `MyClass.cls-meta.xml`. If you want to ignore the `MyClass` Apex class, you must list both these files (or use an asterisk) in your `.forceignore` file. (GitHub issue [#2237](https://github.com/forcedotcom/cli/issues/2237), source-deploy-retrieve PR [#1020](https://github.com/forcedotcom/source-deploy-retrieve/pull/1020))
