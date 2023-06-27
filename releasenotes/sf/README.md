@@ -67,7 +67,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: You can now set the `--instance-url` flag to a value that includes the `lightning` string as long as it's part of your actual My Domain name. For example, `https://mycompanyname-lightning.my.salesforce.com` is valid because the My Domain name itself includes `-lightning`. But we continue to not allow Lightning domain instance URLs, such as `https://mydomain.lightning.force.com`.  (GitHub issue [#2241](https://github.com/forcedotcom/cli/issues/2241), plugin-auth PR [#732](https://github.com/salesforcecli/plugin-auth/pull/732))
 
-* FIX: Salesforce DX project now support these metadata types:
+* FIX: Salesforce DX projects now support these metadata types:
 
     - ExtlClntAppSampleConfigurablePolicies (previously called ExtlClntAppMobileConfigurablePolicies)
     - ExtlClntAppSampleSettings (previously called ExtlClntAppMobileSettings)
