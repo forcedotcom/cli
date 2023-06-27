@@ -30,11 +30,15 @@ ANNOUNCEMENTS:
 --------------------------------------------
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* NEW: Use the new `--api-version` flag of the `project generate` command to specify the value of the `sourceApiVersion` property in the `sfdx-project.json` file of your new project. The flag value overrides the `org-api-version` configuration variable, if set. If neither the flag nor the config var is set, then the `sourceApiVersion` property is set to the default value.  (GitHub issue [#1939](https://github.com/forcedotcom/cli/issues/1939), plugin-templates PR [#150](https://github.com/salesforcecli/plugin-templates/pull/150))
+
 * FIX: We no longer display `Unexpected end of JSON input` when you run `org list` and one of your org authorization files is corrupt. We now display information for all orgs whose authorization files are fine, and a warning about the org that has the corrupt auth file. You can then delete the corrupt file and reauthorize the org.   (GitHub issue [#2066](https://github.com/forcedotcom/cli/issues/2066), sfdx-core PR [#869](https://github.com/forcedotcom/sfdx-core/pull/869))
 
 * FIX: We now provide a better error message if your `.forceignore` file includes only one of the two source files for MetadataWithContent metadata types and you try to deploy or retrieve the type. For example, the `MyClass` Apex class consist of two source files: `MyClass.cls` and `MyClass.cls-meta.xml`. If you want to ignore the `MyClass` Apex class, you must list both these files (or use an asterisk) in your `.forceignore` file. (GitHub issue [#2237](https://github.com/forcedotcom/cli/issues/2237), source-deploy-retrieve PR [#1020](https://github.com/forcedotcom/source-deploy-retrieve/pull/1020))
 
 * FIX: Source tracking now correctly handles metadata type names that contain special characters, such as parentheses.  (GitHub issue [#2212](https://github.com/forcedotcom/cli/issues/2212), source-tracking PR [#421](https://github.com/forcedotcom/source-tracking/pull/421))
+
+* FIX: You can now set the `--instance-url` flag to a value that includes the `lightning` string as long as it's part of your actual My Domain name. For example, `https://mycompanyname-lightning.my.salesforce.com` is valid because the My Domain name itself includes `-lightning`. But we continue to not allow Lightning domain instance URLs, such as `https://mydomain.lightning.force.com`.  (GitHub issue [#2241](https://github.com/forcedotcom/cli/issues/2241), plugin-auth PR [#732](https://github.com/salesforcecli/plugin-auth/pull/732))
 
 ## 1.84.4 (June 28, 2023) [stable]
 
