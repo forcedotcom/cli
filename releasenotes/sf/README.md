@@ -45,7 +45,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
      ```
      (GitHub issue [#1959](https://github.com/forcedotcom/cli/issues/1959), plugin-data PR [#602](https://github.com/salesforcecli/plugin-data/pull/602))
 
-* NEW: When using the [pre-deployment string replacement feature](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_string_replace.htm), you can now specify that if an environment variable isn’t set, then _remove_ a string from the source file. Use the new `allowUnsetEnvVariable` property together with the `replaceWithEnv` property in the `replacements` section of your `sfdx-project.json` file.  In this example, if the environment variable SOME_ENV_THAT_CAN_BE_BLANK isn’t set, the string `myNS__` in the `myClass.cls` file is removed when the file is deployed. If the environment variable is set to a value, then that value replaces the `myNS__` string. 
+* NEW: When using the [pre-deployment string replacement feature](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_string_replace.htm), you can now specify that if an environment variable isn’t set, then _remove_ a string from the source file. Use the new `allowUnsetEnvVariable` property together with the `replaceWithEnv` property in the `replacements` section of your `sfdx-project.json` file.
+
+    In this example, if the environment variable SOME_ENV_THAT_CAN_BE_BLANK isn’t set, the string `myNS__` in the `myClass.cls` file is removed when the file is deployed. If the environment variable is set to a value, then that value replaces the `myNS__` string. 
 
     ```json
     "replacements": [
