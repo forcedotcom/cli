@@ -30,7 +30,20 @@ ANNOUNCEMENTS:
 --------------------------------------------
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* NEW: Use the new `--api-version` flag of the `project generate` command to specify the value of the `sourceApiVersion` property in the `sfdx-project.json` file of your new project. The flag value overrides the `org-api-version` configuration variable, if set. If neither the flag nor the config var is set, then the `sourceApiVersion` property is set to the default value.  (GitHub issue [#1939](https://github.com/forcedotcom/cli/issues/1939), plugin-templates PR [#150](https://github.com/salesforcecli/plugin-templates/pull/150))
+* NEW: Specify the value of the `sourceApiVersion` property in the generated `sfdx-project.json` project file with the new `--api-version` flag of the `project generate` command. The flag value overrides the `org-api-version` configuration variable, if set. If neither the flag nor the config var is set, then the `sourceApiVersion` property is set to the default value.  For example:
+
+    ```bash
+    sf project generate --name myFabProject --api-version 58.0
+    ``` 
+
+    (GitHub issue [#1939](https://github.com/forcedotcom/cli/issues/1939), plugin-templates PR [#150](https://github.com/salesforcecli/plugin-templates/pull/150))
+
+* NEW: Include deleted records and archived activities when you run a SOQL query with the `data query` command by specifying the new `--all-rows` Boolean flag. This feature is equivalent to using the [ALL ROWS keyword when executing a SOQL query from Apex](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/langCon_apex_SOQL_query_all_rows.htm). For example:
+
+     ```bash
+     sf data query --query "SELECT Id, Name, Account.Name FROM Contact" --all-rows
+     ```
+     (GitHub issue [#1959](https://github.com/forcedotcom/cli/issues/1959), plugin-data PR [#602](https://github.com/salesforcecli/plugin-data/pull/602))
 
 * FIX: We no longer display `Unexpected end of JSON input` when you run `org list` and one of your org authorization files is corrupt. We now display information for all orgs whose authorization files are fine, and a warning about the org that has the corrupt auth file. You can then delete the corrupt file and reauthorize the org.   (GitHub issue [#2066](https://github.com/forcedotcom/cli/issues/2066), sfdx-core PR [#869](https://github.com/forcedotcom/sfdx-core/pull/869))
 
