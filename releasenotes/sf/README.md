@@ -21,7 +21,7 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.85.6 (July 5, 2023) [stable-rc]
+## 1.85.8 (July 5, 2023) [stable-rc]
 
 ANNOUNCEMENTS: 
 
@@ -76,7 +76,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     - ExtlClntAppSampleConfigurablePolicies (previously called ExtlClntAppMobileConfigurablePolicies)
     - ExtlClntAppSampleSettings (previously called ExtlClntAppMobileSettings)
 
-## 1.84.4 (June 28, 2023) [stable]
+## 1.84.7 (June 28, 2023) [stable]
 
 ANNOUNCEMENTS: 
 
