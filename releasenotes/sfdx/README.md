@@ -25,13 +25,66 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.207.3 (June 29, 2023) [stable-rc]
+## 7.208.6 (July 6, 2023) [stable-rc]
+
 ANNOUNCEMENTS: 
 
 * Check out `sf` (v2), which is now in Beta! See our [Trailblazer announcement](https://trailhead.salesforce.com/trailblazer-community/feed/0D54S00000Pf2wKSAR) for more information. 
 * If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 --------------------------------------------
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* NEW: Specify the value of the `sourceApiVersion` property in the generated `sfdx-project.json` project file with the new `--api-version` flag of the `project generate` command. The flag value overrides the `org-api-version` configuration variable, if set. If neither the flag nor the config var is set, then the `sourceApiVersion` property is set to the default value.  For example:
+
+    ```bash
+    sfdx project generate --name myFabProject --api-version 58.0
+    ``` 
+
+    (GitHub issue [#1939](https://github.com/forcedotcom/cli/issues/1939), plugin-templates PR [#150](https://github.com/salesforcecli/plugin-templates/pull/150))
+
+* NEW: Include deleted records and archived activities when you run a SOQL query with the `data query` command by specifying the new `--all-rows` Boolean flag. This feature is equivalent to using the [ALL ROWS keyword when executing a SOQL query from Apex](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/langCon_apex_SOQL_query_all_rows.htm). For example:
+
+     ```bash
+     sfdx data query --query "SELECT Id, Name, Account.Name FROM Contact" --all-rows
+     ```
+     (GitHub issue [#1959](https://github.com/forcedotcom/cli/issues/1959), plugin-data PR [#602](https://github.com/salesforcecli/plugin-data/pull/602))
+
+* NEW: When using the [pre-deployment string replacement feature](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_string_replace.htm), you can now specify that if an environment variable isn’t set, then _remove_ a string from the source file. Use the new `allowUnsetEnvVariable` property together with the `replaceWithEnv` property in the `replacements` section of your `sfdx-project.json` file.
+
+    In this example, if the environment variable SOME_ENV_THAT_CAN_BE_BLANK isn’t set, the string `myNS__` in the `myClass.cls` file is removed when the file is deployed. If the environment variable is set to a value, then that value replaces the `myNS__` string. 
+
+    ```json
+    "replacements": [
+      {
+        "filename": "/force-app/main/default/classes/myClass.cls",
+        "stringToReplace": "myNS__",
+        "replaceWithEnv": "SOME_ENV_THAT_CAN_BE_BLANK",
+        "allowUnsetEnvVariable": true
+      }
+    ]
+  ```
+    (GitHub issue [#2070](https://github.com/forcedotcom/cli/issues/2070), source-deploy-retrieve PR [#1019](https://github.com/forcedotcom/source-deploy-retrieve/pull/1019))
+
+* FIX: We no longer display `Unexpected end of JSON input` when you run `org list` and one of your org authorization files is corrupt. We now display information for all orgs whose authorization files are fine, and a warning about the org that has the corrupt auth file. You can then delete the corrupt file and reauthorize the org.   (GitHub issue [#2066](https://github.com/forcedotcom/cli/issues/2066), sfdx-core PR [#869](https://github.com/forcedotcom/sfdx-core/pull/869))
+
+* FIX: We now provide a better error message if your `.forceignore` file includes only one of the two source files for MetadataWithContent metadata types and you try to deploy or retrieve the type. For example, the `MyClass` Apex class consist of two source files: `MyClass.cls` and `MyClass.cls-meta.xml`. If you want to ignore the `MyClass` Apex class, you must list both these files (or use an asterisk) in your `.forceignore` file. (GitHub issue [#2237](https://github.com/forcedotcom/cli/issues/2237), source-deploy-retrieve PR [#1020](https://github.com/forcedotcom/source-deploy-retrieve/pull/1020))
+
+* FIX: Source tracking now correctly handles metadata type names that contain special characters, such as parentheses.  (GitHub issue [#2212](https://github.com/forcedotcom/cli/issues/2212), source-tracking PR [#421](https://github.com/forcedotcom/source-tracking/pull/421))
+
+* FIX: You can now set the `--instance-url` flag to a value that includes the `lightning` string as long as it's part of your actual My Domain name. For example, `https://mycompanyname-lightning.my.salesforce.com` is valid because the My Domain name itself includes `-lightning`. But we continue to not allow Lightning domain instance URLs, such as `https://mydomain.lightning.force.com`.  (GitHub issue [#2241](https://github.com/forcedotcom/cli/issues/2241), plugin-auth PR [#732](https://github.com/salesforcecli/plugin-auth/pull/732))
+
+* FIX: Salesforce DX projects now support these metadata types:
+
+    - ExtlClntAppSampleConfigurablePolicies (previously called ExtlClntAppMobileConfigurablePolicies)
+    - ExtlClntAppSampleSettings (previously called ExtlClntAppMobileSettings)
+
+## 7.207.3 (June 29, 2023) [stable]
+
+ANNOUNCEMENTS: 
+
+* Check out `sf` (v2), which is now in Beta! See our [Trailblazer announcement](https://trailhead.salesforce.com/trailblazer-community/feed/0D54S00000Pf2wKSAR) for more information. 
+* If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
+--------------------------------------------
 
 * NEW: Are you ready to convert your CI scripts to start using the `sf`-style commands? For example, you want to start using `org create scratch` to create a scratch org rather than `force:org:create`. If you're ready, use our new `dev convert script` command to convert most, if not all, of a script. First install the `plugin-dev` plugin.
 
@@ -64,15 +117,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We reverted to the previous release of [`isomorphic-git`](https://isomorphic-git.org/) (a Salesforce CLI dependency) due to issues in version `1.24.0`. (GitHub issue [#2194](https://github.com/forcedotcom/cli/issues/2194), source-tracking PR [#417](https://github.com/forcedotcom/source-tracking/pull/417))
   
-## 7.206.6 (June 22, 2023) [stable]
-
-ANNOUNCEMENTS: 
-
-* Check out `sf` (v2), which is now in Beta! See our [Trailblazer announcement](https://trailhead.salesforce.com/trailblazer-community/feed/0D54S00000Pf2wKSAR) for more information. 
-* Looking for information to help you migrate your `sfdx`-style commands to their `sf`-style equivalents?  Read the new migration topics in the [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_migrate.htm). 
-* If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
---------------------------------------------
-These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change. 
+## 7.206.6 (June 22, 2023)
 
 * CHANGE: We've removed all the `beta` aliases for the `force package` and `force package1` commands. As a result, you can no longer run commands like `force package beta version create`; use `package version create` instead. (plugin-packaging PR [#356](https://github.com/salesforcecli/plugin-packaging/pull/356))
 
@@ -91,12 +136,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 * FIX: When you run `project deploy start|validate` and it fails due to insufficient code coverage, you now get a warning; previously it failed without explanation. (GitHub issue [#2179](https://github.com/forcedotcom/cli/issues/2179), plugin-deploy-retrieve PR [#656](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/656))
  
 ## 7.205.6 (June 15, 2023)
-
-ANNOUNCEMENTS: 
-
-* Check out `sf` (v2), which is now in Beta! See our [Trailblazer announcement](https://trailhead.salesforce.com/trailblazer-community/feed/0D54S00000Pf2wKSAR) for more information. 
-* If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
---------------------------------------------
 
 * FIX: The `project` commands that have the `-x|--manifest` flag, such as `project convert source` or `project deploy start`, correctly return an error if the specified manifest XML file is invalid. When possible, the commands also display information about what makes the file invalid.  Previously the commands silently ignored the component with the invalid XML and incorrectly displayed a successful result.  (source-deploy-retrieve PR [#996](https://github.com/forcedotcom/source-deploy-retrieve/pull/996))
 
