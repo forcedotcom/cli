@@ -69,6 +69,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: You can now set the `--instance-url` flag to a value that includes the `lightning` string as long as it's part of your actual My Domain name. For example, `https://mycompanyname-lightning.my.salesforce.com` is valid because the My Domain name itself includes `-lightning`. But we continue to not allow Lightning domain instance URLs, such as `https://mydomain.lightning.force.com`.  (GitHub issue [#2241](https://github.com/forcedotcom/cli/issues/2241), plugin-auth PR [#732](https://github.com/salesforcecli/plugin-auth/pull/732))
 
+* FIX: When a bulk data command, such as `data delete bulk`, fails, we now return an exit code of 1. Previously we incorrectly returned an exit code of 0. (GitHub issue [#1648](https://github.com/forcedotcom/cli/issues/1648), plugin-data PR [#601](https://github.com/salesforcecli/plugin-data/pull/601))
+
 * FIX: Salesforce DX projects now support these metadata types:
 
     - ExtlClntAppSampleConfigurablePolicies (previously called ExtlClntAppMobileConfigurablePolicies)
