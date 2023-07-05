@@ -1,10 +1,8 @@
 # Salesforce CLI Release Notes
 
-Here are the new and changed features in recent Salesforce CLI releases.
-
 We publish a new stable version of Salesforce CLI on Wednesdays. At the same time we also publish a release candidate which contains changes that will likely be in next week's stable release. We also publish nightly releases every night. Run `sf version` to display the version installed on your computer. 
 
-If you installed Salesforce CLI using the installers, run `sf update` to update to the latest available stable version. Check out these other update options:
+If you installed Salesforce CLI using the installers or TAR files, run `sf update` to update to the latest available stable version. Check out these other update options:
 
 * Run `sf update stable-rc` to update to this week's release candidate and `sf update nightly` to update to the most recent nightly. To return to the stable version, run `sf update stable`. 
 * Use the `--version` flag to update to an older version, such as `sf update --version 2.0.1`.  
