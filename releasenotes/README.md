@@ -6,7 +6,7 @@ If you installed Salesforce CLI using the installers or TAR files, run `sf updat
 
 * Run `sf update stable-rc` to update to this week's release candidate and `sf update nightly` to update to the most recent nightly. To return to the stable version, run `sf update stable`. 
 * Use the `--version` flag to update to an older version, such as `sf update --version 2.0.1`.  
-* Use the `--available` flag to view all available older versions you can update to or `-interactive` to update interactively.
+* Use the `--available` flag to view all available older versions you can update to or `--interactive` to update interactively.
 
 If you installed using `npm`:
 
