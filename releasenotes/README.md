@@ -2,9 +2,7 @@
 
 Here are the new and changed features in recent Salesforce CLI releases.
 
-We publish a new `stable` version of `sf` on Thursdays. At the same time we also publish the `stable-rc` release candidate which contains changes that will likely be in next week's stable release. We also publish nightly releases every night.
-
-Run `sf version` to display the version installed on your computer. 
+We publish a new stable version of Salesforce CLI on Wednesdays. At the same time we also publish a release candidate which contains changes that will likely be in next week's stable release. We also publish nightly releases every night. Run `sf version` to display the version installed on your computer. 
 
 If you installed Salesforce CLI using the installers, run `sf update` to update to the latest available stable version. Check out these other update options:
 
@@ -20,12 +18,12 @@ If you installed using `npm`:
 
 If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_autocomplete.htm), run `sf autocomplete --refresh-cache` after you update Salesforce CLI to ensure that autocomplete works correctly on any new commands.
 
-Report and read about issues you run into [here](https://github.com/forcedotcom/cli/issues). Join the discussion about new features we're considering [here](https://github.com/forcedotcom/cli/discussions). 
+Report and read about issues [here](https://github.com/forcedotcom/cli/issues). Join the discussion about new features we're considering [here](https://github.com/forcedotcom/cli/discussions). 
 
 Release notes for previous releases:
 
-* [sfdx (v7)](./sfdx/README.md)
-* [sf (v1)](./sf/README.md)
+* [`sfdx` (v7)](./sfdx/README.md)
+* [`sf` (v1)](./sf/README.md)
 
 Additional documentation:
 
@@ -34,6 +32,6 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.0.8 (July 12, 2023) [stable-rc]
+## 2.0.1 (July 12, 2023) [stable-rc]
 
 Welcome to the GA of `sf` (v2)!
