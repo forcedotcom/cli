@@ -30,7 +30,7 @@ ANNOUNCEMENTS:
 --------------------------------------------
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* FIX: When you run `org delete scratch` to delete your default org, the CLI now also unsets the `target-org` configuration variable and any aliases which point to the deleted org.  (sfdx-core PR [#874](https://github.com/forcedotcom/sfdx-core/pull/874))
+* FIX: When you run `org delete scratch | sandbox` to delete your default org, the CLI now also unsets the `target-org` configuration variable and any aliases which point to the deleted org.  (sfdx-core PR [#874](https://github.com/forcedotcom/sfdx-core/pull/874))
 
 ## 1.85.8 (July 5, 2023) [stable]
 
