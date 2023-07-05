@@ -37,6 +37,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: When you run `org delete scratch | sandbox` to delete your default org, the CLI now also unsets the `target-org` configuration variable (if set) and any aliases which point to the deleted org.  (sfdx-core PR [#874](https://github.com/forcedotcom/sfdx-core/pull/874))
 
+* FIX: The `pacakge version create` command now correctly displays an error if the `definitionFile` parameter of `packageDirectories` in the `sfdx-project.json` file is set to an incorrect file location. Previously the command would fail silently.  (GitHub issue [#2193](https://github.com/forcedotcom/cli/issues/2193), plugin-packaging PR [#364](https://github.com/salesforcecli/plugin-packaging/pull/364))
+
 ## 7.208.10 (July 6, 2023) [stable]
 
 ANNOUNCEMENTS: 
