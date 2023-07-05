@@ -30,6 +30,6 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.0.1 (July 12, 2023) [stable-rc]
+## 2.0.6 (July 19, 2023) [stable-rc]
 
 Welcome to the GA of `sf` (v2)!
