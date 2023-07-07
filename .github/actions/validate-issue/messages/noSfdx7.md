@@ -1,10 +1,7 @@
-Hello @THE_AUTHOR :wave: It looks like you're using an outdated version of the CLI.
+Hello @THE_AUTHOR :wave: 
 
-`sfdx` version 7 is in "maintenance mode" as of July 12, 2023
+It looks like you're using an outdated version of Salesforce CLI. `sfdx` (v7) is in "maintenance mode" as of July 12, 2023. We highly recommend you move from `sfdx` (v7) to `sf` (v2) ASAP. 
 
-Please migrate from `sfdx` version 7 to `sf` version 2.0.0 or later.
+Moving to `sf` (v2) is easy and takes just two commands. Find all the information [here](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_move_to_sf_v2.htm).
 
-Migrating to `sf` from `sfdx` is incredibly easy and can be done in two commands.
-You can find more information [here](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_move_to_sf_v2.htm).
-
-After upgrading to the latest version of the `@salesforce/cli` please try running the command again and providing the output of `sf version --verbose --json`.
+After you move to the latest version of `sf` (v2), run your command again and provide the output of `sf version --verbose --json`.
