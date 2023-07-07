@@ -38,7 +38,6 @@ Prerequisites:
 * [Yarn v1](https://classic.yarnpkg.com/) (`npm install --global yarn`)
 
 1. Clone the repo: 
-    * `sfdx`: `git clone https://github.com/salesforcecli/sfdx-cli.git`
     * `sf`: `git clone https://github.com/salesforcecli/cli.git`
 2. Install dependencies: `yarn install`
 3. Build the project: `yarn build`
@@ -48,26 +47,41 @@ Prerequisites:
 
 
 ## Project structure
-For the `sf` CLI, see https://github.com/salesforcecli/cli/blob/main/ARCHITECTURE.md
 
-The same architecture document applies for the `sfdx` CLI, but instead the bundled Salesforce plugins in are:
+The `sf` CLI is built from plugins, some are bundled and come installed with the CLI, others are installed on demand.
 
-* [plugin-alias](https://github.com/salesforcecli/plugin-alias/)
+The bundled plugins are:
+
 * [plugin-apex](https://github.com/salesforcecli/plugin-apex/)
 * [plugin-auth](https://github.com/salesforcecli/plugin-auth/)
-* [plugin-community](https://github.com/salesforcecli/plugin-community/)
-* [plugin-config](https://github.com/salesforcecli/plugin-config/)
 * [plugin-data](https://github.com/salesforcecli/plugin-data)
-* [plugin-generator](https://github.com/forcedotcom/sfdx-plugin-generate)
+* [deploy-retrieve](https://github.com/salesforcecli/plugin-deploy-retrieve)
 * [plugin-info](https://github.com/salesforcecli/plugin-info)
 * [plugin-limits](https://github.com/salesforcecli/plugin-limits)
+* [plugin-login](https://github.com/salesforcecli/plugin-login)
 * [plugin-org](https://github.com/salesforcecli/plugin-org)
-* [plugin-packaging](https://github.com/salesforcecli/plugin-packaging)
 * [plugin-schema](https://github.com/salesforcecli/plugin-schema)
-* [plugin-signups](https://github.com/salesforcecli/plugin-signups)
+* [plugin-settings](https://github.com/salesforcecli/plugin-settings)
+* [plugin-sobject](https://github.com/salesforcecli/plugin-sobject)
 * [plugin-telemetry](https://github.com/salesforcecli/plugin-telemetry)
 * [plugin-templates](https://github.com/salesforcecli/plugin-templates)
 * [plugin-trust](https://github.com/salesforcecli/plugin-trust)
 * [plugin-user](https://github.com/salesforcecli/plugin-user)
 
+The just-in-time plugins that are installed the first time you run a command are:
+
+* [plugin-custom-metadata](https://github.com/saleforcecli/plugin-custom-metadata)
+* [plugin-community](https://github.com/saleforcecli/plugin-community)
+* [plugin-dev](https://github.com/saleforcecli/plugin-dev)
+* [plugin-env](https://github.com/saleforcecli/plugin-env)
+* [plugin-functions](https://github.com/salesforcecli/plugin-functions)
+* [plugin-packaging](https://github.com/salesforcecli/plugin-packaging)
+* [plugin-signups](https://github.com/saleforcecli/plugin-signups)
+* [sfdx-plugin-lwc-test](https://github.com/salesforcecli/sfdx-plugin-lwc-test)
+* [sfdx-scanner](https://github.com/salesforcecli/sfdx-scanner)
+
 For an up-to-date list of CLI plugins and libraries, see: https://github.com/salesforcecli/status
+
+## Architecture
+
+For more information on how the `sf` CLI is organized, see https://github.com/salesforcecli/cli/blob/main/ARCHITECTURE.md
