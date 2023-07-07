@@ -12,7 +12,7 @@ If you use [autocomplete](https://developer.salesforce.com/docs/atlas.en-us.sfdx
 
 Report and read about issues [here](https://github.com/forcedotcom/cli/issues). Join the discussion about new features we're considering [here](https://github.com/forcedotcom/cli/discussions). 
 
-Want the release notes for previous releases?  See [`sfdx` (v7)](./sfdx/README.md) and [`sf` (v1)](./sf/README.md).
+Looking for the release notes for previous Salesforce CLI releases?  See [`sfdx` (v7)](./sfdx/README.md) and [`sf` (v1)](./sf/README.md).
 
 Additional documentation:
 
@@ -21,9 +21,9 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.0.6 (July 19, 2023) [stable-rc]
+## 2.0.6 (July 19, 2023) [stable]
 
-Welcome to the GA of `sf` (v2)! Read [this blog post](TBD) for product information and background about this new version. 
+Welcome to the GA of `sf` (v2)! Read [this blog post](https://developer.salesforce.com/blogs/2023/07/salesforce-cli-sf-v2-is-here) for product information and background about this new version. 
 
 Have you moved from `sfdx` (v7) to `sf` (v2) yet? We highly recommend you do it soon. It's easy: simply uninstall `sfdx` and then install `sf`. See the [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_release_notes.htm) for details, including how to update your continuous integration (CI) scripts. BTW, we've updated the entire guide to assume you're using `sf` (v2) and the `sf`-style CLI commands and configuration. 
 
