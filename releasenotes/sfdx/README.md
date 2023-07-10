@@ -1,15 +1,7 @@
 # Salesforce CLI Release Notes (sfdx Commands)
 
+**IMPORTANT ANNOUNCEMENT, PLEASE READ**: We no longer update `sfdx` (v7); the last stable version is `7.209.5`. See [this release note](./README.md#72095-july-13-2023-stable) for more information. 
 
-**(July 12, 2023) IMPORTANT, PLEASE READ**: We no longer update `sfdx` (v7); the last stable version is `7.209.5`. You can keep using `sfdx` (v7) if you want, but it won't contain new features or bug fixes. And we no longer update this page. 
-
-To continue getting weekly CLI updates, you must move to `sf` (v2).  It's easy: simply uninstall `sfdx` and then install `sf`. See the new [Move from `sfdx` (v7) to `sf` (v2)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_move_to_sf_v2.htm) section of the Setup Guide for details, including how to update your continuous integration (CI) scripts. We've also updated the entire Setup Guide to assume you're using `sf` (v2) and the `sf`-style CLI commands and configuration. 
-
-The `sf` (v2) Release Notes are [here](../README.md); check that for information about our weekly Salesforce CLI releases. 
-
-For context and information about this change, see [this blog post](https://developer.salesforce.com/blogs/2023/07/salesforce-cli-sf-v2-is-here). 
-
----
 ---
 
 Here are the new and changed features in recent updates of the `sfdx` executable of Salesforce CLI.
@@ -39,10 +31,14 @@ Additional documentation:
 
 ## 7.209.5 (July 13, 2023) [stable]
 
-ANNOUNCEMENTS: 
+**IMPORTANT ANNOUNCEMENT, PLEASE READ**: We no longer update `sfdx` (v7); the last stable version is `7.209.5`. You can keep using `sfdx` (v7) if you want, but it won't contain new features or bug fixes. And we no longer update this page. 
 
-* `7.209.5` is the last version of `sfdx` (v7). 
-* If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
+To continue getting weekly CLI updates, you must move to `sf` (v2).  It's easy: simply uninstall `sfdx` and then install `sf`. See the new [Move from `sfdx` (v7) to `sf` (v2)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_move_to_sf_v2.htm) section of the Setup Guide for details, including how to update your continuous integration (CI) scripts. We also updated the entire Setup Guide to assume you're using `sf` (v2) and the `sf`-style CLI commands and configuration. 
+
+The `sf` (v2) Release Notes are [here](../README.md); start checking that page for information about our weekly Salesforce CLI releases. 
+
+For context and information about this change, see [this blog post](https://developer.salesforce.com/blogs/2023/07/salesforce-cli-sf-v2-is-here). 
+
 --------------------------------------------
 
 * FIX: When you run `org delete scratch | sandbox` to delete your default org, the CLI now also unsets the `target-org` configuration variable (if set) and any aliases which point to the deleted org.  (sfdx-core PR [#874](https://github.com/forcedotcom/sfdx-core/pull/874))
