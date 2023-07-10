@@ -1,5 +1,17 @@
 # Salesforce CLI Release Notes (sfdx Commands)
 
+
+**(July 12, 2023) IMPORTANT, PLEASE READ**: We no longer update `sfdx` (v7); the last stable version is `7.209.5`. You can keep using `sfdx` (v7) if you want, but it won't contain new features or bug fixes. And we no longer update this page. 
+
+To continue getting weekly CLI updates, you must move to `sf` (v2).  It's easy: simply uninstall `sfdx` and then install `sf`. See the new [Move from `sfdx` (v7) to `sf` (v2)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_move_to_sf_v2.htm) section of the Setup Guide for details, including how to update your continuous integration (CI) scripts. We've also updated the entire Setup Guide to assume you're using `sf` (v2) and the `sf`-style CLI commands and configuration. 
+
+The `sf` (v2) Release Notes are [here](../README.md); check that for information about our weekly Salesforce CLI releases. 
+
+For context and information about this change, see [this blog post](https://developer.salesforce.com/blogs/2023/07/salesforce-cli-sf-v2-is-here). 
+
+---
+---
+
 Here are the new and changed features in recent updates of the `sfdx` executable of Salesforce CLI.
 
 We publish a new `stable` version of `sfdx` on Thursdays. At the same time we also publish the `stable-rc` release candidate. The release candidate contains changes that will likely be in the final weekly version.
@@ -25,27 +37,19 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.209.5 (July 13, 2023) [stable-rc]
+## 7.209.5 (July 13, 2023) [stable]
 
 ANNOUNCEMENTS: 
 
 * `7.209.5` is the last version of `sfdx` (v7). 
-* Check out `sf` (v2), which is now in Beta and will be generally available July 12! See our [Trailblazer announcement](https://trailhead.salesforce.com/trailblazer-community/feed/0D54S00000Pf2wKSAR) for more information. 
 * If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 --------------------------------------------
-These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 * FIX: When you run `org delete scratch | sandbox` to delete your default org, the CLI now also unsets the `target-org` configuration variable (if set) and any aliases which point to the deleted org.  (sfdx-core PR [#874](https://github.com/forcedotcom/sfdx-core/pull/874))
 
 * FIX: The `pacakge version create` command now correctly displays an error if the `definitionFile` parameter of `packageDirectories` in the `sfdx-project.json` file is set to an incorrect file location. Previously the command would fail silently.  (GitHub issue [#2193](https://github.com/forcedotcom/cli/issues/2193), plugin-packaging PR [#364](https://github.com/salesforcecli/plugin-packaging/pull/364))
 
-## 7.208.10 (July 6, 2023) [stable]
-
-ANNOUNCEMENTS: 
-
-* Check out `sf` (v2), which is now in Beta! See our [Trailblazer announcement](https://trailhead.salesforce.com/trailblazer-community/feed/0D54S00000Pf2wKSAR) for more information. 
-* If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
---------------------------------------------
+## 7.208.10 (July 6, 2023)
 
 * NEW: Specify the value of the `sourceApiVersion` property in the generated `sfdx-project.json` project file with the new `--api-version` flag of the `project generate` command. The flag value overrides the `org-api-version` configuration variable, if set. If neither the flag nor the config var is set, then the `sourceApiVersion` property is set to the default value.  For example:
 
