@@ -21,14 +21,6 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.1.6 (July 19, 2023) [stable-rc]
-
-ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
-
-These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
-
-TBD
-
 ## 2.0.6 (July 12, 2023) [stable]
 
 Welcome to the GA of `sf` (v2)! 
