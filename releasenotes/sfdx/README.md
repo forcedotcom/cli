@@ -1,6 +1,6 @@
 # Salesforce CLI Release Notes (sfdx Commands)
 
-**IMPORTANT ANNOUNCEMENT, PLEASE READ**: We no longer update `sfdx` (v7); the last stable version is `7.209.5`. The current release is now `sf` (v2); read the release notes [here](../README.md).  See [this note](./README.md#72095-july-13-2023-stable) for additional details. 
+**IMPORTANT ANNOUNCEMENT, PLEASE READ**: We no longer update `sfdx` (v7); the last stable version is `7.209.6`. The current release is now `sf` (v2); read the release notes [here](../README.md).  See [this note](./README.md#72095-july-13-2023-stable) for additional details. 
 
 ---
 
@@ -29,9 +29,9 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sfdx)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_plugins.meta/sfdx_cli_plugins/cli_plugins.htm)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 7.209.5 (July 13, 2023) [stable]
+## 7.209.6 (July 13, 2023) [stable]
 
-**IMPORTANT ANNOUNCEMENT, PLEASE READ**: We no longer update `sfdx` (v7); the last stable version is `7.209.5`. You can keep using `sfdx` (v7) if you want, but it won't contain new features or bug fixes. And we no longer update this page. 
+**IMPORTANT ANNOUNCEMENT, PLEASE READ**: We no longer update `sfdx` (v7); the last stable version is `7.209.6`. You can keep using `sfdx` (v7) if you want, but it won't contain new features or bug fixes. And we no longer update this page. 
 
 To continue getting weekly CLI updates, you must move to `sf` (v2).  It's easy: simply uninstall `sfdx` and then install `sf`. See the new [Move from `sfdx` (v7) to `sf` (v2)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_move_to_sf_v2.htm) section of the Setup Guide for details, including how to update your continuous integration (CI) scripts. We also updated the entire Setup Guide to assume you're using `sf` (v2) and the `sf`-style CLI commands and configuration. 
 
