@@ -1,6 +1,6 @@
 # Salesforce CLI Release Notes (sfdx Commands)
 
-**IMPORTANT ANNOUNCEMENT, PLEASE READ**: We no longer update `sfdx` (v7); the last stable version is `7.209.6`. The current release is now `sf` (v2); read the release notes [here](../README.md).  See [this note](./README.md#72095-july-13-2023-stable) for additional details. 
+**IMPORTANT ANNOUNCEMENT, PLEASE READ**: We no longer update `sfdx` (v7); the last stable version is `7.209.6`. The current release is now `sf` (v2); read the release notes [here](../README.md).  See [this note](./README.md#72096-july-13-2023-stable) for additional details. 
 
 ---
 
