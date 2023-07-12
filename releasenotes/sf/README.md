@@ -1,5 +1,9 @@
 # Salesforce CLI Release Notes (sf Commands)
 
+**IMPORTANT ANNOUNCEMENT, PLEASE READ**: We no longer update `sf` (v1); the last stable version is `1.86.6`. See [this release note](./README.md#1866-july-12-2023-stable) for more information. 
+
+---
+
 Here are the new and changed features in recent updates of the `sf` executable of Salesforce CLI.
 
 We publish a new stable version of `sf` on Wednesday. At the same time we also publish an `sf` release candidate that contains changes that we plan to include in next week's `sf` release.
@@ -21,20 +25,30 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide (sf)](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 1.86.6 (July 12, 2023) [stable-rc]
+## 1.86.6 (July 12, 2023) [stable]
 
-ANNOUNCEMENTS: 
+**IMPORTANT ANNOUNCEMENT, PLEASE READ**: We no longer update `sf` (v1); the last stable version is `1.86.6`. You can keep using `sf` (v1) if you want, but it won't contain new features or bug fixes. And we no longer update this page. 
 
-* Check out `sf` (v2), which is now in Beta and will be generally available July 12! See our [Trailblazer announcement](https://trailhead.salesforce.com/trailblazer-community/feed/0D54S00000Pf2wKSAR) for more information. 
-* If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
+To continue getting weekly CLI updates, you must move to `sf` (v2).  
+
+* If you installed `sf` (v1) with `npm`, just update as usual: `npm install @salesforce/cli --global`.
+* If you installed `sf` (v1) using the `sfdx` installers (which bundled `sf` (v1)), uninstall `sfdx` and then install `sf`.
+
+See the new [Move from `sfdx` (v7) to `sf` (v2)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_move_to_sf_v2.htm) section of the Setup Guide for details, including how to update your continuous integration (CI) scripts. We also updated the entire Setup Guide to assume you're using `sf` (v2) and the `sf`-style CLI commands and configuration. 
+
+The `sf` (v2) Release Notes are [here](../README.md); start checking that page for information about our weekly Salesforce CLI releases. 
+
+For context and information about this change, see [this blog post](https://developer.salesforce.com/blogs/2023/07/salesforce-cli-sf-v2-is-here). 
+
 --------------------------------------------
-These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+--------------------------------------------
 
 * FIX: When you run `org delete scratch | sandbox` to delete your default org, the CLI now also unsets the `target-org` configuration variable (if set) and any aliases which point to the deleted org.  (sfdx-core PR [#874](https://github.com/forcedotcom/sfdx-core/pull/874))
 
 * FIX: The `pacakge version create` command now correctly displays an error if the `definitionFile` parameter of `packageDirectories` in the `sfdx-project.json` file is set to an incorrect file location. Previously the command would fail silently.  (GitHub issue [#2193](https://github.com/forcedotcom/cli/issues/2193), plugin-packaging PR [#364](https://github.com/salesforcecli/plugin-packaging/pull/364))
 
-## 1.85.8 (July 5, 2023) [stable]
+## 1.85.8 (July 5, 2023)
 
 ANNOUNCEMENTS: 
 
