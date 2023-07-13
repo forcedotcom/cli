@@ -35,7 +35,7 @@ assignees: ''
 
 ### System Information
 <!-- Which shell or terminal are you using? (bash, zsh, powershell 7, cmd.exe, etc) -->
-<!-- Paste the **full** output of the `version --verbose --json` command for the CLI you're using (`sf` or `sfdx`) below -->
+<!-- Paste the **full** output of the `sf version --verbose --json` command below -->
 
 ```json
 PASTE_VERSION_OUTPUT_HERE
