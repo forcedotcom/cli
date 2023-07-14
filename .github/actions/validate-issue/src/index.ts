@@ -80,13 +80,20 @@ async function run() {
         const oneSatisfies = sfVersions.some((version) => semver.gte(version, sfLatest));
 
         if (!oneSatisfies) {
-          const oldSf = getFile("../messages/old-cli.md", { THE_AUTHOR: author, USER_CLI: "sf", USER_VERSION: sfVersions.join("`, `"), LATEST_VERSION: sfLatest });
-          postComment(oldSf);
+          if (sfVersions.find((v) => v.startsWith("2."))) {
+            // If any sf versions provided start with 2.x, share update information
+            const oldSf = getFile("../messages/old-cli.md", { THE_AUTHOR: author, USER_CLI: "sf", USER_VERSION: sfVersions.join("`, `"), LATEST_VERSION: sfLatest });
+            postComment(oldSf);
+          } else {
+            // If not, share deprecation information
+            const sfV1 = getFile("../messages/deprecated-cli.md", { THE_AUTHOR: author, OLD_CLI: "`sf` (v1)" });
+            postComment(sfV1);
+          }
           valid = false;
         }
       }
-      if (sfdxVersions.find((v) => v.startsWith('7.')) && !sfVersions.find(v => v.startsWith('2.'))) {
-        const noOldSfdx = getFile("../messages/noSfdx7.md", { THE_AUTHOR: author });
+      if (sfdxVersions.find((v) => v.startsWith("7.")) && !sfVersions.find((v) => v.startsWith("2."))) {
+        const noOldSfdx = getFile("../messages/deprecated-cli.md", { THE_AUTHOR: author, OLD_CLI: "`sfdx` (v7)" });
         postComment(noOldSfdx);
         valid = false;
       }
