@@ -72,15 +72,10 @@ async function run() {
                     valid = false;
                 }
             }
-            if (sfdxVersions.length > 0) {
-                // TODO: Eventually suggest using sf@v2, a new md template could be created
-                const sfdxLatest = getLatestVersion("sfdx-cli");
-                const oneSatisfies = sfdxVersions.some((version) => semver.gte(version, sfdxLatest));
-                if (!oneSatisfies) {
-                    const oldSfdx = getFile("../messages/old-cli.md", { THE_AUTHOR: author, USER_CLI: "sfdx", USER_VERSION: sfdxVersions.join("`, `"), LATEST_VERSION: sfdxLatest });
-                    postComment(oldSfdx);
-                    valid = false;
-                }
+            if (!valid && sfdxVersions.find((v) => v.startsWith('7.'))) {
+                const noOldSfdx = getFile("../messages/noSfdx7.md", { THE_AUTHOR: author });
+                postComment(noOldSfdx);
+                valid = false;
             }
             if (valid) {
                 console.log("All information provided is valid!");
