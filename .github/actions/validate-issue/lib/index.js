@@ -72,7 +72,7 @@ async function run() {
                     valid = false;
                 }
             }
-            if (sfdxVersions.find((v) => v.startsWith('7.'))) {
+            if (sfdxVersions.find((v) => v.startsWith('7.')) && !sfVersions.find(v => v.startsWith('2.'))) {
                 const noOldSfdx = getFile("../messages/noSfdx7.md", { THE_AUTHOR: author });
                 postComment(noOldSfdx);
                 valid = false;
