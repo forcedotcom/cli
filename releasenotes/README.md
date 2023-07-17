@@ -33,6 +33,29 @@ ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 1
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* NEW: View the package name and version when you run `package version create list` with the new `--verbose` flag. The information is displayed in both the human-readable table and JSON results.   (GitHub issue [#222](https://github.com/forcedotcom/cli/issues/222), plugin-packaging PR [#370](https://github.com/salesforcecli/plugin-packaging/pull/370))
+
+* NEW: Specify test formats and destructive changes for the `project deploy validate` command with these new flags. These flags already exist on the `project deploy start` command and you use them in the same way when validating a deployment:
+
+    * `--coverage-formatters` : Format of the code coverage results.
+    * `--junit` : Output JUnit test results.
+    * `--results-dir` : Output directory for code coverage and JUnit results; defaults to the deploy ID.
+    * `--post-destructive-changes` : File path for a manifest (destructiveChangesPost.xml) of components to delete after the deploy.
+    * `--pre-destructive-changes` : File path for a manifest (destructiveChangesPre.xml) of components to delete before the deploy
+    * `--purge-on-delete` : Specify that deleted components in the destructive changes manifest file are immediately eligible for deletion rather than being stored in the Recycle Bin.
+
+    (GitHub issue [#2265]( https://github.com/forcedotcom/cli/issues/2265), plugin-deploy-retrieve PR [#x](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/675))
+
+* CHANGE: Previously, when deploying metadata, Salesforce CLI allowed you to include multiple files with identical file paths in the ZIP file that's sent to the org to deploy, and the org would deploy them. Crazy, huh. We recently swapped out a library to fix a different issue, and the new library no longer supports that incorrect behavior.  (GitHub issue [2191x](https://github.com/forcedotcom/cli/issues/2191))
+
+* FIX: (GitHub issue [#x](https://github.com/forcedotcom/cli/issues/2240), oclif PR [#409](https://github.com/oclif/plugin-not-found/pull/409))
+
+* FIX: If you run `project deploy report --results-dir`, the command now uses the new results directory rather than the one from the original `project deploy start` command, if specified. (GitHub issue [#2265]( https://github.com/forcedotcom/cli/issues/2265), plugin-deploy-retrieve PR [#x](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/675))
+
+* FIX: You can now run `project deploy validate --metdata-dir` outside of a Salesforce DX project. (GitHub issue [#2275](https://github.com/forcedotcom/cli/issues/2275), plugin-deploy-retrieve PR [#691](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/691))
+
+* FIX: Deploy and retrieves when running the `project deploy|retrieve` commands now correctly show the progress bar by default. (GitHub issues [2276](https://github.com/forcedotcom/cli/issues/2276) and [2249](https://github.com/forcedotcom/cli/issues/2249), plugin-deploy-retrieve PR [#681](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/681)
+
 * FIX: Salesforce DX projects now support these metadata types:
 
     * ExtlClntAppMobileConfigurablePolicies
