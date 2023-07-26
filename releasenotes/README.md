@@ -39,6 +39,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We've reduced the amount of time between the end of a deployment to the target org (such as with the `project deploy start` command) and when the command itself exits.  (GitHub issue [#2012](https://github.com/forcedotcom/cli/issues/2012), source-tracking PR [#446](https://github.com/forcedotcom/source-tracking/pull/446))
 
+* FIX: Salesforce DX projects now support the MessagingChannel metadata type. 
+
 ## 2.1.6 (July 26, 2023) [stable]
 
 ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
