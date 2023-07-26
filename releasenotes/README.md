@@ -39,7 +39,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We've reduced the amount of time between the end of a deployment to the target org (such as with the `project deploy start` command) and when the command itself exits.  (GitHub issue [#2012](https://github.com/forcedotcom/cli/issues/2012), source-tracking PR [#446](https://github.com/forcedotcom/source-tracking/pull/446))
 
-* FIX: Salesforce DX projects now support the MessagingChannel metadata type. 
+* FIX: Salesforce DX projects now support the MessagingChannel metadata type.
+
+* FIX: Really large retries won't throw a `Maximum call stack size exceeded` anymore. SDR PR [#1046](https://github.com/forcedotcom/source-deploy-retrieve/pull/1046)    
 
 ## 2.1.7 (July 26, 2023) [stable]
 
