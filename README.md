@@ -2,9 +2,9 @@
 
 This is an issue-only and releases notes repository for Salesforce CLI. We monitor this repo for feedback from the community about Salesforce CLI and we post proposals for CLI changes we're working on see what you think. 
 
-If you have a feature or enhancement request for Salesforce CLI, first review the [existing discussions](./discussions) to see if someone has already requested it. If you don't see your feature or enhancement, click the **New discussion** button to create a new request. 
+If you have a feature or enhancement request for Salesforce CLI, first review the [existing discussions](https://github.com/forcedotcom/cli/discussions) to see if someone has already requested it. If you don't see your feature or enhancement, click the **New discussion** button to create a new request. 
 
-Similarly, if you've encountered a bug with Salesforce CLI, check out the [existing issues](./issues) to see if it's already been reported. If you don’t see your bug listed, click the **New issue** button to create one. 
+Similarly, if you've encountered a bug with Salesforce CLI, check out the [existing issues](https://github.com/forcedotcom/cli/issues) to see if it's already been reported. If you don’t see your bug listed, click the **New issue** button to create one. 
 
 NOTICE: GitHub isn't a mechanism for receiving support under any agreement or SLA. If you require immediate assistance, use official Salesforce customer support channels.
 
