@@ -35,6 +35,11 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: When you install an unsigned plugin with the `sf plugins install` command, and you answer Y to the warning, you now get information about adding the plugin to the `unsignedPluginAllowList.json` allow list file, and a link to the docs for more information. (plugin-trust PR [#545](https://github.com/salesforcecli/plugin-trust/pull/545))
 
+* FIX: Salesforce DX projects now support these metadata types:
+
+    * SearchCriteriaConfiguration
+    * SearchableObjDataSyncInfo
+
 ## 2.2.7 (Aug 2, 2023) [stable]
 
 ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
