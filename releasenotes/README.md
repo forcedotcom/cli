@@ -35,7 +35,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: If you authorize an org that has a namespace linked, and then run `sf org list --json`, the JSON output now includes the `namespacePrefix` key, with value set to the namespace name.  (GitHub issue [#1790](https://github.com/forcedotcom/cli/issues/1790), sfdx-core PR [#908](https://github.com/forcedotcom/sfdx-core/pull/908))
 
-* CHANGE: These commands are generally available and no longer beta:
+* NEW: These commands are generally available and no longer beta:
     * `schema generate sobject`
     * `schema generate field`
     * `schema generate tab`
@@ -45,9 +45,15 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We updated the README in this repo because it was a tad out of date. (GitHub issue [#2332](https://github.com/forcedotcom/cli/issues/2332))
 
-* FIX: (GitHub issues [#1718](https://github.com/forcedotcom/cli/issues/1718) and [#1667](https://github.com/forcedotcom/cli/issues/1667),
+* FIX: You can now successfully run `org delete sandbox` to delete a sandbox that you created in the Setup UI and then authenticated with Salesforce CLI.  We've also improved the error messages around deleting a sandbox. (GitHub issues [#1718](https://github.com/forcedotcom/cli/issues/1718) and [#1667](https://github.com/forcedotcom/cli/issues/1667), sfdx-core PR [#862](https://github.com/forcedotcom/sfdx-core/pull/862), plugin-org PR [#717](https://github.com/salesforcecli/plugin-org/pull/717))
 
 * FIX: The telemetry plugin now works correctly behind a proxy. (GitHub issue [#1752](https://github.com/forcedotcom/cli/issues/1752), telemetry PR [#268](https://github.com/forcedotcom/telemetry/pull/268))
+
+* FIX: The SF_CONTENT_TYPE environment variable now works correctly for all Salesforce CLI commands. (GitHub issue [#2331](https://github.com/forcedotcom/cli/issues/2331), oclif/core PR [#753](https://github.com/oclif/core/pull/753))
+
+* FIX: The `data export tree --plan` command now correctly exports the number of rows returned by the `--query` flag (up to a maximum of 2,000 rows). Previously it would sometimes export only 1,000 rows, even when the query returned more. (GitHub issue [#1663](https://github.com/forcedotcom/cli/issues/1663))
+
+* FIX: The commands to deploy and retrieve, such as `project deploy start`, now correctly return a non-zero exit code when they fail due to a missing source file error. (GitHub issue [#2011](https://github.com/forcedotcom/cli/issues/2011), source-deploy-retrieve PR [#1062](https://github.com/forcedotcom/source-deploy-retrieve/pull/1062))
 
 ## 2.3.8 (Aug 9, 2023) [stable]
 
