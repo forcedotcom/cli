@@ -33,7 +33,19 @@ ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 1
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* CHANGE: These commands are generally available and no longer beta:
+    * `schema generate sobject`
+    * `schema generate field`
+    * `schema generate tab`
+    * `schema generate platformevent`
+
+     (plugin-sobject [#361](https://github.com/salesforcecli/plugin-sobject/pull/361)))
+
 * FIX: We updated the README in this repo because it had gotten a tad out of date. (GitHub issue [#2332](https://github.com/forcedotcom/cli/issues/2332))
+
+* FIX: (GitHub issues [#x](https://github.com/forcedotcom/cli/issues/1718) and [#1667](https://github.com/forcedotcom/cli/issues/1667),
+
+* FIX: The telemetry plugin now works correctly behind a proxy. (GitHub issue [#1752](https://github.com/forcedotcom/cli/issues/1752), telemetry PR [#268](https://github.com/forcedotcom/telemetry/pull/268))
 
 ## 2.3.8 (Aug 9, 2023) [stable]
 
