@@ -33,6 +33,8 @@ ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 1
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* NEW: If you authorize an org that has a namespace linked, and then run `sf org list --json`, the JSON output now includes the `namespacePrefix` key, with value set to the namespace name.  (GitHub issue [#1790](https://github.com/forcedotcom/cli/issues/1790), sfdx-core PR [#908](https://github.com/forcedotcom/sfdx-core/pull/908))
+
 * CHANGE: These commands are generally available and no longer beta:
     * `schema generate sobject`
     * `schema generate field`
@@ -41,9 +43,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
      (plugin-sobject [#361](https://github.com/salesforcecli/plugin-sobject/pull/361)))
 
-* FIX: We updated the README in this repo because it had gotten a tad out of date. (GitHub issue [#2332](https://github.com/forcedotcom/cli/issues/2332))
+* FIX: We updated the README in this repo because it was a tad out of date. (GitHub issue [#2332](https://github.com/forcedotcom/cli/issues/2332))
 
-* FIX: (GitHub issues [#x](https://github.com/forcedotcom/cli/issues/1718) and [#1667](https://github.com/forcedotcom/cli/issues/1667),
+* FIX: (GitHub issues [#1718](https://github.com/forcedotcom/cli/issues/1718) and [#1667](https://github.com/forcedotcom/cli/issues/1667),
 
 * FIX: The telemetry plugin now works correctly behind a proxy. (GitHub issue [#1752](https://github.com/forcedotcom/cli/issues/1752), telemetry PR [#268](https://github.com/forcedotcom/telemetry/pull/268))
 
