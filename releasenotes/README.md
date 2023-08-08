@@ -41,15 +41,35 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
  
     See [Install Salesforce CLI With a TAR File](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm#sfdx_setup_install_cli_linux) for details on using the files.  (The new download links will show up in the docs soon.)
   
+* NEW: Use a wildcard (`*`) with the `--metadata` flag of the deploy and retrieve commands. This example shows how to deploy all FlexiPage metadata components whose names match `Property*`:
+
+    ```bash
+    sf project deploy start --metadata "FlexiPage:Property*" --target-org myscratch
+    ```
+    This sample output shows the components it deployed:
+
+    ```bash
+    Deployed Source
+    ==================================================================================================================
+    | State   Name                 Type      Path                                                                      
+    | ─────── ──────────────────── ───────── ───────────────────────────────────────────────────────────────────────── 
+    | Changed Property_Explorer    FlexiPage force-app/main/default/flexipages/Property_Explorer.flexipage-meta.xml    
+    | Changed Property_Finder      FlexiPage force-app/main/default/flexipages/Property_Finder.flexipage-meta.xml      
+    | Changed Property_Record_Page FlexiPage force-app/main/default/flexipages/Property_Record_Page.flexipage-meta.xml 
+    ```
+    (GitHub issue [#2386](https://github.com/forcedotcom/cli/issues/2386), source-deploy-retrieve PR [#1063](https://github.com/forcedotcom/source-deploy-retrieve/pull/1063))
+
 * NEW: If you authorize an org that has a namespace linked, and then run `sf org list --json`, the JSON output now includes the `namespacePrefix` key, with value set to the namespace name.  (GitHub issue [#1790](https://github.com/forcedotcom/cli/issues/1790), sfdx-core PR [#908](https://github.com/forcedotcom/sfdx-core/pull/908))
 
-* NEW: These commands are generally available and no longer beta:
+* CHANGE: These commands are generally available and no longer beta:
     * `schema generate sobject`
     * `schema generate field`
     * `schema generate tab`
     * `schema generate platformevent`
 
      (plugin-sobject [#361](https://github.com/salesforcecli/plugin-sobject/pull/361)))
+
+* CHANGE: We've updated the parent image of the [Salesforce CLI Docker images](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_docker.htm) to the [Heroku-22 stack](https://devcenter.heroku.com/articles/heroku-22-stack). (cli PR [#1028](https://github.com/salesforcecli/cli/pull/1028))
 
 * FIX: We updated the README in this repo because it was a tad out of date. (GitHub issue [#2332](https://github.com/forcedotcom/cli/issues/2332))
 
@@ -62,6 +82,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 * FIX: The `data export tree --plan` command now correctly exports the number of rows returned by the `--query` flag (up to a maximum of 2,000 rows). Previously it would sometimes export only 1,000 rows, even when the query returned more. (GitHub issue [#1663](https://github.com/forcedotcom/cli/issues/1663))
 
 * FIX: The commands to deploy and retrieve, such as `project deploy start`, now correctly return a non-zero exit code when they fail due to a missing source file error. (GitHub issue [#2011](https://github.com/forcedotcom/cli/issues/2011), source-deploy-retrieve PR [#1062](https://github.com/forcedotcom/source-deploy-retrieve/pull/1062))
+
+* FIX: The `package version create` command no longer deletes Profile `fieldPermissions` on custom fields of the Activity object. (GitHub issue [#2278](https://github.com/forcedotcom/cli/issues/2278), packaging PR [#348](https://github.com/forcedotcom/packaging/pull/348))
 
 ## 2.3.8 (Aug 9, 2023) [stable]
 
