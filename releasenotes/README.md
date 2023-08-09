@@ -61,6 +61,31 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: If you authorize an org that has a namespace linked, and then run `sf org list --json`, the JSON output now includes the `namespacePrefix` key, with value set to the namespace name.  (GitHub issue [#1790](https://github.com/forcedotcom/cli/issues/1790), sfdx-core PR [#908](https://github.com/forcedotcom/sfdx-core/pull/908))
 
+* CHANGE: We changed the Node.js logger that Salesforce CLI uses to [Pino](https://getpino.io/#/). This internal change results in these user-visible changes:
+
+    * Each day's logs are written to a file whose name is based on that day. For example, the logs for August 8, 2023 are written to the file `USER_HOME_DIR/.sf/sf-2023-08-07.log`.
+
+      Previously, the log were written to the `USER_HOME_DIR/.sf/sf.log` file. Each day at midnight, that log file would be rotated to `USER_HOME_DIR/.sf/sf.log.0`, and any existing log files moved up by one number. That process didn't always work correctly.
+
+     * The new logger occasionally checks for, and then deletes, any log files that are older than 7 days. If you want to keep these old log files, copy them to a different location.
+ 
+     * The new logger will never delete the `USER_HOME_DIR/.sf/sf.log<N>` files written by the old logger. Other CLI plugins and tools, such as VS Code with the Salesforce Extension, still use the old logger and might write to these old files. At some point they will upgrade to use the new logger, but for now we still need to keep those old files around.
+ 
+     * Here's how the log-related environment variables now work:
+ 
+          * SF_LOG_ROTATION_PERIOD: You can set this variable to `1h` or `1m` if you want more, but smaller, log files. Any other value is treated as `1d`, which is the default.
+
+            The new log file is created when the command loads. For example, if your deployment takes 40 minutes, all of its associated logs are written to a file with name based on when the command began.
+
+          * SF_LOG_ROTATION_COUNT: This variable has no effect anymore. The number of logs that Salesforce CLI keeps is always 7 day's worth, regardless of how small the rotation period is.
+      
+    * Previously, setting `DEBUG=*` would log at the lowest level. You can now use both `DEBUG=*` and `SF_LOG_LEVEL=debug`, for example, to control how many logs you’re getting.
+ 
+    * If you create custom CLI plugins, read more about these changes [here](https://github.com/forcedotcom/sfdx-core/blob/main/MIGRATING_V4-V5.md).
+
+    (GitHub issues [#2209](https://github.com/forcedotcom/cli/issues/2209), [#2206](https://github.com/forcedotcom/cli/issues/2206), [#2198](https://github.com/forcedotcom/cli/issues/2198), [#2196](https://github.com/forcedotcom/cli/issues/2196), [#1928](https://github.com/forcedotcom/cli/issues/1928), [#1706](https://github.com/forcedotcom/cli/issues/1706), [#1699](https://github.com/forcedotcom/cli/issues/1699), [#1408](https://github.com/forcedotcom/cli/issues/1408).  sfdx-core PR [#876](https://github.com/forcedotcom/sfdx-core/pull/876))
+
+
 * CHANGE: These commands are generally available and no longer beta:
     * `schema generate sobject`
     * `schema generate field`
