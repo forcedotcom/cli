@@ -61,7 +61,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: If you authorize an org that has a namespace linked, and then run `sf org list --json`, the JSON output now includes the `namespacePrefix` key, with value set to the namespace name.  (GitHub issue [#1790](https://github.com/forcedotcom/cli/issues/1790), sfdx-core PR [#908](https://github.com/forcedotcom/sfdx-core/pull/908))
 
-* CHANGE: We changed the Node.js logger that Salesforce CLI uses to [Pino](https://getpino.io/#/). This internal change results in these user-visible changes:
+* CHANGE: We changed the Node.js logger that Salesforce CLI uses from Bunyan to [Pino](https://getpino.io/#/). This internal change results in these user-visible changes:
 
     * Each day's logs are written to a file whose name is based on that day. For example, the logs for August 8, 2023 are written to the file `USER_HOME_DIR/.sf/sf-2023-08-07.log`.
 
