@@ -33,6 +33,26 @@ ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 1
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* CHANGE: We've generally improved the human-readable output of `org list`; the JSON output remains the same. Here are some of the key improvements:
+
+    * All orgs are listed in a single table, grouped by type, which is now indicated in a new column.  Org types include DevHub, Scratch, and Sandbox.
+    * The default org and DevHub are now indicated with emojis rather than the previous `(U)` and `(D)` characters which weren't intuitive.  See the legend at the end of the output for what's what.
+    * Column names are now type case rather than all-caps.
+
+    Here's an example of the output:
+
+    ```bash
+    $ sf org list
+        Type    Alias          Username                                      Org ID             Status                Expires
+     ── ─────── ────────────── ───────────────────────────────────────────── ────────────────── ───────────────────── ──────────
+     🌳 DevHub  JulesDevHub    jules@sf.com                                  00DB0001234c7jiMAA Connected 
+        Sandbox                jules@sf.com.jssandtwo                        00D020012344XTiEAM Connected
+     🍁 Scratch my-scratch-org test-qjrr9q5d13o8@example.com                 00DMN0012342Gez2AE Active                2023-08-21    
+   
+    Legend:  🌳=Default DevHub, 🍁=Default Org      Use --all to see expired and deleted scratch orgs
+    ```
+    (plugin-org PR [#765](https://github.com/salesforcecli/plugin-org/pull/765))
+
 * FIX: We've significantly shortened command startup times. Note that this performance enhancement applies to _all_ CLI commands, even ones in custom plugins. (telemetry PR [#274](https://github.com/forcedotcom/telemetry/pull/274), plugin-telemetry PR [#497](https://github.com/salesforcecli/plugin-telemetry/pull/497))
 
 ## 2.4.8 (Aug 16, 2023) [stable]
