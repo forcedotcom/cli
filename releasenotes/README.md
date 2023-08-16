@@ -33,6 +33,54 @@ ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 1
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* NEW: You now get a warning if you try to unset a global configuration variable without specifying the `--global` flag. The command is still considered a success because there was no local config variable to unset. For example:
+
+    ```bash
+    $ sf config list
+    List Config
+    =============================================
+    | Name                Location Value          
+    | ─────────────────── ──────── ────────────── 
+    | org-max-query-limit Global   5000           
+    | target-org          Local    my-scratch-org 
+    
+    $ sf config unset org-max-query-limit
+    Warning: The org-max-query-limit config variable is still set globally, unset it by using the --global flag.
+    Unset Config
+    =============================
+    | Name                Success 
+    | ─────────────────── ─────── 
+    | org-max-query-limit true
+
+    $ sf config list
+    List Config
+    =============================================
+    | Name                Location Value          
+    | ─────────────────── ──────── ────────────── 
+    | org-max-query-limit Global   5000           
+    | target-org          Local    my-scratch-org 
+    ```
+
+    To unset the config var, specify the `--global` flag:
+
+    ```bash
+    $ sf config unset org-max-query-limit --global
+    Unset Config
+    =============================
+    | Name                Success 
+    | ─────────────────── ─────── 
+    | org-max-query-limit true    
+
+    $ sf config list
+    List Config
+    ====================================
+    | Name       Location Value          
+    | ────────── ──────── ────────────── 
+    | target-org Local    my-scratch-org 
+    ```
+
+    (plugin-settings PR [#346](https://github.com/salesforcecli/plugin-settings/pull/346))
+
 * CHANGE: We've generally improved the human-readable output of `org list`; the JSON output remains the same. Here are some of the key improvements:
 
     * All orgs are listed in a single table, grouped by type, which is now indicated in a new column.  Org types include DevHub, Scratch, and Sandbox.
