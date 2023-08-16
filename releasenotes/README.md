@@ -25,13 +25,41 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.4.8 (Aug 16, 2023) [stable-rc]
+## 2.5.7 (Aug 23, 2023) [stable-rc]
 
 ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 
 -------------
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* CHANGE: We've generally improved the human-readable output of `org list`; the JSON output remains the same. Here are some of the key improvements:
+
+    * All orgs are listed in a single table, grouped by type, which is now indicated in a new column.  Org types include DevHub, Scratch, and Sandbox.
+    * The default org and DevHub are now indicated with emojis rather than the previous `(U)` and `(D)` characters which weren't intuitive.  See the legend at the end of the output for what's what.
+    * Column names are now type case rather than all-caps.
+
+    Here's an example of the output:
+
+    ```bash
+    $ sf org list
+        Type    Alias          Username                                      Org ID             Status                Expires
+     ── ─────── ────────────── ───────────────────────────────────────────── ────────────────── ───────────────────── ──────────
+     🌳 DevHub  JulesDevHub    jules@sf.com                                  00DB0001234c7jiMAA Connected 
+        Sandbox                jules@sf.com.jssandtwo                        00D020012344XTiEAM Connected
+     🍁 Scratch my-scratch-org test-qjrr9q5d13o8@example.com                 00DMN0012342Gez2AE Active                2023-08-21    
+   
+    Legend:  🌳=Default DevHub, 🍁=Default Org      Use --all to see expired and deleted scratch orgs
+    ```
+    (plugin-org PR [#765](https://github.com/salesforcecli/plugin-org/pull/765))
+
+* FIX: We've significantly shortened command startup times. Note that this performance enhancement applies to _all_ CLI commands, even ones in custom plugins. (telemetry PR [#274](https://github.com/forcedotcom/telemetry/pull/274), plugin-telemetry PR [#497](https://github.com/salesforcecli/plugin-telemetry/pull/497))
+
+## 2.4.8 (Aug 16, 2023) [stable]
+
+ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
+
+-------------
 
 * NEW: We now provide these new TAR file formats and manifest files for installing Salesforce CLI on Linux operating systems:
 
@@ -110,11 +138,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `package version create` command no longer deletes Profile `fieldPermissions` on custom fields of the Activity object. (GitHub issue [#2278](https://github.com/forcedotcom/cli/issues/2278), packaging PR [#348](https://github.com/forcedotcom/packaging/pull/348))
 
-## 2.3.8 (Aug 9, 2023) [stable]
-
-ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
-
--------------
+## 2.3.8 (Aug 9, 2023)
 
 * NEW: When you install an unsigned plugin with the `sf plugins install` command, and you answer Y to the warning, you now get information about adding the plugin to the `unsignedPluginAllowList.json` allow list file, and a link to the docs for more information. (plugin-trust PR [#545](https://github.com/salesforcecli/plugin-trust/pull/545))
 
