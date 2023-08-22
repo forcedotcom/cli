@@ -28,7 +28,7 @@ Additional documentation:
 ## 2.6.7 (Aug 30, 2023) [stable-rc]
 
 ANNOUNCEMENTS: 
-* Check out our new public roadmap! Read it like a DevOps pipeline or Kanban board: the items on the left are in the early stages of development, and the items toward the right are almost done or complete.  Let us know what you think!
+* Check out our new [public roadmap](https://github.com/orgs/salesforcecli/projects/2/views/1)! Read it like a DevOps pipeline or Kanban board: the items on the left are in the early stages of development, and the items toward the right are almost done or complete.  Let us know what you think!
  
 * If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 
@@ -41,7 +41,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 ## 2.5.7 (Aug 23, 2023) [stable]
 
 ANNOUNCEMENTS: 
-* Check out our new public roadmap! Read it like a DevOps pipeline or Kanban board: the items on the left are in the early stages of development, and the items toward the right are almost done or complete.  Let us know what you think!
+* Check out our new [public roadmap](https://github.com/orgs/salesforcecli/projects/2/views/1)! Read it like a DevOps pipeline or Kanban board: the items on the left are in the early stages of development, and the items toward the right are almost done or complete.  Let us know what you think!
  
 * If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 
