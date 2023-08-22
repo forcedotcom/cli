@@ -38,6 +38,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Salesforce CLI correctly retrieves metadata components (specifically Layouts and Profiles) whose names include non-alphanumeric characters, such as periods. (GitHub issue [#1683](https://github.com/forcedotcom/cli/issues/1683), source-deploy-retrieve PR [#1080](https://github.com/forcedotcom/source-deploy-retrieve/pull/1080))
 
+* FIX: Salesforce DX projects now support the FundraisingConfig metadata type. 
+
 ## 2.5.7 (Aug 23, 2023) [stable]
 
 ANNOUNCEMENTS: 
