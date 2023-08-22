@@ -28,7 +28,7 @@ Additional documentation:
 ## 2.6.7 (Aug 30, 2023) [stable-rc]
 
 ANNOUNCEMENTS: 
-* Check out our new public roadmap! Read it like a DevOps pipeline or Kanban board: the items toward the left are in the works and the items toward the right are almost done or complete.  Let us know what you think!
+* Check out our new public roadmap! Read it like a DevOps pipeline or Kanban board: the items on the left are in the early stages of development, and the items toward the right are almost done or complete.  Let us know what you think!
  
 * If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 
@@ -36,10 +36,12 @@ ANNOUNCEMENTS:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* FIX: (GitHub issue [#1683](https://github.com/forcedotcom/cli/issues/1683), source-deploy-retrieve PR [#1080](https://github.com/forcedotcom/source-deploy-retrieve/pull/1080))
+
 ## 2.5.7 (Aug 23, 2023) [stable]
 
 ANNOUNCEMENTS: 
-* Check out our new public roadmap. Read it like a DevOps pipeline or Kanban board: the items toward the left are in the works and the items toward the right are almost done or complete. Let us know what you think!
+* Check out our new public roadmap! Read it like a DevOps pipeline or Kanban board: the items on the left are in the early stages of development, and the items toward the right are almost done or complete.  Let us know what you think!
  
 * If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 
