@@ -25,13 +25,29 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.5.7 (Aug 23, 2023) [stable-rc]
+## 2.6.6 (Aug 30, 2023) [stable-rc]
 
-ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
+ANNOUNCEMENTS: 
+* Check out our new [public roadmap](https://github.com/orgs/salesforcecli/projects/2/views/1)! Read it like a DevOps pipeline or Kanban board: the items on the left are in the early stages of development, and the items toward the right are almost done or complete.  Let us know what you think!
+ 
+* If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 
 -------------
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* FIX: Salesforce CLI correctly retrieves metadata components (specifically Layouts and Profiles) whose names include non-alphanumeric characters, such as periods. (GitHub issue [#1683](https://github.com/forcedotcom/cli/issues/1683), source-deploy-retrieve PR [#1080](https://github.com/forcedotcom/source-deploy-retrieve/pull/1080))
+
+* FIX: Salesforce DX projects now support the FundraisingConfig metadata type. 
+
+## 2.5.7 (Aug 23, 2023) [stable]
+
+ANNOUNCEMENTS: 
+* Check out our new [public roadmap](https://github.com/orgs/salesforcecli/projects/2/views/1)! Read it like a DevOps pipeline or Kanban board: the items on the left are in the early stages of development, and the items toward the right are almost done or complete.  Let us know what you think!
+ 
+* If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
+
+-------------
 
 * NEW: You now get a warning if you try to unset a global configuration variable without specifying the `--global` flag. The command is still considered a success because there was no local config variable to unset. For example:
 
@@ -103,11 +119,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We've significantly shortened command startup times. Note that this performance enhancement applies to _all_ CLI commands, even ones in custom plugins. (telemetry PR [#274](https://github.com/forcedotcom/telemetry/pull/274), plugin-telemetry PR [#497](https://github.com/salesforcecli/plugin-telemetry/pull/497))
 
-## 2.4.8 (Aug 16, 2023) [stable]
-
-ANNOUNCEMENT: If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
-
--------------
+## 2.4.8 (Aug 16, 2023)
 
 * NEW: We now provide these new TAR file formats and manifest files for installing Salesforce CLI on Linux operating systems:
 
