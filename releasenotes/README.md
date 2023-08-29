@@ -44,7 +44,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `project deploy pipeline quick` : Quickly deploy a validated deployment to an org.
     * `project deploy pipeline resume`: Resume watching a pipeline deploy operation.
 
-    We created these commands for developers who want to work outside of DevOps Center or want to automate tasks.  Let's look at a few examples to see how the new commands work.
+    We created these commands for developers who want to work outside of DevOps Center or want to automate tasks. The commands are in [plugin-devops-center](https://github.com/salesforcecli/plugin-devops-center), which is a JIT plugin. After you update to this Salesforce CLI release, run a DevOps Center command in a terminal or command window and the CLI automatically installs the plugin and then runs the command. Nifty, huh. Let's look at a few examples to see how the new beta commands work.
   
     In this example, several work item feature branches were previously merged to the Integration branch. To deploy the changes from the `recruit-integration` branch to its associated Integration environment:
 
