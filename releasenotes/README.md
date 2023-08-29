@@ -70,7 +70,13 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     sf project deploy pipeline quick --job-id 0Af0x000017yLUFCA2
     ```
 
-    As always, run the commands with the `--help` flag to see more examples and information. Enjoy!
+    You can also use the new `target-devops-center` configuration variable to specify the default username or alias for the org in which DevOps Center is installed. Use it instead of the `--devops-center-username` flag. For example, to set the config variable globally:
+
+    ```bash
+    sf config set target-devops-center MyDevOpsCenterOrg --global
+    ```    
+
+    As always, run the new commands with the `--help` flag to see more examples and information. Enjoy!
 
 
 ## 2.6.7 (Aug 30, 2023) [stable]
