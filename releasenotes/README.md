@@ -36,16 +36,6 @@ ANNOUNCEMENTS:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-
-## 2.7.7 (Sept 6, 2023) [stable]
-
-ANNOUNCEMENTS: 
-* Check out our new [public roadmap](https://github.com/orgs/salesforcecli/projects/2/views/1)! Read it like a DevOps pipeline or Kanban board: the items on the left are in the early stages of development, and the items toward the right are almost done or complete.  Let us know what you think!
- 
-* If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
-
--------------
-
 * NEW: Execute DevOps Center actions at the command line with these new beta CLI commands:
 
     * `project deploy pipeline start`: Deploy changes from a branch to the pipeline stage’s org.
@@ -89,6 +79,17 @@ ANNOUNCEMENTS:
     As always, run the new commands with the `--help` flag to see more examples and information.
 
   Enjoy!
+
+## 2.7.7 (Sept 6, 2023) [stable]
+
+ANNOUNCEMENTS: 
+* Check out our new [public roadmap](https://github.com/orgs/salesforcecli/projects/2/views/1)! Read it like a DevOps pipeline or Kanban board: the items on the left are in the early stages of development, and the items toward the right are almost done or complete.  Let us know what you think!
+ 
+* If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
+
+-------------
+
+* FIX: We fixed some under-the-hood bugs.
 
 ## 2.6.7 (Aug 30, 2023)
 
