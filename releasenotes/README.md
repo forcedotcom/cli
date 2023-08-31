@@ -69,7 +69,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     As always, run the new commands with the `--help` flag to see more examples and information.
 
     Enjoy!
-
+  
+* NEW: Find 3rd-party (not created by Salesforce) CLI plugins with `sf plugins discover`.  If you'd like to contribute a plugin to the list, [send us PR](https://github.com/salesforcecli/plugin-marketplace). 
 
 ## 2.6.7 (Aug 30, 2023) [stable]
 
