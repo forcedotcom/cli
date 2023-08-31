@@ -25,7 +25,7 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.7.7 (Sept 6, 2023) [stable-rc]
+## 2.8.7 (Sept 13, 2023) [stable-rc]
 
 ANNOUNCEMENTS: 
 * Check out our new [public roadmap](https://github.com/orgs/salesforcecli/projects/2/views/1)! Read it like a DevOps pipeline or Kanban board: the items on the left are in the early stages of development, and the items toward the right are almost done or complete.  Let us know what you think!
@@ -34,9 +34,10 @@ ANNOUNCEMENTS:
 
 -------------
 
-* FIXED: We fixed some under-the-hood bugs. 
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-## 2.6.7 (Aug 30, 2023) [stable]
+
+## 2.7.7 (Sept 6, 2023) [stable]
 
 ANNOUNCEMENTS: 
 * Check out our new [public roadmap](https://github.com/orgs/salesforcecli/projects/2/views/1)! Read it like a DevOps pipeline or Kanban board: the items on the left are in the early stages of development, and the items toward the right are almost done or complete.  Let us know what you think!
@@ -44,6 +45,52 @@ ANNOUNCEMENTS:
 * If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 
 -------------
+
+* NEW: Execute DevOps Center actions at the command line with these new beta CLI commands:
+
+    * `project deploy pipeline start`: Deploy changes from a branch to the pipeline stage’s org.
+    * `project deploy pipeline report`: Check the status of a pipeline deploy operation.
+    * `project deploy pipeline validate`: Perform a validate-only deployment from a branch to the pipeline stage’s org. 
+    * `project deploy pipeline quick` : Quickly deploy a validated deployment to an org.
+    * `project deploy pipeline resume`: Resume watching a pipeline deploy operation.
+
+    We created these commands for developers who want to work outside of DevOps Center or want to automate tasks. The commands are in [plugin-devops-center](https://github.com/salesforcecli/plugin-devops-center), which is a just-in-time (JIT) plugin. After you update to this Salesforce CLI release, run a DevOps Center command in a terminal or command window and the CLI automatically installs the plugin and then runs the command. Nifty, huh. Let's look at a few examples to see how the new beta commands work.
+  
+    In this example, several work item feature branches were previously merged to the `recruit-integration` branch. To deploy the changes from the `recruit-integration` branch to its associated Integration environment:
+
+    ```bash
+    sf project deploy pipeline start --branch-name recruit-integration --devops-center-username MyDevOpsCenterOrg --devops-center-project-name "Recruiting App"
+    ```
+
+    In this example, UAT is the bundling stage, which means that you must indicate a version identifier with the `--bundle-version-name` flag. To deploy all merged changes in a version 1.0 bundle to the UAT environment: 
+
+    ```bash
+    sf project deploy pipeline start --branch-name recruit-uat --devops-center-username MyDevOpsCenterOrg --devops-center-project-name "Recruiting App" --bundle-version-name 1.0
+    ```
+
+    In this example, you first validate the changes in the `recruit-staging` branch so you can later perform a quick deployment to production. The validate command returns a job ID that you later pass to the quick deploy command.
+
+    ```bash
+    sf project deploy pipeline validate --branch-name recruit-staging --devops-center-username MyDevOpsCenterOrg --test-level RunLocalTests --devops-center-project-name "Recruiting App"
+    ```
+
+    When ready, execute the quick deployment to production by specifying the job ID returned by the validate command:
+
+    ```bash
+    sf project deploy pipeline quick --job-id 0Af0x000017yLUFCA2
+    ```
+
+    You can also use the new `target-devops-center` configuration variable to specify the default username or alias for the org in which DevOps Center is installed. Use it instead of the `--devops-center-username` flag. For example, to set the config variable globally:
+
+    ```bash
+    sf config set target-devops-center MyDevOpsCenterOrg --global
+    ```    
+
+    As always, run the new commands with the `--help` flag to see more examples and information.
+
+  Enjoy!
+
+## 2.6.7 (Aug 30, 2023)
 
 * FIX: Salesforce CLI correctly retrieves metadata components (specifically Layouts and Profiles) whose names include non-alphanumeric characters, such as periods. (GitHub issue [#1683](https://github.com/forcedotcom/cli/issues/1683), source-deploy-retrieve PR [#1080](https://github.com/forcedotcom/source-deploy-retrieve/pull/1080))
 
