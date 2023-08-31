@@ -33,6 +33,7 @@ ANNOUNCEMENTS:
 * If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
 
 -------------
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 * NEW: Execute DevOps Center actions at the command line with these new beta CLI commands:
 
