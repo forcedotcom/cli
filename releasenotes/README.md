@@ -37,7 +37,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: Do exciting things with the new `package version retrieve` command.  (plugin-packaging PR [#346](https://github.com/salesforcecli/plugin-packaging/pull/346))
 
-* NEW: Enable AppExchange App Analytics usage data collection on a managed package and its components with the new `--enable-app-analytics` flag of the `package update` command. (plugin-packaging [#325](https://github.com/salesforcecli/plugin-packaging/pull/325))
+* NEW: Enable AppExchange App Analytics usage data collection on a managed package and its components with the new `--enable-app-analytics` flag of the `package update` command. See [Enable App Analytics on Your Second-Generation Managed Package
+](https://developer.salesforce.com/docs/atlas.en-us.pkg2_dev.meta/pkg2_dev/app_analytics_enable_2gp.htm) for more information. (plugin-packaging [#325](https://github.com/salesforcecli/plugin-packaging/pull/325))
 
 * FIX: We've updated the message displayed when you install an unsigned plugin using the `plugins install` command to be more friendly.  (plugin-trust PR [#581](https://github.com/salesforcecli/plugin-trust/pull/581))
 
