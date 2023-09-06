@@ -25,7 +25,7 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.7.11 (Sept 6, 2023) [stable-rc]
+## 2.8.11 (Sept 13, 2023) [stable-rc]
 
 ANNOUNCEMENTS: 
 * Check out our new [public roadmap](https://github.com/orgs/salesforcecli/projects/2/views/1)! Read it like a DevOps pipeline or Kanban board: the items on the left are in the early stages of development, and the items toward the right are almost done or complete.  Let us know what you think!
@@ -34,6 +34,22 @@ ANNOUNCEMENTS:
 
 -------------
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* NEW: Enable AppExchange App Analytics usage data collection on a managed package and its components with the new `--enable-app-analytics` flag of the `package update` command. See [Enable App Analytics on Your Second-Generation Managed Package
+](https://developer.salesforce.com/docs/atlas.en-us.pkg2_dev.meta/pkg2_dev/app_analytics_enable_2gp.htm) for more information. (plugin-packaging [#325](https://github.com/salesforcecli/plugin-packaging/pull/325))
+
+* FIX: We've updated the message displayed when you install an unsigned plugin using the `plugins install` command to be more friendly.  (plugin-trust PR [#581](https://github.com/salesforcecli/plugin-trust/pull/581))
+
+* FIX: We've improved the description of the `project generate` subtopic in the `package.json` file to include generating a project, manifest, and more. Thanks, [Peter Chittum](https://github.com/pchittum), for your contribution -- we love it! (plugin-deploy-retrieve PR [#742](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/742)) 
+
+## 2.7.11 (Sept 6, 2023) [stable]
+
+ANNOUNCEMENTS: 
+* Check out our new [public roadmap](https://github.com/orgs/salesforcecli/projects/2/views/1)! Read it like a DevOps pipeline or Kanban board: the items on the left are in the early stages of development, and the items toward the right are almost done or complete.  Let us know what you think!
+ 
+* If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
+
+-------------
 
 * NEW: Execute DevOps Center actions at the command line with these new beta CLI commands:
 
@@ -70,16 +86,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     Enjoy!
   
-* NEW: Find 3rd-party (not created by Salesforce) CLI plugins with `sf plugins discover`.  If you'd like to contribute a plugin to the list, [send us PR](https://github.com/salesforcecli/plugin-marketplace). 
+* NEW: Find 3rd-party (not created by Salesforce) CLI plugins with `sf plugins discover`.  The command uses [this list of packages](https://github.com/salesforcecli/plugin-marketplace/blob/main/src/shared/plugins.ts) to query npm for information about each plugin. If you'd like to contribute a plugin to the list, [send us a PR](https://github.com/salesforcecli/plugin-marketplace). 
 
-## 2.6.9 (Aug 30, 2023) [stable]
-
-ANNOUNCEMENTS: 
-* Check out our new [public roadmap](https://github.com/orgs/salesforcecli/projects/2/views/1)! Read it like a DevOps pipeline or Kanban board: the items on the left are in the early stages of development, and the items toward the right are almost done or complete.  Let us know what you think!
- 
-* If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
-
--------------
+## 2.6.9 (Aug 30, 2023)
 
 * FIX: Salesforce CLI correctly retrieves metadata components (specifically Layouts and Profiles) whose names include non-alphanumeric characters, such as periods. (GitHub issue [#1683](https://github.com/forcedotcom/cli/issues/1683), source-deploy-retrieve PR [#1080](https://github.com/forcedotcom/source-deploy-retrieve/pull/1080))
 
