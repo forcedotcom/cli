@@ -83,7 +83,7 @@ ANNOUNCEMENTS:
 
     Enjoy!
   
-* NEW: Find 3rd-party (not created by Salesforce) CLI plugins with `sf plugins discover`.  If you'd like to contribute a plugin to the list, [send us PR](https://github.com/salesforcecli/plugin-marketplace). 
+* NEW: Find 3rd-party (not created by Salesforce) CLI plugins with `sf plugins discover`.  The command uses [this list of packages](https://github.com/salesforcecli/plugin-marketplace/blob/main/src/shared/plugins.ts) to query npm for information about each plugin. If you'd like to contribute a plugin to the list, [send us a PR](https://github.com/salesforcecli/plugin-marketplace). 
 
 ## 2.6.9 (Aug 30, 2023)
 
