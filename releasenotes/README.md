@@ -39,7 +39,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     To use this command you must have the Download Package Version Zip Files user permission.
 
-    In this example, metadata from a package version with ID `04tXXX`, installed in an org with alias `my-org`, is downloaded into the `my-directory` directory: 
+    In this example, the org that owns the package has an alias of `my-org`, and we're retrieving the metadata from a package version with ID `04tXXX`. The metadata is downloaded into the `my-directory` directory:
 
     ```bash
     sf package version retrieve --package 04tXXX --output-dir my-directory --target-org my-org
