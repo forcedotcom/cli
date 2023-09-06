@@ -35,6 +35,16 @@ ANNOUNCEMENTS:
 -------------
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* NEW: Download metadata from a specific package version with the new `package version retrieve` command. You can retrieve metadata for a second- or first-generation managed package or an unlocked package. Retrieving a package version downloads the metadata into the directory you specify. When you run the command, specify the package alias or the subscriber package version ID (starts with 04t) and the path to an empty directory.
+
+    To use this command you must have the Download Package Version Zip Files user permission.
+
+    In this example, metadata from a package version with ID `04tXXX`, installed in an org with alias `my-org`, is downloaded into the `my-directory` directory: 
+
+    ```bash
+    sf package version retrieve --package 04tXXX --output-dir my-directory --target-org my-org
+    ```
+
 * NEW: Enable AppExchange App Analytics usage data collection on a managed package and its components with the new `--enable-app-analytics` flag of the `package update` command. See [Enable App Analytics on Your Second-Generation Managed Package
 ](https://developer.salesforce.com/docs/atlas.en-us.pkg2_dev.meta/pkg2_dev/app_analytics_enable_2gp.htm) for more information. (plugin-packaging [#325](https://github.com/salesforcecli/plugin-packaging/pull/325))
 
