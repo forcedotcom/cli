@@ -35,6 +35,8 @@ ANNOUNCEMENTS:
 -------------
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+* NEW: Enable AppExchange App Analytics usage data collection on a managed package and its components with the new `--enable-app-analytics` flag of the `package update` command. (plugin-packaging [#325](https://github.com/salesforcecli/plugin-packaging/pull/325))
+
 * FIX: We've updated the message displayed when you install an unsigned plugin using the `plugins install` command to be more friendly.  (plugin-trust PR [#581](https://github.com/salesforcecli/plugin-trust/pull/581))
 
 * FIX: We've improved the description of the `project generate` subtopic in the `package.json` file to include generating a project, manifest, and more. Thanks, [Peter Chittum](https://github.com/pchittum), for your contribution -- we love it! (plugin-deploy-retrieve PR [#742](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/742)) 
