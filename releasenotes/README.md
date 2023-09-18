@@ -28,7 +28,7 @@ Additional documentation:
 
 ## 2.9.8 (Sept 20, 2023) [stable-rc]
 
-* NEW: The cli now shows a warning when the version of a core or JIT plugin is out of sync with what was shipped with your installed cli.
+* NEW: The CLI now shows a warning when the version of a core or JIT plugin is out of sync with what was shipped with your installed cli.
 
 * NEW: JIT plugins now respect a lock file during install. This will prevent JIT plugins from installing dependencies that are newer than what they were shipped and tested with. 
 
