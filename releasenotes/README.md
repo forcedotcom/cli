@@ -32,8 +32,6 @@ Additional documentation:
 
 * NEW: JIT plugins now respect a lock file during install. This will prevent JIT plugins from installing dependencies that are newer than what they were shipped and tested with. 
 
-* NEW: Uninstalled JIT Plugins are now displayed when running `sf plugins --core [--json]`. A warning will be shown when trying to inspect an uninstalled JIT plugin.
-
 * FIX: Running `project retrieve start` now shows warnings for problematic components. This now matches the functionality of `force:source:retrieve` (GitHub issue [#2405](https://github.com/forcedotcom/cli/issues/2405), plugin-deploy-retrieve PR [#747](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/747))
 
 * FIX: Metadata transfers will now automatically retry when they encounter an `ENOMEM` error. Keeps your eyes out for Shane McLaughlin's [debut album](https://github.com/forcedotcom/cli/issues/2452#issuecomment-1710027941). (GitHub issue [#2452](https://github.com/forcedotcom/cli/issues/2452), source-deploy-retrieve PR [#1103](https://github.com/forcedotcom/source-deploy-retrieve/pull/1103))
