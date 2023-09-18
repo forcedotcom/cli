@@ -25,7 +25,17 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.8.11 (Sept 13, 2023) [stable-rc]
+
+## 2.9.8 (Sept 20, 2023) [stable-rc]
+
+* NEW: The CLI now shows a warning when the version of a core or JIT plugin is out of sync with what was shipped with your installed cli.
+
+* NEW: JIT plugins now respect a lock file during install. This will prevent JIT plugins from installing dependencies that are newer than what they were shipped and tested with. 
+
+* FIX: Running `project retrieve start` now shows warnings for problematic components. This now matches the functionality of `force:source:retrieve` (GitHub issue [#2405](https://github.com/forcedotcom/cli/issues/2405), plugin-deploy-retrieve PR [#747](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/747))
+
+* FIX: Metadata transfers will now automatically retry when they encounter an `ENOMEM` error. Keeps your eyes out for Shane McLaughlin's [debut album](https://github.com/forcedotcom/cli/issues/2452#issuecomment-1710027941). (GitHub issue [#2452](https://github.com/forcedotcom/cli/issues/2452), source-deploy-retrieve PR [#1103](https://github.com/forcedotcom/source-deploy-retrieve/pull/1103))
+## 2.8.11 (Sept 15, 2023) [stable]
 
 ANNOUNCEMENTS: 
 * Check out our new [public roadmap](https://github.com/orgs/salesforcecli/projects/2/views/1)! Read it like a DevOps pipeline or Kanban board: the items on the left are in the early stages of development, and the items toward the right are almost done or complete.  Let us know what you think!
@@ -52,7 +62,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We've improved the description of the `project generate` subtopic in the `package.json` file to include generating a project, manifest, and more. Thanks, [Peter Chittum](https://github.com/pchittum), for your contribution -- we love it! (plugin-deploy-retrieve PR [#742](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/742)) 
 
-## 2.7.11 (Sept 6, 2023) [stable]
+## 2.7.11 (Sept 6, 2023)
 
 ANNOUNCEMENTS: 
 * Check out our new [public roadmap](https://github.com/orgs/salesforcecli/projects/2/views/1)! Read it like a DevOps pipeline or Kanban board: the items on the left are in the early stages of development, and the items toward the right are almost done or complete.  Let us know what you think!
