@@ -26,21 +26,21 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.10.2 (Sept 20, 2023) [stable-rc]
+## 2.10.2 (Sept 27, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
 
-- NEW: Code Coverage UI Improvements. The code coverage colors have been changed to indicate good, average, and poor coverage. (Github Issue [#2412](https://github.com/forcedotcom/cli/issues/2412), plugin-deploy-retrieve PR [#756](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/756), plugin-source PR [#950](https://github.com/salesforcecli/plugin-source/pull/950), plugin-source PR (superseded) [#934](https://github.com/salesforcecli/plugin-source/pull/934)) Thank you @AllanOricil for your contributions to `plugin-source`! :heart:
+* NEW: Code Coverage UI Improvements. The code coverage colors have been changed to indicate good, average, and poor coverage. (Github Issue [#2412](https://github.com/forcedotcom/cli/issues/2412), plugin-deploy-retrieve PR [#756](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/756), plugin-source PR [#950](https://github.com/salesforcecli/plugin-source/pull/950), plugin-source PR (superseded) [#934](https://github.com/salesforcecli/plugin-source/pull/934)) Thank you @AllanOricil for your contributions to `plugin-source`! :heart:
 
 * NEW: Uninstalled JIT Plugins are now displayed when running `sf plugins --core [--json]`. A warning will be shown when trying to inspect an uninstalled JIT plugin.
 
-- FIX: Uncovered lines numbers are now correctly displayed in Code Coverage report. (Github Issue [#2468](https://github.com/forcedotcom/cli/issues/2468), plugin-source PR [#950](https://github.com/salesforcecli/plugin-source/pull/950))
+* FIX: Uncovered lines numbers are now correctly displayed in the Code Coverage report. (Github Issue [#2468](https://github.com/forcedotcom/cli/issues/2468), plugin-source PR [#950](https://github.com/salesforcecli/plugin-source/pull/950))
 
-- FIX: The `.forceignore` file now correctly handles an opt-in style with directories. (Github Issue [#2404](https://github.com/forcedotcom/cli/issues/2404), source-deploy-retrieve PR [#1093](https://github.com/forcedotcom/source-deploy-retrieve/pull/1093))
+* FIX: The `.forceignore` file now correctly handles an opt-in style with directories. (Github Issue [#2404](https://github.com/forcedotcom/cli/issues/2404), source-deploy-retrieve PR [#1093](https://github.com/forcedotcom/source-deploy-retrieve/pull/1093))
 
-- FIX: Running `project deploy quick` will now display the deploy ID of the quick deploy request, not the validation id. (Github Issue [#2415](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/748), source-deploy-retrieve PR [#748](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/748))
+* FIX: Running `project deploy quick` will now display the deploy ID of the quick deploy request, not the validation id. (Github Issue [#2415](https://github.com/forcedotcom/cli/issues/2415), source-deploy-retrieve PR [#748](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/748))
 
 ## 2.9.8 (Sept 20, 2023) [stable]
 
