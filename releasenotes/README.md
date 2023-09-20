@@ -26,16 +26,31 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.9.8 (Sept 20, 2023) [stable-rc]
-
-ANNOUNCEMENTS: 
-* Check out our new [public roadmap](https://github.com/orgs/salesforcecli/projects/2/views/1)! Read it like a DevOps pipeline or Kanban board: the items on the left are in the early stages of development, and the items toward the right are almost done or complete.  Let us know what you think!
- 
-* If you install Salesforce CLI using `npm`, and use Node.js 14 or 16, be aware of these [end-of-life dates](https://github.com/forcedotcom/cli/issues/1985).
-
--------------
+## 2.10.2 (Sept 20, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+------------
+
+- NEW: Code Coverage UI Improvements. The code coverage colors have been changed to indicate good, average, and poor coverage. (Github Issue [#2412](https://github.com/forcedotcom/cli/issues/2412), plugin-deploy-retrieve PR [#756](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/756), plugin-source PR [#950](https://github.com/salesforcecli/plugin-source/pull/950), plugin-source PR (superseded) [#934](https://github.com/salesforcecli/plugin-source/pull/934)) Thank you @AllanOricil for your contributions to `plugin-source`! :heart:
+
+* NEW: Uninstalled JIT Plugins are now displayed when running `sf plugins --core [--json]`. A warning will be shown when trying to inspect an uninstalled JIT plugin.
+
+- FIX: Uncovered lines numbers are now correctly displayed in Code Coverage report. (Github Issue [#2468](https://github.com/forcedotcom/cli/issues/2468), plugin-source PR [#950](https://github.com/salesforcecli/plugin-source/pull/950))
+
+- FIX: The `.forceignore` file now correctly handles an opt-in style with directories. (Github Issue [#2404](https://github.com/forcedotcom/cli/issues/2404), source-deploy-retrieve PR [#1093](https://github.com/forcedotcom/source-deploy-retrieve/pull/1093))
+
+- FIX: Running `project deploy quick` will now display the deploy ID of the quick deploy request, not the validation id. (Github Issue [#2415](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/748), source-deploy-retrieve PR [#748](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/748))
+
+## 2.9.8 (Sept 20, 2023) [stable]
+
+ANNOUNCEMENTS: 
+
+* Check out our new [public roadmap](https://github.com/orgs/salesforcecli/projects/2/views/1) and let us know what you think!
+ 
+* If you install Salesforce CLI using `npm`, be aware that Node 14 and 16 are both officially [end-of-life](https://github.com/forcedotcom/cli/issues/1985).
+
+-------------
 
 * NEW: The CLI now shows a warning when the version of a core or JIT plugin is out of sync with what was shipped with your installed cli.
 
@@ -44,8 +59,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 * FIX: Running `project retrieve start` now shows warnings for problematic components. This now matches the functionality of `force:source:retrieve` (GitHub issue [#2405](https://github.com/forcedotcom/cli/issues/2405), plugin-deploy-retrieve PR [#747](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/747))
 
 * FIX: Metadata transfers will now automatically retry when they encounter an `ENOMEM` error. Keeps your eyes out for Shane McLaughlin's [debut album](https://github.com/forcedotcom/cli/issues/2452#issuecomment-1710027941). (GitHub issue [#2452](https://github.com/forcedotcom/cli/issues/2452), source-deploy-retrieve PR [#1103](https://github.com/forcedotcom/source-deploy-retrieve/pull/1103))
-## 2.8.11 (Sept 15, 2023) [stable]
 
+## 2.8.11 (Sept 15, 2023)
 
 * NEW: Download metadata from a specific package version with the new `package version retrieve` command. You can retrieve metadata for a second- or first-generation managed package or an unlocked package. Retrieving a package version downloads the metadata into the directory you specify. When you run the command, specify the package alias or the subscriber package version ID (starts with 04t) and the path to an empty directory.
 
