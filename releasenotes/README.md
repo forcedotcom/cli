@@ -32,6 +32,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+CHANGE: We removed the `package version retrieve` command that we announced on 9/15/23. This feature isn't quite ready for prime time, so we're removing it for now while we make improvements. We'll let you know after it's back up.
+
 ## 2.10.2 (Sept 27, 2023) [stable]
 
 ANNOUNCEMENTS: 
