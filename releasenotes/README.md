@@ -26,11 +26,21 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.10.2 (Sept 27, 2023) [stable-rc]
+## 2.11.7 (Oct 4, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+## 2.10.2 (Sept 27, 2023) [stable]
+
+ANNOUNCEMENTS: 
+
+* Check out our new [public roadmap](https://github.com/orgs/salesforcecli/projects/2/views/1) and let us know what you think!
+ 
+* If you install Salesforce CLI using `npm`, be aware that Node 14 and 16 are both officially [end-of-life](https://github.com/forcedotcom/cli/issues/1985).
+
+-------------
 
 * NEW: Code Coverage UI Improvements. We changed the code coverage colors to indicate good, average, and poor coverage. (Github Issue [#2412](https://github.com/forcedotcom/cli/issues/2412), plugin-deploy-retrieve PR [#756](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/756), plugin-source PR [#950](https://github.com/salesforcecli/plugin-source/pull/950), plugin-source PR (superseded) [#934](https://github.com/salesforcecli/plugin-source/pull/934))
 
@@ -44,15 +54,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Running `project deploy quick` now displays the deploy ID of the quick deploy request, not the validation ID. (Github Issue [#2415](https://github.com/forcedotcom/cli/issues/2415), source-deploy-retrieve PR [#748](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/748))
 
-## 2.9.8 (Sept 20, 2023) [stable]
-
-ANNOUNCEMENTS: 
-
-* Check out our new [public roadmap](https://github.com/orgs/salesforcecli/projects/2/views/1) and let us know what you think!
- 
-* If you install Salesforce CLI using `npm`, be aware that Node 14 and 16 are both officially [end-of-life](https://github.com/forcedotcom/cli/issues/1985).
-
--------------
+## 2.9.8 (Sept 20, 2023)
 
 * NEW: Salesforce CLI now shows a warning when the version of a core or JIT plugin is out of sync with what was shipped with your installed CLI.
 
