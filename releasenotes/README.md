@@ -40,7 +40,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     Finally, you no longer get an error if you run `project deploy resume` on a deployment that finished. Instead you get a message telling you that it completed and then the deploy results. (GitHub discussion [#2300](https://github.com/forcedotcom/cli/discussions/2300) and issues [#2293](https://github.com/forcedotcom/cli/issues/2293), [#2297](https://github.com/forcedotcom/cli/issues/2297), [#2078](https://github.com/forcedotcom/cli/issues/2078).  plugin-deploy-retrieve PRs [#762](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/762) and [#758](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/758))
  
-* CHANGE: We removed the `package version retrieve` command that we announced on 9/15/23. This feature isn't quite ready for prime time, so we're removing it for now while we make improvements. We'll let you know after it's back up. (plugin-packaging PR [#447](https://github.com/salesforcecli/plugin-packaging/pull/447))
+* CHANGE: We removed the `package version retrieve` command that we announced on September 15, 2023. This feature isn't quite ready for prime time, so we're removing it for now while we make improvements. We'll let you know after it's back up. (plugin-packaging PR [#447](https://github.com/salesforcecli/plugin-packaging/pull/447))
 
 * FIX: When you create a package version with the `package version create` command, the command now searches for profiles in the package directories defined in `sfdx-project.json`.   (GitHub issue [#2336](https://github.com/forcedotcom/cli/issues/2336), packaging PR [#397](https://github.com/forcedotcom/packaging/pull/397))
 
