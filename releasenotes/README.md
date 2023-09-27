@@ -26,11 +26,35 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.10.2 (Sept 27, 2023) [stable-rc]
+## 2.11.7 (Oct 4, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: Plugin installs use `yarn` under the hood. If you run into errors during installs or updates, you can now enable the network mutex option by setting the SF_USE_NETWORK_MUTEX environment variable to `true`. Setting this variable opens a local network to manage the concurrent `yarn` instances and may be more reliable. You can also pass an optional port for the local server to open on with the SF_NETWORK_MUTEX_PORT environment variable.  See the [yarn documentation](https://classic.yarnpkg.com/lang/en/docs/cli/#toc-concurrency-and-mutex) for more information. [oclif plugin-plugins PR [#670](https://github.com/oclif/plugin-plugins/pull/670))
+
+* NEW: Poll for status of a deployment when you run `project deploy report` with the new `--wait` flag. If you specify this flag, the command polls for the status every second until the timeout of `--wait` minutes.  If you don't specify the `--wait` flag, the command simply checks and displays the status of the deploy; the command doesn't poll for the status.
+
+    We also added the `--target-org` flag to `project deploy report`. You usually don't need to specify this flag because the cached deploy job already references the org to which you deployed. But if you run `project deploy report` on a computer different than the one from which you originally deployed, and the default org is different from the deployment org, then you must specify `--target-org`. The flag must point to the same deployment org; if it doesn't, you get an error. 
+
+    Finally, you no longer get an error if you run `project deploy resume` on a deployment that finished. Instead you get a message telling you that it completed and then the deploy results. (GitHub discussion [#2300](https://github.com/forcedotcom/cli/discussions/2300) and issues [#2293](https://github.com/forcedotcom/cli/issues/2293), [#2297](https://github.com/forcedotcom/cli/issues/2297), [#2078](https://github.com/forcedotcom/cli/issues/2078).  plugin-deploy-retrieve PRs [#762](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/762) and [#758](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/758))
+ 
+* CHANGE: We removed the `package version retrieve` command that we announced on September 15, 2023. This feature isn't quite ready for prime time, so we're removing it for now while we make improvements. We'll let you know after it's back up. (plugin-packaging PR [#447](https://github.com/salesforcecli/plugin-packaging/pull/447))
+
+* FIX: When you create a package version with the `package version create` command, the command now searches for profiles in the package directories defined in `sfdx-project.json`.   (GitHub issue [#2336](https://github.com/forcedotcom/cli/issues/2336), packaging PR [#397](https://github.com/forcedotcom/packaging/pull/397))
+
+* FIX: Salesforce DX projects now support the PricingRecipe metadata type.
+
+## 2.10.2 (Sept 27, 2023) [stable]
+
+ANNOUNCEMENTS: 
+
+* Check out our new [public roadmap](https://github.com/orgs/salesforcecli/projects/2/views/1) and let us know what you think!
+ 
+* If you install Salesforce CLI using `npm`, be aware that Node 14 and 16 are both officially [end-of-life](https://github.com/forcedotcom/cli/issues/1985).
+
+-------------
 
 * NEW: Code Coverage UI Improvements. We changed the code coverage colors to indicate good, average, and poor coverage. (Github Issue [#2412](https://github.com/forcedotcom/cli/issues/2412), plugin-deploy-retrieve PR [#756](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/756), plugin-source PR [#950](https://github.com/salesforcecli/plugin-source/pull/950), plugin-source PR (superseded) [#934](https://github.com/salesforcecli/plugin-source/pull/934))
 
@@ -44,15 +68,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Running `project deploy quick` now displays the deploy ID of the quick deploy request, not the validation ID. (Github Issue [#2415](https://github.com/forcedotcom/cli/issues/2415), source-deploy-retrieve PR [#748](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/748))
 
-## 2.9.8 (Sept 20, 2023) [stable]
-
-ANNOUNCEMENTS: 
-
-* Check out our new [public roadmap](https://github.com/orgs/salesforcecli/projects/2/views/1) and let us know what you think!
- 
-* If you install Salesforce CLI using `npm`, be aware that Node 14 and 16 are both officially [end-of-life](https://github.com/forcedotcom/cli/issues/1985).
-
--------------
+## 2.9.8 (Sept 20, 2023)
 
 * NEW: Salesforce CLI now shows a warning when the version of a core or JIT plugin is out of sync with what was shipped with your installed CLI.
 
