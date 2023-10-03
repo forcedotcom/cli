@@ -32,7 +32,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* CHANGE: Salesforce CLI now prompts you to select a matching command, even when the partial command you entered matches just a single command. This change prevents inadvertent behavior, such as automatic JIT plugin installations because the CLI thinks you want to run a command in a JIT plugin that isn't installed.  (GitHub issue [#2493](https://github.com/forcedotcom/cli/issues/2493)), salesforcecli PR [#1180](https://github.com/salesforcecli/cli/pull/1180))
+* CHANGE: Salesforce CLI now prompts you to select a matching command, even when the partial command you entered matches just a single command. This change prevents inadvertent behavior, such as automatic JIT plugin installations because the CLI thinks you want to run a command in a JIT plugin that isn't installed.  (GitHub issue [#2493](https://github.com/forcedotcom/cli/issues/2493), salesforcecli PR [#1180](https://github.com/salesforcecli/cli/pull/1180))
 
 * FIX: The `--help` output of a deprecated aliased command (such as `force:org:list`) now displays the deprecation warning. (GitHub oclif issue [#800](https://github.com/oclif/core/issues/800), oclif PR [#801](https://github.com/oclif/core/pull/801))
 
