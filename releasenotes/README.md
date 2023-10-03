@@ -32,6 +32,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* CHANGE: Salesforce CLI now prompts you to select a matching command, even when the partial command you entered matches just a single command. This change prevents inadvertent behavior, such as automatic JIT plugin installations because the CLI thinks you want to run a command in a JIT plugin that isn't installed.  (GitHub issue [#2493](https://github.com/forcedotcom/cli/issues/2493)), salesforcecli PR [#1180](https://github.com/salesforcecli/cli/pull/1180))
+
 * FIX: The `--help` output of a deprecated aliased command (such as `force:org:list`) now displays the deprecation warning. (GitHub oclif issue [#800](https://github.com/oclif/core/issues/800), oclif PR [#801](https://github.com/oclif/core/pull/801))
 
 * FIX: Certain `package` commands now display the error when they fail; previously they failed silently. (GitHub issues [#2434](https://github.com/forcedotcom/cli/issues/2434) and [#2469](https://github.com/forcedotcom/cli/issues/2469), packaging PR [#403](https://github.com/forcedotcom/packaging/pull/403))
@@ -39,6 +41,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 * FIX: The CLI's source-tracking feature no longer registers multiple listeners.  As a result, Salesforce Extensions for VS Code no longer leaves long-running multiple source-tracking instances around without getting cleaned up.(GitHub issues [#2441](https://github.com/forcedotcom/cli/issues/2441), [#2458](https://github.com/forcedotcom/cli/issues/2458), [#2483](https://github.com/forcedotcom/cli/issues/2483), [#2476](https://github.com/forcedotcom/cli/issues/2476), and [#2439](https://github.com/forcedotcom/cli/issues/2439). source-tracking PR [#480](https://github.com/forcedotcom/source-tracking/pull/480), sfdx-core PR [#941](https://github.com/forcedotcom/sfdx-core/pull/941))
 
 * FIX: HTML entities, such as `&#160;` in a CustomLabels metadata type, are now correctly encoded when deployed to an org. (GitHub issues [#2448](https://github.com/forcedotcom/cli/issues/2448) and [#2455](https://github.com/forcedotcom/cli/issues/2455), SDR PRs [#1102](https://github.com/forcedotcom/source-deploy-retrieve/pull/1102) and [#1128](https://github.com/forcedotcom/source-deploy-retrieve/pull/1128))
+
+* FIX: The `org list` and `org display` commands no longer display the raw HTML 503 response when run against an org on an instance that's currently out of service. (GitHub issue [#2487](https://github.com/forcedotcom/cli/issues/2487), plugin-org PR [#814](https://github.com/salesforcecli/plugin-org/pull/814))
+
 * FIX: Salesforce DX projects now support these metadata types:
   
     * ConversationChannelDefinition
