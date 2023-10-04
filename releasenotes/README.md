@@ -26,12 +26,40 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.11.8 (Oct 4, 2023) [stable-rc]
+## 2.12.8 (Oct 11, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
 
+* CHANGE: Salesforce CLI now prompts you to select a matching command, even when the partial command you entered matches just a single command. This change prevents inadvertent behavior, such as automatic JIT plugin installations because the CLI thinks you want to run a command in a JIT plugin that isn't installed.  (GitHub issue [#2493](https://github.com/forcedotcom/cli/issues/2493), salesforcecli PR [#1180](https://github.com/salesforcecli/cli/pull/1180))
+
+* FIX: The `org resume sandbox` command now correctly handles multiple sandboxes in a resumable state. It first displays a warning about the multiple sandboxes, and then resumes the most recent sandbox creation or refresh. (GitHub issues [#x](https://github.com/forcedotcom/cli/issues/2238) and [#x](https://github.com/forcedotcom/cli/issues/1833), sfdx-core PR [#x](https://github.com/forcedotcom/sfdx-core/pull/944), plugin-org PR [#x](https://github.com/salesforcecli/plugin-org/pull/823))
+
+* FIX: The `--help` output of a deprecated aliased command (such as `force:org:list`) now displays the deprecation warning. (GitHub oclif issue [#800](https://github.com/oclif/core/issues/800), oclif PR [#801](https://github.com/oclif/core/pull/801))
+
+* FIX: Certain `package` commands now display the error when they fail; previously they failed silently. (GitHub issues [#2434](https://github.com/forcedotcom/cli/issues/2434) and [#2469](https://github.com/forcedotcom/cli/issues/2469), packaging PR [#403](https://github.com/forcedotcom/packaging/pull/403))
+
+* FIX: The CLI's source tracking library now prevents the registration of duplicate listeners. When the Salesforce Extensions for VS Code release an update with the updated source tracking library, the library will prevent the extensions from registering duplicate listeners. (GitHub issues [#2441](https://github.com/forcedotcom/cli/issues/2441), [#2458](https://github.com/forcedotcom/cli/issues/2458), [#2483](https://github.com/forcedotcom/cli/issues/2483), [#2476](https://github.com/forcedotcom/cli/issues/2476), and [#2439](https://github.com/forcedotcom/cli/issues/2439). source-tracking PR [#480](https://github.com/forcedotcom/source-tracking/pull/480), sfdx-core PR [#941](https://github.com/forcedotcom/sfdx-core/pull/941))
+
+* FIX: HTML entities, such as `&#160;` in a CustomLabels metadata type, are now correctly encoded when deployed to an org. (GitHub issues [#2448](https://github.com/forcedotcom/cli/issues/2448) and [#2455](https://github.com/forcedotcom/cli/issues/2455), SDR PRs [#1102](https://github.com/forcedotcom/source-deploy-retrieve/pull/1102) and [#1128](https://github.com/forcedotcom/source-deploy-retrieve/pull/1128))
+
+* FIX: The `org list` and `org display` commands no longer display the raw HTML 503 response when run against an org on an instance that's currently out of service. (GitHub issue [#2487](https://github.com/forcedotcom/cli/issues/2487), plugin-org PR [#814](https://github.com/salesforcecli/plugin-org/pull/814))
+
+* FIX: Salesforce DX projects now support these metadata types:
+  
+    * ConversationChannelDefinition
+    * ExtlClntAppConfigurablePolicies
+
+## 2.11.8 (Oct 4, 2023) [stable]
+
+ANNOUNCEMENTS: 
+
+* Check out our new [public roadmap](https://github.com/orgs/salesforcecli/projects/2/views/1) and let us know what you think!
+ 
+* If you install Salesforce CLI using `npm`, be aware that Node 14 and 16 are both officially [end-of-life](https://github.com/forcedotcom/cli/issues/1985).
+
+-------------
 * NEW: Plugin installs use `yarn` under the hood. If you run into errors during installs or updates, you can now enable the network mutex option by setting the SF_USE_NETWORK_MUTEX environment variable to `true`. Setting this variable opens a local network to manage the concurrent `yarn` instances and may be more reliable. You can also pass an optional port for the local server to open on with the SF_NETWORK_MUTEX_PORT environment variable.  See the [yarn documentation](https://classic.yarnpkg.com/lang/en/docs/cli/#toc-concurrency-and-mutex) for more information. [oclif plugin-plugins PR [#670](https://github.com/oclif/plugin-plugins/pull/670))
 
 * NEW: Poll for status of a deployment when you run `project deploy report` with the new `--wait` flag. If you specify this flag, the command polls for the status every second until the timeout of `--wait` minutes.  If you don't specify the `--wait` flag, the command simply checks and displays the status of the deploy; the command doesn't poll for the status.
@@ -46,15 +74,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Salesforce DX projects now support the PricingRecipe metadata type.
 
-## 2.10.2 (Sept 27, 2023) [stable]
-
-ANNOUNCEMENTS: 
-
-* Check out our new [public roadmap](https://github.com/orgs/salesforcecli/projects/2/views/1) and let us know what you think!
- 
-* If you install Salesforce CLI using `npm`, be aware that Node 14 and 16 are both officially [end-of-life](https://github.com/forcedotcom/cli/issues/1985).
-
--------------
+## 2.10.2 (Sept 27, 2023)
 
 * NEW: Code Coverage UI Improvements. We changed the code coverage colors to indicate good, average, and poor coverage. (Github Issue [#2412](https://github.com/forcedotcom/cli/issues/2412), plugin-deploy-retrieve PR [#756](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/756), plugin-source PR [#950](https://github.com/salesforcecli/plugin-source/pull/950), plugin-source PR (superseded) [#934](https://github.com/salesforcecli/plugin-source/pull/934))
 
