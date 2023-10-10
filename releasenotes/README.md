@@ -32,6 +32,12 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* FIX: If the `project deploy start --metadata-dir` command encounters failures when deploying files in metadata format, the error message now contains the line and column number in the file where the error occurred. We also improved the output with better sorting and duplication removal. (GitHub issue [#356](https://github.com/forcedotcom/cli/issues/356), plugin-deploy-retrieve PR [#771](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/771))
+
+* FIX: We improved the help of the `org generate password` command to say that the `--on-behalf-of` flag works only on users that were created locally with the `org create user` command and not users created in org's Setup UI. (GitHub issue [#2506](https://github.com/forcedotcom/cli/issues/2506), plugin-user PR [#747](https://github.com/salesforcecli/plugin-user/pull/747))
+  
+* FIX: Salesforce DX projects now support the EventRelayConfig metadata type. 
+  
 ## 2.12.9 (Oct 11, 2023) [stable]
 
 ANNOUNCEMENTS: 
