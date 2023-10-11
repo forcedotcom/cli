@@ -26,11 +26,27 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.12.9 (Oct 11, 2023) [stable-rc]
+## 2.13.9 (Oct 18, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: If the `project deploy start --metadata-dir` command encounters failures when deploying files in metadata format, the error message now contains the line and column number in the file where the error occurred. We also improved the output with better sorting and duplication removal. (GitHub issue [#356](https://github.com/forcedotcom/cli/issues/356), plugin-deploy-retrieve PR [#771](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/771))
+
+* FIX: We improved the help of the `org generate password` command to say that the `--on-behalf-of` flag works only on users that were created locally with the `org create user` command and not users created in org's Setup UI. (GitHub issue [#2506](https://github.com/forcedotcom/cli/issues/2506), plugin-user PR [#747](https://github.com/salesforcecli/plugin-user/pull/747))
+  
+* FIX: Salesforce DX projects now support the EventRelayConfig metadata type. 
+  
+## 2.12.9 (Oct 11, 2023) [stable]
+
+ANNOUNCEMENTS: 
+
+* Check out our new [public roadmap](https://github.com/orgs/salesforcecli/projects/2/views/1) and let us know what you think!
+ 
+* If you install Salesforce CLI using `npm`, be aware that Node 14 and 16 are both officially [end-of-life](https://github.com/forcedotcom/cli/issues/1985).
+
+-------------
 
 * CHANGE: Salesforce CLI now prompts you to select a matching command, even when the partial command you entered matches just a single command. This change prevents inadvertent behavior, such as automatic JIT plugin installations because the CLI thinks you want to run a command in a JIT plugin that isn't installed.  (GitHub issue [#2493](https://github.com/forcedotcom/cli/issues/2493), salesforcecli PR [#1180](https://github.com/salesforcecli/cli/pull/1180))
 
@@ -51,15 +67,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * ConversationChannelDefinition
     * ExtlClntAppConfigurablePolicies
 
-## 2.11.8 (Oct 4, 2023) [stable]
+## 2.11.8 (Oct 4, 2023)
 
-ANNOUNCEMENTS: 
-
-* Check out our new [public roadmap](https://github.com/orgs/salesforcecli/projects/2/views/1) and let us know what you think!
- 
-* If you install Salesforce CLI using `npm`, be aware that Node 14 and 16 are both officially [end-of-life](https://github.com/forcedotcom/cli/issues/1985).
-
--------------
 * NEW: Plugin installs use `yarn` under the hood. If you run into errors during installs or updates, you can now enable the network mutex option by setting the SF_USE_NETWORK_MUTEX environment variable to `true`. Setting this variable opens a local network to manage the concurrent `yarn` instances and may be more reliable. You can also pass an optional port for the local server to open on with the SF_NETWORK_MUTEX_PORT environment variable.  See the [yarn documentation](https://classic.yarnpkg.com/lang/en/docs/cli/#toc-concurrency-and-mutex) for more information. [oclif plugin-plugins PR [#670](https://github.com/oclif/plugin-plugins/pull/670))
 
 * NEW: Poll for status of a deployment when you run `project deploy report` with the new `--wait` flag. If you specify this flag, the command polls for the status every second until the timeout of `--wait` minutes.  If you don't specify the `--wait` flag, the command simply checks and displays the status of the deploy; the command doesn't poll for the status.
