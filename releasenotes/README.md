@@ -37,7 +37,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
      ```bash
      sf org open --source-file force-app/main/default/flows/Hello.flow-meta.xml
      ```
-    Many thanks to [Arturs Gusjko](https://github.com/GusjkoA) who not only came up with the great idea, but provided [excellent QA](https://github.com/salesforcecli/plugin-org/pull/836) to help us create a better new feature.  Our community is the best!   (GitHub issue [#2519](https://github.com/forcedotcom/cli/discussions/2519), plugin-org PR [#829](https://github.com/salesforcecli/plugin-org/pull/829))
+    Many thanks to [Arturs Gusjko](https://github.com/GusjkoA) who not only came up with the great idea, but also provided [excellent QA and suggestions](https://github.com/salesforcecli/plugin-org/pull/836) to help us release a better feature. Terrific work!   (GitHub issue [#2519](https://github.com/forcedotcom/cli/discussions/2519), plugin-org PR [#829](https://github.com/salesforcecli/plugin-org/pull/829))
   
 * FIX: We corrected the help for `config list` to say that the command lists the config variable values based on the current context.  For example, if you run the command from a project which has a local config variable set, but it's also set globally, the command prints the local value which overrides the global one. (GitHub issue [#2435](https://github.com/forcedotcom/cli/issues/2435), plugin-settings [#405](https://github.com/salesforcecli/plugin-settings/pull/405))
 
