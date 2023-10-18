@@ -39,7 +39,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `SF_NEW_VERSION_CHECK_FREQ`: A number that specifies the frequency that the warning message is displayed. Default is `0`, which displays the message every time a new version is found. 
     * `SF_NEW_VERSION_CHECK_FREQ_UNIT`: The unit of time of the frequency.  Possible values are `days`, `hours`, `minutes` (the default value), `seconds`, and `milliseconds`.
  
-    For example, to get the warning message once a day, set `SF_NEW_VERSION_CHECK_FREQ=1` and `SF_NEW_VERSION_CHECK_FREQ_UNIT=days`.  Note that these two `FREQ` environment variables configure only when the warning is displayed; the version check still occurs for each command execution unless you set `SF_SKIP_VERSION_CHECK=true`
+    For example, to get the warning message once a day, set `SF_NEW_VERSION_CHECK_FREQ=1` and `SF_NEW_VERSION_CHECK_FREQ_UNIT=days`.  Note that these two `FREQ` environment variables configure only when the warning is displayed; the version check still occurs for each command execution unless you set `SF_SKIP_VERSION_CHECK=true`. [oclif/plugin-warn-if-update-available PR [#437](https://github.com/oclif/plugin-warn-if-update-available/pull/437))
 
 * NEW: Open a flow in Flow Builder from the command line by passing the local Flow metadata file to `org open --source-file`.  For example, to open the local Hello flow in Flow Builder:
 
