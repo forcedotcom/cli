@@ -32,7 +32,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* CHANGE: We upgraded the version of Node.js bundled in the Salesforce CLI operating-specific installers and Docker images to v20. Why?  Because we always bundle the Active LTS version of Node.js in tandem with its [release schedule](https://github.com/nodejs/release#release-schedule), and v20 goes LTS on October 24, 2023. 
+* CHANGE: We upgraded the version of Node.js bundled in the Salesforce CLI operating-specific installers and Docker images to v20. Why?  Because we always bundle the Active LTS version of Node.js in tandem with its [release schedule](https://github.com/nodejs/release#release-schedule), and v20 went LTS on October 24, 2023. 
 
 ## 2.14.6 (Oct 25, 2023) [stable]
 
