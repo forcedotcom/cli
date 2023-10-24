@@ -32,11 +32,30 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* CHANGE: We upgraded the version of Node.js bundled in the Salesforce CLI operating-specific installers and Docker images to v20. Why?  Because we always bundle the Active LTS version of Node.js in tandem with its [release schedule](https://github.com/nodejs/release#release-schedule), and v20 went LTS on October 24, 2023. 
+* NEW: The `dev convert script` command for migrating your CI scripts to use the `sf`-style commands now handles `sfdx` commands that span multiple lines.  For example, the command converts this:
+
+    ```bash
+    sfdx force:user:create -f config/user-def.json \
+    -a myuser \
+    -o myorg
+    ```
+    into this:
+
+    ```bash
+    sf org create user --definition-file config/user-def.json \
+    --set-alias myuser \
+    --target-org myorg
+    ```
+    (plugin-dev PR [#402](https://github.com/salesforcecli/plugin-dev/pull/402))
+  
+* FIX: The `org list` command now correctly renders the output when a listed scratch org has expired. (GitHub issue [#2533](https://github.com/forcedotcom/cli/issues/2533), plugin-org PR [#845](https://github.com/salesforcecli/plugin-org/pull/845))
 
 ## 2.14.6 (Oct 25, 2023) [stable]
 
-ANNOUNCEMENT: If you install Salesforce CLI using `npm`, be aware that Node 14 and 16 are both officially [end-of-life](https://github.com/forcedotcom/cli/issues/1985).
+ANNOUNCEMENTS: 
+
+* If you install Salesforce CLI using `npm`, be aware that Node.js 14 and 16 are both officially [end-of-life](https://github.com/forcedotcom/cli/issues/1985).
+* We plan to upgrade the version of Node.js bundled in the Salesforce CLI installers, TAR balls, and Docker images to v20 soon, probably in next week's release candidate. Why?  Because we always bundle the Active LTS version of Node.js in tandem with its [release schedule](https://github.com/nodejs/release#release-schedule), and v20 went LTS on October 24, 2023. 
 
 -------------
 
