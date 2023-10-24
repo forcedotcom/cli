@@ -37,7 +37,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     ```bash
     sfdx force:user:create -f config/user-def.json \
     -a myuser \
-    -o myorg
+    -u myorg
     ```
     into this:
 
