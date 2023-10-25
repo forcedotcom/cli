@@ -48,7 +48,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     ```
     (plugin-dev PR [#402](https://github.com/salesforcecli/plugin-dev/pull/402))
   
-* FIX: The `org list` command now correctly renders the output when a listed developer edition org has expired or been deactivated. (GitHub issue [#2533](https://github.com/forcedotcom/cli/issues/2533), plugin-org PR [#845](https://github.com/salesforcecli/plugin-org/pull/845))
+* FIX: The `org list` command now correctly renders the output when a listed org has expired or been deactivated, such as a [developer edition org](https://help.salesforce.com/s/articleView?id=sf.admin_deactivate_org.htm&type=5). (GitHub issue [#2533](https://github.com/forcedotcom/cli/issues/2533), plugin-org PR [#845](https://github.com/salesforcecli/plugin-org/pull/845))
 
 ## 2.14.6 (Oct 25, 2023) [stable]
 
