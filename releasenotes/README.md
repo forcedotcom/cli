@@ -26,11 +26,19 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.15.8 (Nov 1, 2023) [stable-rc]
+## 2.16.7 (Nov 8, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* CHANGE: We upgraded the version of Node.js bundled in the Salesforce CLI operating-specific installers, TAR files, and Docker images to v20. Why?  Because we always bundle the Active LTS version of Node.js in tandem with its [release schedule](https://github.com/nodejs/release#release-schedule), and v20 went LTS on October 24, 2023. 
+
+## 2.15.8 (Nov 1, 2023) [stable]
+
+ANNOUNCEMENT: If you install Salesforce CLI using `npm`, be aware that Node.js 14 and 16 are both officially [end-of-life](https://github.com/forcedotcom/cli/issues/1985). 
+
+-------------
 
 * NEW: The `dev convert script` command for migrating your CI scripts to use the `sf`-style commands now handles `sfdx` commands that span multiple lines.  For example, the command converts this:
 
@@ -50,14 +58,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
   
 * FIX: The `org list` command now correctly renders the output when a listed org has expired or been deactivated, such as a [developer edition org](https://help.salesforce.com/s/articleView?id=sf.admin_deactivate_org.htm&type=5). (GitHub issue [#2533](https://github.com/forcedotcom/cli/issues/2533), plugin-org PR [#845](https://github.com/salesforcecli/plugin-org/pull/845))
 
-## 2.14.6 (Oct 25, 2023) [stable]
-
-ANNOUNCEMENTS: 
-
-* If you install Salesforce CLI using `npm`, be aware that Node.js 14 and 16 are both officially [end-of-life](https://github.com/forcedotcom/cli/issues/1985).
-* We plan to upgrade the version of Node.js bundled in the Salesforce CLI installers, TAR balls, and Docker images to v20 soon, probably in next week's release candidate. Why?  Because we always bundle the Active LTS version of Node.js in tandem with its [release schedule](https://github.com/nodejs/release#release-schedule), and v20 went LTS on October 24, 2023. 
-
--------------
+## 2.14.6 (Oct 25, 2023)
 
 * NEW: Disable Salesforce CLI version checking with the new `SF_SKIP_VERSION_CHECK` environment variable. By default, every CLI command execution checks whether there's a new CLI version available, and prints out a warning message if it finds one. While this message is useful, it's not always wanted, especially in CI environments. To completely disable the check, set `SF_SKIP_VERSION_CHECK=true`.
 
