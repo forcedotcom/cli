@@ -32,7 +32,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: When creating a package version with the `package create version` command, you can now specify whether profile metadata components in a given package directory should be included in the new package. Set the new `scopeProfiles` option of the `sfdx-project.json` file to `true` in the configuration of a package directory for their profiles to be included; set it to `false` for them not to be included. If not specified, the default value of `scopeProfiles` is `false`. The `scopeProfiles` option is a child of `packageDirectory`, as shown in this example:
+* NEW: When creating a package version with the `package create version` command, you can now specify whether profile metadata components in a given package directory should be included in the new package. Set the new `scopeProfiles` option of the `sfdx-project.json` file to `true` in the configuration of a package directory for their profiles to be included; set it to `false` for them not to be included. If not specified, the default value of `scopeProfiles` is `false`. The `scopeProfiles` option is a child of `packageDirectory`, as shown in this example. (packaging PR [#416](https://github.com/forcedotcom/packaging/pull/416), schemas PR [#80](https://github.com/forcedotcom/schemas/pull/80), sfdx-core PR [#957](https://github.com/forcedotcom/sfdx-core/pull/957))
+
 
     ```JSON
     {
@@ -54,8 +55,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     "sourceApiVersion": "58.0"
     }
     ```
-    (packaging PR [#416](https://github.com/forcedotcom/packaging/pull/416), schemas PR [#80](https://github.com/forcedotcom/schemas/pull/80), sfdx-core PR [#957](https://github.com/forcedotcom/sfdx-core/pull/957))
-
+    
 * CHANGE: We upgraded the version of Node.js bundled in the Salesforce CLI operating-specific installers, TAR files, and Docker images to v20. Why?  Because we always bundle the Active LTS version of Node.js in tandem with its [release schedule](https://github.com/nodejs/release#release-schedule), and v20 went LTS on October 24, 2023.
 
 * CHANGE: We've improved the output of the `sf plugins install` command. For example, the warnings are better grouped and you no longer see duplicate warnings. And the final message clearly states that the plugin was successfully installed, if indeed it was. (oclif plugin-plugin PR [#683](https://github.com/oclif/plugin-plugins/pull/683))
