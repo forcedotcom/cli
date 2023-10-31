@@ -60,6 +60,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * CHANGE: We've improved the output of the `sf plugins install` command. For example, the warnings are better grouped and you no longer see duplicate warnings. And the final message clearly states that the plugin was successfully installed, if indeed it was. (oclif plugin-plugin PR [#683](https://github.com/oclif/plugin-plugins/pull/683))
 
+* FIX: The `project retrieve start` command now correctly retrieves CustomFieldTranslation metadata types across multiple package directories. (GitHub issue [#2124](https://github.com/forcedotcom/cli/issues/2124), source-deploy-retrieve PR [#1146](https://github.com/forcedotcom/source-deploy-retrieve/pull/1146))
+
 * FIX: The `--help` output for some commands no longer shows `[object Object]` for the default value of some flags; the output now shows the actual default value. An example of a command with the incorrect `--help` output was `org create scratch`. (GitHub issue [#2539](https://github.com/forcedotcom/cli/issues/2539), oclif core PR [#844](https://github.com/oclif/core/pull/844))
 
 * FIX: You can now use the `--dev-debug` flag on its own to get debug log files from oclif and Salesforce CLI when you run a command; previously you also had to set the SF_LOG_LEVEL environment variable.  If the environment variable isn't set, then the default log level is `trace`.  (salesforcecli PR [#1246](https://github.com/salesforcecli/cli/pull/1246))
