@@ -60,6 +60,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * CHANGE: We've improved the output of the `sf plugins install` command. For example, the warnings are better grouped and you no longer see duplicate warnings. And the final message clearly states that the plugin was successfully installed, if indeed it was. (oclif plugin-plugin PR [#683](https://github.com/oclif/plugin-plugins/pull/683))
 
+* FIX: The `--help` output for some commands no longer shows `[object Object]` for the default value of some flags; the output now shows the actual default value. An example of a command with the incorrect `--help` output was `org create scratch`. (GitHub issue [#2539](https://github.com/forcedotcom/cli/issues/2539), oclif core PR [#844](https://github.com/oclif/core/pull/844))
+
 ## 2.15.8 (Nov 1, 2023) [stable]
 
 ANNOUNCEMENT: If you install Salesforce CLI using `npm`, be aware that Node.js 14 and 16 are both officially [end-of-life](https://github.com/forcedotcom/cli/issues/1985). 
