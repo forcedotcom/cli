@@ -62,6 +62,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `--help` output for some commands no longer shows `[object Object]` for the default value of some flags; the output now shows the actual default value. An example of a command with the incorrect `--help` output was `org create scratch`. (GitHub issue [#2539](https://github.com/forcedotcom/cli/issues/2539), oclif core PR [#844](https://github.com/oclif/core/pull/844))
 
+* FIX: You can now use the `--dev-debug` flag on its own to get debug log files from oclif and Salesforce CLI when you run a command; previously you also had to set the SF_LOG_LEVEL environment variable.  If the environment variable isn't set, then the default log level is `trace`.  (salesforcecli PR [#1246](https://github.com/salesforcecli/cli/pull/1246))
+
+* FIX: The `alias list` command now better handles internal alias files that aren't in the expected format. (sfdx-core PR [#969](https://github.com/forcedotcom/sfdx-core/pull/969))
+
 ## 2.15.8 (Nov 1, 2023) [stable]
 
 ANNOUNCEMENT: If you install Salesforce CLI using `npm`, be aware that Node.js 14 and 16 are both officially [end-of-life](https://github.com/forcedotcom/cli/issues/1985). 
