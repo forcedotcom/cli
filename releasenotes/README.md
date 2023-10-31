@@ -53,9 +53,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     "sfdcLoginUrl": "https://login.salesforce.com",
     "sourceApiVersion": "58.0"
     }
-    ``` 
-
-  (packaging PR [#416](https://github.com/forcedotcom/packaging/pull/416), schemas PR [#80](https://github.com/forcedotcom/schemas/pull/80), sfdx-core PR [#957](https://github.com/forcedotcom/sfdx-core/pull/957))
+    ```
+    (packaging PR [#416](https://github.com/forcedotcom/packaging/pull/416), schemas PR [#80](https://github.com/forcedotcom/schemas/pull/80), sfdx-core PR [#957](https://github.com/forcedotcom/sfdx-core/pull/957))
 
 * CHANGE: We upgraded the version of Node.js bundled in the Salesforce CLI operating-specific installers, TAR files, and Docker images to v20. Why?  Because we always bundle the Active LTS version of Node.js in tandem with its [release schedule](https://github.com/nodejs/release#release-schedule), and v20 went LTS on October 24, 2023.
 
