@@ -34,7 +34,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: When creating a package version with the `package create version` command, you can now specify whether profile metadata components in a given package directory should be included in the new package. Set the new `scopeProfiles` option of the `sfdx-project.json` file to `true` in the configuration of a package directory for their profiles to be included; set it to `false` for them not to be included. If not specified, the default value of `scopeProfiles` is `false`. The `scopeProfiles` option is a child of `packageDirectory`, as shown in this example:
 
-    ```json
+    ```JSON
     {
     "packageDirectories": [
         {
