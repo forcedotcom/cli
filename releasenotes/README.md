@@ -58,7 +58,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     ```
     (packaging PR [#416](https://github.com/forcedotcom/packaging/pull/416), schemas PR [#80](https://github.com/forcedotcom/schemas/pull/80), sfdx-core PR [#957](https://github.com/forcedotcom/sfdx-core/pull/957))
     
-* CHANGE: We upgraded the version of Node.js bundled in the Salesforce CLI operating-specific installers, TAR files, and Docker images to v20. Why?  Because we always bundle the Active LTS version of Node.js in tandem with its [release schedule](https://github.com/nodejs/release#release-schedule), and v20 went LTS on October 24, 2023.
+* CHANGE: We upgraded the version of Node.js bundled in the Salesforce CLI operating system-specific installers, TAR files, and Docker images to v20. Why?  Because we always bundle the Active LTS version of Node.js in tandem with its [release schedule](https://github.com/nodejs/release#release-schedule), and v20 went LTS on October 24, 2023.
 
 * FIX: We've improved the output of the `sf plugins install` command. For example, the warnings are better grouped and you no longer see duplicate warnings. And the final message clearly states that the plugin was successfully installed, if indeed it was. (oclif plugin-plugin PR [#683](https://github.com/oclif/plugin-plugins/pull/683))
 
