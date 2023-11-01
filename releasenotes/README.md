@@ -32,8 +32,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: When creating a package version with the `package create version` command, you can now specify whether profile metadata components in a given package directory should be included in the new package. Set the new `scopeProfiles` option of the `sfdx-project.json` file to `true` in the configuration of a package directory for their profiles to be included; set it to `false` for them not to be included. If not specified, the default value of `scopeProfiles` is `false`. The `scopeProfiles` option is a child of `packageDirectory`, as shown in this example. (packaging PR [#416](https://github.com/forcedotcom/packaging/pull/416), schemas PR [#80](https://github.com/forcedotcom/schemas/pull/80), sfdx-core PR [#957](https://github.com/forcedotcom/sfdx-core/pull/957))
+* NEW: Use the new `scopeProfiles` option of the `sfdx-project.json` file to control which profiles are included in a new package version when you run the `package create version` command. If you set `scopeProfiles` to `true` for a package directory, profiles from only the package directory being packaged are included, and profiles outside of that package directory are ignored. When you set `scopeProfiles` to `false` (the default value), the new package version includes relevant pieces of profiles in any package directory defined in `sfdx-project.json`. 
 
+    The `scopeProfiles` option is a child of `packageDirectory`, as shown in this example. 
 
     ```
     {
@@ -55,6 +56,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     "sourceApiVersion": "58.0"
     }
     ```
+    (packaging PR [#416](https://github.com/forcedotcom/packaging/pull/416), schemas PR [#80](https://github.com/forcedotcom/schemas/pull/80), sfdx-core PR [#957](https://github.com/forcedotcom/sfdx-core/pull/957))
     
 * CHANGE: We upgraded the version of Node.js bundled in the Salesforce CLI operating-specific installers, TAR files, and Docker images to v20. Why?  Because we always bundle the Active LTS version of Node.js in tandem with its [release schedule](https://github.com/nodejs/release#release-schedule), and v20 went LTS on October 24, 2023.
 
