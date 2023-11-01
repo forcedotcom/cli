@@ -32,7 +32,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: Use the new `scopeProfiles` option of the `sfdx-project.json` file to control which profiles are included in a new package version when you run the `package create version` command. If you set `scopeProfiles` to `true` for a package directory, profiles from only the package directory being packaged are included, and profiles outside of that package directory are ignored. When you set `scopeProfiles` to `false` (the default value), the new package version includes relevant pieces of profiles in any package directory defined in `sfdx-project.json`. 
+* NEW: Use the new `scopeProfiles` option of the `sfdx-project.json` file to control which profile settings are included in a new package version when you run the `package create version` command. If you set `scopeProfiles` to `true` for a package directory, profile settings from only the package directory being packaged are included, and profile settings outside of that package directory are ignored. When you set `scopeProfiles` to `false` (the default value), the new package version includes relevant pieces of profile settings in any package directory defined in `sfdx-project.json`.
 
     The `scopeProfiles` option is a child of `packageDirectory`, as shown in this example. 
 
