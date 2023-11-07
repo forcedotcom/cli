@@ -30,22 +30,41 @@ Additional documentation:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-* NEW: Easily uninstall plugins that you explicitly installed (using `plugins install`) or linked (using `plugins link`) with the new `plugins reset` command. After you run this command, you're left with only the core (non-JIT) Salesforce CLI plugins, as if you had just installed the CLI from scratch. (oclif plugin-plugins PR [#701](https://github.com/oclif/plugin-plugins/pull/701))
+------------
 
-* CHANGE: We've changed the official names of these commands for displaying org limits and counts. Both the new and old names work, but the [CLI Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_unified.htm) will soon list only the new name. (plugin-limits PR [#673](https://github.com/salesforcecli/plugin-limits/pull/673))
+* NEW: Easily uninstall plugins that you explicitly installed (using `plugins install`) or linked (using `plugins link`) with the new `plugins reset` command.
+
+    ```bash
+    sf plugins reset
+    ```
+    
+    After you run the command, you're left with only the core (non-JIT) Salesforce CLI plugins, as if you had just installed the CLI from scratch. (oclif plugin-plugins PR [#701](https://github.com/oclif/plugin-plugins/pull/701))
+
+* CHANGE: We've changed the official names of these commands that display org limits and counts. Both the new and old names work, but the [CLI Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_unified.htm) will soon list only the new name. (plugin-limits PR [#673](https://github.com/salesforcecli/plugin-limits/pull/673))
 
     |New Name|Old Name|Description|
     |---|---|---|
     |`org list limits`|`limits api display`|Display information about limits in your org.|
     |`org list sobject record-counts`|`limits recordcounts display`|Display record counts for the specified standard or custom objects.|
-  
 
 * FIX: Salesforce CLI now handles the `SF_CONTAINER_MODE` and `SF_DOMAIN_RETRY` environment variables; previously it handled only the old `SFDX_` equivalents (`SFDX_CONTAINER_MODE` and `SFDX_DOMAIN_RETRY`). And `SF_CONTAINER_MODE` [isn't documented](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_env_variables.htm) -- oopsie!  We're in the process of fixing that doc bug too.   (GitHub issue [#2554](https://github.com/forcedotcom/cli/issues/2554), plugin-org PR [#857](https://github.com/salesforcecli/plugin-org/pull/857))
 
 * FIX: We've improved how `sf plugins install https://github.com/foo/bar` works, which sometimes returned an error. (oclif plugin-plugins PR [#702](https://github.com/oclif/plugin-plugins/pull/702))
 
-* 
-------------
+* FIX: Salesforce DX projects now support these metadata types. (GitHub issue [#2527](https://github.com/forcedotcom/cli/issues/2527))
+
+    * CareBenefitVerifySettings
+    * CareProviderAfflRoleConfig
+    * ContextDefinition
+    * DiscoveryStory
+    * DocumentCategory
+    * DocumentCategoryDocumentType
+    * ExpressionSetMessageToken
+    * ExternalAIModel
+    * ManagedEventSubscription
+    * RecordAggregationDefinition
+    * RegisteredExternalService
+    * WebStoreBundle
 
 ## 2.16.7 (Nov 8, 2023) [stable]
 
