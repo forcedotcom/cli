@@ -32,13 +32,13 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: Easily uninstall plugins that you explicitly installed (using `plugins install`) or linked (using `plugins link`) with the new `plugins reset` command.
+* NEW: Easily uninstall all user-installed and linked plugins, including JIT plugins, with the new `plugins reset` command.
 
     ```bash
     sf plugins reset
     ```
     
-    After you run the command, you're left with only the core (non-JIT) Salesforce CLI plugins, as if you had just installed the CLI from scratch. (oclif plugin-plugins PR [#701](https://github.com/oclif/plugin-plugins/pull/701))
+    After you run the command, you're left with only the core Salesforce CLI plugins, as if you had just installed the CLI from scratch. (oclif plugin-plugins PR [#701](https://github.com/oclif/plugin-plugins/pull/701))
 
 * CHANGE: We've changed the official names of these commands that display org limits and counts. Both the new and old names work, but the [CLI Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_unified.htm) will soon list only the new name. (plugin-limits PR [#673](https://github.com/salesforcecli/plugin-limits/pull/673))
 
