@@ -26,9 +26,11 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.17.7 (Nov 15, 2023) [stable-rc]
+## 2.17.8 (Nov 15, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+* NEW: Easily uninstall plugins that you explicitly installed (using `plugins install`) or linked (using `plugins link`) with the new `plugins reset` command. After you run this command, you're left with only the core (non-JIT) Salesforce CLI plugins, as if you had just installed the CLI from scratch. (oclif plugin-plugins PR [#701](https://github.com/oclif/plugin-plugins/pull/701))
 
 ------------
 
