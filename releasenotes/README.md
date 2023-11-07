@@ -32,6 +32,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: Easily uninstall plugins that you explicitly installed (using `plugins install`) or linked (using `plugins link`) with the new `plugins reset` command. After you run this command, you're left with only the core (non-JIT) Salesforce CLI plugins, as if you had just installed the CLI from scratch. (oclif plugin-plugins PR [#701](https://github.com/oclif/plugin-plugins/pull/701))
 
+* FIX: Salesforce CLI now handles the `SF_CONTAINER_MODE` and `SF_DOMAIN_RETRY` environment variables; previously it handled only the old `SFDX_` equivalents (`SFDX_CONTAINER_MODE` and `SFDX_DOMAIN_RETRY`). And `SF_CONTAINER_MODE` [isn't documented](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_env_variables.htm) -- oopsie!  We're in the process of fixing that doc bug too.   (GitHub issue [#2554](https://github.com/forcedotcom/cli/issues/2554), plugin-org PR [#857](https://github.com/salesforcecli/plugin-org/pull/857))
 ------------
 
 ## 2.16.7 (Nov 8, 2023) [stable]
