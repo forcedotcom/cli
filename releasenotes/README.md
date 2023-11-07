@@ -26,11 +26,17 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.16.7 (Nov 8, 2023) [stable-rc]
+## 2.17.7 (Nov 15, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+## 2.16.7 (Nov 8, 2023) [stable]
+
+ANNOUNCEMENT: If you install Salesforce CLI using `npm`, be aware that Node.js 14 and 16 are both officially [end-of-life](https://github.com/forcedotcom/cli/issues/1985). 
+
+-------------
 
 * NEW: Use the new `scopeProfiles` option of the `sfdx-project.json` file to control which profile settings are included in a new package version when you run the `package create version` command. If you set `scopeProfiles` to `true` for a package directory, profile settings from only the package directory being packaged are included, and profile settings outside of that package directory are ignored. When you set `scopeProfiles` to `false` (the default value), the new package version includes relevant pieces of profile settings in any package directory defined in `sfdx-project.json`.
 
@@ -68,11 +74,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: You can now use the `--dev-debug` flag on its own to get debug log files from oclif and Salesforce CLI when you run a command; previously you also had to set the SF_LOG_LEVEL environment variable.  If the environment variable isn't set, then the default log level is `trace`.  (salesforcecli PR [#1246](https://github.com/salesforcecli/cli/pull/1246))
 
-## 2.15.9 (Nov 1, 2023) [stable]
-
-ANNOUNCEMENT: If you install Salesforce CLI using `npm`, be aware that Node.js 14 and 16 are both officially [end-of-life](https://github.com/forcedotcom/cli/issues/1985). 
-
--------------
+## 2.15.9 (Nov 1, 2023)
 
 * NEW: The `dev convert script` command for migrating your CI scripts to use the `sf`-style commands now handles `sfdx` commands that span multiple lines.  For example, the command converts this:
 
