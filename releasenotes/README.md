@@ -32,7 +32,11 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* CHANGE: Exiting any Salesforce CLI command with a Ctrl-C now returns exit code 130. (sf-plugins-core PR [#445](https://github.com/salesforcecli/sf-plugins-core/pull/445))
+* CHANGE: We've added exit codes for many Salesforce CLI command failures to better help you understand what happened. In particular, commands that:
+
+    * Exit from a user-initiated Ctrl-C now return exit code 130. (sf-plugins-core PR [#445](https://github.com/salesforcecli/sf-plugins-core/pull/445))
+    * Fail due to an internal Salesforce error (AKA "gack") now return exit code 20. (sf-plugins-core PR [#442](https://github.com/salesforcecli/sf-plugins-core/pull/442))
+    * Fail due to a `TypeError` now return exit code 10. (sf-plugins-core PR [#442](https://github.com/salesforcecli/sf-plugins-core/pull/442))
 
 * CHANGE: We've removed the `--json` flag of the `apex log tail` command. Why?  Because it didn't make much sense to have it in the first place. The only way to exit the command is to enter Ctrl-C, so the JSON output can't be captured. And don't worry, we checked our telemetry data: this flag is hardly ever used.  Get logs in JSON format with the `apex list log` or `apex get log` commands. (plugin-apex PR [#280](https://github.com/salesforcecli/plugin-apex/pull/280))
 
