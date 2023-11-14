@@ -32,7 +32,11 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* CHANGE: Exiting any Salesforce CLI command with a Ctrl-C now returns exit code 130. (sf-plugins-core PR [#445](https://github.com/salesforcecli/sf-plugins-core/pull/445))
 
+* CHANGE: We've removed the `--json` flag of the `apex log tail` command. Why?  Because it didn't make much sense to have it in the first place. The only way to exit the command is to enter Ctrl-C, so the JSON output can't be captured. And don't worry, we checked our telemetry data: this flag is hardly ever used.  Get logs in JSON format with the `apex list log` or `apex get log` commands. (plugin-apex PR [#280](https://github.com/salesforcecli/plugin-apex/pull/280))
+
+* FIX: We've fixed a bug when running `apex run test -r junit` or `apex get test -r junit` in which you sometimes got the error `Invalid time value`. (GitHub issue [#213](https://github.com/forcedotcom/salesforcedx-apex/issues/213), salesforcedx-apex PR [334](https://github.com/forcedotcom/salesforcedx-apex/pull/334))
 
 ## 2.17.13 (Nov 15, 2023) [stable]
 
