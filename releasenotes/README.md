@@ -26,11 +26,35 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.17.10 (Nov 15, 2023) [stable-rc]
+## 2.18.7 (Nov 22, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW:  Ignore warnings and allow a deployment to validate successfully with the new `--ignore-warnings` flag of `project deploy validate`. This flag is similar to the equivalent flag of `project deploy start`. (GitHub issue [#2559](https://github.com/forcedotcom/cli/issues/2559), plugin-deploy-retrieve PR [#803](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/803))
+
+* CHANGE: We've added exit codes for many Salesforce CLI command failures to better help you understand what happened. In particular, commands that:
+
+    * Exit from a user-initiated Ctrl-C now return exit code 130. (sf-plugins-core PR [#445](https://github.com/salesforcecli/sf-plugins-core/pull/445))
+    * Fail due to an internal Salesforce error (AKA "gack") now return exit code 20. (sf-plugins-core PR [#442](https://github.com/salesforcecli/sf-plugins-core/pull/442))
+    * Fail due to a `TypeError` now return exit code 10. (sf-plugins-core PR [#442](https://github.com/salesforcecli/sf-plugins-core/pull/442))
+
+* CHANGE: We've removed the `--json` flag of the `apex log tail` command. Why?  Because it didn't make much sense in the first place. The only way to exit the command is to enter Ctrl-C, so the JSON output can't be captured. And don't worry, we checked our telemetry data: this flag is hardly ever used.  Get logs in JSON format with the `apex list log` or `apex get log` commands. (plugin-apex PR [#280](https://github.com/salesforcecli/plugin-apex/pull/280))
+
+* FIX: We've fixed a bug when running `apex run test -r junit` or `apex get test -r junit` in which you sometimes got the error `Invalid time value`. (GitHub issue [#213](https://github.com/forcedotcom/salesforcedx-apex/issues/213), salesforcedx-apex PR [334](https://github.com/forcedotcom/salesforcedx-apex/pull/334))
+
+* FIX: Salesforce CLI now correctly catches errors that are thrown when looking for decoded keys.  (GitHub issue [#2560](https://github.com/forcedotcom/cli/issues/2560), source-deploy-retrieve PR [#1167](https://github.com/forcedotcom/source-deploy-retrieve/pull/1167))
+
+* FIX: You can now successfully run a command that's in a JIT plugin, but not yet installed, with the `--json` flag. For example, if you previously ran `sf package version create --json`, but the JIT plugin-packaging plugin wasn't yet installed, the plugin would be automatically installed but you'd get garbled and incorrect JSON command output. Now the JSON output is as clean as the proverbial whistle.   (GitHub issue [#2562](https://github.com/forcedotcom/cli/issues/2562), plugin-trust PR [#643](https://github.com/salesforcecli/plugin-trust/pull/643), oclif plugin-plugins PR [#712](https://github.com/oclif/plugin-plugins/pull/712))
+
+* FIX: Salesforce CLI now correctly honors the `SF_DISABLE_LOG_FILE=true` environment variable setting without returning an error. (GitHub issue [#2553](https://github.com/forcedotcom/cli/issues/2553), sfdx-core PR [#979](https://github.com/forcedotcom/sfdx-core/pull/979))
+
+## 2.17.13 (Nov 15, 2023) [stable]
+
+ANNOUNCEMENT: If you install Salesforce CLI using `npm`, be aware that Node.js 14 and 16 are both officially [end-of-life](https://github.com/forcedotcom/cli/issues/1985). 
+
+-------------
 
 * NEW: Easily uninstall all user-installed and linked plugins, including JIT plugins, with the new `plugins reset` command.
 
@@ -66,11 +90,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * RegisteredExternalService
     * WebStoreBundle
 
-## 2.16.7 (Nov 8, 2023) [stable]
-
-ANNOUNCEMENT: If you install Salesforce CLI using `npm`, be aware that Node.js 14 and 16 are both officially [end-of-life](https://github.com/forcedotcom/cli/issues/1985). 
-
--------------
+## 2.16.7 (Nov 8, 2023)
 
 * NEW: Use the new `scopeProfiles` option of the `sfdx-project.json` file to control which profile settings are included in a new package version when you run the `package create version` command. If you set `scopeProfiles` to `true` for a package directory, profile settings from only the package directory being packaged are included, and profile settings outside of that package directory are ignored. When you set `scopeProfiles` to `false` (the default value), the new package version includes relevant pieces of profile settings in any package directory defined in `sfdx-project.json`.
 
