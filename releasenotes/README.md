@@ -26,11 +26,13 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.18.7 (Nov 22, 2023) [stable-rc]
+## 2.19.7 (Nov 29, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+## 2.18.7 (Nov 22, 2023) [stable]
 
 * NEW:  Ignore warnings and allow a deployment to validate successfully with the new `--ignore-warnings` flag of `project deploy validate`. This flag is similar to the equivalent flag of `project deploy start`. (GitHub issue [#2559](https://github.com/forcedotcom/cli/issues/2559), plugin-deploy-retrieve PR [#803](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/803))
 
@@ -50,11 +52,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Salesforce CLI now correctly honors the `SF_DISABLE_LOG_FILE=true` environment variable setting without returning an error. (GitHub issue [#2553](https://github.com/forcedotcom/cli/issues/2553), sfdx-core PR [#979](https://github.com/forcedotcom/sfdx-core/pull/979))
 
-## 2.17.13 (Nov 15, 2023) [stable]
-
-ANNOUNCEMENT: If you install Salesforce CLI using `npm`, be aware that Node.js 14 and 16 are both officially [end-of-life](https://github.com/forcedotcom/cli/issues/1985). 
-
--------------
+## 2.17.13 (Nov 15, 2023)
 
 * NEW: Easily uninstall all user-installed and linked plugins, including JIT plugins, with the new `plugins reset` command.
 
