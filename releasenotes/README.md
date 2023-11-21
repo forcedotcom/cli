@@ -53,6 +53,14 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `org login access-token` command now honors the SF_ACCESS_TOKEN environment variable, in addition to SFDX_ACCESS_TOKEN.  Side note: We encourage you to use the SF_ env vars because the old SFDX_ ones might go away one day. We also fixed the `--help` for the command to mention SF_ACCESS_TOKEN.  (GitHub issue [#2574](https://github.com/forcedotcom/cli/issues/2574), plugin-auth PR [#864](https://github.com/salesforcecli/plugin-auth/pull/864))
 
+* FIX: The `cmdt generate records` command now correctly handles CSV files that produce non-unique custom metadata type record names. (GitHub issue [#2573](https://github.com/forcedotcom/cli/issues/2573), plugin-custom-metadata PR [#655](https://github.com/salesforcecli/plugin-custom-metadata/pull/655))
+
+* FIX: The `project deploy quick` command now correctly waits for the quick deploy to finish, and then returns the results of the quick deploy and not of the original validate deploy. (GitHub issue [2537](https://github.com/forcedotcom/cli/issues/2537), plugin-deploy-retrieve PR [#815](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/815))
+
+* FIX: If the `project deploy start` command fails to deploy a component, it now always displays the error along with the name of the failed component. (GitHub issue [2561](https://github.com/forcedotcom/cli/issues/2561), plugin-deploy-retrieve PR [#816](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/816))
+
+* FIX: We've updated the flag descriptions of the `--target-org` and `--target-dev-hub` flags in all relevant commands to say that the flag isn't required if the related configuration value (`target-org` and `target-dev-hub`) is set. (GitHub issue [#2538](https://github.com/forcedotcom/cli/issues/2538), sf-plugins-core PR [#455](https://github.com/salesforcecli/sf-plugins-core/pull/455))
+
 ## 2.18.7 (Nov 22, 2023) [stable]
 
 * NEW:  Ignore warnings and allow a deployment to validate successfully with the new `--ignore-warnings` flag of `project deploy validate`. This flag is similar to the equivalent flag of `project deploy start`. (GitHub issue [#2559](https://github.com/forcedotcom/cli/issues/2559), plugin-deploy-retrieve PR [#803](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/803))
