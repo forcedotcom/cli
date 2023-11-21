@@ -34,7 +34,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: If you specify Apex tests with the `--tests` flag of `project deploy start|validate`, the `--test-level` flag defaults to `RunSpecifiedTests`. (GitHub issue [#2396](https://github.com/forcedotcom/cli/issues/2396), plugin-deploy-retrieve PR [#812](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/812))
 
-    Many thanks to Christopher Bohlman ([cbohlman](https://github.com/cbohlman)) for thinking of the feature, and then contributing the code.  We put out a "Help Wanted" call, and you answered with aplomb. We love it.  
+    Many thanks to Christopher Bohlman ([cbohlman](https://github.com/cbohlman)) for contributing the code.  We put out a "Help Wanted" call, and he answered with aplomb. Community Collaboration in Action -- we love it!  
 
 * NEW: Manage source tracking in existing orgs with these two new commands:
 
