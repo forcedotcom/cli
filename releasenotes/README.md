@@ -32,6 +32,12 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: If you specify Apex tests with the `--tests` flag of `project deploy start|validate`, the `--test-level` flag defaults to `RunSpecifiedTests`. (GitHub issue [#2396](https://github.com/forcedotcom/cli/issues/2396), plugin-deploy-retrieve PR [#812](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/812))
+
+    Many thanks to Christopher Bohlman ([cbohlman](https://github.com/cbohlman)) for thinking of the feature, and then contributing the code.  We put out a "Help Wanted" call, and you answered with aplomb. We love it.  
+
+* FIX: Installing a plugin on Windows with the `sf plugins install` command no longer returns an error if the path to the Node.js binary contains a space. (GitHub issue [#2465](https://github.com/forcedotcom/cli/issues/2564), oclif plugin-plugins PR [#711](https://github.com/oclif/plugin-plugins/pull/711), [#718](https://github.com/oclif/plugin-plugins/pull/718))
+
 ## 2.18.7 (Nov 22, 2023) [stable]
 
 * NEW:  Ignore warnings and allow a deployment to validate successfully with the new `--ignore-warnings` flag of `project deploy validate`. This flag is similar to the equivalent flag of `project deploy start`. (GitHub issue [#2559](https://github.com/forcedotcom/cli/issues/2559), plugin-deploy-retrieve PR [#803](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/803))
