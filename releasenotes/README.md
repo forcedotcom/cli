@@ -26,11 +26,46 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.18.7 (Nov 22, 2023) [stable-rc]
+## 2.19.7 (Nov 29, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: If you specify Apex tests with the `--tests` flag of `project deploy start|validate`, the `--test-level` flag defaults to `RunSpecifiedTests`. (GitHub issue [#2396](https://github.com/forcedotcom/cli/issues/2396), plugin-deploy-retrieve PR [#812](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/812))
+
+    Many thanks to Christopher Bohlman ([cbohlman](https://github.com/cbohlman)) for contributing the code.  We put out a "Help Wanted" call, and he answered with aplomb. Community Collaboration in Action -- we love it!  
+
+* NEW: Manage source tracking in existing orgs with these two new commands:
+
+    * `org enable tracking`: Allow Salesforce CLI to track changes in your source files between your project and an org.
+    * `org disable tracking`: Prevent Salesforce CLI from tracking changes in your source files between your project and an org.
+ 
+    Enabling or disabling source tracking has no direct effect on the org, it affects only your local environment. Specifically, Salesforce CLI stores the setting in the org's local configuration file so that source tracking operations are, or aren't, executed when working with the org. Run the `org enable tracking` command on orgs that support source tracking, such as scratch orgs and Developer and Developer Pro sandboxes. The command returns an error if the org doesn't support tracking. Examples of orgs that don't support source tracking include Developer Edition orgs, production orgs, Partial Copy sandboxes, and Full sandboxes. 
+
+    As an example, imagine you have a sandbox that you use for integration tests, and you want to deploy source to it but not wait for tracking operations.  This example shows how to disable source tracking on an org with alias `mySandbox`:
+
+  ```bash
+  sf org disable tracking --target-org mySandbox
+  ```
+
+    (GitHub issue [#2495](https://github.com/forcedotcom/cli/issues/2495), plugin-org PR [#868](https://github.com/salesforcecli/plugin-org/pull/868))
+
+* CHANGE: We removed the `plugin-login` plugin from Salesforce CLI.  The plugin contained two general commands, both of which are deprecated: `org login` and `org logout`.   Use specific commands instead, such as `org login web` or `org login jwt`.
+
+* CHANGE: We converted `plugin-packaging` from a JIT to a core plugin.  This change doesn't fix the root cause of GitHub issue [2540](https://github.com/forcedotcom/cli/issues/2540) but should help some users who commented there.
+
+* FIX: Your CLI configuration files are now cross-save safe. Wow! But what does that mean? Well, Salesforce CLI would sometimes try to save 2 copies of the same file concurrently, resulting in either an invalid JSON file or one of the "savers" losing their changes. To fix this issue, we redesigned how files are saved to try to be safer about concurrency. This fix applies to configuration files that you know and love, such as `sfdx-project.json` and org config files, as well as internal files that keep track of your configuration values, org authorization information, and various caches. (GitHub issues [#2423](https://github.com/forcedotcom/cli/issues/2423) and [#2528](https://github.com/forcedotcom/cli/issues/2528), sfdx-core PR [#959](https://github.com/forcedotcom/sfdx-core/pull/959)) 
+
+* FIX: The `org login access-token` command now honors the SF_ACCESS_TOKEN environment variable, in addition to SFDX_ACCESS_TOKEN.  Side note: We encourage you to use the SF_ env vars because the old SFDX_ ones might go away one day. We also fixed the `--help` for the command to mention SF_ACCESS_TOKEN.  (GitHub issue [#2574](https://github.com/forcedotcom/cli/issues/2574), plugin-auth PR [#864](https://github.com/salesforcecli/plugin-auth/pull/864))
+
+* FIX: The `cmdt generate records` command now correctly handles CSV files that produce non-unique custom metadata type record names. (GitHub issue [#2573](https://github.com/forcedotcom/cli/issues/2573), plugin-custom-metadata PR [#655](https://github.com/salesforcecli/plugin-custom-metadata/pull/655))
+
+* FIX: The `project deploy quick` command now correctly waits for the quick deploy to finish, and then returns the results of the quick deploy and not of the original validate deploy. (GitHub issue [2537](https://github.com/forcedotcom/cli/issues/2537), plugin-deploy-retrieve PR [#815](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/815))
+
+* FIX: If the `project deploy start` command fails to deploy a component, it now always displays the error along with the name of the failed component. (GitHub issue [2561](https://github.com/forcedotcom/cli/issues/2561), plugin-deploy-retrieve PR [#816](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/816))
+
+* FIX: We've updated the flag descriptions of the `--target-org` and `--target-dev-hub` flags in all relevant commands to say that the flag isn't required if the related configuration value (`target-org` and `target-dev-hub`) is set. (GitHub issue [#2538](https://github.com/forcedotcom/cli/issues/2538), sf-plugins-core PR [#455](https://github.com/salesforcecli/sf-plugins-core/pull/455))
 
 * NEW:  Ignore warnings and allow a deployment to validate successfully with the new `--ignore-warnings` flag of `project deploy validate`. This flag is similar to the equivalent flag of `project deploy start`. (GitHub issue [#2559](https://github.com/forcedotcom/cli/issues/2559), plugin-deploy-retrieve PR [#803](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/803))
 
@@ -50,11 +85,11 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Salesforce CLI now correctly honors the `SF_DISABLE_LOG_FILE=true` environment variable setting without returning an error. (GitHub issue [#2553](https://github.com/forcedotcom/cli/issues/2553), sfdx-core PR [#979](https://github.com/forcedotcom/sfdx-core/pull/979))
 
-## 2.17.13 (Nov 15, 2023) [stable]
+## Nov 22, 2023
 
-ANNOUNCEMENT: If you install Salesforce CLI using `npm`, be aware that Node.js 14 and 16 are both officially [end-of-life](https://github.com/forcedotcom/cli/issues/1985). 
+Due to the Thanksgiving break in the United States, we aren't releasing a new stable version today.  Happy Thanksgiving!
 
--------------
+## 2.17.14 (Nov 15, 2023) [stable]
 
 * NEW: Easily uninstall all user-installed and linked plugins, including JIT plugins, with the new `plugins reset` command.
 
@@ -74,6 +109,8 @@ ANNOUNCEMENT: If you install Salesforce CLI using `npm`, be aware that Node.js 1
 * FIX: Salesforce CLI now handles the `SF_CONTAINER_MODE` and `SF_DOMAIN_RETRY` environment variables; previously it handled only the old `SFDX_` equivalents (`SFDX_CONTAINER_MODE` and `SFDX_DOMAIN_RETRY`). And `SF_CONTAINER_MODE` [isn't documented](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_env_variables.htm) -- oopsie!  We're in the process of fixing that doc bug too.   (GitHub issue [#2554](https://github.com/forcedotcom/cli/issues/2554), plugin-org PR [#857](https://github.com/salesforcecli/plugin-org/pull/857))
 
 * FIX: We've improved how `sf plugins install https://github.com/foo/bar` works, which sometimes returned an error. (oclif plugin-plugins PR [#702](https://github.com/oclif/plugin-plugins/pull/702))
+
+* FIX: Installing a plugin on Windows with the `sf plugins install` command no longer returns an error if the path to the Node.js binary contains a space. (GitHub issue [#2465](https://github.com/forcedotcom/cli/issues/2564), oclif plugin-plugins PR [#711](https://github.com/oclif/plugin-plugins/pull/711), [#718](https://github.com/oclif/plugin-plugins/pull/718))
 
 * FIX: Salesforce DX projects now support these metadata types. (GitHub issue [#2527](https://github.com/forcedotcom/cli/issues/2527))
 
