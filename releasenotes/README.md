@@ -43,17 +43,17 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
  
     Enabling or disabling source tracking has no direct effect on the org, it affects only your local environment. Specifically, Salesforce CLI stores the setting in the org's local configuration file so that source tracking operations are, or aren't, executed when working with the org. Run the `org enable tracking` command on orgs that support source tracking, such as scratch orgs and Developer and Developer Pro sandboxes. The command returns an error if the org doesn't support tracking. Examples of orgs that don't support source tracking include Developer Edition orgs, production orgs, Partial Copy sandboxes, and Full sandboxes. 
 
-  This example shows how to enable source tracking on an org with alias `myscratch`:
+ Imagine you have a sandbox used for integration tests, and you want to deploy to it but not have to wait for tracking operations.  This example shows how to disable source tracking on an org with alias `mySandbox`:
 
   ```bash
-  sf org enable tracking --target-org myscratch
+  sf org disable tracking --target-org mySandbox
   ```
 
  (GitHub issue [#2495](https://github.com/forcedotcom/cli/issues/2495), plugin-org PR [#868](https://github.com/salesforcecli/plugin-org/pull/868))
 
 * CHANGE: We removed the `plugin-login` plugin from Salesforce CLI.  The plugin contained two general commands, both of which are deprecated: `org login` and `org logout`.   Use specific commands instead, such as `org login web` or `org login jwt`.
 
-* CHANGE: We converted `plugin-packaging` from a JIT to a core plugin.
+* CHANGE: We converted `plugin-packaging` from a JIT to a core plugin.  This doesn't fix the root cause of Github issue [2540](https://github.com/forcedotcom/cli/issues/2540) but should help some users who commented there.
 
 * FIX: Your CLI configuration files are now cross-save safe. Wow! But what does that mean? Well, Salesforce CLI would sometimes try to save 2 copies of the same file concurrently, resulting in either an invalid JSON file or one of the "savers" losing their changes. To fix this issue, we redesigned how files are saved to try to be safer about concurrency. This fix applies to configuration files that you know and love, such as `sfdx-project.json` and org config files, as well as internal files that keep track of your configuration values, org authorization information, and various caches. (GitHub issues [#2423](https://github.com/forcedotcom/cli/issues/2423) and [#2528](https://github.com/forcedotcom/cli/issues/2528), sfdx-core PR [#959](https://github.com/forcedotcom/sfdx-core/pull/959)) 
 
