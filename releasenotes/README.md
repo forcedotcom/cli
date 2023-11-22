@@ -67,8 +67,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We've updated the flag descriptions of the `--target-org` and `--target-dev-hub` flags in all relevant commands to say that the flag isn't required if the related configuration value (`target-org` and `target-dev-hub`) is set. (GitHub issue [#2538](https://github.com/forcedotcom/cli/issues/2538), sf-plugins-core PR [#455](https://github.com/salesforcecli/sf-plugins-core/pull/455))
 
-## 2.18.7 (Nov 22, 2023) [stable]
-
 * NEW:  Ignore warnings and allow a deployment to validate successfully with the new `--ignore-warnings` flag of `project deploy validate`. This flag is similar to the equivalent flag of `project deploy start`. (GitHub issue [#2559](https://github.com/forcedotcom/cli/issues/2559), plugin-deploy-retrieve PR [#803](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/803))
 
 * CHANGE: We've added exit codes for many Salesforce CLI command failures to better help you understand what happened. In particular, commands that:
@@ -87,7 +85,11 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Salesforce CLI now correctly honors the `SF_DISABLE_LOG_FILE=true` environment variable setting without returning an error. (GitHub issue [#2553](https://github.com/forcedotcom/cli/issues/2553), sfdx-core PR [#979](https://github.com/forcedotcom/sfdx-core/pull/979))
 
-## 2.17.14 (Nov 15, 2023)
+## Nov 22, 2023
+
+Due to the Thanksgiving break in the United States, we aren't releasing a new stable version today.  Happy Thanksgiving!
+
+## 2.17.14 (Nov 15, 2023) [stable]
 
 * NEW: Easily uninstall all user-installed and linked plugins, including JIT plugins, with the new `plugins reset` command.
 
