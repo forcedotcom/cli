@@ -32,6 +32,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* FIX: When running `cmdt generate records` and the referenced CSV file doesn't include a value for a field, the command now skips the field; previously it incorrectly inserted an `undefined` value. (GitHub issues [#2074](https://github.com/forcedotcom/cli/issues/2074) and [#1714](https://github.com/forcedotcom/cli/issues/1714), plugin-custom-metadata PR [#662](https://github.com/salesforcecli/plugin-custom-metadata/pull/662))
+  
+* FIX: We updated the summary of the `--suite-names` flag of `apex run test` to no longer say the default value is all Apex test suites. The flag has no default value, and it's not possible to run all suites. (GitHub issue [#2580](https://github.com/forcedotcom/cli/issues/2580), plugin-apex PR [#294](https://github.com/salesforcecli/plugin-apex/pull/294))
 
 ## 2.19.7 (Nov 29, 2023) [stable]
 
