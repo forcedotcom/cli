@@ -26,11 +26,14 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.19.7 (Nov 29, 2023) [stable-rc]
+## 2.20.7 (Dec 6, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+
+## 2.19.7 (Nov 29, 2023) [stable]
 
 * NEW: If you specify Apex tests with the `--tests` flag of `project deploy start|validate`, the `--test-level` flag defaults to `RunSpecifiedTests`. (GitHub issue [#2396](https://github.com/forcedotcom/cli/issues/2396), plugin-deploy-retrieve PR [#812](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/812))
 
@@ -89,7 +92,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 Due to the Thanksgiving break in the United States, we aren't releasing a new stable version today.  Happy Thanksgiving!
 
-## 2.17.14 (Nov 15, 2023) [stable]
+## 2.17.14 (Nov 15, 2023)
 
 * NEW: Easily uninstall all user-installed and linked plugins, including JIT plugins, with the new `plugins reset` command.
 
