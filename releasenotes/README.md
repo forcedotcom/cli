@@ -32,6 +32,14 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: We've improved source tracking and the output of the `project deploy start` command in various ways:
+
+    * We now output a warning if a tracked source file doesn't create a SourceMember Tooling API record in the org, or creates one with an unexpected name. During a deployment, Salesforce CLI waits for these events to complete, and depending on the deployment size and the fact that these kinds of events may never complete, the deployment appears stuck. These warnings give you more insight into what's happening.  If you notice the same warning consistently, open a GitHub issue so we can stop unnecessarily waiting for it. 
+    * The progress bar now also includes the progress of SourceMember polling in the org.
+    * The status bar hides errors and tests if there are none.
+    
+    (GitHub issue [#2495](https://github.com/forcedotcom/cli/issues/2495), source-tracking PR [#511](https://github.com/forcedotcom/source-tracking/pull/511), deploy-retrieve PRs [#819](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/819) and [#820](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/820))
+
 * CHANGE: When installing Salesforce CLI on Windows with the `.exe` installer, the option in the Choose Components window to **Add %LOCALAPPDATA%\sf to Windows Defender exclusions** is now deselected by default. We changed the behavior because we wanted the default Windows installation to be more secure. However, excluding the CLI files from the antivirus scans improves the performance of Salesforce CLI, so select the option if you want. But use with caution. (salesforce/cli PR [#1328](https://github.com/salesforcecli/cli/pull/1328))
 
 * FIX: When running `cmdt generate records` and the referenced CSV file doesn't include a value for a field, the command now skips the field; previously it incorrectly inserted an `undefined` value. (GitHub issues [#2074](https://github.com/forcedotcom/cli/issues/2074) and [#1714](https://github.com/forcedotcom/cli/issues/1714), plugin-custom-metadata PR [#662](https://github.com/salesforcecli/plugin-custom-metadata/pull/662))
