@@ -26,11 +26,27 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.19.7 (Nov 29, 2023) [stable-rc]
+## 2.20.7 (Dec 6, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: We've improved source tracking and the output of the `project deploy start` command in various ways:
+
+    * We now output a warning if a tracked source file doesn't create a SourceMember Tooling API record in the org, or creates one with an unexpected name. During a deployment, Salesforce CLI waits for these events to complete, and depending on the deployment size and the fact that these kinds of events may never complete, the deployment appears stuck. These warnings give you more insight into what's happening.  If you notice the same warning consistently, open a GitHub issue so we can stop unnecessarily waiting for it. 
+    * The progress bar now also includes the progress of SourceMember polling in the org.
+    * The status bar hides errors and tests if there are none.
+    
+    (GitHub issue [#2495](https://github.com/forcedotcom/cli/issues/2495), source-tracking PR [#511](https://github.com/forcedotcom/source-tracking/pull/511), deploy-retrieve PRs [#819](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/819) and [#820](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/820))
+
+* CHANGE: When installing Salesforce CLI on Windows with the `.exe` installer, the option in the Choose Components window to **Add %LOCALAPPDATA%\sf to Windows Defender exclusions** is now deselected by default. We changed the behavior because we wanted the default Windows installation to be more secure. However, excluding the CLI files from the antivirus scans improves the performance of Salesforce CLI, so select the option if you want. But use with caution. (salesforce/cli PR [#1328](https://github.com/salesforcecli/cli/pull/1328))
+
+* FIX: When running `cmdt generate records` and the referenced CSV file doesn't include a value for a field, the command now skips the field; previously it incorrectly inserted an `undefined` value. (GitHub issues [#2074](https://github.com/forcedotcom/cli/issues/2074) and [#1714](https://github.com/forcedotcom/cli/issues/1714), plugin-custom-metadata PR [#662](https://github.com/salesforcecli/plugin-custom-metadata/pull/662))
+  
+* FIX: We updated the summary of the `--suite-names` flag of `apex run test` to no longer say the default value is all Apex test suites. The flag has no default value, and it's not possible to run all suites. (GitHub issue [#2580](https://github.com/forcedotcom/cli/issues/2580), plugin-apex PR [#294](https://github.com/salesforcecli/plugin-apex/pull/294))
+
+## 2.19.7 (Nov 29, 2023) [stable]
 
 * NEW: If you specify Apex tests with the `--tests` flag of `project deploy start|validate`, the `--test-level` flag defaults to `RunSpecifiedTests`. (GitHub issue [#2396](https://github.com/forcedotcom/cli/issues/2396), plugin-deploy-retrieve PR [#812](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/812))
 
@@ -89,7 +105,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 Due to the Thanksgiving break in the United States, we aren't releasing a new stable version today.  Happy Thanksgiving!
 
-## 2.17.14 (Nov 15, 2023) [stable]
+## 2.17.14 (Nov 15, 2023)
 
 * NEW: Easily uninstall all user-installed and linked plugins, including JIT plugins, with the new `plugins reset` command.
 
