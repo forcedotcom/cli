@@ -32,7 +32,17 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* FIX: (GitHub issue [#1790](https://github.com/forcedotcom/cli/issues/1790), 
+* NEW: View the namespace associated with an org with the new `Namespace` column of the `sf org list --verbose` command. If an org doesn't have a namespace, the value is blank. (GitHub issue [#1790](https://github.com/forcedotcom/cli/issues/1790), plugin-org PR [#596](https://github.com/salesforcecli/plugin-org/pull/596))
+
+    Many thanks to [@atsutton](https://github.com/atsutton) for contributing the code for this new feature! It's a nice improvement to the command.  Keep 'em coming!
+
+* FIX: We improved the error message when you try to run `org create user` on a scratch org whose associated Dev Hub is running on Hyperforce and you authorized it with JWT. Salesforce doesn't support this use case. To work around it, try authorizing the Dev Hub using the `org login web` or `org login sfdx-url` commands instead of `org login jwt`.  (GitHub issue [#2575](https://github.com/forcedotcom/cli/issues/2575), plugin-user PR [#805](https://github.com/salesforcecli/plugin-user/pull/805))
+
+* FIX: Using wildcards when retrieving metadata that isn't yet in your local project with the `project retrieve start --metadata` command now works as expected. For example, `project retrieve start --metadata "ApexClass:MyClass*` now always correctly retrieves all Apex classes that start with `MyClass`.  (GitHub issue [#2522](https://github.com/forcedotcom/cli/issues/2522), source-deploy-retrieve PR [#1182](https://github.com/forcedotcom/source-deploy-retrieve/pull/1182))
+
+* FIX: Salesforce CLI now correctly runs Apex tests that were created on an org that has a namespace. (GitHub issue [#296](https://github.com/forcedotcom/salesforcedx-apex/issues/296), salesforcedx-apex PR [#339](https://github.com/forcedotcom/salesforcedx-apex/pull/339))
+
+    Shout-out and thanks to [Jonny Power](https://github.com/JonnyPower) for contributing the fix!  We love it. 
 
 ## 2.20.7 (Dec 6, 2023) [stable]
 
