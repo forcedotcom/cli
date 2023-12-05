@@ -26,11 +26,15 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.20.7 (Dec 6, 2023) [stable-rc]
+## 2.21.7 (Dec 13, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: (GitHub issue [#1790](https://github.com/forcedotcom/cli/issues/1790), 
+
+## 2.20.7 (Dec 6, 2023) [stable]
 
 * NEW: We've improved source tracking and the output of the `project deploy start` command in various ways:
 
@@ -46,7 +50,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
   
 * FIX: We updated the summary of the `--suite-names` flag of `apex run test` to no longer say the default value is all Apex test suites. The flag has no default value, and it's not possible to run all suites. (GitHub issue [#2580](https://github.com/forcedotcom/cli/issues/2580), plugin-apex PR [#294](https://github.com/salesforcecli/plugin-apex/pull/294))
 
-## 2.19.7 (Nov 29, 2023) [stable]
+## 2.19.7 (Nov 29, 2023)
 
 * NEW: If you specify Apex tests with the `--tests` flag of `project deploy start|validate`, the `--test-level` flag defaults to `RunSpecifiedTests`. (GitHub issue [#2396](https://github.com/forcedotcom/cli/issues/2396), plugin-deploy-retrieve PR [#812](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/812))
 
