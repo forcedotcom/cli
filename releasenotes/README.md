@@ -40,7 +40,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Using wildcards when retrieving metadata that isn't yet in your local project with the `project retrieve start --metadata` command now works as expected. For example, `project retrieve start --metadata "ApexClass:MyClass*` now always correctly retrieves all Apex classes that start with `MyClass`.  (GitHub issue [#2522](https://github.com/forcedotcom/cli/issues/2522), source-deploy-retrieve PR [#1182](https://github.com/forcedotcom/source-deploy-retrieve/pull/1182))
 
-* FIX: Salesforce CLI now correctly runs Apex tests that were created on an org that has a namespace. (GitHub issue [#296](https://github.com/forcedotcom/salesforcedx-apex/issues/296), salesforcedx-apex PR [#339](https://github.com/forcedotcom/salesforcedx-apex/pull/339))
+* FIX: When running Apex tests, Salesforce CLI now correctly displays test names that include a namespace. (GitHub issue [#296](https://github.com/forcedotcom/salesforcedx-apex/issues/296), salesforcedx-apex PR [#339](https://github.com/forcedotcom/salesforcedx-apex/pull/339))
 
     Shout-out and thanks to [Jonny Power](https://github.com/JonnyPower) for contributing the fix!  We love it.
 
