@@ -34,7 +34,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: View the namespace associated with an org with the new `Namespace` column of the `sf org list --verbose` command. If an org doesn't have a namespace, the value is blank. (GitHub issue [#1790](https://github.com/forcedotcom/cli/issues/1790), plugin-org PR [#596](https://github.com/salesforcecli/plugin-org/pull/596))
 
-    Many thanks to [@atsutton](https://github.com/atsutton) for contributing the code for this new feature! It's a nice improvement to the command.  Keep 'em coming!
+    Many thanks to [atsutton](https://github.com/atsutton) for contributing the code for this new feature! It's a nice improvement to the command.  Keep 'em coming!
 
 * FIX: We improved the error message when you try to run `org create user` on a scratch org whose associated Dev Hub is running on Hyperforce and you authorized it with JWT. Salesforce doesn't support this use case. To work around it, try authorizing the Dev Hub using the `org login web` or `org login sfdx-url` commands instead of `org login jwt`.  (GitHub issue [#2575](https://github.com/forcedotcom/cli/issues/2575), plugin-user PR [#805](https://github.com/salesforcecli/plugin-user/pull/805))
 
@@ -42,7 +42,11 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Salesforce CLI now correctly runs Apex tests that were created on an org that has a namespace. (GitHub issue [#296](https://github.com/forcedotcom/salesforcedx-apex/issues/296), salesforcedx-apex PR [#339](https://github.com/forcedotcom/salesforcedx-apex/pull/339))
 
-    Shout-out and thanks to [Jonny Power](https://github.com/JonnyPower) for contributing the fix!  We love it. 
+    Shout-out and thanks to [Jonny Power](https://github.com/JonnyPower) for contributing the fix!  We love it.
+
+* FIX: When you install an unsigned plugin that's in the `unsignedPluginAllowList.json` file, the `plugins install` command now bypasses _any_ HTTP 403 error, not just `403 Forbidden`. (GitHub issue [#2584](https://github.com/forcedotcom/cli/issues/2584), plugin-trust [#662](https://github.com/salesforcecli/plugin-trust/pull/662))
+
+    Thank you [kyle-blair](https://github.com/kyle-blair) for contributing the fix! You're the best. 
 
 ## 2.20.7 (Dec 6, 2023) [stable]
 
