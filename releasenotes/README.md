@@ -32,6 +32,17 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: These scratch org snapshot commands are now beta and available to everyone; they were previously pilot and available to only certain customers:
+
+    * `org create snapshot`
+    * `org delete snapshot`
+    * `org get snapshot`
+    * `org list snapshot`
+ 
+     A snapshot is a point-in-time copy of a scratch org. It captures the state of a scratch org’s configuration so that you can use it to create scratch org replicas.
+
+    Snapshots are available when your Dev Hub org is upgraded to the Spring ’24 release. Then enable Scratch Org Snapshots in the Dev Hub org that you use to create scratch orgs. For more information, see [Scratch Org Snapshots](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_snapshots_intro.htm) (available December 20,2023 as part of the Spring '24 preview documentation.)
+
 * FIX: Salesforce DX projects now support these metadata types:
 
     * SvcCatalogFilterCriteria
