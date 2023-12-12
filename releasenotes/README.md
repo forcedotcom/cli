@@ -26,11 +26,19 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.21.7 (Dec 13, 2023) [stable-rc]
+## 2.22.7 (Dec 20, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: Salesforce DX projects now support these metadata types:
+
+    * SvcCatalogFilterCriteria
+    * SvcCatalogFilterCondition
+    * SvcCatalogItemDefFiltrCrit 
+
+## 2.21.7 (Dec 13, 2023) [stable]
 
 * NEW: View the namespace associated with an org with the new `Namespace` column of the `sf org list --verbose` command. If an org doesn't have a namespace, the value is blank. (GitHub issue [#1790](https://github.com/forcedotcom/cli/issues/1790), plugin-org PR [#596](https://github.com/salesforcecli/plugin-org/pull/596))
 
@@ -48,7 +56,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     Thank you [kyle-blair](https://github.com/kyle-blair) for contributing the fix! You're the best. 
 
-## 2.20.7 (Dec 6, 2023) [stable]
+## 2.20.7 (Dec 6, 2023)
 
 * NEW: We've improved source tracking and the output of the `project deploy start` command in various ways:
 
