@@ -32,7 +32,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: These scratch org snapshot commands are now beta; they were previously pilot. 
+* NEW: These scratch org snapshot commands are now in beta; they were previously in pilot. 
 
     * `org create snapshot`
     * `org delete snapshot`
