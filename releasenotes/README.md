@@ -50,6 +50,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     ```
     (GitHub issue [#2489](https://github.com/forcedotcom/cli/discussions/2489), plugin-deploy-retrieve PR [#831](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/831))
 
+* FIX: Salesforce CLI now checks your local plugin allow list (specifically the `unsignedPluginAllowList.json` file) before it makes a callout to an npm registry endpoint. As a result, installs of allowed plugins are now faster. (GitHub issue [#2584](https://github.com/forcedotcom/cli/issues/2584), plugin-trust PR [#668](https://github.com/salesforcecli/plugin-trust/pull/668))
+
 * FIX: Salesforce DX projects now support these metadata types:
 
     * SvcCatalogFilterCriteria
