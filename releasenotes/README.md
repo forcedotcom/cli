@@ -26,11 +26,39 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.21.7 (Dec 13, 2023) [stable-rc]
+## 2.22.7 (Dec 20, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: These scratch org snapshot commands are now in beta; they were previously in pilot. 
+
+    * `org create snapshot`
+    * `org delete snapshot`
+    * `org get snapshot`
+    * `org list snapshot`
+ 
+     A snapshot is a point-in-time copy of a scratch org. It captures the state of a scratch org’s configuration so that you can use it to create scratch org replicas.
+
+    Snapshots are available when your Dev Hub org is upgraded to the Spring ’24 release. Then enable Scratch Org Snapshots in the Dev Hub org that you use to create scratch orgs. For more information, see [Scratch Org Snapshots](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_snapshots_intro.htm). (Available December 20, 2023, when the Spring '24 documentation is in preview.)
+
+* NEW: When previewing a deployment with the `project deploy preview` command, use the new `--concise` flag to show only the changes that will be retrieved. The output also omits the files that are in the `.forceignore` file. For example:
+
+    ```bash
+    sf project deploy preview --metadata ApexClass --target-org my-scratch --concise
+    ```
+    (GitHub issue [#2489](https://github.com/forcedotcom/cli/discussions/2489), plugin-deploy-retrieve PR [#831](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/831))
+
+* FIX: Salesforce CLI now checks your local plugin allow list (specifically the `unsignedPluginAllowList.json` file) before it makes a callout to an npm registry endpoint. As a result, installs of allowed plugins are now faster. (GitHub issue [#2584](https://github.com/forcedotcom/cli/issues/2584), plugin-trust PR [#668](https://github.com/salesforcecli/plugin-trust/pull/668))
+
+* FIX: Salesforce DX projects now support these metadata types:
+
+    * SvcCatalogFilterCriteria
+    * SvcCatalogFilterCondition
+    * SvcCatalogItemDefFiltrCrit 
+
+## 2.21.7 (Dec 13, 2023) [stable]
 
 * NEW: View the namespace associated with an org with the new `Namespace` column of the `sf org list --verbose` command. If an org doesn't have a namespace, the value is blank. (GitHub issue [#1790](https://github.com/forcedotcom/cli/issues/1790), plugin-org PR [#596](https://github.com/salesforcecli/plugin-org/pull/596))
 
@@ -48,7 +76,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     Thank you [kyle-blair](https://github.com/kyle-blair) for contributing the fix! You're the best. 
 
-## 2.20.7 (Dec 6, 2023) [stable]
+## 2.20.7 (Dec 6, 2023)
 
 * NEW: We've improved source tracking and the output of the `project deploy start` command in various ways:
 
