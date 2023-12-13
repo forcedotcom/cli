@@ -41,7 +41,14 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
  
      A snapshot is a point-in-time copy of a scratch org. It captures the state of a scratch org’s configuration so that you can use it to create scratch org replicas.
 
-    Snapshots are available when your Dev Hub org is upgraded to the Spring ’24 release. Then enable Scratch Org Snapshots in the Dev Hub org that you use to create scratch orgs. For more information, see [Scratch Org Snapshots](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_snapshots_intro.htm) (Available December 20, 2023, with the Spring '24 preview documentation.)
+    Snapshots are available when your Dev Hub org is upgraded to the Spring ’24 release. Then enable Scratch Org Snapshots in the Dev Hub org that you use to create scratch orgs. For more information, see [Scratch Org Snapshots](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_snapshots_intro.htm). (Available December 20, 2023, when the Spring '24 documentation is in preview.)
+
+* NEW: When previewing a deployment with the `project deploy preview` command, use the new `--concise` flag to show only the changes that will be retrieved. The output also omits the files that are in the `.forceignore` file. For example:
+
+    ```bash
+    sf project deploy preview --metadata ApexClass --target-org my-scratch --concise
+    ```
+    (GitHub issue [#2489](https://github.com/forcedotcom/cli/discussions/2489), plugin-deploy-retrieve PR [#831](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/831))
 
 * FIX: Salesforce DX projects now support these metadata types:
 
