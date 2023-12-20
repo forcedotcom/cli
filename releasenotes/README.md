@@ -26,11 +26,15 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.22.6 (Dec 20, 2023) [stable-rc]
+## 2.23.7 (Dec 27, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: We fixed some under-the-hood bugs.  Happy holidays!
+
+## 2.22.6 (Dec 20, 2023) [stable]
 
 * NEW: These scratch org snapshot commands are now in beta; they were previously in pilot. 
 
@@ -58,7 +62,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * SvcCatalogFilterCondition
     * SvcCatalogItemDefFiltrCrit 
 
-## 2.21.7 (Dec 13, 2023) [stable]
+## 2.21.7 (Dec 13, 2023)
 
 * NEW: View the namespace associated with an org with the new `Namespace` column of the `sf org list --verbose` command. If an org doesn't have a namespace, the value is blank. (GitHub issue [#1790](https://github.com/forcedotcom/cli/issues/1790), plugin-org PR [#596](https://github.com/salesforcecli/plugin-org/pull/596))
 
