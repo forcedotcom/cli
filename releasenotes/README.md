@@ -34,7 +34,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We fixed some under-the-hood bugs.  Happy holidays!
 
-## 2.22.6 (Dec 20, 2023) [stable]
+## 2.22.7 (Dec 20, 2023) [stable]
 
 * NEW: These scratch org snapshot commands are now in beta; they were previously in pilot. 
 
