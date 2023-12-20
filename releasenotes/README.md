@@ -26,7 +26,7 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.22.6 (Dec 20, 2023) [stable-rc]
+## 2.24.7 (Jan 3, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
@@ -57,6 +57,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * SvcCatalogFilterCriteria
     * SvcCatalogFilterCondition
     * SvcCatalogItemDefFiltrCrit 
+
+## Dec 20 and 27, 2023
+
+Due to the holiday break in the United States, we aren't releasing new stable versions on Dec 20 or Dec 27. Happy holidays!
 
 ## 2.21.7 (Dec 13, 2023) [stable]
 
