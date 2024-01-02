@@ -26,13 +26,23 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.24.7 (Jan 3, 2023) [stable-rc]
+## 2.23.20 (Jan 10, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
 
-* NEW: These scratch org snapshot commands are now in beta; they were previously in pilot. 
+* NEW: We've improved the output of the `sf commands` command so that it no longer displays deprecated commands and deprecated aliases of commands; the output is now cleaner and easier to read. Don't worry, you can still see all the deprecated stuff with the new `--deprecated` flag.
+
+    ```bash
+    sf commands --deprecated
+    ```
+
+    (oclif plugin-commands PR [#568](https://github.com/oclif/plugin-commands/pull/568))
+
+## 2.22.7 (Jan 3, 2023) [stable]
+
+* NEW: These scratch org snapshot commands are now beta; they were previously pilot. 
 
     * `org create snapshot`
     * `org delete snapshot`
@@ -62,7 +72,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 Due to the holiday break in the United States, we aren't releasing new stable versions on Dec 20 or Dec 27. Happy holidays!
 
-## 2.21.7 (Dec 13, 2023) [stable]
+## 2.21.7 (Dec 13, 2023)
 
 * NEW: View the namespace associated with an org with the new `Namespace` column of the `sf org list --verbose` command. If an org doesn't have a namespace, the value is blank. (GitHub issue [#1790](https://github.com/forcedotcom/cli/issues/1790), plugin-org PR [#596](https://github.com/salesforcecli/plugin-org/pull/596))
 
