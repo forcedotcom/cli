@@ -32,13 +32,15 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW and CHANGED: We've improved the output of the `sf commands` command so that it no longer displays deprecated commands and deprecated aliases of commands; the output is now cleaner and easier to read. Don't worry, you can still see all the deprecated stuff with the new `--deprecated` flag.
+* NEW and CHANGED (two for one!): We've improved the output of the `sf commands` command so that it no longer displays deprecated commands and deprecated aliases of commands; the output is now cleaner and easier to read. Don't worry, you can still see all the deprecated stuff with the new `--deprecated` flag.
 
     ```bash
     sf commands --deprecated
     ```
 
     (oclif plugin-commands PR [#568](https://github.com/oclif/plugin-commands/pull/568))
+
+* FIX: You can now successfully create a Partner Edition scratch org with the `org create scratch --edition partner-developer` command. (GitHub issue [#2614](https://github.com/forcedotcom/cli/issues/2614), plugin-org PR [#916](https://github.com/salesforcecli/plugin-org/pull/916))
 
 ## 2.22.7 (Jan 3, 2023) [stable]
 
