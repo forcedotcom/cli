@@ -40,6 +40,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     (oclif plugin-commands PR [#568](https://github.com/oclif/plugin-commands/pull/568))
 
+* CHANGE: We've generally cleaned up how we manage and display deprecated and hidden commands. For example, all deprecated commands now display appropriate and consistent warnings when you run them. Also, hidden commands no longer show up when you use autocomplete; if you already use autocomplete, be sure you run `sf autocomplete --refresh-cache` to get this change. (plugin-source PR [#1050](https://github.com/salesforcecli/plugin-source/pull/1050), plugin-auth PR [#905](https://github.com/salesforcecli/plugin-auth/pull/905), plugin-schema PR [#668](https://github.com/salesforcecli/plugin-schema/pull/668), plugin-limits PR [#739](https://github.com/salesforcecli/plugin-limits/pull/739), plugin-user PR [#835](https://github.com/salesforcecli/plugin-user/pull/835), plugin-org PR [#914](https://github.com/salesforcecli/plugin-org/pull/914))
+
 * FIX: You can now successfully create a Partner Edition scratch org with the `org create scratch --edition partner-developer` command. (GitHub issue [#2614](https://github.com/forcedotcom/cli/issues/2614), plugin-org PR [#916](https://github.com/salesforcecli/plugin-org/pull/916))
 
 ## 2.22.7 (Jan 3, 2023) [stable]
