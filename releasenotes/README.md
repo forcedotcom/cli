@@ -26,18 +26,24 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.24.7 (Jan 17, 2023) [stable-rc]
+## 2.24.4 (Jan 17, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
 
+* NEW: Pipe the SFDX authorization URL through standard input when executing the `org login sfdx-url` command by specifying the new `--sfdx-url-stdin` flag and providing the `-` character as the value. Here's an example; it uses the _template_ for the SFDX authorization URL, not real secret information, for obvious reasons:
+
+    ```bash
+    echo "force://<clientId>:<clientSecret>:<refreshToken>@<instanceUrl>" | sf org login sfdx-url --sfdx-url-stdin -
+    ```
+
+    Many thanks to [Kyle Capehart](https://github.com/k-capehart) for contributing this cool new feature. Awesome sauce. We look forward to more contributions from you!  (GitHub issue #[2120](https://github.com/forcedotcom/cli/issues/2120), plugin-auth PR [#886](https://github.com/salesforcecli/plugin-auth/pull/886))
+  
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
 
     * ExtDataTranObjectTemplate
     * ExtDataTranFieldTemplate
-
-
 
 ## 2.23.20 (Jan 10, 2024) [stable]
 
