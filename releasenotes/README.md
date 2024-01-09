@@ -26,11 +26,20 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.23.20 (Jan 10, 2024) [stable-rc]
+## 2.24.7 (Jan 17, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+
+    * ExtDataTranObjectTemplate
+    * ExtDataTranFieldTemplate
+
+
+
+## 2.23.20 (Jan 10, 2024) [stable]
 
 * NEW and CHANGED (two for one!): We improved the output of the `sf commands` command so that it no longer displays deprecated commands and deprecated aliases of commands; the output is now cleaner and easier to read. Don't worry, you can still see all the deprecated stuff with the new `--deprecated` flag.  (oclif/plugin-commands PR [#568](https://github.com/oclif/plugin-commands/pull/568))
 
@@ -42,7 +51,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: You can now successfully create a Partner Developer Edition scratch org with the `org create scratch --edition partner-developer` command. (GitHub issue [#2614](https://github.com/forcedotcom/cli/issues/2614), plugin-org PR [#916](https://github.com/salesforcecli/plugin-org/pull/916))
 
-## 2.22.7 (Jan 3, 2023) [stable]
+## 2.22.7 (Jan 3, 2023)
 
 * NEW: These scratch org snapshot commands are now beta; they were previously pilot. 
 
