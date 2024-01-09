@@ -44,6 +44,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
 
+    * ExpressionSetObjectAlias
     * ExtDataTranObjectTemplate
     * ExtDataTranFieldTemplate
 
