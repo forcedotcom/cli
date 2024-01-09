@@ -34,12 +34,14 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: Pipe the SFDX authorization URL through standard input when executing the `org login sfdx-url` command by specifying the new `--sfdx-url-stdin` flag and providing the `-` character as the value. Here's an example; it uses the _template_ for the SFDX authorization URL, not real secret information, for obvious reasons:
 
-    ```bash
+    ```
     echo "force://<clientId>:<clientSecret>:<refreshToken>@<instanceUrl>" | sf org login sfdx-url --sfdx-url-stdin -
     ```
 
     Many thanks to [Kyle Capehart](https://github.com/k-capehart) for contributing this cool new feature. Awesome sauce. We look forward to more contributions from you!  (GitHub issue #[2120](https://github.com/forcedotcom/cli/issues/2120), plugin-auth PR [#886](https://github.com/salesforcecli/plugin-auth/pull/886))
   
+* FIX: The `project deploy start` command now correctly returns exit code 1 if you explicitly specify something to deploy (such as `--manifest package.xml` or `--source-dir force-app`) but nothing is deployed.  If you don't specify anything, and nothing is deployed, the exit code is 0. (GitHub issue [2621](https://github.com/forcedotcom/cli/issues/2621), plugin-deploy-retrieve PR [862](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/862))
+
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
 
     * ExtDataTranObjectTemplate
