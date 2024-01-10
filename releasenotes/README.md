@@ -26,11 +26,29 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.23.20 (Jan 10, 2024) [stable-rc]
+## 2.24.4 (Jan 17, 2023) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: Pipe the SFDX authorization URL through standard input when executing the `org login sfdx-url` command by specifying the new `--sfdx-url-stdin` flag and providing the `-` character as the value. Here's an example; it uses the _template_ for the SFDX authorization URL, not real secret information, for obvious reasons:
+
+    ```
+    echo "force://<clientId>:<clientSecret>:<refreshToken>@<instanceUrl>" | sf org login sfdx-url --sfdx-url-stdin -
+    ```
+
+    Many thanks to [Kyle Capehart](https://github.com/k-capehart) for contributing this cool new feature. Awesome sauce. We look forward to more contributions from you!  (GitHub issue #[2120](https://github.com/forcedotcom/cli/issues/2120), plugin-auth PR [#886](https://github.com/salesforcecli/plugin-auth/pull/886))
+  
+* FIX: The `project deploy start` command now correctly returns exit code 1 if you explicitly specify something to deploy (such as `--manifest package.xml` or `--source-dir force-app`) but nothing is deployed.  If you don't specify anything, and nothing is deployed, the exit code is 0. (GitHub issue [2621](https://github.com/forcedotcom/cli/issues/2621), plugin-deploy-retrieve PR [862](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/862))
+
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+
+    * ExpressionSetObjectAlias
+    * ExtDataTranObjectTemplate
+    * ExtDataTranFieldTemplate
+
+## 2.23.20 (Jan 10, 2024) [stable]
 
 * NEW and CHANGED (two for one!): We improved the output of the `sf commands` command so that it no longer displays deprecated commands and deprecated aliases of commands; the output is now cleaner and easier to read. Don't worry, you can still see all the deprecated stuff with the new `--deprecated` flag.  (oclif/plugin-commands PR [#568](https://github.com/oclif/plugin-commands/pull/568))
 
@@ -42,7 +60,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: You can now successfully create a Partner Developer Edition scratch org with the `org create scratch --edition partner-developer` command. (GitHub issue [#2614](https://github.com/forcedotcom/cli/issues/2614), plugin-org PR [#916](https://github.com/salesforcecli/plugin-org/pull/916))
 
-## 2.22.7 (Jan 3, 2023) [stable]
+## 2.22.7 (Jan 3, 2023)
 
 * NEW: These scratch org snapshot commands are now beta; they were previously pilot. 
 
