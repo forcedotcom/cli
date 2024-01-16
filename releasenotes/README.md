@@ -26,11 +26,19 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.24.4 (Jan 17, 2023) [stable-rc]
+## 2.25.6 (Jan 24, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+    
+    * ExtlClntAppNotificationSettings
+    * DataCalcInsightTemplate
+    * DataKitObjectTemplate
+
+## 2.24.4 (Jan 17, 2023) [stable]
 
 * NEW: Pipe the SFDX authorization URL through standard input when executing the `org login sfdx-url` command by specifying the new `--sfdx-url-stdin` flag and providing the `-` character as the value. Here's an example; it uses the _template_ for the SFDX authorization URL, not real secret information, for obvious reasons:
 
@@ -48,7 +56,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * ExtDataTranObjectTemplate
     * ExtDataTranFieldTemplate
 
-## 2.23.20 (Jan 10, 2024) [stable]
+## 2.23.20 (Jan 10, 2024)
 
 * NEW and CHANGED (two for one!): We improved the output of the `sf commands` command so that it no longer displays deprecated commands and deprecated aliases of commands; the output is now cleaner and easier to read. Don't worry, you can still see all the deprecated stuff with the new `--deprecated` flag.  (oclif/plugin-commands PR [#568](https://github.com/oclif/plugin-commands/pull/568))
 
