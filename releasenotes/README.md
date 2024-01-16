@@ -39,6 +39,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
    ```
    (GitHub issues [#1852](https://github.com/forcedotcom/cli/issues/1852), [#636](https://github.com/forcedotcom/cli/issues/636), and [#2262](https://github.com/forcedotcom/cli/discussions/2262);  plugin-org PR [#923](https://github.com/salesforcecli/plugin-org/pull/923))
   
+* FIX: If the `package version create` command times out, the output now includes a request ID so you can later query the status of the package version create request with the `package version create report --package-create-request-id <ID>` command. (GitHub issue [#2605](https://github.com/forcedotcom/cli/issues/2605), packaging library PR [#485](https://github.com/forcedotcom/packaging/pull/485))
+
 * FIX: Salesforce CLI no longer includes security tokens in the URL used to open an org in a browser with the `org open` command. (plugin-org PR [#913](https://github.com/salesforcecli/plugin-org/pull/913))
 
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
