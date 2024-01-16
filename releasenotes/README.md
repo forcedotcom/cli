@@ -32,6 +32,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: We've made all kinds of cool improvements to the `dev generate <thingy>` commands and tightened up the validation of inputted values. Examples of improvements include:
+
+    * You can now specify a new flag type with the `dev generate flag` command: `option`. Use this type for flags that take a short list of string values, similar to a picklist. The `dev generate flag` command then prompts you for these values.
+    * 
 * NEW: Open your org in an incognito window of your browser with the new `--private` flag of `org open`. This example opens your default org in an incognito window of the Chrome browser:
 
    ```bash
