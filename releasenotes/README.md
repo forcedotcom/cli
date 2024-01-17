@@ -26,11 +26,43 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.24.4 (Jan 17, 2023) [stable-rc]
+## 2.25.7 (Jan 24, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: We made some groovy improvements to the `dev generate flag` command. For example:
+
+    * We added a new flag type: `option`. Specify this type for flags that have a short list of pre-defined string values, similar to a picklist. The command then prompts you to enter these pre-defined values.
+    * When you pick one of the org-related flag types for your new flag, such as `optionalOrg` or `requiredHub`, the command now asks if you want to mimic the standard Salesforce CLI flag (`--target-org` or `--target-dev-hub`, respectively).  If you answer `Y`, the command uses the standard short flag name, summary, description, and default value for your new flag.  You can change the long flag name if you want, or use the standard name.
+    * When you scroll through the possible flag values, we now provide a brief description of the type at the bottom of the terminal window. 
+    * We tightened up the validation of inputted values in all the `dev generate <thing>` commands.
+ 
+  (plugin-dev PR [#456](https://github.com/salesforcecli/plugin-dev/pull/456)) 
+   
+* NEW: Open your org in an incognito window of your browser with the new `--private` flag of `org open`. This example opens your default org in an incognito window of the Chrome browser:
+
+   ```bash
+   sf org open --browser chrome --private
+   ```
+   (GitHub issues [#1852](https://github.com/forcedotcom/cli/issues/1852), [#636](https://github.com/forcedotcom/cli/issues/636), and [#2262](https://github.com/forcedotcom/cli/discussions/2262);  plugin-org PR [#923](https://github.com/salesforcecli/plugin-org/pull/923))
+  
+* NEW: The JSON output of the `package version create` command now contains more information: the package name and whether code coverage tests were run and the resulting code coverage percentage is 75% or greater.  These values correspond to the Tooling API `Package2.Name` and `Package2Version.HasPassedCodeCoverageCheck` fields. (packaging library PRs [#486](https://github.com/forcedotcom/packaging/pull/486) and [#466](https://github.com/forcedotcom/packaging/pull/466))
+
+     Many thanks to [Ronny Rokitta](https://github.com/Rocko1204) for this contribution. We love it. 
+  
+* FIX: If the `package version create` command times out, the output now includes a request ID so you can later query the status of the package version create request with the `package version create report --package-create-request-id <ID>` command. (GitHub issue [#2605](https://github.com/forcedotcom/cli/issues/2605), packaging library PR [#485](https://github.com/forcedotcom/packaging/pull/485))
+
+* FIX: Salesforce CLI no longer includes security tokens in the URL used to open an org in a browser with the `org open` command. (plugin-org PR [#913](https://github.com/salesforcecli/plugin-org/pull/913))
+
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+    
+    * ExtlClntAppNotificationSettings
+    * DataCalcInsightTemplate
+    * DataKitObjectTemplate
+
+## 2.24.4 (Jan 17, 2023) [stable]
 
 * NEW: Pipe the SFDX authorization URL through standard input when executing the `org login sfdx-url` command by specifying the new `--sfdx-url-stdin` flag and providing the `-` character as the value. Here's an example; it uses the _template_ for the SFDX authorization URL, not real secret information, for obvious reasons:
 
@@ -48,7 +80,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * ExtDataTranObjectTemplate
     * ExtDataTranFieldTemplate
 
-## 2.23.20 (Jan 10, 2024) [stable]
+## 2.23.20 (Jan 10, 2024)
 
 * NEW and CHANGED (two for one!): We improved the output of the `sf commands` command so that it no longer displays deprecated commands and deprecated aliases of commands; the output is now cleaner and easier to read. Don't worry, you can still see all the deprecated stuff with the new `--deprecated` flag.  (oclif/plugin-commands PR [#568](https://github.com/oclif/plugin-commands/pull/568))
 
