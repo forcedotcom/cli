@@ -62,7 +62,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * DataCalcInsightTemplate
     * DataKitObjectTemplate
 
-## 2.24.4 (Jan 17, 2023) [stable]
+## 2.24.4 (Jan 17, 2024) [stable]
 
 * NEW: Pipe the SFDX authorization URL through standard input when executing the `org login sfdx-url` command by specifying the new `--sfdx-url-stdin` flag and providing the `-` character as the value. Here's an example; it uses the _template_ for the SFDX authorization URL, not real secret information, for obvious reasons:
 
