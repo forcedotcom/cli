@@ -26,11 +26,17 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.25.7 (Jan 24, 2024) [stable-rc]
+## 2.26.9 (Jan 31, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: We've improved the `apex run` command so it can handle SOAP responses that don't include a header when executing anonymous Apex. (GitHub issue [#2630](Github issue link: https://github.com/forcedotcom/cli/issues/2630), salesforcedx-apex PR [#343](https://github.com/forcedotcom/salesforcedx-apex/pull/343))
+
+* FIX: The error output from a failed execution of the `package version create report` command now contains the correct CLI command to run to get all relevant errors (`data query` rather than the incorrect `data:soql:query`). (GitHub issue [#2660](https://github.com/forcedotcom/cli/issues/2660), plugin-packaging PR [#561](https://github.com/salesforcecli/plugin-packaging/pull/561))
+
+## 2.25.7 (Jan 24, 2024) [stable]
 
 * NEW: We made some groovy improvements to the `dev generate flag` command. For example:
 
@@ -62,7 +68,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * DataCalcInsightTemplate
     * DataKitObjectTemplate
 
-## 2.24.4 (Jan 17, 2024) [stable]
+## 2.24.4 (Jan 17, 2024)
 
 * NEW: Pipe the SFDX authorization URL through standard input when executing the `org login sfdx-url` command by specifying the new `--sfdx-url-stdin` flag and providing the `-` character as the value. Here's an example; it uses the _template_ for the SFDX authorization URL, not real secret information, for obvious reasons:
 
