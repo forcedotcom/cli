@@ -32,6 +32,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* FIX: We've improved source tracking so it better handles undecodable SourceMember keys; previously, the relevant command, such as `project deploy start`, would return an errror such as `URIError: URI malformed` if it encountered one. (GitHub issue [#2624](https://github.com/forcedotcom/cli/issues/2624), source-tracking PR [#531](https://github.com/forcedotcom/source-tracking/pull/531))
+
 * FIX: We've improved the `apex run` command so it can handle SOAP responses that don't include a header when executing anonymous Apex. (GitHub issue [#2630](Github issue link: https://github.com/forcedotcom/cli/issues/2630), salesforcedx-apex PR [#343](https://github.com/forcedotcom/salesforcedx-apex/pull/343))
 
 * FIX: The error output from a failed execution of the `package version create report` command now contains the correct CLI command to run to get all relevant errors (`data query` rather than the incorrect `data:soql:query`). (GitHub issue [#2660](https://github.com/forcedotcom/cli/issues/2660), plugin-packaging PR [#561](https://github.com/salesforcecli/plugin-packaging/pull/561))
