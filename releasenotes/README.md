@@ -49,7 +49,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
   ```bash
   sf config set org-capitalize-record-types=false --global
   ```
-  **Important**: Salesforce CLI plans to switch this behavior in the future. Specifically, the default behavior will be to _not_ capitalize the default record types in a new scratch org. To continue with the current behavior when we make the change, set `org-capitalize-record-types` to `true`. If you use record types, we recommend that you try setting  `org-capitalize-record-types` to `false` now and run through your workflows to see if anything breaks, just so you're prepared for the upcoming change. 
+  **Important**: Salesforce CLI plans to switch this behavior in the future. Specifically, the default behavior will be to _not_ capitalize the default record types in a new scratch org if they're lower case in the definition file. To continue with the current behavior when we make the change, you can set `org-capitalize-record-types` to `true`. If you use record types, we recommend that you try setting  `org-capitalize-record-types` to `false` now and run through your workflows to see if anything breaks, just so you're prepared for the upcoming change. 
 
 * FIX: We've improved source tracking so it better handles undecodable SourceMember keys; previously, the relevant command, such as `project deploy start`, would return an errror such as `URIError: URI malformed` if it encountered one. (GitHub issue [#2624](https://github.com/forcedotcom/cli/issues/2624), source-tracking PR [#531](https://github.com/forcedotcom/source-tracking/pull/531))
 
