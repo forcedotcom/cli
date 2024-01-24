@@ -26,11 +26,30 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.26.9 (Jan 31, 2024) [stable-rc]
+## 2.26.10 (Jan 31, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: Choose whether Salesforce CLI capitalizes default record types when it creates a scratch org with the new Boolean `org-capitalize-record-types` configuration variable and corresponding `SF_CAPITALIZE_RECORD_TYPES` environment variable.
+
+    Default record types are defined in the `objectSettings` option of a scratch org definition file, as described in [Scratch Org Definition File Options](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_scratch_orgs_def_file.htm). The setting is required before installing a package that creates record types. By default, Salesforce CLI automatically capitalizes these default record types when it creates them in the scratch org, even if they're lower case in the definition file, such as `svc_Technical_Support` in this snippet:
+
+   ```json
+    "objectSettings": {
+      "case": {
+        "defaultRecordType": "svc_Technical_Support",
+        "sharingModel": "private"
+      }
+    }
+   ```
+   If you don't want Salesforce CLI to capitalize the record types, set `org-capitalize-record-types` or `SF_CAPITALIZE_RECORD_TYPES` to `false`. For example:
+
+  ```bash
+  sf config set org-capitalize-record-types=false --global
+  ```
+  **Important**: Salesforce CLI plans to switch this behavior in the future. Specifically, the default behavior will be to _not_ capitalize the default record types in a new scratch org. To continue with the current behavior when we make the change, set `org-capitalize-record-types` to `true`. If you use record types, we recommend that you try setting  `org-capitalize-record-types` to `false` now and run through your workflows to see if anything breaks, just so you're prepared for the upcoming change. 
 
 * FIX: We've improved source tracking so it better handles undecodable SourceMember keys; previously, the relevant command, such as `project deploy start`, would return an errror such as `URIError: URI malformed` if it encountered one. (GitHub issue [#2624](https://github.com/forcedotcom/cli/issues/2624), source-tracking PR [#531](https://github.com/forcedotcom/source-tracking/pull/531))
 
