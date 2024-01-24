@@ -30,11 +30,15 @@ Additional documentation:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
+**ANNOUNCEMENT**: On or after June 1, 2024, Salesforce CLI plans to change how it creates default record types in a scratch org. Specifically, Salesforce CLI will no longer capitalize default record type names if they're in lower case in the scratch org definition file. Currently, the CLI always capitalizes the record types names, regardless of how they're specified in the definition file.  See the NEW note below for additional details. 
+
+If you use record types, we recommend that you try setting `org-capitalize-record-types` to `false` now and run through your workflows to see if anything breaks, just so you're prepared for the upcoming change.  Starting in this release (2.26.10), you get a warning if you haven't set this config or environment variable. After June 1, if you want to continue using the current behavior, set the new configuration variable `org-capitalize-record-types` (or its companion `SF_CAPITALIZE_RECORD_TYPES` environment variable) to `true`. 
+
 ------------
 
 * NEW: Choose whether Salesforce CLI capitalizes default record types when it creates a scratch org with the new Boolean `org-capitalize-record-types` configuration variable and corresponding `SF_CAPITALIZE_RECORD_TYPES` environment variable.
 
-    Default record types are defined in the `objectSettings` option of a scratch org definition file, as described in [Scratch Org Definition File Options](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_scratch_orgs_def_file.htm). The setting is required before installing a package that creates record types. By default, Salesforce CLI automatically capitalizes these default record types when it creates them in the scratch org, even if they're lower case in the definition file, such as `svc_Technical_Support` in this snippet:
+    Default record types are defined in the `objectSettings` option of a scratch org definition file, as described in [Scratch Org Definition File Options](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_scratch_orgs_def_file.htm). The setting is required before installing a package that creates record types. Currently, Salesforce CLI automatically capitalizes these default record types when it creates them in the scratch org, even if they're lower case in the definition file, such as `svc_Technical_Support` in this snippet:
 
    ```json
     "objectSettings": {
@@ -49,8 +53,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
   ```bash
   sf config set org-capitalize-record-types=false --global
   ```
-  **Important**: Salesforce CLI plans to switch this behavior in the future. Specifically, the default behavior will be to _not_ capitalize the default record types in a new scratch org if they're lower case in the definition file. To continue with the current behavior when we make the change, you can set `org-capitalize-record-types` to `true`. If you use record types, we recommend that you try setting  `org-capitalize-record-types` to `false` now and run through your workflows to see if anything breaks, just so you're prepared for the upcoming change. 
-
+  **Important**: Salesforce CLI plans to switch this behavior on or after June 1, 2024. See the ANNOUNCEMENT above.  
+  
 * FIX: We've improved source tracking so it better handles undecodable SourceMember keys; previously, the relevant command, such as `project deploy start`, would return an errror such as `URIError: URI malformed` if it encountered one. (GitHub issue [#2624](https://github.com/forcedotcom/cli/issues/2624), source-tracking PR [#531](https://github.com/forcedotcom/source-tracking/pull/531))
 
 * FIX: We've improved the `apex run` command so it can handle SOAP responses that don't include a header when executing anonymous Apex. (GitHub issue [#2630](Github issue link: https://github.com/forcedotcom/cli/issues/2630), salesforcedx-apex PR [#343](https://github.com/forcedotcom/salesforcedx-apex/pull/343))
