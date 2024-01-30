@@ -32,6 +32,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* FIX: The `package version create list --created-last-days 0` command now correctly returns package versions that were created today. (GitHub issue [#2668](https://github.com/forcedotcom/cli/issues/2668), packaging PR [#496](https://github.com/forcedotcom/packaging/pull/496))
+
+* FIX: The `project deploy quick --job-id <ID>` command now always works correctly with 15-character deployment job IDs. If the job ID isn't in the local cache, you must provide a valid target org with the `--target-org` flag.  (GitHub issue [#2591](https://github.com/forcedotcom/cli/issues/2591), plugin-deploy-retrieve PR [#884](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/884))
+
 ## 2.26.10 (Jan 31, 2024) [stable]
 
 **ANNOUNCEMENT**: On or after June 1, 2024, Salesforce CLI plans to change how it creates default record types in a scratch org. Specifically, Salesforce CLI will no longer capitalize default record type names if they're in lower case in the scratch org definition file. Currently, the CLI always capitalizes the record types names, regardless of how they're specified in the definition file.  See the NEW note below for additional details. 
