@@ -26,9 +26,22 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.26.10 (Jan 31, 2024) [stable-rc]
+## 2.27.6 (Feb 7, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+------------
+
+* FIX: The `package version create list --created-last-days 0` command now correctly returns package versions that were created today. (GitHub issue [#2668](https://github.com/forcedotcom/cli/issues/2668), packaging PR [#496](https://github.com/forcedotcom/packaging/pull/496))
+
+* FIX: The `project deploy quick --job-id <ID>` command now always works correctly with 15-character deployment job IDs. If the job ID isn't in the local cache, you must provide a valid target org with the `--target-org` flag.  (GitHub issue [#2591](https://github.com/forcedotcom/cli/issues/2591), plugin-deploy-retrieve PR [#884](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/884))
+
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+    
+    * GenAiPromptTemplate
+    * GenAiPromptTemplateActv
+
+## 2.26.10 (Jan 31, 2024) [stable]
 
 **ANNOUNCEMENT**: On or after June 1, 2024, Salesforce CLI plans to change how it creates default record types in a scratch org. Specifically, Salesforce CLI will no longer capitalize default record type names if they're in lower case in the scratch org definition file. Currently, the CLI always capitalizes the record types names, regardless of how they're specified in the definition file.  See the NEW note below for additional details. 
 
@@ -61,7 +74,7 @@ If you use record types, we recommend that you try setting `org-capitalize-recor
 
 * FIX: The error output from a failed execution of the `package version create report` command now contains the correct CLI command to run to get all relevant errors (`data query` rather than the incorrect `data:soql:query`). (GitHub issue [#2660](https://github.com/forcedotcom/cli/issues/2660), plugin-packaging PR [#561](https://github.com/salesforcecli/plugin-packaging/pull/561))
 
-## 2.25.7 (Jan 24, 2024) [stable]
+## 2.25.7 (Jan 24, 2024)
 
 * NEW: We made some groovy improvements to the `dev generate flag` command. For example:
 
