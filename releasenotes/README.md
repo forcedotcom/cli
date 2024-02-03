@@ -41,7 +41,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * GenAiPromptTemplate
     * GenAiPromptTemplateActv
 
-# FIX: The `org logout` command asked if you wanted to log out of all orgs when you wanted to log out of just one.  The message now correctly asks about only the one org.  (GitHub issue [#2671](https://github.com/forcedotcom/cli/issues/2671), plugin-auth PR [#923](https://github.com/salesforcecli/plugin-auth/pull/923))
+* FIX: The `org logout` command asked if you wanted to log out of all orgs when you wanted to log out of just one.  The message now correctly asks about only the one org.  (GitHub issue [#2671](https://github.com/forcedotcom/cli/issues/2671), plugin-auth PR [#923](https://github.com/salesforcecli/plugin-auth/pull/923))
 
 ## 2.26.10 (Jan 31, 2024) [stable]
 
