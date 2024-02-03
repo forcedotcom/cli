@@ -41,6 +41,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * GenAiPromptTemplate
     * GenAiPromptTemplateActv
 
+# FIX: The `org logout` command asked if you wanted to log out of all orgs when you wanted to log out of just one.  The message now correctly asks about only the one org.  (GitHub issue [#2671](https://github.com/forcedotcom/cli/issues/2671), plugin-auth PR [#923](https://github.com/salesforcecli/plugin-auth/pull/923))
+
 ## 2.26.10 (Jan 31, 2024) [stable]
 
 **ANNOUNCEMENT**: On or after June 1, 2024, Salesforce CLI plans to change how it creates default record types in a scratch org. Specifically, Salesforce CLI will no longer capitalize default record type names if they're in lower case in the scratch org definition file. Currently, the CLI always capitalizes the record types names, regardless of how they're specified in the definition file.  See the NEW note below for additional details. 
