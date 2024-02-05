@@ -32,7 +32,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: Your work life is about to get more colorful with Salesforce CLI's new help themes. The help output now uses colors to highlight certain parts, such as the help sections (USAGE, FLAGS, DESCRIPTION, etc), flags and their descriptions, executable name, and more. Run any command with `--help`- or `-h` to see the default colors. Don't like the ones we chose?  Then customize the help output with your own colors by updating the `theme.json` file, located here:
+* NEW: Your work life is about to get more colorful with Salesforce CLI's new help themes. The help output now uses colors to highlight certain parts, such as the help sections (USAGE, FLAGS, DESCRIPTION, and so on), flags and their descriptions, executable name, and more. To see the default colors, run any command with `--help`- or `-h`. If you don't like the colors we chose, specify your own colors by updating the `theme.json` file, located here:
 
     * (Linux and macOS): `$HOME/.config/sf/theme.json`
     * (Windows) Depending on your configuration, either `C:\Users\<username>\.config\sf\theme.json` or `%LOCALAPPDATA%\sf\theme.json`
@@ -76,7 +76,18 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
    ```
 
     Many thanks to [Alan Oricil](https://github.com/AllanOricil), who contributed the general themes feature to [`oclif`](https://github.com/oclif/core/pull/852). We thought it was very cool, so decided to implement it in Salesforce CLI. May the pretty colors bring a little spark of joy to our community! (salesforce/cli PR [#1451](https://github.com/salesforcecli/cli/pull/1451))
-   
+
+* NEW: It's now super-easy to get your Salesforce CLI installation into a "clean" state with the new `--reinstall` and `--hard` flags of `plugins reset`.
+
+    * `--reinstall` does exactly what it says: reinstalls every plugin that you previously installed.
+    * `--hard` removes all package manager related files (`node_modules`, `package.json`, `yarn.lock`, `package-lock.json`) from Salesforce CLI's internal data directory.
+    
+    For example:
+
+    ```bash
+    sf plugins reset --reinstall --hard
+    ```
+    (oclif/plugin-plugins PR [#777](https://github.com/oclif/plugin-plugins/pull/777))
 
 ## 2.27.6 (Feb 7, 2024) [stable]
 
