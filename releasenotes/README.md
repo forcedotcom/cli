@@ -151,10 +151,10 @@ If you use record types, we recommend that you try setting `org-capitalize-recor
 
     Snapshots are available when your Dev Hub org is upgraded to the Spring ’24 release. Then enable Scratch Org Snapshots in the Dev Hub org that you use to create scratch orgs. For more information, see [Scratch Org Snapshots](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_snapshots_intro.htm). (Available December 20, 2023, when the Spring '24 documentation is in preview.)
 
-* NEW: When previewing a deployment with the `project deploy preview` command, use the new `--concise` flag to show only the changes that will be retrieved. The output also omits the files that are in the `.forceignore` file. For example:
+* NEW: When previewing a retrieve with the `project retrieve preview` command, use the new `--concise` flag to show only the changes that will be retrieved. The output also omits the files that are in the `.forceignore` file. For example:
 
     ```bash
-    sf project deploy preview --metadata ApexClass --target-org my-scratch --concise
+    sf project retrieve preview --metadata ApexClass --target-org my-scratch --concise
     ```
     (GitHub issue [#2489](https://github.com/forcedotcom/cli/discussions/2489), plugin-deploy-retrieve PR [#831](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/831))
 
