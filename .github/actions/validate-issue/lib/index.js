@@ -12,6 +12,7 @@ const child_process_1 = require("child_process");
 const semver = require("semver");
 const fs_1 = require("fs");
 const path = require("path");
+const nodeVersions_1 = require("./nodeVersions");
 async function run() {
     try {
         // Uncomment for local testing
@@ -46,19 +47,32 @@ async function run() {
         // For version checks, we only care about comments from the author
         const authorComments = comments.filter((comment) => { var _a; return ((_a = comment === null || comment === void 0 ? void 0 : comment.user) === null || _a === void 0 ? void 0 : _a.login) === author; });
         // Build an array of the issue body and all of the comment bodies
-        const bodies = [body, ...authorComments.map((comment) => comment.body)].filter((body) => body !== undefined);
+        const bodies = [
+            body,
+            ...authorComments.map((comment) => comment.body),
+        ].filter((body) => body !== undefined);
         const sfVersionRegex = /@salesforce\/cli\/([0-9]+.[0-9]+.[0-9]+(-[a-zA-Z0-9]+.[0-9]+)?)/g;
         const sfdxVersionRegex = /sfdx-cli\/([0-9]+.[0-9]+.[0-9]+(-[a-zA-Z0-9]+.[0-9]+)?)/g;
         const pluginVersionsRegex = /pluginVersions|Plugin Version:/;
+        const nodeVersionRegex = /node-v(\d{2})\.\d+\.\d+/;
         // Search all bodies and get an array of all versions found (first capture group)
-        const sfVersions = bodies.map((body) => [...body.matchAll(sfVersionRegex)].map((match) => match[1])).flat();
-        const sfdxVersions = bodies.map((body) => [...body.matchAll(sfdxVersionRegex)].map((match) => match[1])).flat();
+        const sfVersions = bodies
+            .map((body) => [...body.matchAll(sfVersionRegex)].map((match) => match[1]))
+            .flat();
+        const sfdxVersions = bodies
+            .map((body) => [...body.matchAll(sfdxVersionRegex)].map((match) => match[1]))
+            .flat();
+        const nodeVersions = bodies
+            .map((body) => [...body.matchAll(nodeVersionRegex)].map((match) => match[1]))
+            .flat();
         // If we match pluginVersionRegex anywhere, we assume the user has provided the full --verbose output
         const pluginVersionsIncluded = bodies.some((body) => body === null || body === void 0 ? void 0 : body.match(pluginVersionsRegex));
         console.log("sfVersions", sfVersions);
         console.log("sfdxVersions", sfdxVersions);
         console.log("pluginVersionsIncluded", pluginVersionsIncluded);
-        if ((sfVersions.length > 0 || sfdxVersions.length > 0) && pluginVersionsIncluded) {
+        console.log("nodeVersions", nodeVersions);
+        if ((sfVersions.length > 0 || sfdxVersions.length > 0) &&
+            pluginVersionsIncluded) {
             // FUTURE TODO:
             // - Check for bundled plugins that are user installed (user) or linked (link)
             // - Could do a check to see if the users has a prerelease version installed
@@ -69,21 +83,43 @@ async function run() {
                 if (!oneSatisfies) {
                     if (sfVersions.find((v) => v.startsWith("2."))) {
                         // If any sf versions provided start with 2.x, share update information
-                        const oldSf = getFile("../messages/old-cli.md", { THE_AUTHOR: author, USER_CLI: "sf", USER_VERSION: sfVersions.join("`, `"), LATEST_VERSION: sfLatest });
+                        const oldSf = getFile("../messages/old-cli.md", {
+                            THE_AUTHOR: author,
+                            USER_CLI: "sf",
+                            USER_VERSION: sfVersions.join("`, `"),
+                            LATEST_VERSION: sfLatest,
+                        });
                         postComment(oldSf);
                     }
                     else {
                         // If not, share deprecation information
-                        const sfV1 = getFile("../messages/deprecated-cli.md", { THE_AUTHOR: author, OLD_CLI: "`sf` (v1)" });
+                        const sfV1 = getFile("../messages/deprecated-cli.md", {
+                            THE_AUTHOR: author,
+                            OLD_CLI: "`sf` (v1)",
+                        });
                         postComment(sfV1);
                     }
                     valid = false;
                 }
             }
-            if (sfdxVersions.find((v) => v.startsWith("7.")) && !sfVersions.find((v) => v.startsWith("2."))) {
-                const noOldSfdx = getFile("../messages/deprecated-cli.md", { THE_AUTHOR: author, OLD_CLI: "`sfdx` (v7)" });
+            if (sfdxVersions.find((v) => v.startsWith("7.")) &&
+                !sfVersions.find((v) => v.startsWith("2."))) {
+                const noOldSfdx = getFile("../messages/deprecated-cli.md", {
+                    THE_AUTHOR: author,
+                    OLD_CLI: "`sfdx` (v7)",
+                });
                 postComment(noOldSfdx);
                 valid = false;
+            }
+            if (nodeVersions.length > 0) {
+                if (!nodeVersions.some((0, nodeVersions_1.isValidVersion)(new Date()))) {
+                    const nodeVersionMessage = getFile("../messages/unsupported-node.md", {
+                        THE_AUTHOR: author,
+                        NODE_VERSION: nodeVersions.join("`, `"),
+                    });
+                    postComment(nodeVersionMessage);
+                    valid = false;
+                }
             }
             if (valid) {
                 console.log("All information provided is valid!");
@@ -101,7 +137,9 @@ async function run() {
         }
         else {
             console.log("Full version information was not provided");
-            const message = getFile("../messages/provide-version.md", { THE_AUTHOR: issue.user.login });
+            const message = getFile("../messages/provide-version.md", {
+                THE_AUTHOR: issue.user.login,
+            });
             postComment(message);
             addLabel("more information required");
             removeLabel("investigating");
@@ -110,7 +148,11 @@ async function run() {
         // FUNCTIONS
         // ---------
         async function getAllComments() {
-            return await octokit.rest.issues.listComments({ owner, repo, issue_number });
+            return await octokit.rest.issues.listComments({
+                owner,
+                repo,
+                issue_number,
+            });
         }
         async function postComment(body) {
             // Check that this comment has not been previously commented
@@ -120,14 +162,29 @@ async function run() {
                     return;
                 }
             }
-            return await octokit.rest.issues.createComment({ owner, repo, issue_number, body });
+            return await octokit.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number,
+                body,
+            });
         }
         async function addLabel(label) {
-            await octokit.rest.issues.addLabels({ owner, repo, issue_number, labels: [label] });
+            await octokit.rest.issues.addLabels({
+                owner,
+                repo,
+                issue_number,
+                labels: [label],
+            });
         }
         async function removeLabel(label) {
             try {
-                await octokit.rest.issues.removeLabel({ owner, repo, issue_number, name: label });
+                await octokit.rest.issues.removeLabel({
+                    owner,
+                    repo,
+                    issue_number,
+                    name: label,
+                });
             }
             catch (err) {
                 const error = err;
