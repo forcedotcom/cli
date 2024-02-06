@@ -91,6 +91,16 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * CHANGE: Any [string replacements](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_string_replace.htm) configured in your `sfdx-project.json` file are now also applied to source files that are packaged with the `package version create` command. The documentation will be updated shortly to reflect this change. (plugin-packaging PR [#566](https://github.com/salesforcecli/plugin-packaging/pull/566)
 
+* FIX: The `package version list` and `package1 version list` commands now return up to 10K records; previously the maximum was 2000.  To get even more records, set the SF_ORG_MAX_QUERY_LIMIT environment variable. (GitHub issue [#2073](https://github.com/forcedotcom/cli/issues/2073), packaging PR [#500](https://github.com/forcedotcom/packaging/pull/500))
+
+* FIX: Piping the SFDX authorization URL from stdin to the `org login sfdx-url` command is now working correctly.  NOTE that as part of this fix, you're not longer required to provide the `-` value to the `--sfdx-url-stdin` flag. Here's an example; it uses the _template_ for the SFDX authorization URL, not real secret information, for obvious reasons:
+
+    ```bash
+    echo "force://<clientId>:<clientSecret>:<refreshToken>@<instanceUrl>" | sf org login sfdx-url --sfdx-url-stdin
+    ```
+
+  (GitHub issue [#2690](https://github.com/forcedotcom/cli/issues/2690), oclif core [#935](https://github.com/oclif/core/pull/935))
+
 ## 2.27.6 (Feb 7, 2024) [stable]
 
 **ANNOUNCEMENT**: On or after June 1, 2024, Salesforce CLI plans to change how it creates default record types in a scratch org. Specifically, Salesforce CLI will no longer capitalize default record type names if they're in lower case in the scratch org definition file. Currently, the CLI always capitalizes the record types names, regardless of how they're specified in the definition file.  See the NEW note for the `2.26.10` release for additional details. 
