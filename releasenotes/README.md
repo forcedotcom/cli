@@ -80,7 +80,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 * NEW: It's now super-easy to get your Salesforce CLI installation into a "clean" state with the new `--reinstall` and `--hard` flags of `plugins reset`.
 
     * `--reinstall` does exactly what it says: reinstalls every plugin that you previously installed.
-    * `--hard` removes all package manager related files (`node_modules`, `package.json`, `yarn.lock`, `package-lock.json`) from Salesforce CLI's internal data directory.
+    * `--hard` removes all package manager related files and directories (`node_modules`, `package.json`, `yarn.lock`, `package-lock.json`) from Salesforce CLI's internal data directory.
     
     For example:
 
