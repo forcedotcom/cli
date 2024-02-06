@@ -89,6 +89,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     ```
     (oclif/plugin-plugins PR [#777](https://github.com/oclif/plugin-plugins/pull/777))
 
+* CHANGE: Any [string replacements](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_string_replace.htm) configured in your `sfdx-project.json` file are now also applied to source files that are packaged with the `package version create` command. The documentation will be updated shortly to reflect this change. (plugin-packaging PR [#566](https://github.com/salesforcecli/plugin-packaging/pull/566)
+
 ## 2.27.6 (Feb 7, 2024) [stable]
 
 **ANNOUNCEMENT**: On or after June 1, 2024, Salesforce CLI plans to change how it creates default record types in a scratch org. Specifically, Salesforce CLI will no longer capitalize default record type names if they're in lower case in the scratch org definition file. Currently, the CLI always capitalizes the record types names, regardless of how they're specified in the definition file.  See the NEW note for the `2.26.10` release for additional details. 
