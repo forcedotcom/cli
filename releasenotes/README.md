@@ -101,6 +101,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
   (GitHub issue [#2690](https://github.com/forcedotcom/cli/issues/2690), oclif core [#935](https://github.com/oclif/core/pull/935))
 
+* FIX: You can now correctly deploy and package source files that start with a period, such as `.specialFile`. (GitHub issue [#2666](https://github.com/forcedotcom/cli/issues/2666), source-deploy-retrieve PR [#1224](https://github.com/forcedotcom/source-deploy-retrieve/pull/1224))
+
 ## 2.27.6 (Feb 7, 2024) [stable]
 
 **ANNOUNCEMENT**: On or after June 1, 2024, Salesforce CLI plans to change how it creates default record types in a scratch org. Specifically, Salesforce CLI will no longer capitalize default record type names if they're in lower case in the scratch org definition file. Currently, the CLI always capitalizes the record types names, regardless of how they're specified in the definition file.  See the NEW note for the `2.26.10` release for additional details. 
