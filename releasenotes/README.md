@@ -32,13 +32,15 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: Your work life is about to get more colorful with Salesforce CLI's new help themes. The help output now uses colors to highlight certain parts, such as the help sections (USAGE, FLAGS, DESCRIPTION, and so on), flags and their descriptions, executable name, and more. To see the default colors, run any command with `--help`- or `-h`. If you don't like the colors we chose, specify your own colors by updating the `theme.json` file, located here:
+* NEW: Your work life is about to get more colorful with Salesforce CLI's new help themes. The help output now uses colors to highlight certain parts, such as the help sections (USAGE, FLAGS, DESCRIPTION, and so on), flags and their descriptions, executable name, and more. To see the default colors, run any command with `--help`- or `-h`.
+
+    If you don't like the colors we chose, specify your own colors by creating a file called `theme.json` file in this location:
 
     * (Linux and macOS): `$HOME/.config/sf/theme.json`
     * (Windows) Depending on your configuration, either `C:\Users\<username>\.config\sf\theme.json` or `%LOCALAPPDATA%\sf\theme.json`
 
-    The default `theme.json` file uses [chalk-style colors](https://github.com/chalk/chalk/?tab=readme-ov-file#colors), such as `greenBright`, but you can use hexcode (`#FF0000`) or RGB (`rgb(255,255,255)`) if you prefer. Here's the full list of JSON keys in the `theme.json` file and what they colorize:
-
+   Use these JSON keys to specify the color of various sections. 
+  
     * `alias`: The aliases listed in the ALIASES section.
     * `bin`: The `sf` executable.
     * `command`: The command's name.
@@ -54,7 +56,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `topic`: The topics listed in the TOPICS section.
     * `version`: The VERSION section shown when you run `sf --help`.
 
-    To _not_ colorize a section, set it to `none` or remove it from the `theme.json` file. As an example, here's the default `theme.json` file; note that `aliases` is set to `none` so aliases don't have a color in the help output:
+    For the key's value, use [chalk-style colors](https://github.com/chalk/chalk/?tab=readme-ov-file#colors) (such as `greenBright`), hex code (`#FF0000`) or RGB (`rgb(255,255,255)`). To _not_ colorize a section, set it to `none` or remove it from the `theme.json` file.
+
+    As an example, here's the default `theme.json` file; it uses chalk-style colors. 
 
    ```json
    {
