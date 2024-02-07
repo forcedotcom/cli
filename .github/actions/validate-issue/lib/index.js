@@ -118,6 +118,7 @@ async function run() {
                         NODE_VERSION: nodeVersions.join("`, `"),
                     });
                     postComment(nodeVersionMessage);
+                    closeIssue();
                     valid = false;
                 }
             }
@@ -147,6 +148,14 @@ async function run() {
         // ---------
         // FUNCTIONS
         // ---------
+        async function closeIssue() {
+            return await octokit.rest.issues.update({
+                owner,
+                repo,
+                issue_number,
+                state: "closed",
+            });
+        }
         async function getAllComments() {
             return await octokit.rest.issues.listComments({
                 owner,
