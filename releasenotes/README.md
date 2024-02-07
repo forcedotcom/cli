@@ -26,9 +26,90 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.27.6 (Feb 7, 2024) [stable-rc]
+## 2.28.6 (Feb 14, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+------------
+
+* NEW: Your work life is about to get more colorful with Salesforce CLI's new help themes. The help output now uses colors to highlight certain parts, such as the help sections (USAGE, FLAGS, DESCRIPTION, and so on), flags and their descriptions, executable name, and more. To see the default colors, run any command with `--help`- or `-h`. If you don't like the colors we chose, specify your own colors by updating the `theme.json` file, located here:
+
+    * (Linux and macOS): `$HOME/.config/sf/theme.json`
+    * (Windows) Depending on your configuration, either `C:\Users\<username>\.config\sf\theme.json` or `%LOCALAPPDATA%\sf\theme.json`
+
+    The default `theme.json` file uses [chalk-style colors](https://github.com/chalk/chalk/?tab=readme-ov-file#colors), such as `greenBright`, but you can use hexcode (`#FF0000`) or RGB (`rgb(255,255,255)`) if you prefer. Here's the full list of JSON keys in the `theme.json` file and what they colorize:
+
+    * `alias`: The aliases listed in the ALIASES section.
+    * `bin`: The `sf` executable.
+    * `command`: The command's name.
+    * `commandSummary`: The command's summary.
+    * `dollarSign`: The `$` printed before examples and usage.
+    * `flag`: The flag long and short names.
+    * `flagDefaultValue`: The text `[default: X]` shown for flags that have a default value.
+    * `flagOptions`: The valid options for a flag.
+    * `flagRequired`: The text `(required)` shown for required flags.
+    * `flagSeparator`: The `,` that separates the short and long flag names (for example, `-f, --foo`).
+    * `sectionDescription`: The text inside each section (for example, everything under the DESCRIPTION section).
+    * `sectionHeader`: The section header (for example, DESCRIPTION).
+    * `topic`: The topics listed in the TOPICS section.
+    * `version`: The VERSION section shown when you run `sf --help`.
+
+    To _not_ colorize a section, set it to `none` or remove it from the `theme.json` file. As an example, here's the default `theme.json` file; note that `aliases` is set to `none` so aliases don't have a color in the help output:
+
+   ```json
+   {
+      "aliases": "none",
+      "bin": "blueBright",
+      "command": "blueBright",
+      "commandSummary": "none",
+      "dollarSign": "green",
+      "flag": "green",
+      "flagDefaultValue": "blueBright",
+      "flagOptions": "blueBright",
+      "flagRequired": "red",
+      "flagSeparator": "none",
+      "sectionDescription": "none",
+      "sectionHeader": "blue",
+      "topic": "blueBright",
+      "version": "none"
+    }
+   ```
+
+    Many thanks to [Alan Oricil](https://github.com/AllanOricil), who contributed the general themes feature to [`oclif`](https://github.com/oclif/core/pull/852). We thought it was very cool, so decided to implement it in Salesforce CLI. May the pretty colors bring a little spark of joy to our community! (salesforce/cli PR [#1451](https://github.com/salesforcecli/cli/pull/1451))
+
+* NEW: It's now super-easy to get your Salesforce CLI installation into a "clean" state with the new `--reinstall` and `--hard` flags of `plugins reset`.
+
+    * `--reinstall` does exactly what it says: reinstalls every plugin that you previously installed.
+    * `--hard` removes all package manager related files and directories (`node_modules`, `package.json`, `yarn.lock`, `package-lock.json`) from Salesforce CLI's internal data directory.
+    
+    For example:
+
+    ```bash
+    sf plugins reset --reinstall --hard
+    ```
+    (oclif/plugin-plugins PR [#777](https://github.com/oclif/plugin-plugins/pull/777))
+
+* CHANGE: Any [string replacements](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_string_replace.htm) configured in your `sfdx-project.json` file are now also applied to source files that are packaged with the `package version create` command. The documentation will be updated shortly to reflect this change. (plugin-packaging PR [#566](https://github.com/salesforcecli/plugin-packaging/pull/566)
+
+* CHANGE: We removed the SF_CODE_COVERAGE_REQUIREMENT environment variable because it never did anything.  (sfdx-core PR [#1023](https://github.com/forcedotcom/sfdx-core/pull/1023)
+
+* FIX: The `package version list` and `package1 version list` commands now return up to 10K records; previously the maximum was 2000.  To get even more records, set the SF_ORG_MAX_QUERY_LIMIT environment variable. (GitHub issue [#2073](https://github.com/forcedotcom/cli/issues/2073), packaging PR [#500](https://github.com/forcedotcom/packaging/pull/500))
+
+* FIX: Piping the SFDX authorization URL from stdin to the `org login sfdx-url` command is now working correctly.  NOTE that as part of this fix, you're not longer required to provide the `-` value to the `--sfdx-url-stdin` flag. Here's an example; it uses the _template_ for the SFDX authorization URL, not real secret information, for obvious reasons:
+
+    ```bash
+    echo "force://<clientId>:<clientSecret>:<refreshToken>@<instanceUrl>" | sf org login sfdx-url --sfdx-url-stdin
+    ```
+
+  (GitHub issue [#2690](https://github.com/forcedotcom/cli/issues/2690), oclif core [#935](https://github.com/oclif/core/pull/935))
+
+* FIX: You can now correctly deploy and package source files that start with a period, such as `.specialFile`. (GitHub issue [#2666](https://github.com/forcedotcom/cli/issues/2666), source-deploy-retrieve PR [#1224](https://github.com/forcedotcom/source-deploy-retrieve/pull/1224))
+
+## 2.27.6 (Feb 7, 2024) [stable]
+
+**ANNOUNCEMENT**: On or after June 1, 2024, Salesforce CLI plans to change how it creates default record types in a scratch org. Specifically, Salesforce CLI will no longer capitalize default record type names if they're in lower case in the scratch org definition file. Currently, the CLI always capitalizes the record types names, regardless of how they're specified in the definition file.  See the NEW note for the `2.26.10` release for additional details. 
+
+If you use record types, we recommend that you try setting `org-capitalize-record-types` to `false` now and run through your workflows to see if anything breaks, just so you're prepared for the upcoming change.  Starting in the `2.26.10` release , you get a warning if you haven't set this config or environment variable. After June 1, if you want to continue using the current behavior, set the new configuration variable `org-capitalize-record-types` (or its companion `SF_CAPITALIZE_RECORD_TYPES` environment variable) to `true`. 
 
 ------------
 
@@ -43,13 +124,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `org logout` command asked if you wanted to log out of all orgs when you wanted to log out of just one.  The message now correctly asks about only the one org.  (GitHub issue [#2671](https://github.com/forcedotcom/cli/issues/2671), plugin-auth PR [#923](https://github.com/salesforcecli/plugin-auth/pull/923))
 
-## 2.26.10 (Jan 31, 2024) [stable]
-
-**ANNOUNCEMENT**: On or after June 1, 2024, Salesforce CLI plans to change how it creates default record types in a scratch org. Specifically, Salesforce CLI will no longer capitalize default record type names if they're in lower case in the scratch org definition file. Currently, the CLI always capitalizes the record types names, regardless of how they're specified in the definition file.  See the NEW note below for additional details. 
-
-If you use record types, we recommend that you try setting `org-capitalize-record-types` to `false` now and run through your workflows to see if anything breaks, just so you're prepared for the upcoming change.  Starting in this release (2.26.10), you get a warning if you haven't set this config or environment variable. After June 1, if you want to continue using the current behavior, set the new configuration variable `org-capitalize-record-types` (or its companion `SF_CAPITALIZE_RECORD_TYPES` environment variable) to `true`. 
-
-------------
+## 2.26.10 (Jan 31, 2024)
 
 * NEW: Choose whether Salesforce CLI capitalizes default record types when it creates a scratch org with the new Boolean `org-capitalize-record-types` configuration variable and corresponding `SF_CAPITALIZE_RECORD_TYPES` environment variable.
 
