@@ -23,7 +23,7 @@
   "devDependencies": {
     "@octokit/webhooks-definitions": "^3.67.3",
     "@salesforce/dev-config": "^2.0.0",
-    "@types/node": "^12.7.12",
+    "@types/node": "^20.11.17",
     "@types/semver": "^7.5.0",
     "husky": "^4.3.0",
     "prettier": "^1.19.1",
