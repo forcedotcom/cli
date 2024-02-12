@@ -1,4 +1,4 @@
-Hello @THE_AUTHOR :wave: Your version of nodeJS (NODE_VERSION) is not supported.
+Hello @THE_AUTHOR :wave: Your version of nodeJS (`NODE_VERSION`) is not supported.
 
 We recommend using LTS and we support anything Node says is `Current`, `Active` and `Maintenance`.
 

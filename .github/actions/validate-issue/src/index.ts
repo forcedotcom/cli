@@ -143,7 +143,7 @@ async function run() {
             "../messages/unsupported-node.md",
             {
               THE_AUTHOR: author,
-              NODE_VERSION: nodeVersions.map((v) => `\`${v}\``).join(","),
+              NODE_VERSION: nodeVersions.join("`, `"),
             }
           );
           postComment(nodeVersionMessage);
