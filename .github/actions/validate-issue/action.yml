@@ -13,5 +13,5 @@ inputs:
     required: true
     description: "Token taken from secrets env var"
 runs:
-  using: "node16"
+  using: "node20"
   main: "lib/index.js"
