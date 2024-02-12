@@ -1,1 +1,1 @@
-export declare const isValidVersion: (currentDate: Date) => (version: string) => Promise<boolean>;
+export declare const isAnyVersionValid: (currentDate: Date) => (versions: string[]) => Promise<boolean>;

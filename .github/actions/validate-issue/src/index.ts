@@ -11,7 +11,7 @@ import { execSync } from "child_process";
 import * as semver from "semver";
 import { readFileSync } from "fs";
 import * as path from "path";
-import { isValidVersion } from "./nodeVersions";
+import { isAnyVersionValid } from "./nodeVersions";
 
 async function run() {
   try {
@@ -138,7 +138,7 @@ async function run() {
         valid = false;
       }
       if (nodeVersions.length > 0) {
-        if (!nodeVersions.some(await isValidVersion(new Date()))) {
+        if (!(await isAnyVersionValid(new Date())(nodeVersions))) {
           const nodeVersionMessage = getFile(
             "../messages/unsupported-node.md",
             {
