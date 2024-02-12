@@ -32,6 +32,14 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* CHANGE: After being deprecated and hidden for over two years because it had no effect, we removed the `--target-dev-hub` flag from these commands:
+
+    * `org create user`
+    * `org display user`
+    * `org list users`
+ 
+    (plugin-users PR [864x](https://github.com/salesforcecli/plugin-user/pull/864))
+
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
 
     * EnablementMeasureDefinition
