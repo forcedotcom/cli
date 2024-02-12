@@ -138,7 +138,7 @@ async function run() {
         valid = false;
       }
       if (nodeVersions.length > 0) {
-        if (!nodeVersions.some(isValidVersion(new Date()))) {
+        if (!nodeVersions.some(await isValidVersion(new Date()))) {
           const nodeVersionMessage = getFile(
             "../messages/unsupported-node.md",
             {

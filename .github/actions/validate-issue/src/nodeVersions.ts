@@ -3,7 +3,7 @@ type VersionInfo = {
   end: Date;
 };
 
-export const isValidVersion = (currentDate: Date) => async (
+export const isValidVersion = async (currentDate: Date) => async (
   version: string
 ): Promise<boolean> => {
   const formattedVersion = `v${version}`;
