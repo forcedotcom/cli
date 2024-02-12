@@ -115,7 +115,7 @@ async function run() {
                 if (!nodeVersions.some((0, nodeVersions_1.isValidVersion)(new Date()))) {
                     const nodeVersionMessage = getFile("../messages/unsupported-node.md", {
                         THE_AUTHOR: author,
-                        NODE_VERSION: nodeVersions.join("`, `"),
+                        NODE_VERSION: nodeVersions.map((v) => `\`${v}\``).join(","),
                     });
                     postComment(nodeVersionMessage);
                     closeIssue();
