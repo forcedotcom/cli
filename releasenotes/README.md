@@ -32,7 +32,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* CHANGE: After being deprecated and hidden for over two years because it had no effect, we removed the `--target-dev-hub` flag from these commands:
+* CHANGE: We removed  the `--target-dev-hub` flag from these commands; the flag has been deprecated and hidden for over two years because it has no effect:
 
     * `org create user`
     * `org display user`
