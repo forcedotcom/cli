@@ -46,11 +46,13 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     * EnablementMeasureDefinition
 
-## 2.28.6 (:heart: Feb 14 :heart:, 2024) [stable]
+## 2.28.6 (Feb 14, 2024) [stable]
 
 **ANNOUNCEMENT**: On or after June 1, 2024, Salesforce CLI plans to change how it creates default record types in a scratch org. Specifically, Salesforce CLI will no longer capitalize default record type names if they're in lower case in the scratch org definition file. Currently, the CLI always capitalizes the record types names, regardless of how they're specified in the definition file.  See the NEW note for the `2.26.10` release for additional details. 
 
 If you use record types, we recommend that you try setting `org-capitalize-record-types` to `false` now and run through your workflows to see if anything breaks, just so you're prepared for the upcoming change.  Starting in the `2.26.10` release , you get a warning if you haven't set this config or environment variable. After June 1, if you want to continue using the current behavior, set the new configuration variable `org-capitalize-record-types` (or its companion `SF_CAPITALIZE_RECORD_TYPES` environment variable) to `true`. 
+
+❤️ ❤️ Happy Valentine's Day ❤️ ❤️
 
 ------------
 
