@@ -38,7 +38,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `org display user`
     * `org list users`
  
-    (plugin-users PR [864x](https://github.com/salesforcecli/plugin-user/pull/864))
+    (plugin-users PR [#864](https://github.com/salesforcecli/plugin-user/pull/864))
+
+* FIX: We updated our Github Actions to be more friendly to external developers. In particular, we modified our [external plugin template](https://github.com/salesforcecli/plugin-template-sf-external) so that `dev generate plugin` generates updated sample GitHub Actions workflow files. We also added Personal Access Token instructions to the [README](https://github.com/salesforcecli/github-workflows) in our GitHub Actions repo.
 
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
 
