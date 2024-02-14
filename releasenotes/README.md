@@ -26,9 +26,35 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.28.6 (Feb 14, 2024) [stable-rc]
+## 2.29.5 (Feb 21, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+------------
+
+* CHANGE: We removed the `--target-dev-hub` flag from these commands; the flag has been deprecated and hidden for over two years because it has no effect:
+
+    * `org create user`
+    * `org display user`
+    * `org list users`
+ 
+    (plugin-users PR [#864](https://github.com/salesforcecli/plugin-user/pull/864))
+
+* FIX: We updated our Github Actions to be more friendly to external developers. In particular, we modified our [external plugin template](https://github.com/salesforcecli/plugin-template-sf-external) so that `dev generate plugin` generates updated sample GitHub Actions workflow files. We also added Personal Access Token instructions to the [README](https://github.com/salesforcecli/github-workflows) in our GitHub Actions repo.
+
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+
+    * EnablementMeasureDefinition
+
+## 2.28.6 (Feb 14, 2024) [stable]
+
+**ANNOUNCEMENTS**: 
+
+* On March 14, 2024, Salesforce CLI is going to switch to a new major version of `@oclif/plugin-plugins` which will use `npm` instead of `yarn` (v1) for installing and updating user plugins. For more information, see [here](https://github.com/forcedotcom/cli/issues/2691).
+
+* On or after June 1, 2024, Salesforce CLI plans to change how it creates default record types in a scratch org. Specifically, Salesforce CLI will no longer capitalize default record type names if they're in lower case in the scratch org definition file. Currently, the CLI always capitalizes the record types names, regardless of how they're specified in the definition file.  See the NEW note for the `2.26.10` release for additional details. 
+
+    If you use record types, we recommend that you try setting `org-capitalize-record-types` to `false` now and run through your workflows to see if anything breaks, just so you're prepared for the upcoming change.  Starting in the `2.26.10` release , you get a warning if you haven't set this config or environment variable. After June 1, if you want to continue using the current behavior, set the new configuration variable `org-capitalize-record-types` (or its companion `SF_CAPITALIZE_RECORD_TYPES` environment variable) to `true`. 
 
 ------------
 
@@ -109,13 +135,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: You can now correctly deploy and package source files that start with a period, such as `.specialFile`. (GitHub issue [#2666](https://github.com/forcedotcom/cli/issues/2666), source-deploy-retrieve PR [#1224](https://github.com/forcedotcom/source-deploy-retrieve/pull/1224))
 
-## 2.27.6 (Feb 7, 2024) [stable]
-
-**ANNOUNCEMENT**: On or after June 1, 2024, Salesforce CLI plans to change how it creates default record types in a scratch org. Specifically, Salesforce CLI will no longer capitalize default record type names if they're in lower case in the scratch org definition file. Currently, the CLI always capitalizes the record types names, regardless of how they're specified in the definition file.  See the NEW note for the `2.26.10` release for additional details. 
-
-If you use record types, we recommend that you try setting `org-capitalize-record-types` to `false` now and run through your workflows to see if anything breaks, just so you're prepared for the upcoming change.  Starting in the `2.26.10` release , you get a warning if you haven't set this config or environment variable. After June 1, if you want to continue using the current behavior, set the new configuration variable `org-capitalize-record-types` (or its companion `SF_CAPITALIZE_RECORD_TYPES` environment variable) to `true`. 
-
-------------
+## 2.27.6 (Feb 7, 2024)
 
 * FIX: The `package version create list --created-last-days 0` command now correctly returns package versions that were created today. (GitHub issue [#2668](https://github.com/forcedotcom/cli/issues/2668), packaging PR [#496](https://github.com/forcedotcom/packaging/pull/496))
 
