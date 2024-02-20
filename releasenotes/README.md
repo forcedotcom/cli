@@ -32,16 +32,16 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* CHANGE: We made a bunch of improvements to the `data import tree` and `data export tree` commands.  But because these improvements introduce breaking changes, we're going to first beta the new functionality, and then make it generally available when we're sure everything is in tip-top shape. Here's the plan:
+* CHANGE: We made a bunch of improvements to the `data import tree` and `data export tree` commands. But because these improvements introduce breaking changes, we're going to first beta the new functionality, and then make it generally available when we're sure everything is in tip-top shape. Here's the plan:
 
-    * This CLI release contains two new comamnds that contain the improvements: `data import beta tree` and `data export beta tree`. The existing `data import tree` and `data export tree` comamnds continue to work as before.
+    * This Salesforce CLI release contains two new commands that contain the improvements: `data import beta tree` and `data export beta tree`. The existing `data import tree` and `data export tree` commands continue to work as before.
     * Read the [pinned issue](https://github.com/forcedotcom/cli/issues), which details the improvements in these beta commands, as well as the breaking changes. We also provide a tentative timeline.
-    * Test these beta commands and let us know if you find any issues.  Also let us know if you like the improvements!
+    * Test these beta commands and let us know if you find any issues. Also let us know if you like the improvements!
     * When the beta period is over, we'll move the functionality that we added to `data import|export beta tree` to the "official" `data import|export tree` commands. We then move the functionality in the _old_ `data import|export tree` commands to new commands called `data import|export legacy tree`. See the [pinned issue](https://github.com/forcedotcom/cli/issues) for more information. 
 
-    Enjoy!  (GitHub issues [#2663](https://github.com/forcedotcom/cli/issues/2663) and [#248](https://github.com/forcedotcom/cli/issues/248). GitHub disscusion [#2359](https://github.com/forcedotcom/cli/discussions/2359). plugin-data PR [#821](https://github.com/salesforcecli/plugin-data/pull/821) and [#810](https://github.com/salesforcecli/plugin-data/pull/810))
+    Enjoy! (GitHub issues [#2663](https://github.com/forcedotcom/cli/issues/2663) and [#248](https://github.com/forcedotcom/cli/issues/248). GitHub discussion [#2359](https://github.com/forcedotcom/cli/discussions/2359). plugin-data PR [#821](https://github.com/salesforcecli/plugin-data/pull/821) and [#810](https://github.com/salesforcecli/plugin-data/pull/810))
 
-* FIX: The `sf which` command, when passed an alias of a deprecated command, now outputs the name of the new command rather than the old deprecated one.  (oclif GitHub issue [#515](https://github.com/oclif/plugin-which/issues/515), plugin-which PR [#545](https://github.com/oclif/plugin-which/pull/545))
+* FIX: The `sf which` command, when passed an alias of a deprecated command, now outputs the name of the new command rather than the old deprecated one. (oclif GitHub issue [#515](https://github.com/oclif/plugin-which/issues/515), plugin-which PR [#545](https://github.com/oclif/plugin-which/pull/545))
 
 ## 2.29.5 (Feb 21, 2024) [stable]
 
