@@ -32,6 +32,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* FIX: The `sf which` command, when passed an alias of a deprecated command, now outputs the name of the new command rather than the old deprecated one.  (oclif GitHub issue [#515](https://github.com/oclif/plugin-which/issues/515), plugin-which PR [#545](https://github.com/oclif/plugin-which/pull/545))
+
 ## 2.29.5 (Feb 21, 2024) [stable]
 
 **ANNOUNCEMENTS**: 
