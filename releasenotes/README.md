@@ -26,7 +26,7 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.30.6 (Feb 28, 2024) [stable-rc]
+## 2.30.7 (Feb 28, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
@@ -37,7 +37,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * This Salesforce CLI release contains two new commands that contain the improvements: `data import beta tree` and `data export beta tree`. The existing `data import tree` and `data export tree` commands continue to work as before.
     * Read the [pinned issue](https://github.com/forcedotcom/cli/issues), which details the improvements in these beta commands, as well as the breaking changes. We also provide a tentative timeline.
     * Test these beta commands and let us know if you find any issues. Also let us know if you like the improvements!
-    * When the beta period is over, we'll move the functionality that we added to `data import|export beta tree` to the "official" `data import|export tree` commands. We then move the functionality in the _old_ `data import|export tree` commands to new commands called `data import|export legacy tree`. See the [pinned issue](https://github.com/forcedotcom/cli/issues) for more information. 
+    * When the beta period is over, we'll move the functionality that we added to `data import|export beta tree` to the "official" `data import|export tree` commands. We then move the functionality in the _old_ `data import|export tree` commands to new commands called `data import|export legacy tree`. See the pinned issue [#2738](https://github.com/forcedotcom/cli/issues/2738) for more information. 
 
     Enjoy! (GitHub issues [#2663](https://github.com/forcedotcom/cli/issues/2663) and [#248](https://github.com/forcedotcom/cli/issues/248). GitHub discussion [#2359](https://github.com/forcedotcom/cli/discussions/2359). plugin-data PR [#821](https://github.com/salesforcecli/plugin-data/pull/821) and [#810](https://github.com/salesforcecli/plugin-data/pull/810))
 
