@@ -32,18 +32,17 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* CHANGE: We made a bunch of improvements to the `data import tree` and `data export tree` commands. But because these improvements introduce breaking changes, we're going to first beta the new functionality, and then make it generally available when we're sure everything is in tip-top shape. Here's the plan:
+* CHANGE: We made a bunch of improvements to the `data import tree` and `data export tree` commands. But because these improvements introduce breaking changes, we're going to first beta the new functionality, and then make it generally available when we're sure everything is in tip-top shape. Here's an overview of the plan, but see the [pinned issue #2738](https://github.com/forcedotcom/cli/issues/2738) for details about the improvements, the breaking changes, and timeline.
 
-    * This Salesforce CLI release contains two new commands that contain the improvements: `data import beta tree` and `data export beta tree`. The existing `data import tree` and `data export tree` commands continue to work as before.
-    * Read the [pinned issue](https://github.com/forcedotcom/cli/issues), which details the improvements in these beta commands, as well as the breaking changes. We also provide a tentative timeline.
+    * This release contains two new commands with the improvements: `data import beta tree` and `data export beta tree`. The existing `data import tree` and `data export tree` commands continue to work as before and coexist with the new beta commands.
     * Test these beta commands and let us know if you find any issues. Also let us know if you like the improvements!
-    * When the beta period is over, we'll move the functionality that we added to `data import|export beta tree` to the "official" `data import|export tree` commands. We then move the functionality in the _old_ `data import|export tree` commands to new commands called `data import|export legacy tree`. See the pinned issue [#2738](https://github.com/forcedotcom/cli/issues/2738) for more information. 
+    * When the beta period is over, we'll move the functionality that we added to `data import|export beta tree` to the "official" `data import|export tree` commands. We'll then move the functionality in the _old_ `data import|export tree` commands to new commands called `data import|export legacy tree`. 
 
     Enjoy! (GitHub issues [#2663](https://github.com/forcedotcom/cli/issues/2663) and [#248](https://github.com/forcedotcom/cli/issues/248). GitHub discussion [#2359](https://github.com/forcedotcom/cli/discussions/2359). plugin-data PR [#821](https://github.com/salesforcecli/plugin-data/pull/821) and [#810](https://github.com/salesforcecli/plugin-data/pull/810))
 
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
     
-    * OauthTokenExchangeHandler (Github discussion [#2736](https://github.com/forcedotcom/cli/discussions/2736))
+    * OauthTokenExchangeHandler (GitHub discussion [#2736](https://github.com/forcedotcom/cli/discussions/2736))
     * ActionableEventOrchDef
     * ActionableEventTypeDef
     * OmniExtTrackingDef
