@@ -26,9 +26,39 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.29.5 (Feb 21, 2024) [stable-rc]
+## 2.30.7 (Feb 28, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+------------
+
+* CHANGE: We made a bunch of improvements to the `data import tree` and `data export tree` commands. But because these improvements introduce breaking changes, we're going to first beta the new functionality, and then make it generally available when we're sure everything is in tip-top shape. Here's an overview of the plan, but see the [pinned issue #2738](https://github.com/forcedotcom/cli/issues/2738) for details about the improvements, the breaking changes, and timeline.
+
+    * This release contains two new commands with the improvements: `data import beta tree` and `data export beta tree`. The existing `data import tree` and `data export tree` commands continue to work as before and coexist with the new beta commands.
+    * Test these beta commands and let us know if you find any issues. Also let us know if you like the improvements!
+    * When the beta period is over, we'll move the functionality that we added to `data import|export beta tree` to the "official" `data import|export tree` commands. We'll then move the functionality in the _old_ `data import|export tree` commands to new commands called `data import|export legacy tree`. 
+
+    Enjoy! (GitHub issues [#2663](https://github.com/forcedotcom/cli/issues/2663) and [#248](https://github.com/forcedotcom/cli/issues/248). GitHub discussion [#2359](https://github.com/forcedotcom/cli/discussions/2359). plugin-data PR [#821](https://github.com/salesforcecli/plugin-data/pull/821) and [#810](https://github.com/salesforcecli/plugin-data/pull/810))
+
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+    
+    * OauthTokenExchangeHandler (GitHub discussion [#2736](https://github.com/forcedotcom/cli/discussions/2736))
+    * ActionableEventOrchDef
+    * ActionableEventTypeDef
+    * OmniExtTrackingDef
+      
+* FIX: When you pass a command alias to `sf which`, it now outputs an `aliasOf` property that shows the command that the passed-in command is an alias of. (oclif GitHub issue [#515](https://github.com/oclif/plugin-which/issues/515), plugin-which PR [#545](https://github.com/oclif/plugin-which/pull/545))
+
+
+## 2.29.5 (Feb 21, 2024) [stable]
+
+**ANNOUNCEMENTS**: 
+
+* On March 14, 2024, Salesforce CLI is going to switch to a new major version of `@oclif/plugin-plugins` which will use `npm` instead of `yarn` (v1) for installing and updating user plugins. For more information, see [here](https://github.com/forcedotcom/cli/issues/2691).
+
+* On or after June 1, 2024, Salesforce CLI plans to change how it creates default record types in a scratch org. Specifically, Salesforce CLI will no longer capitalize default record type names if they're in lower case in the scratch org definition file. Currently, the CLI always capitalizes the record types names, regardless of how they're specified in the definition file.  See the NEW note for the `2.26.10` release for additional details. 
+
+    If you use record types, we recommend that you try setting `org-capitalize-record-types` to `false` now and run through your workflows to see if anything breaks, just so you're prepared for the upcoming change.  Starting in the `2.26.10` release , you get a warning if you haven't set this config or environment variable. After June 1, if you want to continue using the current behavior, set the new configuration variable `org-capitalize-record-types` (or its companion `SF_CAPITALIZE_RECORD_TYPES` environment variable) to `true`. 
 
 ------------
 
@@ -42,21 +72,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We updated our Github Actions to be more friendly to external developers. In particular, we modified our [external plugin template](https://github.com/salesforcecli/plugin-template-sf-external) so that `dev generate plugin` generates updated sample GitHub Actions workflow files. We also added Personal Access Token instructions to the [README](https://github.com/salesforcecli/github-workflows) in our GitHub Actions repo.
 
-* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+* FIX: Salesforce DX projects now support the EnablementMeasureDefinition [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
 
-    * EnablementMeasureDefinition
-
-## 2.28.6 (Feb 14, 2024) [stable]
-
-**ANNOUNCEMENTS**: 
-
-* On March 14, 2024, Salesforce CLI is going to switch to a new major version of `@oclif/plugin-plugins` which will use `npm` instead of `yarn` (v1) for installing and updating user plugins. For more information, see [here](https://github.com/forcedotcom/cli/issues/2691).
-
-* On or after June 1, 2024, Salesforce CLI plans to change how it creates default record types in a scratch org. Specifically, Salesforce CLI will no longer capitalize default record type names if they're in lower case in the scratch org definition file. Currently, the CLI always capitalizes the record types names, regardless of how they're specified in the definition file.  See the NEW note for the `2.26.10` release for additional details. 
-
-    If you use record types, we recommend that you try setting `org-capitalize-record-types` to `false` now and run through your workflows to see if anything breaks, just so you're prepared for the upcoming change.  Starting in the `2.26.10` release , you get a warning if you haven't set this config or environment variable. After June 1, if you want to continue using the current behavior, set the new configuration variable `org-capitalize-record-types` (or its companion `SF_CAPITALIZE_RECORD_TYPES` environment variable) to `true`. 
-
-------------
+## 2.28.6 (Feb 14, 2024)
 
 * NEW: Your work life is about to get more colorful with Salesforce CLI's new help themes. The help output now uses colors to highlight certain parts, such as the help sections (USAGE, FLAGS, DESCRIPTION, and so on), flags and their descriptions, executable name, and more. To see the default colors, run any command with `--help`- or `-h`.
 
