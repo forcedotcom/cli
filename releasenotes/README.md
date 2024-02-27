@@ -32,6 +32,23 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: Hold on to your hats, folks -- you can now easily refresh a sandbox org with the new `org refresh sandbox` command. Refreshing a sandbox copies the metadata, and optionally data, from your production org to the refreshed sandbox org. Specify the sandbox you want to refresh with the --name flag and the production org that contains the sandbox licenses with the --target-org flag. You can optionally specify a [definition file](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_sandbox_definition.htm) with the --definition-file flag if you want to change the configuration of the refreshed sandbox, such as its license type or template ID. 
+
+    This example shows how to refresh a sandbox named "devSbx1" without changing its configuration. The production org that contains the sandbox license has the alias "prodOrg".
+
+    ```bash
+    sf org refresh sandbox --name devSbx1 --target-org prodOrg
+    ```
+    In this example, your default org is also your production org with the sandbox licenses, so you don't need to specify --target-org. The configuration changes are in the specified definition file.
+
+    ```bash
+    sf org refresh sandbox --name devSbx2 --definition-file config/devSbx2-config.json
+    ```
+    
+    You can't change the sandbox name when you refresh it with this command. If you want to change the sandbox name, first delete it with the `org delete sandbox` command. And then recreate it with `org create sandbox` and give it a new name.
+
+    (GitHub discussion [#2511](https://github.com/forcedotcom/cli/discussions/2511), plugin-org PR [#973](https://github.com/salesforcecli/plugin-org/pull/973), sfdx-core PR [#1031](https://github.com/forcedotcom/sfdx-core/pull/1031))
+
 * FIX: Salesforce CLI no longer prompts and waits for an answer, and then time out and return a non-zero exit code, when you run a command that asks a question in a non-TTY environment. (GitHub issue [#2739](https://github.com/forcedotcom/cli/issues/2739), oclif/core PR [#967](https://github.com/oclif/core/pull/967))
 
 * FIX: You can now correctly assign multiple permission set licenses at once with the `org assign permsetlicense` command by specifying multiple instances of the `--name` flag. While fixing this issue, we cleaned up a few other error-related issues.  (GitHub issue [#2744](https://github.com/forcedotcom/cli/issues/2744), plugin-user PR [#877](https://github.com/salesforcecli/plugin-user/pull/877))
