@@ -32,6 +32,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* FIX: Salesforce CLI no longer prompts and waits for an answer, and then time out and return a non-zero exit code, when you run a command that asks a question in a non-TTY environment. (GitHub issue [#2739](https://github.com/forcedotcom/cli/issues/2739), oclif/core PR [#967](https://github.com/oclif/core/pull/967))
+
+* FIX: You can now correctly assign multiple permission set licenses at once with the `org assign permsetlicense` command by specifying multiple instances of the `--name` flag. While fixing this issue, we cleaned up a few other error-related issues.  (GitHub issue [#2744](https://github.com/forcedotcom/cli/issues/2744), plugin-user PR [#877](https://github.com/salesforcecli/plugin-user/pull/877))
+
 * FIX: Salesforce DX projects now support the EnablementProgramDefinition [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
 
 ## 2.30.8 (Feb 28, 2024) [stable]
