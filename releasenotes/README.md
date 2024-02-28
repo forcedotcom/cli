@@ -26,9 +26,44 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.30.8 (Feb 28, 2024) [stable-rc]
+## 2.31.7 (March 6, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+------------
+
+* NEW: Hold on to your hats, folks -- you can now easily refresh a sandbox org with the new `org refresh sandbox` command. Refreshing a sandbox copies the metadata, and optionally data, from your production org to the refreshed sandbox org. Specify the sandbox you want to refresh with the --name flag and the production org that contains the sandbox licenses with the --target-org flag. You can optionally specify a [definition file](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_sandbox_definition.htm) with the --definition-file flag if you want to change the configuration of the refreshed sandbox, such as its license type or template ID. 
+
+    This example shows how to refresh a sandbox named "devSbx1" without changing its configuration. The production org that contains the sandbox license has the alias "prodOrg".
+
+    ```bash
+    sf org refresh sandbox --name devSbx1 --target-org prodOrg
+    ```
+    In this example, your default org is also your production org with the sandbox licenses, so you don't need to specify --target-org. The configuration changes are in the specified definition file.
+
+    ```bash
+    sf org refresh sandbox --name devSbx2 --definition-file config/devSbx2-config.json
+    ```
+    
+    You can't change the sandbox name when you refresh it with this command. If you want to change the sandbox name, first delete it with the `org delete sandbox` command. And then recreate it with `org create sandbox` and give it a new name.
+
+    (GitHub discussion [#2511](https://github.com/forcedotcom/cli/discussions/2511), plugin-org PR [#973](https://github.com/salesforcecli/plugin-org/pull/973), sfdx-core PR [#1031](https://github.com/forcedotcom/sfdx-core/pull/1031))
+
+* FIX: Salesforce CLI no longer prompts and waits for an answer, and then time out and return a non-zero exit code, when you run a command that asks a question in a non-TTY environment. (GitHub issue [#2739](https://github.com/forcedotcom/cli/issues/2739), oclif/core PR [#967](https://github.com/oclif/core/pull/967))
+
+* FIX: You can now correctly assign multiple permission set licenses at once with the `org assign permsetlicense` command by specifying multiple instances of the `--name` flag. While fixing this issue, we cleaned up a few other error-related issues.  (GitHub issue [#2744](https://github.com/forcedotcom/cli/issues/2744), plugin-user PR [#877](https://github.com/salesforcecli/plugin-user/pull/877))
+
+* FIX: Salesforce DX projects now support the EnablementProgramDefinition [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
+
+## 2.30.8 (Feb 28, 2024) [stable]
+
+**ANNOUNCEMENTS**: 
+
+* On March 14, 2024, Salesforce CLI is going to switch to a new major version of `@oclif/plugin-plugins` which will use `npm` instead of `yarn` (v1) for installing and updating user plugins. For more information, see [here](https://github.com/forcedotcom/cli/issues/2691).
+
+* On or after June 1, 2024, Salesforce CLI plans to change how it creates default record types in a scratch org. Specifically, Salesforce CLI will no longer capitalize default record type names if they're in lower case in the scratch org definition file. Currently, the CLI always capitalizes the record types names, regardless of how they're specified in the definition file.  See the NEW note for the `2.26.10` release for additional details. 
+
+    If you use record types, we recommend that you try setting `org-capitalize-record-types` to `false` now and run through your workflows to see if anything breaks, just so you're prepared for the upcoming change.  Starting in the `2.26.10` release , you get a warning if you haven't set this config or environment variable. After June 1, if you want to continue using the current behavior, set the new configuration variable `org-capitalize-record-types` (or its companion `SF_CAPITALIZE_RECORD_TYPES` environment variable) to `true`. 
 
 ------------
 
@@ -50,17 +85,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 * FIX: When you pass a command alias to `sf which`, it now outputs an `aliasOf` property that shows the command that the passed-in command is an alias of. (oclif GitHub issue [#515](https://github.com/oclif/plugin-which/issues/515), plugin-which PR [#545](https://github.com/oclif/plugin-which/pull/545))
 
 
-## 2.29.5 (Feb 21, 2024) [stable]
-
-**ANNOUNCEMENTS**: 
-
-* On March 14, 2024, Salesforce CLI is going to switch to a new major version of `@oclif/plugin-plugins` which will use `npm` instead of `yarn` (v1) for installing and updating user plugins. For more information, see [here](https://github.com/forcedotcom/cli/issues/2691).
-
-* On or after June 1, 2024, Salesforce CLI plans to change how it creates default record types in a scratch org. Specifically, Salesforce CLI will no longer capitalize default record type names if they're in lower case in the scratch org definition file. Currently, the CLI always capitalizes the record types names, regardless of how they're specified in the definition file.  See the NEW note for the `2.26.10` release for additional details. 
-
-    If you use record types, we recommend that you try setting `org-capitalize-record-types` to `false` now and run through your workflows to see if anything breaks, just so you're prepared for the upcoming change.  Starting in the `2.26.10` release , you get a warning if you haven't set this config or environment variable. After June 1, if you want to continue using the current behavior, set the new configuration variable `org-capitalize-record-types` (or its companion `SF_CAPITALIZE_RECORD_TYPES` environment variable) to `true`. 
-
-------------
+## 2.29.5 (Feb 21, 2024)
 
 * CHANGE: We removed the `--target-dev-hub` flag from these commands; the flag has been deprecated and hidden for over two years because it has no effect:
 
