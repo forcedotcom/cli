@@ -26,7 +26,9 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.31.7 (March 6, 2024) [stable-rc]
+## 2.31.7 (March 8, 2024) [stable-rc]
+
+**NOTE** that, due to [TrailblazerDX](https://www.salesforce.com/trailblazerdx/), this release will go out on Friday next week rather than the usual Wednesday. 
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
