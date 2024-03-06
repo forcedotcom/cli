@@ -32,6 +32,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* FIX: Salesforce CLI now correctly encrypts the local access and refresh tokens using a 256-bit key and 96-bit initialization vector (IV). (GitHub issue [1861](https://github.com/forcedotcom/cli/issues/1861))
+
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
 
   * MlModelArtifact
