@@ -26,11 +26,27 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.31.7 (March 8, 2024) [stable-rc]
-
-**NOTE** that, due to [TrailblazerDX](https://www.salesforce.com/trailblazerdx/), this release will go out on Friday next week rather than the usual Wednesday. 
+## 2.32.8 (March 13, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+------------
+
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+
+  * MlModelArtifact
+  * MlModelConnection
+  * MlModelSchema
+
+## 2.31.10 (March 8, 2024) [stable]
+
+**ANNOUNCEMENTS**: 
+
+* On March 14, 2024, Salesforce CLI is going to switch to a new major version of `@oclif/plugin-plugins` which will use `npm` instead of `yarn` (v1) for installing and updating user plugins. For more information, see [here](https://github.com/forcedotcom/cli/issues/2691).
+
+* On or after June 1, 2024, Salesforce CLI plans to change how it creates default record types in a scratch org. Specifically, Salesforce CLI will no longer capitalize default record type names if they're in lower case in the scratch org definition file. Currently, the CLI always capitalizes the record types names, regardless of how they're specified in the definition file.  See the NEW note for the `2.26.10` release for additional details. 
+
+    If you use record types, we recommend that you try setting `org-capitalize-record-types` to `false` now and run through your workflows to see if anything breaks, just so you're prepared for the upcoming change.  Starting in the `2.26.10` release , you get a warning if you haven't set this config or environment variable. After June 1, if you want to continue using the current behavior, set the new configuration variable `org-capitalize-record-types` (or its companion `SF_CAPITALIZE_RECORD_TYPES` environment variable) to `true`. 
 
 ------------
 
@@ -57,17 +73,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Salesforce DX projects now support the EnablementProgramDefinition [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
 
-## 2.30.8 (Feb 28, 2024) [stable]
-
-**ANNOUNCEMENTS**: 
-
-* On March 14, 2024, Salesforce CLI is going to switch to a new major version of `@oclif/plugin-plugins` which will use `npm` instead of `yarn` (v1) for installing and updating user plugins. For more information, see [here](https://github.com/forcedotcom/cli/issues/2691).
-
-* On or after June 1, 2024, Salesforce CLI plans to change how it creates default record types in a scratch org. Specifically, Salesforce CLI will no longer capitalize default record type names if they're in lower case in the scratch org definition file. Currently, the CLI always capitalizes the record types names, regardless of how they're specified in the definition file.  See the NEW note for the `2.26.10` release for additional details. 
-
-    If you use record types, we recommend that you try setting `org-capitalize-record-types` to `false` now and run through your workflows to see if anything breaks, just so you're prepared for the upcoming change.  Starting in the `2.26.10` release , you get a warning if you haven't set this config or environment variable. After June 1, if you want to continue using the current behavior, set the new configuration variable `org-capitalize-record-types` (or its companion `SF_CAPITALIZE_RECORD_TYPES` environment variable) to `true`. 
-
-------------
+## 2.30.8 (Feb 28, 2024)
 
 * CHANGE: We made a bunch of improvements to the `data import tree` and `data export tree` commands. But because these improvements introduce breaking changes, we're going to first beta the new functionality, and then make it generally available when we're sure everything is in tip-top shape. Here's an overview of the plan, but see the [pinned issue #2738](https://github.com/forcedotcom/cli/issues/2738) for details about the improvements, the breaking changes, and timeline.
 
