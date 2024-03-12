@@ -36,6 +36,11 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: You can now successfully authenticate an org in which the associated connected app has PKCE ([Proof Key for Code Exchange](https://help.salesforce.com/s/articleView?id=sf.remoteaccess_pkce.htm&type=5)) enabled.  (sfdx-core PR [#1035](https://github.com/forcedotcom/sfdx-core/pull/1035))
 
+* FIX: The `org user display` command no longer displays the Profile Name twice. (GitHub issue [#2762](https://github.com/forcedotcom/cli/issues/2762), plugin-user PR [#898](https://github.com/salesforcecli/plugin-user/pull/898))
+
+    Thank you [dwbuttler](https://github.com/dwbuttler) for noticing the problem, reporting the issue, and then simply fixing it yourself.  We love your initiative!  And we look forward to more contributions from you and community.
+  
+  
 ## 2.32.10 (March 13, 2024) [stable]
 
 **ANNOUNCEMENTS**: 
