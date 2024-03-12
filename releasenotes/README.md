@@ -32,12 +32,15 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* FIX: We've improved the error message returned when `project deploy validate` encounters a validation error with one or more metadata components. (GitHub issue [#2757](https://github.com/forcedotcom/cli/issues/2757), plugin-deploy-retrieve PR [#938](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/938))
+
+* FIX: You can now successfully authenticate an org in which the associated connected app has PKCE ([Proof Key for Code Exchange](https://help.salesforce.com/s/articleView?id=sf.remoteaccess_pkce.htm&type=5)) enabled.  (sfdx-core PR [#1035](https://github.com/forcedotcom/sfdx-core/pull/1035))
 
 ## 2.32.10 (March 13, 2024) [stable]
 
 **ANNOUNCEMENTS**: 
 
-* On March 14, 2024, Salesforce CLI is going to switch to a new major version of `@oclif/plugin-plugins` which will use `npm` instead of `yarn` (v1) for installing and updating user plugins. For more information, see [here](https://github.com/forcedotcom/cli/issues/2691).
+* On or after March 20, 2024, Salesforce CLI is going to switch to a new major version of `@oclif/plugin-plugins` which will use `npm` instead of `yarn` (v1) for installing and updating user plugins. For more information, see [here](https://github.com/forcedotcom/cli/issues/2691).
 
 * On or after June 1, 2024, Salesforce CLI plans to change how it creates default record types in a scratch org. Specifically, Salesforce CLI will no longer capitalize default record type names if they're in lower case in the scratch org definition file. Currently, the CLI always capitalizes the record types names, regardless of how they're specified in the definition file.  See the NEW note for the `2.26.10` release for additional details. 
 
