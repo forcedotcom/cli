@@ -26,9 +26,29 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.32.8 (March 13, 2024) [stable-rc]
+## 2.33.3 (March 20, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+------------
+
+* FIX: The `org user display` command no longer displays the Profile Name twice. (GitHub issue [#2762](https://github.com/forcedotcom/cli/issues/2762), plugin-user PR [#898](https://github.com/salesforcecli/plugin-user/pull/898))
+
+    Thank you [dwbuttler](https://github.com/dwbuttler) for noticing the problem, reporting the issue, and then simply fixing it yourself.  We love your initiative!  And we look forward to more contributions from you and our fabulous community.
+
+* FIX: We've improved the error message returned when `project deploy validate --json` encounters a validation error with one or more metadata components. (GitHub issue [#2757](https://github.com/forcedotcom/cli/issues/2757), plugin-deploy-retrieve PR [#938](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/938))
+
+* FIX: You can now successfully authenticate an org in which PKCE ([Proof Key for Code Exchange](https://help.salesforce.com/s/articleView?id=sf.remoteaccess_pkce.htm&type=5)) is enforced.  (sfdx-core PR [#1035](https://github.com/forcedotcom/sfdx-core/pull/1035))
+  
+## 2.32.10 (March 13, 2024) [stable]
+
+**ANNOUNCEMENTS**: 
+
+* On or after March 20, 2024, Salesforce CLI is going to switch to a new major version of `@oclif/plugin-plugins` which will use `npm` instead of `yarn` (v1) for installing and updating user plugins. For more information, see [here](https://github.com/forcedotcom/cli/issues/2691).
+
+* On or after June 1, 2024, Salesforce CLI plans to change how it creates default record types in a scratch org. Specifically, Salesforce CLI will no longer capitalize default record type names if they're in lower case in the scratch org definition file. Currently, the CLI always capitalizes the record types names, regardless of how they're specified in the definition file.  See the NEW note for the `2.26.10` release for additional details. 
+
+    If you use record types, we recommend that you try setting `org-capitalize-record-types` to `false` now and run through your workflows to see if anything breaks, just so you're prepared for the upcoming change.  Starting in the `2.26.10` release , you get a warning if you haven't set this config or environment variable. After June 1, if you want to continue using the current behavior, set the new configuration variable `org-capitalize-record-types` (or its companion `SF_CAPITALIZE_RECORD_TYPES` environment variable) to `true`. 
 
 ------------
 
@@ -38,17 +58,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
   * MlModelConnection
   * MlModelSchema
 
-## 2.31.10 (March 8, 2024) [stable]
-
-**ANNOUNCEMENTS**: 
-
-* On March 14, 2024, Salesforce CLI is going to switch to a new major version of `@oclif/plugin-plugins` which will use `npm` instead of `yarn` (v1) for installing and updating user plugins. For more information, see [here](https://github.com/forcedotcom/cli/issues/2691).
-
-* On or after June 1, 2024, Salesforce CLI plans to change how it creates default record types in a scratch org. Specifically, Salesforce CLI will no longer capitalize default record type names if they're in lower case in the scratch org definition file. Currently, the CLI always capitalizes the record types names, regardless of how they're specified in the definition file.  See the NEW note for the `2.26.10` release for additional details. 
-
-    If you use record types, we recommend that you try setting `org-capitalize-record-types` to `false` now and run through your workflows to see if anything breaks, just so you're prepared for the upcoming change.  Starting in the `2.26.10` release , you get a warning if you haven't set this config or environment variable. After June 1, if you want to continue using the current behavior, set the new configuration variable `org-capitalize-record-types` (or its companion `SF_CAPITALIZE_RECORD_TYPES` environment variable) to `true`. 
-
-------------
+## 2.31.10 (March 8, 2024)
 
 * NEW: Hold on to your hats, folks -- you can now easily refresh a sandbox org with the new `org refresh sandbox` command. Refreshing a sandbox copies the metadata, and optionally data, from your production org to the refreshed sandbox org. Specify the sandbox you want to refresh with the --name flag and the production org that contains the sandbox licenses with the --target-org flag. You can optionally specify a [definition file](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_sandbox_definition.htm) with the --definition-file flag if you want to change the configuration of the refreshed sandbox, such as its license type or template ID. 
 
