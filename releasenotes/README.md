@@ -40,7 +40,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: You can now successfully authenticate an org in which PKCE ([Proof Key for Code Exchange](https://help.salesforce.com/s/articleView?id=sf.remoteaccess_pkce.htm&type=5)) is enforced.  (sfdx-core PR [#1035](https://github.com/forcedotcom/sfdx-core/pull/1035))
   
-## 2.32.10 (March 13, 2024) [stable]
+## 2.32.8 (March 13, 2024) [stable]
 
 **ANNOUNCEMENTS**: 
 
@@ -58,7 +58,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
   * MlModelConnection
   * MlModelSchema
 
-## 2.31.10 (March 8, 2024)
+## 2.31.8 (March 8, 2024)
 
 * NEW: Hold on to your hats, folks -- you can now easily refresh a sandbox org with the new `org refresh sandbox` command. Refreshing a sandbox copies the metadata, and optionally data, from your production org to the refreshed sandbox org. Specify the sandbox you want to refresh with the --name flag and the production org that contains the sandbox licenses with the --target-org flag. You can optionally specify a [definition file](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_sandbox_definition.htm) with the --definition-file flag if you want to change the configuration of the refreshed sandbox, such as its license type or template ID. 
 
