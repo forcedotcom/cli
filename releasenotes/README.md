@@ -38,7 +38,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We've improved the error message returned when `project deploy validate --json` encounters a validation error with one or more metadata components. (GitHub issue [#2757](https://github.com/forcedotcom/cli/issues/2757), plugin-deploy-retrieve PR [#938](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/938))
 
-* FIX: You can now successfully authenticate an org in which PKCE ([Proof Key for Code Exchange](https://help.salesforce.com/s/articleView?id=sf.remoteaccess_pkce.htm&type=5)) is enforced.  (sfdx-core PR [#1035](https://github.com/forcedotcom/sfdx-core/pull/1035))
+* FIX: You can now successfully authenticate an org in which PKCE ([Proof Key for Code Exchange](https://help.salesforce.com/s/articleView?id=sf.remoteaccess_pkce.htm&type=5)) is enforced.  (Github Discussion [#2726](https://github.com/forcedotcom/cli/discussions/2726), sfdx-core PR [#1035](https://github.com/forcedotcom/sfdx-core/pull/1035))
   
 ## 2.32.8 (March 13, 2024) [stable]
 
