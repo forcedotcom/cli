@@ -32,9 +32,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* CHANGE: You can now override the name and license type of a new sandbox (that you create with a definition file) by specifying the `--name` or `--license-type` flags in addition to `--definition-file`. 
+* CHANGE: You can now override the name or license type of a new sandbox (that you create with a definition file) by specifying the `--name` or `--license-type` flags in addition to `--definition-file`. Previously, if you specified a definition file, you couldn't also specify either `--name` or `--license-type`. 
 
-    For example, let's say the `sandboxName` option in the `config/dev-sandbox-def.json` file is `fulldev1`; the following command creates a sandbox using the options in the definition file, except that the sandbox name is `fulldev2`:
+    For example, let's say the `sandboxName` option in the `config/dev-sandbox-def.json` file is `fulldev1`; the following command creates a sandbox using all the options in the definition file, except that the sandbox name is `fulldev2`:
 
     ```bash
     $ sf org create sandbox --definition-file config/dev-sandbox-def.json --target-org prodOrg --name fulldev2
@@ -42,6 +42,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     (plugin-org PR [#991](https://github.com/salesforcecli/plugin-org/pull/991))
 
+* FIX: We've improved how Salesforce CLI internally converts files between source and metadata formats. The conversion no longer returns an error when done outside a Salesforce DX project. Also, the conversion can now write a zip to disk. (source-deploy-retrieve PR [#1252](https://github.com/forcedotcom/source-deploy-retrieve/pull/1252))
+
+    Many thanks to [Aaron Csetter](https://github.com/aaron-csetter) for finding the problems, and then contributing the fixes. Contributions like yours help make Salesforce CLI a better-than-ever developer tool, and we're very appreciative!
+  
 * FIX: Salesforce DX projects now support the ConversationMessageDefinition [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
 
 ## 2.33.3 (March 20, 2024) [stable]
