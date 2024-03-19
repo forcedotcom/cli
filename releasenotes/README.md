@@ -44,6 +44,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: String replacements during deployments of individual CustomLabel metadata types (without their parent CustomLabels metadata type) are now working as expected.  (GitHub issue [#2755](https://github.com/forcedotcom/cli/issues/2755), source-deploy-retrieve PR [#1257](https://github.com/forcedotcom/source-deploy-retrieve/pull/1257))
 
+* FIX: You can now successfully execute the `sf org open` command from the terminal window of VS Code that's running on Windows Subsystem for Linux (WSL) 2. (GitHub issue [#2677](https://github.com/forcedotcom/cli/issues/2677), plugin-org PR [#962](https://github.com/salesforcecli/plugin-org/pull/962))
+
+    Thank you [nrakuyama]{https://github.com/nrakuyama) for contributing the fix!  We love your initiative and help.  Here's to many more!
+
 * FIX: We've improved how Salesforce CLI internally converts files between source and metadata formats. The conversion no longer returns an error when done outside a Salesforce DX project. Also, the conversion can now write a zip to disk. (source-deploy-retrieve PR [#1252](https://github.com/forcedotcom/source-deploy-retrieve/pull/1252))
 
     Many thanks to [Aaron Csetter](https://github.com/aaron-csetter) for finding the problems, and then contributing the fixes. Contributions like yours help make Salesforce CLI a better-than-ever developer tool, and we're very appreciative!
