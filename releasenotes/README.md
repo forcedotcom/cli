@@ -52,6 +52,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     Many thanks to [Aaron Csetter](https://github.com/aaron-csetter) for finding the problems, and then contributing the fixes. Contributions like yours help make Salesforce CLI a better-than-ever developer tool, and we're very appreciative!
   
+* FIX: When deploying, Salesforce CLI now continues to poll for status even when these HTTP error codes are in the response: 502, 503, and 420. (source-deploy-retrieve PR [#1262](https://github.com/forcedotcom/source-deploy-retrieve/pull/1262))
+
 * FIX: Salesforce DX projects now support the ConversationMessageDefinition [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
 
 ## 2.33.3 (March 20, 2024) [stable]
