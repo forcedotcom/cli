@@ -26,11 +26,37 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.33.3 (March 20, 2024) [stable-rc]
+## 2.34.6 (March 27, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* CHANGE: You can now override the name or license type of a new sandbox (that you create with a definition file) by specifying the `--name` or `--license-type` flags in addition to `--definition-file`. Previously, if you specified a definition file, you couldn't also specify either `--name` or `--license-type`. 
+
+    For example, let's say the `sandboxName` option in the `config/dev-sandbox-def.json` file is `fulldev1`; the following command creates a sandbox using all the options in the definition file, except that the sandbox name is `fulldev2`:
+
+    ```bash
+    $ sf org create sandbox --definition-file config/dev-sandbox-def.json --target-org prodOrg --name fulldev2
+    ```
+
+    (plugin-org PR [#991](https://github.com/salesforcecli/plugin-org/pull/991))
+
+* FIX: String replacements during deployments of individual CustomLabel metadata types (without their parent CustomLabels metadata type) are now working as expected.  (GitHub issue [#2755](https://github.com/forcedotcom/cli/issues/2755), source-deploy-retrieve PR [#1257](https://github.com/forcedotcom/source-deploy-retrieve/pull/1257))
+
+* FIX: You can now successfully execute the `sf org open` command from the terminal window of VS Code that's running on Windows Subsystem for Linux (WSL) 2. (GitHub issue [#2677](https://github.com/forcedotcom/cli/issues/2677), plugin-org PR [#962](https://github.com/salesforcecli/plugin-org/pull/962))
+
+    Thank you [nrakuyama](https://github.com/nrakuyama) for contributing the fix!  We love your initiative and help.  Here's to many more!
+
+* FIX: We've improved how Salesforce CLI internally converts files between source and metadata formats. The conversion no longer returns an error when done outside a Salesforce DX project. Also, the conversion can now write a zip to disk. (source-deploy-retrieve PR [#1252](https://github.com/forcedotcom/source-deploy-retrieve/pull/1252))
+
+    Many thanks to [Aaron Csetter](https://github.com/aaron-csetter) for finding the problems, and then contributing the fixes. Contributions like yours help make Salesforce CLI a better-than-ever developer tool, and we're very appreciative!
+  
+* FIX: When deploying, Salesforce CLI now continues to poll for status even when these HTTP error codes are in the response: 502, 503, and 420. (source-deploy-retrieve PR [#1262](https://github.com/forcedotcom/source-deploy-retrieve/pull/1262))
+
+* FIX: Salesforce DX projects now support the ConversationMessageDefinition [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
+
+## 2.33.3 (March 20, 2024) [stable]
 
 * FIX: The `org user display` command no longer displays the Profile Name twice. (GitHub issue [#2762](https://github.com/forcedotcom/cli/issues/2762), plugin-user PR [#898](https://github.com/salesforcecli/plugin-user/pull/898))
 
@@ -40,17 +66,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: You can now successfully authenticate an org in which PKCE ([Proof Key for Code Exchange](https://help.salesforce.com/s/articleView?id=sf.remoteaccess_pkce.htm&type=5)) is enforced.  (Github Discussion [#2726](https://github.com/forcedotcom/cli/discussions/2726), sfdx-core PR [#1035](https://github.com/forcedotcom/sfdx-core/pull/1035))
   
-## 2.32.8 (March 13, 2024) [stable]
-
-**ANNOUNCEMENTS**: 
-
-* On or after March 20, 2024, Salesforce CLI is going to switch to a new major version of `@oclif/plugin-plugins` which will use `npm` instead of `yarn` (v1) for installing and updating user plugins. For more information, see [here](https://github.com/forcedotcom/cli/issues/2691).
-
-* On or after June 1, 2024, Salesforce CLI plans to change how it creates default record types in a scratch org. Specifically, Salesforce CLI will no longer capitalize default record type names if they're in lower case in the scratch org definition file. Currently, the CLI always capitalizes the record types names, regardless of how they're specified in the definition file.  See the NEW note for the `2.26.10` release for additional details. 
-
-    If you use record types, we recommend that you try setting `org-capitalize-record-types` to `false` now and run through your workflows to see if anything breaks, just so you're prepared for the upcoming change.  Starting in the `2.26.10` release , you get a warning if you haven't set this config or environment variable. After June 1, if you want to continue using the current behavior, set the new configuration variable `org-capitalize-record-types` (or its companion `SF_CAPITALIZE_RECORD_TYPES` environment variable) to `true`. 
-
-------------
+## 2.32.8 (March 13, 2024)
 
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
 
