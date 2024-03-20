@@ -46,7 +46,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: You can now successfully execute the `sf org open` command from the terminal window of VS Code that's running on Windows Subsystem for Linux (WSL) 2. (GitHub issue [#2677](https://github.com/forcedotcom/cli/issues/2677), plugin-org PR [#962](https://github.com/salesforcecli/plugin-org/pull/962))
 
-    Thank you [nrakuyama]{https://github.com/nrakuyama) for contributing the fix!  We love your initiative and help.  Here's to many more!
+    Thank you [nrakuyama](https://github.com/nrakuyama) for contributing the fix!  We love your initiative and help.  Here's to many more!
 
 * FIX: We've improved how Salesforce CLI internally converts files between source and metadata formats. The conversion no longer returns an error when done outside a Salesforce DX project. Also, the conversion can now write a zip to disk. (source-deploy-retrieve PR [#1252](https://github.com/forcedotcom/source-deploy-retrieve/pull/1252))
 
