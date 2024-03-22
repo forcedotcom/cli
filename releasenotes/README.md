@@ -26,11 +26,17 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.34.6 (March 27, 2024) [stable-rc]
+## 2.35.6 (April 3, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: Salesforce CLI now supports Chinese domains. (plugin-auth PR [#995](https://github.com/salesforcecli/plugin-auth/pull/955))
+
+* FIX: If you run a non-existent command with "closed stdin" (i.e. you specify `<&-` or `< /dev/null` after the command), Salesforce CLI now waits 10 seconds after prompting for a matching command, and then returns the appropriate error exit code. Previously it returned a `0` exit code. [oclif GitHub issue [#266](https://github.com/oclif/plugin-not-found/issues/266), oclif plugin-not-found PR [#566](https://github.com/oclif/plugin-not-found/pull/566))
+
+## 2.34.6 (March 27, 2024) [stable]
 
 * CHANGE: You can now override the name or license type of a new sandbox (that you create with a definition file) by specifying the `--name` or `--license-type` flags in addition to `--definition-file`. Previously, if you specified a definition file, you couldn't also specify either `--name` or `--license-type`. 
 
@@ -56,7 +62,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Salesforce DX projects now support the ConversationMessageDefinition [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
 
-## 2.33.3 (March 20, 2024) [stable]
+## 2.33.3 (March 20, 2024)
 
 * FIX: The `org user display` command no longer displays the Profile Name twice. (GitHub issue [#2762](https://github.com/forcedotcom/cli/issues/2762), plugin-user PR [#898](https://github.com/salesforcecli/plugin-user/pull/898))
 
