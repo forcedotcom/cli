@@ -32,6 +32,30 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: Specify the flag values for some Salesforce CLI commands in local text files by using the `--flags-dir <dir-name>` flag when running the command. If the command finds a file in the specified directory with the same name as one of its flags, it uses the contents of the file as the value of the flag. Take this command, for example:
+
+    ```bash
+    sf project deploy start  --metadata ApexClass --test-level RunLocalTests --target-org my-scratch
+    ```
+    Let's say you create a directory called `flag-values` in your DX project. You then create a file in that directory called `metadata` (no extension) and add one line of content to the file: `ApexClass`.  Similarly, you create a file called `test-level` with contents `RunLocalTests` and a file called `target-org` with contents `my-scratch`. You can then run the preceding command from the DX project this way:
+
+   ```bash
+   sf project deploy start --flags-dir ./flag-values
+   ```
+   Additional usage notes:
+
+     * If you run the command with both `--flags-dir` and `--json`, then the file names must have the `.json` extension, such as `metadata.json`.  Otherwise, the files don't have an extension.
+     * For Boolean flags, create an empty file with the name of the Boolean flag.  For example, to specify the `--concise` flag, create an empty file called `concise`. 
+     * You can name files for Boolean flags `no-<flagname>`, as long as the Boolean flag supports it.
+     * If you include multiple lines in a file, then the result is multiple flags, such as `--metadata ApexClass --metadata CustomObject --metadata PermissionSet`.
+     * Actual flags take precedence over values in a file. For example, if you specify `--target-org my-scratch` when you run the command, but also specify `--flags-dir` that points to a `target-org` file that contains the line `my-other-scratch`, the command connects to `my-scratch`.  The only exception is for flags that take multiple values, such as `--metadata`; in this case, the flag and file values are combined. 
+     * You can name the files using the flag's short name, such as `m` rather than `metadata`.
+     * This release adds the new `--flags-dir` flag to all commands in these plugins (we're working on adding the flag to ALL commands):
+          * [`plugin-data`](https://github.com/salesforcecli/plugin-data)
+          * [`plugin-deploy-retrieve`](https://github.com/salesforcecli/plugin-deploy-retrieve)
+
+    (GitHub discussions [#2346](https://github.com/forcedotcom/cli/discussions/2346) and [#2670](https://github.com/forcedotcom/cli/discussions/2670). GitHub issue [#2260](https://github.com/forcedotcom/cli/discussions/2260). salesforcecli/cli PR [#1536](https://github.com/salesforcecli/cli/pull/1536), 
+
 * FIX: Salesforce CLI now supports Chinese domains. (plugin-auth PR [#995](https://github.com/salesforcecli/plugin-auth/pull/955))
 
 * FIX: If you run a non-existent command with "closed stdin" (i.e. you specify `<&-` or `< /dev/null` after the command), Salesforce CLI now waits 10 seconds after prompting for a matching command, and then returns the appropriate error exit code. Previously it returned a `0` exit code. [oclif GitHub issue [#266](https://github.com/oclif/plugin-not-found/issues/266), oclif plugin-not-found PR [#566](https://github.com/oclif/plugin-not-found/pull/566))
