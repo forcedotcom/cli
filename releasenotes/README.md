@@ -69,6 +69,14 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: If you run a non-existent command with "closed stdin" (i.e. you specify `<&-` or `< /dev/null` after the command), Salesforce CLI now waits 10 seconds after prompting for a matching command, and then returns the appropriate error exit code. Previously it returned a `0` exit code. [oclif GitHub issue [#266](https://github.com/oclif/plugin-not-found/issues/266), oclif plugin-not-found PR [#566](https://github.com/oclif/plugin-not-found/pull/566))
 
+* FIX: We've improved the performance and output messages for many of the `data` commands.  In particular:
+
+    * Improved the performance and reduced the API call usage when monitoring bulk jobs for these commands: `data delete bulk`, `data upsert bulk`, `data delete resume`, `data upsert resume`, `data query`.
+    * Improved the error if you pass an unparseable CSV file to these commands: `data delete bulk`, `data upsert bulk`.
+    * Improved the output of the bulk job event updates for these commands: `data delete bulk`, `data upsert bulk`, `data delete resume`, `data upsert resume`.
+ 
+     (plugin-data PR [#843](https://github.com/salesforcecli/plugin-data/pull/843))
+
 ## 2.34.6 (March 27, 2024) [stable]
 
 * CHANGE: You can now override the name or license type of a new sandbox (that you create with a definition file) by specifying the `--name` or `--license-type` flags in addition to `--definition-file`. Previously, if you specified a definition file, you couldn't also specify either `--name` or `--license-type`. 
