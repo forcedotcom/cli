@@ -50,10 +50,16 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
      * If you include multiple lines in a file, then the result is multiple flags, such as `--metadata ApexClass --metadata CustomObject --metadata PermissionSet`.
      * Actual flags take precedence over values in a file. For example, if you specify `--target-org my-scratch` when you run the command, but also specify `--flags-dir` that points to a `target-org` file that contains the line `my-other-scratch`, the command connects to `my-scratch`.  The only exception is for flags that take multiple values, such as `--metadata`; in this case, the flag and file values are combined. 
      * You can name the files using the flag's short name, such as `m` rather than `metadata`.
-     * This CLI release adds the new `--flags-dir` flag to all CLI commands except for the commands contained in these plugins:
+     * This release adds the new `--flags-dir` flag to all CLI commands except for the commands contained in these plugins:
           * [`sfdx-scanner`](https://github.com/forcedotcom/sfdx-scanner): Code Analyzer commands, such as `scanner run`
 
-    (GitHub discussions [#2346](https://github.com/forcedotcom/cli/discussions/2346) and [#2670](https://github.com/forcedotcom/cli/discussions/2670). GitHub issue [#2260](https://github.com/forcedotcom/cli/discussions/2260). salesforcecli/cli PR [#1536](https://github.com/salesforcecli/cli/pull/1536), 
+    Pretty cool feature, don't you think?  (GitHub discussions [#2346](https://github.com/forcedotcom/cli/discussions/2346) and [#2670](https://github.com/forcedotcom/cli/discussions/2670). GitHub issue [#2260](https://github.com/forcedotcom/cli/discussions/2260). salesforcecli/cli PR [#1536](https://github.com/salesforcecli/cli/pull/1536), 
+
+* CHANGE: As [previously announced](https://github.com/forcedotcom/cli/issues/2691), Salesforce CLI is now using a major new version of [`oclif/plugin-plugins`](https://github.com/oclif/plugin-plugins); this oclif plugin uses `npm` instead of `yarn` (v1) to install and update user plugins.
+
+    In most cases, there's nothing for you to do as a result of this change. The user plugins you've already installed will continue to work and be updatable using `plugins update`. But just in case, check the **What do I need to do?** section of the [announcement](https://github.com/forcedotcom/cli/issues/2691) for the specific use cases in which you might need to do something. The announcement also explains why we made this change. 
+
+    If you experience issues after you update to this Salesforce CLI release, we recommend that you run `plugins reset --reinstall --hard`, which completely uninstalls all your plugins and then reinstalls them on your behalf. If you continue to experience issues, create a new GitHub issue.  (oclif/plugin-plugins PR [#776](https://github.com/oclif/plugin-plugins/pull/776))
 
 * FIX: You can now include the same source component in all the manifest files (standard, pre-deploy-delete, post-deploy-delete) simultaneously. As a result, you can now, for example, first delete a component and then add it again in a single execution of the `project deploy start` command.  (GitHub issue [#2761](https://github.com/forcedotcom/cli/issues/2761), source-deploy-retrieve PR [#1261](https://github.com/forcedotcom/source-deploy-retrieve/pull/1261))
 
