@@ -63,7 +63,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: You can now include the same source component in all the manifest files (standard, pre-deploy-delete, post-deploy-delete) simultaneously. As a result, you can now, for example, first delete a component and then add it again in a single execution of the `project deploy start` command.  (GitHub issue [#2761](https://github.com/forcedotcom/cli/issues/2761), source-deploy-retrieve PR [#1261](https://github.com/forcedotcom/source-deploy-retrieve/pull/1261))
 
-* FIX: Salesforce CLI now supports Chinese domains. (plugin-auth PR [#995](https://github.com/salesforcecli/plugin-auth/pull/955))
+* FIX: Salesforce CLI now supports authenticating to orgs with `.cn` domains. (plugin-auth PR [#995](https://github.com/salesforcecli/plugin-auth/pull/955))
 
 * FIX: You can now use the `--target-org` flag with the `project deploy cancel` command. (GitHub discussion [#2300](https://github.com/forcedotcom/cli/discussions/2300#discussioncomment-8053672), plugin-deploy-retrieve PR [#945](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/945))
 
