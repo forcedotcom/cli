@@ -61,6 +61,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     If you experience issues after you update to this Salesforce CLI release, we recommend that you run `plugins reset --reinstall --hard`, which completely uninstalls all your plugins and then reinstalls them on your behalf. If you continue to experience issues, create a new GitHub issue.  (oclif/plugin-plugins PR [#776](https://github.com/oclif/plugin-plugins/pull/776))
 
+* FIX: You can now successfully authorize an org using `org login web` and version 123 of the Chrome browser, which was recently released.  (GitHub issue [#2785](https://github.com/forcedotcom/cli/issues/2785), sfdx-core PR [#1040](https://github.com/forcedotcom/sfdx-core/pull/1040), plugin-auth PR [#975](https://github.com/salesforcecli/plugin-auth/pull/975))
+
 * FIX: You can now include the same source component in all the manifest files (standard, pre-deploy-delete, post-deploy-delete) simultaneously. As a result, you can now, for example, first delete a component and then add it again in a single execution of the `project deploy start` command.  (GitHub issue [#2761](https://github.com/forcedotcom/cli/issues/2761), source-deploy-retrieve PR [#1261](https://github.com/forcedotcom/source-deploy-retrieve/pull/1261))
 
 * FIX: Salesforce CLI now supports authenticating to orgs with `.cn` domains. (plugin-auth PR [#995](https://github.com/salesforcecli/plugin-auth/pull/955))
