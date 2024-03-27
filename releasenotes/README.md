@@ -26,11 +26,60 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.34.6 (March 27, 2024) [stable-rc]
+## 2.35.6 (April 3, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: Specify the flag values for Salesforce CLI commands in local text files by using the `--flags-dir <dir-name>` flag when running the command. If the command finds a file in the specified directory with the same name as one of its flags, it uses the contents of the file as the value of the flag. Take this command, for example:
+
+    ```bash
+    sf project deploy start  --metadata ApexClass --test-level RunLocalTests --target-org my-scratch
+    ```
+    Let's say you create a directory called `flag-values` in your DX project. You then create a file in that directory called `metadata` (no extension) and add one line of content to the file: `ApexClass`.  Similarly, you create a file called `test-level` with contents `RunLocalTests` and a file called `target-org` with contents `my-scratch`. You can then run the preceding command from the DX project this way:
+
+   ```bash
+   sf project deploy start --flags-dir ./flag-values
+   ```
+   Additional usage notes:
+
+     * The files that contain flag values don't usually have an extension; the only exception is if the files contain `JSON` content, in which case you must use the `.json` extension, such as `files.json`. 
+     * For Boolean flags, create an empty file with the name of the Boolean flag.  For example, to specify the `--concise` flag, create an empty file called `concise`. 
+     * You can name files for Boolean flags `no-<flagname>`, as long as the Boolean flag supports it. For example, to use this feature with the `org create scratch` command and disable source tracking, create an empty file called `no-track-source`. 
+     * If you include multiple lines in a file, then the result is multiple flags, such as `--metadata ApexClass --metadata CustomObject --metadata PermissionSet`.
+     * Actual flags take precedence over values in a file. For example, if you specify `--target-org my-scratch` when you run the command, but also specify `--flags-dir` that points to a `target-org` file that contains the line `my-other-scratch`, the command connects to `my-scratch`.  The only exception is for flags that take multiple values, such as `--metadata`; in this case, the flag and file values are combined. 
+     * You can name the files using the flag's short name, such as `m` rather than `metadata`.
+     * This release adds the new `--flags-dir` flag to all CLI commands except for the commands contained in these plugins:
+          * [`sfdx-scanner`](https://github.com/forcedotcom/sfdx-scanner): Code Analyzer commands, such as `scanner run`
+
+    Pretty cool feature, don't you think?  (GitHub discussions [#2346](https://github.com/forcedotcom/cli/discussions/2346) and [#2670](https://github.com/forcedotcom/cli/discussions/2670). GitHub issue [#2260](https://github.com/forcedotcom/cli/discussions/2260). salesforcecli/cli PR [#1536](https://github.com/salesforcecli/cli/pull/1536), 
+
+* CHANGE: As [previously announced](https://github.com/forcedotcom/cli/issues/2691), Salesforce CLI is now using a major new version of [`oclif/plugin-plugins`](https://github.com/oclif/plugin-plugins); this oclif plugin uses `npm` instead of `yarn` (v1) to install and update user plugins.
+
+    In most cases, there's nothing for you to do as a result of this change. The user plugins you've already installed will continue to work and be updatable using `plugins update`. But just in case, check the **What do I need to do?** section of the [announcement](https://github.com/forcedotcom/cli/issues/2691) for the specific use cases in which you might need to do something. The announcement also explains why we made this change. 
+
+    If you experience issues after you update to this Salesforce CLI release, we recommend that you run `plugins reset --reinstall --hard`, which completely uninstalls all your plugins and then reinstalls them on your behalf. If you continue to experience issues, create a new GitHub issue.  (oclif/plugin-plugins PR [#776](https://github.com/oclif/plugin-plugins/pull/776))
+
+* FIX: You can now successfully authorize an org using `org login web` and version 123 of the Chrome browser, which was recently released.  (GitHub issue [#2785](https://github.com/forcedotcom/cli/issues/2785), sfdx-core PR [#1040](https://github.com/forcedotcom/sfdx-core/pull/1040), plugin-auth PR [#975](https://github.com/salesforcecli/plugin-auth/pull/975))
+
+* FIX: You can now include the same source component in all the manifest files (standard, pre-deploy-delete, post-deploy-delete) simultaneously. As a result, you can now, for example, first delete a component and then add it again in a single execution of the `project deploy start` command.  (GitHub issue [#2761](https://github.com/forcedotcom/cli/issues/2761), source-deploy-retrieve PR [#1261](https://github.com/forcedotcom/source-deploy-retrieve/pull/1261))
+
+* FIX: Salesforce CLI now supports authenticating to orgs with `.cn` domains. (plugin-auth PR [#995](https://github.com/salesforcecli/plugin-auth/pull/955))
+
+* FIX: You can now use the `--target-org` flag with the `project deploy cancel` command. (GitHub discussion [#2300](https://github.com/forcedotcom/cli/discussions/2300#discussioncomment-8053672), plugin-deploy-retrieve PR [#945](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/945))
+
+* FIX: If you run a non-existent command with "closed stdin" (i.e. you specify `<&-` or `< /dev/null` after the command), Salesforce CLI now waits 10 seconds after prompting for a matching command, and then returns the appropriate error exit code. Previously it returned a `0` exit code. [oclif GitHub issue [#266](https://github.com/oclif/plugin-not-found/issues/266), oclif plugin-not-found PR [#566](https://github.com/oclif/plugin-not-found/pull/566))
+
+* FIX: We've improved the performance and output messages for many of the `data` commands.  In particular:
+
+    * Improved the performance and reduced the API call usage when monitoring bulk jobs for these commands: `data delete bulk`, `data upsert bulk`, `data delete resume`, `data upsert resume`, `data query`.
+    * Improved the error if you pass an unparseable CSV file to these commands: `data delete bulk`, `data upsert bulk`.
+    * Improved the output of the bulk job event updates for these commands: `data delete bulk`, `data upsert bulk`, `data delete resume`, `data upsert resume`.
+ 
+     (plugin-data PR [#843](https://github.com/salesforcecli/plugin-data/pull/843))
+
+## 2.34.6 (March 27, 2024) [stable]
 
 * CHANGE: You can now override the name or license type of a new sandbox (that you create with a definition file) by specifying the `--name` or `--license-type` flags in addition to `--definition-file`. Previously, if you specified a definition file, you couldn't also specify either `--name` or `--license-type`. 
 
@@ -56,7 +105,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Salesforce DX projects now support the ConversationMessageDefinition [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
 
-## 2.33.3 (March 20, 2024) [stable]
+## 2.33.3 (March 20, 2024)
 
 * FIX: The `org user display` command no longer displays the Profile Name twice. (GitHub issue [#2762](https://github.com/forcedotcom/cli/issues/2762), plugin-user PR [#898](https://github.com/salesforcecli/plugin-user/pull/898))
 
