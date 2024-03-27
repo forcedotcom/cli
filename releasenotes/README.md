@@ -79,7 +79,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
  
      (plugin-data PR [#843](https://github.com/salesforcecli/plugin-data/pull/843))
 
-## 2.34.6 (March 27, 2024) [stable]
+## 2.34.7 (March 27, 2024) [stable]
 
 * CHANGE: You can now override the name or license type of a new sandbox (that you create with a definition file) by specifying the `--name` or `--license-type` flags in addition to `--definition-file`. Previously, if you specified a definition file, you couldn't also specify either `--name` or `--license-type`. 
 
