@@ -44,7 +44,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
    ```
    Additional usage notes:
 
-     * If you run the command with both `--flags-dir` and `--json`, then the file names must have the `.json` extension, such as `metadata.json`.  Otherwise, the files don't have an extension.
+     * The files that contain flag values don't usually have an extension; the only exception is if the files contain `JSON` content, in which case you must use the `.json` extension, such as `files.json`. 
      * For Boolean flags, create an empty file with the name of the Boolean flag.  For example, to specify the `--concise` flag, create an empty file called `concise`. 
      * You can name files for Boolean flags `no-<flagname>`, as long as the Boolean flag supports it. For example, to use this feature with the `org create scratch` command and disable source tracking, create an empty file called `no-track-source`. 
      * If you include multiple lines in a file, then the result is multiple flags, such as `--metadata ApexClass --metadata CustomObject --metadata PermissionSet`.
