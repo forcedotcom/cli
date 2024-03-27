@@ -51,7 +51,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
      * Actual flags take precedence over values in a file. For example, if you specify `--target-org my-scratch` when you run the command, but also specify `--flags-dir` that points to a `target-org` file that contains the line `my-other-scratch`, the command connects to `my-scratch`.  The only exception is for flags that take multiple values, such as `--metadata`; in this case, the flag and file values are combined. 
      * You can name the files using the flag's short name, such as `m` rather than `metadata`.
      * This release adds the new `--flags-dir` flag to all CLI commands except for the commands contained in these plugins:
-          * [`sfdx-scanner`](https://github.com/forcedotcom/sfdx-scanner): Code Analyzer commands, such as `scanner run`
+          * [`sfdx-scanner`](https://github.com/forcedotcom/sfdx-scanner): Code Analyzer commands, such as `scanner run`.
+          * [`plugin-devops-center`](https://github.com/salesforcecli/plugin-devops-center): DevOps Center commands, such as `project deploy pipeline start`.
+          * [`plugin-functions`](https://github.com/salesforcecli/plugin-functions): Salesforce Functions commands, such as `run function`.
 
     Pretty cool feature, don't you think?  (GitHub discussions [#2346](https://github.com/forcedotcom/cli/discussions/2346) and [#2670](https://github.com/forcedotcom/cli/discussions/2670). GitHub issue [#2260](https://github.com/forcedotcom/cli/discussions/2260). salesforcecli/cli PR [#1536](https://github.com/salesforcecli/cli/pull/1536), 
 
