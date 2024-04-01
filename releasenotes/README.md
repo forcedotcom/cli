@@ -53,9 +53,11 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     1. Remove all the files that correspond to the existing metadata components from your project. For example, if you want to start decomposing PermissionSet and Workflow types, remove files that look something like this:
 
-       `force-app/main/default/permissionsets/MyPermSet.permissionset-meta.xml`
-       
-       `force-app/main/default/workflows/Account.workflow-meta.xml`
+        ```bash
+        cd <myproject>
+        rm force-app/main/default/permissionsets/MyPermSet.permissionset-meta.xml
+        rm force-app/main/default/workflows/Account.workflow-meta.xml
+        ```
 
     1. Update your `sfdx-project.json` file and specify the two values to the `registryPresets` option:
 
@@ -65,7 +67,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
        `sf project retrieve start --metadata PermissionSet --metadata Workflow`
 
-  You'll now see that rather than one massive PermissionSet or Workflow file, you have smaller XML files in your project.  Hurray!  (GitHub discussion [#2544](https://github.com/forcedotcom/cli/discussions/2544), issues [#1159](https://github.com/forcedotcom/cli/issues/1159), [#2356](https://github.com/forcedotcom/cli/discussions/2356), and [#2376](https://github.com/forcedotcom/cli/discussions/2376). source-deploy-retrieve PR [#1217](https://github.com/forcedotcom/source-deploy-retrieve/pull/1217) source-tracking PR [#552](https://github.com/forcedotcom/source-tracking/pull/552))
+  The command retrieved a bunch of smaller XML files for each permission set and workflow, rather than a single file.  Hurray!  (GitHub discussion [#2544](https://github.com/forcedotcom/cli/discussions/2544), issues [#1159](https://github.com/forcedotcom/cli/issues/1159), [#2356](https://github.com/forcedotcom/cli/discussions/2356), and [#2376](https://github.com/forcedotcom/cli/discussions/2376). source-deploy-retrieve PR [#1217](https://github.com/forcedotcom/source-deploy-retrieve/pull/1217) source-tracking PR [#552](https://github.com/forcedotcom/source-tracking/pull/552))
 
     **NOTE**: _This feature is a Beta Service. Customers may opt to try such Beta Service in its sole discretion. Any use of the Beta Service is subject to the applicable Beta Services Terms provided at Agreements and Terms (https://www.salesforce.com/company/legal/agreements/)._
 
