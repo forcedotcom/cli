@@ -32,18 +32,18 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: (Beta) You can now specify that Salesforce CLI decompose four more metadata types when it converts from mdapi to source format, in addition to the types it currently decomposes automatically (CustomObject and CustomObjectTranslation).
+* NEW: (Beta) You can now specify that Salesforce CLI decompose four more metadata types when it converts from mdapi to source format, in addition to the types it currently decomposes automatically (CustomObject and CustomObjectTranslation).  And we're planning to do more types soon!
 
     By "decompose" we mean that Salesforce CLI breaks the single, and often very large, mdapi-format XML file that corresponds to a metadata component into smaller XML files based on the sub-types. These files live in sub-directories of a directory named the same as the component. See [Salesforce DX Project Structure and Source Format](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_source_file_format.htm) for information on how CustomObject and CustomObjectTranslations are decomposed; that topic will soon be updated with similar information about the new decomposed types.
 
-    Unlike CustomObject and CustomObjectTranslation, you must explicitly opt-in to decompose these new types. It's easy: just add a `registryPresets` option to your `sfdx-project.json` file and set it one or more of these values:
+    Unlike CustomObject and CustomObjectTranslation, you must explicitly opt-in to decompose these new types. It's easy: just add a `registryPresets` option to your `sfdx-project.json` file and set it to one or more of these values:
 
     * `decomposePermissionSetBeta` : decompose the [PermissionSet](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_permissionset.htm) metadata type
     * `decomposeWorkflowBeta` : decompose the [Workflow](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_workflow.htm) metadata type
     * `decomposeCustomLabelsBeta` : decompose the [CustomLabels](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_customlabels.htm) metadata type
     * `decomposeSharingRulesBeta` : decompose the [SharingRules](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_sharingrules.htm) metadata type
 
-    When you next retrieve the component, it will be decomposed. Note that the values include the word `Beta`, because this feature is currently in beta. When it becomes generally available, you'll simply remove the `Beta` part.
+    When you next retrieve the component, it will be decomposed. (The values include the word `Beta`, because this feature is currently in beta. When it becomes generally available, you'll simply remove the `Beta` part.)
 
     For example, if you want to decompose PermissionSet and Workflow types, add this to your `sfdx-project.json`:
 
