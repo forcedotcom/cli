@@ -32,7 +32,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: (Beta) You can now specify that Salesforce CLI decompose four more metadata types when it converts from mdapi to source format, in addition to the types it currently decomposes automatically (CustomObject and CustomObjectTranslation).  And we're planning to do more types soon!
+* NEW: (Beta) Specify that Salesforce CLI decompose four more metadata types when it converts from mdapi to source format, in addition to the types it currently decomposes automatically (CustomObject and CustomObjectTranslation).  And stay tuned, we're planning to do more types soon!
 
     By "decompose" we mean that Salesforce CLI breaks the single, and often very large, mdapi-format XML file that corresponds to a metadata component into smaller XML files based on the sub-types. These files live in sub-directories of a directory named the same as the component. See [Salesforce DX Project Structure and Source Format](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_source_file_format.htm) for information on how CustomObject and CustomObjectTranslations are decomposed; that topic will soon be updated with similar information about the new decomposed types.
 
@@ -73,7 +73,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     **NOTE**: _This beta feature is supported and tested for only the `sf project deploy|retrieve|delete|convert` commands.  We don't support using the `force:source:push|pull|deploy|retrieve` commands with this feature._    
 
-* NEW: You can now bypass the warning prompt that's displayed when you install a trusted, yet unsigned, plugin using its GitHub URL by adding the URL to the [Salesforce CLI allowlist](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_allowlist.htm). Previously you could add only npm names to the file. The GitHub URL must be in the format `https://github.com/<org>/<repo>`.
+* NEW: Bypass the warning prompt that's displayed when you install a trusted, yet unsigned, plugin using its GitHub URL by adding the URL to the [Salesforce CLI allowlist](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_allowlist.htm). Previously you could add only npm names to the file. The GitHub URL must be in the format `https://github.com/<org>/<repo>`.
 
     For example, let's say you add the `https://github.com/oclif/plugin-version` plugin, which isn't signed by Salesforce, to the `unsignedPluginAllowList.json` file. You can then run this command and you won't get the warning prompt:
 
