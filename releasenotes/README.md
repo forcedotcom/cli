@@ -73,6 +73,16 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     **NOTE**: _This beta feature is supported and tested for only the `sf project deploy|retrieve|delete|convert` commands.  We don't support using the `force:source:push|pull|deploy|retrieve` commands with this feature._    
 
+* NEW: You can now bypass the warning prompt that's displayed when you install a trusted, yet unsigned, plugin using its GitHub URL by adding the URL to the [Salesforce CLI allowlist](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_allowlist.htm). Previously you could add only npm names to the file. The GitHub URL must be in the format `https://github.com/<org>/<repo>`.
+
+    For example, let's say you add the `https://github.com/oclif/plugin-version` plugin, which isn't signed by Salesforce, to the `unsignedPluginAllowList.json` file. You can then run this command and you won't get the warning prompt:
+
+    ```bash
+    sf plugins install https://github.com/oclif/plugin-version
+    ```
+
+    We also improved the warning and install messages to clearly indicate which plugin you're installing. (plugin-trust PR [#771](https://github.com/salesforcecli/plugin-trust/pull/771))
+
 * FIX: Salesforce DX projects now support the AffinityScoreDefinition [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
  
 ## 2.35.6 (April 3, 2024) [stable]
