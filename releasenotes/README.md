@@ -71,7 +71,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     **NOTE**: _This feature is a Beta Service. Customers may opt to try such Beta Service in its sole discretion. Any use of the Beta Service is subject to the applicable Beta Services Terms provided at Agreements and Terms (https://www.salesforce.com/company/legal/agreements/)._
 
-    **NOTE**: _This feature is only supported/tested using the `sf project deploy|retrieve|delete|convert` commands.  Adding `presets` to your project and then using `force:source:push|pull|deploy|retrieve` is not supported._    
+    **NOTE**: _This beta feature is supported and tested for only the `sf project deploy|retrieve|delete|convert` commands.  We don't support using the `force:source:push|pull|deploy|retrieve` commands with this feature._    
 
 * FIX: Salesforce DX projects now support the AffinityScoreDefinition [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
  
