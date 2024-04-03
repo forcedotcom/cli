@@ -26,11 +26,66 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.35.6 (April 3, 2024) [stable-rc]
+## 2.36.7 (April 10, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: (Beta) Specify that Salesforce CLI decompose four more metadata types when it converts from mdapi to source format, in addition to the types it currently decomposes automatically (CustomObject and CustomObjectTranslation).  And stay tuned, we're planning to do more types soon!
+
+    By "decompose" we mean that Salesforce CLI breaks the single, and often very large, mdapi-format XML file that corresponds to a metadata component into smaller XML files based on the sub-types. These files live in sub-directories of a directory named the same as the component. See [Salesforce DX Project Structure and Source Format](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_source_file_format.htm) for information on how CustomObject and CustomObjectTranslations are decomposed; that topic will soon be updated with similar information about the new decomposed types.
+
+    Unlike CustomObject and CustomObjectTranslation, you must explicitly opt-in to decompose these new types. It's easy: just add a `registryPresets` option to your `sfdx-project.json` file and set it to one or more of these values:
+
+    * `decomposePermissionSetBeta` : decompose the [PermissionSet](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_permissionset.htm) metadata type
+    * `decomposeWorkflowBeta` : decompose the [Workflow](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_workflow.htm) metadata type
+    * `decomposeCustomLabelsBeta` : decompose the [CustomLabels](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_customlabels.htm) metadata type
+    * `decomposeSharingRulesBeta` : decompose the [SharingRules](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_sharingrules.htm) metadata type
+
+    When you next retrieve the component, it will be decomposed. (The values include the word `Beta`, because this feature is currently in beta. When it becomes generally available, you'll simply remove the `Beta` part.)
+
+    For example, if you want to decompose PermissionSet and Workflow types, add this to your `sfdx-project.json`:
+
+    `"registryPresets": ["decomposePermissionSetBeta", "decomposeWorkflowBeta"]`
+
+    If you already have these metadata types in your project, be sure you follow these steps to start using this new feature:
+
+    1. Remove all the files that correspond to the existing metadata components from your project. For example, if you want to start decomposing PermissionSet and Workflow types, remove files that look something like this:
+
+        ```bash
+        cd <myproject>
+        rm force-app/main/default/permissionsets/MyPermSet.permissionset-meta.xml
+        rm force-app/main/default/workflows/Account.workflow-meta.xml
+        ```
+
+    1. Update your `sfdx-project.json` file and specify the two values to the `registryPresets` option:
+
+       `"registryPresets": ["decomposePermissionSetBeta", "decomposeWorkflowBeta"]`
+
+    1. Retrieve these components again:
+
+       `sf project retrieve start --metadata PermissionSet --metadata Workflow`
+
+  The command retrieved a bunch of smaller XML files for each permission set and workflow, rather than a single file.  Hurray!  (GitHub discussion [#2544](https://github.com/forcedotcom/cli/discussions/2544), issues [#1159](https://github.com/forcedotcom/cli/issues/1159), [#2356](https://github.com/forcedotcom/cli/discussions/2356), and [#2376](https://github.com/forcedotcom/cli/discussions/2376). source-deploy-retrieve PR [#1217](https://github.com/forcedotcom/source-deploy-retrieve/pull/1217) source-tracking PR [#552](https://github.com/forcedotcom/source-tracking/pull/552))
+
+    **NOTE**: _This feature is a Beta Service. Customers may opt to try such Beta Service in its sole discretion. Any use of the Beta Service is subject to the applicable Beta Services Terms provided at Agreements and Terms (https://www.salesforce.com/company/legal/agreements/)._
+
+    **NOTE**: _This beta feature is supported and tested for only the `sf project deploy|retrieve|delete|convert` commands.  We don't support using the `force:source:push|pull|deploy|retrieve` commands with this feature._    
+
+* NEW: Bypass the warning prompt that's displayed when you install a trusted, yet unsigned, plugin using its GitHub URL by adding the URL to the [Salesforce CLI allowlist](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_allowlist.htm). Previously you could add only npm names to the file. The GitHub URL must be in the format `https://github.com/<org>/<repo>`.
+
+    For example, let's say you add the `https://github.com/oclif/plugin-version` plugin, which isn't signed by Salesforce, to the `unsignedPluginAllowList.json` file. You can then run this command and you won't get the warning prompt:
+
+    ```bash
+    sf plugins install https://github.com/oclif/plugin-version
+    ```
+
+    We also improved the warning and install messages to clearly indicate which plugin you're installing. (plugin-trust PR [#771](https://github.com/salesforcecli/plugin-trust/pull/771))
+
+* FIX: Salesforce DX projects now support the AffinityScoreDefinition [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
+ 
+## 2.35.6 (April 3, 2024) [stable]
 
 * NEW: Specify the flag values for Salesforce CLI commands in local text files by using the `--flags-dir <dir-name>` flag when running the command. If the command finds a file in the specified directory with the same name as one of its flags, it uses the contents of the file as the value of the flag. Take this command, for example:
 
@@ -79,7 +134,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
  
      (plugin-data PR [#843](https://github.com/salesforcecli/plugin-data/pull/843))
 
-## 2.34.7 (March 27, 2024) [stable]
+## 2.34.7 (March 27, 2024)
 
 * CHANGE: You can now override the name or license type of a new sandbox (that you create with a definition file) by specifying the `--name` or `--license-type` flags in addition to `--definition-file`. Previously, if you specified a definition file, you couldn't also specify either `--name` or `--license-type`. 
 
