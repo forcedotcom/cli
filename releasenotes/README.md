@@ -32,7 +32,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: The JSON output of the `package version create` command now contains more information: the percentage of Apex code lines that are covered by tests and the package version number. These values correspond to the Tooling API `Package2Version.CodeCoverage` and `Package2Version.VersionNumber` fields. (packaging PR [#492](https://github.com/forcedotcom/packaging/pull/492))
+* NEW: The JSON output of the `package version create` command now contains more information: the percentage of Apex code lines that are covered by tests (CodeCoverage) and the full package version number (VersionNumber). The new CodeCoverage key corresponds to the Tooling API `Package2Version.CodeCoverage` field; the VersionNumber key corresponds to a concatenation of the `Package2Version.MajorVersion`, `Package2Version.MinorVersion`, `Package2Version.PatchVersion`, and `Package2Version.BuildNumber` fields. (packaging PR [#492](https://github.com/forcedotcom/packaging/pull/492))
 
     Thank you, [Ronny Rokitta](https://github.com/Rocko1204)!  This is a great follow-on contribution from the one you made in [January](./README.md#2257-jan-24-2024) -- we love repeat contributors. Cheers!
 
