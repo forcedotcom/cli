@@ -38,6 +38,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * CHANGE: We removed the `force org clone` and `force org status` commands from Salesforce CLI; use the `org create sandbox` and `org resume sandbox`, respectively, instead. We deprecated the two commands on [Feb 9, 2023](https://github.com/forcedotcom/cli/blob/main/releasenotes/sfdx/README.md#71871-feb-9-2023).  (plugin-org PR [#1009](https://github.com/salesforcecli/plugin-org/pull/1009)).
 
+* FIX: If you deploy source to an org, and source tracking fails for some reason (such as a server error, CLI error, or a problem in your environment), you now get the full details of the failure. Previously you would get just the `MetadataTransferError` error, and no more information, so it was difficult to troubleshoot what the problem was. (source-deploy-retrieve PR [#1275](https://github.com/forcedotcom/source-deploy-retrieve/pull/1275)
+
+* FIX: You can now successfully run `project deploy report` and get information about a deployment that you first validated with `project deploy validate` and then quick deployed with `project deploy quick`.  (plugin-deploy-retrieve PR [#962](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/962))
+
 ## 2.36.8 (April 10, 2024) [stable]
 
 * NEW: (Beta) Specify that Salesforce CLI decompose four more metadata types when it converts from mdapi to source format, in addition to the types it currently decomposes automatically (CustomObject and CustomObjectTranslation).  And stay tuned, we're planning to do more types soon!
