@@ -26,11 +26,23 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.36.8 (April 10, 2024) [stable-rc]
+## 2.37.4( April 17, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: The JSON output of the `package version create` command now contains more information: the percentage of Apex code lines that are covered by tests (CodeCoverage) and the full package version number (VersionNumber). The new CodeCoverage key corresponds to the Tooling API `Package2Version.CodeCoverage` field; the VersionNumber key corresponds to a concatenation of the `Package2Version.MajorVersion`, `Package2Version.MinorVersion`, `Package2Version.PatchVersion`, and `Package2Version.BuildNumber` fields. (packaging PR [#492](https://github.com/forcedotcom/packaging/pull/492))
+
+    Thank you, [Ronny Rokitta](https://github.com/Rocko1204)!  This is a great follow-on contribution from the one you made in [January](./README.md#2257-jan-24-2024) -- we love repeat contributors. Cheers!
+
+* CHANGE: We removed the `force org clone` and `force org status` commands from Salesforce CLI; use the `org create sandbox` and `org resume sandbox`, respectively, instead. We deprecated the two commands on [Feb 9, 2023](https://github.com/forcedotcom/cli/blob/main/releasenotes/sfdx/README.md#71871-feb-9-2023).  (plugin-org PR [#1009](https://github.com/salesforcecli/plugin-org/pull/1009)).
+
+* FIX: If you deploy source to an org, and source tracking fails for some reason (such as a server error, CLI error, or a problem in your environment), you now get the full details of the failure. Previously you would get just the `MetadataTransferError` error, and no more information, so it was difficult to troubleshoot what the problem was. (source-deploy-retrieve PR [#1275](https://github.com/forcedotcom/source-deploy-retrieve/pull/1275)
+
+* FIX: You can now successfully run `project deploy report` and get information about a deployment that you first validated with `project deploy validate` and then quick deployed with `project deploy quick`.  (plugin-deploy-retrieve PR [#962](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/962))
+
+## 2.36.8 (April 10, 2024) [stable]
 
 * NEW: (Beta) Specify that Salesforce CLI decompose four more metadata types when it converts from mdapi to source format, in addition to the types it currently decomposes automatically (CustomObject and CustomObjectTranslation).  And stay tuned, we're planning to do more types soon!
 
@@ -85,7 +97,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Salesforce DX projects now support the AffinityScoreDefinition [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
  
-## 2.35.6 (April 3, 2024) [stable]
+## 2.35.6 (April 3, 2024)
 
 * NEW: Specify the flag values for Salesforce CLI commands in local text files by using the `--flags-dir <dir-name>` flag when running the command. If the command finds a file in the specified directory with the same name as one of its flags, it uses the contents of the file as the value of the flag. Take this command, for example:
 
