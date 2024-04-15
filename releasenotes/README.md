@@ -26,11 +26,15 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.37.4( April 17, 2024) [stable-rc]
+## 2.38.6 (April 24, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: (GitHub issue [#1350](https://github.com/forcedotcom/cli/issues/1350))
+
+## 2.37.4 (April 17, 2024) [stable]
 
 * NEW: The JSON output of the `package version create` command now contains more information: the percentage of Apex code lines that are covered by tests (CodeCoverage) and the full package version number (VersionNumber). The new CodeCoverage key corresponds to the Tooling API `Package2Version.CodeCoverage` field; the VersionNumber key corresponds to a concatenation of the `Package2Version.MajorVersion`, `Package2Version.MinorVersion`, `Package2Version.PatchVersion`, and `Package2Version.BuildNumber` fields. (packaging PR [#492](https://github.com/forcedotcom/packaging/pull/492))
 
@@ -42,7 +46,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: You can now successfully run `project deploy report` and get information about a deployment that you first validated with `project deploy validate` and then quick deployed with `project deploy quick`.  (plugin-deploy-retrieve PR [#962](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/962))
 
-## 2.36.8 (April 10, 2024) [stable]
+## 2.36.8 (April 10, 2024)
 
 * NEW: (Beta) Specify that Salesforce CLI decompose four more metadata types when it converts from mdapi to source format, in addition to the types it currently decomposes automatically (CustomObject and CustomObjectTranslation).  And stay tuned, we're planning to do more types soon!
 
