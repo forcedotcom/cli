@@ -32,7 +32,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* FIX: (GitHub issue [#1350](https://github.com/forcedotcom/cli/issues/1350))
+* FIX: Salesforce CLI, when interacting with an org, now properly retries the command when it runs into a network error. (GitHub issue [#1350](https://github.com/forcedotcom/cli/issues/1350), jsforce PR [#1403](https://github.com/jsforce/jsforce/pull/1403))
 
 ## 2.37.4 (April 17, 2024) [stable]
 
