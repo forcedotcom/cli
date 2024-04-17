@@ -26,11 +26,19 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.37.4( April 17, 2024) [stable-rc]
+## 2.38.6 (April 24, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: Salesforce CLI downloads, installations, and updates just got a whole lot faster, especially on Windows! Why?  Because we've signficantly reduced the size of both the `npm` packages and the OS-specific installers.  The `npm` reduction is the champion: it's ~35% smaller. But the installers are ~10% slimmer too. Nice. 
+
+* FIX: Salesforce CLI, when interacting with an org, now properly retries the command when it runs into a network error. (GitHub issues [#1350](https://github.com/forcedotcom/cli/issues/1350) and [#2557](https://github.com/forcedotcom/cli/issues/2557), jsforce PR [#1403](https://github.com/jsforce/jsforce/pull/1403))
+
+* FIX: The `project deploy report` command now returns results about all deployed files, even if they don't currently exist in your local project. This scenario can happen if the deploy occurs on one computer and the report command is run on a different computer where the project looks different. The report command warns the user if a local file doesnt' exist. (GitHub issues [#2602](https://github.com/forcedotcom/cli/issues/2603) and [#2602](https://github.com/forcedotcom/cli/issues/2602), source-deploy-retrieve PR [#1273](https://github.com/forcedotcom/source-deploy-retrieve/pull/1273))
+
+## 2.37.4 (April 17, 2024) [stable]
 
 * NEW: The JSON output of the `package version create` command now contains more information: the percentage of Apex code lines that are covered by tests (CodeCoverage) and the full package version number (VersionNumber). The new CodeCoverage key corresponds to the Tooling API `Package2Version.CodeCoverage` field; the VersionNumber key corresponds to a concatenation of the `Package2Version.MajorVersion`, `Package2Version.MinorVersion`, `Package2Version.PatchVersion`, and `Package2Version.BuildNumber` fields. (packaging PR [#492](https://github.com/forcedotcom/packaging/pull/492))
 
@@ -38,11 +46,11 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * CHANGE: We removed the `force org clone` and `force org status` commands from Salesforce CLI; use the `org create sandbox` and `org resume sandbox`, respectively, instead. We deprecated the two commands on [Feb 9, 2023](https://github.com/forcedotcom/cli/blob/main/releasenotes/sfdx/README.md#71871-feb-9-2023).  (plugin-org PR [#1009](https://github.com/salesforcecli/plugin-org/pull/1009)).
 
-* FIX: If you deploy source to an org, and source tracking fails for some reason (such as a server error, CLI error, or a problem in your environment), you now get the full details of the failure. Previously you would get just the `MetadataTransferError` error, and no more information, so it was difficult to troubleshoot what the problem was. (source-deploy-retrieve PR [#1275](https://github.com/forcedotcom/source-deploy-retrieve/pull/1275)
+* FIX: If you deploy source to an org, and source tracking fails for some reason (such as a server error, CLI error, or a problem in your environment), you now get the full details of the failure. Previously you would get just the `MetadataTransferError` error, and no more information, so it was difficult to troubleshoot what the problem was. (source-deploy-retrieve PR [#1275](https://github.com/forcedotcom/source-deploy-retrieve/pull/1275))
 
 * FIX: You can now successfully run `project deploy report` and get information about a deployment that you first validated with `project deploy validate` and then quick deployed with `project deploy quick`.  (plugin-deploy-retrieve PR [#962](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/962))
 
-## 2.36.8 (April 10, 2024) [stable]
+## 2.36.8 (April 10, 2024)
 
 * NEW: (Beta) Specify that Salesforce CLI decompose four more metadata types when it converts from mdapi to source format, in addition to the types it currently decomposes automatically (CustomObject and CustomObjectTranslation).  And stay tuned, we're planning to do more types soon!
 
