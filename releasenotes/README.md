@@ -34,6 +34,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Salesforce CLI, when interacting with an org, now properly retries the command when it runs into a network error. (GitHub issues [#1350](https://github.com/forcedotcom/cli/issues/1350) and [#2557](https://github.com/forcedotcom/cli/issues/2557), jsforce PR [#1403](https://github.com/jsforce/jsforce/pull/1403))
 
+* FIX: The `project deploy report` command now returns results about all deployed files, even if they don't currently exist in your local project. This scenario can happen if the deploy occurs on one computer and the report command is run on a different computer where the project looks different. The report command warns the user if a local file doesnt' exist. (GitHub issues [#2602](https://github.com/forcedotcom/cli/issues/2603) and [#2602](https://github.com/forcedotcom/cli/issues/2602), source-deploy-retrieve PR [#1273](https://github.com/forcedotcom/source-deploy-retrieve/pull/1273))
+
 ## 2.37.4 (April 17, 2024) [stable]
 
 * NEW: The JSON output of the `package version create` command now contains more information: the percentage of Apex code lines that are covered by tests (CodeCoverage) and the full package version number (VersionNumber). The new CodeCoverage key corresponds to the Tooling API `Package2Version.CodeCoverage` field; the VersionNumber key corresponds to a concatenation of the `Package2Version.MajorVersion`, `Package2Version.MinorVersion`, `Package2Version.PatchVersion`, and `Package2Version.BuildNumber` fields. (packaging PR [#492](https://github.com/forcedotcom/packaging/pull/492))
