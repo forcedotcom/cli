@@ -32,6 +32,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: Salesforce CLI downloads, installations, and updates just got a whole lot faster! Why?  Because we've signficantly reduced the size of both the `npm` packages and the OS-specific installers.  The `npm` reduction is the champion: it's ~35% smaller. But the installers are ~10% slimmer too. Nice. 
+
 * FIX: Salesforce CLI, when interacting with an org, now properly retries the command when it runs into a network error. (GitHub issues [#1350](https://github.com/forcedotcom/cli/issues/1350) and [#2557](https://github.com/forcedotcom/cli/issues/2557), jsforce PR [#1403](https://github.com/jsforce/jsforce/pull/1403))
 
 * FIX: The `project deploy report` command now returns results about all deployed files, even if they don't currently exist in your local project. This scenario can happen if the deploy occurs on one computer and the report command is run on a different computer where the project looks different. The report command warns the user if a local file doesnt' exist. (GitHub issues [#2602](https://github.com/forcedotcom/cli/issues/2603) and [#2602](https://github.com/forcedotcom/cli/issues/2602), source-deploy-retrieve PR [#1273](https://github.com/forcedotcom/source-deploy-retrieve/pull/1273))
