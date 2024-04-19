@@ -26,7 +26,7 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.38.6 (April 24, 2024) [stable-rc]
+## 2.38.7 (April 24, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
@@ -37,6 +37,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 * FIX: Salesforce CLI, when interacting with an org, now properly retries the command when it runs into a network error. (GitHub issues [#1350](https://github.com/forcedotcom/cli/issues/1350) and [#2557](https://github.com/forcedotcom/cli/issues/2557), jsforce PR [#1403](https://github.com/jsforce/jsforce/pull/1403))
 
 * FIX: The `project deploy report` command now returns results about all deployed files, even if they don't currently exist in your local project. This scenario can happen if the deploy occurs on one computer and the report command is run on a different computer where the project looks different. The report command warns the user if a local file doesnt' exist. (GitHub issues [#2602](https://github.com/forcedotcom/cli/issues/2603) and [#2602](https://github.com/forcedotcom/cli/issues/2602), source-deploy-retrieve PR [#1273](https://github.com/forcedotcom/source-deploy-retrieve/pull/1273))
+
+* FIX: The `project deploy retrieve` command now does not check for a project when doing a metadata api retrieve when using the `--manifest` flag, and it shouldn't have started doing that. (Github issue [#2832](https://github.com/forcedotcom/cli/issues/2832) and [#2831](https://github.com/forcedotcom/cli/issues/2831), plugin-deploy-retrieve PR [#978](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/978)
 
 ## 2.37.4 (April 17, 2024) [stable]
 
