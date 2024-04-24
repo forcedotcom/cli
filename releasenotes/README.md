@@ -26,13 +26,19 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.38.7 (April 24, 2024) [stable-rc]
+## 2.39.6 (May 1, 2024) [stable-rc]
+
+* FIX: `project delete source` doesn't throw errors when confirming that you want to delete source that doesn't exist locally.  (GitHub issue [#2836](https://github.com/forcedotcom/cli/issues/2836), plugin-deploy-retrieve PR [#986](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/986))
+
+* FIX: `project generate manifest --from-org` was throwing errors when the metadata API responds with metadata missing required properties.  We've alerted the resonsible team, and in the meantime created some checks in the CLI to prevent the error (and warn you about what metadata can't be processed).  (GitHub issue [2841](https://github.com/forcedotcom/cli/issues/2841), source-deploy-retrieve PR [#1296](https://github.com/forcedotcom/source-deploy-retrieve/pull/1296)).
+
+## 2.38.7 (April 24, 2024) [stable]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
 
-* NEW: Salesforce CLI downloads, installations, and updates just got a whole lot faster, especially on Windows! Why?  Because we've signficantly reduced the size of both the `npm` packages and the OS-specific installers.  The `npm` reduction is the champion: it's ~35% smaller. But the installers are ~10% slimmer too. Nice. 
+* NEW: Salesforce CLI downloads, installations, and updates just got a whole lot faster, especially on Windows! Why?  Because we've significantly reduced the size of both the `npm` packages and the OS-specific installers.  The `npm` reduction is the champion: it's ~35% smaller. But the installers are ~10% slimmer too. Nice. 
 
 * FIX: Salesforce CLI, when interacting with an org, now properly retries the command when it runs into a network error. (GitHub issues [#1350](https://github.com/forcedotcom/cli/issues/1350) and [#2557](https://github.com/forcedotcom/cli/issues/2557), jsforce PR [#1403](https://github.com/jsforce/jsforce/pull/1403))
 
@@ -40,7 +46,11 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `project deploy retrieve` command now does not check for a project when doing a metadata api retrieve when using the `--manifest` flag, and it shouldn't have started doing that. (Github issue [#2832](https://github.com/forcedotcom/cli/issues/2832) and [#2831](https://github.com/forcedotcom/cli/issues/2831), plugin-deploy-retrieve PR [#978](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/978)
 
-## 2.37.4 (April 17, 2024) [stable]
+* FIX: NodeJS made a breaking windows-related security change.  We adjusted the CLI to comply.  (Github issue [#2822](https://github.com/forcedotcom/cli/issues/2822), plugin-telemetry PR [#611](https://github.com/salesforcecli/plugin-telemetry/pull/611), oclif/plugin-plugins PR [#847](https://github.com/oclif/plugin-plugins/pull/847), oclif/plugin-update [#788](https://github.com/oclif/plugin-update/pull/788)) 
+
+NOTE: As a result of this NodeJS change, some windows users will see a terminal "flash" (see [#2833](https://github.com/forcedotcom/cli/issues/2833)) in certain scenarios.  We're working on a way to avoid that.
+
+## 2.37.4 (April 17, 2024)
 
 * NEW: The JSON output of the `package version create` command now contains more information: the percentage of Apex code lines that are covered by tests (CodeCoverage) and the full package version number (VersionNumber). The new CodeCoverage key corresponds to the Tooling API `Package2Version.CodeCoverage` field; the VersionNumber key corresponds to a concatenation of the `Package2Version.MajorVersion`, `Package2Version.MinorVersion`, `Package2Version.PatchVersion`, and `Package2Version.BuildNumber` fields. (packaging PR [#492](https://github.com/forcedotcom/packaging/pull/492))
 
