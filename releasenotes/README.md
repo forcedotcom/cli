@@ -32,6 +32,8 @@ Additional documentation:
 
 * FIX: `project generate manifest --from-org` was throwing errors when the metadata API responds with metadata missing required properties.  We've alerted the resonsible team, and in the meantime created some checks in the CLI to prevent the error (and warn you about what metadata can't be processed).  (GitHub issue [2841](https://github.com/forcedotcom/cli/issues/2841), source-deploy-retrieve PR [#1296](https://github.com/forcedotcom/source-deploy-retrieve/pull/1296)).
 
+* FIX: `sf plugins link` had a problem with packages that needed to be compiled before use.  We've fixed that (GitHub issue [#2818](https://github.com/forcedotcom/cli/issues/2818), oclif/plugin-plugins PR [#841](https://github.com/oclif/plugin-plugins/pull/841))
+
 ## 2.38.7 (April 24, 2024) [stable]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
