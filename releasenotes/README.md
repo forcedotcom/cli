@@ -34,6 +34,8 @@ Additional documentation:
 
 * FIX: `sf plugins link` had a problem with packages that needed to be compiled before use.  We've fixed that (GitHub issue [#2818](https://github.com/forcedotcom/cli/issues/2818), oclif/plugin-plugins PR [#841](https://github.com/oclif/plugin-plugins/pull/841))
 
+* FIX: `sf apex test run` handles the `--wait` flag better.  (GitHub issue [#2108](https://github.com/forcedotcom/cli/issues/2108), plugin-apex PR [#422](https://github.com/salesforcecli/plugin-apex/pull/422), apex library PR [#364](https://github.com/forcedotcom/salesforcedx-apex/pull/364))
+
 ## 2.38.7 (April 24, 2024) [stable]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
