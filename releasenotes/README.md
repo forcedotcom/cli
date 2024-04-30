@@ -34,7 +34,11 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: The Salesforce CLI installers and TAR files continue to get smaller, this time because we no longer include files like `oclif.lock`, `yarn.lock`, `npm-shrinkwrap`, and `package-lock` in them.  (GitHub discussion [#2835](https://github.com/forcedotcom/cli/discussions/2835), oclif PR [#1385](https://github.com/oclif/oclif/pull/1385))
 
-* FIX: When converting from metadata format to source format, Salesforce CLI now preserves all comments in the metadata XML file. As a result, the help text, labels, and picklist values of Custom Object Translations are correctly included in the source format files. (GitHub issue [#2830](https://github.com/forcedotcom/cli/issues/2830), source-deploy-retrieve PR [#1288](https://github.com/forcedotcom/source-deploy-retrieve/pull/1288))
+* FIX: When converting from mdapi format to source format, Salesforce CLI now preserves all comments in the metadata XML file. As a result, the help text, labels, and picklist values of Custom Object Translations are correctly included in the source format files. (GitHub issue [#2830](https://github.com/forcedotcom/cli/issues/2830), source-deploy-retrieve PR [#1288](https://github.com/forcedotcom/source-deploy-retrieve/pull/1288))
+
+* FIX: Salesforce CLI once again supports big object types whose index files use the legacy `.indexe` suffix rather than the better `.index` suffix. But we've also added a warning if your big object uses the `.indexe` suffix, asking you to update it to `.index`.  (GitHub issue [#2847](https://github.com/forcedotcom/cli/issues/2847), source-deploy-retrieve PR [#1298](https://github.com/forcedotcom/source-deploy-retrieve/pull/1298))
+
+* FIX: The `.forceignore` file now works consistently, whether you're using source or mdapi format. Specifically, when you deploy or retrieve in source format (using `sf project deploy start`, for example), the command respects file names of `.forceignore` entries in source format. Similarly, when you deploy or retrieve in mdapi format (using `sf project deploy start --metadata-dir`, for example), the command respects file name entries in mdapi format. (GitHub issue [#2737](https://github.com/forcedotcom/cli/issues/2737), source-deploy-retrieve PR [#1295](https://github.com/forcedotcom/source-deploy-retrieve/pull/1295))
 
 ## 2.39.6 (May 1, 2024) [stable]
 
