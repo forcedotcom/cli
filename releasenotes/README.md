@@ -32,7 +32,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: The Salesforce CLI installers and TAR files continue to get smaller, this time because we no longer include files like `oclif.lock`, `yarn.lock`, `npm-shrinkwrap`, and `package-lock` in them.  (GitHub discussion [#2835](https://github.com/forcedotcom/cli/discussions/2835), oclif PR [#1385](https://github.com/oclif/oclif/pull/1385))
+* NEW: Some Salesforce CLI downloads, installations, and updates are now faster because we reduced the size of the Salesforce CLI OS-specific installers and TAR files. Specifically, we no longer include files like `oclif.lock`, `yarn.lock`, `npm-shrinkwrap`, and `package-lock` in them.  (GitHub discussion [#2835](https://github.com/forcedotcom/cli/discussions/2835), oclif PR [#1385](https://github.com/oclif/oclif/pull/1385))
 
 * FIX: When converting from mdapi format to source format, Salesforce CLI now preserves all comments in the metadata XML file. As a result, the help text, labels, and picklist values of Custom Object Translations are correctly included in the source format files. (GitHub issue [#2830](https://github.com/forcedotcom/cli/issues/2830), source-deploy-retrieve PR [#1288](https://github.com/forcedotcom/source-deploy-retrieve/pull/1288))
 
