@@ -26,7 +26,21 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.39.6 (May 1, 2024) [stable-rc]
+## 2.40.7 (May 8, 2024) [stable-rc]
+
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+------------
+
+* NEW: Some Salesforce CLI downloads, installations, and updates are now faster because we reduced the size of the Salesforce CLI OS-specific installers and TAR files. Specifically, we no longer include files like `oclif.lock`, `yarn.lock`, `npm-shrinkwrap`, and `package-lock` in them.  (GitHub discussion [#2835](https://github.com/forcedotcom/cli/discussions/2835), oclif PR [#1385](https://github.com/oclif/oclif/pull/1385))
+
+* FIX: When converting from mdapi format to source format, Salesforce CLI now preserves all comments in the metadata XML file. As a result, the help text, labels, and picklist values of Custom Object Translations are correctly included in the source format files. (GitHub issue [#2830](https://github.com/forcedotcom/cli/issues/2830), source-deploy-retrieve PR [#1288](https://github.com/forcedotcom/source-deploy-retrieve/pull/1288))
+
+* FIX: Salesforce CLI once again supports big object types whose index files use the legacy `.indexe` suffix rather than the better `.index` suffix. But we've also added a warning if your big object uses the `.indexe` suffix, asking you to update it to `.index`.  (GitHub issue [#2847](https://github.com/forcedotcom/cli/issues/2847), source-deploy-retrieve PR [#1298](https://github.com/forcedotcom/source-deploy-retrieve/pull/1298))
+
+* FIX: The `.forceignore` file now works consistently, whether you're using source or mdapi format. Specifically, when you deploy or retrieve in source format (using `sf project deploy start`, for example), the command respects file names of `.forceignore` entries in source format. Similarly, when you deploy or retrieve in mdapi format (using `sf project deploy start --metadata-dir`, for example), the command respects file name entries in mdapi format. (GitHub issue [#2737](https://github.com/forcedotcom/cli/issues/2737), source-deploy-retrieve PR [#1295](https://github.com/forcedotcom/source-deploy-retrieve/pull/1295))
+
+## 2.39.6 (May 1, 2024) [stable]
 
 * FIX: `project delete source` doesn't throw errors when confirming that you want to delete source that doesn't exist locally.  (GitHub issue [#2836](https://github.com/forcedotcom/cli/issues/2836), plugin-deploy-retrieve PR [#986](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/986))
 
@@ -36,11 +50,7 @@ Additional documentation:
 
 * FIX: `sf apex test run` handles the `--wait` flag better.  (GitHub issue [#2108](https://github.com/forcedotcom/cli/issues/2108), plugin-apex PR [#422](https://github.com/salesforcecli/plugin-apex/pull/422), apex library PR [#364](https://github.com/forcedotcom/salesforcedx-apex/pull/364))
 
-## 2.38.7 (April 24, 2024) [stable]
-
-These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
-
-------------
+## 2.38.7 (April 24, 2024)
 
 * NEW: Salesforce CLI downloads, installations, and updates just got a whole lot faster, especially on Windows! Why?  Because we've significantly reduced the size of both the `npm` packages and the OS-specific installers.  The `npm` reduction is the champion: it's ~35% smaller. But the installers are ~10% slimmer too. Nice. 
 
