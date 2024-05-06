@@ -40,6 +40,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `.forceignore` file now works consistently, whether you're using source or mdapi format. Specifically, when you deploy or retrieve in source format (using `sf project deploy start`, for example), the command respects file names of `.forceignore` entries in source format. Similarly, when you deploy or retrieve in mdapi format (using `sf project deploy start --metadata-dir`, for example), the command respects file name entries in mdapi format. (GitHub issue [#2737](https://github.com/forcedotcom/cli/issues/2737), source-deploy-retrieve PR [#1295](https://github.com/forcedotcom/source-deploy-retrieve/pull/1295))
 
+* FIX: The `org shape list` command now works as expected, even when the connection to the Dev Hub org is incorrect. 
+
 ## 2.39.6 (May 1, 2024) [stable]
 
 * FIX: `project delete source` doesn't throw errors when confirming that you want to delete source that doesn't exist locally.  (GitHub issue [#2836](https://github.com/forcedotcom/cli/issues/2836), plugin-deploy-retrieve PR [#986](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/986))
