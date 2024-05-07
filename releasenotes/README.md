@@ -26,11 +26,23 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.40.7 (May 8, 2024) [stable-rc]
+## 2.41.6 (May 15, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: The `project retrieve start` command now warns you if you have the pattern `**/unpackaged/**` in your `.forceignore` file. This pattern causes the retrieve to ignore all files, because `/unpackaged` is the directory within the retrieved ZIP file in which all unpackaged metadata lives. (GitHub issue [#2399](https://github.com/forcedotcom/cli/issues/2399), source-deploy-retrieve PR [#1301](https://github.com/forcedotcom/source-deploy-retrieve/pull/1301)) 
+
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+
+  * ForecastingGroup
+  * RecordAlertTemplate
+  * RetrievalSummaryDefinition
+  * SearchCustomization
+  * SearchOrgWideObjectConfig
+ 
+## 2.40.7 (May 8, 2024) [stable]
 
 * NEW: Some Salesforce CLI downloads, installations, and updates are now faster because we reduced the size of the Salesforce CLI OS-specific installers and TAR files. Specifically, we no longer include files like `oclif.lock`, `yarn.lock`, `npm-shrinkwrap`, and `package-lock` in them.  (GitHub discussion [#2835](https://github.com/forcedotcom/cli/discussions/2835), oclif PR [#1385](https://github.com/oclif/oclif/pull/1385))
 
@@ -42,7 +54,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `org shape list` command now works as expected, even when the connection to the Dev Hub org is incorrect. 
 
-## 2.39.6 (May 1, 2024) [stable]
+## 2.39.6 (May 1, 2024)
 
 * FIX: `project delete source` doesn't throw errors when confirming that you want to delete source that doesn't exist locally.  (GitHub issue [#2836](https://github.com/forcedotcom/cli/issues/2836), plugin-deploy-retrieve PR [#986](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/986))
 
