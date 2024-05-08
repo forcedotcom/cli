@@ -34,6 +34,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: The `project retrieve start` command now warns you if you have the pattern `**/unpackaged/**` in your `.forceignore` file. This pattern causes the retrieve to ignore all files, because `/unpackaged` is the directory within the retrieved ZIP file in which all unpackaged metadata lives. (GitHub issue [#2399](https://github.com/forcedotcom/cli/issues/2399), source-deploy-retrieve PR [#1301](https://github.com/forcedotcom/source-deploy-retrieve/pull/1301)) 
 
+* CHANGE: The `org delete snapshot` command now prompts for confirmation from the user before it deletes the snapshot; previously the command didn't prompt. Use the new `--no-prompt` flag to not be prompted, which is the old behavior. (plugin-signups PR [#567](https://github.com/salesforcecli/plugin-signups/pull/567))
+
 * FIX: Specifying the `--no-namespace` flag of the `org create scratch` command now correctly creates a scratch org that doesn't have a namespace. (GitHub issue [#2855](https://github.com/forcedotcom/cli/issues/2855), sfdx-core PR [#1064](https://github.com/forcedotcom/sfdx-core/pull/1064))
 
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
