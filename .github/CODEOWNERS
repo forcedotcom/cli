@@ -1,0 +1,10 @@
+#ECCN: Open Source
+#GUSINFO:Open Source,Open Source Workflow
+
+# For more info on this file syntax:
+# https://help.github.com/en/articles/about-code-owners
+
+# These owners will be the default owners for everything in
+# the repo.
+
+*   @forcedotcom/platform-cli
