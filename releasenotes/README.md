@@ -58,7 +58,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `org shape list` command now works as expected, even when the connection to the Dev Hub org is incorrect.
 
-* FIX: When retrieving a CustomFields from the org, `sf project retrieve start` now preserves the content of the field's CustomObject. (Github issue [#2865](https://github.com/forcedotcom/cli/issues/2865), source-deploy-retrieve PR [#1308](https://github.com/forcedotcom/source-deploy-retrieve/pull/1308))
+* FIX: When retrieving a CustomField from the org, `project retrieve start` now preserves the content of the field's CustomObject source file. (Github issue [#2865](https://github.com/forcedotcom/cli/issues/2865), source-deploy-retrieve PR [#1308](https://github.com/forcedotcom/source-deploy-retrieve/pull/1308))
 
 ## 2.39.6 (May 1, 2024)
 
