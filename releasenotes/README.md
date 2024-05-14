@@ -32,6 +32,15 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: Quickly discover the publish date of your current Salesforce CLI installation by running the `version --verbose` command. The new output also lists the current `latest` (AKA `stable`) version of Salesforce CLI.  But wait, there's more! The output provides the same information for any user-installed plugins, including the Salesforce JIT plugins such as `@salesforce/sfdx-scanner`.  Here's partial output of the new command showing this enhanced version information about Salesforce CLI itself:
+
+     ```bash
+     $ sf version --verbose
+     CLI Version:
+	    @salesforce/cli/2.42.5 published 13 days ago (Wed May 01 2024) (latest is 2.40.7)
+     ...
+     ```
+
 * CHANGE: If you install Salesforce CLI using `npm`, your local version of Node.js must be at least 18.16. (cli PR [#1645](https://github.com/salesforcecli/cli/pull/1645))
 
 * FIX: On Windows, running a Salesforce CLI command no longer causes a new CMD window to briefly appear and then disappear. Thanks [@jaklein](https://github.com/jaklein) for pointing out the fix!  (GitHub issue [#2833](https://github.com/forcedotcom/cli/issues/2833), plugin-telemetry PR [#620](https://github.com/salesforcecli/plugin-telemetry/pull/620))
