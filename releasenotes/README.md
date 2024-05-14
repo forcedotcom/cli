@@ -34,7 +34,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * CHANGE: If you install Salesforce CLI using `npm`, your local version of Node.js must be at least 18.16. (cli PR [#1645](https://github.com/salesforcecli/cli/pull/1645))
 
-* FIX: On Windows, running a Salesforce CLI command no longer causes a new CMD window to briefly appear and then disappear. (GitHub issue [#2833](https://github.com/forcedotcom/cli/issues/2833), plugin-telemetry PR [#620](https://github.com/salesforcecli/plugin-telemetry/pull/620))
+* FIX: On Windows, running a Salesforce CLI command no longer causes a new CMD window to briefly appear and then disappear. Thanks [@jaklein](https://github.com/jaklein) for pointing out the fix!  (GitHub issue [#2833](https://github.com/forcedotcom/cli/issues/2833), plugin-telemetry PR [#620](https://github.com/salesforcecli/plugin-telemetry/pull/620))
 
 ## 2.41.8 (May 15, 2024) [stable]
 
