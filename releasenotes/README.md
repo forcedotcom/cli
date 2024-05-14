@@ -34,12 +34,12 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: Quickly find the date that your current Salesforce CLI version was published by running the `version --verbose` command. The new output also lists the current `latest` (AKA `stable`) version of Salesforce CLI, based on the [npm tags](https://www.npmjs.com/package/@salesforce/cli?activeTab=versions). The new output also displays the same information for any user-installed plugins, including the Salesforce JIT plugins such as `@salesforce/sfdx-scanner`.  We also made the output easier to read. (oclif plugin-version PR [#425](https://github.com/oclif/plugin-version/pull/425))
 
-    Here's partial output of the new command showing that the installed version (`2.42.5`) was published 13 days ago, and that the latest version is `2.40.7`:
+    Here's partial output of the new command showing that the installed version (`2.39.6`) was published 21 days ago, and that the latest version is `2.40.7`:
 
      ```bash
      $ sf version --verbose
      CLI Version:
-	    @salesforce/cli/2.42.5 published 13 days ago (Wed May 01 2024) (latest is 2.40.7)
+	    @salesforce/cli/2.39.6 published 21 days ago (Tue Apr 23 2024) (latest is 2.40.7)
      ...
      ```
 
@@ -48,6 +48,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 * FIX: On Windows, running a Salesforce CLI command no longer causes a new CMD window to briefly appear and then disappear. Thanks [@jaklein](https://github.com/jaklein) for pointing out the fix!  (GitHub issue [#2833](https://github.com/forcedotcom/cli/issues/2833), plugin-telemetry PR [#620](https://github.com/salesforcecli/plugin-telemetry/pull/620))
 
 * FIX: The `project deploy report` command no longer displays incorrect warnings about source format files that don't apply to the asynchronous deployment of metadata format files. (GitHub issue [#2862](https://github.com/forcedotcom/cli/issues/2862), source-deploy-retrieve PR [#1311](https://github.com/forcedotcom/source-deploy-retrieve/pull/1311))
+
+* FIX: (This fix is mostly relevant to our fabulous plugin developers) We've updated various files, such as the schema for `sfdx-project.json`, so that you no longer get type issues or `Property not found` when developing with our APIs in VSCode or other IDE. (GitHub issue [#2201](https://github.com/forcedotcom/cli/issues/2201)), schemas PR [#85](https://github.com/forcedotcom/schemas/pull/85), sfdx-core [#1066](https://github.com/forcedotcom/sfdx-core/pull/1066), packaging [#569](https://github.com/forcedotcom/packaging/pull/569))
 
 ## 2.41.8 (May 15, 2024) [stable]
 
