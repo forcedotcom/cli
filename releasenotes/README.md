@@ -34,8 +34,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * CHANGE: If you install Salesforce CLI using `npm`, your local version of Node.js must be at least 18.16. (cli PR [#1645](https://github.com/salesforcecli/cli/pull/1645))
 
-* FIX: (GitHub issue [#2865](https://github.com/forcedotcom/cli/issues/2865), 
-
 ## 2.41.8 (May 15, 2024) [stable]
 
 * NEW: The `project retrieve start` command now warns you if you have the pattern `**/unpackaged/**` in your `.forceignore` file. This pattern causes the retrieve to ignore all files, because `/unpackaged` is the directory within the retrieved ZIP file in which all unpackaged metadata lives. (GitHub issue [#2399](https://github.com/forcedotcom/cli/issues/2399), source-deploy-retrieve PR [#1301](https://github.com/forcedotcom/source-deploy-retrieve/pull/1301)) 
