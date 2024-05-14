@@ -32,7 +32,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: Quickly discover the publish date of your current Salesforce CLI installation by running the `version --verbose` command. The new output also lists the current `latest` (AKA `stable`) version of Salesforce CLI.  But wait, there's more! The output provides the same information for any user-installed plugins, including the Salesforce JIT plugins such as `@salesforce/sfdx-scanner`.  Here's partial output of the new command showing this enhanced version information about Salesforce CLI itself:
+* NEW: Quickly find the date that your current Salesforce CLI version was published by running the `version --verbose` command. The new output also lists the current `latest` (AKA `stable`) version of Salesforce CLI, based on the [npm tags](https://www.npmjs.com/package/@salesforce/cli?activeTab=versions). The new output also displays the same information for any user-installed plugins, including the Salesforce JIT plugins such as `@salesforce/sfdx-scanner`.  We also made the output easier to read. (oclif plugin-version PR [#425](https://github.com/oclif/plugin-version/pull/425))
+
+    Here's partial output of the new command showing that the installed version (`2.42.5`) was published 13 days ago, and that the latest version is `2.40.7`:
 
      ```bash
      $ sf version --verbose
