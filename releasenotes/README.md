@@ -26,17 +26,40 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.41.6 (May 15, 2024) [stable-rc]
+## 2.42.6 (May 22, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: Quickly find the date that your current Salesforce CLI version was published by running the `version --verbose` command. The new output also lists the current `latest` (AKA `stable`) version of Salesforce CLI, based on the [npm tags](https://www.npmjs.com/package/@salesforce/cli?activeTab=versions). The new output also displays the same information for any user-installed plugins, including the Salesforce JIT plugins such as `@salesforce/sfdx-scanner`.  We also made the output easier to read. (oclif plugin-version PR [#425](https://github.com/oclif/plugin-version/pull/425))
+
+    Here's partial output of the new command showing that the installed version (`2.39.6`) was published 21 days ago, and that the latest version is `2.40.7`:
+
+     ```bash
+     $ sf version --verbose
+     CLI Version:
+	    @salesforce/cli/2.39.6 published 21 days ago (Tue Apr 23 2024) (latest is 2.40.7)
+     ...
+     ```
+
+* CHANGE: If you install Salesforce CLI using `npm`, your local version of Node.js must be at least 18.16. (cli PR [#1645](https://github.com/salesforcecli/cli/pull/1645))
+
+* FIX: On Windows, running a Salesforce CLI command no longer causes a new CMD window to briefly appear and then disappear. Thanks [@jaklein](https://github.com/jaklein) for pointing out the fix!  (GitHub issue [#2833](https://github.com/forcedotcom/cli/issues/2833), plugin-telemetry PR [#620](https://github.com/salesforcecli/plugin-telemetry/pull/620))
+
+* FIX: The `project deploy report` command no longer displays incorrect warnings about source format files that don't apply to the asynchronous deployment of metadata format files. (GitHub issue [#2862](https://github.com/forcedotcom/cli/issues/2862), source-deploy-retrieve PR [#1311](https://github.com/forcedotcom/source-deploy-retrieve/pull/1311))
+
+* FIX: (This fix is mostly relevant to our fabulous plugin developers) We've updated various files, such as the schema for `sfdx-project.json`, so that you no longer get type issues or `Property not found` when developing with our APIs in VSCode or other IDE. (GitHub issue [#2201](https://github.com/forcedotcom/cli/issues/2201)), schemas PR [#85](https://github.com/forcedotcom/schemas/pull/85), sfdx-core [#1066](https://github.com/forcedotcom/sfdx-core/pull/1066), packaging [#569](https://github.com/forcedotcom/packaging/pull/569))
+
+## 2.41.8 (May 15, 2024) [stable]
 
 * NEW: The `project retrieve start` command now warns you if you have the pattern `**/unpackaged/**` in your `.forceignore` file. This pattern causes the retrieve to ignore all files, because `/unpackaged` is the directory within the retrieved ZIP file in which all unpackaged metadata lives. (GitHub issue [#2399](https://github.com/forcedotcom/cli/issues/2399), source-deploy-retrieve PR [#1301](https://github.com/forcedotcom/source-deploy-retrieve/pull/1301)) 
 
 * CHANGE: The `org delete snapshot` command now prompts for confirmation from the user before it deletes the snapshot; previously the command didn't prompt. Use the new `--no-prompt` flag to not be prompted, which is the old behavior. (plugin-signups PR [#567](https://github.com/salesforcecli/plugin-signups/pull/567))
 
 * FIX: Specifying the `--no-namespace` flag of the `org create scratch` command now correctly creates a scratch org that doesn't have a namespace. (GitHub issue [#2855](https://github.com/forcedotcom/cli/issues/2855), sfdx-core PR [#1064](https://github.com/forcedotcom/sfdx-core/pull/1064))
+
+* FIX: When retrieving a CustomField from the org, `project retrieve start` now preserves the content of the field's CustomObject source file. (Github issue [#2865](https://github.com/forcedotcom/cli/issues/2865), source-deploy-retrieve PR [#1308](https://github.com/forcedotcom/source-deploy-retrieve/pull/1308))
 
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
 
@@ -46,7 +69,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
   * SearchCustomization
   * SearchOrgWideObjectConfig
  
-## 2.40.7 (May 8, 2024) [stable]
+## 2.40.7 (May 8, 2024)
 
 * NEW: Some Salesforce CLI downloads, installations, and updates are now faster because we reduced the size of the Salesforce CLI OS-specific installers and TAR files. Specifically, we no longer include files like `oclif.lock`, `yarn.lock`, `npm-shrinkwrap`, and `package-lock` in them.  (GitHub discussion [#2835](https://github.com/forcedotcom/cli/discussions/2835), oclif PR [#1385](https://github.com/oclif/oclif/pull/1385))
 
@@ -57,8 +80,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 * FIX: The `.forceignore` file now works consistently, whether you're using source or mdapi format. Specifically, when you deploy or retrieve in source format (using `sf project deploy start`, for example), the command respects file names of `.forceignore` entries in source format. Similarly, when you deploy or retrieve in mdapi format (using `sf project deploy start --metadata-dir`, for example), the command respects file name entries in mdapi format. (GitHub issue [#2737](https://github.com/forcedotcom/cli/issues/2737), source-deploy-retrieve PR [#1295](https://github.com/forcedotcom/source-deploy-retrieve/pull/1295))
 
 * FIX: The `org shape list` command now works as expected, even when the connection to the Dev Hub org is incorrect.
-
-* FIX: When retrieving a CustomField from the org, `project retrieve start` now preserves the content of the field's CustomObject source file. (Github issue [#2865](https://github.com/forcedotcom/cli/issues/2865), source-deploy-retrieve PR [#1308](https://github.com/forcedotcom/source-deploy-retrieve/pull/1308))
 
 ## 2.39.6 (May 1, 2024)
 
