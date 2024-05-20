@@ -54,6 +54,11 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
     The new beta feature itself hasn't changed, including the list of possible values for the `sourceBehaviorOptions`. See the [April 10, 2024 release notes](./README.md#2368-april-10-2024) for more information. (schemas PR [#87](https://github.com/forcedotcom/schemas/pull/87), source-deploy-retrieve PR [#1312](https://github.com/forcedotcom/source-deploy-retrieve/pull/1312))
 
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+    
+    * GenAiFunction
+    * GenAiPlanner
+
 ## 2.42.6 (May 22, 2024) [stable]
 
 * NEW: Quickly find the date that your current Salesforce CLI version was published by running the `version --verbose` command. The new output also lists the current `latest` (AKA `stable`) version of Salesforce CLI, based on the [npm tags](https://www.npmjs.com/package/@salesforce/cli?activeTab=versions). The new output also displays the same information for any user-installed plugins, including the Salesforce JIT plugins such as `@salesforce/sfdx-scanner`.  We also made the output easier to read. (oclif plugin-version PR [#425](https://github.com/oclif/plugin-version/pull/425))
