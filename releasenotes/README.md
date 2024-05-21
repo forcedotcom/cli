@@ -48,8 +48,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     ```
     (GitHub issues [#2344](https://github.com/forcedotcom/cli/discussions/2344) and [#2346](https://github.com/forcedotcom/cli/discussions/2346), plugin-data PR [#922](https://github.com/salesforcecli/plugin-data/pull/922))
   
-* NEW: (This feature is for plugin developers who use the packaging APIs.)  We added a public static method to the `SubscriberPackageVersion` API that returns the `SubscriberPackageVersionId` (04t) given a partial `packageDirectories` entry. (GitHub issue [#2721](https://github.com/forcedotcom/cli/discussions/2721), packaging PR [#563](https://github.com/forcedotcom/packaging/pull/563))
-
 * CHANGE: We've changed the name of the new beta `sfdx-project.json` option that you use to decompose the optional metadata types when sync'ing source between your org and project.  
 
     * Old name: `registryPresets`
