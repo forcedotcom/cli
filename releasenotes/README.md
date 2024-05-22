@@ -26,11 +26,47 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.42.6 (May 22, 2024) [stable-rc]
+## 2.43.6 (may 29, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: Source Mobility (BETA). Source files can now be moved within your local Salesforce DX project without source-tracking thinking that you've deleted and then recreated a metadata component. This is a BETA feature and you must opt-in to enable it. You can opt-in by setting the SF_BETA_TRACK_FILE_MOVES environment variable to `true`.  Then reorganize your files as you like!  A few things to keep in mind:
+
+    * Source Mobility works with file moves, not file renames. Renaming a source file is still interpreted as deleting a metadata component and creating a new one with the different name.
+    * Child source files can only move to an identically named parent. For example, a custom field can move between Object folders in different package directories only if both Object folders have the same name.
+
+    Enjoy!  (GitHub discussion [#2682](https://github.com/forcedotcom/cli/discussions/2682), source-tracking [#574](https://github.com/forcedotcom/source-tracking/pull/574))
+    
+* NEW: Upload a local file to an org with the new `data create file` command. The default title of the uploaded file in the Salesforce UI is its filename; you can change its title with the `--title` flag. By default, the file isn't associated with a Salesforce record; use the `--parent-id` flag to attach the file to an existing Salesforce record, such as an account.
+
+    In this example, the uploaded file is given a new title and it's attached to the Salesforce record with ID a03fakeLoJWPIA3:
+
+    ```bash
+    sf data create file --file resources/astro.png --parent-id a03fakeLoJWPIA3 --title AstroOnABoat --target-org my-sandbox
+    ```
+    (GitHub issues [#2344](https://github.com/forcedotcom/cli/discussions/2344) and [#2346](https://github.com/forcedotcom/cli/discussions/2346), plugin-data PR [#922](https://github.com/salesforcecli/plugin-data/pull/922))
+  
+* CHANGE: We've changed the name of the new beta `sfdx-project.json` option that you use to decompose the optional metadata types when sync'ing source between your org and project.  
+
+    * Old name: `registryPresets`
+    * New name: `sourceBehaviorOptions`
+    
+    For example:
+
+     ```bash
+     "sourceBehaviorOptions": ["decomposePermissionSetBeta", "decomposeWorkflowBeta"]
+     ```
+    
+    The new beta feature itself hasn't changed, including the list of possible values for the `sourceBehaviorOptions`. See the [April 10, 2024 release notes](./README.md#2368-april-10-2024) for more information. (schemas PR [#87](https://github.com/forcedotcom/schemas/pull/87), source-deploy-retrieve PR [#1312](https://github.com/forcedotcom/source-deploy-retrieve/pull/1312))
+
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+    
+    * GenAiFunction
+    * GenAiPlanner
+
+## 2.42.6 (May 22, 2024) [stable]
 
 * NEW: Quickly find the date that your current Salesforce CLI version was published by running the `version --verbose` command. The new output also lists the current `latest` (AKA `stable`) version of Salesforce CLI, based on the [npm tags](https://www.npmjs.com/package/@salesforce/cli?activeTab=versions). The new output also displays the same information for any user-installed plugins, including the Salesforce JIT plugins such as `@salesforce/sfdx-scanner`.  We also made the output easier to read. (oclif plugin-version PR [#425](https://github.com/oclif/plugin-version/pull/425))
 
@@ -51,7 +87,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: (This fix is mostly relevant to our fabulous plugin developers) We've updated various files, such as the schema for `sfdx-project.json`, so that you no longer get type issues or `Property not found` when developing with our APIs in VSCode or other IDE. (GitHub issue [#2201](https://github.com/forcedotcom/cli/issues/2201)), schemas PR [#85](https://github.com/forcedotcom/schemas/pull/85), sfdx-core [#1066](https://github.com/forcedotcom/sfdx-core/pull/1066), packaging [#569](https://github.com/forcedotcom/packaging/pull/569))
 
-## 2.41.8 (May 15, 2024) [stable]
+## 2.41.8 (May 15, 2024)
 
 * NEW: The `project retrieve start` command now warns you if you have the pattern `**/unpackaged/**` in your `.forceignore` file. This pattern causes the retrieve to ignore all files, because `/unpackaged` is the directory within the retrieved ZIP file in which all unpackaged metadata lives. (GitHub issue [#2399](https://github.com/forcedotcom/cli/issues/2399), source-deploy-retrieve PR [#1301](https://github.com/forcedotcom/source-deploy-retrieve/pull/1301)) 
 
