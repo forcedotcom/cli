@@ -32,13 +32,13 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: You can now move source files within your local Salesforce DX project without source-tracking thinking that you’ve deleted and then recreated a metadata component. You must opt-in to enable this feature, which we're calling source mobility, by setting the new SF_BETA_TRACK_FILE_MOVES environment variable to `true`.  Then reorganize your files as you like!  A few things to keep in mind:
+* NEW: Source Mobility (BETA). Source files can now be moved within your local Salesforce DX project without source-tracking thinking that you've deleted and then recreated a metadata component. This is a BETA feature and you must opt-in to enable it. You can opt-in by setting the SF_BETA_TRACK_FILE_MOVES environment variable to `true`.  Then reorganize your files as you like!  A few things to keep in mind:
 
-    * Source mobility works with file moves, not file renames.
-    * Child source files can move only to an identically named parent. For example, a custom field can move between Object folders in different package directories only if both Object folders have the same name.
- 
+    * Source Mobility works with file moves, not file renames. Renaming a source file is still interpreted as deleting a metadata component and creating a new one with the different name.
+    * Child source files can only move to an identically named parent. For example, a custom field can move between Object folders in different package directories only if both Object folders have the same name.
+
     Enjoy!  (GitHub discussion [#2682](https://github.com/forcedotcom/cli/discussions/2682), source-tracking [#574](https://github.com/forcedotcom/source-tracking/pull/574))
-
+    
 * NEW: Upload a local file to an org with the new `data create file` command. The default title of the uploaded file in the Salesforce UI is its filename; you can change its title with the `--title` flag. By default, the file isn't associated with a Salesforce record; use the `--parent-id` flag to attach the file to an existing Salesforce record, such as an account.
 
     In this example, the uploaded file is given a new title and it's attached to the Salesforce record with ID a03fakeLoJWPIA3:
