@@ -26,7 +26,7 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.43.6 (may 29, 2024) [stable-rc]
+## 2.43.6 (May 29, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
@@ -85,7 +85,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `project deploy report` command no longer displays incorrect warnings about source format files that don't apply to the asynchronous deployment of metadata format files. (GitHub issue [#2862](https://github.com/forcedotcom/cli/issues/2862), source-deploy-retrieve PR [#1311](https://github.com/forcedotcom/source-deploy-retrieve/pull/1311))
 
-* FIX: (This fix is mostly relevant to our fabulous plugin developers) We've updated various files, such as the schema for `sfdx-project.json`, so that you no longer get type issues or `Property not found` when developing with our APIs in VSCode or other IDE. (GitHub issue [#2201](https://github.com/forcedotcom/cli/issues/2201)), schemas PR [#85](https://github.com/forcedotcom/schemas/pull/85), sfdx-core [#1066](https://github.com/forcedotcom/sfdx-core/pull/1066), packaging [#569](https://github.com/forcedotcom/packaging/pull/569))
+* FIX: (This fix is mostly relevant to our fabulous plugin developers) We've updated various files, such as the schema for `sfdx-project.json`, so that you no longer get type issues or `Property not found` when developing with our APIs in VSCode or other IDE. (GitHub issue [#2201](https://github.com/forcedotcom/cli/issues/2201), schemas PR [#85](https://github.com/forcedotcom/schemas/pull/85), sfdx-core [#1066](https://github.com/forcedotcom/sfdx-core/pull/1066), packaging [#569](https://github.com/forcedotcom/packaging/pull/569))
 
 ## 2.41.8 (May 15, 2024)
 
