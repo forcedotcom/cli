@@ -26,11 +26,34 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.43.7 (May 29, 2024) [stable-rc]
+## 2.44.6 (Jun 5, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: We've improved the `doctor` command so it now checks whether your computer can access certain Web sites and registries required by Salesforce CLI.  Here's truncated sample output to show which URLs it checks:
+
+    ```bash
+    $ sf doctor
+    === Running all diagnostics
+
+    pass - salesforcedx plugin not installed
+    pass - no linked plugins
+    pass - [@salesforce/plugin-deploy-retrieve] sourceApiVersion matches apiVersion
+    pass - [@salesforce/plugin-trust] can ping: https://registry.npmjs.org
+    pass - [@salesforce/plugin-trust] can ping: https://registry.yarnpkg.com
+    pass - [@salesforce/plugin-trust] can ping: https://registry.npmjs.org/
+    pass - can access: https://test.salesforce.com
+    pass - can access: https://appexchange.salesforce.com/services/data
+    pass - can access: https://developer.salesforce.com/media/salesforce-cli/sf/channels/stable/sf-win32-x64-buildmanifest
+    ...
+    ```
+    (plugin-info PR [#746](https://github.com/salesforcecli/plugin-info/pull/746), plugin-trust PR [#828](https://github.com/salesforcecli/plugin-trust/pull/828))
+  
+* FIX: Salesforce DX projects now support the DataKitObjectDependency [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
+
+## 2.43.7 (May 29, 2024) [stable]
 
 * NEW: Source Mobility (BETA). Source files can now be moved within your local Salesforce DX project without source-tracking thinking that you've deleted and then recreated a metadata component. This is a BETA feature and you must opt-in to enable it. You can opt-in by setting the SF_BETA_TRACK_FILE_MOVES environment variable to `true`.  Then reorganize your files as you like!  A few things to keep in mind:
 
@@ -66,7 +89,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * GenAiFunction
     * GenAiPlanner
 
-## 2.42.6 (May 22, 2024) [stable]
+## 2.42.6 (May 22, 2024)
 
 * NEW: Quickly find the date that your current Salesforce CLI version was published by running the `version --verbose` command. The new output also lists the current `latest` (AKA `stable`) version of Salesforce CLI, based on the [npm tags](https://www.npmjs.com/package/@salesforce/cli?activeTab=versions). The new output also displays the same information for any user-installed plugins, including the Salesforce JIT plugins such as `@salesforce/sfdx-scanner`.  We also made the output easier to read. (oclif plugin-version PR [#425](https://github.com/oclif/plugin-version/pull/425))
 
