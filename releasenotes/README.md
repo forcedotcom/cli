@@ -32,6 +32,23 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: (Beta) Enable a behavior of your project source files with the new `project convert source-behavior` command. For example, to update your project so it starts decomposing permission sets, run this command:
+
+    ```bash
+    $ sf project convert source-behavior --behavior decomposePermissionSetBeta
+    ```
+
+   When the command finishes, your `sfdx-project.json` file is updated to always decompose permission sets, and the existing permission set files in your local package directories are converted into the new decomposed format. You run this command only once for a given behavior change.  Here are the current possible values for the `--behavior` flag:
+
+    * `decomposePermissionSetBeta` — Decompose the [PermissionSet](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_permissionset.htm) metadata type.
+    * `decomposeCustomLabelsBeta` — Decompose the [CustomLabels](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_customlabels.htm) metadata type.
+    * `decomposeWorkflowBeta` — Decompose the [WorkFlow](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_workflow.htm) metadata type.
+    * `decomposeSharingRulesBeta` — Decompose the [SharingRules](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_sharingrules.htm) metadata type
+
+  This command replaces the manual steps we documented in the [April 10, 2024](./README.md#2368-april-10-2024) release notes for converting your project to decompose the additional four metadata types. Because the feature is beta, the values for the `--behavior` flag include the word `Beta`.  When the feature is generally available, we'll remove the `Beta` label; the new flag value will be `--behavior decomposePermissionSet`, for example.
+
+  (plugin-deploy-retrieve PR [#1015](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1015))
+
 * NEW: We've improved the `doctor` command so it now checks whether your computer can access certain Web sites and registries required by Salesforce CLI.  Here's truncated sample output to show which URLs it checks:
 
     ```bash
