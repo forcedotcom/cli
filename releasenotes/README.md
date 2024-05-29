@@ -45,7 +45,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `decomposeWorkflowBeta` — Decompose the [WorkFlow](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_workflow.htm) metadata type.
     * `decomposeSharingRulesBeta` — Decompose the [SharingRules](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_sharingrules.htm) metadata type
 
-  This command replaces the manual steps we documented in the [April 10, 2024](./README.md#2368-april-10-2024) release notes for converting your project to decompose the additional four metadata types. Because the feature is beta, the values for the `--behavior` flag include the word `Beta`.  When the feature is generally available, we'll remove the `Beta` label; the new flag value will be `--behavior decomposePermissionSet`, for example.
+  This command replaces the manual steps we documented in the [April 10, 2024](./README.md#2368-april-10-2024) release notes for converting your project to decompose the additional four metadata types. Because the behaviors are beta, the values for the `--behavior` flag include the word `Beta`.  When a particular behavior becomes generally available (GA), we'll remove the `Beta` label; for example, if we make decomposing permission sets generally available, the new flag value will be `--behavior decomposePermissionSet`.  This command, and the individual behaviors, can become generally available at different times; check these release notes for announcements.
 
   (plugin-deploy-retrieve PR [#1015](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1015))
 
