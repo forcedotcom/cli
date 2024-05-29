@@ -26,11 +26,55 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.43.7 (May 29, 2024) [stable-rc]
+## 2.44.7 (Jun 5, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: (Beta) Enable a behavior of your project source files with the new `project convert source-behavior` command. For example, to update your project so it starts decomposing permission sets, run this command:
+
+    ```bash
+    $ sf project convert source-behavior --behavior decomposePermissionSetBeta
+    ```
+
+   When the command finishes, your `sfdx-project.json` file is updated to always decompose permission sets, and the existing permission set files in your local package directories are converted into the new decomposed format. You run this command only once for a given behavior change. Use the `--dry-run` flag to preview what would be changed; sample files are created in a `DRY-RUN-RESULTS` directory.
+
+   Here are the current possible values for the `--behavior` flag:
+
+    * `decomposePermissionSetBeta` — Decompose the [PermissionSet](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_permissionset.htm) metadata type.
+    * `decomposeCustomLabelsBeta` — Decompose the [CustomLabels](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_customlabels.htm) metadata type.
+    * `decomposeWorkflowBeta` — Decompose the [WorkFlow](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_workflow.htm) metadata type.
+    * `decomposeSharingRulesBeta` — Decompose the [SharingRules](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_sharingrules.htm) metadata type
+
+  This command replaces the manual steps we documented in the [April 10, 2024](./README.md#2368-april-10-2024) release notes for converting your project to decompose the additional four metadata types. Because the behaviors are beta, the values for the `--behavior` flag include the word `Beta`.  When a particular behavior becomes generally available (GA), we'll remove the `Beta` label; for example, when we make decomposing permission sets generally available, the new flag value will be `--behavior decomposePermissionSet`.  This command, and the individual behaviors, can become generally available at different times; check these release notes for announcements.
+
+  (plugin-deploy-retrieve PR [#1015](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1015))
+
+* NEW: We've improved the `doctor` command so it now checks whether your computer can access certain Web sites and registries required by Salesforce CLI.  Here's truncated sample output to show which URLs it checks:
+
+    ```bash
+    $ sf doctor
+    === Running all diagnostics
+
+    pass - salesforcedx plugin not installed
+    pass - no linked plugins
+    pass - [@salesforce/plugin-deploy-retrieve] sourceApiVersion matches apiVersion
+    pass - [@salesforce/plugin-trust] can ping: https://registry.npmjs.org
+    pass - [@salesforce/plugin-trust] can ping: https://registry.yarnpkg.com
+    pass - [@salesforce/plugin-trust] can ping: https://registry.npmjs.org/
+    pass - can access: https://test.salesforce.com
+    pass - can access: https://appexchange.salesforce.com/services/data
+    pass - can access: https://developer.salesforce.com/media/salesforce-cli/sf/channels/stable/sf-win32-x64-buildmanifest
+    ...
+    ```
+    (plugin-info PR [#746](https://github.com/salesforcecli/plugin-info/pull/746), plugin-trust PR [#828](https://github.com/salesforcecli/plugin-trust/pull/828))
+  
+* FIX: If you delete a Global Action in a source-tracking-enabled org, then run `project retrieve start`, Salesforce CLI now deletes it locally.  Previously it did nothing because the server incorrectly lists the change as `QuickActionDefinition`.  (GitHub issue [#2829](https://github.com/forcedotcom/cli/issues/2829), source-tracking PR [#590](https://github.com/forcedotcom/source-tracking/pull/590))
+
+* FIX: Salesforce DX projects now support the DataKitObjectDependency [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
+
+## 2.43.7 (May 29, 2024) [stable]
 
 * NEW: Source Mobility (BETA). Source files can now be moved within your local Salesforce DX project without source-tracking thinking that you've deleted and then recreated a metadata component. This is a BETA feature and you must opt-in to enable it. You can opt-in by setting the SF_BETA_TRACK_FILE_MOVES environment variable to `true`.  Then reorganize your files as you like!  A few things to keep in mind:
 
@@ -66,7 +110,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * GenAiFunction
     * GenAiPlanner
 
-## 2.42.6 (May 22, 2024) [stable]
+## 2.42.6 (May 22, 2024)
 
 * NEW: Quickly find the date that your current Salesforce CLI version was published by running the `version --verbose` command. The new output also lists the current `latest` (AKA `stable`) version of Salesforce CLI, based on the [npm tags](https://www.npmjs.com/package/@salesforce/cli?activeTab=versions). The new output also displays the same information for any user-installed plugins, including the Salesforce JIT plugins such as `@salesforce/sfdx-scanner`.  We also made the output easier to read. (oclif plugin-version PR [#425](https://github.com/oclif/plugin-version/pull/425))
 
