@@ -38,7 +38,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     $ sf project convert source-behavior --behavior decomposePermissionSetBeta
     ```
 
-   When the command finishes, your `sfdx-project.json` file is updated to always decompose permission sets, and the existing permission set files in your local package directories are converted into the new decomposed format. You run this command only once for a given behavior change.  Here are the current possible values for the `--behavior` flag:
+   When the command finishes, your `sfdx-project.json` file is updated to always decompose permission sets, and the existing permission set files in your local package directories are converted into the new decomposed format. You run this command only once for a given behavior change. Use the `--dry-run` flag to preview what would be changed; sample files are created in a `DRY-RUN-RESULTS` directory.
+
+   Here are the current possible values for the `--behavior` flag:
 
     * `decomposePermissionSetBeta` — Decompose the [PermissionSet](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_permissionset.htm) metadata type.
     * `decomposeCustomLabelsBeta` — Decompose the [CustomLabels](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_customlabels.htm) metadata type.
