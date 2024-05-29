@@ -68,7 +68,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     ```
     (plugin-info PR [#746](https://github.com/salesforcecli/plugin-info/pull/746), plugin-trust PR [#828](https://github.com/salesforcecli/plugin-trust/pull/828))
   
-* FIX: If you delete a Global Action in a source-tracking-enabled org, then run `project retrieve start`, Salesforce CLI now correctly handles the corresponding local source file. Previously it did nothing because it incorrectly associated the non-existent QuickActionDefinition type with a Global Action rather than the correct QuickAction.  (GitHub issue [#2829](https://github.com/forcedotcom/cli/issues/2829), source-tracking PR [#590](https://github.com/forcedotcom/source-tracking/pull/590))
+* FIX: If you delete a Global Action in a source-tracking-enabled org, then run `project retrieve start`, Salesforce CLI will delete it locally.  Previously it did nothing because the server incorrectly lists the change as `QuickActionDefinition`.  (GitHub issue [#2829](https://github.com/forcedotcom/cli/issues/2829), source-tracking PR [#590](https://github.com/forcedotcom/source-tracking/pull/590))
 
 * FIX: Salesforce DX projects now support the DataKitObjectDependency [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
 
