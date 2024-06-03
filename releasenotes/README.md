@@ -74,8 +74,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Salesforce DX projects now support the DataKitObjectDependency [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
 
-## 2.43.7 (May 29, 2024) [stable]
-
 * NEW: Source Mobility (BETA). Source files can now be moved within your local Salesforce DX project without source-tracking thinking that you've deleted and then recreated a metadata component. This is a BETA feature and you must opt-in to enable it. You can opt-in by setting the SF_BETA_TRACK_FILE_MOVES environment variable to `true`.  Then reorganize your files as you like!  A few things to keep in mind:
 
     * Source Mobility works with file moves, not file renames. Renaming a source file is still interpreted as deleting a metadata component and creating a new one with the different name.
@@ -110,7 +108,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * GenAiFunction
     * GenAiPlanner
 
-## 2.42.6 (May 22, 2024)
+## 2.42.6 (May 22, 2024) [stable]
 
 * NEW: Quickly find the date that your current Salesforce CLI version was published by running the `version --verbose` command. The new output also lists the current `latest` (AKA `stable`) version of Salesforce CLI, based on the [npm tags](https://www.npmjs.com/package/@salesforce/cli?activeTab=versions). The new output also displays the same information for any user-installed plugins, including the Salesforce JIT plugins such as `@salesforce/sfdx-scanner`.  We also made the output easier to read. (oclif plugin-version PR [#425](https://github.com/oclif/plugin-version/pull/425))
 
