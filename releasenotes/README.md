@@ -26,11 +26,18 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.44.8 (Jun 5, 2024) [stable-rc]
+## 2.45.6 (June 12, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+    
+    * EnblProgramTaskSubCategory
+    * LearningItemType
+
+## 2.44.8 (Jun 5, 2024) [stable]
 
 * NEW: (Beta) Enable a behavior of your project source files with the new `project convert source-behavior` command. For example, to update your project so it starts decomposing permission sets, run this command:
 
@@ -108,7 +115,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * GenAiFunction
     * GenAiPlanner
 
-## 2.42.6 (May 22, 2024) [stable]
+## 2.42.6 (May 22, 2024)
 
 * NEW: Quickly find the date that your current Salesforce CLI version was published by running the `version --verbose` command. The new output also lists the current `latest` (AKA `stable`) version of Salesforce CLI, based on the [npm tags](https://www.npmjs.com/package/@salesforce/cli?activeTab=versions). The new output also displays the same information for any user-installed plugins, including the Salesforce JIT plugins such as `@salesforce/sfdx-scanner`.  We also made the output easier to read. (oclif plugin-version PR [#425](https://github.com/oclif/plugin-version/pull/425))
 
