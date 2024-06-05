@@ -39,6 +39,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     ```
     (plugin-settings PR [#625](https://github.com/salesforcecli/plugin-settings/pull/625))
   
+* FIX: We now correctly display an error if you try to convert source files that are already in metadata format to the same format.   (source-deploy-retrieve PR [#1329](https://github.com/forcedotcom/source-deploy-retrieve/pull/1329))
+
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
     
     * EnblProgramTaskSubCategory
