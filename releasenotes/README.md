@@ -32,6 +32,13 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: We now warn you if you set an alias that includes a space, which we don't recommend. If you decide to stick with the spaces, then you must use double quotes around it, such as:
+
+    ```bash
+    sf project deploy start --target-org "my scratch"
+    ```
+    (plugin-settings PR [#625](https://github.com/salesforcecli/plugin-settings/pull/625))
+  
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
     
     * EnblProgramTaskSubCategory
