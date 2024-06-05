@@ -26,11 +26,31 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.44.8 (Jun 5, 2024) [stable-rc]
+## 2.45.6 (June 12, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: We now warn you if you set an alias that includes a space, which we don't recommend. If you decide to stick with the spaces, then you must use double quotes around it, such as:
+
+    ```bash
+    sf project deploy start --target-org "my scratch"
+    ```
+    (plugin-settings PR [#625](https://github.com/salesforcecli/plugin-settings/pull/625))
+  
+* FIX: We now correctly display an error if you try to convert source files that are already in metadata format to the same format.   (source-deploy-retrieve PR [#1329](https://github.com/forcedotcom/source-deploy-retrieve/pull/1329))
+
+* FIX: The JSON response, when running the `org sandbox create|refresh|resume` commands with the `--json` flag, now includes the sandbox username if the sandbox is in a completed state and has been authenticated. This update makes the JSON output consistent with the human-readable output. (GitHub issue [#2879](https://github.com/forcedotcom/cli/issues/2879), plugin-org PR [#1068](https://github.com/salesforcecli/plugin-org/pull/1068))
+
+* FIX: We improved the error message when you run `package install` on a package that was created with an installation key, but you either don't provide the key when installing it, or the key is incorrect. (GitHub issue [#2882](https://github.com/forcedotcom/cli/issues/2882), packaging PR [#580](https://github.com/forcedotcom/packaging/pull/580))
+
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+    
+    * EnblProgramTaskSubCategory
+    * LearningItemType
+
+## 2.44.8 (Jun 5, 2024) [stable]
 
 * NEW: (Beta) Enable a behavior of your project source files with the new `project convert source-behavior` command. For example, to update your project so it starts decomposing permission sets, run this command:
 
@@ -70,9 +90,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     ```
     (plugin-info PR [#746](https://github.com/salesforcecli/plugin-info/pull/746), plugin-trust PR [#828](https://github.com/salesforcecli/plugin-trust/pull/828))
   
-* FIX: If you delete a Global Action in a source-tracking-enabled org, then run `project retrieve start`, Salesforce CLI now deletes it locally.  Previously it did nothing because the server incorrectly lists the change as `QuickActionDefinition`.  (GitHub issue [#2829](https://github.com/forcedotcom/cli/issues/2829), source-tracking PR [#590](https://github.com/forcedotcom/source-tracking/pull/590))
-
-* FIX: Salesforce DX projects now support the DataKitObjectDependency [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
 
 * NEW: Source Mobility (BETA). Source files can now be moved within your local Salesforce DX project without source-tracking thinking that you've deleted and then recreated a metadata component. This is a BETA feature and you must opt-in to enable it. You can opt-in by setting the SF_BETA_TRACK_FILE_MOVES environment variable to `true`.  Then reorganize your files as you like!  A few things to keep in mind:
 
@@ -103,12 +120,17 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
     The new beta feature itself hasn't changed, including the list of possible values for the `sourceBehaviorOptions`. See the [April 10, 2024 release notes](./README.md#2368-april-10-2024) for more information. (schemas PR [#87](https://github.com/forcedotcom/schemas/pull/87), source-deploy-retrieve PR [#1312](https://github.com/forcedotcom/source-deploy-retrieve/pull/1312))
 
+* FIX: If you delete a Global Action in a source-tracking-enabled org, then run `project retrieve start`, Salesforce CLI now deletes it locally.  Previously it did nothing because the server incorrectly lists the change as `QuickActionDefinition`.  (GitHub issue [#2829](https://github.com/forcedotcom/cli/issues/2829), source-tracking PR [#590](https://github.com/forcedotcom/source-tracking/pull/590))
+
+* FIX: The `project deploy report` command no longer displays incorrect warnings about source format files that don't apply to the asynchronous deployment of metadata format files. (GitHub issue [#2862](https://github.com/forcedotcom/cli/issues/2862), source-deploy-retrieve PR [#1311](https://github.com/forcedotcom/source-deploy-retrieve/pull/1311))
+
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
     
     * GenAiFunction
     * GenAiPlanner
+    * DataKitObjectDependency
 
-## 2.42.6 (May 22, 2024) [stable]
+## 2.42.6 (May 22, 2024)
 
 * NEW: Quickly find the date that your current Salesforce CLI version was published by running the `version --verbose` command. The new output also lists the current `latest` (AKA `stable`) version of Salesforce CLI, based on the [npm tags](https://www.npmjs.com/package/@salesforce/cli?activeTab=versions). The new output also displays the same information for any user-installed plugins, including the Salesforce JIT plugins such as `@salesforce/sfdx-scanner`.  We also made the output easier to read. (oclif plugin-version PR [#425](https://github.com/oclif/plugin-version/pull/425))
 
@@ -124,8 +146,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 * CHANGE: If you install Salesforce CLI using `npm`, your local version of Node.js must be at least 18.16. (cli PR [#1645](https://github.com/salesforcecli/cli/pull/1645))
 
 * FIX: On Windows, running a Salesforce CLI command no longer causes a new CMD window to briefly appear and then disappear. Thanks [@jaklein](https://github.com/jaklein) for pointing out the fix!  (GitHub issue [#2833](https://github.com/forcedotcom/cli/issues/2833), plugin-telemetry PR [#620](https://github.com/salesforcecli/plugin-telemetry/pull/620))
-
-* FIX: The `project deploy report` command no longer displays incorrect warnings about source format files that don't apply to the asynchronous deployment of metadata format files. (GitHub issue [#2862](https://github.com/forcedotcom/cli/issues/2862), source-deploy-retrieve PR [#1311](https://github.com/forcedotcom/source-deploy-retrieve/pull/1311))
 
 * FIX: (This fix is mostly relevant to our fabulous plugin developers) We've updated various files, such as the schema for `sfdx-project.json`, so that you no longer get type issues or `Property not found` when developing with our APIs in VSCode or other IDE. (GitHub issue [#2201](https://github.com/forcedotcom/cli/issues/2201), schemas PR [#85](https://github.com/forcedotcom/schemas/pull/85), sfdx-core [#1066](https://github.com/forcedotcom/sfdx-core/pull/1066), packaging [#569](https://github.com/forcedotcom/packaging/pull/569))
 
