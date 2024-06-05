@@ -86,9 +86,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     ```
     (plugin-info PR [#746](https://github.com/salesforcecli/plugin-info/pull/746), plugin-trust PR [#828](https://github.com/salesforcecli/plugin-trust/pull/828))
   
-* FIX: If you delete a Global Action in a source-tracking-enabled org, then run `project retrieve start`, Salesforce CLI now deletes it locally.  Previously it did nothing because the server incorrectly lists the change as `QuickActionDefinition`.  (GitHub issue [#2829](https://github.com/forcedotcom/cli/issues/2829), source-tracking PR [#590](https://github.com/forcedotcom/source-tracking/pull/590))
-
-* FIX: Salesforce DX projects now support the DataKitObjectDependency [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
 
 * NEW: Source Mobility (BETA). Source files can now be moved within your local Salesforce DX project without source-tracking thinking that you've deleted and then recreated a metadata component. This is a BETA feature and you must opt-in to enable it. You can opt-in by setting the SF_BETA_TRACK_FILE_MOVES environment variable to `true`.  Then reorganize your files as you like!  A few things to keep in mind:
 
@@ -119,10 +116,15 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
     The new beta feature itself hasn't changed, including the list of possible values for the `sourceBehaviorOptions`. See the [April 10, 2024 release notes](./README.md#2368-april-10-2024) for more information. (schemas PR [#87](https://github.com/forcedotcom/schemas/pull/87), source-deploy-retrieve PR [#1312](https://github.com/forcedotcom/source-deploy-retrieve/pull/1312))
 
+* FIX: If you delete a Global Action in a source-tracking-enabled org, then run `project retrieve start`, Salesforce CLI now deletes it locally.  Previously it did nothing because the server incorrectly lists the change as `QuickActionDefinition`.  (GitHub issue [#2829](https://github.com/forcedotcom/cli/issues/2829), source-tracking PR [#590](https://github.com/forcedotcom/source-tracking/pull/590))
+
+* FIX: The `project deploy report` command no longer displays incorrect warnings about source format files that don't apply to the asynchronous deployment of metadata format files. (GitHub issue [#2862](https://github.com/forcedotcom/cli/issues/2862), source-deploy-retrieve PR [#1311](https://github.com/forcedotcom/source-deploy-retrieve/pull/1311))
+
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
     
     * GenAiFunction
     * GenAiPlanner
+    * DataKitObjectDependency
 
 ## 2.42.6 (May 22, 2024)
 
@@ -140,8 +142,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 * CHANGE: If you install Salesforce CLI using `npm`, your local version of Node.js must be at least 18.16. (cli PR [#1645](https://github.com/salesforcecli/cli/pull/1645))
 
 * FIX: On Windows, running a Salesforce CLI command no longer causes a new CMD window to briefly appear and then disappear. Thanks [@jaklein](https://github.com/jaklein) for pointing out the fix!  (GitHub issue [#2833](https://github.com/forcedotcom/cli/issues/2833), plugin-telemetry PR [#620](https://github.com/salesforcecli/plugin-telemetry/pull/620))
-
-* FIX: The `project deploy report` command no longer displays incorrect warnings about source format files that don't apply to the asynchronous deployment of metadata format files. (GitHub issue [#2862](https://github.com/forcedotcom/cli/issues/2862), source-deploy-retrieve PR [#1311](https://github.com/forcedotcom/source-deploy-retrieve/pull/1311))
 
 * FIX: (This fix is mostly relevant to our fabulous plugin developers) We've updated various files, such as the schema for `sfdx-project.json`, so that you no longer get type issues or `Property not found` when developing with our APIs in VSCode or other IDE. (GitHub issue [#2201](https://github.com/forcedotcom/cli/issues/2201), schemas PR [#85](https://github.com/forcedotcom/schemas/pull/85), sfdx-core [#1066](https://github.com/forcedotcom/sfdx-core/pull/1066), packaging [#569](https://github.com/forcedotcom/packaging/pull/569))
 
