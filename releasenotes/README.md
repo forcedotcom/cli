@@ -41,6 +41,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
   
 * FIX: We now correctly display an error if you try to convert source files that are already in metadata format to the same format.   (source-deploy-retrieve PR [#1329](https://github.com/forcedotcom/source-deploy-retrieve/pull/1329))
 
+* FIX: The JSON response when running any of the sandbox commands (`org sandbox create|delete|resume`) with the `--json` flag now includes the sandbox username, consistent with the human-readable output. (GitHub issue [#2879](https://github.com/forcedotcom/cli/issues/2879), plugin-org PR [#1068](https://github.com/salesforcecli/plugin-org/pull/1068))
+
+* FIX: We improved the error message when you run `package install` on a package that was created with an installation key, but you either don't provide the key when installing it, or the key is incorrect. (GitHub issue [#2882](https://github.com/forcedotcom/cli/issues/2882), packaging PR [#580](https://github.com/forcedotcom/packaging/pull/580))
+
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
     
     * EnblProgramTaskSubCategory
