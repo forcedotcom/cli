@@ -26,11 +26,17 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.45.6 (June 12, 2024) [stable-rc]
+## 2.46.6 (June 19, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: Source Mobility (BETA): If you move a local file to a new location in your project, and then edit the file before running `project deploy start|preview` or `project retrieve start|preview`, Salesforce CLI now correctly handles both the file move and the update.  Previously the edit would be lost. (source-tracking [#601](https://github.com/forcedotcom/source-tracking/pull/601))
+
+* FIX: Source Mobility (BETA): You can now move source files in very large projects (over 8GB with over 1700 files) and successfully deploy without getting an out of memory error. (GitHub issue [#2880](https://github.com/forcedotcom/cli/issues/2880), source-tracking PR [#591](https://github.com/forcedotcom/source-tracking/pull/591))
+
+## 2.45.6 (June 12, 2024) [stable]
 
 * NEW: We now warn you if you set an alias that includes a space, which we don't recommend. If you decide to stick with the spaces, then you must use double quotes around it, such as:
 
@@ -50,7 +56,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * EnblProgramTaskSubCategory
     * LearningItemType
 
-## 2.44.8 (Jun 5, 2024) [stable]
+## 2.44.8 (Jun 5, 2024)
 
 * NEW: (Beta) Enable a behavior of your project source files with the new `project convert source-behavior` command. For example, to update your project so it starts decomposing permission sets, run this command:
 
