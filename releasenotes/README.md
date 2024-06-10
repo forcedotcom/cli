@@ -32,6 +32,12 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: We now publish all artifacts associated with a Salesforce CLI release in the [salesforce/cli](https://github.com/salesforcecli/cli/releases) GitHub repository. The release artifacts include the operating system-specific installers, such as the Windows `*.exe` executable, and all TAR files for the Linux, Windows, and macOS installs.
+
+    To download a particular artifact, go to the [Releases](https://github.com/salesforcecli/cli/releases) page, click on the release (such as [2.45.6](https://github.com/salesforcecli/cli/releases/tag/2.45.6)), open **Assets**, and then click on the artifact.  (github-workflows PR [#107](https://github.com/salesforcecli/github-workflows/pull/107))
+
+    The links to download the Salesforce CLI installation packages, executables, and TAR files that are documented in the [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm) continue to work as before. 
+
 * FIX: Source Mobility (BETA): If you move a local file to a new location in your project, and then edit the file before running `project deploy start|preview` or `project retrieve start|preview`, Salesforce CLI now correctly handles both the file move and the update.  Previously the edit would be lost. (source-tracking [#601](https://github.com/forcedotcom/source-tracking/pull/601))
 
 * FIX: Source Mobility (BETA): You can now move source files in very large projects (over 8GB with over 1700 files) and successfully deploy without getting an out of memory error. (GitHub issue [#2880](https://github.com/forcedotcom/cli/issues/2880), source-tracking PR [#591](https://github.com/forcedotcom/source-tracking/pull/591))
