@@ -40,7 +40,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: Salesforce CLI now prompts you with potential alternatives when you misstype a username or alias when running an `org login` command. (sfdx-core PR [#1079](https://github.com/forcedotcom/sfdx-core/pull/1079))
 
-* FIX: Source Mobility (BETA): If you move a local file to a new location in your project, and then edit the file before running `project deploy start|preview` or `project retrieve start|preview`, Salesforce CLI now correctly handles both the file move and the update.  Previously the edit would be lost. (source-tracking [#601](https://github.com/forcedotcom/source-tracking/pull/601))
+* FIX: Source Mobility (BETA): If you move a local file to a new location in your project, and then edit the file before running `project deploy start|preview` or `project retrieve start|preview`, Salesforce CLI now correctly handles both the file move and the update.  Previously that looked like you added one file and deleted the original. (source-tracking [#601](https://github.com/forcedotcom/source-tracking/pull/601))
 
 * FIX: Source Mobility (BETA): You can now move source files in very large projects (over 8GB with over 1700 files) and successfully deploy without getting an out of memory error. (GitHub issue [#2880](https://github.com/forcedotcom/cli/issues/2880), source-tracking PR [#591](https://github.com/forcedotcom/source-tracking/pull/591))
 
