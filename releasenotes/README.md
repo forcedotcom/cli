@@ -26,11 +26,29 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.45.6 (June 12, 2024) [stable-rc]
+## 2.46.6 (June 19, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: We now publish all artifacts associated with a Salesforce CLI release in the [salesforce/cli](https://github.com/salesforcecli/cli/releases) GitHub repository. The release artifacts include the operating system-specific installers, such as the Windows `*.exe` executable, and all TAR files for the Linux, Windows, and macOS installs.
+
+    To download a particular artifact, go to the [Releases](https://github.com/salesforcecli/cli/releases) page, click on the release (such as [2.45.6](https://github.com/salesforcecli/cli/releases/tag/2.45.6)), open **Assets**, and then click on the artifact.  (github-workflows PR [#107](https://github.com/salesforcecli/github-workflows/pull/107))
+
+    The links to download the Salesforce CLI installation packages, executables, and TAR files that are documented in the [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm) continue to work as before. 
+
+* NEW: Salesforce CLI now prompts you with potential alternatives when you misstype a username or alias when running an `org login` command. (sfdx-core PR [#1079](https://github.com/forcedotcom/sfdx-core/pull/1079))
+
+* CHANGE: We've improved the filesystem structure of the output when you set the SF_MDAPI_TEMP_DIR environment variable and then run `project deploy start` or `project retrieve start`. (source-deploy-retrieve PR [#1331](https://github.com/forcedotcom/source-deploy-retrieve/pull/1331))
+
+* FIX: Source Mobility (BETA): If you move a local file to a new location in your project, and then edit the file before running `project deploy start|preview` or `project retrieve start|preview`, Salesforce CLI now correctly handles both the file move and the update. (source-tracking [#601](https://github.com/forcedotcom/source-tracking/pull/601))
+
+* FIX: Source Mobility (BETA): You can now move source files in very large projects (over 8GB with over 1700 files) and successfully deploy without getting an out of memory error. (GitHub issue [#2880](https://github.com/forcedotcom/cli/issues/2880), source-tracking PR [#591](https://github.com/forcedotcom/source-tracking/pull/591))
+
+* FIX: When retrieving a CustomField from the org, `project retrieve start` now preserves the content of the field's CustomObject source file. We partly fixed this bug [back in May](./README.md#2418-may-15-2024), but this time around we think we fixed it all. (Github issue [#2865](https://github.com/forcedotcom/cli/issues/2865), source-deploy-retrieve PR [#1338](https://github.com/forcedotcom/source-deploy-retrieve/pull/1338))
+
+## 2.45.6 (June 12, 2024) [stable]
 
 * NEW: We now warn you if you set an alias that includes a space, which we don't recommend. If you decide to stick with the spaces, then you must use double quotes around it, such as:
 
@@ -50,7 +68,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * EnblProgramTaskSubCategory
     * LearningItemType
 
-## 2.44.8 (Jun 5, 2024) [stable]
+## 2.44.8 (Jun 5, 2024)
 
 * NEW: (Beta) Enable a behavior of your project source files with the new `project convert source-behavior` command. For example, to update your project so it starts decomposing permission sets, run this command:
 
