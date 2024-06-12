@@ -44,6 +44,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Source Mobility (BETA): You can now move source files in very large projects (over 8GB with over 1700 files) and successfully deploy without getting an out of memory error. (GitHub issue [#2880](https://github.com/forcedotcom/cli/issues/2880), source-tracking PR [#591](https://github.com/forcedotcom/source-tracking/pull/591))
 
+* FIX: When retrieving a CustomField from the org, `project retrieve start` now preserves the content of the field's CustomObject source file. We partly fixed this bug [back in May](./README.md#2418-may-15-2024), but this time around we think we fixed it all. (Github issue [#2865](https://github.com/forcedotcom/cli/issues/2865), source-deploy-retrieve PR [#1338](https://github.com/forcedotcom/source-deploy-retrieve/pull/1338))
+
 ## 2.45.6 (June 12, 2024) [stable]
 
 * NEW: We now warn you if you set an alias that includes a space, which we don't recommend. If you decide to stick with the spaces, then you must use double quotes around it, such as:
