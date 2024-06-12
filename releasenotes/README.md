@@ -40,7 +40,13 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: Salesforce CLI now prompts you with potential alternatives when you misstype a username or alias when running an `org login` command. (sfdx-core PR [#1079](https://github.com/forcedotcom/sfdx-core/pull/1079))
 
-* CHANGE: We've improved the filesystem structure of the output when you set the SF_MDAPI_TEMP_DIR environment variable and then run `project deploy start` or `project retrieve start`. (source-deploy-retrieve PR [#1331](https://github.com/forcedotcom/source-deploy-retrieve/pull/1331))
+* CHANGE: We've improved the filesystem structure of the output when you set the SF_MDAPI_TEMP_DIR environment variable and then run `project deploy start` or `project retrieve start`. These changes make it easier to debug any issues when deploying or retrieving. The changes to the output include:
+
+    * A top-level directory whose name includes the timestamp of the operation and whether the output is a result of a deploy or a retrieve.
+    * For retrieves, the output includes both formats of the retrieved files, in their own directories (`metadata` and `source`). The `metadata` directory includes the downloaded `.ZIP` file and the unzipped metadata format files; the `source` directory contains the converted files in source format. Both directories include the `package.xml` file.
+    * For deploys, the output includes only the metadata format of the deployed source in the `metadata` directory, along with a `package.xml` file.
+
+    (source-deploy-retrieve PR [#1331](https://github.com/forcedotcom/source-deploy-retrieve/pull/1331))
 
 * FIX: Source Mobility (BETA): If you move a local file to a new location in your project, and then edit the file before running `project deploy start|preview` or `project retrieve start|preview`, Salesforce CLI now correctly handles both the file move and the update. (source-tracking [#601](https://github.com/forcedotcom/source-tracking/pull/601))
 
