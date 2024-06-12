@@ -44,7 +44,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     * A top-level directory whose name includes the timestamp of the operation and whether the output is a result of a deploy or a retrieve.
     * For retrieves, the output includes both formats of the retrieved files, in their own directories (`metadata` and `source`). The `metadata` directory includes the downloaded `.ZIP` file and the unzipped metadata format files; the `source` directory contains the converted files in source format. Both directories include the `package.xml` file.
-    * For deploys, the output includes only the metadata format of the deployed source in the `metadata` directory, along with a `package.xml` file.
+    * For deploys, the output includes only the metadata format of the deployed files in the `metadata` directory, along with a `package.xml` file.
 
     (source-deploy-retrieve PR [#1331](https://github.com/forcedotcom/source-deploy-retrieve/pull/1331))
 
