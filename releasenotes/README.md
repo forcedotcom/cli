@@ -26,11 +26,19 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.46.6 (June 19, 2024) [stable-rc]
+## 2.47.7 (June 26, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: We've improved the warning message when retrieving custom fields using wildcards. (GitHub issue [#1366](https://github.com/forcedotcom/cli/issues/1366), plugin-deploy-retrieve [#1052](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1052))
+
+* FIX: If a scratch org creation fails, such as it fails to deploy the settings, the org no longer counts towards your daily and active limits. (GitHub issue [#202](https://github.com/forcedotcom/cli/issues/202), sfdx-core [#1086](https://github.com/forcedotcom/sfdx-core/pull/1086))
+
+* CHANGE: Salesforce DX projects no longer support using the ExpressionSetDefinitionVersion [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json) directly. Use its parent (ExpressionSetDefinition) instead.
+
+## 2.46.6 (June 19, 2024) [stable]
 
 * NEW: We now publish all artifacts associated with a Salesforce CLI release in the [salesforce/cli](https://github.com/salesforcecli/cli/releases) GitHub repository. The release artifacts include the operating system-specific installers, such as the Windows `*.exe` executable, and all TAR files for the Linux, Windows, and macOS installs.
 
@@ -54,7 +62,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: When retrieving a CustomField from the org, `project retrieve start` now preserves the content of the field's CustomObject source file. We partly fixed this bug [back in May](./README.md#2418-may-15-2024), but this time around we think we fixed it all. (Github issue [#2865](https://github.com/forcedotcom/cli/issues/2865), source-deploy-retrieve PR [#1338](https://github.com/forcedotcom/source-deploy-retrieve/pull/1338))
 
-## 2.45.6 (June 12, 2024) [stable]
+## 2.45.6 (June 12, 2024)
 
 * NEW: We now warn you if you set an alias that includes a space, which we don't recommend. If you decide to stick with the spaces, then you must use double quotes around it, such as:
 
