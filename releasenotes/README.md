@@ -32,6 +32,14 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: Permanently delete records in your org via the Bulk API 2.0 with the new `--hard-delete` flag of the `data delete bulk` command. When you specify this flag, the records become immediately eligible for deletion, which means you no longer need to manually clean them from the Recycle Bin. For example, permanently delete account records from your default org using the IDs listed in the specified CSV file:
+
+    ```
+    sf data delete bulk --sobject Account --file files/delete.csv --hard-delete
+    ```
+
+    Users must have the "Bulk API Hard Delete" system permission to use the `--hard-delete` flag.  This permission is disabled by default and can be enabled only by a system administrator. (GitHub discussion [#2904](https://github.com/forcedotcom/cli/discussions/2904), plugin-data PR [#959](https://github.com/salesforcecli/plugin-data/pull/959))
+
 * FIX: We've improved the warning message when retrieving custom fields using wildcards. (GitHub issue [#1366](https://github.com/forcedotcom/cli/issues/1366), plugin-deploy-retrieve [#1052](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1052))
 
 * FIX: If a scratch org creation fails, such as it fails to deploy the settings, the org no longer counts towards your daily and active limits. (GitHub issue [#202](https://github.com/forcedotcom/cli/issues/202), sfdx-core [#1086](https://github.com/forcedotcom/sfdx-core/pull/1086))
