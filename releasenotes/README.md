@@ -40,11 +40,13 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     Users must have the "Bulk API Hard Delete" system permission to use the `--hard-delete` flag.  This permission is disabled by default and can be enabled only by a system administrator. (GitHub discussion [#2904](https://github.com/forcedotcom/cli/discussions/2904), plugin-data PR [#959](https://github.com/salesforcecli/plugin-data/pull/959))
 
+* CHANGE: Salesforce DX projects no longer support using the ExpressionSetDefinitionVersion [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json) directly. Use its parent (ExpressionSetDefinition) instead.
+
+* FIX: The `force data bulk delete|status|upsert` commands now stop polling for the bulk job state in the org, and then stop executing and throw an error, if the job is aborted for some reason. These commands use Bulk API 1.0; the `data bulk` commands that use Bulk API 2.0 already work this way. (GitHub jsforce issue [#765](https://github.com/jsforce/jsforce/issues/765), jsforce PR [#1481](https://github.com/jsforce/jsforce/pull/1481))
+
 * FIX: We've improved the warning message when retrieving custom fields using wildcards. (GitHub issue [#1366](https://github.com/forcedotcom/cli/issues/1366), plugin-deploy-retrieve [#1052](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1052))
 
 * FIX: If a scratch org creation fails, such as it fails to deploy the settings, the org no longer counts towards your daily and active limits. (GitHub issue [#202](https://github.com/forcedotcom/cli/issues/202), sfdx-core [#1086](https://github.com/forcedotcom/sfdx-core/pull/1086))
-
-* CHANGE: Salesforce DX projects no longer support using the ExpressionSetDefinitionVersion [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json) directly. Use its parent (ExpressionSetDefinition) instead.
 
 ## 2.46.6 (June 19, 2024) [stable]
 
