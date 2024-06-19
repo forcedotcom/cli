@@ -40,23 +40,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     Users must have the "Bulk API Hard Delete" system permission to use the `--hard-delete` flag.  This permission is disabled by default and can be enabled only by a system administrator. (GitHub discussion [#2904](https://github.com/forcedotcom/cli/discussions/2904), plugin-data PR [#959](https://github.com/salesforcecli/plugin-data/pull/959))
 
-* NEW: Filter the list of package versions that are returned from the `package version list` command based on the source-control branch that the package versions are based on. (GitHub issue [#1530](https://github.com/forcedotcom/cli/issues/1530), plugin-packaging PR [#690](https://github.com/salesforcecli/plugin-packaging/pull/690), packaging PR [#594](https://github.com/forcedotcom/packaging/pull/594))
-
-    This example lists package versions that are based on the `featureA` branch in your default Dev Hub org:
-
-    ```
-    sf package version list --branch featureA
-    ```
-
-* NEW:  Return a new package version before completing package validations with the new `--async-validation` flag of the `package version create` command. Specifying this flag returns the package version earlier in the process, allowing you to install and test the new version right away. If your development team is using continuous integration (CI) scripts, async validation can reduce your overall CI run time. For example:
-
-    ```
-    sf package version create --path common --installation-key password123 --async-validation
-    ```
-    (plugin-packaging PR [#687](https://github.com/salesforcecli/plugin-packaging/pull/687))
-  
-* CHANGE: The colorization of the log output when you run `apex get log` and `apex tail log` is now the same; previously the commands used different color schemes, which was a tad confusing. (plugin-apex PR [#484](https://github.com/salesforcecli/plugin-apex/pull/484))
-
 * FIX: The `force data bulk delete|status|upsert` commands now stop polling for the bulk job state in the org, and then stop executing and throw an error, if the job is aborted for some reason. These commands use Bulk API 1.0; the `data bulk` commands that use Bulk API 2.0 already work this way. (GitHub jsforce issue [#765](https://github.com/jsforce/jsforce/issues/765), jsforce PR [#1481](https://github.com/jsforce/jsforce/pull/1481))
 
 * FIX: We've improved the warning message when retrieving custom fields using wildcards. (GitHub issue [#1366](https://github.com/forcedotcom/cli/issues/1366), plugin-deploy-retrieve [#1052](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1052))
