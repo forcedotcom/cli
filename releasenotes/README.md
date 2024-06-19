@@ -26,11 +26,30 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.47.6 (June 26, 2024) [stable-rc]
+## 2.48.6 (July 3, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: Filter the list of package versions that are returned from the `package version list` command based on the source-control branch that the package versions are based on. (GitHub issue [#1530](https://github.com/forcedotcom/cli/issues/1530), plugin-packaging PR [#690](https://github.com/salesforcecli/plugin-packaging/pull/690), packaging PR [#594](https://github.com/forcedotcom/packaging/pull/594))
+
+    This example lists package versions that are based on the `featureA` branch in your default Dev Hub org:
+
+    ```
+    sf package version list --branch featureA
+    ```
+
+* NEW:  Return a new package version before completing package validations with the new `--async-validation` flag of the `package version create` command. Specifying this flag returns the package version earlier in the process, allowing you to install and test the new version right away. If your development team is using continuous integration (CI) scripts, async validation can reduce your overall CI run time. For example:
+
+    ```
+    sf package version create --path common --installation-key password123 --async-validation
+    ```
+    (plugin-packaging PR [#687](https://github.com/salesforcecli/plugin-packaging/pull/687))
+
+* CHANGE: The colorization of the log output when you run `apex get log` and `apex tail log` is now the same; previously the commands used different color schemes, which was a tad confusing. (plugin-apex PR [#484](https://github.com/salesforcecli/plugin-apex/pull/484))
+
+## 2.47.6 (June 26, 2024) [stable]
 
 * NEW: Permanently delete records in your org via the Bulk API 2.0 with the new `--hard-delete` flag of the `data delete bulk` command. When you specify this flag, the records become immediately eligible for deletion, which means you no longer need to manually clean them from the Recycle Bin. For example, permanently delete account records from your default org using the IDs listed in the specified CSV file:
 
@@ -50,7 +69,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     Salesforce DX projects no longer support using the ExpressionSetDefinitionVersion metadata type directly. Use its parent (ExpressionSetDefinition) instead.
 
-## 2.46.6 (June 19, 2024) [stable]
+## 2.46.6 (June 19, 2024)
 
 * NEW: We now publish all artifacts associated with a Salesforce CLI release in the [salesforce/cli](https://github.com/salesforcecli/cli/releases) GitHub repository. The release artifacts include the operating system-specific installers, such as the Windows `*.exe` executable, and all TAR files for the Linux, Windows, and macOS installs.
 
