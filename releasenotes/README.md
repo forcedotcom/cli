@@ -42,7 +42,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
 * CHANGE: The colorization of the log output when you run `apex get log` and `apex tail log` is now the same; previously the commands used different color schemes, which was a tad confusing. (plugin-apex PR [#484](https://github.com/salesforcecli/plugin-apex/pull/484))
 
-* CHANGE: The deprecation warning for the `force:org:create` and `force:org:delete` commands now include the date when they will be removed: November 6, 2024. (plugin-org PR [#1118](https://github.com/salesforcecli/plugin-org/pull/1118))
+* CHANGE: The deprecation warning for the sfdx-style `force:org:create`, `force:org:delete`, `force:mdapi:*`, and `force:source:*` commands now include the date when they will be removed: November 6, 2024. (plugin-org PR [#1118](https://github.com/salesforcecli/plugin-org/pull/1118))
 
 * CHANGE: You can now include keys that start with an upper-case letter inside of the `plugins` property of `sfdx-project.json` file. Almost all keys in the file must start with a lower-case letter (camelCase). We made this change because we previously made an exception for keys inside the `packageAlias` property, and sometimes it's useful to use these same key names in the `plugin` section too. We continue to enforce camelCase naming for all other `sfdx-project.json` keys. ([Trailblazer Community bug report](https://trailhead.salesforce.com/trailblazer-community/feed/0D53A00003wzhsn), sfdx-core PR [#1093](https://github.com/forcedotcom/sfdx-core/pull/1093))
 
