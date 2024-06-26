@@ -62,7 +62,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We've improved the warning message when retrieving custom fields using wildcards. (GitHub issue [#1366](https://github.com/forcedotcom/cli/issues/1366), plugin-deploy-retrieve [#1052](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1052))
 
-* FIX: If a scratch org creation fails, such as it fails to deploy the settings, the org no longer counts towards your daily and active limits. (GitHub issue [#202](https://github.com/forcedotcom/cli/issues/202), sfdx-core [#1086](https://github.com/forcedotcom/sfdx-core/pull/1086))
+* FIX: If a scratch org creation fails, after the org has created (such as it fails to deploy the settings), the command returns exit code 68 (like all other partial success outcomes).  It will save the auth so you can debug the settings deploy error or delete the scratch org. (GitHub issue [#202](https://github.com/forcedotcom/cli/issues/202), sfdx-core [#1086](https://github.com/forcedotcom/sfdx-core/pull/1086))
 
 * FIX: We fixed a bug in which the first install of a JIT plugin would sometimes fail with the error `ModuleLoadError: [MODULE_NOT_FOUND]`. (oclif PR [#1124](https://github.com/oclif/core/pull/1124))
 
