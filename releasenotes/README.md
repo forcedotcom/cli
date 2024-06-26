@@ -26,11 +26,29 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.47.6 (June 26, 2024) [stable-rc]
+## 2.48.5 (July 3, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: Filter the list of package versions that are returned from the `package version list` command based on the source-control branch that the package versions are based on. (GitHub issue [#1530](https://github.com/forcedotcom/cli/issues/1530), plugin-packaging PR [#690](https://github.com/salesforcecli/plugin-packaging/pull/690), packaging PR [#594](https://github.com/forcedotcom/packaging/pull/594))
+
+    This example lists package versions that are based on the `featureA` branch in your default Dev Hub org:
+
+    ```
+    sf package version list --branch featureA
+    ```
+    
+* CHANGE: The colorization of the log output when you run `apex get log` and `apex tail log` is now the same; previously the commands used different color schemes, which was a tad confusing. (plugin-apex PR [#484](https://github.com/salesforcecli/plugin-apex/pull/484))
+
+* CHANGE: The deprecation warning for the sfdx-style `force:org:create`, `force:org:delete`, `force:mdapi:*`, and `force:source:*` commands now include the date when they will be removed: November 6, 2024. (plugin-org PR [#1118](https://github.com/salesforcecli/plugin-org/pull/1118))
+
+* CHANGE: You can now include keys that start with an upper-case letter inside of the `plugins` property of `sfdx-project.json` file. Almost all keys in the file must start with a lower-case letter (camelCase). We made this change because we previously made an exception for keys inside the `packageAlias` property, and sometimes it's useful to use these same key names in the `plugin` section too. We continue to enforce camelCase naming for all other `sfdx-project.json` keys. ([Trailblazer Community bug report](https://trailhead.salesforce.com/trailblazer-community/feed/0D53A00003wzhsn), sfdx-core PR [#1093](https://github.com/forcedotcom/sfdx-core/pull/1093))
+
+* FIX: Salesforce CLI now correctly handles situations such as expired passwords or required multi-factor authentication when it detects that a session has expired. (jsforce issues [#1291](https://github.com/jsforce/jsforce/issues/1291), [#1308](https://github.com/jsforce/jsforce/issues/1308), and [#1411](https://github.com/jsforce/jsforce/issues/1411); sfdx-core PR [#1095](https://github.com/forcedotcom/sfdx-core/pull/1095), jsforce PR [#1517](https://github.com/jsforce/jsforce/pull/1517))
+
+## 2.47.7 (June 26, 2024) [stable]
 
 * NEW: Permanently delete records in your org via the Bulk API 2.0 with the new `--hard-delete` flag of the `data delete bulk` command. When you specify this flag, the records become immediately eligible for deletion, which means you no longer need to manually clean them from the Recycle Bin. For example, permanently delete account records from your default org using the IDs listed in the specified CSV file:
 
@@ -46,11 +64,13 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: If a scratch org creation fails, such as it fails to deploy the settings, the org no longer counts towards your daily and active limits. (GitHub issue [#202](https://github.com/forcedotcom/cli/issues/202), sfdx-core [#1086](https://github.com/forcedotcom/sfdx-core/pull/1086))
 
+* FIX: We fixed a bug in which the first install of a JIT plugin would sometimes fail with the error `ModuleLoadError: [MODULE_NOT_FOUND]`. (oclif PR [#1124](https://github.com/oclif/core/pull/1124))
+
 * FIX: Salesforce DX projects now support the StageDefinition [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
 
     Salesforce DX projects no longer support using the ExpressionSetDefinitionVersion metadata type directly. Use its parent (ExpressionSetDefinition) instead.
 
-## 2.46.6 (June 19, 2024) [stable]
+## 2.46.6 (June 19, 2024)
 
 * NEW: We now publish all artifacts associated with a Salesforce CLI release in the [salesforce/cli](https://github.com/salesforcecli/cli/releases) GitHub repository. The release artifacts include the operating system-specific installers, such as the Windows `*.exe` executable, and all TAR files for the Linux, Windows, and macOS installs.
 
