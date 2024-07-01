@@ -40,7 +40,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: You can now use the `--purge-on-delete` and `--metadata-dir` flags of the `project deploy start` command together to hard delete components whose local source files are in metadata-format. "Hard delete" means the component is immediately eligible for deletion in the org rather than being stored in the Recycle Bin. The directory pointed to by `--metadata-dir` must contain at least one of the destructive manifest files (`destructiveChangesPre.xml` or `destructiveChangesPost.xml`) or you get an error. (GitHub issue [#2909](https://github.com/forcedotcom/cli/issues/2909), plugin-deploy-retrieve [#1069](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1069))
 
-* FIX: The `org list` command no longer displays incorrect information for a scratch org when its ID (when you ignore case) matches the ID of other ScratchOrgInfo records in the Dev Hub org. (plugin-org PR [#1119](https://github.com/salesforcecli/plugin-org/pull/1119), 
+* FIX: The `org list` command no longer displays incorrect information for a scratch org when its ID (when you ignore case) matches the ID of other ScratchOrgInfo records in the Dev Hub org. (plugin-org PR [#1119](https://github.com/salesforcecli/plugin-org/pull/1119)
+
+* FIX: We improved the error message when a deploy, retrieve, or convert fails because of a problem with the source file, such as an incorrect XML element or missing parent XML file. (source-deploy-retrieve PR [#1355](https://github.com/forcedotcom/source-deploy-retrieve/pull/1355))
 
 ## 2.48.6 (July 3, 2024) [stable]
 
