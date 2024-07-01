@@ -26,11 +26,19 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.48.6 (July 3, 2024) [stable-rc]
+## 2.49.6 (July 10, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX and NEW: (This fix and new feature is interesting mostly to Salesforce CLI plugin developers.) The JSDoc for the [`SfProject`](https://forcedotcom.github.io/sfdx-core/classes/sfProject.SfProject.html) and [`SfProjectJson`](https://forcedotcom.github.io/sfdx-core/classes/sfProject.SfProjectJson.html) classes in the `@salesforce/core` library now align with the code, and we cleaned up the examples.  While we were in there anyway, we added these two useful methods: `SfProject.getPluginConfiguration` and `SfProject.setPLuginConfiguration`.  Check 'em out! (sfdx-core PR [#1094](https://github.com/forcedotcom/sfdx-core/pull/1094))
+
+* FIX: You can now correctly deploy and retrieve the DecisionMatrixDefinition, DecisionMatrixDefinitionVersion, and ExpressionSetDefinitionVersion metadata types. (GitHub issue [#2823](https://github.com/forcedotcom/cli/issues/2823), source-deploy-retrieve PR [#1357](https://github.com/forcedotcom/source-deploy-retrieve/pull/1357))
+
+* FIX: You can now correctly deploy and retrieve the ExperienceResource, DigitalExperienceBundle, and DigitalExperience metadata types. (GitHub issue [#2634](https://github.com/forcedotcom/cli/issues/2634), source-tracking PR [#621](https://github.com/forcedotcom/source-tracking/pull/621))
+
+## 2.48.6 (July 3, 2024) [stable]
 
 * NEW: Filter the list of package versions that are returned from the `package version list` command based on the source-control branch that the package versions are based on. (GitHub issue [#1530](https://github.com/forcedotcom/cli/issues/1530), plugin-packaging PR [#690](https://github.com/salesforcecli/plugin-packaging/pull/690), packaging PR [#594](https://github.com/forcedotcom/packaging/pull/594))
 
@@ -50,7 +58,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Salesforce CLI now correctly handles situations such as expired passwords or required multi-factor authentication when it detects that a session has expired. (jsforce issues [#1291](https://github.com/jsforce/jsforce/issues/1291), [#1308](https://github.com/jsforce/jsforce/issues/1308), and [#1411](https://github.com/jsforce/jsforce/issues/1411); sfdx-core PR [#1095](https://github.com/forcedotcom/sfdx-core/pull/1095), jsforce PR [#1517](https://github.com/jsforce/jsforce/pull/1517))
 
-## 2.47.6 (June 26, 2024) [stable]
+## 2.47.6 (June 26, 2024)
 
 * NEW: Permanently delete records in your org via the Bulk API 2.0 with the new `--hard-delete` flag of the `data delete bulk` command. When you specify this flag, the records become immediately eligible for deletion, which means you no longer need to manually clean them from the Recycle Bin. For example, permanently delete account records from your default org using the IDs listed in the specified CSV file:
 
