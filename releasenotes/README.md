@@ -34,6 +34,13 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW and FIX: (This new and fixed issue is interesting mostly to Salesforce CLI plugin developers.) The JSDoc for the [`SfProject`](https://forcedotcom.github.io/sfdx-core/classes/sfProject.SfProject.html) and [`SfProjectJson`](https://forcedotcom.github.io/sfdx-core/classes/sfProject.SfProjectJson.html) classes in the `@salesforce/core` library now align with the code, and we cleaned up the examples.  While we were messing around in there anyway, we added these two useful methods: `SfProject.getPluginConfiguration` and `SfProject.setPLuginConfiguration`.  Check 'em out! (sfdx-core PR [#1094](https://github.com/forcedotcom/sfdx-core/pull/1094))
 
+* CHANGE: These scratch org snapshot commands are now generally available; they were previously in beta. 
+
+    * `org create snapshot`
+    * `org delete snapshot`
+    * `org get snapshot`
+    * `org list snapshot`
+
 * FIX: You can now correctly deploy and retrieve the DecisionMatrixDefinition, DecisionMatrixDefinitionVersion, and ExpressionSetDefinitionVersion metadata types. (GitHub issue [#2823](https://github.com/forcedotcom/cli/issues/2823), source-deploy-retrieve PR [#1357](https://github.com/forcedotcom/source-deploy-retrieve/pull/1357))
 
 * FIX: You can now correctly deploy and retrieve the ExperienceResource, DigitalExperienceBundle, and DigitalExperience metadata types. (GitHub issue [#2634](https://github.com/forcedotcom/cli/issues/2634), source-tracking PR [#621](https://github.com/forcedotcom/source-tracking/pull/621))
