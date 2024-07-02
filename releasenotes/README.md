@@ -34,6 +34,15 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW and FIX: (This new and fixed issue is interesting mostly to Salesforce CLI plugin developers.) The JSDoc for the [`SfProject`](https://forcedotcom.github.io/sfdx-core/classes/sfProject.SfProject.html) and [`SfProjectJson`](https://forcedotcom.github.io/sfdx-core/classes/sfProject.SfProjectJson.html) classes in the `@salesforce/core` library now align with the code, and we cleaned up the examples.  While we were messing around in there anyway, we added these two useful methods: `SfProject.getPluginConfiguration` and `SfProject.setPLuginConfiguration`.  Check 'em out! (sfdx-core PR [#1094](https://github.com/forcedotcom/sfdx-core/pull/1094))
 
+* CHANGE: After a [successful beta period](https://github.com/forcedotcom/cli/issues/2738), the `data import|export beta tree` commands are now generally available.  Specifically:
+
+     * We moved the new functionality in `data import beta tree` to the "official" `data import tree` command. We moved the functionality from the old `data import tree` to `data import legacy tree`.  Similarly...
+     * We moved the new functionality in `data export beta tree` to the "official" `data export tree` command. We moved the functionality from the old `data export tree` to `data export legacy tree`.
+
+     What does this mean in practice?  As of this release, when you execute `data import tree`, for example, you get the _new_ functionality that was in beta until now. If you run into any issues and you want to return to the old functionality, use the `data import legacy tree` command. Same with `data export tree`. However, note that we plan to remove these `legacy` commands in November, 2024.
+
+     Read about the changes we added to these new commands, including two breaking changes to `data import tree`, in [this issue](https://github.com/forcedotcom/cli/issues/2738) that we've pinned since February 2024. (plugin-data PR [#975](https://github.com/salesforcecli/plugin-data/pull/975)). 
+
 * CHANGE: These scratch org snapshot commands are now generally available; they were previously in beta. (plugin-signups PR [#629](https://github.com/salesforcecli/plugin-signups/pull/629))
 
     * `org create snapshot`
