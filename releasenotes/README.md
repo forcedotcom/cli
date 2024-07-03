@@ -26,7 +26,7 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.48.6 (July 3, 2024) [stable-rc]
+## 2.48.7 (July 3, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
@@ -46,6 +46,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * CHANGE: You can now include keys that start with an upper-case letter inside of the `plugins` property of `sfdx-project.json` file. Almost all keys in the file must start with a lower-case letter (camelCase). We made this change because we previously made an exception for keys inside the `packageAlias` property, and sometimes it's useful to use these same key names in the `plugin` section too. We continue to enforce camelCase naming for all other `sfdx-project.json` keys. ([Trailblazer Community bug report](https://trailhead.salesforce.com/trailblazer-community/feed/0D53A00003wzhsn), sfdx-core PR [#1093](https://github.com/forcedotcom/sfdx-core/pull/1093))
 
+* FIX: We fixed a bug where different major versions of sfdx-core in use simultaneously would cause a TypeError (github issue [#2935](https://github.com/forcedotcom/cli/issues/2935), sfdx-core PR [#1098](https://github.com/forcedotcom/sfdx-core/pull/1098)).
+ 
 * FIX: We fixed a bug in which the first install of a JIT plugin would sometimes fail with the error `ModuleLoadError: [MODULE_NOT_FOUND]`. (oclif PR [#1124](https://github.com/oclif/core/pull/1124))
 
 * FIX: Salesforce CLI now correctly handles situations such as expired passwords or required multi-factor authentication when it detects that a session has expired. (jsforce issues [#1291](https://github.com/jsforce/jsforce/issues/1291), [#1308](https://github.com/jsforce/jsforce/issues/1308), and [#1411](https://github.com/jsforce/jsforce/issues/1411); sfdx-core PR [#1095](https://github.com/forcedotcom/sfdx-core/pull/1095), jsforce PR [#1517](https://github.com/jsforce/jsforce/pull/1517))
