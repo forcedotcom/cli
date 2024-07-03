@@ -60,7 +60,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We improved the error message when a deploy, retrieve, or convert fails because of a problem with the source file, such as an incorrect XML element or missing parent XML file. (source-deploy-retrieve PR [#1355](https://github.com/forcedotcom/source-deploy-retrieve/pull/1355))
 
-## 2.48.6 (July 3, 2024) [stable]
+## 2.48.7 (July 3, 2024) [stable]
 
 * NEW: Filter the list of package versions that are returned from the `package version list` command based on the source-control branch that the package versions are based on. (GitHub issue [#1530](https://github.com/forcedotcom/cli/issues/1530), plugin-packaging PR [#690](https://github.com/salesforcecli/plugin-packaging/pull/690), packaging PR [#594](https://github.com/forcedotcom/packaging/pull/594))
 
@@ -76,6 +76,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * CHANGE: You can now include keys that start with an upper-case letter inside of the `plugins` property of `sfdx-project.json` file. Almost all keys in the file must start with a lower-case letter (camelCase). We made this change because we previously made an exception for keys inside the `packageAlias` property, and sometimes it's useful to use these same key names in the `plugin` section too. We continue to enforce camelCase naming for all other `sfdx-project.json` keys. ([Trailblazer Community bug report](https://trailhead.salesforce.com/trailblazer-community/feed/0D53A00003wzhsn), sfdx-core PR [#1093](https://github.com/forcedotcom/sfdx-core/pull/1093))
 
+* FIX: We fixed a bug where different major versions of sfdx-core in use simultaneously would cause a TypeError (github issue [#2935](https://github.com/forcedotcom/cli/issues/2935), sfdx-core PR [#1098](https://github.com/forcedotcom/sfdx-core/pull/1098)).
+ 
 * FIX: We fixed a bug in which the first install of a JIT plugin would sometimes fail with the error `ModuleLoadError: [MODULE_NOT_FOUND]`. (oclif PR [#1124](https://github.com/oclif/core/pull/1124))
 
 * FIX: Salesforce CLI now correctly handles situations such as expired passwords or required multi-factor authentication when it detects that a session has expired. (jsforce issues [#1291](https://github.com/jsforce/jsforce/issues/1291), [#1308](https://github.com/jsforce/jsforce/issues/1308), and [#1411](https://github.com/jsforce/jsforce/issues/1411); sfdx-core PR [#1095](https://github.com/forcedotcom/sfdx-core/pull/1095), jsforce PR [#1517](https://github.com/jsforce/jsforce/pull/1517))
