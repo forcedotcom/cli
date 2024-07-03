@@ -26,11 +26,41 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.48.7 (July 3, 2024) [stable-rc]
+## 2.49.6 (July 10, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW and FIX: (This new and fixed issue is interesting mostly to Salesforce CLI plugin developers.) The JSDoc for the [`SfProject`](https://forcedotcom.github.io/sfdx-core/classes/sfProject.SfProject.html) and [`SfProjectJson`](https://forcedotcom.github.io/sfdx-core/classes/sfProject.SfProjectJson.html) classes in the `@salesforce/core` library now align with the code, and we cleaned up the examples.  While we were messing around in there anyway, we added these two useful methods: `SfProject.getPluginConfiguration` and `SfProject.setPLuginConfiguration`.  Check 'em out! (sfdx-core PR [#1094](https://github.com/forcedotcom/sfdx-core/pull/1094))
+
+* CHANGE: After a [successful beta period](https://github.com/forcedotcom/cli/issues/2738), the `data import|export beta tree` commands are now generally available.  Specifically:
+
+     * We moved the new functionality in `data import beta tree` to the "official" `data import tree` command. We moved the functionality from the old `data import tree` to `data import legacy tree`.  Similarly...
+     * We moved the new functionality in `data export beta tree` to the "official" `data export tree` command. We moved the functionality from the old `data export tree` to `data export legacy tree`.
+
+     What does this mean in practice?  As of this release, when you execute `data import tree`, for example, you get the _new_ functionality that was in beta until now. If you run into any issues and you want to return to the old functionality, use the `data import legacy tree` command. Same with `data export tree`. However, note that we plan to remove these `legacy` commands in November, 2024.
+
+     Read about the changes we added to these new commands, including two breaking changes to `data import tree`, in [this issue](https://github.com/forcedotcom/cli/issues/2738) that we've pinned since February 2024. (plugin-data PR [#975](https://github.com/salesforcecli/plugin-data/pull/975)). 
+
+* CHANGE: These scratch org snapshot commands are now generally available; they were previously in beta. (plugin-signups PR [#629](https://github.com/salesforcecli/plugin-signups/pull/629))
+
+    * `org create snapshot`
+    * `org delete snapshot`
+    * `org get snapshot`
+    * `org list snapshot`
+
+* FIX: You can now correctly deploy and retrieve the DecisionMatrixDefinition, DecisionMatrixDefinitionVersion, and ExpressionSetDefinitionVersion metadata types. (GitHub issue [#2823](https://github.com/forcedotcom/cli/issues/2823), source-deploy-retrieve PR [#1357](https://github.com/forcedotcom/source-deploy-retrieve/pull/1357))
+
+* FIX: You can now correctly deploy and retrieve the ExperienceResource, DigitalExperienceBundle, and DigitalExperience metadata types. (GitHub issue [#2634](https://github.com/forcedotcom/cli/issues/2634), source-tracking PR [#621](https://github.com/forcedotcom/source-tracking/pull/621))
+
+* FIX: You can now use the `--purge-on-delete` and `--metadata-dir` flags of the `project deploy start` command together to hard delete components whose local source files are in metadata-format. "Hard delete" means the component is immediately eligible for deletion in the org rather than being stored in the Recycle Bin. The directory pointed to by `--metadata-dir` must contain at least one of the destructive manifest files (`destructiveChangesPre.xml` or `destructiveChangesPost.xml`) or you get an error. (GitHub issue [#2909](https://github.com/forcedotcom/cli/issues/2909), plugin-deploy-retrieve [#1069](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1069))
+
+* FIX: The `org list` command no longer displays incorrect information for a scratch org when its ID (when you ignore case) matches the ID of other ScratchOrgInfo records in the Dev Hub org. (plugin-org PR [#1119](https://github.com/salesforcecli/plugin-org/pull/1119))
+
+* FIX: We improved the error message when a deploy, retrieve, or convert fails because of a problem with the source file, such as an incorrect XML element or missing parent XML file. (source-deploy-retrieve PR [#1355](https://github.com/forcedotcom/source-deploy-retrieve/pull/1355))
+
+## 2.48.7 (July 3, 2024) [stable]
 
 * NEW: Filter the list of package versions that are returned from the `package version list` command based on the source-control branch that the package versions are based on. (GitHub issue [#1530](https://github.com/forcedotcom/cli/issues/1530), plugin-packaging PR [#690](https://github.com/salesforcecli/plugin-packaging/pull/690), packaging PR [#594](https://github.com/forcedotcom/packaging/pull/594))
 
@@ -52,7 +82,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Salesforce CLI now correctly handles situations such as expired passwords or required multi-factor authentication when it detects that a session has expired. (jsforce issues [#1291](https://github.com/jsforce/jsforce/issues/1291), [#1308](https://github.com/jsforce/jsforce/issues/1308), and [#1411](https://github.com/jsforce/jsforce/issues/1411); sfdx-core PR [#1095](https://github.com/forcedotcom/sfdx-core/pull/1095), jsforce PR [#1517](https://github.com/jsforce/jsforce/pull/1517))
 
-## 2.47.6 (June 26, 2024) [stable]
+## 2.47.6 (June 26, 2024)
 
 * NEW: Permanently delete records in your org via the Bulk API 2.0 with the new `--hard-delete` flag of the `data delete bulk` command. When you specify this flag, the records become immediately eligible for deletion, which means you no longer need to manually clean them from the Recycle Bin. For example, permanently delete account records from your default org using the IDs listed in the specified CSV file:
 
