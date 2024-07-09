@@ -60,7 +60,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We improved the error message when a deploy, retrieve, or convert fails because of a problem with the source file, such as an incorrect XML element or missing parent XML file. (source-deploy-retrieve PR [#1355](https://github.com/forcedotcom/source-deploy-retrieve/pull/1355))
 
-## 2.48.7 (July 3, 2024) [stable]
+## 2.48.6 (July 3, 2024) [stable]
 
 * NEW: Filter the list of package versions that are returned from the `package version list` command based on the source-control branch that the package versions are based on. (GitHub issue [#1530](https://github.com/forcedotcom/cli/issues/1530), plugin-packaging PR [#690](https://github.com/salesforcecli/plugin-packaging/pull/690), packaging PR [#594](https://github.com/forcedotcom/packaging/pull/594))
 
