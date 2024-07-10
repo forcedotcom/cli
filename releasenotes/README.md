@@ -32,7 +32,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* FIX: We fixed some under-the-hood bugs. 
+* NEW: By default, Salesforce CLI uses 128-bit encryption to encrypt its internal files, such as the authorization files associated with the orgs you’ve logged into. For increased security, you can now enable 256-bit encryption. Check out [these docs](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_enable_256_bit_encryption.htm) for instructions. 
 
 ## 2.49.7 (July 10, 2024) [stable]
 
