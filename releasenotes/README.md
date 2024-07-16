@@ -32,6 +32,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* CHANGE: We deprecated the CMTRecordManagedDeletion scratch org feature because it's no longer necessary. The scratch org feature allows you to remove custom metadata type records from a second-generation managed package. But as of the Spring '24 Salesforce release, the feature is now available to all independent software vendors (ISVs). See the [Spring '24 release notes](https://help.salesforce.com/s/articleView?id=release-notes.rn_packaging_remove_cmt_records.htm&release=248&type=5) for more information about the new feature.  (sfdx-core PR [#1102](https://github.com/forcedotcom/sfdx-core/pull/1102))
+
 * FIX: Deploying, retrieving, or converting projects that contain multiple custom label files no longer result in `JavaScript heap out of memory` errors. (GitHub issue [#2939](https://github.com/forcedotcom/cli/issues/2939), source-deploy-retrieve PR [#1368](https://github.com/forcedotcom/source-deploy-retrieve/pull/1368))
 
 ## 2.50.6 (July 17, 2024) [stable]
