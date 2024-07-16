@@ -26,15 +26,19 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.50.6 (July 17, 2024) [stable-rc]
+## 2.51.6 (July 24, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
 
+* FIX: Deploying, retrieving, or converting projects that contain multiple custom label files no longer result in `JavaScript heap out of memory` errors. (GitHub issue [#2939](https://github.com/forcedotcom/cli/issues/2939), source-deploy-retrieve PR [#1368](https://github.com/forcedotcom/source-deploy-retrieve/pull/1368))
+
+## 2.50.6 (July 17, 2024) [stable]
+
 * NEW: By default, Salesforce CLI uses 128-bit encryption to encrypt its internal files, such as the authorization files associated with the orgs you’ve logged into. For increased security, you can now enable 256-bit encryption. Check out [these docs](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_enable_256_bit_encryption.htm) for instructions. 
 
-## 2.49.7 (July 10, 2024) [stable]
+## 2.49.7 (July 10, 2024)
 
 * NEW and FIX: (This new and fixed issue is interesting mostly to Salesforce CLI plugin developers.) The JSDoc for the [`SfProject`](https://forcedotcom.github.io/sfdx-core/classes/sfProject.SfProject.html) and [`SfProjectJson`](https://forcedotcom.github.io/sfdx-core/classes/sfProject.SfProjectJson.html) classes in the `@salesforce/core` library now align with the code, and we cleaned up the examples.  While we were messing around in there anyway, we added these two useful methods: `SfProject.getPluginConfiguration` and `SfProject.setPLuginConfiguration`.  Check 'em out! (sfdx-core PR [#1094](https://github.com/forcedotcom/sfdx-core/pull/1094))
 
