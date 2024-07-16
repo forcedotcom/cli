@@ -36,6 +36,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Deploying, retrieving, or converting projects that contain multiple custom label files no longer result in `JavaScript heap out of memory` errors. (GitHub issue [#2939](https://github.com/forcedotcom/cli/issues/2939), source-deploy-retrieve PR [#1368](https://github.com/forcedotcom/source-deploy-retrieve/pull/1368))
 
+* FIX:  We've improved the error message returned when `project deploy start --json` encounters a test failure as it's validating the deployment. ((GitHub issue [#2952](https://github.com/forcedotcom/cli/issues/2952), plugin-deploy-retrieve [#1085](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1085))
+
 ## 2.50.6 (July 17, 2024) [stable]
 
 * NEW: By default, Salesforce CLI uses 128-bit encryption to encrypt its internal files, such as the authorization files associated with the orgs you’ve logged into. For increased security, you can now enable 256-bit encryption. Check out [these docs](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_enable_256_bit_encryption.htm) for instructions. 
