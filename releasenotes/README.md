@@ -42,6 +42,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: By default, Salesforce CLI uses 128-bit encryption to encrypt its internal files, such as the authorization files associated with the orgs you’ve logged into. For increased security, you can now enable 256-bit encryption. Check out [these docs](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_enable_256_bit_encryption.htm) for instructions. (Github issue [#1861](https://github.com/forcedotcom/cli/issues/1861), sfdx-core PR [#810](https://github.com/forcedotcom/sfdx-core/pull/810))
 
+* FIX: Plugins (ex: sfdx-scanner) using an old version of our libraries would cause an error.  We're now preventing that error.  (Github issue [#2935](https://github.com/forcedotcom/cli/issues/2935), sfdx-core PR [#1098](https://github.com/forcedotcom/sfdx-core/pull/1098))
+
+
 ## 2.49.7 (July 10, 2024)
 
 * NEW and FIX: (This new and fixed issue is interesting mostly to Salesforce CLI plugin developers.) The JSDoc for the [`SfProject`](https://forcedotcom.github.io/sfdx-core/classes/sfProject.SfProject.html) and [`SfProjectJson`](https://forcedotcom.github.io/sfdx-core/classes/sfProject.SfProjectJson.html) classes in the `@salesforce/core` library now align with the code, and we cleaned up the examples.  While we were messing around in there anyway, we added these two useful methods: `SfProject.getPluginConfiguration` and `SfProject.setPLuginConfiguration`.  Check 'em out! (sfdx-core PR [#1094](https://github.com/forcedotcom/sfdx-core/pull/1094))
