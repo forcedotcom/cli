@@ -300,6 +300,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: `sf apex test run` handles the `--wait` flag better.  (GitHub issue [#2108](https://github.com/forcedotcom/cli/issues/2108), plugin-apex PR [#422](https://github.com/salesforcecli/plugin-apex/pull/422), apex library PR [#364](https://github.com/forcedotcom/salesforcedx-apex/pull/364))
 
+* FIX: `sf project deploy start` with `--coverage-formatters` now prints the correct location for the coverage files in its output. (Github issue [#2816](https://github.com/forcedotcom/cli/issues/2816), plugin-deploy-retrieve PR [#973](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/973))
+
 ## 2.38.7 (April 24, 2024)
 
 * NEW: Salesforce CLI downloads, installations, and updates just got a whole lot faster, especially on Windows! Why?  Because we've significantly reduced the size of both the `npm` packages and the OS-specific installers.  The `npm` reduction is the champion: it's ~35% smaller. But the installers are ~10% slimmer too. Nice. 
