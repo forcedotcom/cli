@@ -44,7 +44,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Plugins (ex: sfdx-scanner) using an old version of our libraries would cause an error.  We're now preventing that error.  (Github issue [#2935](https://github.com/forcedotcom/cli/issues/2935), sfdx-core PR [#1098](https://github.com/forcedotcom/sfdx-core/pull/1098))
 
-* 
 * FIX: `sf project deploy start` with `--coverage-formatters` now prints the correct location for the coverage files in its output. (Github issue [#2816](https://github.com/forcedotcom/cli/issues/2816), plugin-deploy-retrieve PR [#973](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/973)).  We actually fixed this in April but forgot to put it in the release notes.
 
 
