@@ -46,6 +46,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: `sf project deploy start` with `--coverage-formatters` now prints the correct location for the coverage files in its output. (Github issue [#2816](https://github.com/forcedotcom/cli/issues/2816), plugin-deploy-retrieve PR [#973](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/973)).  We actually fixed this in April but forgot to put it in the release notes.
 
+* FIX: Recently created packages take some time to become available to all orgs.  If you use `sf package install` to install that's not available yet, you get an error.  The error now explains that it might work but not yet. (Github issue [#2921](https://github.com/forcedotcom/cli/issues/2921), packaging library PR [#600](https://github.com/forcedotcom/packaging/pull/600/))
 
 ## 2.49.7 (July 10, 2024)
 
