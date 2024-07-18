@@ -44,6 +44,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Plugins (ex: sfdx-scanner) using an old version of our libraries would cause an error.  We're now preventing that error.  (Github issue [#2935](https://github.com/forcedotcom/cli/issues/2935), sfdx-core PR [#1098](https://github.com/forcedotcom/sfdx-core/pull/1098))
 
+* 
+* FIX: `sf project deploy start` with `--coverage-formatters` now prints the correct location for the coverage files in its output. (Github issue [#2816](https://github.com/forcedotcom/cli/issues/2816), plugin-deploy-retrieve PR [#973](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/973)).  We actually fixed this in April but forgot to put it in the release notes.
+
 
 ## 2.49.7 (July 10, 2024)
 
@@ -299,8 +302,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 * FIX: `sf plugins link` had a problem linking plugins that needed to be compiled before use.  We've fixed that (GitHub issue [#2818](https://github.com/forcedotcom/cli/issues/2818), oclif/plugin-plugins PR [#841](https://github.com/oclif/plugin-plugins/pull/841))
 
 * FIX: `sf apex test run` handles the `--wait` flag better.  (GitHub issue [#2108](https://github.com/forcedotcom/cli/issues/2108), plugin-apex PR [#422](https://github.com/salesforcecli/plugin-apex/pull/422), apex library PR [#364](https://github.com/forcedotcom/salesforcedx-apex/pull/364))
-
-* FIX: `sf project deploy start` with `--coverage-formatters` now prints the correct location for the coverage files in its output. (Github issue [#2816](https://github.com/forcedotcom/cli/issues/2816), plugin-deploy-retrieve PR [#973](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/973))
 
 ## 2.38.7 (April 24, 2024)
 
