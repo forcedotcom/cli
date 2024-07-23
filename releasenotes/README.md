@@ -45,6 +45,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Salesforce CLI now correctly accepts and prefers SF_AUDIENCE_URL (rather than SFDX_AUDIENCE_URL) and SF_DOMAIN_RETRY (rather than SFDX_DOMAIN_RETRY). (sfdx-core PR [#1104](https://github.com/forcedotcom/sfdx-core/pull/1104))
 
+* FIX: We've improved the errors that result from certain executions of `project deploy` commands that are supposed to fail, such as executing `project deploy quick` and passing it an invalid job ID. (GitHub issue [#2962](https://github.com/forcedotcom/cli/issues/2962), sfdx-core PR [#1108](https://github.com/forcedotcom/sfdx-core/pull/1108))
+
 ## 2.51.6 (July 24, 2024) [stable]
 
 * CHANGE: We deprecated the CMTRecordManagedDeletion scratch org feature because it's no longer necessary. The scratch org feature allows you to remove custom metadata type records from a second-generation managed package. But as of the Spring '24 Salesforce release, the feature is now available to all independent software vendors (ISVs). See the [Spring '24 release notes](https://help.salesforce.com/s/articleView?id=release-notes.rn_packaging_remove_cmt_records.htm&release=248&type=5) for more information about the new feature.  (sfdx-core PR [#1102](https://github.com/forcedotcom/sfdx-core/pull/1102))
