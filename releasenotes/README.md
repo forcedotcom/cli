@@ -32,6 +32,18 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: Salesforce CLI now supports the lowercase versions of the proxy environment variables: `http_proxy` and `https_proxy`. Lower-case env variables take precedence over their uppercase equivalents (`HTTP_PROXY` and `HTTPS_PROXY`). (jsforce PR [#1534](https://github.com/jsforce/jsforce/pull/1534))
+
+* CHANGE: You're no longer required to run these commands inside of a Salesforce DX project:
+    * `package installed list`
+    * `package list`
+    * `package1 version create`
+
+    (GitHub discussion [#2932](https://github.com/forcedotcom/cli/discussions/2932), plugin-packaging PR [#733](https://github.com/salesforcecli/plugin-packaging/pull/733))
+
+* FIX: The `project convert mdapi` command now correctly puts the converted files into the full `--output-dir` directory, if the flag is specified. (plugin-deploy-retrieve PR [#1091](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1091))
+
+* FIX: Salesforce CLI now correctly accepts and prefers SF_AUDIENCE_URL (rather than SFDX_AUDIENCE_URL) and SF_DOMAIN_RETRY (rather than SFDX_DOMAIN_RETRY). (sfdx-core PR [#1104](https://github.com/forcedotcom/sfdx-core/pull/1104))
 
 ## 2.51.6 (July 24, 2024) [stable]
 
