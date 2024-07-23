@@ -26,11 +26,14 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.51.6 (July 24, 2024) [stable-rc]
+## 2.52.6 (July 31, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+
+## 2.51.6 (July 24, 2024) [stable]
 
 * CHANGE: We deprecated the CMTRecordManagedDeletion scratch org feature because it's no longer necessary. The scratch org feature allows you to remove custom metadata type records from a second-generation managed package. But as of the Spring '24 Salesforce release, the feature is now available to all independent software vendors (ISVs). See the [Spring '24 release notes](https://help.salesforce.com/s/articleView?id=release-notes.rn_packaging_remove_cmt_records.htm&release=248&type=5) for more information about the new feature.  (sfdx-core PR [#1102](https://github.com/forcedotcom/sfdx-core/pull/1102))
 
@@ -38,7 +41,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX:  We've improved the error message returned when `project deploy start --json` encounters a test failure as it's validating the deployment. ((GitHub issue [#2952](https://github.com/forcedotcom/cli/issues/2952), plugin-deploy-retrieve [#1085](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1085))
 
-## 2.50.6 (July 17, 2024) [stable]
+## 2.50.6 (July 17, 2024)
 
 * NEW: By default, Salesforce CLI uses 128-bit encryption to encrypt its internal files, such as the authorization files associated with the orgs you’ve logged into. For increased security, you can now enable 256-bit encryption. Check out [these docs](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_enable_256_bit_encryption.htm) for instructions. (Github issue [#1861](https://github.com/forcedotcom/cli/issues/1861), sfdx-core PR [#810](https://github.com/forcedotcom/sfdx-core/pull/810))
 
