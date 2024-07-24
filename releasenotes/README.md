@@ -41,6 +41,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     (GitHub discussion [#2932](https://github.com/forcedotcom/cli/discussions/2932), plugin-packaging PR [#733](https://github.com/salesforcecli/plugin-packaging/pull/733))
 
+* CHANGE: The standard (non-JSON) output of the `org list metadata` and `org list metadata-types` commands are now in table format. (plugin-org PR [#1141](https://github.com/salesforcecli/plugin-org/pull/1141))
+
 * FIX: The `project convert mdapi` command now correctly puts the converted files into the full `--output-dir` directory, if the flag is specified. (plugin-deploy-retrieve PR [#1091](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1091))
 
 * FIX: Salesforce CLI now correctly accepts and prefers SF_AUDIENCE_URL (rather than SFDX_AUDIENCE_URL) and SF_DOMAIN_RETRY (rather than SFDX_DOMAIN_RETRY). (sfdx-core PR [#1104](https://github.com/forcedotcom/sfdx-core/pull/1104))
