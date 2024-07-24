@@ -26,11 +26,32 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.51.6 (July 24, 2024) [stable-rc]
+## 2.52.6 (July 31, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: Salesforce CLI now supports the lowercase versions of the proxy environment variables: `http_proxy` and `https_proxy`. Lower-case env variables take precedence over their uppercase equivalents (`HTTP_PROXY` and `HTTPS_PROXY`). (jsforce PR [#1534](https://github.com/jsforce/jsforce/pull/1534))
+
+* CHANGE: You're no longer required to run these commands inside of a Salesforce DX project:
+    * `package installed list`
+    * `package list`
+    * `package1 version create`
+
+    (GitHub discussion [#2932](https://github.com/forcedotcom/cli/discussions/2932), plugin-packaging PR [#733](https://github.com/salesforcecli/plugin-packaging/pull/733))
+
+* CHANGE: The standard (non-JSON) output of the `org list metadata` and `org list metadata-types` commands are now in table format. (plugin-org PR [#1141](https://github.com/salesforcecli/plugin-org/pull/1141))
+
+* FIX: The `project convert mdapi` command now correctly puts the converted files into the full `--output-dir` directory, if the flag is specified. (plugin-deploy-retrieve PR [#1091](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1091))
+
+* FIX: Salesforce CLI now correctly accepts and prefers SF_AUDIENCE_URL (rather than SFDX_AUDIENCE_URL) and SF_DOMAIN_RETRY (rather than SFDX_DOMAIN_RETRY). (sfdx-core PR [#1104](https://github.com/forcedotcom/sfdx-core/pull/1104))
+
+* FIX: We've improved the errors that result from certain executions of `project deploy` commands that are supposed to fail, such as executing `project deploy quick` and passing it an invalid job ID. (GitHub issue [#2962](https://github.com/forcedotcom/cli/issues/2962), sfdx-core PR [#1108](https://github.com/forcedotcom/sfdx-core/pull/1108))
+
+* FIX: Let's say you have two sets of source files associated with two different objects in a package directory. Both sets of files also include the `All.listView-meta.xml` file and the ListView's XML is exactly the same.  The [Source Mobility (beta)](./README.md#2448-jun-5-2024) feature now correctly detects that moving both sets of files to a new package directory isn't an actual source change that needs to be tracked. (GitHub issue [#2945](https://github.com/forcedotcom/cli/issues/2945), source-tracking PR [#631](https://github.com/forcedotcom/source-tracking/pull/631))
+
+## 2.51.6 (July 24, 2024) [stable]
 
 * CHANGE: We deprecated the CMTRecordManagedDeletion scratch org feature because it's no longer necessary. The scratch org feature allows you to remove custom metadata type records from a second-generation managed package. But as of the Spring '24 Salesforce release, the feature is now available to all independent software vendors (ISVs). See the [Spring '24 release notes](https://help.salesforce.com/s/articleView?id=release-notes.rn_packaging_remove_cmt_records.htm&release=248&type=5) for more information about the new feature.  (sfdx-core PR [#1102](https://github.com/forcedotcom/sfdx-core/pull/1102))
 
@@ -38,7 +59,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX:  We've improved the error message returned when `project deploy start --json` encounters a test failure as it's validating the deployment. ((GitHub issue [#2952](https://github.com/forcedotcom/cli/issues/2952), plugin-deploy-retrieve [#1085](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1085))
 
-## 2.50.6 (July 17, 2024) [stable]
+## 2.50.6 (July 17, 2024)
 
 * NEW: By default, Salesforce CLI uses 128-bit encryption to encrypt its internal files, such as the authorization files associated with the orgs you’ve logged into. For increased security, you can now enable 256-bit encryption. Check out [these docs](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_enable_256_bit_encryption.htm) for instructions. (Github issue [#1861](https://github.com/forcedotcom/cli/issues/1861), sfdx-core PR [#810](https://github.com/forcedotcom/sfdx-core/pull/810))
 
