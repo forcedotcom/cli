@@ -49,7 +49,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We've improved the errors that result from certain executions of `project deploy` commands that are supposed to fail, such as executing `project deploy quick` and passing it an invalid job ID. (GitHub issue [#2962](https://github.com/forcedotcom/cli/issues/2962), sfdx-core PR [#1108](https://github.com/forcedotcom/sfdx-core/pull/1108))
 
-* FIX: Let's say you have two sets of source files associated with two different objects in a package directory. Both sets of files also include the `All.listView-meta.xml` file.  The Source Mobility feature now correctly detects that moving both of these sets of files to a new package directory is not an actual source change that needs to be tracked. (GitHub issue [#2945](https://github.com/forcedotcom/cli/issues/2945), source-tracking PR [#631](https://github.com/forcedotcom/source-tracking/pull/631))
+* FIX: Let's say you have two sets of source files associated with two different objects in a package directory. Both sets of files also include the `All.listView-meta.xml` file.  The [Source Mobility (beta)](./README.md#2448-jun-5-2024) feature now correctly detects that moving both of these sets of files to a new package directory is not an actual source change that needs to be tracked. (GitHub issue [#2945](https://github.com/forcedotcom/cli/issues/2945), source-tracking PR [#631](https://github.com/forcedotcom/source-tracking/pull/631))
 
 ## 2.51.6 (July 24, 2024) [stable]
 
