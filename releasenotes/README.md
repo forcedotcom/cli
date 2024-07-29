@@ -32,9 +32,13 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: (source-deploy-retrieve PR [#1374](https://github.com/forcedotcom/source-deploy-retrieve/pull/1374))
+* NEW: If you misspell a metadata type when using the `--metadata` flag of a `project` commands, such as `project deploy start`, we now prompt you with similar valid options. We also provide other troubleshooting resources. Go ahead, make a typo and see what the command suggests! (source-deploy-retrieve PR [#1374](https://github.com/forcedotcom/source-deploy-retrieve/pull/1374))
 
-* 
+* NEW: See what the `dev generate command|flag|library` commands will generate without actually writing any files to disk with the new `--dry-run` flag. (plugin-dev PR [#519](https://github.com/salesforcecli/plugin-dev/pull/519))
+
+* FIX: the `sf update` command now works correctly on computers running proxies. (plugin-update PR [#x](https://github.com/oclif/plugin-update/pull/880))
+
+* FIX: (GitHub issue [#446](https://github.com/salesforcecli/eslint-plugin-sf-plugin/issues/446), eslint-plugin-sf-plugin [#447](https://github.com/salesforcecli/eslint-plugin-sf-plugin/pull/447))
 
 ## 2.52.6 (July 31, 2024) [stable]
 
