@@ -26,11 +26,17 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.52.6 (July 31, 2024) [stable-rc]
+## 2.53.6 (August 7, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: (source-deploy-retrieve PR [#1374](https://github.com/forcedotcom/source-deploy-retrieve/pull/1374))
+
+* 
+
+## 2.52.6 (July 31, 2024) [stable]
 
 * NEW: Salesforce CLI now supports the lowercase versions of the proxy environment variables: `http_proxy` and `https_proxy`. Lower-case env variables take precedence over their uppercase equivalents (`HTTP_PROXY` and `HTTPS_PROXY`). (jsforce PR [#1534](https://github.com/jsforce/jsforce/pull/1534))
 
@@ -51,7 +57,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Let's say you have two sets of source files associated with two different objects in a package directory. Both sets of files also include the `All.listView-meta.xml` file and the ListView's XML is exactly the same.  The [Source Mobility (beta)](./README.md#2448-jun-5-2024) feature now correctly detects that moving both sets of files to a new package directory isn't an actual source change that needs to be tracked. (GitHub issue [#2945](https://github.com/forcedotcom/cli/issues/2945), source-tracking PR [#631](https://github.com/forcedotcom/source-tracking/pull/631))
 
-## 2.51.6 (July 24, 2024) [stable]
+## 2.51.6 (July 24, 2024)
 
 * CHANGE: We deprecated the CMTRecordManagedDeletion scratch org feature because it's no longer necessary. The scratch org feature allows you to remove custom metadata type records from a second-generation managed package. But as of the Spring '24 Salesforce release, the feature is now available to all independent software vendors (ISVs). See the [Spring '24 release notes](https://help.salesforce.com/s/articleView?id=release-notes.rn_packaging_remove_cmt_records.htm&release=248&type=5) for more information about the new feature.  (sfdx-core PR [#1102](https://github.com/forcedotcom/sfdx-core/pull/1102))
 
