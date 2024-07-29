@@ -50,9 +50,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     (plugin-dev PR [#519](https://github.com/salesforcecli/plugin-dev/pull/519))
 
-* FIX: The `sf update` command now works correctly on computers running proxies. (plugin-update PR [#880](https://github.com/oclif/plugin-update/pull/880))
+* CHANGE: We've deprecated using the `--wait` flag of the `data query` command without `--bulk`. We plan to remove the usage in a future release. You can safely stop using `--wait` in this case, because it never affected the command without `--bulk` anyway. (plugin-data PR [#1002](https://github.com/salesforcecli/plugin-data/pull/1002))
 
-* FIX: (GitHub issue [#446](https://github.com/salesforcecli/eslint-plugin-sf-plugin/issues/446), eslint-plugin-sf-plugin [#447](https://github.com/salesforcecli/eslint-plugin-sf-plugin/pull/447))
+* FIX: The `sf update` command now works correctly on computers running proxies. (plugin-update PR [#880](https://github.com/oclif/plugin-update/pull/880))
 
 ## 2.52.6 (July 31, 2024) [stable]
 
