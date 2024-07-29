@@ -54,6 +54,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `sf update` command now works correctly on computers running proxies. (plugin-update PR [#880](https://github.com/oclif/plugin-update/pull/880))
 
+* FIX: If a flag value contains a comma in its name, you can now escape it with a `\` character so that Salesforce CLI doesn't think it's a delimiter. For example: `project source convert --source-dir dirwith\,comma`.
+
+    Also, as part of this fix, we now print a warning when you use the old format of specifying multiple flag values with a comma (`--flag value1,value2`). Instead you should specify the flag multiple times (`--flag value1 --flag value2`). (GitHub issue [#2928]https://github.com/forcedotcom/cli/issues/2928), oclif PR [#1148](https://github.com/oclif/core/pull/1148))
+
 ## 2.52.6 (July 31, 2024) [stable]
 
 * NEW: Salesforce CLI now supports the lowercase versions of the proxy environment variables: `http_proxy` and `https_proxy`. Lower-case env variables take precedence over their uppercase equivalents (`HTTP_PROXY` and `HTTPS_PROXY`). (jsforce PR [#1534](https://github.com/jsforce/jsforce/pull/1534))
