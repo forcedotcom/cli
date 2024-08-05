@@ -26,11 +26,19 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.53.6 (August 7, 2024) [stable-rc]
+## 2.54.6 (August 14, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: (plugin-autocomplete PR [#753](https://github.com/oclif/plugin-autocomplete/pull/753), oclif plugin-plugins PR [#932](https://github.com/oclif/plugin-plugins/pull/932))
+
+* FIX: (source-deploy-retrieve PR [#1375](https://github.com/forcedotcom/source-deploy-retrieve/pull/1375))
+
+* FIX: (GitHub issue [#2230](https://github.com/forcedotcom/cli/issues/2230), source-deploy-retrieve PR [#1381](https://github.com/forcedotcom/source-deploy-retrieve/pull/1381))
+
+## 2.53.6 (August 7, 2024) [stable]
 
 * NEW: If you misspell a metadata type when using the `--metadata` flag of one of the `project` commands, such as `project deploy start`, we now prompt you with similar valid options. We also provide other troubleshooting resources. Go ahead, make a typo and see what the command suggests! (source-deploy-retrieve PR [#1374](https://github.com/forcedotcom/source-deploy-retrieve/pull/1374))
 
@@ -58,7 +66,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     Also, as part of this fix, we now print a warning when you use the old format of specifying multiple flag values with a comma (`--flag value1,value2`). Instead you should specify the flag multiple times (`--flag value1 --flag value2`). (GitHub issue [#2928]https://github.com/forcedotcom/cli/issues/2928), oclif PR [#1148](https://github.com/oclif/core/pull/1148))
 
-## 2.52.6 (July 31, 2024) [stable]
+## 2.52.6 (July 31, 2024)
 
 * NEW: Salesforce CLI now supports the lowercase versions of the proxy environment variables: `http_proxy` and `https_proxy`. Lower-case env variables take precedence over their uppercase equivalents (`HTTP_PROXY` and `HTTPS_PROXY`). (jsforce PR [#1534](https://github.com/jsforce/jsforce/pull/1534))
 
