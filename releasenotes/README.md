@@ -28,6 +28,8 @@ Additional documentation:
 
 ## 2.54.6 (August 14, 2024) [stable-rc]
 
+**ANNOUNCEMENT:** If you still use the deprecated `sfdx`-style commands, be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal commands of these commands:  `force:source:*`, `force:org:create`, and `force:org:delete`. 
+
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
@@ -41,6 +43,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 * FIX: The `project deploy start` command now correctly handles deployments of objects whose source files are spread across multiple folders in your project. (GitHub issue [#2230](https://github.com/forcedotcom/cli/issues/2230), source-deploy-retrieve PR [#1381](https://github.com/forcedotcom/source-deploy-retrieve/pull/1381))
 
 ## 2.53.6 (August 7, 2024) [stable]
+
+**ANNOUNCEMENT:** If you still use the deprecated `sfdx`-style commands, be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal commands of these commands:  `force:source:*`, `force:org:create`, and `force:org:delete`. 
+
+---------------
 
 * NEW: If you misspell a metadata type when using the `--metadata` flag of one of the `project` commands, such as `project deploy start`, we now prompt you with similar valid options. We also provide other troubleshooting resources. Go ahead, make a typo and see what the command suggests! (source-deploy-retrieve PR [#1374](https://github.com/forcedotcom/source-deploy-retrieve/pull/1374))
 
