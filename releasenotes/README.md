@@ -32,11 +32,13 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: (plugin-autocomplete PR [#753](https://github.com/oclif/plugin-autocomplete/pull/753), oclif plugin-plugins PR [#932](https://github.com/oclif/plugin-plugins/pull/932))
+* NEW: If you've configured autocomplete, Salesforce CLI now automatically regenerates the cache whenever you install or uninstall a plugin. An updated cache ensures that the autocomplete feature is using the latest set of CLI command and flag names. (plugin-autocomplete PR [#753](https://github.com/oclif/plugin-autocomplete/pull/753), oclif plugin-plugins PR [#932](https://github.com/oclif/plugin-plugins/pull/932))
 
-* FIX: (source-deploy-retrieve PR [#1375](https://github.com/forcedotcom/source-deploy-retrieve/pull/1375))
+    What's autocomplete, you ask? It's a way to automatically "complete" a command or flag name by pressing the `<TAB>` key when using Salesforce CLI at the terminal or command window. It's a super-useful feature, so check out [the documentation](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_autocomplete.htm) if you're not already using it!
 
-* FIX: (GitHub issue [#2230](https://github.com/forcedotcom/cli/issues/2230), source-deploy-retrieve PR [#1381](https://github.com/forcedotcom/source-deploy-retrieve/pull/1381))
+* FIX: The `project deploy start` command now correctly handles deployments of changed custom fields even when the parent object hasn't changed. (source-deploy-retrieve PR [#1375](https://github.com/forcedotcom/source-deploy-retrieve/pull/1375))
+
+* FIX: The `project deploy start` command now correctly handles deployments of objects whose source files are spread across multiple folders in your project. (GitHub issue [#2230](https://github.com/forcedotcom/cli/issues/2230), source-deploy-retrieve PR [#1381](https://github.com/forcedotcom/source-deploy-retrieve/pull/1381))
 
 ## 2.53.6 (August 7, 2024) [stable]
 
