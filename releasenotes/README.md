@@ -26,11 +26,29 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.53.6 (August 7, 2024) [stable-rc]
+## 2.54.6 (August 14, 2024) [stable-rc]
+
+**ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`. 
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: Salesforce CLI now automatically regenerates the autocomplete cache after you install or uninstall a plugin to ensure that the autocomplete feature is always using the latest set of CLI command and flag names. (plugin-autocomplete PR [#753](https://github.com/oclif/plugin-autocomplete/pull/753), oclif plugin-plugins PR [#932](https://github.com/oclif/plugin-plugins/pull/932))
+
+    What's autocomplete, you ask? It's a way to automatically "complete" a partially-typed command or flag name by pressing the `<TAB>` key when using Salesforce CLI at the terminal or command window. It's a super-useful feature, so check out [the documentation](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_autocomplete.htm) to learn how to configure and use it!
+
+* FIX: The `project deploy start` command now correctly handles deployments of changed custom fields, even when the parent object hasn't changed. (source-deploy-retrieve PR [#1375](https://github.com/forcedotcom/source-deploy-retrieve/pull/1375))
+
+* FIX: The `project deploy start` command now correctly handles deployments of objects whose source files are spread across multiple folders in your project. (GitHub issue [#2230](https://github.com/forcedotcom/cli/issues/2230), source-deploy-retrieve PR [#1381](https://github.com/forcedotcom/source-deploy-retrieve/pull/1381))
+
+* FIX: Salesforce CLI now constructs valid URLs when gathering results from an execution of the `data query --bulk --query <query>` command.  (GitHub issue [#2968](https://github.com/forcedotcom/cli/issues/2968), jsforce PR [#1550](https://github.com/jsforce/jsforce/pull/1550))
+
+## 2.53.6 (August 7, 2024) [stable]
+
+**ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`. 
+
+---------------
 
 * NEW: If you misspell a metadata type when using the `--metadata` flag of one of the `project` commands, such as `project deploy start`, we now prompt you with similar valid options. We also provide other troubleshooting resources. Go ahead, make a typo and see what the command suggests! (source-deploy-retrieve PR [#1374](https://github.com/forcedotcom/source-deploy-retrieve/pull/1374))
 
@@ -58,7 +76,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     Also, as part of this fix, we now print a warning when you use the old format of specifying multiple flag values with a comma (`--flag value1,value2`). Instead you should specify the flag multiple times (`--flag value1 --flag value2`). (GitHub issue [#2928]https://github.com/forcedotcom/cli/issues/2928), oclif PR [#1148](https://github.com/oclif/core/pull/1148))
 
-## 2.52.6 (July 31, 2024) [stable]
+## 2.52.6 (July 31, 2024)
 
 * NEW: Salesforce CLI now supports the lowercase versions of the proxy environment variables: `http_proxy` and `https_proxy`. Lower-case env variables take precedence over their uppercase equivalents (`HTTP_PROXY` and `HTTPS_PROXY`). (jsforce PR [#1534](https://github.com/jsforce/jsforce/pull/1534))
 
