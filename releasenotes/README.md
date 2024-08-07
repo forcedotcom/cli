@@ -42,7 +42,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `project deploy start` command now correctly handles deployments of objects whose source files are spread across multiple folders in your project. (GitHub issue [#2230](https://github.com/forcedotcom/cli/issues/2230), source-deploy-retrieve PR [#1381](https://github.com/forcedotcom/source-deploy-retrieve/pull/1381))
 
-* FIX: Executing a bulk SOQL query (`sf data query --bulk --query <query>`) that results in many records now works correctly. (GitHub issue [#2968](https://github.com/forcedotcom/cli/issues/2968), jsforce PR [#1550](https://github.com/jsforce/jsforce/pull/1550))
+* FIX: Salesforce CLI now constructs valid URLs when gathering results from an execution of the `data query --bulk --query <query>` command.  (GitHub issue [#2968](https://github.com/forcedotcom/cli/issues/2968), jsforce PR [#1550](https://github.com/jsforce/jsforce/pull/1550))
 
 ## 2.53.6 (August 7, 2024) [stable]
 
