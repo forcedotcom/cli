@@ -28,7 +28,7 @@ Additional documentation:
 
 ## 2.54.6 (August 14, 2024) [stable-rc]
 
-**ANNOUNCEMENT:** If you still use the deprecated `sfdx`-style commands, be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:org:create`, and `force:org:delete`. 
+**ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`. 
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
@@ -44,7 +44,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ## 2.53.6 (August 7, 2024) [stable]
 
-**ANNOUNCEMENT:** If you still use the deprecated `sfdx`-style commands, be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:org:create`, and `force:org:delete`. 
+**ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`. 
 
 ---------------
 
