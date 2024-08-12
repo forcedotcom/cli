@@ -25,24 +25,11 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-
-## 2.55.6 (August 21, 2024) [stable-rc]
+## 2.54.6 (August 14, 2024) [stable-rc]
 
 **ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`. 
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
-
-------------
-
-* FIX: We now wait for config files to be unlocked before we read them. This improvement fixes issues like parallel command executions causing file reads to return empty. (GitHub issue [#2965](https://github.com/forcedotcom/cli/issues/2965), sfdx-core PR [#1116](https://github.com/forcedotcom/sfdx-core/pull/1116))
-
-* FIX: We updated the help and output of the `--package-name` flag of `project retrieve start` to clarify that the results are for reference only and shouldn't be used in your development work. (GitHub issue [#2931](https://github.com/forcedotcom/cli/issues/2931), plugin-deploy-retrieve [#1124](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1124))
-
-* FIX: Salesforce DX projects now support the UiFormatSpecificationSet [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json). 
-
-## 2.54.6 (August 14, 2024) [stable]
-
-**ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`. 
 
 -------------
 
@@ -56,7 +43,11 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Salesforce CLI now constructs valid URLs when gathering results from an execution of the `data query --bulk --query <query>` command.  (GitHub issue [#2968](https://github.com/forcedotcom/cli/issues/2968), jsforce PR [#1550](https://github.com/jsforce/jsforce/pull/1550))
 
-## 2.53.6 (August 7, 2024)
+## 2.53.6 (August 7, 2024) [stable]
+
+**ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`. 
+
+---------------
 
 * NEW: If you misspell a metadata type when using the `--metadata` flag of one of the `project` commands, such as `project deploy start`, we now prompt you with similar valid options. We also provide other troubleshooting resources. Go ahead, make a typo and see what the command suggests! (source-deploy-retrieve PR [#1374](https://github.com/forcedotcom/source-deploy-retrieve/pull/1374))
 
