@@ -41,6 +41,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     (plugin-data PR [#1025](https://github.com/salesforcecli/plugin-data/pull/1025))
 
+* FIX: When parsing a scratch org definition file, Salesforce CLI now removes the `$schema` property (if it exists at the top of the JSON file) to prevent getting an invalid JSON error.  (sfdx-core PR [#1113](https://github.com/forcedotcom/sfdx-core/pull/1113))
+
+    Thank you, Alan Jaouen[https://github.com/alanjaouen), for noticing the problem and then contributing the fix! We love it. 
+
 * FIX: We now wait for config files to be unlocked before we read them. This improvement fixes issues like parallel command executions that cause file reads to return empty. (GitHub issue [#2965](https://github.com/forcedotcom/cli/issues/2965), sfdx-core PR [#1116](https://github.com/forcedotcom/sfdx-core/pull/1116))
 
 * FIX: We updated the help and output of the `--package-name` flag of `project retrieve start` to clarify that the results are for reference only and shouldn't be used in your development work. (GitHub issue [#2931](https://github.com/forcedotcom/cli/issues/2931), plugin-deploy-retrieve [#1124](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1124))
