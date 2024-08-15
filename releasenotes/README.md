@@ -25,11 +25,29 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.55.6 (August 21, 2024) [stable-rc]
+## 2.56.6 (August 27, 2024) [stable-rc]
 
 **ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+------------
+
+* CHANGE: You can now run these packaging commands outside of a Salesforce DX project:
+
+    * `package delete`
+    * `package update`
+    * `package version delete`
+    * `package version displayancestry`
+    * `package version list`
+    * `package version promote`
+    * `package version report`
+
+    (plugin-packaging PR [#771](https://github.com/salesforcecli/plugin-packaging/pull/771), packaging PR [#638](https://github.com/forcedotcom/packaging/pull/638))
+
+## 2.55.6 (August 21, 2024) [stable]
+
+**ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
 
 ------------
 
@@ -51,11 +69,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Salesforce DX projects now support the UiFormatSpecificationSet [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
 
-## 2.54.6 (August 14, 2024) [stable]
-
-**ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`. 
-
------------------
+## 2.54.6 (August 14, 2024)
 
 * NEW: Salesforce CLI now automatically regenerates the autocomplete cache after you install or uninstall a plugin to ensure that the autocomplete feature is always using the latest set of CLI command and flag names. (plugin-autocomplete PR [#753](https://github.com/oclif/plugin-autocomplete/pull/753), oclif plugin-plugins PR [#932](https://github.com/oclif/plugin-plugins/pull/932))
 
