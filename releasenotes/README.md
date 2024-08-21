@@ -56,7 +56,29 @@ Many thanks to [Kyle Capehart](https://github.com/k-capehart) for contributing t
 
 * NEW: Check out the improved human readable output on the `org create scratch` and `org resume scratch` commands! They now take advantage of the new [@oclif/multi-stage-output](https://github.com/oclif/multi-stage-output) repo. Keep your eyes out for more multi-staged output improvements in the near future. (plugin-org PR [#1120](https://github.com/salesforcecli/plugin-org/pull/1120))
 
-* FIX: We have updated our scripts for generating our supported metadata types. Our metadata coverage has increased from 577 to 598. (source-deploy-retrieve PR [#1398](https://github.com/forcedotcom/source-deploy-retrieve/pull/1398))
+* FIX: Support for 21 new metadata types (source-deploy-retrieve PR [#1398](https://github.com/forcedotcom/source-deploy-retrieve/pull/1398))
+  * AssessmentConfiguration
+  * ContextUseCaseMapping
+  * ContractType
+  * DocumentTemplate
+  * EmployeeDataSyncProfile
+  * ExternalAuthIdentityProvider
+  * ExternalDataTranObject
+  * ExternalDocStorageConfig
+  * GenAiPlugin
+  * LearningAchievementConfig
+  * MktDataConnection
+  * MktDataConnectionSrcParam
+  * PortalDelegablePermissionSet
+  * ProductAttrDisplayConfig
+  * ProductSpecificationRecType
+  * ProductSpecificationType
+  * RecAlrtDataSrcExpSetDef
+  * ReferencedDashboard
+  * RelatedRecordAssocCriteria
+  * VirtualVisitConfig
+  * WaveAnalyticAssetCollection
+
 
 
 ## 2.55.6 (August 21, 2024) [stable]
