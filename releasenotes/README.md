@@ -35,11 +35,11 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: Try the new BETA `api request rest` command to send REST calls to your org! ([plugin-api repo](https://github.com/salesforcecli/plugin-api))
 
-- `sf api request rest sobjects/account/<ID> --method PATCH --body "{\"Name\": \"Updated\"}"`
-- `sf api request rest sobjects/account/<ID> --method PATCH --body body.txt`
-- `cat body.txt | sf api request rest sobjects/account --body -`
-- Stream results to a file with the `--stream-to-output` flag
-- Run `sf api request rest --help` to see more examples
+    - `sf api request rest sobjects/account/<ID> --method PATCH --body "{\"Name\": \"Updated\"}"`
+    - `sf api request rest sobjects/account/<ID> --method PATCH --body body.txt`
+    - `cat body.txt | sf api request rest sobjects/account --body -`
+    - Stream results to a file with the `--stream-to-output` flag
+    - Run `sf api request rest --help` to see more examples
 
 * CHANGE: We shipped `decomposeCustomLabelsBeta`, got feedback (thank you!), and decided to change how it behaves. You can see the design proposal [here](https://github.com/forcedotcom/cli/discussions/2948). It removes an extra folder layer that other decomposition strategies needed and supports more flexible folder structures.
 Now there's `decomposeCustomLabeltsBeta2`. If you haven't used it yet, you can try it via `sf project convert source-behavior --behavior decomposeCustomLabelsBeta2`. This works if your project isn't using a preset OR if you started using the original flavor of `decomposeCustomLabeltsBeta`. Please keep the feedback coming! (source-deploy-retrieve PR [#1392](https://github.com/forcedotcom/source-deploy-retrieve/pull/1392))
