@@ -42,15 +42,16 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     - Run `sf api request rest --help` to see more examples
 
 * CHANGE: We shipped `decomposeCustomLabelsBeta`, got [feedback](https://github.com/forcedotcom/cli/issues/2840) (thank you!), and decided to change how it behaves. You can see the design proposal [here](https://github.com/forcedotcom/cli/discussions/2948). It removes an extra folder layer that other decomposition strategies needed and supports more flexible folder structures.
-Now there's `decomposeCustomLabeltsBeta2`. If you haven't used it yet, you can try it via `sf project convert source-behavior --behavior decomposeCustomLabelsBeta2`. This works if your project isn't using a preset OR if you started using the original flavor of `decomposeCustomLabeltsBeta`. Please keep the feedback coming! (source-deploy-retrieve PR [#1392](https://github.com/forcedotcom/source-deploy-retrieve/pull/1392))
+    
+    Now there's `decomposeCustomLabeltsBeta2`. If you haven't used it yet, you can try it via `sf project convert source-behavior --behavior decomposeCustomLabelsBeta2`. This works if your project isn't using a preset OR if you started using the original flavor of `decomposeCustomLabeltsBeta`. Please keep the feedback coming! (source-deploy-retrieve PR [#1392](https://github.com/forcedotcom/source-deploy-retrieve/pull/1392))
 
 * FIX: Salesforce DX projects now support the GenAiFunction [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json) (source-deploy-retrieve PR [#1404](https://github.com/forcedotcom/source-deploy-retrieve/pull/1404), plugin-deploy-retrieve PR [#1137](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1137))
 
 * NEW: The `apex run test` and `apex get test` commands now have a new `--concise` flag
 
-Setting this flag for `apex run test` or `apex get test` will suppress passing test results and the code coverage table. Only failing tests and the summary table will be displayed. (plugin-apex PR [#504](https://github.com/salesforcecli/plugin-apex/pull/504), Github Issue [#243](https://github.com/forcedotcom/salesforcedx-apex/issues/243), Github Discussion [#2872](https://github.com/forcedotcom/cli/discussions/2872))
+    Setting this flag for `apex run test` or `apex get test` will suppress passing test results and the code coverage table. Only failing tests and the summary table will be displayed. (plugin-apex PR [#504](https://github.com/salesforcecli/plugin-apex/pull/504), Github Issue [#243](https://github.com/forcedotcom/salesforcedx-apex/issues/243), Github Discussion [#2872](https://github.com/forcedotcom/cli/discussions/2872))
 
-Many thanks to [Kyle Capehart](https://github.com/k-capehart) for contributing this useful new flag!
+    Many thanks to [Kyle Capehart](https://github.com/k-capehart) for contributing this useful new flag!
 
 * NEW: The `sf project convert source-behavior` command will now warn if you have uncommitted work before doing project modifications. Note that this command puts components in a newly created `main/default` folder in each package directory. You might need to re-organize them into your preferred structure. (plugin-deploy-retrieve PR [#1130](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1130))
 
