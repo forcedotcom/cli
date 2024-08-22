@@ -27,11 +27,17 @@ assignees: ''
 > - Provide detailed step-by-step instructions on how to reproduce the issue.
 
 
+> [!TIP]
+> use `sf doctor --create-issue` to automatically fill the required information
+
 ### Expected result
 <!-- Describe what should have happened -->
 
 ### Actual result
 <!-- Describe what actually happened -->
+
+### Additional information
+<!-- Feel free to attach a screenshot -->
 
 ### System Information
 <!-- Which shell or terminal are you using? (bash, zsh, powershell 7, cmd.exe, etc) -->
@@ -40,5 +46,3 @@ assignees: ''
 ```json
 PASTE_VERSION_OUTPUT_HERE
 ```
-### Additional information
-<!-- Feel free to attach a screenshot -->
