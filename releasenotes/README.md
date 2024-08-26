@@ -55,8 +55,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: The `sf project convert source-behavior` command will now warn if you have uncommitted work before doing project modifications. Note that this command puts components in a newly created `main/default` folder in each package directory. You might need to re-organize them into your preferred structure. (plugin-deploy-retrieve PR [#1130](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1130))
 
-* NEW: Check out the improved human readable output on the `org create scratch` and `org resume scratch` commands! They now take advantage of the new [@oclif/multi-stage-output](https://github.com/oclif/multi-stage-output) repo. Keep your eyes out for more multi-staged output improvements in the near future. (plugin-org PR [#1120](https://github.com/salesforcecli/plugin-org/pull/1120))
-
 * FIX: Support for 21 new metadata types (source-deploy-retrieve PR [#1398](https://github.com/forcedotcom/source-deploy-retrieve/pull/1398))
   * AssessmentConfiguration
   * ContextUseCaseMapping
