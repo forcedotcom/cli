@@ -25,11 +25,27 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.56.6 (August 28, 2024) [stable-rc]
+## 2.57.6 (September 4, 2024) [stable-rc]
 
 **ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+------------
+
+* NEW: The `project deploy start` command now reports the zip size and zip file count when using the `--verbose` flag. (GitHub Discussion [#2942](https://github.com/forcedotcom/cli/discussions/2942), plugin-deploy-retrieve PR [#1138](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1138))
+* NEW: We've improved the `doctor` command so it now checks whether you are setting proxy env vars correctly (plugin-info PR [#848](https://github.com/salesforcecli/plugin-info/pull/848))
+* NEW: Try the new BETA `api request graphql` command to send GraphQL requests to your org! (plugin-api PR [#6](https://github.com/salesforcecli/plugin-api/pull/6))
+
+    - `sf api request graphql --body "query accounts { uiapi { query { Account { edges { node { Id \n Name { value } } } } } } }"`
+    - `cat body.txt | sf api request graphql --body -`
+    - Stream results to a file with the `--stream-to-file` flag
+    - Run `sf api request graphql --help` to see more examples
+* FIX: String Replacement logic will explicitly skip binary files even if they are included in the glob pattern. (source-deploy-retrieve PR [#1405](https://github.com/forcedotcom/source-deploy-retrieve/pull/1405))
+
+## 2.56.7 (August 28, 2024)  [stable]
+
+**ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
 
 ------------
 
@@ -38,7 +54,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     - `sf api request rest sobjects/account/<ID> --method PATCH --body "{\"Name\": \"Updated\"}"`
     - `sf api request rest sobjects/account/<ID> --method PATCH --body body.txt`
     - `cat body.txt | sf api request rest sobjects/account --body -`
-    - Stream results to a file with the `--stream-to-output` flag
+    - Stream results to a file with the `--stream-to-file` flag
     - Run `sf api request rest --help` to see more examples
 
 * CHANGE: We shipped `decomposeCustomLabelsBeta`, got [feedback](https://github.com/forcedotcom/cli/issues/2840) (thank you!), and decided to change how it behaves. You can see the design proposal [here](https://github.com/forcedotcom/cli/discussions/2948). It removes an extra folder layer that other decomposition strategies needed and supports more flexible folder structures.
@@ -80,9 +96,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 
 
-## 2.55.6 (August 21, 2024) [stable]
-
-**ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
+## 2.55.6 (August 21, 2024)
 
 * NEW: Execute a SOSL text-based search query in your org with the new `data search` command. Similar to how the `data query` command works with SOQL queries, you can specify the SOSL query at the command line with the `--query` flag or read the query from a file with the `--file` flag. This example executes the specified SOSL query in an org with alias `my-scratch`:
 
