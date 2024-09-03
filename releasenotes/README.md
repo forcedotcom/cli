@@ -61,6 +61,18 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
     Now there's `decomposeCustomLabeltsBeta2`. If you haven't used it yet, you can try it via `sf project convert source-behavior --behavior decomposeCustomLabelsBeta2`. This works if your project isn't using a preset OR if you started using the original flavor of `decomposeCustomLabeltsBeta`. Please keep the feedback coming! (source-deploy-retrieve PR [#1392](https://github.com/forcedotcom/source-deploy-retrieve/pull/1392))
 
+* CHANGE: You can now run these packaging commands outside of a Salesforce DX project:
+
+    * `package delete`
+    * `package update`
+    * `package version delete`
+    * `package version displayancestry`
+    * `package version list`
+    * `package version promote`
+    * `package version report`
+
+    (plugin-packaging PR [#771](https://github.com/salesforcecli/plugin-packaging/pull/771), packaging PR [#638](https://github.com/forcedotcom/packaging/pull/638))
+
 * FIX: Salesforce DX projects now support the GenAiFunction [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json) (source-deploy-retrieve PR [#1404](https://github.com/forcedotcom/source-deploy-retrieve/pull/1404), plugin-deploy-retrieve PR [#1137](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1137))
 
 * NEW: The `apex run test` and `apex get test` commands now have a new `--concise` flag
