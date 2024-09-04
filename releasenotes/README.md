@@ -33,7 +33,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* FIX: We fixed some under-the-hood bugs.
+* FIX: Salesforce CLI now supports these environment variables: `SF_DISABLE_SOURCE_MEMBER_POLLING` and `SF_SOURCE_MEMBER_POLLING_TIMEOUT`.  Previously only their `SFDX_` equivalents were supported. (source-tracking PR [#668](https://github.com/forcedotcom/source-tracking/pull/668))
 
 ## 2.57.7 (September 4, 2024) [stable]
 
