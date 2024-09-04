@@ -25,13 +25,21 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.57.7 (September 4, 2024) [stable-rc]
+## 2.58.7 (September 11, 2024) [stable-rc]
 
 **ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: Salesforce CLI now supports these environment variables: `SF_DISABLE_SOURCE_MEMBER_POLLING` and `SF_SOURCE_MEMBER_POLLING_TIMEOUT`.  Previously only their `SFDX_` equivalents were supported. (GitHub [comment](https://github.com/forcedotcom/cli/issues/2974#issuecomment-2322907656), source-tracking PR [#668](https://github.com/forcedotcom/source-tracking/pull/668))
+
+## 2.57.7 (September 4, 2024) [stable]
+
+**ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
+
+---------
 
 * NEW: The `project deploy start` command now reports the zip size and zip file count when using the `--verbose` flag. (GitHub Discussion [#2942](https://github.com/forcedotcom/cli/discussions/2942), plugin-deploy-retrieve PR [#1138](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1138))
 * NEW: We've improved the `doctor` command so it now checks whether you are setting proxy env vars correctly (plugin-info PR [#848](https://github.com/salesforcecli/plugin-info/pull/848))
@@ -43,11 +51,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     - Run `sf api request graphql --help` to see more examples
 * FIX: String Replacement logic will explicitly skip binary files even if they are included in the glob pattern. (source-deploy-retrieve PR [#1405](https://github.com/forcedotcom/source-deploy-retrieve/pull/1405))
 
-## 2.56.7 (August 28, 2024)  [stable]
-
-**ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
-
-------------
+## 2.56.7 (August 28, 2024)
 
 * NEW: Try the new BETA `api request rest` command to send REST calls to your org! ([plugin-api repo](https://github.com/salesforcecli/plugin-api))
 
