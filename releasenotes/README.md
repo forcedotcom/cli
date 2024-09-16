@@ -35,13 +35,14 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We fixed some under-the-hood bugs. 
 
-## September 16, 2024
-
-We're not releasing either a new `stable` or `stable-rc` release this week. We'll resume our usual release schedule next week (September 25, 2024). Happy Dreamforce!
-
 ## 2.58.7 (September 11, 2024) [stable]
 
-**ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
+**ANNOUNCEMENTS:** 
+
+* We're not releasing either a new `stable` or `stable-rc` release the week of Sept 16. We'll resume our usual release schedule the following week (September 25, 2024). Happy Dreamforce!
+* Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
+
+----------------
 
 * FIX: Salesforce CLI now supports these environment variables: `SF_DISABLE_SOURCE_MEMBER_POLLING` and `SF_SOURCE_MEMBER_POLLING_TIMEOUT`.  Previously only their `SFDX_` equivalents were supported. (GitHub [comment](https://github.com/forcedotcom/cli/issues/2974#issuecomment-2322907656), source-tracking PR [#668](https://github.com/forcedotcom/source-tracking/pull/668))
 
