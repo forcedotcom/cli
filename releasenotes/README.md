@@ -25,7 +25,7 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.59.6 (September 18, 2024) [stable-rc]
+## 2.59.6 (September 25, 2024) [stable-rc]
 
 **ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
 
@@ -34,6 +34,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 ------------
 
 * FIX: We fixed some under-the-hood bugs. 
+
+## September 16, 2024
+
+We're not releasing either a new `stable` or `stable-rc` release this week. We'll resume our usual release schedule next week (September 25, 2024). Happy Dreamforce!
 
 ## 2.58.7 (September 11, 2024) [stable]
 
