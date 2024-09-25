@@ -33,7 +33,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* FIX: Deploying sharing rules by specifying one of its child metadata types (such as `project deploy start --metadata SharingCriteriaRule:Account.Test_Rule1`) now works correctly. (source-deploy-retrieve PR [#1419](https://github.com/forcedotcom/source-deploy-retrieve/pull/1419))
+* FIX: Deploying a sharing rule by specifying one of its child metadata types (such as `project deploy start --metadata SharingCriteriaRule:Account.Test_Rule1`) now works correctly. (source-deploy-retrieve PR [#1419](https://github.com/forcedotcom/source-deploy-retrieve/pull/1419))
 
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
 
