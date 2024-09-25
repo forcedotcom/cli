@@ -25,7 +25,7 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.59.6 (September 25, 2024) [stable-rc]
+## 2.60.13 (October 2, 2024) [stable-rc]
 
 **ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
 
@@ -33,16 +33,22 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* FIX: Deploying a sharing rule by specifying one of its child metadata types (such as `project deploy start --metadata SharingCriteriaRule:Account.Test_Rule1`) now works correctly. (source-deploy-retrieve PR [#1419](https://github.com/forcedotcom/source-deploy-retrieve/pull/1419))
+
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+
+    * ExtlClntAppPushSettings
+    * ExtlClntAppPushConfigurablePolicies
+
+## 2.59.6 (September 25, 2024) [stable]
+
+**ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
+
+------------
+
 * FIX: We fixed some under-the-hood bugs. 
 
-## 2.58.7 (September 11, 2024) [stable]
-
-**ANNOUNCEMENTS:** 
-
-* We're not releasing either a new `stable` or `stable-rc` release the week of Sept 16. We'll resume our usual release schedule the following week (September 25, 2024). Happy Dreamforce!
-* Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
-
-----------------
+## 2.58.7 (September 11, 2024)
 
 * FIX: Salesforce CLI now supports these environment variables: `SF_DISABLE_SOURCE_MEMBER_POLLING` and `SF_SOURCE_MEMBER_POLLING_TIMEOUT`.  Previously only their `SFDX_` equivalents were supported. (GitHub [comment](https://github.com/forcedotcom/cli/issues/2974#issuecomment-2322907656), source-tracking PR [#668](https://github.com/forcedotcom/source-tracking/pull/668))
 
