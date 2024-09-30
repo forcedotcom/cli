@@ -39,8 +39,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     {
        "sandboxName": "dev1",
        "licenseType": "Developer",
-       "activationUserGroupName": ExpertUsers
+       "activationUserGroupName": "ExpertUsers"
     }
+    ```
 
     You can also specify the name of the Apex class that runs after each copy of the sandbox with the new `apexClassName` option.  Previously you could specify it only with an ID (`apexClassId`). 
 
