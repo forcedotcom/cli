@@ -42,7 +42,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
        "activationUserGroupName": "ExpertUsers"
     }
     ```
-
     You can also now specify the name of the Apex class that runs after each copy of the sandbox with the new `apexClassName` option.  Previously you could specify it only with an ID (`apexClassId`). (plugin-org PR [#1221](https://github.com/salesforcecli/plugin-org/pull/1221))
 
 ## 2.60.13 (October 2, 2024) [stable]
