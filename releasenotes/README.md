@@ -44,6 +44,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     ```
     You can also now specify the name of the Apex class that runs after each copy of the sandbox with the new `apexClassName` option.  Previously you could specify it only with an ID (`apexClassId`). (plugin-org PR [#1221](https://github.com/salesforcecli/plugin-org/pull/1221))
 
+* FIX: We fixed a source tracking issue with some metadata types, such as EmailTemplateFolder. (GitHub issue [#2902](https://github.com/forcedotcom/cli/issues/2902), source-tracking PR [#679](https://github.com/forcedotcom/source-tracking/pull/679))
+
 ## 2.60.13 (October 2, 2024) [stable]
 
 **ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
