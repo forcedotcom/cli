@@ -33,7 +33,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: When you create a sandbox with the `org create sandbox` command, you can now specify the public group of Salesforce users who can access the sandbox by including either the `activationUserGroupId` or `activationUserGroupName` option (but not both) in the sandbox definition file. This example specifies that the Salesforc public user group with name `ExpertUsers` can access the sandbox after it's created:
+* NEW: When you create a sandbox with the `org create sandbox` command, you can now specify the public group of Salesforce users that can access the sandbox by including either the `activationUserGroupId` or `activationUserGroupName` option (but not both) in the sandbox definition file. This example specifies that the Salesforc public user group with name `ExpertUsers` can access the sandbox after it's created:
 
     ```
     {
@@ -43,6 +43,14 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     }
     ```
     You can also now specify the name of the Apex class that runs after each copy of the sandbox with the new `apexClassName` option.  Previously you could specify it only with an ID (`apexClassId`). (plugin-org PR [#1221](https://github.com/salesforcecli/plugin-org/pull/1221))
+
+* NEW: Get detailed coverage results about an asynchronous test run by specifying the new `--detailed-coverage` flag of the `apex get test` command. Similar to how the `apex run test` command works, you must specify human-readable result format (the default) when you use the `--detailed-coverage`  flag. For example:
+
+    ```bash
+    sf apex get test --test-run-id <ID> --code-coverage --detailed-coverage --result-format human
+    ```
+
+    (plugin-apex PR [#597](https://github.com/salesforcecli/plugin-apex/pull/597))
 
 * FIX: We fixed a source tracking issue with some metadata types, such as EmailTemplateFolder. (GitHub issue [#2902](https://github.com/forcedotcom/cli/issues/2902), source-tracking PR [#679](https://github.com/forcedotcom/source-tracking/pull/679))
 
