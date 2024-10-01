@@ -35,7 +35,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: When you create a sandbox with the `org create sandbox` command, you can now specify the public group of Salesforce users who can access the sandbox by including either the `activationUserGroupId` or `activationUserGroupName` option (but not both) in the sandbox definition file. This example specifies that the Salesforc public user group with name `ExpertUsers` can access the sandbox after it's created:
 
-    ```json
+    ```
     {
        "sandboxName": "dev1",
        "licenseType": "Developer",
