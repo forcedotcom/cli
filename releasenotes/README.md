@@ -25,11 +25,40 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.60.13 (October 2, 2024) [stable-rc]
+## 2.61.7 (October 9, 2024) [stable-rc]
 
 **ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+------------
+
+* NEW: When you create a sandbox with the `org create sandbox` command, you can now specify the public group of Salesforce users that can access the sandbox by including either the `activationUserGroupId` or `activationUserGroupName` option (but not both) in the sandbox definition file. This example specifies that the Salesforc public user group with name `ExpertUsers` can access the sandbox after it's created:
+
+    ```
+    {
+       "sandboxName": "dev1",
+       "licenseType": "Developer",
+       "activationUserGroupName": "ExpertUsers"
+    }
+    ```
+    You can also now specify the name of the Apex class that runs after each copy of the sandbox with the new `apexClassName` option.  Previously you could specify it only with an ID (`apexClassId`). (plugin-org PR [#1221](https://github.com/salesforcecli/plugin-org/pull/1221))
+
+* NEW: Get detailed coverage results about an asynchronous test run by specifying the new `--detailed-coverage` flag of the `apex get test` command. Similar to how the `apex run test` command works, you must specify human-readable result format (the default) when you use the `--detailed-coverage`  flag. For example:
+
+    ```bash
+    sf apex get test --test-run-id <ID> --code-coverage --detailed-coverage --result-format human
+    ```
+
+    (plugin-apex PR [#597](https://github.com/salesforcecli/plugin-apex/pull/597))
+
+* FIX: We fixed a source tracking issue with some metadata types, such as EmailTemplateFolder. (GitHub issue [#2902](https://github.com/forcedotcom/cli/issues/2902), source-tracking PR [#679](https://github.com/forcedotcom/source-tracking/pull/679))
+
+* FIX: Salesforce DX projects now support the ExtlClntAppSamlConfigurablePolicies [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json). 
+
+## 2.60.13 (October 2, 2024) [stable]
+
+**ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
 
 ------------
 
@@ -44,11 +73,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * ExtlClntAppPushSettings
     * ExtlClntAppPushConfigurablePolicies
 
-## 2.59.6 (September 25, 2024) [stable]
-
-**ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
-
-------------
+## 2.59.6 (September 25, 2024)
 
 * FIX: We fixed some under-the-hood bugs. 
 
@@ -107,7 +132,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Salesforce DX projects now support the GenAiFunction [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json) (source-deploy-retrieve PR [#1404](https://github.com/forcedotcom/source-deploy-retrieve/pull/1404), plugin-deploy-retrieve PR [#1137](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1137))
 
-* FIX: Support for 21 new metadata types (source-deploy-retrieve PR [#1398](https://github.com/forcedotcom/source-deploy-retrieve/pull/1398))
+* FIX: Support for 21 new  (source-deploy-retrieve PR [#1398](https://github.com/forcedotcom/source-deploy-retrieve/pull/1398))
   * AssessmentConfiguration
   * ContextUseCaseMapping
   * ContractType
@@ -251,9 +276,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `org get snapshot`
     * `org list snapshot`
 
-* FIX: You can now correctly deploy and retrieve the DecisionMatrixDefinition, DecisionMatrixDefinitionVersion, and ExpressionSetDefinitionVersion metadata types. (GitHub issue [#2823](https://github.com/forcedotcom/cli/issues/2823), source-deploy-retrieve PR [#1357](https://github.com/forcedotcom/source-deploy-retrieve/pull/1357))
+* FIX: You can now correctly deploy and retrieve the DecisionMatrixDefinition, DecisionMatrixDefinitionVersion, and ExpressionSetDefinitionVersion . (GitHub issue [#2823](https://github.com/forcedotcom/cli/issues/2823), source-deploy-retrieve PR [#1357](https://github.com/forcedotcom/source-deploy-retrieve/pull/1357))
 
-* FIX: You can now correctly deploy and retrieve the ExperienceResource, DigitalExperienceBundle, and DigitalExperience metadata types. (GitHub issue [#2634](https://github.com/forcedotcom/cli/issues/2634), source-tracking PR [#621](https://github.com/forcedotcom/source-tracking/pull/621))
+* FIX: You can now correctly deploy and retrieve the ExperienceResource, DigitalExperienceBundle, and DigitalExperience . (GitHub issue [#2634](https://github.com/forcedotcom/cli/issues/2634), source-tracking PR [#621](https://github.com/forcedotcom/source-tracking/pull/621))
 
 * FIX: You can now use the `--purge-on-delete` and `--metadata-dir` flags of the `project deploy start` command together to hard delete components whose local source files are in metadata-format. "Hard delete" means the component is immediately eligible for deletion in the org rather than being stored in the Recycle Bin. The directory pointed to by `--metadata-dir` must contain at least one of the destructive manifest files (`destructiveChangesPre.xml` or `destructiveChangesPost.xml`) or you get an error. (GitHub issue [#2909](https://github.com/forcedotcom/cli/issues/2909), plugin-deploy-retrieve [#1069](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1069))
 
