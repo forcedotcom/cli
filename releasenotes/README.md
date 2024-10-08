@@ -25,13 +25,15 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.62.7 (October 16, 2024) [stable-rc]
+## 2.62.6 (October 16, 2024) [stable-rc]
 
 **ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: The `force lightning lwc test run` command now correctly returns a non-zero exit code if a Lightning Web Component Jest test fails. (GitHub issue [#2991](https://github.com/forcedotcom/cli/issues/2991), plugin-lwc-test PR [#193](https://github.com/salesforcecli/plugin-lwc-test/pull/193))
 
 ## 2.61.8 (October 9, 2024) [stable]
 
