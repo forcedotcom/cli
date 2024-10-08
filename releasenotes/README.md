@@ -37,6 +37,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `force lightning lwc test run` command now correctly returns a non-zero exit code if a Lightning Web Component Jest test fails. (GitHub issue [#2991](https://github.com/forcedotcom/cli/issues/2991), plugin-lwc-test PR [#193](https://github.com/salesforcecli/plugin-lwc-test/pull/193))
 
+* FIX: The Apex Code Coverage percentages displayed in the output of `sf project deploy start --test-level <value> --coverage-formatters <value>` now match the percentages in the code coverage reports, such as `coverage-summary.json`.  (GitHub issue [#3030](https://github.com/forcedotcom/cli/issues/3030), plugin-deploy-retrieve [#1175](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1175))
+
 ## 2.61.8 (October 9, 2024) [stable]
 
 **ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
