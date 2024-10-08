@@ -33,6 +33,21 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: Export a large number of records from an org with the new `data export bulk` command. Use a SOQL query to select the fields and records that you want to export, and specify whether you want to write to a CSV- or JSON-formatted file.  For example, this command exports the `Id`, `Name`, and `Account.Name` fields of the Contact object into a JSON-formatted file:
+
+    ```bash
+    sf data export bulk --query "SELECT Id, Name, Account.Name FROM Contact" --output-file export-accounts.json --result-format json --wait 10 --target-org my-scratch
+    ```
+
+    Bulk exports can take a while, so if the command times out after the specified wait time (10 minutes in our example), it displays a job ID that you then pass to the new `data export resume` command to see the status and results of the original export. For example:
+
+    ```bash
+    sf data export resume --job-id 750XXX00fake1222
+    ```
+
+    IMPORTANT: The `data export bulk` command uses Bulk API 2.0, which is optimized to handle very large sets of data asynchronously. However, the API limits the type of SOQL queries you can run. For example, you can't use aggregate functions such as `count()`. For the complete list of limitations, see the
+  "SOQL Considerations" section at the end of [this page](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm). (plugin-data PR [#1035](https://github.com/salesforcecli/plugin-data/pull/1035))
+
 * NEW: Salesforce CLI now warns you when you deploy metadata with the `project deploy start` command and either the total size of the metadata or the number of metadata files is over 80% of the [Metadata API limits](https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_metadata.htm). You can change this threshold by setting the new `SF_DEPLOY_SIZE_THRESHOLD` environment variable to a number between 1 and 100. For example, if you set `SF_DEPLOY_SIZE_THRESHOLD=70`, you get the warning when you try to deploy metadata that's over 70% of the limit.
 
     Salesforce CLI always attempts to deploy the metadata when you run the `project deploy start` command, even if it determines that the size or file count might be over the limit. (source-deploy-retrieve PR [#1435](https://github.com/forcedotcom/source-deploy-retrieve/pull/1435))
