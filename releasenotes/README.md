@@ -33,11 +33,21 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: Store the values for the HTTP request header, body, and so on, in a file when you run the `api request rest` command with the new `--file` flag. The command allows you to make an authenticated HTTP request using the Salesforce REST API. This flag is useful if you want to put all request information in a single JSON-formatted file rather than specify all the sections using flags, such as `--header`, `--body`, and so on. For example:
+
+    ```bash
+    sf api request rest --file ./myHttpRequest.json
+    ```
+
+    Run `sf api request rest --help` and read the long description for the `--file` flag for information on how to create the file.  (plugin-api PR [#14](https://github.com/salesforcecli/plugin-api/pull/14))
+
 * NEW: Easily see which Salesforce CLI versions you previously downloaded with the new Download column in the output of `sf update --available`. To also see the Location column, you must now use the new `--verbose` flag along with the `--available` flag. We also made some minor formatting tweaks to the table output. (oclif plugin-plugins [#980](https://github.com/oclif/plugin-plugins/pull/980), plugin-update [#932](https://github.com/oclif/plugin-update/pull/932), plugin-commands [#763](https://github.com/oclif/plugin-commands/pull/763))
 
 * FIX: The `force lightning lwc test run` command now correctly returns a non-zero exit code if a Lightning Web Component Jest test fails. (GitHub issue [#2991](https://github.com/forcedotcom/cli/issues/2991), plugin-lwc-test PR [#193](https://github.com/salesforcecli/plugin-lwc-test/pull/193))
 
 * FIX: The Apex Code Coverage percentages displayed in the output of `sf project deploy start --test-level <value> --coverage-formatters <value>` now match the percentages in the code coverage reports, such as `coverage-summary.json`.  (GitHub issue [#3030](https://github.com/forcedotcom/cli/issues/3030), plugin-deploy-retrieve [#1175](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1175))
+
+* FIX: (This fix is mostly interesting to `oclif` users, such as Salesforce CLI plugin developers). When you generate a `README.md` file for your plugin using `oclif readme`, flags that have the `noCacheDefault: false` option don't display any locally set configuration variable values, similar to how `--help` works. (GitHub issue [#3041](https://github.com/forcedotcom/cli/issues/3041), oclif core PR [#1212](https://github.com/oclif/core/pull/1212), oclif oclif PR [#1566](https://github.com/oclif/oclif/pull/1566))
 
 ## 2.61.8 (October 9, 2024) [stable]
 
