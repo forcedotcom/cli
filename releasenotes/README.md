@@ -33,6 +33,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: Easily see which Salesforce CLI versions you previously downloaded with the new Download column in the output of `sf update --available`. To also see the Location column, you must now use the new `--verbose` flag along with the `--available` flag. We also made some minor formatting tweaks to the table output. (oclif plugin-plugins [#980](https://github.com/oclif/plugin-plugins/pull/980), plugin-update [#932](https://github.com/oclif/plugin-update/pull/932), plugin-commands [#763](https://github.com/oclif/plugin-commands/pull/763))
+
 * FIX: The `force lightning lwc test run` command now correctly returns a non-zero exit code if a Lightning Web Component Jest test fails. (GitHub issue [#2991](https://github.com/forcedotcom/cli/issues/2991), plugin-lwc-test PR [#193](https://github.com/salesforcecli/plugin-lwc-test/pull/193))
 
 ## 2.61.8 (October 9, 2024) [stable]
