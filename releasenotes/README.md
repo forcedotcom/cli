@@ -52,7 +52,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     Salesforce CLI always attempts to deploy the metadata when you run the `project deploy start` command, even if it determines that the size or file count might be over the limit. (source-deploy-retrieve PR [#1435](https://github.com/forcedotcom/source-deploy-retrieve/pull/1435))
 
-* NEW: Store the values for the HTTP request header, body, and so on, in a file when you run the `api request rest` command with the new `--file` flag. The command allows you to make an authenticated HTTP request using the Salesforce REST API. This flag is useful if you want to put all request information in a single JSON-formatted file rather than specify all the sections using flags, such as `--header`, `--body`, and so on. For example:
+* NEW: Store the values for the HTTP request (header, body, etc) in a file when you run the `api request rest` command with the new `--file` flag. The command allows you to make an authenticated HTTP request using the Salesforce REST API. This flag is useful if you want to put the request information in a single JSON-formatted file rather than specify all the sections using flags, such as `--header`, `--body`, and so on. For example:
 
     ```bash
     sf api request rest --file ./myHttpRequest.json
@@ -60,7 +60,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     Run `sf api request rest --help` and read the long description for the `--file` flag for information on how to create the file.  (plugin-api PR [#14](https://github.com/salesforcecli/plugin-api/pull/14))
 
-* NEW: Easily see which Salesforce CLI versions you previously downloaded with the new Download column in the output of `sf update --available`. To also see the Location column, you must now use the new `--verbose` flag along with the `--available` flag. We also made some minor formatting tweaks to the table output. (oclif plugin-plugins [#980](https://github.com/oclif/plugin-plugins/pull/980), plugin-update [#932](https://github.com/oclif/plugin-update/pull/932), plugin-commands [#763](https://github.com/oclif/plugin-commands/pull/763))
+* NEW: Easily see which Salesforce CLI versions you previously downloaded with the new Download column in the `sf update --available` output. To see the Location column, you must now use the new `--verbose` flag along with the `--available` flag. We also made some minor formatting tweaks to the table output. (oclif plugin-plugins [#980](https://github.com/oclif/plugin-plugins/pull/980), plugin-update [#932](https://github.com/oclif/plugin-update/pull/932), plugin-commands [#763](https://github.com/oclif/plugin-commands/pull/763))
 
 * FIX: The `force lightning lwc test run` command now correctly returns a non-zero exit code if a Lightning Web Component Jest test fails. (GitHub issue [#2991](https://github.com/forcedotcom/cli/issues/2991), plugin-lwc-test PR [#193](https://github.com/salesforcecli/plugin-lwc-test/pull/193))
 
