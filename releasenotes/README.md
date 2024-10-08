@@ -33,6 +33,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: Salesforce CLI now warns you when you deploy metadata with the `project deploy start` command and either the total size of the metadata or the number of metadata files is over 80% of the [Metadata API limits](https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_metadata.htm). You can change this threshold by setting the new `SF_DEPLOY_SIZE_THRESHOLD` environment variable to a number between 1 and 100. For example, if you set `SF_DEPLOY_SIZE_THRESHOLD=70`, you get the warning when you try to deploy metadata that's over 70% of the limit.
+
+    Salesforce CLI always attempts to deploy the metadata when you run the `project deploy start` command, even if it determines that the size or file count might be over the limit. (source-deploy-retrieve PR [#1435](https://github.com/forcedotcom/source-deploy-retrieve/pull/1435))
+
 * NEW: Store the values for the HTTP request header, body, and so on, in a file when you run the `api request rest` command with the new `--file` flag. The command allows you to make an authenticated HTTP request using the Salesforce REST API. This flag is useful if you want to put all request information in a single JSON-formatted file rather than specify all the sections using flags, such as `--header`, `--body`, and so on. For example:
 
     ```bash
