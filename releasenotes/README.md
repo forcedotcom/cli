@@ -25,13 +25,17 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.61.8 (October 9, 2024) [stable-rc]
+## 2.62.7 (October 16, 2024) [stable-rc]
 
 **ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+## 2.61.8 (October 9, 2024) [stable]
+
+**ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
 
 * NEW: When you create a sandbox with the `org create sandbox` command, you can now specify the public group of Salesforce users that can access the sandbox by including either the `activationUserGroupId` or `activationUserGroupName` option (but not both) in the sandbox definition file. This example specifies that the Salesforc public user group with name `ExpertUsers` can access the sandbox after it's created:
 
@@ -56,11 +60,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Salesforce DX projects now support the ExtlClntAppSamlConfigurablePolicies [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json). 
 
-## 2.60.13 (October 2, 2024) [stable]
-
-**ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
-
-------------
+## 2.60.13 (October 2, 2024)
 
 * CHANGE: We shipped `decomposePermissionSetBeta` back in [April](README.md#2368-april-10-2024), asked you to [vote on a new design of the feature](https://github.com/forcedotcom/cli/discussions/2993) (thank you), and we now have a winner! We went with option 2 (focused decomposition); see details [here](https://github.com/forcedotcom/cli/discussions/2993#discussioncomment-10431670). 
     
