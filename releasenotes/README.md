@@ -47,7 +47,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The Apex Code Coverage percentages displayed in the output of `sf project deploy start --test-level <value> --coverage-formatters <value>` now match the percentages in the code coverage reports, such as `coverage-summary.json`.  (GitHub issue [#3030](https://github.com/forcedotcom/cli/issues/3030), plugin-deploy-retrieve [#1175](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1175))
 
-* FIX: (This fix is mostly interesting to `oclif` users, such as Salesforce CLI plugin developers). When you generate a `README.md` file for your plugin using `oclif readme`, flags that have the `noCacheDefault: false` option don't display any locally set configuration variable values, similar to how `--help` works. (GitHub issue [#3041](https://github.com/forcedotcom/cli/issues/3041), oclif core PR [#1212](https://github.com/oclif/core/pull/1212), oclif oclif PR [#1566](https://github.com/oclif/oclif/pull/1566))
+* FIX: (This fix is mostly interesting to `oclif` users, such as Salesforce CLI plugin developers). When you generate a `README.md` file for your plugin using `oclif readme`, flags that have the `noCacheDefault: false` option no longer display any locally set configuration variable values, similar to how `--help` works. (GitHub issue [#3041](https://github.com/forcedotcom/cli/issues/3041), oclif core PR [#1212](https://github.com/oclif/core/pull/1212), oclif oclif PR [#1566](https://github.com/oclif/oclif/pull/1566))
+
+* FIX: The `project retrieve start --package-name` command now correctly retrieves packages that contain custom objects. (GitHub issue [#2977](https://github.com/forcedotcom/cli/issues/2977), source-deploy-retrieve PR [#1431](https://github.com/forcedotcom/source-deploy-retrieve/pull/1431))
 
 ## 2.61.8 (October 9, 2024) [stable]
 
