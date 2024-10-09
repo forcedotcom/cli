@@ -74,6 +74,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 **ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
 
+* NEW: Download and install Salesforce CLI on Windows ARM64 computers with our new `sf-arm64.exe` installer. We're in the process of updating the [download page](https://developer.salesforce.com/tools/salesforcecli) with this new option, but in the meantime you can download the `stable` executable [here](https://developer.salesforce.com/media/salesforce-cli/sf/channels/stable/sf-arm64.exe). (oclif PR [#1559](https://github.com/oclif/oclif/pull/1559))
+
 * NEW: When you create a sandbox with the `org create sandbox` command, you can now specify the public group of Salesforce users that can access the sandbox by including either the `activationUserGroupId` or `activationUserGroupName` option (but not both) in the sandbox definition file. This example specifies that the Salesforc public user group with name `ExpertUsers` can access the sandbox after it's created:
 
     ```
