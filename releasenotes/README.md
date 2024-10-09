@@ -25,13 +25,56 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.61.8 (October 9, 2024) [stable-rc]
+## 2.62.6 (October 16, 2024) [stable-rc]
 
 **ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: Export a large number of records from an org with the new `data export bulk` command. Use a SOQL query to select the fields and records that you want to export, and specify whether you want to write to a CSV- or JSON-formatted file.  For example, this command exports the `Id`, `Name`, and `Account.Name` fields of the Contact object into a JSON-formatted file:
+
+    ```bash
+    sf data export bulk --query "SELECT Id, Name, Account.Name FROM Contact" --output-file export-accounts.json --result-format json --wait 10 --target-org my-scratch
+    ```
+
+    Bulk exports can take a while, so if the command times out after the specified wait time (10 minutes in our example), it displays a job ID that you then pass to the new `data export resume` command to see the status and results of the original export. For example:
+
+    ```bash
+    sf data export resume --job-id 750XXX00fake1222
+    ```
+
+    IMPORTANT: The `data export bulk` command uses Bulk API 2.0, which is optimized to handle very large sets of data asynchronously. However, the API limits the type of SOQL queries you can run. For example, you can't use aggregate functions such as `count()`. For the complete list of limitations, see the
+  "SOQL Considerations" section at the end of [this page](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm). (plugin-data PR [#1035](https://github.com/salesforcecli/plugin-data/pull/1035))
+
+* NEW: Salesforce CLI now warns you when you deploy metadata with the `project deploy start` command and either the total size of the metadata or the number of metadata files is over 80% of the [Metadata API limits](https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_metadata.htm). You can change this threshold by setting the new `SF_DEPLOY_SIZE_THRESHOLD` environment variable to a number between 1 and 100. For example, if you set `SF_DEPLOY_SIZE_THRESHOLD=70`, you get the warning when you try to deploy metadata that's over 70% of the limit.
+
+    Salesforce CLI always attempts to deploy the metadata when you run the `project deploy start` command, even if it determines that the size or file count might be over the limit. (source-deploy-retrieve PR [#1435](https://github.com/forcedotcom/source-deploy-retrieve/pull/1435))
+
+* NEW: Store the values for the HTTP request (header, body, etc) in a file when you run the `api request rest` command with the new `--file` flag. The command allows you to make an authenticated HTTP request using the Salesforce REST API. This flag is useful if you want to put the request information in a single JSON-formatted file rather than specify all the sections using flags, such as `--header`, `--body`, and so on. For example:
+
+    ```bash
+    sf api request rest --file ./myHttpRequest.json
+    ```
+
+    Run `sf api request rest --help` and read the long description for the `--file` flag for information on how to create the file.  (plugin-api PR [#14](https://github.com/salesforcecli/plugin-api/pull/14))
+
+* NEW: Easily see which Salesforce CLI versions you previously downloaded with the new Download column in the `sf update --available` output. To see the Location column, you must now use the new `--verbose` flag along with the `--available` flag. We also made some minor formatting tweaks to the table output. (oclif plugin-plugins [#980](https://github.com/oclif/plugin-plugins/pull/980), plugin-update [#932](https://github.com/oclif/plugin-update/pull/932), plugin-commands [#763](https://github.com/oclif/plugin-commands/pull/763))
+
+* FIX: The `force lightning lwc test run` command now correctly returns a non-zero exit code if a Lightning Web Component Jest test fails. (GitHub issue [#2991](https://github.com/forcedotcom/cli/issues/2991), plugin-lwc-test PR [#193](https://github.com/salesforcecli/plugin-lwc-test/pull/193))
+
+* FIX: The Apex Code Coverage percentages displayed in the output of `sf project deploy start --test-level <value> --coverage-formatters <value>` now match the percentages in the code coverage reports, such as `coverage-summary.json`.  (GitHub issue [#3030](https://github.com/forcedotcom/cli/issues/3030), plugin-deploy-retrieve [#1175](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1175))
+
+* FIX: (This fix is mostly interesting to `oclif` users, such as Salesforce CLI plugin developers). When you generate a `README.md` file for your plugin using `oclif readme`, flags that have the `noCacheDefault: false` option no longer display any locally set configuration variable values, similar to how `--help` works. (GitHub issue [#3041](https://github.com/forcedotcom/cli/issues/3041), oclif core PR [#1212](https://github.com/oclif/core/pull/1212), oclif oclif PR [#1566](https://github.com/oclif/oclif/pull/1566))
+
+* FIX: The `project retrieve start --package-name` command now correctly retrieves packages that contain custom objects. (GitHub issue [#2977](https://github.com/forcedotcom/cli/issues/2977), source-deploy-retrieve PR [#1431](https://github.com/forcedotcom/source-deploy-retrieve/pull/1431))
+
+## 2.61.8 (October 9, 2024) [stable]
+
+**ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
+
+* NEW: Download and install Salesforce CLI on Windows ARM64 computers with our new `sf-arm64.exe` installer. We're in the process of updating the [download page](https://developer.salesforce.com/tools/salesforcecli) with this new option, but in the meantime you can download the `stable` executable [here](https://developer.salesforce.com/media/salesforce-cli/sf/channels/stable/sf-arm64.exe). (oclif PR [#1559](https://github.com/oclif/oclif/pull/1559))
 
 * NEW: When you create a sandbox with the `org create sandbox` command, you can now specify the public group of Salesforce users that can access the sandbox by including either the `activationUserGroupId` or `activationUserGroupName` option (but not both) in the sandbox definition file. This example specifies that the Salesforc public user group with name `ExpertUsers` can access the sandbox after it's created:
 
@@ -56,11 +99,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Salesforce DX projects now support the ExtlClntAppSamlConfigurablePolicies [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json). 
 
-## 2.60.13 (October 2, 2024) [stable]
-
-**ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
-
-------------
+## 2.60.13 (October 2, 2024)
 
 * CHANGE: We shipped `decomposePermissionSetBeta` back in [April](README.md#2368-april-10-2024), asked you to [vote on a new design of the feature](https://github.com/forcedotcom/cli/discussions/2993) (thank you), and we now have a winner! We went with option 2 (focused decomposition); see details [here](https://github.com/forcedotcom/cli/discussions/2993#discussioncomment-10431670). 
     
