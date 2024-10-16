@@ -68,6 +68,18 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     (plugin-org PR [#1203](https://github.com/salesforcecli/plugin-org/pull/1203), plugin-deploy-retrieve PR [#1155](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1155), oclif [multi-stage-output](https://github.com/oclif/multi-stage-output))
 
+* NEW: We now display the Lightning deploy URL, in addition to the deploy ID, when you run any of the `project deploy` commands with the `--verbose` flag. For example, when you run `project deploy start --verbose`, you now see a Deploy URL entry in the output:
+
+    ```bash
+    ...
+    Status: Succeeded
+    Deploy ID: 0AfRKfake00WH0A3
+    Target Org: test-ztqm4gogmflt@example.com
+    Deploy URL: https://customer-fake.scratch.my.salesforce.com/lightning/setup/DeployStatus/page?address=%2Fchangemgmt%2Fmonitlotsofstuff.apexp
+    ...
+    ```
+    Many thanks to [Matt Carvin](https://github.com/mcarvin8) for contributing this useful new feature. It was your first contribution, but we sure hope it won't be your last! 
+    
 * FIX: The `sf plugins --json` command no longer fails in certain circumstances with a `TypeError`. (GitHub issue [#3051](https://github.com/forcedotcom/cli/issues/3051), oclif core PR [#1216](https://github.com/oclif/core/pull/1216))
 
 ## 2.62.6 (October 16, 2024) [stable]
