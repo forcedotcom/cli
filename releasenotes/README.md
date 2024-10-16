@@ -68,7 +68,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     (plugin-org PR [#1203](https://github.com/salesforcecli/plugin-org/pull/1203), plugin-deploy-retrieve PR [#1155](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1155), oclif [multi-stage-output](https://github.com/oclif/multi-stage-output))
 
-* NEW: Open a local metadata file in its associated Builder in your org, such as Agent Builder, with the improved `--source-file` flag of `org open`.
+* NEW: Open a local metadata file in its associated builder in your org, such as Agent Builder, with the improved `--source-file` flag of `org open`.
 
     Let's say, for example, that you completed the Trailhead [Quick Start: Build Your First Agent with Agentforce](https://trailhead.salesforce.com/content/learn/projects/quick-start-build-your-first-agent-with-agentforce). The Coral Cloud Agent that you built was so cool that you decided to retrieve its associated metadata to a local DX project. To then quickly open the agent back up in Agent Builder, simply run this CLI command:
 
