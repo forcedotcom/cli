@@ -66,7 +66,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
      * `org create scratch`
      * `org resume scratch`
 
-      (plugin-org PR [#1203](https://github.com/salesforcecli/plugin-org/pull/1203), plugin-deploy-retrieve PR [#1155](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1155), oclif [multi-stage-output](https://github.com/oclif/multi-stage-output))
+    (plugin-org PR [#1203](https://github.com/salesforcecli/plugin-org/pull/1203), plugin-deploy-retrieve PR [#1155](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1155), oclif [multi-stage-output](https://github.com/oclif/multi-stage-output))
 
 ## 2.62.6 (October 16, 2024) [stable]
 
