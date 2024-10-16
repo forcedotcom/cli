@@ -25,11 +25,52 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.62.6 (October 16, 2024) [stable-rc]
+## 2.63.7 (October 23, 2024) [stable-rc]
 
 **ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+------------
+
+* NEW: Get a behind-the-scenes look at what happens when you execute certain CLI commands with the new multi-stage output feature. For example, when you execute `project deploy start`, you now see this output while the command is executing:
+
+    ```bash
+    $ sf project deploy start --source-dir force-app
+    
+     ─────────────── Deploying Metadata ───────────────
+
+     Deploying v61.0 metadata to test-ztqmfakeflt@example.com using the v62.0 SOAP API.
+    
+     ✔ Preparing 142ms
+     ⣟ Waiting for the org to respond 24.38s
+     ◼ Deploying Metadata
+     ◼ Running Tests
+     ◼ Updating Source Tracking
+     ◼ Done
+    
+     Status: Pending
+     Deploy ID: 0AfRK00000Sfake0A3
+     Target Org: test-ztqmfakegmflt@example.com
+     Elapsed Time: 25.02s
+     ```
+
+     Checkmarks let you know when each stage completes and how long it took, with the total elapsed time counter at the bottom. Pretty cool, huh.  These commands have been updated to use this new output:
+
+     * `project delete source`
+     * `project deploy start`
+     * `project deploy resume`
+     * `project deploy validate`
+     * `project deploy report`
+     * `project retrieve start`
+     * `org create scratch`
+     * `org resume scratch`
+
+      (plugin-org PR [#1203](https://github.com/salesforcecli/plugin-org/pull/1203), plugin-deploy-retrieve PR [#1155](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1155), oclif [multi-stage-output](https://github.com/oclif/multi-stage-output))
+
+## 2.62.6 (October 16, 2024) [stable]
+
+**ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
 
 ------------
 
@@ -70,9 +111,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `project retrieve start --package-name` command now correctly retrieves packages that contain custom objects. (GitHub issue [#2977](https://github.com/forcedotcom/cli/issues/2977), source-deploy-retrieve PR [#1431](https://github.com/forcedotcom/source-deploy-retrieve/pull/1431))
 
-## 2.61.8 (October 9, 2024) [stable]
-
-**ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
+## 2.61.8 (October 9, 2024)
 
 * NEW: Download and install Salesforce CLI on Windows ARM64 computers with our new `sf-arm64.exe` installer. We're in the process of updating the [download page](https://developer.salesforce.com/tools/salesforcecli) with this new option, but in the meantime you can download the `stable` executable [here](https://developer.salesforce.com/media/salesforce-cli/sf/channels/stable/sf-arm64.exe). (oclif PR [#1559](https://github.com/oclif/oclif/pull/1559))
 
