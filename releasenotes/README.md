@@ -68,6 +68,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     (plugin-org PR [#1203](https://github.com/salesforcecli/plugin-org/pull/1203), plugin-deploy-retrieve PR [#1155](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1155), oclif [multi-stage-output](https://github.com/oclif/multi-stage-output))
 
+* FIX: The `sf plugins --json` command no longer fails in certain circumstances with a `TypeError`. (GitHub issue [#3051](https://github.com/forcedotcom/cli/issues/3051), oclif core PR [#1216](https://github.com/oclif/core/pull/1216))
+
 ## 2.62.6 (October 16, 2024) [stable]
 
 **ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
