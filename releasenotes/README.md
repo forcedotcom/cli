@@ -48,6 +48,36 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     ```
     (GitHub issue [#2254](https://github.com/forcedotcom/cli/issues/2254) and discussion [#2339](https://github.com/forcedotcom/cli/discussions/2339), plugin-data PR [#1091](https://github.com/salesforcecli/plugin-data/pull/1091))
 
+* NEW: oclif now uses [ink](https://www.npmjs.com/package/ink) to display tables in human-readable output, making the tables more visually appealing and easier to read. Here's the new [oclif table](https://github.com/oclif/table) GitHub repo. Over the next few releases we will update the Salesforce CLI commands that display table output to use this new feature.
+
+    For example, in this release we updated [plugin-limits](https://github.com/salesforcecli/plugin-limits/pull/1026) which contains the command `org list limits`. The old output looked like this: 
+
+   ```bash
+   sf org list limits --target-org my-scratch
+   Name                                        Remaining Max       
+   ─────────────────────────────────────────── ───────── ───────── 
+   AnalyticsExternalDataSizeMB                 40960     40960     
+   CdpAiInferenceApiMonthlyLimit               500000000 500000000 
+   ConcurrentAsyncGetReportInstances           200       200       
+   ConcurrentEinsteinDataInsightsStoryCreation 5         5         
+   ..._and so on_
+   ```
+
+   The new output looks like this:
+
+   ```bash
+   ┌─────────────────────────────────────────────┬───────────┬───────────┐
+   │ Name                                        │ Remaining │ Max       │
+   ├─────────────────────────────────────────────┼───────────┼───────────┤
+   │ AnalyticsExternalDataSizeMB                 │ 40960     │ 40960     │
+   │ CdpAiInferenceApiMonthlyLimit               │ 500000000 │ 500000000 │
+   │ ConcurrentAsyncGetReportInstances           │ 200       │ 200       │
+   │ ConcurrentEinsteinDataInsightsStoryCreation │ 5         │ 5         │
+   │ ConcurrentEinsteinDiscoveryStoryCreation    │ 2         │ 2         │
+   ```
+
+   Much prettier, no?  
+
 * FIX: The `apex run test --code-coverage` and `apex get test` commands now play nicely together and output accurate code coverage results. (GitHub issue [#2963](https://github.com/forcedotcom/cli/issues/2963))
 
 ## 2.63.7 (October 23, 2024) [stable]
