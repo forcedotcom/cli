@@ -25,11 +25,19 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.63.7 (October 23, 2024) [stable-rc]
+## 2.63.7 (October 30, 2024) [stable-rc]
 
 **ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+------------
+
+* FIX: The `apex run test --code-coverage` and `apex get test` commands now play nicely together and output accurate code coverage results. (GitHub issue [#2963](https://github.com/forcedotcom/cli/issues/2963))
+
+## 2.63.7 (October 23, 2024) [stable]
+
+**ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
 
 ------------
 
@@ -92,11 +100,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
 * FIX: The `sf plugins --json` command no longer fails in certain circumstances with a `TypeError`. (GitHub issue [#3051](https://github.com/forcedotcom/cli/issues/3051), oclif core PR [#1216](https://github.com/oclif/core/pull/1216))
 
-## 2.62.6 (October 16, 2024) [stable]
-
-**ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
-
-------------
+## 2.62.6 (October 16, 2024)
 
 * NEW: Export a large number of records from an org with the new `data export bulk` command. Use a SOQL query to select the fields and records that you want to export, and specify whether you want to write to a CSV- or JSON-formatted file.  For example, this command exports the `Id`, `Name`, and `Account.Name` fields of the Contact object into a JSON-formatted file:
 
