@@ -33,6 +33,21 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: Import a large number of records into a Salesforce object from a comma-separated values (CSV) file with the new `data import bulk` command. All the records in the CSV file must be for the same Salesforce object; see [Prepare Data to Ingest](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/datafiles_prepare_data.htm) in the "Bulk API 2.0 and Bulk API Developer Guide" for details about creating the CSV file. Use the `--sobject` flag to specify the Salesforce object. 
+
+    For example, this command imports Account records from the `accounts.csv` file into an org with alias "my-scratch":
+
+    ```bash
+    sf data import bulk --file accounts.csv --sobject Account --wait 10 --target-org my-scratch
+    ```
+
+   Bulk imports can take a while, depending on how many records are in the CSV file. If the command times out after the specified wait time (10 minutes in our example), it displays a job ID that you then pass to the new `data import resume` command to see the status and results of the original export. For example:
+
+    ```bash
+    sf data import resume --job-id 750XXX00fake1222
+    ```
+    (GitHub issue [#2254](https://github.com/forcedotcom/cli/issues/2254) and discussion [#2339](https://github.com/forcedotcom/cli/discussions/2339), plugin-data PR [#1091](https://github.com/salesforcecli/plugin-data/pull/1091))
+
 * FIX: The `apex run test --code-coverage` and `apex get test` commands now play nicely together and output accurate code coverage results. (GitHub issue [#2963](https://github.com/forcedotcom/cli/issues/2963))
 
 ## 2.63.7 (October 23, 2024) [stable]
