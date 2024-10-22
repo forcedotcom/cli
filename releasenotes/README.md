@@ -88,7 +88,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     sf data export tree --plan --output-dir junction \
         --query "select AccountId, ContactId from AccountContactRole" \
         --query "Select ID, AccountId, FirstName, LastName from Contact" \
-        --query "select ID, ContactId, AccountId from AccountContactRelation where Account.Name != 'We Know Everybody'" \
+        --query "select ID, ContactId, AccountId from AccountContactRelation" \
         --query "select ID, Name from Account where Name != 'Sample Account for Entitlements'"
     ```
     (plugin-data PR [#1092](https://github.com/salesforcecli/plugin-data/pull/1092))
