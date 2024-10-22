@@ -78,7 +78,20 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
    Much prettier, no?  
 
-* FIX: The `apex run test --code-coverage` and `apex get test` commands now play nicely together and output accurate code coverage results. (GitHub issue [#2963](https://github.com/forcedotcom/cli/issues/2963))
+* NEW: Easily export records from a junction object and its parent objects by specifying multiple `--query` flags of the `data export tree` command; previously you could specify only one `--query` flag.
+
+    A [junction object](https://help.salesforce.com/s/articleView?id=sf.relationships_manytomany.htm&type=5) is a custom Salesforce object with two master-detail relationships which you use to model a “many-to-many” relationship between two objects. We recommend that you also specify `--plan` when you run the export. After the export completes, you have a set of sObject tree files and a plan definition file to easily import the records of the junction object and its parent objects into a new org and preserve the many-to-many relationships.
+
+    For example, the AccountContactRelation and AccountContactRole junction objects represents two many-to-many relationships between Contacts and Accounts. To export records from the two junction objects, along with associated Contact and Account records, and preserve the relationships, you could run something like this:
+
+    ```bash
+    sf data export tree --plan --output-dir junction \
+        --query "select AccountId, ContactId from AccountContactRole" \
+        --query "Select ID, AccountId, FirstName, LastName from Contact" \
+        --query "select ID, ContactId, AccountId from AccountContactRelation where Account.Name != 'We Know Everybody'" \
+        --query "select ID, Name from Account where Name != 'Sample Account for Entitlements'"
+    ```
+    (plugin-data PR [#1092](https://github.com/salesforcecli/plugin-data/pull/1092))
 
 ## 2.63.7 (October 23, 2024) [stable]
 
