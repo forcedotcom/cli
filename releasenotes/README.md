@@ -48,36 +48,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     ```
     (GitHub issue [#2254](https://github.com/forcedotcom/cli/issues/2254) and discussion [#2339](https://github.com/forcedotcom/cli/discussions/2339), plugin-data PR [#1091](https://github.com/salesforcecli/plugin-data/pull/1091))
 
-* NEW: oclif now uses [ink](https://www.npmjs.com/package/ink) to display tables in human-readable output, making the tables more visually appealing and easier to read. Here's the new [oclif table](https://github.com/oclif/table) GitHub repo. Over the next few releases we will update the Salesforce CLI commands that display table output to use this new feature.
-
-    For example, in this release we updated [plugin-limits](https://github.com/salesforcecli/plugin-limits/pull/1026) which contains the command `org list limits`. The old output looked like this: 
-
-   ```bash
-   sf org list limits --target-org my-scratch
-   Name                                        Remaining Max       
-   ─────────────────────────────────────────── ───────── ───────── 
-   AnalyticsExternalDataSizeMB                 40960     40960     
-   CdpAiInferenceApiMonthlyLimit               500000000 500000000 
-   ConcurrentAsyncGetReportInstances           200       200       
-   ConcurrentEinsteinDataInsightsStoryCreation 5         5         
-   ..._and so on_
-   ```
-
-   The new output looks like this:
-
-   ```bash
-   ┌─────────────────────────────────────────────┬───────────┬───────────┐
-   │ Name                                        │ Remaining │ Max       │
-   ├─────────────────────────────────────────────┼───────────┼───────────┤
-   │ AnalyticsExternalDataSizeMB                 │ 40960     │ 40960     │
-   │ CdpAiInferenceApiMonthlyLimit               │ 500000000 │ 500000000 │
-   │ ConcurrentAsyncGetReportInstances           │ 200       │ 200       │
-   │ ConcurrentEinsteinDataInsightsStoryCreation │ 5         │ 5         │
-   │ ConcurrentEinsteinDiscoveryStoryCreation    │ 2         │ 2         │
-   ```
-
-   Much prettier, no?  
-
 * NEW: Easily export records from a junction object and its parent objects by specifying multiple `--query` flags of the `data export tree` command; previously you could specify only one `--query` flag.
 
     A [junction object](https://help.salesforce.com/s/articleView?id=sf.relationships_manytomany.htm&type=5) is a custom Salesforce object with two master-detail relationships which you use to model a “many-to-many” relationship between two objects. We recommend that you also specify `--plan` when you run the export. After the export completes, you have a set of sObject tree files and a plan definition file to easily import the records of the junction object and its parent objects into a new org and preserve the many-to-many relationships.
@@ -92,6 +62,37 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
         --query "select ID, Name from Account where Name != 'Sample Account for Entitlements'"
     ```
     (plugin-data PR [#1092](https://github.com/salesforcecli/plugin-data/pull/1092))
+
+* CHANGE: oclif now uses [ink](https://www.npmjs.com/package/ink) to display tables in human-readable output, making the tables more visually appealing and easier to read. Here's the new [oclif table](https://github.com/oclif/table) GitHub repo. Over the next few releases we'll update the Salesforce CLI commands that display table output to use this new feature.
+
+    For example, in this release we updated [plugin-limits](https://github.com/salesforcecli/plugin-limits/pull/1026) which contains the command `org list limits`. The old output looked like this: 
+
+   ```bash
+   sf org list limits --target-org my-scratch
+   Name                                        Remaining Max       
+   ─────────────────────────────────────────── ───────── ───────── 
+   AnalyticsExternalDataSizeMB                 40960     40960     
+   CdpAiInferenceApiMonthlyLimit               500000000 500000000 
+   ConcurrentAsyncGetReportInstances           200       200       
+   ConcurrentEinsteinDataInsightsStoryCreation 5         5         
+   ...
+   ```
+
+   The new output looks like this:
+
+   ```bash
+   sf org list limits --target-org my-scratch
+   ┌─────────────────────────────────────────────┬───────────┬───────────┐
+   │ Name                                        │ Remaining │ Max       │
+   ├─────────────────────────────────────────────┼───────────┼───────────┤
+   │ AnalyticsExternalDataSizeMB                 │ 40960     │ 40960     │
+   │ CdpAiInferenceApiMonthlyLimit               │ 500000000 │ 500000000 │
+   │ ConcurrentAsyncGetReportInstances           │ 200       │ 200       │
+   │ ConcurrentEinsteinDataInsightsStoryCreation │ 5         │ 5         │
+   ...
+   ```
+
+   Much prettier! 
 
 ## 2.63.7 (October 23, 2024) [stable]
 
