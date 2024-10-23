@@ -25,11 +25,78 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.63.7 (October 23, 2024) [stable-rc]
+## 2.63.7 (October 30, 2024) [stable-rc]
 
 **ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+------------
+
+* NEW: Import a large number of records into a Salesforce object from a comma-separated values (CSV) file with the new `data import bulk` command. All the records in the CSV file must be for the same Salesforce object; see [Prepare Data to Ingest](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/datafiles_prepare_data.htm) in the "Bulk API 2.0 and Bulk API Developer Guide" for details about creating the CSV file. Use the `--sobject` flag to specify the Salesforce object. 
+
+    For example, this command imports Account records from the `accounts.csv` file into an org with alias "my-scratch":
+
+    ```bash
+    sf data import bulk --file accounts.csv --sobject Account --wait 10 --target-org my-scratch
+    ```
+
+   Bulk imports can take a while, depending on how many records are in the CSV file. If the command times out after the specified wait time (10 minutes in our example), it displays a job ID that you then pass to the new `data import resume` command to see the status and results of the original export. For example:
+
+    ```bash
+    sf data import resume --job-id 750XXX00fake1222
+    ```
+    (GitHub issue [#2254](https://github.com/forcedotcom/cli/issues/2254) and discussion [#2339](https://github.com/forcedotcom/cli/discussions/2339), plugin-data PR [#1091](https://github.com/salesforcecli/plugin-data/pull/1091))
+
+* NEW: Easily export records from a junction object and its parent objects by specifying multiple `--query` flags of the `data export tree` command; previously you could specify only one `--query` flag.
+
+    A [junction object](https://help.salesforce.com/s/articleView?id=sf.relationships_manytomany.htm&type=5) is a custom Salesforce object with two master-detail relationships which you use to model a “many-to-many” relationship between two objects. We recommend that you also specify `--plan` when you run the export. After the export completes, you have a set of sObject tree files and a plan definition file to easily import the records of the junction object and its parent objects into a new org and preserve the many-to-many relationships.
+
+    For example, the AccountContactRelation and AccountContactRole junction objects represents two many-to-many relationships between Contacts and Accounts. To export records from the two junction objects, along with associated Contact and Account records, and preserve the relationships, you could run something like this:
+
+    ```bash
+    sf data export tree --plan --output-dir junction \
+        --query "select AccountId, ContactId from AccountContactRole" \
+        --query "Select ID, AccountId, FirstName, LastName from Contact" \
+        --query "select ID, ContactId, AccountId from AccountContactRelation" \
+        --query "select ID, Name from Account where Name != 'Sample Account for Entitlements'"
+    ```
+    (plugin-data PR [#1092](https://github.com/salesforcecli/plugin-data/pull/1092))
+
+* CHANGE: oclif now uses [ink](https://www.npmjs.com/package/ink) to display tables in human-readable output, making the tables more visually appealing and easier to read. Here's the new [oclif table](https://github.com/oclif/table) GitHub repo. Over the next few releases we'll update the Salesforce CLI commands that display table output to use this new feature.
+
+    For example, in this release we updated [plugin-limits](https://github.com/salesforcecli/plugin-limits/pull/1026) which contains the command `org list limits`. The old output looked like this: 
+
+   ```bash
+   sf org list limits --target-org my-scratch
+   Name                                        Remaining Max       
+   ─────────────────────────────────────────── ───────── ───────── 
+   AnalyticsExternalDataSizeMB                 40960     40960     
+   CdpAiInferenceApiMonthlyLimit               500000000 500000000 
+   ConcurrentAsyncGetReportInstances           200       200       
+   ConcurrentEinsteinDataInsightsStoryCreation 5         5         
+   ...
+   ```
+
+   The new output looks like this:
+
+   ```bash
+   sf org list limits --target-org my-scratch
+   ┌─────────────────────────────────────────────┬───────────┬───────────┐
+   │ Name                                        │ Remaining │ Max       │
+   ├─────────────────────────────────────────────┼───────────┼───────────┤
+   │ AnalyticsExternalDataSizeMB                 │ 40960     │ 40960     │
+   │ CdpAiInferenceApiMonthlyLimit               │ 500000000 │ 500000000 │
+   │ ConcurrentAsyncGetReportInstances           │ 200       │ 200       │
+   │ ConcurrentEinsteinDataInsightsStoryCreation │ 5         │ 5         │
+   ...
+   ```
+
+   Much prettier! 
+
+## 2.63.7 (October 23, 2024) [stable]
+
+**ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
 
 ------------
 
@@ -92,11 +159,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
 * FIX: The `sf plugins --json` command no longer fails in certain circumstances with a `TypeError`. (GitHub issue [#3051](https://github.com/forcedotcom/cli/issues/3051), oclif core PR [#1216](https://github.com/oclif/core/pull/1216))
 
-## 2.62.6 (October 16, 2024) [stable]
-
-**ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
-
-------------
+## 2.62.6 (October 16, 2024)
 
 * NEW: Export a large number of records from an org with the new `data export bulk` command. Use a SOQL query to select the fields and records that you want to export, and specify whether you want to write to a CSV- or JSON-formatted file.  For example, this command exports the `Id`, `Name`, and `Account.Name` fields of the Contact object into a JSON-formatted file:
 
