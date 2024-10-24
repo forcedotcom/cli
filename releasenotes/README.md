@@ -94,7 +94,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
    Much prettier! 
 
-## 2.63.7 (October 23, 2024) [stable]
+## 2.63.8 (October 23, 2024) [stable]
 
 **ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
 
