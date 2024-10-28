@@ -94,46 +94,40 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
    Much prettier! 
 
-## 2.63.8 (October 23, 2024) [stable]
+## 2.63.9 (October 23, 2024) [stable]
 
 **ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
 
 ------------
 
-* NEW: Get a behind-the-scenes look at what happens when you execute certain CLI commands with the new multi-stage output feature. For example, when you execute `project deploy start`, you now see this output while the command is executing:
+* NEW: Get a behind-the-scenes look at what happens when you execute certain CLI commands with the new multi-stage output feature. For example, when you execute `org create scratch`, you now see this output while the command is executing:
 
     ```bash
-    $ sf project deploy start --source-dir force-app
+    $ sf org create scratch --edition developer --alias my-scratch-org
     
-     ─────────────── Deploying Metadata ───────────────
+      ────────────── Creating Scratch Org ──────────────
 
-     Deploying v61.0 metadata to test-ztqmfakeflt@example.com using the v62.0 SOAP API.
-    
-     ✔ Preparing 142ms
-     ⣟ Waiting for the org to respond 24.38s
-     ◼ Deploying Metadata
-     ◼ Running Tests
-     ◼ Updating Source Tracking
-     ◼ Done
-    
-     Status: Pending
-     Deploy ID: 0AfRK00000Sfake0A3
-     Target Org: test-ztqmfakegmflt@example.com
-     Elapsed Time: 25.02s
+      ✔ Prepare Request 37ms
+      ✔ Send Request 14.61s
+      ◯ Wait For Org - Skipped
+      ✔ Available 5ms
+      ⢿ Authenticate 1.46s
+      ◼ Deploy Settings
+      ◼ Done
+
+      Request Id: 2SRWs000002aOttOAE
+      OrgId: 00DOv00000C6RbJ
+      Username: test-p4bh29a7jcvc@example.com
+      Alias: my-scratch-org
+      Elapsed Time: 16.21s
      ```
 
      Checkmarks let you know when each stage completes and how long it took, with the total elapsed time counter at the bottom. Pretty cool, huh.  These commands have been updated to use this new output:
 
-     * `project delete source`
-     * `project deploy start`
-     * `project deploy resume`
-     * `project deploy validate`
-     * `project deploy report`
-     * `project retrieve start`
      * `org create scratch`
      * `org resume scratch`
 
-    (plugin-org PR [#1203](https://github.com/salesforcecli/plugin-org/pull/1203), plugin-deploy-retrieve PR [#1155](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1155), oclif [multi-stage-output](https://github.com/oclif/multi-stage-output))
+    (plugin-org PR [#1203](https://github.com/salesforcecli/plugin-org/pull/1203), oclif [multi-stage-output](https://github.com/oclif/multi-stage-output))
 
 * NEW: Open a local metadata file in its associated builder in your org, such as Agent Builder, with the improved `--source-file` flag of `org open`.
 
