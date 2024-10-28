@@ -105,22 +105,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     ```bash
     $ sf org create scratch --edition developer --alias my-scratch-org
     
-     ─────────────── Deploying Metadata ───────────────
-
-     Deploying v61.0 metadata to test-ztqmfakeflt@example.com using the v62.0 SOAP API.
-    
-     ✔ Preparing 142ms
-     ⣟ Waiting for the org to respond 24.38s
-     ◼ Deploying Metadata
-     ◼ Running Tests
-     ◼ Updating Source Tracking
-     ◼ Done
-    
-     Status: Pending
-     Deploy ID: 0AfRK00000Sfake0A3
-     Target Org: test-ztqmfakegmflt@example.com
-     Elapsed Time: 25.02s
-
       ────────────── Creating Scratch Org ──────────────
 
       ✔ Prepare Request 37ms
@@ -136,7 +120,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
       Username: test-p4bh29a7jcvc@example.com
       Alias: my-scratch-org
       Elapsed Time: 16.21s
-
      ```
 
      Checkmarks let you know when each stage completes and how long it took, with the total elapsed time counter at the bottom. Pretty cool, huh.  These commands have been updated to use this new output:
