@@ -25,11 +25,23 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.64.6 (October 30, 2024) [stable-rc]
-
-**ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
+## 2.65.7 (November 6, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+------------
+
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+
+    * AppFrameworkTemplateBundle
+    * ChoiceList
+    * ConvIntelligenceSignalRule
+    * PublicKeyCertificate
+    * PublicKeyCertificateSet
+
+## 2.64.6 (October 30, 2024) [stable]
+
+**ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
 
 ------------
 
@@ -94,11 +106,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
    Much prettier! 
 
-## 2.63.9 (October 23, 2024) [stable]
-
-**ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
-
-------------
+## 2.63.9 (October 23, 2024)
 
 * NEW: Get a behind-the-scenes look at what happens when you execute certain CLI commands with the new multi-stage output feature. For example, when you execute `org create scratch`, you now see this output while the command is executing:
 
