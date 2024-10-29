@@ -31,6 +31,39 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* CHANGE: As we [announced in July 2024](https://github.com/forcedotcom/cli/issues/2974), we removed these deprecated commands from Salesforce CLI:
+
+    * `force:mdapi:convert`
+    * `force:mdapi:deploy`
+    * `force:mdapi:deploy:cancel`
+    * `force:mdapi:deploy:report`
+    * `force:mdapi:describemetadata`
+    * `force:mdapi:listmetadata`
+    * `force:mdapi:retrieve`
+    * `force:mdapi:retrieve:report`
+    * `force:source:convert`
+    * `force:source:delete`
+    * `force:source:deploy`
+    * `force:source:deploy:cancel`
+    * `force:source:deploy:report`
+    * `force:source:ignored:list`
+    * `force:source:manifest:create`
+    * `force:source:open`
+    * `force:source:pull`
+    * `force:source:push`
+    * `force:source:retrieve`
+    * `force:source:status`
+    * `force:source:tracking:clear`
+    * `force:source:tracking:reset`
+ 
+    See the [Migration Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_migrate.htm) if you haven't yet migrated to the new `sf` commands. In particular:
+  
+    * [Map the old `sfdx` commands to their new `sf` equivalents.](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_old_new_command_mapping.htm)
+    * [Read details and examples for migrating the `force:mdapi:*` and `force:source:*` commands.](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_mig_deploy_retrieve.htm)
+    * [Read details and examples for migrating the `force:org:*` commands.](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_mig_org.htm)
+  
+   Finally, see [this pinned issue](https://github.com/forcedotcom/cli/issues/2974) for workarounds if you don't want to migrate. (source-deploy-retrieve PR [#1446](https://github.com/forcedotcom/source-deploy-retrieve/pull/1446), plugin-deploy-retrieve PR [#1197](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1197), cli PR [#1962](https://github.com/salesforcecli/cli/pull/1962), plugin-org PR [#1244](https://github.com/salesforcecli/plugin-org/pull/1244))
+
 * FIX: If you run `data export tree` to export recrods from a Salesforce object that has a RecordType field, and you specify `RecordType.Name` in the SOQL query, you can now import that data using `data import tree` into a new org and the RecordType IDs and Names are correctly resolved.  (plugin-data PR [#1102](https://github.com/salesforcecli/plugin-data/pull/1102))
 
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
@@ -43,7 +76,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ## 2.64.6 (October 30, 2024) [stable]
 
-**ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.
+**ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.  The commands have been removed in this week's release candidate (2.65.7), which becomes the stable release next week (November 6, 2024). 
 
 ------------
 
