@@ -31,7 +31,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* CHANGE: As we [announced in July 2024](https://github.com/forcedotcom/cli/issues/2974), we removed these deprecated commands from Salesforce CLI:
+* CHANGE: As we [announced we were going to do back in July 2024](https://github.com/forcedotcom/cli/issues/2974), we removed these deprecated commands from Salesforce CLI:
 
     * `force:mdapi:convert`
     * `force:mdapi:deploy`
