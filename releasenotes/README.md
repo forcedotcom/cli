@@ -66,6 +66,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: If you run `data export tree` to export records from a Salesforce object that has a RecordType field, and you specify `RecordType.Name` in the SOQL query, you can now import that data using `data import tree` into a new org and the RecordType IDs and Names are correctly resolved.  (plugin-data PR [#1102](https://github.com/salesforcecli/plugin-data/pull/1102))
 
+* FIX: (GitHub issue [#3079](https://github.com/forcedotcom/cli/issues/3079), oclif multi-stage-output PR [#52](https://github.com/oclif/multi-stage-output/pull/52))
+
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
 
     * AppFrameworkTemplateBundle
