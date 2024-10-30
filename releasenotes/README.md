@@ -81,7 +81,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
   
    Finally, if you're not ready to migrate, see [this pinned issue](https://github.com/forcedotcom/cli/issues/2974) for workarounds. (source-deploy-retrieve PR [#1446](https://github.com/forcedotcom/source-deploy-retrieve/pull/1446), plugin-deploy-retrieve PR [#1197](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1197), cli PR [#1962](https://github.com/salesforcecli/cli/pull/1962), plugin-org PR [#1244](https://github.com/salesforcecli/plugin-org/pull/1244))
 
-* FIX: If you run `data export tree` to export records from a Salesforce object that has a RecordType field, and you specify `RecordType.Name` in the SOQL query, you can now import that data using `data import tree` into a new org and the RecordType IDs and Names are correctly resolved.  (plugin-data PR [#1102](https://github.com/salesforcecli/plugin-data/pull/1102))
+* FIX: If you run `data export tree` to export records from a Salesforce object that has a RecordType field, and you specify `RecordType.Name` in the SOQL query, you can now import that data using `data import tree` into a new org and the RecordType IDs and Names are correctly resolved.  (GitHub discussion [#2753](https://github.com/forcedotcom/cli/discussions/2753), plugin-data PR [#1102](https://github.com/salesforcecli/plugin-data/pull/1102))
 
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
 
