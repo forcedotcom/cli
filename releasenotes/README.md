@@ -56,6 +56,16 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     ```
     (GitHub discussion [#2387](https://github.com/forcedotcom/cli/discussions/2387), plugin-data PR [#1097](https://github.com/salesforcecli/plugin-data/pull/1097))
 
+* NEW: Specify the ID of the sandbox you want to clone with the new `--source-id` flag of the `org create sandbox` command. We also added a similar new option `sourceId` to the sandbox definition file.  As always, the flag takes precendence if you specify both. This example shows how to clone an existing sandbox with ID `00Dxygfake` and name the new sandbox `NewClonedSandbox`; the org with the sandbox license has the alias `prodOrg`: 
+
+    ```bash
+    sf org create sandbox --source-id 00Dxygfake --name NewClonedSandbox --target-org prodOrg --alias MyDevSandbox --set-default
+    ```
+
+    For consistency, we also changed the name of the existing `--clone` flag of `org create sandbox` to `--source-sandbox-name`. Don't worry, we aliased the old `--clone` flag name to `--source-sandbox-name`, although we highly recommend you update your scripts to use the new flag name as soon as possible. 
+
+    (plugin-org PR [#1237](https://github.com/salesforcecli/plugin-org/pull/1237))
+  
 * NEW: Customize how the new [table-formatted command output](README.md#2646-october-30-2024) looks like with these new environment variables:
 
     * `SF_NO_TABLE_STYLE`: Removes all table stylings, such as borders and colors.
