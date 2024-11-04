@@ -31,6 +31,15 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: Get the results of a previously run and completed bulk ingest (import, update, upsert, or delete) job with the new `data bulk results` command. The command works for jobs executed with Bulk API 2.0, such as a CLI command like `data import bulk` or an external tool like Data Loader, as long as the job provides a job ID. Pass the job ID to `data bulk results` to retrieve the results.
+
+    The command displays information such as the job status, the ingest operation, updated Salesforce object, how many records were processed, and how many failed or succeeded. Finally, the output displays the names of the generated CSV-formatted files that contain the specific results for each ingested record. For example:
+
+    ```bash
+    sf data bulk results --job-id 7507i000fake341G --target-org my-scratch
+    ```
+    (GitHub discussion [#2387](https://github.com/forcedotcom/cli/discussions/2387), plugin-data PR [#1097](https://github.com/salesforcecli/plugin-data/pull/1097))
+  
 ## 2.65.8 (November 6, 2024) [stable]
 
 * NEW: We updated these commands to use [multi-stage output](README.md#2639-october-23-2024), so while they are running they now display the stage they're currently on, the elapsed time, and more:
