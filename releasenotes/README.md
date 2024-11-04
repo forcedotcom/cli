@@ -39,7 +39,15 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     sf data bulk results --job-id 7507i000fake341G --target-org my-scratch
     ```
     (GitHub discussion [#2387](https://github.com/forcedotcom/cli/discussions/2387), plugin-data PR [#1097](https://github.com/salesforcecli/plugin-data/pull/1097))
-  
+
+* NEW: Customize how the new [table-formatted command output](README.md#2646-october-30-2024) looks like with these new environment variables:
+
+    * `SF_NO_TABLE_STYLE`: Removes all table stylings, such as borders and colors.
+    * `SF_TABLE_OVERFLOW`: Specifies how to handle text in table output that is too wide for its column, such as by wrapping or truncating.
+    * `SF_TABLE_BORDER_STYLE`: Specifies how to display the borders of table output, such as whether the table has an outline or vertical lines between columns.
+
+    See [Salesforce CLI Environment Variables](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_env_variables.htm) for the possible and default values. 
+ 
 ## 2.65.8 (November 6, 2024) [stable]
 
 * NEW: We updated these commands to use [multi-stage output](README.md#2639-october-23-2024), so while they are running they now display the stage they're currently on, the elapsed time, and more:
