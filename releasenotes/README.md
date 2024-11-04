@@ -31,6 +31,22 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: Bulk update many records of a Salesforce object from a comma-separated values (CSV) file with the new `data update bulk` command.
+
+   All the records in the CSV file must be for the same Salesforce object and the first column of every line must be an ID of the record you want to update. The CSV file can contain only existing records; if a record in the file doesn't currently exist in the Salesforce object, the command fails. Use the `--sobject` flag to specify the Salesforce object. See [Prepare Data to Ingest](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/datafiles_prepare_data.htm) in the "Bulk API 2.0 and Bulk API Developer Guide" for details about creating the CSV file.
+
+    For example, this command updates Account records from the `accounts.csv` file in an org with alias "my-scratch":
+    ```bash
+    sf data update bulk --file accounts.csv --sobject Account --wait 10 --target-org my-scratch
+    ```
+   Bulk updates can take a while, depending on how many records are in the CSV file. If the command times out after the specified wait time (10 minutes in our example), it displays a job ID that you then pass to the new `data update resume` command to see the status and results of the original update. For example:
+
+    ```bash
+    sf data update bulk --file accounts.csv --sobject Account --async
+    ```
+    (plugin-data PR [#1098](https://github.com/salesforcecli/plugin-data/pull/1098))
+
+
 * NEW: Get the results of a previously run and completed bulk ingest (import, update, upsert, or delete) job with the new `data bulk results` command. The command works for jobs executed with Bulk API 2.0, such as a CLI command like `data import bulk` or an external tool like Data Loader, as long as the job provides a job ID. Pass the job ID to `data bulk results` to retrieve the results.
 
     The command displays information such as the job status, the ingest operation, updated Salesforce object, how many records were processed, and how many failed or succeeded. Finally, the output displays the names of the generated CSV-formatted files that contain the specific results for each ingested record. For example:
