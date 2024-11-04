@@ -25,11 +25,13 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.65.8 (November 6, 2024) [stable-rc]
+## 2.66.6 (November 13, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+## 2.65.8 (November 6, 2024) [stable]
 
 * NEW: We updated these commands to use [multi-stage output](README.md#2639-october-23-2024), so while they are running they now display the stage they're currently on, the elapsed time, and more:
 
@@ -91,11 +93,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * PublicKeyCertificate
     * PublicKeyCertificateSet
 
-## 2.64.6 (October 30, 2024) [stable]
-
-**ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.  The commands have been removed in this week's release candidate (2.65.7), which becomes the stable release next week (November 6, 2024). 
-
-------------
+## 2.64.6 (October 30, 2024)
 
 * NEW: Import a large number of records into a Salesforce object from a comma-separated values (CSV) file with the new `data import bulk` command. All the records in the CSV file must be for the same Salesforce object; see [Prepare Data to Ingest](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/datafiles_prepare_data.htm) in the "Bulk API 2.0 and Bulk API Developer Guide" for details about creating the CSV file. Use the `--sobject` flag to specify the Salesforce object. 
 
