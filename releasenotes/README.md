@@ -25,7 +25,7 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.66.6 (November 13, 2024) [stable-rc]
+## 2.66.7 (November 13, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
@@ -74,7 +74,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     See [Salesforce CLI Environment Variables](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_env_variables.htm) for the possible and default values.
 
-* NEW: Specify the column deliminator used in the CSV file when running `data import bulk` with the new `--column-delimiter` flag.  The default delimiter is a comma, but you can also specify a backquote, caret, pipe, semicolon, or tab.  (plugin-data PR [#1098](https://github.com/salesforcecli/plugin-data/pull/1098))
+* NEW: Specify the column deliminator used in the CSV file when running `data import bulk` with the new `--column-delimiter` flag. If you don't specify `--column-delimiter`, Salesforce CLI determines the delimiter used in the CSV file automatically. Run `sf data import bulk -h` to see the list of possible values. (plugin-data PR [#1098](https://github.com/salesforcecli/plugin-data/pull/1098))
 
 * CHANGE: We upgraded the version of Node.js bundled in the Salesforce CLI operating system-specific installers, TAR files, and Docker images to v22. We always bundle the Active LTS version of Node.js in tandem with its [release schedule](https://github.com/nodejs/release?tab=readme-ov-file#release-schedule), and v22 went LTS on October 29, 2024.
 
