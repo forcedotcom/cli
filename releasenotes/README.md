@@ -25,11 +25,60 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.65.8 (November 6, 2024) [stable-rc]
+## 2.66.6 (November 13, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: Bulk update many records of a Salesforce object from a comma-separated values (CSV) file with the new `data update bulk` command.
+
+   All the records in the CSV file must be for the same Salesforce object and the first column of every line must be an ID of the record you want to update. The CSV file can contain only existing records; if a record in the file doesn't currently exist in the Salesforce object, the command fails. Use the `--sobject` flag to specify the Salesforce object. See [Prepare Data to Ingest](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/datafiles_prepare_data.htm) in the "Bulk API 2.0 and Bulk API Developer Guide" for details about creating the CSV file.
+
+    For example, this command updates Account records from the `accounts.csv` file in an org with alias "my-scratch":
+    ```bash
+    sf data update bulk --file accounts.csv --sobject Account --wait 10 --target-org my-scratch
+    ```
+   Bulk updates can take a while, depending on how many records are in the CSV file. If the command times out after the specified wait time (10 minutes in our example), it displays a job ID that you then pass to the new `data update resume` command to see the status and results of the original update. For example:
+
+    ```bash
+    sf data update bulk --file accounts.csv --sobject Account --async
+    ```
+    (plugin-data PR [#1098](https://github.com/salesforcecli/plugin-data/pull/1098))
+
+
+* NEW: Get the results of a previously run and completed bulk ingest (import, update, upsert, or delete) job with the new `data bulk results` command. The command works for jobs executed with Bulk API 2.0, such as a CLI command like `data import bulk` or an external tool like Data Loader, as long as the job provides a job ID. Pass the job ID to `data bulk results` to retrieve the results.
+
+    The command displays information such as the job status, the ingest operation, updated Salesforce object, how many records were processed, and how many failed or succeeded. Finally, the output displays the names of the generated CSV-formatted files that contain the specific results for each ingested record. For example:
+
+    ```bash
+    sf data bulk results --job-id 7507i000fake341G --target-org my-scratch
+    ```
+    (GitHub discussion [#2387](https://github.com/forcedotcom/cli/discussions/2387), plugin-data PR [#1097](https://github.com/salesforcecli/plugin-data/pull/1097))
+
+* NEW: Specify the ID of the sandbox you want to clone with the new `--source-id` flag of the `org create sandbox` command. We also added a similar new option `sourceId` to the sandbox definition file.  As always, the flag takes precendence if you specify both. This example shows how to clone an existing sandbox with ID `00Dxygfake` and name the new sandbox `NewClonedSandbox`; the org with the sandbox license has the alias `prodOrg`: 
+
+    ```bash
+    sf org create sandbox --source-id 00Dxygfake --name NewClonedSandbox --target-org prodOrg --alias MyDevSandbox --set-default
+    ```
+
+    For consistency, we also changed the name of the existing `--clone` flag of `org create sandbox` to `--source-sandbox-name`. Don't worry, we aliased the old `--clone` flag name to `--source-sandbox-name`, although we highly recommend you update your scripts to use the new flag name as soon as possible. 
+
+    (plugin-org PR [#1237](https://github.com/salesforcecli/plugin-org/pull/1237))
+  
+* NEW: Customize how the new [table-formatted command output](README.md#2646-october-30-2024) looks like with these new environment variables:
+
+    * `SF_NO_TABLE_STYLE`: Removes all table stylings, such as borders and colors.
+    * `SF_TABLE_OVERFLOW`: Specifies how to handle text in table output that is too wide for its column, such as by wrapping or truncating.
+    * `SF_TABLE_BORDER_STYLE`: Specifies how to display the borders of table output, such as whether the table has an outline or vertical lines between columns.
+
+    See [Salesforce CLI Environment Variables](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_env_variables.htm) for the possible and default values.
+
+* CHANGE: We upgraded the version of Node.js bundled in the Salesforce CLI operating system-specific installers, TAR files, and Docker images to v22. We always bundle the Active LTS version of Node.js in tandem with its [release schedule](https://github.com/nodejs/release?tab=readme-ov-file#release-schedule), and v22 went LTS on October 29, 2024.
+
+* FIX: When deploying or retrieving metadata, Salesforce CLI no longer attempts to resolve an XML file in the package directory that isn't part of a source component. As a result, you can include XML files in your package directory that aren't related to org metadata, add them to your `.forceignore` file, and deploys and retrieves will work as expected.  (source-deploy-retrieve PR [#1452](https://github.com/forcedotcom/source-deploy-retrieve/pull/1452))
+ 
+## 2.65.8 (November 6, 2024) [stable]
 
 * NEW: We updated these commands to use [multi-stage output](README.md#2639-october-23-2024), so while they are running they now display the stage they're currently on, the elapsed time, and more:
 
@@ -91,11 +140,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * PublicKeyCertificate
     * PublicKeyCertificateSet
 
-## 2.64.6 (October 30, 2024) [stable]
-
-**ANNOUNCEMENT:** Be sure you read [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/2974) about the upcoming removal of these commands:  `force:source:*`, `force:mdapi:*`, `force:org:create`, and `force:org:delete`.  The commands have been removed in this week's release candidate (2.65.7), which becomes the stable release next week (November 6, 2024). 
-
-------------
+## 2.64.6 (October 30, 2024)
 
 * NEW: Import a large number of records into a Salesforce object from a comma-separated values (CSV) file with the new `data import bulk` command. All the records in the CSV file must be for the same Salesforce object; see [Prepare Data to Ingest](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/datafiles_prepare_data.htm) in the "Bulk API 2.0 and Bulk API Developer Guide" for details about creating the CSV file. Use the `--sobject` flag to specify the Salesforce object. 
 
