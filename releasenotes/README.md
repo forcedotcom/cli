@@ -74,6 +74,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     See [Salesforce CLI Environment Variables](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_env_variables.htm) for the possible and default values.
 
+* CHANGE: We upgraded the version of Node.js bundled in the Salesforce CLI operating system-specific installers, TAR files, and Docker images to v22. We always bundle the Active LTS version of Node.js in tandem with its [release schedule](https://github.com/nodejs/release?tab=readme-ov-file#release-schedule), and v22 went LTS on October 29, 2024.
+
 * FIX: When deploying or retrieving metadata, Salesforce CLI no longer attempts to resolve an XML file in the package directory that isn't part of a source component. As a result, you can include XML files in your package directory that aren't related to org metadata, add them to your `.forceignore` file, and deploys and retrieves will work as expected.  (source-deploy-retrieve PR [#1452](https://github.com/forcedotcom/source-deploy-retrieve/pull/1452))
  
 ## 2.65.8 (November 6, 2024) [stable]
