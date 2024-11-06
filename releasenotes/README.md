@@ -42,7 +42,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
    Bulk updates can take a while, depending on how many records are in the CSV file. If the command times out after the specified wait time (10 minutes in our example), it displays a job ID that you then pass to the new `data update resume` command to see the status and results of the original update. For example:
 
     ```bash
-    sf data update bulk --file accounts.csv --sobject Account --async
+    sf data update resume --job-id 750xx000fake005sAAA
     ```
     (plugin-data PR [#1098](https://github.com/salesforcecli/plugin-data/pull/1098))
 
