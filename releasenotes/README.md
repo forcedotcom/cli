@@ -72,7 +72,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `SF_TABLE_OVERFLOW`: Specifies how to handle text in table output that is too wide for its column, such as by wrapping or truncating.
     * `SF_TABLE_BORDER_STYLE`: Specifies how to display the borders of table output, such as whether the table has an outline or vertical lines between columns.
 
-    See [Salesforce CLI Environment Variables](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_env_variables.htm) for the possible and default values. 
+    See [Salesforce CLI Environment Variables](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_dev_cli_env_variables.htm) for the possible and default values.
+
+* FIX: When deploying or retrieving metadata, Salesforce CLI no longer attempts to resolve an XML file in the package directory that isn't part of a source component. As a result, you can include XML files in your package directory that aren't related to org metadata, add them to your `.forceignore` file, and deploys and retrieves will work as expected.  (source-deploy-retrieve PR [#1452](https://github.com/forcedotcom/source-deploy-retrieve/pull/1452))
  
 ## 2.65.8 (November 6, 2024) [stable]
 
