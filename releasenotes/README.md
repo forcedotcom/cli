@@ -25,11 +25,15 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.66.7 (November 13, 2024) [stable-rc]
+## 2.67.7 (November 20, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: We updated the `--help` of `apex test run` to say that users who run the command must have the View All Data system permission. (plugin-apex PR [#630](https://github.com/salesforcecli/plugin-apex/pull/630))
+
+## 2.66.7 (November 13, 2024) [stable]
 
 * NEW: Bulk update many records of a Salesforce object from a comma-separated values (CSV) file with the new `data update bulk` command.
 
@@ -89,7 +93,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * PublicKeyCertificateSet
 
  
-## 2.65.8 (November 6, 2024) [stable]
+## 2.65.8 (November 6, 2024)
 
 * NEW: We updated these commands to use [multi-stage output](README.md#2639-october-23-2024), so while they are running they now display the stage they're currently on, the elapsed time, and more:
 
