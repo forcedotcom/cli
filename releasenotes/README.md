@@ -31,6 +31,14 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW:  Open an agent in the Agent Builder UI with the new `open org agent` command.  Use the `--name` flag to open an agent using its API name.  For example:
+
+    ```bash
+    sf open org agent --name Coral_Cloud_Agent
+    ```
+
+  To find the agent's API name, go to Setup in your org and navigate to the agent's details page.  (plugin-org PR [#1264](https://github.com/salesforcecli/plugin-org/pull/1264))
+
 * FIX: If you set your `target-org` configuration variable to a sandbox, and then run `org delete scratch` without specifying the `--target-org` flag, the command now returns an error. Previously the command would delete the sandbox. (GitHub issue [#3058](https://github.com/forcedotcom/cli/issues/3058), plugin-org PR [#1257](https://github.com/salesforcecli/plugin-org/pull/1257))
 
 ## 2.67.7 (November 20, 2024) [stable]
