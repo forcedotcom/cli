@@ -39,6 +39,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
   To find the agent's API name, go to Setup in your org and navigate to the agent's details page.  (plugin-org PR [#1264](https://github.com/salesforcecli/plugin-org/pull/1264))
 
+* FIX: (GitHub issue [#3110](https://github.com/forcedotcom/cli/issues/3110), plugin-deploy-retrieve PR [#1217](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1217))
+
 * FIX: If you set your `target-org` configuration variable to a sandbox, and then run `org delete scratch` without specifying the `--target-org` flag, the command now returns an error. Previously the command would delete the sandbox. (GitHub issue [#3058](https://github.com/forcedotcom/cli/issues/3058), plugin-org PR [#1257](https://github.com/salesforcecli/plugin-org/pull/1257))
 
 ## 2.67.7 (November 20, 2024) [stable]
