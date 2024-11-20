@@ -43,6 +43,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: If you set your `target-org` configuration variable to a sandbox, and then run `org delete scratch` without specifying the `--target-org` flag, the command now returns an error. Previously the command would delete the sandbox. (GitHub issue [#3058](https://github.com/forcedotcom/cli/issues/3058), plugin-org PR [#1257](https://github.com/salesforcecli/plugin-org/pull/1257))
 
+## Nov 27, 2024
+
+Due to the Thanksgiving break in the United States, we aren't releasing a new stable version today. Happy Thanksgiving!
+
 ## 2.67.7 (November 20, 2024) [stable]
 
 * FIX: We updated the `--help` of `apex test run` to say that users who run the command must have the View All Data system permission. (plugin-apex PR [#630](https://github.com/salesforcecli/plugin-apex/pull/630))
