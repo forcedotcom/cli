@@ -31,7 +31,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW:  Open an agent in the Agent Builder UI with the new `open org agent` command.  Use the `--name` flag to open an agent using its API name.  For example:
+* NEW: (BETA) Open an agent in the Agent Builder UI with the new `open org agent` command.  Use the `--name` flag to open an agent using its API name.  For example:
 
     ```bash
     sf open org agent --name Coral_Cloud_Agent
