@@ -25,15 +25,29 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.67.7 (November 20, 2024) [stable-rc]
+## 2.68.6 (November 27, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
 
+* NEW:  Open an agent in the Agent Builder UI with the new `open org agent` command.  Use the `--name` flag to open an agent using its API name.  For example:
+
+    ```bash
+    sf open org agent --name Coral_Cloud_Agent
+    ```
+
+  To find the agent's API name, go to Setup in your org and navigate to the agent's details page.  (plugin-org PR [#1264](https://github.com/salesforcecli/plugin-org/pull/1264))
+
+* FIX: We improved the table output when `project deploy start` fails due to an metadata validation error.  We now provide the name of the metadata type that's causing the error in the `Type` column. (GitHub issue [#3110](https://github.com/forcedotcom/cli/issues/3110), plugin-deploy-retrieve PR [#1217](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1217))
+
+* FIX: If you set your `target-org` configuration variable to a sandbox, and then run `org delete scratch` without specifying the `--target-org` flag, the command now returns an error. Previously the command would delete the sandbox. (GitHub issue [#3058](https://github.com/forcedotcom/cli/issues/3058), plugin-org PR [#1257](https://github.com/salesforcecli/plugin-org/pull/1257))
+
+## 2.67.7 (November 20, 2024) [stable]
+
 * FIX: We updated the `--help` of `apex test run` to say that users who run the command must have the View All Data system permission. (plugin-apex PR [#630](https://github.com/salesforcecli/plugin-apex/pull/630))
 
-## 2.66.7 (November 13, 2024) [stable]
+## 2.66.7 (November 13, 2024)
 
 * NEW: Bulk update many records of a Salesforce object from a comma-separated values (CSV) file with the new `data update bulk` command.
 
