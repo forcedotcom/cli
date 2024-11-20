@@ -45,7 +45,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ## Nov 27, 2024
 
-Due to the Thanksgiving break in the United States, we aren't releasing a new stable version today. Happy Thanksgiving!
+Due to the Thanksgiving break in the United States, we aren't releasing a new stable version. Happy Thanksgiving!
 
 ## 2.67.7 (November 20, 2024) [stable]
 
