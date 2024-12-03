@@ -39,6 +39,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     (GitHub discussion #[2947](https://github.com/forcedotcom/cli/discussions/2947), plugin-data PR [#1110](https://github.com/salesforcecli/plugin-data/pull/1110))
 
+* FIX: Salesforce CLI no longer outputs the message that starts `(node:9801) [DEP0040] DeprecationWarning: The `punycode` module is deprecated.` when you're using Node.js v22 or greater and you run any CLI command.  (GitHub issue [#2535](https://github.com/forcedotcom/cli/issues/2535), salesforce/cli PR [#1971](https://github.com/salesforcecli/cli/pull/1971))
+
 ## 2.68.6 (December 4, 2024) [stable]
 
 * NEW: (BETA) Open an agent in the Agent Builder UI with the new `open org agent` command.  Use the `--name` flag to open an agent using its API name.  For example:
