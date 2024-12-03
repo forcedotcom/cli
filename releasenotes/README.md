@@ -25,11 +25,21 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.68.6 (December 4, 2024) [stable-rc]
+## 2.69.13 (December 11, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: Specify the line endings used in the comma-separated values (CSV) file when you run the `data delete|upsert bulk` commands with the new `--line-ending` flag. The default value on Windows is `CRLF`; on macOS and Linux it's `LF`. Similarly, specify the column delimiters in the CSV file when you run `data upsert bulk` with the new `--column-delimiter` flag; possible values include `BACKQUOTE`, `CARET`, and more. For example:
+
+    ```bash
+    sf data upsert bulk --sobject Contact --file contacts.csv --external-id Id --line-ending LF --column-delimiter CARET
+    ```
+
+    (GitHub discussion #[2947](https://github.com/forcedotcom/cli/discussions/2947), plugin-data PR [#1110](https://github.com/salesforcecli/plugin-data/pull/1110))
+
+## 2.68.6 (December 4, 2024) [stable]
 
 * NEW: (BETA) Open an agent in the Agent Builder UI with the new `open org agent` command.  Use the `--name` flag to open an agent using its API name.  For example:
 
@@ -47,7 +57,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 Due to the Thanksgiving break in the United States, we aren't releasing a new stable version. Happy Thanksgiving!
 
-## 2.67.7 (November 20, 2024) [stable]
+## 2.67.7 (November 20, 2024)
 
 * FIX: We updated the `--help` of `apex test run` to say that users who run the command must have the View All Data system permission. (plugin-apex PR [#630](https://github.com/salesforcecli/plugin-apex/pull/630))
 
