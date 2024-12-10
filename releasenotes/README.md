@@ -31,15 +31,15 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: Write the output of an executed SOQL query to a file with the new `--output-file` flag of the `data query` command. This new flag works only with CSV (comma-separated values) and JSON output, so you must use it in combination with `--result-format csv|json`. This example writes the JSON results of the SOQL query run in your default org to a file called `query-output.json`:
+* NEW: Write the output of an executed SOQL query to a file with the new `--output-file` flag of the `data query` command. This new flag works only with CSV (comma-separated values) and JSON output, so you must use it in combination with `--result-format csv|json`. This example executes a SOQL query in an org with alias `my-scratch` and writes the JSON results to a file called `query-output.json`:
 
     ```bash
-    sf data query --query "SELECT Id, Name, Account.Name FROM Contact" --output-file query-output.json --result-format json
+    sf data query --query "SELECT Id, Name, Account.Name FROM Contact" --output-file query-output.json --result-format json --target-org my-scratch
     ```
 
     (plugin-data PR [#1135](https://github.com/salesforcecli/plugin-data/pull/1135))
 
-* FIX: The `org refresh|resume sandbox` commands no longer display the erroneous error `INSUFFICIENT_ACCESS: use of the Metadata API requires a user with the ModifyAllData or ModifyMetadata permissions​` when they finish executing. The error was incorrect because users who refresh or resume sandboxes don't need those permissions.  The refresh and resume of the sandbox always finished correctly, despite that error. (GitHub issue [#3048](https://github.com/forcedotcom/cli/issues/3048), plugin-org PR [#1276](https://github.com/salesforcecli/plugin-org/pull/1276))
+* FIX: The `org refresh|resume sandbox` commands no longer output the erroneous error `INSUFFICIENT_ACCESS: use of the Metadata API requires a user with the ModifyAllData or ModifyMetadata permissions​` after they finish executing. The error was incorrect because users who refresh or resume sandboxes don't need those permissions.  The refresh and resume of the sandbox always finished correctly, despite that error. (GitHub issue [#3048](https://github.com/forcedotcom/cli/issues/3048), plugin-org PR [#1276](https://github.com/salesforcecli/plugin-org/pull/1276))
 
 * FIX: The `data export bulk` command no longer fails when exporting a very large dataset, such as millions of records, to a JSON-formatted output file. (GitHub issue [#3138](https://github.com/forcedotcom/cli/issues/3138), plugin-data PR [#1140](https://github.com/salesforcecli/plugin-data/pull/1140))
 
