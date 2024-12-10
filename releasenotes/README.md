@@ -39,7 +39,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     (plugin-data PR [#1135](https://github.com/salesforcecli/plugin-data/pull/1135))
 
-* FIX: The `org refresh|resume sandbox` commands no longer display the erroneous error `INSUFFICIENT_ACCESS: use of the Metadata API requires a user with the ModifyAllData or ModifyMetadata permissions.​` when they finish executing. The error was incorrect because users who refresh or resume sandboxes don't need those permissions.  The refresh and resume of the sandbox always finished correctly, despite that error. (GitHub issue [#3048](https://github.com/forcedotcom/cli/issues/3048), plugin-org PR [#1276](https://github.com/salesforcecli/plugin-org/pull/1276))
+* FIX: The `org refresh|resume sandbox` commands no longer display the erroneous error `INSUFFICIENT_ACCESS: use of the Metadata API requires a user with the ModifyAllData or ModifyMetadata permissions​` when they finish executing. The error was incorrect because users who refresh or resume sandboxes don't need those permissions.  The refresh and resume of the sandbox always finished correctly, despite that error. (GitHub issue [#3048](https://github.com/forcedotcom/cli/issues/3048), plugin-org PR [#1276](https://github.com/salesforcecli/plugin-org/pull/1276))
 
 * FIX: The `data export bulk` command no longer fails when exporting a very large dataset, such as millions of records, to a JSON-formatted output file. (GitHub issue [#3138](https://github.com/forcedotcom/cli/issues/3138), plugin-data PR [#1140](https://github.com/salesforcecli/plugin-data/pull/1140))
 
