@@ -25,11 +25,15 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.69.14 (December 11, 2024) [stable-rc]
+## 2.70.6 (December 18, 2024) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: The `data export bulk` command no longer fails when exporting a very large dataset, such as millions of records, to a JSON-formatted output file. (GitHub issue [#3138](https://github.com/forcedotcom/cli/issues/3138), plugin-data PR [#1140](https://github.com/salesforcecli/plugin-data/pull/1140))
+
+## 2.69.14 (December 11, 2024) [stable]
 
 * NEW: Specify the line endings used in the comma-separated values (CSV) file when you run the `data delete|upsert bulk` commands with the new `--line-ending` flag. The default value on Windows is `CRLF`; on macOS and Linux it's `LF`. Similarly, specify the column delimiters in the CSV file when you run `data upsert bulk` with the new `--column-delimiter` flag; possible values include `BACKQUOTE`, `CARET`, and more. For example:
 
@@ -41,7 +45,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Salesforce CLI no longer outputs the message that starts `(node:9801) [DEP0040] DeprecationWarning: The `punycode` module is deprecated.` when you're using Node.js v22 or greater and you run any CLI command.  (GitHub issue [#2535](https://github.com/forcedotcom/cli/issues/2535), salesforce/cli PR [#1971](https://github.com/salesforcecli/cli/pull/1971))
 
-## 2.68.6 (December 4, 2024) [stable]
+## 2.68.6 (December 4, 2024)
 
 * NEW: (BETA) Open an agent in the Agent Builder UI with the new `open org agent` command.  Use the `--name` flag to open an agent using its API name.  For example:
 
