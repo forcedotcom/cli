@@ -31,7 +31,15 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* FIX: The `data export bulk` command no longer fails when exporting a very large dataset, such as millions of records, to a JSON-formatted output file. (GitHub issue [#3138](https://github.com/forcedotcom/cli/issues/3138), plugin-data PR [#1140](https://github.com/salesforcecli/plugin-data/pull/1140))
+* NEW: Write the output of an executed SOQL query to a file with the new `--output-file` flag of the `data query` command. This new flag works only with CSV (comma-separated values) and JSON output, so you must use it in combination with `--result-format csv|json`. This example writes the JSON results of the SOQL query run in your default org to a file called `query-output.json`:
+
+    ```bash
+    sf data query --query "SELECT Id, Name, Account.Name FROM Contact" --output-file query-output.json --result-format json
+    ```
+
+    (plugin-data PR [#1135](https://github.com/salesforcecli/plugin-data/pull/1135))
+
+ * FIX: The `data export bulk` command no longer fails when exporting a very large dataset, such as millions of records, to a JSON-formatted output file. (GitHub issue [#3138](https://github.com/forcedotcom/cli/issues/3138), plugin-data PR [#1140](https://github.com/salesforcecli/plugin-data/pull/1140))
 
 ## 2.69.14 (December 11, 2024) [stable]
 
