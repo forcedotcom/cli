@@ -25,11 +25,17 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.70.7 (December 18, 2024) [stable-rc]
+## 2.71.6 (January 8, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+## December 25, 2024 AND January 1, 2025
+
+Due to the holiday break in the United States, we aren't releasing a new stable version. Happy holidays!
+
+## 2.70.7 (December 18, 2024) [stable]
 
 * NEW: Write the output of an executed SOQL query to a file with the new `--output-file` flag of the `data query` command. This new flag works only with CSV (comma-separated values) and JSON output, so you must use it in combination with `--result-format csv|json`. This example executes a SOQL query in an org with alias `my-scratch` and writes the JSON results to a file called `query-output.json`:
 
@@ -43,7 +49,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `data export bulk` command no longer fails when exporting a very large dataset, such as millions of records, to a JSON-formatted output file. (GitHub issue [#3138](https://github.com/forcedotcom/cli/issues/3138), plugin-data PR [#1140](https://github.com/salesforcecli/plugin-data/pull/1140))
 
-## 2.69.14 (December 11, 2024) [stable]
+## 2.69.14 (December 11, 2024)
 
 * NEW: Specify the line endings used in the comma-separated values (CSV) file when you run the `data delete|upsert bulk` commands with the new `--line-ending` flag. The default value on Windows is `CRLF`; on macOS and Linux it's `LF`. Similarly, specify the column delimiters in the CSV file when you run `data upsert bulk` with the new `--column-delimiter` flag; possible values include `BACKQUOTE`, `CARET`, and more. For example:
 
