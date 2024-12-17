@@ -31,6 +31,15 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* CHANGE: Starting this release, the `--bulk`, `--wait`, and `--async` flags of the `data query` command are deprecated. The `data query resume` command is also deprecated because it works with only the `data query` command in bulk mode. All these deprecated flags and command will be removed from Salesforce CLI on April 25, 2025, or later. Use the `data export bulk|resume` commands instead. For example:
+
+    ```bash
+    sf data export bulk --query "SELECT Id, Name, Account.Name FROM Contact" --output-file export-accounts.csv --wait 10 --target-org my-scratch
+    ```
+
+    (plugin-data PR [#1134](https://github.com/salesforcecli/plugin-data/pull/1134))
+
+
 ## December 25, 2024 AND January 1, 2025
 
 Due to the holiday break in the United States, we aren't releasing a new stable version. Happy holidays!
