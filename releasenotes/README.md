@@ -41,6 +41,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We changed the running output of `project deploy start` to show test failures right away. As a result, you don’t need to wait for the entire deploy to finish before you decide how to handle the test failures. (GitHub issue [#3104](https://github.com/forcedotcom/cli/issues/3104), plugin-deploy-retrieve PR [#1215](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1215))
 
+* FIX: The `data bulk` commands, when importing from a CSV file, default to the COMMA delimiter if they can't find the delimiter used in the CSV file. (plugin-data PR [#1151](https://github.com/salesforcecli/plugin-data/pull/1151))
+
 ## December 25, 2024 AND January 1, 2025
 
 Due to the holiday break in the United States, we aren't releasing a new stable version. Happy holidays!
