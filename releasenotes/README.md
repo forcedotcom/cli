@@ -25,11 +25,31 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.70.7 (December 18, 2024) [stable-rc]
+## 2.71.6 (January 8, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* CHANGE: Starting this release, the `--bulk`, `--wait`, and `--async` flags of the `data query` command are deprecated. The `data query resume` command is also deprecated because it works with only the `data query` command in bulk mode. All these deprecated flags and command will be removed from Salesforce CLI on April 25, 2025, or later. Use the `data export bulk|resume` commands instead. For example:
+
+    ```bash
+    sf data export bulk --query "SELECT Id, Name, Account.Name FROM Contact" --output-file export-accounts.csv --wait 10 --target-org my-scratch
+    ```
+
+    (plugin-data PR [#1134](https://github.com/salesforcecli/plugin-data/pull/1134))
+
+* FIX: We changed the running output of `project deploy start` to show test failures right away. As a result, you don’t need to wait for the entire deploy to finish before you decide how to handle the test failures. (GitHub issue [#3104](https://github.com/forcedotcom/cli/issues/3104), plugin-deploy-retrieve PR [#1215](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1215))
+
+* FIX: The `data bulk` commands, when importing from a CSV file, default to the COMMA delimiter if they can't find the delimiter used in the CSV file. (plugin-data PR [#1151](https://github.com/salesforcecli/plugin-data/pull/1151))
+
+* FIX: The `data import tree` command no longer fails when importing over 2K records. (GitHub [comment](https://github.com/forcedotcom/cli/issues/2738#issuecomment-2375750110), plugin-data PR [#1146](https://github.com/salesforcecli/plugin-data/pull/1146))
+
+## December 25, 2024 AND January 1, 2025
+
+Due to the holiday break, we aren't releasing a new stable version these two weeks. Happy holidays!
+
+## 2.70.7 (December 18, 2024) [stable]
 
 * NEW: Write the output of an executed SOQL query to a file with the new `--output-file` flag of the `data query` command. This new flag works only with CSV (comma-separated values) and JSON output, so you must use it in combination with `--result-format csv|json`. This example executes a SOQL query in an org with alias `my-scratch` and writes the JSON results to a file called `query-output.json`:
 
@@ -43,7 +63,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `data export bulk` command no longer fails when exporting a very large dataset, such as millions of records, to a JSON-formatted output file. (GitHub issue [#3138](https://github.com/forcedotcom/cli/issues/3138), plugin-data PR [#1140](https://github.com/salesforcecli/plugin-data/pull/1140))
 
-## 2.69.14 (December 11, 2024) [stable]
+## 2.69.14 (December 11, 2024)
 
 * NEW: Specify the line endings used in the comma-separated values (CSV) file when you run the `data delete|upsert bulk` commands with the new `--line-ending` flag. The default value on Windows is `CRLF`; on macOS and Linux it's `LF`. Similarly, specify the column delimiters in the CSV file when you run `data upsert bulk` with the new `--column-delimiter` flag; possible values include `BACKQUOTE`, `CARET`, and more. For example:
 
