@@ -47,7 +47,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ## December 25, 2024 AND January 1, 2025
 
-Due to the holiday break in the United States, we aren't releasing a new stable version. Happy holidays!
+Due to the holiday break, we aren't releasing a new stable version these two weeks. Happy holidays!
 
 ## 2.70.7 (December 18, 2024) [stable]
 
