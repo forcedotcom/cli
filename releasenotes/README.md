@@ -43,7 +43,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `data bulk` commands, when importing from a CSV file, default to the COMMA delimiter if they can't find the delimiter used in the CSV file. (plugin-data PR [#1151](https://github.com/salesforcecli/plugin-data/pull/1151))
 
-* FIX: The `data import tree` command now avoids recursion when resolving refIds when importing records. (plugin-data PR [#1146](https://github.com/salesforcecli/plugin-data/pull/1146))
+* FIX: The `data import tree` command no longer fails when importing over 2K records. (GitHub [comment](https://github.com/forcedotcom/cli/issues/2738#issuecomment-2375750110), plugin-data PR [#1146](https://github.com/salesforcecli/plugin-data/pull/1146))
 
 ## December 25, 2024 AND January 1, 2025
 
