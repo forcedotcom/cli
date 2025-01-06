@@ -25,11 +25,27 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.71.6 (January 8, 2025) [stable-rc]
+## 2.72.20 (Jan 15, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: When generating a manifest from the metadata components in an org by running the `project generate manifest --from-org` command, you can now specify the metadata components you **don't** want to include with the new `--excluded-metadata` flag. For example, this command generates a manifest of all the metadata components except StandardValueSet from the org with alias `my-org`:
+
+    ```bash
+    sf project generate manifest --from-org my-org --excluded-metadata StandardValueSet`
+    ```
+    The `project generate manifest` command makes many concurrent API calls to discover the metadata that exists when generating a manifest from an org. To limit the number of concurrent requests, use the new SF_LIST_METADATA_BATCH_SIZE environment variable and set it to a size that works best for your org and environment. For example, to limit the number of concurrent API calls to 20:
+
+  ```bash
+  export SF_LIST_METADATA_BATCH_SIZE=20
+  ```
+  If you experience timeouts or inconsistent manifest contents, then setting this environment variable can improve accuracy. However, the command takes longer to run because it sends fewer requests at a time.
+
+  (plugin-deploy-retrieve PR [#1247](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1247), source-deploy-retrieve PR [#1469](https://github.com/forcedotcom/source-deploy-retrieve/pull/1469))
+    
+## 2.71.6 (January 8, 2025) [stable]
 
 * CHANGE: Starting this release, the `--bulk`, `--wait`, and `--async` flags of the `data query` command are deprecated. The `data query resume` command is also deprecated because it works with only the `data query` command in bulk mode. All these deprecated flags and command will be removed from Salesforce CLI on April 25, 2025, or later. Use the `data export bulk|resume` commands instead. For example:
 
@@ -49,7 +65,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 Due to the holiday break, we aren't releasing a new stable version these two weeks. Happy holidays!
 
-## 2.70.7 (December 18, 2024) [stable]
+## 2.70.7 (December 18, 2024)
 
 * NEW: Write the output of an executed SOQL query to a file with the new `--output-file` flag of the `data query` command. This new flag works only with CSV (comma-separated values) and JSON output, so you must use it in combination with `--result-format csv|json`. This example executes a SOQL query in an org with alias `my-scratch` and writes the JSON results to a file called `query-output.json`:
 
