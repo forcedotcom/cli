@@ -44,6 +44,12 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
   If you experience timeouts or inconsistent manifest contents, then setting this environment variable can improve accuracy. However, the command takes longer to run because it sends fewer requests at a time.
 
   (plugin-deploy-retrieve PR [#1247](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1247), source-deploy-retrieve PR [#1469](https://github.com/forcedotcom/source-deploy-retrieve/pull/1469))
+
+* CHANGE: As we announced in [July, 2024](./README.md#2497-july-10-2024), we removed these two hidden commands:
+  * `data import legacy tree` 
+  * `data export legacy tree`
+
+   Use `data import|export tree` instead. (plugin-data PR [#1116](https://github.com/salesforcecli/plugin-data/pull/1116))
     
 ## 2.71.6 (January 8, 2025) [stable]
 
