@@ -57,6 +57,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
   * AiEvaluationDefinition
   * AiEvaluationTestSet
+  * WorkflowFlowAction
+
 ## 2.71.6 (January 8, 2025) [stable]
 
 * CHANGE: Starting this release, the `--bulk`, `--wait`, and `--async` flags of the `data query` command are deprecated. The `data query resume` command is also deprecated because it works with only the `data query` command in bulk mode. All these deprecated flags and command will be removed from Salesforce CLI on April 25, 2025, or later. Use the `data export bulk|resume` commands instead. For example:
