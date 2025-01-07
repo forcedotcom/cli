@@ -51,7 +51,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
    Use `data import|export tree` instead. (plugin-data PR [#1116](https://github.com/salesforcecli/plugin-data/pull/1116))
 
-* FIX: (GitHub issue [#2563](https://github.com/forcedotcom/cli/issues/2563), source-deploy-retrieve PR [#1467](https://github.com/forcedotcom/source-deploy-retrieve/pull/1467))
+* FIX: The WorkFlowAction child metadata type of Workflow is now correctly decomposed into its own subdirectory in your DX project when you opt to [decompose workflows](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_decomposed_md_types.htm).
+
+   Many thanks to [Matt Carvin](https://github.com/mcarvin8) for finding the bug, and then contributing the fix! We love your awesome initiative. (GitHub issue [#2563](https://github.com/forcedotcom/cli/issues/2563), source-deploy-retrieve PR [#1467](https://github.com/forcedotcom/source-deploy-retrieve/pull/1467))
 
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
 
