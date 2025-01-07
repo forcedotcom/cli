@@ -50,6 +50,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
   * `data export legacy tree`
 
    Use `data import|export tree` instead. (plugin-data PR [#1116](https://github.com/salesforcecli/plugin-data/pull/1116))
+
+* FIX: (GitHub issue [#2563](https://github.com/forcedotcom/cli/issues/2563), source-deploy-retrieve PR [#1467](https://github.com/forcedotcom/source-deploy-retrieve/pull/1467))
     
 ## 2.71.6 (January 8, 2025) [stable]
 
