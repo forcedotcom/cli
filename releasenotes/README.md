@@ -52,7 +52,11 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
    Use `data import|export tree` instead. (plugin-data PR [#1116](https://github.com/salesforcecli/plugin-data/pull/1116))
 
 * FIX: (GitHub issue [#2563](https://github.com/forcedotcom/cli/issues/2563), source-deploy-retrieve PR [#1467](https://github.com/forcedotcom/source-deploy-retrieve/pull/1467))
-    
+
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+
+  * AiEvaluationDefinition
+  * AiEvaluationTestSet
 ## 2.71.6 (January 8, 2025) [stable]
 
 * CHANGE: Starting this release, the `--bulk`, `--wait`, and `--async` flags of the `data query` command are deprecated. The `data query resume` command is also deprecated because it works with only the `data query` command in bulk mode. All these deprecated flags and command will be removed from Salesforce CLI on April 25, 2025, or later. Use the `data export bulk|resume` commands instead. For example:
