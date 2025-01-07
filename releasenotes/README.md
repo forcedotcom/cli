@@ -34,7 +34,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 * NEW: When generating a manifest from the metadata components in an org by running the `project generate manifest --from-org` command, you can now specify the metadata components you **don't** want to include with the new `--excluded-metadata` flag. For example, this command generates a manifest of all the metadata components except StandardValueSet from the org with alias `my-org`:
 
     ```bash
-    sf project generate manifest --from-org my-org --excluded-metadata StandardValueSet`
+    sf project generate manifest --from-org my-org --excluded-metadata StandardValueSet
     ```
     The `project generate manifest` command makes many concurrent API calls to discover the metadata that exists when generating a manifest from an org. To limit the number of concurrent requests, use the new SF_LIST_METADATA_BATCH_SIZE environment variable and set it to a size that works best for your org and environment. For example, to limit the number of concurrent API calls to 20:
 
@@ -45,7 +45,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
   (plugin-deploy-retrieve PR [#1247](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1247), source-deploy-retrieve PR [#1469](https://github.com/forcedotcom/source-deploy-retrieve/pull/1469))
 
-* CHANGE: As we announced in [July, 2024](./README.md#2497-july-10-2024), we removed these two hidden commands:
+* CHANGE: As we announced on [July 10, 2024](./README.md#2497-july-10-2024), we removed these two hidden commands:
   * `data import legacy tree` 
   * `data export legacy tree`
 
