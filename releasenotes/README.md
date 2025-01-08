@@ -36,6 +36,13 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     ```bash
     sf project generate manifest --from-org my-org --excluded-metadata StandardValueSet
     ```
+    Use the existing `--metadata` flag with `--from-org` to specify the metadata components that you want to include in your manifest. For example:
+
+    ```bash
+    sf project generate manifest --from-org my-org --metadata ApexClass --metadata CustomObject
+    ```
+    **Tip**: If your list of included or excluded metadata components is long, consider using `--flags-dir` to [specify the components in a file](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_flag_values_in_files.htm) rather than at the command-line. 
+
     The `project generate manifest` command makes many concurrent API calls to discover the metadata that exists when generating a manifest from an org. To limit the number of concurrent requests, use the new SF_LIST_METADATA_BATCH_SIZE environment variable and set it to a size that works best for your org and environment. For example, to limit the number of concurrent API calls to 20:
 
   ```bash
@@ -51,7 +58,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
    Use `data import|export tree` instead. (plugin-data PR [#1116](https://github.com/salesforcecli/plugin-data/pull/1116))
 
-* FIX: The WorkFlowAction child metadata type of Workflow is now correctly decomposed into its own subdirectory in your DX project when you opt to [decompose workflows](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_decomposed_md_types.htm).
+* FIX: The WorkFlowAction child metadata type of Workflow is now correctly decomposed into its own subdirectory in your DX project when you opt to [decompose workflows](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_decomposed_md_types.htm). Additionally, you can now deploy children of the [Workflow](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_workflow.htm) metadata type (such as WorkFlowAction) individually, rather than having to deploy the entire Workflow with all its children. 
 
    Many thanks to [Matt Carvin](https://github.com/mcarvin8) for finding the bug, and then contributing the fix! We love your awesome initiative. (GitHub issue [#2563](https://github.com/forcedotcom/cli/issues/2563), source-deploy-retrieve PR [#1467](https://github.com/forcedotcom/source-deploy-retrieve/pull/1467))
 
