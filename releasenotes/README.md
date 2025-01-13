@@ -25,11 +25,23 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.72.21 (Jan 15, 2025) [stable-rc]
+## 2.73.6 (Jan 22, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: When you opt to [decompose sharing rules](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_decomposed_md_types.htm), you can now deploy its children (such as SharingCriteriaRule) individually, rather than having to deploy the entire [SharingRules](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_sharingrules.htm) component with all its children. (source-deploy-retrieve PR [#1482](https://github.com/forcedotcom/source-deploy-retrieve/pull/1482))
+
+* FIX: You can now correctly retrieve metadata components whose types have non-unique suffixes. For example, both `RestrictionRule` and `ModerationRule` have the `.rule` suffix.  (GitHub issue [#3168](https://github.com/forcedotcom/cli/issues/3168), source-deploy-retrieve PR [#1480](https://github.com/forcedotcom/source-deploy-retrieve/pull/1480))
+
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+
+  * AnalyticsVisualization
+  * AnalyticsVizViewDef
+  * AnalyticsWorkspace
+
+## 2.72.21 (Jan 15, 2025) [stable]
 
 * NEW: When generating a manifest from the metadata components in an org by running the `project generate manifest --from-org` command, you can now specify the metadata components you **don't** want to include with the new `--excluded-metadata` flag. For example, this command generates a manifest of all the metadata components except StandardValueSet from the org with alias `my-org`:
 
@@ -68,7 +80,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
   * AiEvaluationTestSet
   * WorkflowFlowAction
 
-## 2.71.6 (January 8, 2025) [stable]
+## 2.71.6 (January 8, 2025)
 
 * CHANGE: Starting this release, the `--bulk`, `--wait`, and `--async` flags of the `data query` command are deprecated. The `data query resume` command is also deprecated because it works with only the `data query` command in bulk mode. All these deprecated flags and command will be removed from Salesforce CLI on April 25, 2025, or later. Use the `data export bulk|resume` commands instead. For example:
 
