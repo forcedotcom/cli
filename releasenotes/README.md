@@ -39,7 +39,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
    The `code-analyzer` plugin isn't included in the core Salesforce CLI; instead, it's now installed the first time you run one of its commands. 
 
-   The Code Analyzer v4 commands, such as `scanner run`, are also JIT and continue to work the same as before. Because the v4 and v5 commands are in separate CLI topics and plugins, they don't interfere with each other.
+   The Code Analyzer v4 commands, such as `scanner run`, are also JIT and continue to work the same as before. Because the v4 and v5 commands are in separate CLI topics and plugins, they don't interfere with each other. We will stop JIT'ing the v4 `scanner` commands in the future, after the `code-analyzer` commands are generally available. 
   
     See the [Salesforce Code Analzyer v5 (Beta)](https://developer.salesforce.com/docs/platform/salesforce-code-analyzer/guide/code-analyzer.html) documentation for more information about how to use these new v5 commands to identify problems earlier in your development process. 
 
