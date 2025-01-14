@@ -31,15 +31,15 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: Ensure that your code adheres to best practices with these Code Analyzer v5 (Beta) commands, which are now marked as just-in-time (JIT) commands in this release of Salesforce CLI:
+* NEW: Ensure that your code adheres to best practices with these Code Analyzer v5 (Beta) commands in the just-in-time (JIT) `code-analyzer` plugin:
 
     * `code-analyzer config` :  Display the current state of configuration for Code Analyzer.
     * `code-analyzer rules` : List the rules that are available to analyze your code.
     * `code-analyzer run`  :  Analyze your code with a selection of rules to ensure good coding practices.
 
-   The commands aren't automatically included in the core Salesforce CLI; instead, they're installed the first time you run them, so you don't need to explicitly install the plugin.
+   The `code-analyzer` plugin isn't included in the core Salesforce CLI; instead, it's now installed the first time you run one of its commands. 
 
-   The Code Analyzer v4 commands, such as `scanner run`, are also JIT and continue to work the same as before. Because the v4 and v5 commands are in separate CLI topics, they don't interfere with each other.
+   The Code Analyzer v4 commands, such as `scanner run`, are also JIT and continue to work the same as before. Because the v4 and v5 commands are in separate CLI topics and plugins, they don't interfere with each other.
   
     See the [Salesforce Code Analzyer v5 (Beta)](https://developer.salesforce.com/docs/platform/salesforce-code-analyzer/guide/code-analyzer.html) documentation for more information about how to use these new v5 commands to identify problems earlier in your development process. 
 
