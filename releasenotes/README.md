@@ -33,6 +33,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: When you opt to [decompose sharing rules](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_decomposed_md_types.htm), you can now deploy its children (such as SharingCriteriaRule) individually, rather than having to deploy the entire [SharingRules](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_sharingrules.htm) component with all its children. (source-deploy-retrieve PR [#1482](https://github.com/forcedotcom/source-deploy-retrieve/pull/1482))
 
+* FIX: (GitHub issue [#3165](https://github.com/forcedotcom/cli/issues/3165), source-deploy-retrieve PR [#1483](https://github.com/forcedotcom/source-deploy-retrieve/pull/1483))
+
 * FIX: You can now correctly retrieve metadata components whose types have non-unique suffixes. For example, both `RestrictionRule` and `ModerationRule` have the `.rule` suffix.  (GitHub issue [#3168](https://github.com/forcedotcom/cli/issues/3168), source-deploy-retrieve PR [#1480](https://github.com/forcedotcom/source-deploy-retrieve/pull/1480))
 
 * FIX: The `project deploy start` command now correctly returns an error when you specify a manifest with a typo for the `--manifest` flag and also specify the `--post|pre-destructive-changes` flags. (source-deploy-retrieve PR [#1481](https://github.com/forcedotcom/source-deploy-retrieve/pull/1481))
