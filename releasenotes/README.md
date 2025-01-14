@@ -31,6 +31,18 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: Ensure that your code adheres to best practices with these Code Analyzer v5 (Beta) commands, which are now marked as just-in-time (JIT) commands in this release of Salesforce CLI:
+
+    * `code-analyzer config` :  Display the current state of configuration for Code Analyzer.
+    * `code-analyzer rules` : List the rules that are available to analyze your code.
+    * `code-analyzer run`  :  Analyze your code with a selection of rules to ensure good coding practices.
+
+   The commands aren't automatically included in the core Salesforce CLI; instead, they're installed the first time you run them, so you don't need to explicitly install the plugin.
+
+   The Code Analyzer v4 commands, such as `scanner run`, are also JIT and continue to work the same as before. Because the v4 and v5 commands are in separate CLI topics, they don't interfere with each other.
+  
+    See the [Salesforce Code Analzyer v5 (Beta)](https://developer.salesforce.com/docs/platform/salesforce-code-analyzer/guide/code-analyzer.html) documentation for more information about how to use these new v5 commands to identify problems earlier in your development process. 
+
 * FIX: When you opt to [decompose sharing rules](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_decomposed_md_types.htm), you can now deploy its children (such as SharingCriteriaRule) individually, rather than having to deploy the entire [SharingRules](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_sharingrules.htm) component with all its children. (source-deploy-retrieve PR [#1482](https://github.com/forcedotcom/source-deploy-retrieve/pull/1482))
 
 * FIX: (GitHub issue [#3165](https://github.com/forcedotcom/cli/issues/3165), source-deploy-retrieve PR [#1483](https://github.com/forcedotcom/source-deploy-retrieve/pull/1483))
