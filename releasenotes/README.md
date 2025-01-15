@@ -25,11 +25,41 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.72.21 (Jan 15, 2025) [stable-rc]
+## 2.73.7 (Jan 22, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: Ensure that your code adheres to best practices with these Code Analyzer v5 (Beta) commands in the just-in-time (JIT) `code-analyzer` plugin:
+
+    * `code-analyzer config` :  Display the current state of configuration for Code Analyzer.
+    * `code-analyzer rules` : List the rules that are available to analyze your code.
+    * `code-analyzer run`  :  Analyze your code with a selection of rules to ensure good coding practices.
+
+   The `code-analyzer` plugin isn't included in the core Salesforce CLI; instead, it's now installed the first time you run one of its commands. 
+
+   The Code Analyzer v4 commands, such as `scanner run`, are also JIT and continue to work the same as before. Because the v4 and v5 commands are in separate CLI topics and plugins, they don't interfere with each other. We will stop JIT'ing the v4 `scanner` commands in the future, after the `code-analyzer` commands are generally available. 
+  
+    See the [Salesforce Code Analzyer v5 (Beta)](https://developer.salesforce.com/docs/platform/salesforce-code-analyzer/guide/code-analyzer.html) documentation for more information about how to use these new v5 commands to identify problems earlier in your development process. 
+
+* FIX: When you opt to [decompose sharing rules](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_decomposed_md_types.htm), you can now deploy its children (such as SharingCriteriaRule) individually, rather than having to deploy the entire [SharingRules](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_sharingrules.htm) component with all its children. (source-deploy-retrieve PR [#1482](https://github.com/forcedotcom/source-deploy-retrieve/pull/1482))
+
+* FIX: When you start decomposing permission sets by running the `project convert source-behavior --behavior decomposePermissionSetBeta2` command and retrieving the permission set from the org, and the permission set contains custom permissions, the corresponding XML file (`PermSetName.customPermissions-meta.xml`) is now valid. (GitHub issue [#3165](https://github.com/forcedotcom/cli/issues/3165), source-deploy-retrieve PR [#1483](https://github.com/forcedotcom/source-deploy-retrieve/pull/1483))
+
+* FIX: You can now correctly retrieve metadata components whose types have non-unique suffixes. For example, both `RestrictionRule` and `ModerationRule` have the `.rule` suffix.  (GitHub issue [#3168](https://github.com/forcedotcom/cli/issues/3168), source-deploy-retrieve PR [#1480](https://github.com/forcedotcom/source-deploy-retrieve/pull/1480))
+
+* FIX: The `project deploy start` command now correctly returns an error when you specify a manifest with a typo for the `--manifest` flag and also specify the `--post|pre-destructive-changes` flags. (source-deploy-retrieve PR [#1481](https://github.com/forcedotcom/source-deploy-retrieve/pull/1481))
+
+* FIX: Non-admin scratch org users can now successfully run `org display` when they specify their username for `--target-org`. (plugin-org PR [#1481](https://github.com/forcedotcom/source-deploy-retrieve/pull/1481))
+
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+
+  * AnalyticsVisualization
+  * AnalyticsVizViewDef
+  * AnalyticsWorkspace
+
+## 2.72.21 (Jan 15, 2025) [stable]
 
 * NEW: When generating a manifest from the metadata components in an org by running the `project generate manifest --from-org` command, you can now specify the metadata components you **don't** want to include with the new `--excluded-metadata` flag. For example, this command generates a manifest of all the metadata components except StandardValueSet from the org with alias `my-org`:
 
@@ -68,7 +98,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
   * AiEvaluationTestSet
   * WorkflowFlowAction
 
-## 2.71.6 (January 8, 2025) [stable]
+## 2.71.6 (January 8, 2025)
 
 * CHANGE: Starting this release, the `--bulk`, `--wait`, and `--async` flags of the `data query` command are deprecated. The `data query resume` command is also deprecated because it works with only the `data query` command in bulk mode. All these deprecated flags and command will be removed from Salesforce CLI on April 25, 2025, or later. Use the `data export bulk|resume` commands instead. For example:
 
