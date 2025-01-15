@@ -51,6 +51,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `project deploy start` command now correctly returns an error when you specify a manifest with a typo for the `--manifest` flag and also specify the `--post|pre-destructive-changes` flags. (source-deploy-retrieve PR [#1481](https://github.com/forcedotcom/source-deploy-retrieve/pull/1481))
 
+* FIX: Non-admin scratch org users can now successfully run `org display` when they specify their username for `--target-org`. (plugin-org PR [#1481](https://github.com/forcedotcom/source-deploy-retrieve/pull/1481))
+
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
 
   * AnalyticsVisualization
