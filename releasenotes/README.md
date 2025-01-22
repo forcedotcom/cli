@@ -35,7 +35,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: If you run the `org create scratch` command with the `--json` flag, and the creation of the scratch org times out, its job ID is now included in the JSON output of the CLI command.  (plugin-org PR [#1317](https://github.com/salesforcecli/plugin-org/pull/1317))
 
-* FIX: If you installed Salesforce CLI on Windows using the installer, you no longer get the message that starts `(node:9801) [DEP0040] DeprecationWarning: The `punycode` module is deprecated.` when you run any CLI command.  (GitHub issue [#3161](https://github.com/forcedotcom/cli/issues/3161), oclif PR [#1672](https://github.com/oclif/oclif/pull/1672))
+* FIX: If you installed Salesforce CLI on Windows using the installer, you no longer get the message that starts `(node:9801) [DEP0040] DeprecationWarning: The punycode module is deprecated.` when you run any CLI command.  (GitHub issue [#3161](https://github.com/forcedotcom/cli/issues/3161), oclif PR [#1672](https://github.com/oclif/oclif/pull/1672))
 
 ## 2.73.9 (Jan 22, 2025) [stable]
 
