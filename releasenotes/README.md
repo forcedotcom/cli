@@ -25,11 +25,13 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.73.8 (Jan 22, 2025) [stable-rc]
+## 2.74.6 (Jan 29, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+## 2.73.8 (Jan 22, 2025) [stable]
 
 * NEW: Ensure that your code adheres to best practices with these Code Analyzer v5 (Beta) commands in the just-in-time (JIT) `code-analyzer` plugin:
 
@@ -59,7 +61,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
   * AnalyticsVizViewDef
   * AnalyticsWorkspace
 
-## 2.72.21 (Jan 15, 2025) [stable]
+## 2.72.21 (Jan 15, 2025)
 
 * NEW: When generating a manifest from the metadata components in an org by running the `project generate manifest --from-org` command, you can now specify the metadata components you **don't** want to include with the new `--excluded-metadata` flag. For example, this command generates a manifest of all the metadata components except StandardValueSet from the org with alias `my-org`:
 
