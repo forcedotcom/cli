@@ -31,6 +31,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* FIX: The `api request rest` command now correctly refreshes the access token if it has expired. (GitHub issue [#3176](https://github.com/forcedotcom/cli/issues/3176), sfdx-core PR [#1163](https://github.com/forcedotcom/sfdx-core/pull/1163), plugin-api PR [#62](https://github.com/salesforcecli/plugin-api/pull/62))
+
+* FIX: If you run the `org create scratch` command with the `--json` flag, and the creation of the scratch org times out, its job ID is now included in the JSON output of the CLI command.  (plugin-org PR [#1317](https://github.com/salesforcecli/plugin-org/pull/1317))
+
 ## 2.73.8 (Jan 22, 2025) [stable]
 
 * NEW: Ensure that your code adheres to best practices with these Code Analyzer v5 (Beta) commands in the just-in-time (JIT) `code-analyzer` plugin:
