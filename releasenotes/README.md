@@ -37,7 +37,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: If you installed Salesforce CLI on Windows using the installer, you no longer get the message that starts `(node:9801) [DEP0040] DeprecationWarning: The `punycode` module is deprecated.` when you run any CLI command.  (GitHub issue [#3161](https://github.com/forcedotcom/cli/issues/3161), oclif PR [#1672](https://github.com/oclif/oclif/pull/1672))
 
-## 2.73.8 (Jan 22, 2025) [stable]
+## 2.73.9 (Jan 22, 2025) [stable]
 
 * NEW: Ensure that your code adheres to best practices with these Code Analyzer v5 (Beta) commands in the just-in-time (JIT) `code-analyzer` plugin:
 
