@@ -25,11 +25,19 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.73.9 (Jan 22, 2025) [stable-rc]
+## 2.74.6 (Jan 29, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: The `api request rest` command now correctly refreshes the access token if it has expired. (GitHub issue [#3176](https://github.com/forcedotcom/cli/issues/3176), sfdx-core PR [#1163](https://github.com/forcedotcom/sfdx-core/pull/1163), plugin-api PR [#62](https://github.com/salesforcecli/plugin-api/pull/62))
+
+* FIX: If you run the `org create scratch` command with the `--json` flag, and the creation of the scratch org times out, its job ID is now included in the JSON output of the CLI command.  (plugin-org PR [#1317](https://github.com/salesforcecli/plugin-org/pull/1317))
+
+* FIX: If you installed Salesforce CLI on Windows using the installer, you no longer get the message that starts `(node:9801) [DEP0040] DeprecationWarning: The punycode module is deprecated.` when you run any CLI command.  (GitHub issue [#3161](https://github.com/forcedotcom/cli/issues/3161), oclif PR [#1672](https://github.com/oclif/oclif/pull/1672))
+
+## 2.73.9 (Jan 22, 2025) [stable]
 
 * NEW: Ensure that your code adheres to best practices with these Code Analyzer v5 (Beta) commands in the just-in-time (JIT) `code-analyzer` plugin:
 
@@ -59,7 +67,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
   * AnalyticsVizViewDef
   * AnalyticsWorkspace
 
-## 2.72.21 (Jan 15, 2025) [stable]
+## 2.72.21 (Jan 15, 2025)
 
 * NEW: When generating a manifest from the metadata components in an org by running the `project generate manifest --from-org` command, you can now specify the metadata components you **don't** want to include with the new `--excluded-metadata` flag. For example, this command generates a manifest of all the metadata components except StandardValueSet from the org with alias `my-org`:
 
