@@ -31,17 +31,17 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: (Beta) You can now decompose the [ExternalServiceRegistration](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_externalserviceregistration.htm) metadata component into two source files when you retrieve it to your Salesforce DX project, rather than retrieve a single monolithic metadata API format XML file. When you deploy to your org, the two files are re-converted into the one metadata API XML file.  For example, let's say the name of your ExternalServiceRegistration metadata component in your org is `BankService`. The two source files after decomposition are:
+* NEW: (Beta) You can now decompose the [ExternalServiceRegistration](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_externalserviceregistration.htm) metadata component into two source files when you retrieve it to your Salesforce DX project, rather than retrieve a single monolithic metadata API format XML file. When you deploy to your org, the two files are re-converted into the one metadata API XML file.  For example, let's say the name of your ExternalServiceRegistration metadata component `BankService`. The two source files after decomposition are:
 
   * `BankService.yaml` : A YAML file that contains the contents of the `schema` field. If the field's content is in JSON format in your org, it's always converted to YAML format when retrieved to your DX project.
-  * `BankService.externalServiceRegistration-meta.xml` : A standard metadata api XML file that contains all the fields _except_ `schema`.  
+  * `BankService.externalServiceRegistration-meta.xml` : A standard metadata API XML file that contains all the fields _except_ `schema`.  
 
   Decomposing ExternalServiceRegistration metadata components is optional, so you must explicitly specify the behavior by running this command:
   
     ```bash
     sf project convert source-behavior --behavior decomposeExternalServiceRegistrationBeta
     ```
-   When the `project convert source-behavior` command finishes, your `sfdx-project.json` file is updated to always decompose ExternalServiceRegistration components. The existing source files in your local package directories are converted into the new decomposed format and you can deploy and retrieve your metadata as usual. (To preview what the command does without making any changes, specify the `--dry-run` flag.)
+   When the `project convert source-behavior` command finishes, your `sfdx-project.json` file is updated to always decompose ExternalServiceRegistration components. The existing source files in your local package directories are converted into the new decomposed format and you can deploy and retrieve your metadata as usual. To preview what the command does without making any changes, specify the `--dry-run` flag.
 
   See [Start Decomposing the Optional Metadata Types (Beta)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_decomposed_md_types.htm) for more information.  The documentation will soon be updated with details about how ExternalServiceRegistration components are decomposed. (source-deploy-retrieve PR [#1493](https://github.com/forcedotcom/source-deploy-retrieve/pull/1493), plugin-deploy-retrieve PR [#1275](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1275))
   
