@@ -31,7 +31,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* CHANGE: On January 31, 2025, Salesforce will retire Salesforce Functions, also known as Salesforce Elastic Services. See [Salesforce Functions Retirement](https://devcenter.heroku.com/articles/salesforce-functions-retirement)  for more information. As a result, Salesforce CLI no longer JIT-installs the Salesforce Functions plugins: `plugin-env` and `plugin-functions`. We'll also soon remove the associated Salesforce Functions commands from the [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_functions_commands_unified.htm).  (cli PR [#2093](https://github.com/salesforcecli/cli/pull/2093))
+* CHANGE: On January 31, 2025, Salesforce will retire Salesforce Functions, also known as Salesforce Elastic Services. See [Salesforce Functions Retirement](https://devcenter.heroku.com/articles/salesforce-functions-retirement)  for more information. As a result, Salesforce CLI no longer JIT-installs the Salesforce Functions plugins: `plugin-env` and `plugin-functions`.
+
+    We'll also soon remove the associated Salesforce Functions commands from the current version of the [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_functions_commands_unified.htm). If you need reference information about the Salesforce Functions commands, see the [Winter '25 Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.252.0.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_functions_commands_unified.htm). (cli PR [#2093](https://github.com/salesforcecli/cli/pull/2093))
 
 * FIX: The `force data bulk upsert` command now works correctly when upserting 10K+ records synchronously (specify the `--wait` flag) and using Node.js v22 or greater. (GitHub issue [#3180](https://github.com/forcedotcom/cli/issues/3180), plugin-data PR [#1172](https://github.com/salesforcecli/plugin-data/pull/1172))
 
