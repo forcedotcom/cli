@@ -25,11 +25,35 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.74.6 (Jan 29, 2025) [stable-rc]
+## 2.75.5 (Feb 5, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: (Beta) You can now decompose the [ExternalServiceRegistration](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_externalserviceregistration.htm) metadata component into two source files when you retrieve it to your Salesforce DX project, rather than retrieve a single monolithic metadata API format XML file. When you deploy to your org, the two files are re-converted into the one metadata API XML file.  For example, let's say the name of your ExternalServiceRegistration metadata component `BankService`. The two source files after decomposition are:
+
+  * `BankService.yaml` : A YAML file that contains the contents of the `schema` field. If the field's content is in JSON format in your org, it's always converted to YAML format when retrieved to your DX project.
+  * `BankService.externalServiceRegistration-meta.xml` : A standard metadata API XML file that contains all the fields _except_ `schema`.  
+
+  Decomposing ExternalServiceRegistration metadata components is optional, so you must explicitly specify the behavior by running this command:
+  
+    ```bash
+    sf project convert source-behavior --behavior decomposeExternalServiceRegistrationBeta
+    ```
+   When the `project convert source-behavior` command finishes, your `sfdx-project.json` file is updated to always decompose ExternalServiceRegistration components. The existing source files in your local package directories are converted into the new decomposed format and you can deploy and retrieve your metadata as usual. To preview what the command does without making any changes, specify the `--dry-run` flag.
+
+  See [Start Decomposing the Optional Metadata Types (Beta)](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_decomposed_md_types.htm) for more information.  The documentation will soon be updated with details about how ExternalServiceRegistration components are decomposed. (source-deploy-retrieve PR [#1493](https://github.com/forcedotcom/source-deploy-retrieve/pull/1493), plugin-deploy-retrieve PR [#1275](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1275))
+  
+* CHANGE: On January 31, 2025, Salesforce will retire Salesforce Functions, also known as Salesforce Elastic Services. See [Salesforce Functions Retirement](https://devcenter.heroku.com/articles/salesforce-functions-retirement) for more information. As a result, Salesforce CLI no longer JIT-installs the Salesforce Functions plugins (`plugin-env` and `plugin-functions`) and the Salesforce Functions commands, such as `run function start` aren't available by default.  If you need these commands, you must install the [`plugins-functions`](https://github.com/salesforcecli/plugin-functions) and [`plugins-env`](https://github.com/salesforcecli/plugin-env) plugins manually using the `plugins install` command. 
+
+    We'll also soon remove the associated Salesforce Functions commands from the current version of the [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_functions_commands_unified.htm). If you need online reference information about the Salesforce Functions commands, see the [Winter '25 Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.252.0.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_functions_commands_unified.htm). (cli PR [#2093](https://github.com/salesforcecli/cli/pull/2093))
+
+* FIX: The `force data bulk upsert` command now works correctly when upserting 10K+ records synchronously (specify the `--wait` flag) and using Node.js v22 or greater. (GitHub issue [#3180](https://github.com/forcedotcom/cli/issues/3180), plugin-data PR [#1172](https://github.com/salesforcecli/plugin-data/pull/1172))
+
+* FIX: Salesforce DX projects now support the LightningTypeBundle [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
+
+## 2.74.6 (Jan 29, 2025) [stable]
 
 * FIX: The `api request rest` command now correctly refreshes the access token if it has expired. (GitHub issue [#3176](https://github.com/forcedotcom/cli/issues/3176), sfdx-core PR [#1163](https://github.com/forcedotcom/sfdx-core/pull/1163), plugin-api PR [#62](https://github.com/salesforcecli/plugin-api/pull/62))
 
@@ -37,7 +61,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: If you installed Salesforce CLI on Windows using the installer, you no longer get the message that starts `(node:9801) [DEP0040] DeprecationWarning: The punycode module is deprecated.` when you run any CLI command.  (GitHub issue [#3161](https://github.com/forcedotcom/cli/issues/3161), oclif PR [#1672](https://github.com/oclif/oclif/pull/1672))
 
-## 2.73.9 (Jan 22, 2025) [stable]
+## 2.73.9 (Jan 22, 2025)
 
 * NEW: Ensure that your code adheres to best practices with these Code Analyzer v5 (Beta) commands in the just-in-time (JIT) `code-analyzer` plugin:
 
