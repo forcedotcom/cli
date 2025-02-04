@@ -25,11 +25,15 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.75.5 (Feb 5, 2025) [stable-rc]
+## 2.76.5 (Feb 12, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: Piping the output of a Salesforce CLI command that produces very wide tables is now working correctly. (GitHub issue [#3206](https://github.com/forcedotcom/cli/issues/3206), oclif PR [#93](https://github.com/oclif/table/pull/93))
+
+## 2.75.5 (Feb 5, 2025) [stable]
 
 * NEW: (Beta) You can now decompose the [ExternalServiceRegistration](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_externalserviceregistration.htm) metadata component into two source files when you retrieve it to your Salesforce DX project, rather than retrieve a single monolithic metadata API format XML file. When you deploy to your org, the two files are re-converted into the one metadata API XML file.  For example, let's say the name of your ExternalServiceRegistration metadata component `BankService`. The two source files after decomposition are:
 
@@ -53,7 +57,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Salesforce DX projects now support the LightningTypeBundle [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
 
-## 2.74.6 (Jan 29, 2025) [stable]
+## 2.74.6 (Jan 29, 2025)
 
 * FIX: The `api request rest` command now correctly refreshes the access token if it has expired. (GitHub issue [#3176](https://github.com/forcedotcom/cli/issues/3176), sfdx-core PR [#1163](https://github.com/forcedotcom/sfdx-core/pull/1163), plugin-api PR [#62](https://github.com/salesforcecli/plugin-api/pull/62))
 
