@@ -31,7 +31,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* FIX: Salesforce DX projects now correctly support the GenAiFunction bundle [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json) (GitHub issue [#3204](https://github.com/forcedotcom/cli/issues/3204), source-deploy-retrieve PR [1499](https://github.com/forcedotcom/source-deploy-retrieve/pull/1499))
+* FIX: Salesforce DX projects now correctly support the GenAiFunction bundle [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json) (GitHub issue [#3204](https://github.com/forcedotcom/cli/issues/3204), source-deploy-retrieve PR [1499](https://github.com/forcedotcom/source-deploy-retrieve/pull/1499)) 
 
 ## 2.76.7 (Feb 12, 2025) [stable]
 
