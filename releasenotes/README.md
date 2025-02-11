@@ -31,7 +31,13 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* FIX: Salesforce DX projects now correctly support the GenAiFunction bundle [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json) (GitHub issue [#3204](https://github.com/forcedotcom/cli/issues/3204), source-deploy-retrieve PR [1499](https://github.com/forcedotcom/source-deploy-retrieve/pull/1499)) 
+* FIX: All commands that run Apex tests, such as `project deploy start`, now correctly display the test failures in both human output and when run in continuous integration (CI) jobs. (plugin-deploy-retrieve PR [#1284](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1284))
+
+* FIX: DigitalExperience metadata components are now retrieved into multiple package directories as expected in all scenarios. (source-deploy-retrieve PR [#1496](https://github.com/forcedotcom/source-deploy-retrieve/pull/1496))
+
+* FIX: Salesforce DX projects now correctly support the existing GenAiFunction bundle [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json). (GitHub issue [#3204](https://github.com/forcedotcom/cli/issues/3204), source-deploy-retrieve PR [1499](https://github.com/forcedotcom/source-deploy-retrieve/pull/1499))
+
+* FIX: Salesforce DX projects now support the AnnotationExtensionSet [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
 
 ## 2.76.7 (Feb 12, 2025) [stable]
 
