@@ -25,19 +25,34 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.76.7 (Feb 12, 2025) [stable-rc]
+## 2.77.6 (Feb 19, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: When generating a manifest with the `project generate manifest` command, you can now use the `--metadata` flag together with `--source-dir` to target specific metadata components in your local package directory.  This new feature is useful when you have multiple package directories or multiple directories within a single package directory and you want to target specific metadata within a source path.
+
+  Similarly, you can also use `--excluded-metadata` with `--source-dir` to target all metadata in your local package directory _except_ the specified components. This example generates a manifest from the metadata components in the `force-app` package directory but excludes StandardValueSet components:
+
+    ```bash
+    sf project generate manifest --excluded-metadata StandardValueSet --source-dir force-app
+    ``` 
+    (plugin-deploy-retrieve PR [#1280](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1280))
+
+* FIX: All commands that run Apex tests, such as `project deploy start`, now correctly display the test failures in both human output and when run in continuous integration (CI) jobs. (plugin-deploy-retrieve PR [#1284](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1284))
+
+* FIX: DigitalExperience metadata components are now retrieved into multiple package directories as expected in all scenarios. (source-deploy-retrieve PR [#1496](https://github.com/forcedotcom/source-deploy-retrieve/pull/1496))
+
+* FIX: Salesforce DX projects now correctly support the existing GenAiFunction bundle [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json). (GitHub issue [#3204](https://github.com/forcedotcom/cli/issues/3204), source-deploy-retrieve PR [1499](https://github.com/forcedotcom/source-deploy-retrieve/pull/1499))
+
+* FIX: Salesforce DX projects now support the AnnotationExtensionSet [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
+
+## 2.76.7 (Feb 12, 2025) [stable]
 
 * FIX: Piping the output of a Salesforce CLI command that produces very wide tables is now working correctly. (GitHub issue [#3206](https://github.com/forcedotcom/cli/issues/3206), oclif PR [#93](https://github.com/oclif/table/pull/93))
 
-## 2.75.5 (Feb 5, 2025) [stable]
-
-These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
-
-------------
+## 2.75.5 (Feb 5, 2025)
 
 * NEW: (Beta) You can now decompose the [ExternalServiceRegistration](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_externalserviceregistration.htm) metadata component into two source files when you retrieve it to your Salesforce DX project, rather than retrieve a single monolithic metadata API format XML file. When you deploy to your org, the two files are re-converted into the one metadata API XML file.  For example, let's say the name of your ExternalServiceRegistration metadata component `BankService`. The two source files after decomposition are:
 
