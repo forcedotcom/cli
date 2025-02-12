@@ -31,7 +31,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: When generating a manifest with the `project generate manifest` command, you can now use the `--metadata` flag together with `--source-dir` to target specific metadata components in your local package directory. Similarly, you can also use `--excluded-metadata` with `--source-dir` to target all metadata in your local package directory _except_ the specified components. This example generates a manifest from the metadata components in the `force-app` package directory but excludes StandardValueSet components:
+* NEW: When generating a manifest with the `project generate manifest` command, you can now use the `--metadata` flag together with `--source-dir` to target specific metadata components in your local package directory.  This new feature is useful when you have multiple package directories or multiple directories within a single package directory and you want to target specific metadata within a source path.
+
+  Similarly, you can also use `--excluded-metadata` with `--source-dir` to target all metadata in your local package directory _except_ the specified components. This example generates a manifest from the metadata components in the `force-app` package directory but excludes StandardValueSet components:
 
     ```bash
     sf project generate manifest --excluded-metadata StandardValueSet --source-dir force-app
