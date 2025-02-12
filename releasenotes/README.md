@@ -31,6 +31,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: (plugin-deploy-retrieve PR [#1280](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1280))
+
 * FIX: All commands that run Apex tests, such as `project deploy start`, now correctly display the test failures in both human output and when run in continuous integration (CI) jobs. (plugin-deploy-retrieve PR [#1284](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1284))
 
 * FIX: DigitalExperience metadata components are now retrieved into multiple package directories as expected in all scenarios. (source-deploy-retrieve PR [#1496](https://github.com/forcedotcom/source-deploy-retrieve/pull/1496))
