@@ -31,7 +31,12 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: (plugin-deploy-retrieve PR [#1280](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1280))
+* NEW: When generating a manifest with the `project generate manifest` command, you can now use the `--metadata` flag together with `--source-dir` to target specific metadata components in your local package directory. Similarly, you can also use `--excluded-metadata` with `--source-dir` to target all metadata in your local package directory _except_ the specified components. This example generates a manifest from the metadata components in the `force-app` package directory but excludes StandardValueSet components:
+
+    ```bash
+    sf project generate manifest --excluded-metadata StandardValueSet --source-dir force-app
+    ``` 
+    (plugin-deploy-retrieve PR [#1280](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1280))
 
 * FIX: All commands that run Apex tests, such as `project deploy start`, now correctly display the test failures in both human output and when run in continuous integration (CI) jobs. (plugin-deploy-retrieve PR [#1284](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1284))
 
