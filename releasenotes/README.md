@@ -42,6 +42,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     ```
     (GitHub discussion [#3194](https://github.com/forcedotcom/cli/discussions/3194), plugin-deploy-retrieve [#1286](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1286))
 
+* FIX: The `project retrieve start --output-dir mydir` command now correctly writes single-file metadata components, such as GlobalValueSet, directly to the `mydir` directory; previously the command would incorrectly write them to `mydir/main/default`. (GitHub issue [#3177](https://github.com/forcedotcom/cli/issues/3177), plugin-deploy-retrieve PR [#1289](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1289))
+
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
 
   * ContentTypeBundle
