@@ -31,6 +31,17 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: When you run `project deploy start` with both `--test-level` and `--verbose`, the human-readable output now shows how long each Apex test took to run, in milliseconds. This information was already available in the JSON output. Here's sample output:
+
+    ```bash
+    Test Success [11]
+    ✓ GeocodingServiceTest.blankAddress (159ms)
+    ✓ FileUtilitiesTest.createFileFailsWhenIncorrectBase64Data (263ms)
+    ✓ FileUtilitiesTest.createFileFailsWhenIncorrectFilename (227ms)
+    ✓ FileUtilitiesTest.createFileFailsWhenIncorrectRecordId (481ms)
+    ```
+    (GitHub discussion [#3194](https://github.com/forcedotcom/cli/discussions/3194), plugin-deploy-retrieve [#1286](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1286))
+
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
 
   * ContentTypeBundle
