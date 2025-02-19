@@ -25,11 +25,31 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.77.6 (Feb 19, 2025) [stable-rc]
+## 2.78.5 (Feb 26, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: When you run `project deploy start` with both `--test-level` and `--verbose`, the human-readable output now shows how long each Apex test took to run, in milliseconds. This information was already available in the JSON output. Here's sample output:
+
+    ```bash
+    Test Success [11]
+    ✓ GeocodingServiceTest.blankAddress (159ms)
+    ✓ FileUtilitiesTest.createFileFailsWhenIncorrectBase64Data (263ms)
+    ✓ FileUtilitiesTest.createFileFailsWhenIncorrectFilename (227ms)
+    ✓ FileUtilitiesTest.createFileFailsWhenIncorrectRecordId (481ms)
+    ```
+    (GitHub discussion [#3194](https://github.com/forcedotcom/cli/discussions/3194), plugin-deploy-retrieve [#1286](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1286))
+
+* FIX: The `project retrieve start --output-dir mydir` command now correctly writes single-file metadata components, such as GlobalValueSet, directly to the `mydir` directory; previously the command would incorrectly write them to `mydir/main/default`. (GitHub issue [#3177](https://github.com/forcedotcom/cli/issues/3177), plugin-deploy-retrieve PR [#1289](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1289))
+
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+
+  * ContentTypeBundle
+  * AnalyticsDashboard
+
+## 2.77.6 (Feb 19, 2025) [stable]
 
 * NEW: When generating a manifest with the `project generate manifest` command, you can now use the `--metadata` flag together with `--source-dir` to target specific metadata components in your local package directory.  This new feature is useful when you have multiple package directories or multiple directories within a single package directory and you want to target specific metadata within a source path.
 
@@ -48,7 +68,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Salesforce DX projects now support the AnnotationExtensionSet [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
 
-## 2.76.7 (Feb 12, 2025) [stable]
+## 2.76.7 (Feb 12, 2025)
 
 * FIX: Piping the output of a Salesforce CLI command that produces very wide tables is now working correctly. (GitHub issue [#3206](https://github.com/forcedotcom/cli/issues/3206), oclif PR [#93](https://github.com/oclif/table/pull/93))
 
