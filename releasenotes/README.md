@@ -25,11 +25,16 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.78.3 (Feb 26, 2025) [stable-rc]
+## 2.79.2 (March 5, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+We hope to see you at [TDX next week](https://www.salesforce.com/tdx/)!
+
+* FIX: We fixed some under-the-hood bugs.
+
+## 2.78.3 (Feb 26, 2025) [stable]
 
 * NEW: When you run `project deploy start` with both `--test-level` and `--verbose`, the human-readable output now shows how long each Apex test took to run, in milliseconds. This information was already available in the JSON output. Here's sample output:
 
@@ -49,7 +54,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
   * ContentTypeBundle
   * AnalyticsDashboard
 
-## 2.77.6 (Feb 19, 2025) [stable]
+## 2.77.6 (Feb 19, 2025)
 
 * NEW: When generating a manifest with the `project generate manifest` command, you can now use the `--metadata` flag together with `--source-dir` to target specific metadata components in your local package directory.  This new feature is useful when you have multiple package directories or multiple directories within a single package directory and you want to target specific metadata within a source path.
 
