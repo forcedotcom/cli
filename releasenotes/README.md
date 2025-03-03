@@ -31,6 +31,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* FIX: The `project generate manifest --from-org` command now completes successfuly when run on an org that has over 100K metadata components. As part of this fix we set the default value of the SF_LIST_METADATA_BATCH_SIZE environment variable to `500` to ensure that the command works correctly when an org has thousands of folder metadata components, such as EmailTemplateFolder.  (GitHub issue [#3197](https://github.com/forcedotcom/cli/issues/3197), source-deploy-retrieve PR [#1511](https://github.com/forcedotcom/source-deploy-retrieve/pull/1511))
+
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
 
   * LifeSciConfigCategory
