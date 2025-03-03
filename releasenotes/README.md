@@ -25,16 +25,22 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.79.4 (March 5, 2025) [stable-rc]
+## 2.80.6 (March 12, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
-We hope to see you at [TDX next week](https://www.salesforce.com/tdx/)!
+
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+
+  * LifeSciConfigCategory
+  * LifeSciConfigRecord
+
+## 2.79.4 (March 5, 2025) [stable]
 
 * FIX: We fixed some under-the-hood bugs.
 
-## 2.78.3 (Feb 26, 2025) [stable]
+## 2.78.3 (Feb 26, 2025)
 
 * NEW: When you run `project deploy start` with both `--test-level` and `--verbose`, the human-readable output now shows how long each Apex test took to run, in milliseconds. This information was already available in the JSON output. Here's sample output:
 
