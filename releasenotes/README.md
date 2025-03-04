@@ -33,12 +33,12 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: (BETA) We’re thrilled to announce the beta release of Agentforce DX, a set of new Salesforce CLI commands and a Visual Studio Code (VS Code) extension that let you create, preview, and test agents directly in a Salesforce DX project. With Agentforce DX you can:
 
-    * **Generate YAML Spec Files**—Use CLI commands to generate simple YAML spec files that describe agents and agent tests:
-    * **Create Agents and Agent Tests**—Pass these spec files as inputs to CLI commands to create agents and agent tests in your development org.
-    * **Run Agent Tests**—Execute agent tests and view the results from the VS Code testing panel or by running CLI commands.
-    * **Interact with Active Agents**—Interact directly with active agents using a CLI command. (Developer Preview)
+    * **Generate YAML Spec Files**—Use the `agent generate agent-spec|test-spec` CLI commands to generate simple YAML spec files that describe agents and agent tests.
+    * **Create Agents and Agent Tests**—Pass these spec files as inputs to the `agent create` and `agent test create` CLI commands to create agents and agent tests in your development org.
+    * **Run Agent Tests**—Execute agent tests in your org and view the results from either the VS Code testing panel or by running the `agent test run|results|resume|list` CLI commands.
+    * **Interact with Active Agents**—Interact directly with active agents using the `agent preview` CLI command. (Developer Preview)
 
-    The new CLI commands are in the `agent` topic and part of the [`@salesforce/plugin-agent`](https://github.com/salesforcecli/plugin-agent) plugin.  Install the plugin with this command:
+    The new CLI commands are in the `agent` topic and are part of the [`@salesforce/plugin-agent`](https://github.com/salesforcecli/plugin-agent) plugin.  Install the plugin with this command:
 
     ```bash
     sf plugins install agent
@@ -46,7 +46,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     Here are a few examples of what you can do.
 
-    Generate an agent spec file that describes your new agent by providing some properties, but be prompted for others; use your default org:
+    Generate an agent spec file that describes your new agent by providing some properties at the command line and be prompted for others; use your default org:
 
     ```bash
     sf agent generate agent-spec --type customer \
@@ -83,7 +83,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * [_Agentforce Developer Guide_: Agentforce DX](https://developer.salesforce.com/docs/einstein/genai/guide/agent-dx.html)
     * [_Salesforce CLI Command Reference_: `agent` Commands](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_agent_commands_unified.htm)
 
-* FIX: The `project generate manifest --from-org` command now completes successfuly when run on an org that has over 100K metadata components. As part of this fix we set the default value of the SF_LIST_METADATA_BATCH_SIZE environment variable to `500` to ensure that the command works correctly when an org has thousands of folder metadata components, such as EmailTemplateFolder.  (GitHub issue [#3197](https://github.com/forcedotcom/cli/issues/3197), source-deploy-retrieve PR [#1511](https://github.com/forcedotcom/source-deploy-retrieve/pull/1511))
+* FIX: The `project generate manifest --from-org` command now runs successfully on orgs with over 100,000 metadata components. Previously, this command would result in an `Out of Memory` error. Additionally, to address issues with large numbers of folder metadata components, such as `EmailTemplateFolder`, we have set the default value of the `SF_LIST_METADATA_BATCH_SIZE` environment variable to `500`. This ensures the command completes correctly even when an org has more than 1,000 folder metadata components. Previously, the command would hang in such cases, even if the total number of components was less than 100,000. (GitHub issue [#3197](https://github.com/forcedotcom/cli/issues/3197), source-deploy-retrieve PR [#1511](https://github.com/forcedotcom/source-deploy-retrieve/pull/1511))
 
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
 
