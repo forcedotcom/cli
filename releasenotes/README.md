@@ -80,17 +80,20 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     sf agent test run --api-name Resort_Manager_Test
     ```
 
-    We hope you enjoy these fun new commands!  
-
     For more information, see:
 
     * [_Agentforce Developer Guide_: Agentforce DX](https://developer.salesforce.com/docs/einstein/genai/guide/agent-dx.html)
     * [_Salesforce CLI Command Reference_: agent Commands](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_agent_commands_unified.htm)
 
+    We hope you enjoy these fun new commands!
+    
+
     Known Issue: When generating the list of topics in an agent spec, the LLM sometimes includes dashes or other special characters in the topic names. These characters cause errors when creating an agent with the spec. Workaround: Be sure to use only underscores or alphanumeric characters in the topic names; spaces are fine.
       
 
-* FIX: The `project generate manifest --from-org` command now runs successfully on orgs with over 100,000 metadata components. Previously, this command would result in an `Out of Memory` error. Additionally, to address issues with large numbers of folder metadata components, such as `EmailTemplateFolder`, we have set the default value of the `SF_LIST_METADATA_BATCH_SIZE` environment variable to `500`. This ensures the command completes correctly even when an org has more than 1,000 folder metadata components. Previously, the command would hang in such cases, even if the total number of components was less than 100,000. (GitHub issue [#3197](https://github.com/forcedotcom/cli/issues/3197), source-deploy-retrieve PR [#1511](https://github.com/forcedotcom/source-deploy-retrieve/pull/1511))
+* FIX: The `project generate manifest --from-org` command now runs successfully on orgs with over 100,000 metadata components. Previously, this command would result in an `Out of Memory` error.
+
+    Additionally, to address issues with large numbers of folder metadata components, such as `EmailTemplateFolder`, we have set the default value of the `SF_LIST_METADATA_BATCH_SIZE` environment variable to `500`. This ensures the command completes correctly even when an org has more than 1,000 folder metadata components. Previously, the command would hang in such cases, even if the total number of components was less than 100,000. (GitHub issue [#3197](https://github.com/forcedotcom/cli/issues/3197), source-deploy-retrieve PR [#1511](https://github.com/forcedotcom/source-deploy-retrieve/pull/1511))
 
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
 
