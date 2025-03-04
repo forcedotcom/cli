@@ -31,6 +31,58 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: (BETA) We’re thrilled to announce the beta release of Agentforce DX, a set of new Salesforce CLI commands and a Visual Studio Code (VS Code) extension that let you create, preview, and test agents directly in a Salesforce DX project. With Agentforce DX you can:
+
+    * **Generate YAML Spec Files**—Use CLI commands to generate simple YAML spec files that describe agents and agent tests:
+    * **Create Agents and Agent Tests**—Pass these spec files as inputs to CLI commands to create agents and agent tests in your development org.
+    * **Run Agent Tests**—Execute agent tests and view the results from the VS Code testing panel or by running CLI commands.
+    * **Interact with Active Agents**—Interact directly with active agents using a CLI command. (Developer Preview)
+
+    The new CLI commands are in the `agent` topic and part of the [`@salesforce/plugin-agent`](https://github.com/salesforcecli/plugin-agent) plugin.  Install the plugin with this command:
+
+    ```bash
+    sf plugins install agent
+    ```
+
+    Here are a few examples of what you can do.
+
+    Generate an agent spec file that describes your new agent by providing some properties, but be prompted for others; use your default org:
+
+    ```bash
+    sf agent generate agent-spec --type customer \
+          --role "Field customer complaints and manage employee schedules."  \
+          --output-file specs/resortManagerAgent.yaml
+    ```
+
+    Create the agent in your org by passing in the generated spec file:
+
+    ```bash
+    sf agent create --agent-name "Resort Manager" --spec specs/resortManagerAgent.yaml
+    ```
+
+    Generate an agent test spec for testing this new agent; this command is interactive and prompts you for all the information:
+
+    ```bash
+    sf agent generate test-spec
+    ```
+
+    Create an agent test in your org by passing in the generated test spec file:
+
+    ```bash
+    sf agent test create --spec specs/Resort_Manager-testSpec.yaml
+    ```
+
+    Run the agent test in your org:
+
+    ```bash
+    sf agent test run --api-name Resort_Manager_Test
+    ```
+
+    For more info, see:
+
+    * [_Agentforce Developer Guide_: Agentforce DX](https://developer.salesforce.com/docs/einstein/genai/guide/agent-dx.html)
+    * [_Salesforce CLI Command Reference_: `agent` Commands](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_agent_commands_unified.htm)
+
 * FIX: The `project generate manifest --from-org` command now completes successfuly when run on an org that has over 100K metadata components. As part of this fix we set the default value of the SF_LIST_METADATA_BATCH_SIZE environment variable to `500` to ensure that the command works correctly when an org has thousands of folder metadata components, such as EmailTemplateFolder.  (GitHub issue [#3197](https://github.com/forcedotcom/cli/issues/3197), source-deploy-retrieve PR [#1511](https://github.com/forcedotcom/source-deploy-retrieve/pull/1511))
 
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
