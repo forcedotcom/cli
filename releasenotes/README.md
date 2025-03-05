@@ -90,6 +90,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     Known Issue: When generating the list of topics in an agent spec, the LLM sometimes includes dashes or other special characters in the topic names. These characters cause errors when creating an agent with the spec. Workaround: Be sure to use only underscores or alphanumeric characters in the topic names; spaces are fine.
       
+## March 5, 2025
+
+Due to [TDX 2025](https://www.salesforce.com/tdx/), we aren't releasing a new stable or stable-rc version today. Hope to see you at the conference!
+
 ## 2.78.3 (Feb 26, 2025) [stable]
 
 * NEW: (BETA) We’re thrilled to announce the beta release of Agentforce DX, a set of new Salesforce CLI commands and a Visual Studio Code (VS Code) extension that let you create, preview, and test agents directly in a Salesforce DX project. With Agentforce DX you can:
