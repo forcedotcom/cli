@@ -25,7 +25,7 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.80.6 (March 12, 2025) [stable-rc]
+## 2.79.4 (March 12, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
@@ -90,21 +90,66 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     Known Issue: When generating the list of topics in an agent spec, the LLM sometimes includes dashes or other special characters in the topic names. These characters cause errors when creating an agent with the spec. Workaround: Be sure to use only underscores or alphanumeric characters in the topic names; spaces are fine.
       
+## 2.78.3 (Feb 26, 2025) [stable]
 
-* FIX: The `project generate manifest --from-org` command now runs successfully on orgs with over 100,000 metadata components. Previously, this command would result in an `Out of Memory` error.
+* NEW: (BETA) We’re thrilled to announce the beta release of Agentforce DX, a set of new Salesforce CLI commands and a Visual Studio Code (VS Code) extension that let you create, preview, and test agents directly in a Salesforce DX project. With Agentforce DX you can:
 
-    Additionally, to address issues with large numbers of folder metadata components, such as `EmailTemplateFolder`, we have set the default value of the `SF_LIST_METADATA_BATCH_SIZE` environment variable to `500`. This ensures the command completes correctly even when an org has more than 1,000 folder metadata components. Previously, the command would hang in such cases, even if the total number of components was less than 100,000. (GitHub issue [#3197](https://github.com/forcedotcom/cli/issues/3197), source-deploy-retrieve PR [#1511](https://github.com/forcedotcom/source-deploy-retrieve/pull/1511))
+    * **Generate YAML Spec Files**—Use the `agent generate agent-spec|test-spec` CLI commands to generate simple YAML spec files that describe agents and agent tests.
+    * **Create Agents and Agent Tests**—Pass these spec files as inputs to the `agent create` and `agent test create` CLI commands to create agents and agent tests in your development org.
+    * **Run Agent Tests**—Execute agent tests in your org and view the results from either the VS Code testing panel or by running the `agent test run|results|resume|list` CLI commands.
+    * **Interact with Active Agents**—Interact directly with active agents using the `agent preview` CLI command. (Developer Preview)
 
-* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+    The new CLI commands are in the `agent` topic and are part of the [`@salesforce/plugin-agent`](https://github.com/salesforcecli/plugin-agent) plugin.  Install the plugin with this command:
 
-  * LifeSciConfigCategory
-  * LifeSciConfigRecord
+    ```bash
+    sf plugins install agent
+    ```
 
-## 2.79.4 (March 5, 2025) [stable]
+    Download and install the VS Code Agentforce DX extension from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=salesforce.salesforcedx-vscode-agents) or the [Open VSX Registry](https://open-vsx.org/extension/salesforce/salesforcedx-vscode-agents).
 
-* FIX: We fixed some under-the-hood bugs.
+    Here are a few examples of what you can do with Agentforce DX.
 
-## 2.78.3 (Feb 26, 2025)
+    Generate an agent spec file that describes your new agent by providing some properties at the command line and be prompted for others; use your default org:
+
+    ```bash
+    sf agent generate agent-spec --type customer \
+          --role "Field customer complaints and manage employee schedules."  \
+          --output-file specs/resortManagerAgent.yaml
+    ```
+
+    Create the agent in your org by passing in the generated spec file:
+
+    ```bash
+    sf agent create --agent-name "Resort Manager" --spec specs/resortManagerAgent.yaml
+    ```
+
+    Generate an agent test spec for testing this new agent; this command is interactive and prompts you for all the information:
+
+    ```bash
+    sf agent generate test-spec
+    ```
+
+    Create an agent test in your org by passing in the generated test spec file:
+
+    ```bash
+    sf agent test create --spec specs/Resort_Manager-testSpec.yaml
+    ```
+
+    Run the agent test in your org:
+
+    ```bash
+    sf agent test run --api-name Resort_Manager_Test
+    ```
+
+    For more information, see:
+
+    * [_Agentforce Developer Guide_: Agentforce DX](https://developer.salesforce.com/docs/einstein/genai/guide/agent-dx.html)
+    * [_Salesforce CLI Command Reference_: agent Commands](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_agent_commands_unified.htm)
+
+    We hope you enjoy these fun new commands!
+    
+
+    Known Issue: When generating the list of topics in an agent spec, the LLM sometimes includes dashes or other special characters in the topic names. These characters cause errors when creating an agent with the spec. Workaround: Be sure to use only underscores or alphanumeric characters in the topic names; spaces are fine.
 
 * NEW: When you run `project deploy start` with both `--test-level` and `--verbose`, the human-readable output now shows how long each Apex test took to run, in milliseconds. This information was already available in the JSON output. Here's sample output:
 
