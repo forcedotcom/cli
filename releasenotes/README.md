@@ -31,6 +31,17 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: Easily create a scratch org from a snapshot with the new `--snapshot` flag of `org create scratch`. Snapshots are a point-in-time copy of a scratch org which you create with the `org create snapshot` command. With this new flag, you're no longer required to create a definition file when creating a scratch org from a snapshot.
+
+    For example, let's say you previously created a snapshot called `NightlyBranch`. To create a new scratch org using this snapshot, run this command: 
+
+   ```bash
+   sf org create scratch --alias my-scratch-org --target-dev-hub MyHub --snapshot NightlyBranch --wait 10
+   ```
+   
+  In the example, the `MyHub` Dev Hub org must be associated with the `NightlyBranch` snapshot. We recommend you increase the wait time with the `--wait` flag because creating a scratch org from a snapshot can take a while. (plugin-org PR [#1358](https://github.com/salesforcecli/plugin-org/pull/1358))
+
+
 * FIX: The `project generate manifest --from-org` command now runs successfully on orgs with over 100,000 metadata components. Previously, this command would result in an `Out of Memory` error.
 
     Additionally, to address issues with large numbers of folder metadata components, such as `EmailTemplateFolder`, we have set the default value of the `SF_LIST_METADATA_BATCH_SIZE` environment variable to `500`. This ensures the command completes correctly even when an org has more than 1,000 folder metadata components. Previously, the command would hang in such cases, even if the total number of components was less than 100,000. (GitHub issue [#3197](https://github.com/forcedotcom/cli/issues/3197), source-deploy-retrieve PR [#1511](https://github.com/forcedotcom/source-deploy-retrieve/pull/1511))
