@@ -35,6 +35,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     Additionally, to address issues with large numbers of folder metadata components, such as `EmailTemplateFolder`, we have set the default value of the `SF_LIST_METADATA_BATCH_SIZE` environment variable to `500`. This ensures the command completes correctly even when an org has more than 1,000 folder metadata components. Previously, the command would hang in such cases, even if the total number of components was less than 100,000. (GitHub issue [#3197](https://github.com/forcedotcom/cli/issues/3197), source-deploy-retrieve PR [#1511](https://github.com/forcedotcom/source-deploy-retrieve/pull/1511))
 
+* FIX: The `org login web` command now gracefully returns an error if you use the `--browser` flag to specify a browser that isn't installed on your computer; previously the command would hang indefinitely. (GitHub issue [#1830](https://github.com/forcedotcom/cli/issues/1830), plugin-auth PR [#1260](https://github.com/salesforcecli/plugin-auth/pull/1260))
+
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
 
   * DataObjectBuildOrgTemplate
