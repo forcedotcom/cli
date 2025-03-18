@@ -33,6 +33,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * CHANGE: We removed the deprecated `--verbose` flag of `data delete bulk` and `data upsert bulk`; use the `data bulk results` command instead.  We deprecated the flag in October 2024. (plugin-data PR [#1206](https://github.com/salesforcecli/plugin-data/pull/1206))
 
+* CHANGE: We no longer include the records that failed after running `data delete|upsert bulk --json` in the JSON output; use the `data bulk results` command to get this information.  We also removed the ability to resume synchronous data operations with the `data delete|upsert resume` commands.  We deprecated both of these features in October 2025. (plugin-data PR [#1209](https://github.com/salesforcecli/plugin-data/pull/1209))
 ## 2.80.12 (March 19, 2025) [stable]
 
 * NEW: Easily create a scratch org from a snapshot with the new `--snapshot` flag of `org create scratch`. Snapshots are a point-in-time copy of a scratch org which you create with the `org create snapshot` command. With this new flag, you're no longer required to create a definition file when creating a scratch org from a snapshot.
