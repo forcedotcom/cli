@@ -31,7 +31,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-
+* CHANGE: We removed the deprecated `--verbose` flag of `data delete bulk` and `data upsert bulk`; use the `data bulk results` command instead.  We deprecated the flag in October 2024. (plugin-data PR [#1206](https://github.com/salesforcecli/plugin-data/pull/1206))
 
 ## 2.80.12 (March 19, 2025) [stable]
 
