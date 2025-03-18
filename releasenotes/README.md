@@ -25,11 +25,15 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.80.12 (March 19, 2025) [stable-rc]
+## 2.81.9 (March 26, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+
+
+## 2.80.12 (March 19, 2025) [stable]
 
 * NEW: Easily create a scratch org from a snapshot with the new `--snapshot` flag of `org create scratch`. Snapshots are a point-in-time copy of a scratch org which you create with the `org create snapshot` command. With this new flag, you're no longer required to create a definition file when creating a scratch org from a snapshot.
 
@@ -55,7 +59,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
   * LifeSciConfigCategory
   * LifeSciConfigRecord
 
-## 2.79.4 (March 12, 2025) [stable]
+## 2.79.4 (March 12, 2025)
 
 * NEW: (BETA) We’re thrilled to announce the beta release of Agentforce DX, a set of new Salesforce CLI commands and a Visual Studio Code (VS Code) extension that let you create, preview, and test agents directly in a Salesforce DX project. With Agentforce DX you can:
 
