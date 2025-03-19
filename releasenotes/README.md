@@ -31,9 +31,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* CHANGE: We removed the deprecated `--verbose` flag of `data delete bulk` and `data upsert bulk`; use the `data bulk results` command instead.  We deprecated the flag in October 2024 and added the deprecation warning in the command output. (plugin-data PR [#1206](https://github.com/salesforcecli/plugin-data/pull/1206))
+* CHANGE: We removed the deprecated `--verbose` flag of `data delete bulk` and `data upsert bulk`; use the `data bulk results` command instead.  In October 2024 we deprecated the flag and added the deprecation warning in the command output. (plugin-data PR [#1206](https://github.com/salesforcecli/plugin-data/pull/1206))
 
-* CHANGE: We no longer include the records that failed after running `data delete|upsert bulk --json` in the JSON output; use the `data bulk results` command to get this information.  We also removed the ability to resume synchronous data operations with the `data delete|upsert resume` commands.  We deprecated both of these features in October 2024 and added the deprecation warning in the command outputs. (plugin-data PR [#1209](https://github.com/salesforcecli/plugin-data/pull/1209))
+* CHANGE: We no longer include the records that failed after running `data delete|upsert bulk --json` in the JSON output; use the `data bulk results` command to get this information.  We also removed the ability to resume synchronous data operations with the `data delete|upsert resume` commands.  In October 2024 we deprecated both of these features and added the deprecation warning in the command outputs. (plugin-data PR [#1209](https://github.com/salesforcecli/plugin-data/pull/1209))
 
 * CHANGE: When you open an org in a browser with the `org open` command, Salesforce CLI now generates a single-use frontdoor URL. This URL can be used one time only; subsequent use won't allow you to log into the org. This change makes the access to your org more secure.
 
