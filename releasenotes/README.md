@@ -37,7 +37,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * CHANGE: When you open an org in a browser with the `org open` command but without `--json` or `--url-only`, Salesforce CLI now generates a single-use frontdoor URL. This URL can be used one time only; subsequent use won't allow you to log into the org. This change makes the access to your org more secure.
 
-    Code Builder users: when you run `org open` without `--json` or `--url-only` in a Code Builder terminal, the URL to open an org in a browser is outputted rather than a browser automatically starting; this is normal expected behavior. The new change in Code Builder behavior is that the outputted URL is now single-use only and expires in 60 seconds. 
+    Code Builder users: when you run `org open` without `--json` or `--url-only` in a Code Builder terminal, the URL to open an org in a browser is displayed, rather than a browser automatically starting; this is normal expected behavior. The new change in Code Builder behavior is that the outputted URL is now single-use only and expires in 60 seconds. 
 
     Starting in August 2025, the generated URLs in the output of `org open --json` or `org open --url-only` will also be single-use only; until then the URLs continue to be multi-use.  A warning is printed if you use the `--json` or `--url-only` flags of `org open` to remind you of the upcoming change.  To immediately force the URLs in _all_ output of `org open` to be single-use, set the new SF_SINGLE_USE_ORG_OPEN_URL environment variable to `true`. For example:
 
