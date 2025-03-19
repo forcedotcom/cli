@@ -25,11 +25,33 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.80.12 (March 19, 2025) [stable-rc]
+## 2.81.8 (March 26, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* CHANGE: We removed the deprecated `--verbose` flag of `data delete bulk` and `data upsert bulk`; use the `data bulk results` command instead.  In October 2024 we deprecated the flag and added the deprecation warning in the command output. (plugin-data PR [#1206](https://github.com/salesforcecli/plugin-data/pull/1206))
+
+* CHANGE: We no longer include the records that failed after running `data delete|upsert bulk --json` in the JSON output; use the `data bulk results` command to get this information.  We also removed the ability to resume synchronous data operations with the `data delete|upsert resume` commands.  In October 2024 we deprecated both of these features and added the deprecation warning in the command outputs. (plugin-data PR [#1209](https://github.com/salesforcecli/plugin-data/pull/1209))
+
+* CHANGE: When you open an org in a browser with the `org open` command but without `--json` or `--url-only`, Salesforce CLI now generates a single-use frontdoor URL. This URL can be used one time only; subsequent use won't allow you to log into the org. This change makes the access to your org more secure.
+
+    Code Builder users: when you run `org open` without `--json` or `--url-only` in a Code Builder terminal, the URL to open an org in a browser is displayed, rather than a browser automatically starting; this is normal expected behavior. The new change in Code Builder behavior is that the outputted URL is now single-use only and expires in 60 seconds. 
+
+    Starting in August 2025, the generated URLs in the output of `org open --json` or `org open --url-only` will also be single-use only; until then the URLs continue to be multi-use.  A warning is printed if you use the `--json` or `--url-only` flags of `org open` to remind you of the upcoming change.  To immediately force the URLs in _all_ output of `org open` to be single-use, set the new SF_SINGLE_USE_ORG_OPEN_URL environment variable to `true`. For example:
+
+    ```bash
+    export SF_SINGLE_USE_ORG_OPEN_URL=true
+    ```
+
+    (GitHub issue [#2769](https://github.com/forcedotcom/cli/issues/2769), plugin-org PR [#1375](https://github.com/salesforcecli/plugin-org/pull/1375))
+
+* FIX: We improved the error message returned when you run the `apex run test` command but there are no Apex tests in your org; it now clearly states what the problem is. (GitHub issue [#3217](https://github.com/forcedotcom/cli/issues/3217), plugin-apex PR [#706](https://github.com/salesforcecli/plugin-apex/pull/706))
+
+* FIX: We fixed the remaining bugs around the `Maximum call stack size exceeded` error that sometimes occurred when running `project generate manifest --from-org` on an org that has more than 1,000 folder metadata components, such as `ReportFolder` or `DashboardFolder`. (plugin-deploy-retrieve PR [#1314](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1314), source-deploy-retrieve PR [#1526](https://github.com/forcedotcom/source-deploy-retrieve/pull/1526))
+
+## 2.80.12 (March 19, 2025) [stable]
 
 * NEW: Easily create a scratch org from a snapshot with the new `--snapshot` flag of `org create scratch`. Snapshots are a point-in-time copy of a scratch org which you create with the `org create snapshot` command. With this new flag, you're no longer required to create a definition file when creating a scratch org from a snapshot.
 
@@ -55,7 +77,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
   * LifeSciConfigCategory
   * LifeSciConfigRecord
 
-## 2.79.4 (March 12, 2025) [stable]
+## 2.79.4 (March 12, 2025)
 
 * NEW: (BETA) We’re thrilled to announce the beta release of Agentforce DX, a set of new Salesforce CLI commands and a Visual Studio Code (VS Code) extension that let you create, preview, and test agents directly in a Salesforce DX project. With Agentforce DX you can:
 
