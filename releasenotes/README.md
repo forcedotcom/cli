@@ -31,6 +31,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* FIX: We improved the displayed error message when a problem occurs while authorizing an org, such as a keychain file has the wrong permissions. (GitHub issue [#3231](https://github.com/forcedotcom/cli/issues/3231), sfdx-core PR [#1175](https://github.com/forcedotcom/sfdx-core/pull/1175))
+
 ## 2.81.9 (March 26, 2025) [stable]
 
 * CHANGE: We removed the deprecated `--verbose` flag of `data delete bulk` and `data upsert bulk`; use the `data bulk results` command instead.  In October 2024 we deprecated the flag and added the deprecation warning in the command output. (plugin-data PR [#1206](https://github.com/salesforcecli/plugin-data/pull/1206))
