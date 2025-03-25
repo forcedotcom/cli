@@ -33,7 +33,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We improved the displayed error message when a problem occurs while authorizing an org, such as a keychain file has the wrong permissions. (GitHub issue [#3231](https://github.com/forcedotcom/cli/issues/3231), sfdx-core PR [#1175](https://github.com/forcedotcom/sfdx-core/pull/1175))
 
-* FIX: (GitHub issue [#3236](https://github.com/forcedotcom/cli/issues/3236), cli PR [#2162](https://github.com/salesforcecli/cli/pull/2162))
+* FIX: When specifying flag values in a file and using `--flags-dir` to pass the flag values to a command, files that contain multiple lines can now correctly use both LF and CRLF line endings.  (GitHub issue [#3236](https://github.com/forcedotcom/cli/issues/3236), cli PR [#2162](https://github.com/salesforcecli/cli/pull/2162))
 
 ## 2.81.9 (March 26, 2025) [stable]
 
