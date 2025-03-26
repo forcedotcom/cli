@@ -25,11 +25,17 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.81.9 (March 26, 2025) [stable-rc]
+## 2.82.6 (April 2, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: We improved the displayed error message when a problem occurs while authorizing an org, such as a keychain file has the wrong permissions. (GitHub issue [#3231](https://github.com/forcedotcom/cli/issues/3231), sfdx-core PR [#1175](https://github.com/forcedotcom/sfdx-core/pull/1175))
+
+* FIX: When specifying flag values in a file and using `--flags-dir` to pass the flag values to a command, files that contain multiple lines can now correctly use both LF and CRLF line endings.  (GitHub issue [#3236](https://github.com/forcedotcom/cli/issues/3236), cli PR [#2162](https://github.com/salesforcecli/cli/pull/2162))
+
+## 2.81.9 (March 26, 2025) [stable]
 
 * CHANGE: We removed the deprecated `--verbose` flag of `data delete bulk` and `data upsert bulk`; use the `data bulk results` command instead.  In October 2024 we deprecated the flag and added the deprecation warning in the command output. (plugin-data PR [#1206](https://github.com/salesforcecli/plugin-data/pull/1206))
 
@@ -51,7 +57,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We fixed the remaining bugs around the `Maximum call stack size exceeded` error that sometimes occurred when running `project generate manifest --from-org` on an org that has more than 1,000 folder metadata components, such as `ReportFolder` or `DashboardFolder`. (plugin-deploy-retrieve PR [#1314](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1314), source-deploy-retrieve PR [#1526](https://github.com/forcedotcom/source-deploy-retrieve/pull/1526))
 
-## 2.80.12 (March 19, 2025) [stable]
+## 2.80.12 (March 19, 2025)
 
 * NEW: Easily create a scratch org from a snapshot with the new `--snapshot` flag of `org create scratch`. Snapshots are a point-in-time copy of a scratch org which you create with the `org create snapshot` command. With this new flag, you're no longer required to create a definition file when creating a scratch org from a snapshot.
 
