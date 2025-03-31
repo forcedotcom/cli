@@ -25,17 +25,23 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.82.6 (April 2, 2025) [stable-rc]
+## 2.83.6 (April 9, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
 
+* FIX: When running `project generate manifest` with the `--excluded-metadata` flag, the generated manifest file now correctly excludes the specified metadata types. (GitHub issue [#3232](https://github.com/forcedotcom/cli/issues/3232), source-deploy-retrieve PR [#1532](https://github.com/forcedotcom/source-deploy-retrieve/pull/1532))
+
+* FIX: Salesforce DX projects now support the FieldServiceMobileConfig [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json). 
+
+## 2.82.6 (April 2, 2025) [stable]
+
 * FIX: We improved the displayed error message when a problem occurs while authorizing an org, such as a keychain file has the wrong permissions. (GitHub issue [#3231](https://github.com/forcedotcom/cli/issues/3231), sfdx-core PR [#1175](https://github.com/forcedotcom/sfdx-core/pull/1175))
 
 * FIX: When specifying flag values in a file and using `--flags-dir` to pass the flag values to a command, files that contain multiple lines can now correctly use both LF and CRLF line endings.  (GitHub issue [#3236](https://github.com/forcedotcom/cli/issues/3236), cli PR [#2162](https://github.com/salesforcecli/cli/pull/2162))
 
-## 2.81.9 (March 26, 2025) [stable]
+## 2.81.9 (March 26, 2025)
 
 * CHANGE: We removed the deprecated `--verbose` flag of `data delete bulk` and `data upsert bulk`; use the `data bulk results` command instead.  In October 2024 we deprecated the flag and added the deprecation warning in the command output. (plugin-data PR [#1206](https://github.com/salesforcecli/plugin-data/pull/1206))
 
