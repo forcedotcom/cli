@@ -31,8 +31,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* FIX: When running `project generate manifest` with the `--excluded-metadata` flag, the generated manifest file now correctly excludes the specified metadata types. (GitHub issue [#3232](https://github.com/forcedotcom/cli/issues/3232), source-deploy-retrieve PR [#1532](https://github.com/forcedotcom/source-deploy-retrieve/pull/1532))
-
 * FIX: Salesforce DX projects now support the FieldServiceMobileConfig [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json). 
 
 ## 2.82.6 (April 2, 2025) [stable]
