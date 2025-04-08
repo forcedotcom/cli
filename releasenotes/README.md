@@ -37,10 +37,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: You can now correctly deploy and retrieve [CustomPermission](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_custompermission.htm) metadata components while also decomposing the custom permissions in the [PermissionSet](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_permissionset.htm) component. (GitHub issue [#3220](https://github.com/forcedotcom/cli/issues/3220), source-deploy-retrieve PR [1534x](https://github.com/forcedotcom/source-deploy-retrieve/pull/1534))
 
-* FIX: (GitHub issue [#3052](https://github.com/forcedotcom/cli/issues/3052), 
 
-
-## 2.83.6 (April 9, 2025) [stable]
+## 2.83.7 (April 9, 2025) [stable]
 
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
 
