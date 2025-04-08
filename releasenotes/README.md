@@ -25,15 +25,22 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.83.6 (April 9, 2025) [stable-rc]
+## 2.84.6 (April 16, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
 
-* FIX: Salesforce DX projects now support the FieldServiceMobileConfig [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json). 
 
-## 2.82.6 (April 2, 2025) [stable]
+
+## 2.83.6 (April 9, 2025) [stable]
+
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+
+    * FieldServiceMobileConfig
+    * GenAiPlannerBundle
+
+## 2.82.6 (April 2, 2025)
 
 * FIX: We improved the displayed error message when a problem occurs while authorizing an org, such as a keychain file has the wrong permissions. (GitHub issue [#3231](https://github.com/forcedotcom/cli/issues/3231), sfdx-core PR [#1175](https://github.com/forcedotcom/sfdx-core/pull/1175))
 
