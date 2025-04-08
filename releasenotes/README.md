@@ -31,6 +31,14 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: If the `org create scratch` command times out before the scratch org is ready, you run the `org resume scratch` command to poll for completion and see the results. You can now specify how long the command waits before it returns control of the terminal to you with the new `--wait` flag; the output shows the progress of the scratch org create. Previously you had to keep running the `org resume scratch` command until the scratch org was ready. In this example the command waits for 10 minutes before returning control to you:
+
+    ```bash
+    sf org resume scratch --job-id 2SRfakefake000345 --wait 10
+    ```
+
+    (plugin-org PR [#1376](https://github.com/salesforcecli/plugin-org/pull/1376), sfdx-core PR [#1177](https://github.com/forcedotcom/sfdx-core/pull/1177))
+
 * FIX: When used with metadata types that are always in a folder, the `--exclude-metadata` flag of `project generate manifest --from-org` now correctly excludes both the metadata components and their folders. Examples of metadata type that are always in folders include [Document](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_document.htm) and [Report](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_report.htm).  (GitHub issue [#3232](https://github.com/forcedotcom/cli/issues/3232), source-deploy-retrieve PR [#1535](https://github.com/forcedotcom/source-deploy-retrieve/pull/1535))
 
 * FIX: The `plugins discover` CLI command is now working as expected. (GitHub issue [#3238](https://github.com/forcedotcom/cli/issues/3238), plugin-marketplace PR [#457](https://github.com/salesforcecli/plugin-marketplace/pull/457))
