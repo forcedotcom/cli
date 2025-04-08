@@ -31,6 +31,11 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* FIX: When used with metadata types that are always in a folder, the `--exclude-metadata` flag of `project generate manifest --from-org` now correctly excludes both the metadata components and their folders. Examples of metadata type that are always in folders include [Document](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_document.htm) and [Report](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_report.htm).  (GitHub issue [#3232](https://github.com/forcedotcom/cli/issues/3232), source-deploy-retrieve PR [#1535](https://github.com/forcedotcom/source-deploy-retrieve/pull/1535))
+
+* FIX: The `plugins discover` CLI command is now working as expected. (GitHub issue [#3238](https://github.com/forcedotcom/cli/issues/3238), plugin-marketplace PR [#457](https://github.com/salesforcecli/plugin-marketplace/pull/457))
+
+* FIX: You can now correctly deploy and retrieve [CustomPermission](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_custompermission.htm) metadata components while also decomposing the custom permissions in the [PermissionSet](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_permissionset.htm) component. (GitHub issue [#3220](https://github.com/forcedotcom/cli/issues/3220), source-deploy-retrieve PR [1534x](https://github.com/forcedotcom/source-deploy-retrieve/pull/1534))
 
 
 ## 2.83.6 (April 9, 2025) [stable]
