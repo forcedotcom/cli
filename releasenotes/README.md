@@ -25,15 +25,35 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.83.6 (April 9, 2025) [stable-rc]
+## 2.84.6 (April 16, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
 
-* FIX: Salesforce DX projects now support the FieldServiceMobileConfig [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json). 
+* NEW: If the `org create scratch` command times out before the scratch org is ready, you run the `org resume scratch` command to poll for completion and see the results. You can now specify how long the command waits before it returns control of the terminal to you with the new `--wait` flag; the output shows the progress of the scratch org create. Previously you had to keep running the `org resume scratch` command until the scratch org was ready. In this example the command waits for 10 minutes before returning control to you:
 
-## 2.82.6 (April 2, 2025) [stable]
+    ```bash
+    sf org resume scratch --job-id 2SRfakefake000345 --wait 10
+    ```
+
+    (plugin-org PR [#1376](https://github.com/salesforcecli/plugin-org/pull/1376), sfdx-core PR [#1177](https://github.com/forcedotcom/sfdx-core/pull/1177))
+
+* FIX: When used with metadata types that are always in a folder, the `--exclude-metadata` flag of `project generate manifest --from-org` now correctly excludes both the metadata components and their folders. Examples of metadata type that are always in folders include [Document](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_document.htm) and [Report](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_report.htm).  (GitHub issue [#3232](https://github.com/forcedotcom/cli/issues/3232), source-deploy-retrieve PR [#1535](https://github.com/forcedotcom/source-deploy-retrieve/pull/1535))
+
+* FIX: The `plugins discover` CLI command is now working as expected. (GitHub issue [#3238](https://github.com/forcedotcom/cli/issues/3238), plugin-marketplace PR [#457](https://github.com/salesforcecli/plugin-marketplace/pull/457))
+
+* FIX: You can now correctly deploy and retrieve [CustomPermission](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_custompermission.htm) metadata components while also decomposing the custom permissions in the [PermissionSet](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_permissionset.htm) component. (GitHub issue [#3220](https://github.com/forcedotcom/cli/issues/3220), source-deploy-retrieve PR [1534x](https://github.com/forcedotcom/source-deploy-retrieve/pull/1534))
+
+
+## 2.83.7 (April 9, 2025) [stable]
+
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+
+    * FieldServiceMobileConfig
+    * GenAiPlannerBundle
+
+## 2.82.6 (April 2, 2025)
 
 * FIX: We improved the displayed error message when a problem occurs while authorizing an org, such as a keychain file has the wrong permissions. (GitHub issue [#3231](https://github.com/forcedotcom/cli/issues/3231), sfdx-core PR [#1175](https://github.com/forcedotcom/sfdx-core/pull/1175))
 
