@@ -44,6 +44,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * CHANGE: Over the next few releases we'll be changing our licenses from the [3-Clause BSD License](https://opensource.org/license/bsd-3-clause) to the [Apache License, Version 2.0](https://opensource.org/license/apache-2-0). (dev-scripts PR [#386](https://github.com/forcedotcom/dev-scripts/pull/386))
 
+* FIX: (GitHub issue [#3252](https://github.com/forcedotcom/cli/issues/3252), oclif/table PR [#131](https://github.com/oclif/table/pull/131))
+
 ## 2.84.6 (April 16, 2025) [stable]
 
 * NEW: If the `org create scratch` command times out before the scratch org is ready, you run the `org resume scratch` command to poll for completion and see the results. You can now specify how long the command waits before it returns control of the terminal to you with the new `--wait` flag; the output shows the progress of the scratch org create. Previously you had to keep running the `org resume scratch` command until the scratch org was ready. In this example the command waits for 10 minutes before returning control to you:
