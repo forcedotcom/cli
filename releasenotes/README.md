@@ -44,7 +44,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * CHANGE: Over the next few releases we'll be changing our licenses from the [3-Clause BSD License](https://opensource.org/license/bsd-3-clause) to the [Apache License, Version 2.0](https://opensource.org/license/apache-2-0). (dev-scripts PR [#386](https://github.com/forcedotcom/dev-scripts/pull/386))
 
-* FIX: (GitHub issue [#3252](https://github.com/forcedotcom/cli/issues/3252), oclif/table PR [#131](https://github.com/oclif/table/pull/131))
+* FIX: Column width in table output when running CLI commands in a CircleCI environment is now reasonable and readable.  (GitHub issue [#3252](https://github.com/forcedotcom/cli/issues/3252), oclif/table PR [#131](https://github.com/oclif/table/pull/131))
 
 ## 2.84.6 (April 16, 2025) [stable]
 
