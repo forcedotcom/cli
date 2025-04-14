@@ -31,6 +31,17 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* CHANGE: Starting with this release, the `--async` flag of these commands is deprecated because the commands are asynchronous by default:
+
+  * `data delete bulk`
+  * `data export bulk`
+  * `data import bulk`
+  * `data query`
+  * `data update bulk`
+  * `data upset bulk`
+
+    (plugin-data PR [#1222](https://github.com/salesforcecli/plugin-data/pull/1222))
+
 * CHANGE: Over the next few releases we'll be changing our licenses from the [3-Clause BSD License](https://opensource.org/license/bsd-3-clause) to the [Apache License, Version 2.0](https://opensource.org/license/apache-2-0). (dev-scripts PR [#386](https://github.com/forcedotcom/dev-scripts/pull/386))
 
 ## 2.84.6 (April 16, 2025) [stable]
