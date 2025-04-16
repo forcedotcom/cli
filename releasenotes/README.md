@@ -25,11 +25,28 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.84.6 (April 16, 2025) [stable-rc]
+## 2.85.6 (April 23, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* CHANGE: Starting with this release, the `--async` flag of these commands is deprecated because the commands are asynchronous by default:
+
+    * `data delete bulk`
+    * `data export bulk`
+    * `data import bulk`
+    * `data query`
+    * `data update bulk`
+    * `data upset bulk`
+
+    (plugin-data PR [#1222](https://github.com/salesforcecli/plugin-data/pull/1222))
+
+* CHANGE: Over the next few releases we'll be changing our licenses from the [3-Clause BSD License](https://opensource.org/license/bsd-3-clause) to the [Apache License, Version 2.0](https://opensource.org/license/apache-2-0). (dev-scripts PR [#386](https://github.com/forcedotcom/dev-scripts/pull/386))
+
+* FIX: Column width in table output when running CLI commands in a CircleCI environment is now reasonable and readable.  (GitHub issue [#3252](https://github.com/forcedotcom/cli/issues/3252), oclif/table PR [#131](https://github.com/oclif/table/pull/131))
+
+## 2.84.6 (April 16, 2025) [stable]
 
 * NEW: If the `org create scratch` command times out before the scratch org is ready, you run the `org resume scratch` command to poll for completion and see the results. You can now specify how long the command waits before it returns control of the terminal to you with the new `--wait` flag; the output shows the progress of the scratch org create. Previously you had to keep running the `org resume scratch` command until the scratch org was ready. In this example the command waits for 10 minutes before returning control to you:
 
@@ -46,7 +63,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 * FIX: You can now correctly deploy and retrieve [CustomPermission](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_custompermission.htm) metadata components while also decomposing the custom permissions in the [PermissionSet](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_permissionset.htm) component. (GitHub issue [#3220](https://github.com/forcedotcom/cli/issues/3220), source-deploy-retrieve PR [1534x](https://github.com/forcedotcom/source-deploy-retrieve/pull/1534))
 
 
-## 2.83.7 (April 9, 2025) [stable]
+## 2.83.7 (April 9, 2025)
 
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
 
