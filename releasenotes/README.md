@@ -25,7 +25,7 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.85.6 (April 23, 2025) [stable-rc]
+## 2.85.7 (April 23, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
@@ -43,8 +43,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     (plugin-data PR [#1222](https://github.com/salesforcecli/plugin-data/pull/1222))
 
 * CHANGE: Over the next few releases we'll be changing our licenses from the [3-Clause BSD License](https://opensource.org/license/bsd-3-clause) to the [Apache License, Version 2.0](https://opensource.org/license/apache-2-0). (dev-scripts PR [#386](https://github.com/forcedotcom/dev-scripts/pull/386))
-
-* FIX: Column width in table output when running CLI commands in a CircleCI environment is now reasonable and readable.  (GitHub issue [#3252](https://github.com/forcedotcom/cli/issues/3252), oclif/table PR [#131](https://github.com/oclif/table/pull/131))
 
 ## 2.84.6 (April 16, 2025) [stable]
 
