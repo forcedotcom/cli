@@ -45,7 +45,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     **NOTE**: Starting September 2025, the new warning will be converted to an error. As a result, the exit code when you try to log out of an unauthenticated org will change from 0 to 1. (GitHub issue [#3247](https://github.com/forcedotcom/cli/issues/3247), plugin-org PR [#1282](https://github.com/salesforcecli/plugin-auth/pull/1282))
 
-* FIX: Salesforce DX projects now support the WorkflowFlowAutomation [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
+* FIX: Salesforce DX projects now support the WorkflowFlowAutomation [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json). (GitHub issue [#3202](https://github.com/forcedotcom/cli/issues/3202))
 
 ## 2.85.7 (April 23, 2025) [stable]
 
