@@ -31,6 +31,20 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: When refreshing a sandbox org with the `org refresh sandbox` command, you can now use the new `--source-id` or `--source-sandbox-name` flags to change its original source org to a new org. The refreshed sandbox org's metadata is then updated with the new source org's metadata. For example, this command refreshes the sandbox named `devSbx2` by changing its original source org to be a sandbox called `devSbx3`:
+
+    ```bash
+    sf org refresh sandbox --name devSbx2 --source-sandbox-name devSbx3 --target-org prodOrg
+    ```
+
+    The value of `--source-id` and `--source-sandbox-name` must be an existing sandbox. The new source sandbox org, and the refreshed sandbox specified with the `--name` flag, must both be associated with the production org (`--target-org`) that contains the sandbox licenses. You can specify either `--source-id `or `--source-sandbox-name` when refreshing an existing sandbox, but not both.
+
+  We also updated a related issue where specifying the new source sandbox in a sandbox definition file with the `sourceSandboxName` option returned an error when running `org refresh sandbox`. (GitHub issue [#3262](https://github.com/forcedotcom/cli/issues/3262), plugin-auth PR [#1396](https://github.com/salesforcecli/plugin-org/pull/1396))
+
+* FIX: Salesforce CLI now displays a warning when you run `org logout` on an org that you haven't authorized; previously it incorrectly displayed a success message.
+
+    **NOTE**: Starting September 2025, the new warning will be converted to an error. As a result, the exit code when you try to log out of an unauthenticated org will change from 0 to 1. (GitHub issue [#3247](https://github.com/forcedotcom/cli/issues/3247), plugin-org PR [#1282](https://github.com/salesforcecli/plugin-auth/pull/1282))
+
 * FIX: Salesforce DX projects now support the WorkflowFlowAutomation [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
 
 ## 2.85.7 (April 23, 2025) [stable]
