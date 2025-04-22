@@ -41,6 +41,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
   We also updated a related issue where specifying the new source sandbox in a sandbox definition file with the `sourceSandboxName` option returned an error when running `org refresh sandbox`. (GitHub issue [#3262](https://github.com/forcedotcom/cli/issues/3262), plugin-auth PR [#1396](https://github.com/salesforcecli/plugin-org/pull/1396))
 
+* FIX: You can now correctly retrieve DigitalExperienceBundle metadata components with the `project retrieve start` command into a DX project that already contains these components.  Previously you either got an error or they were retrieved into an incorrect directory. (source-deploy-retrieve PR [#1546](https://github.com/forcedotcom/source-deploy-retrieve/pull/1546)
+
 * FIX: Salesforce CLI now displays a warning when you run `org logout` on an org that you haven't authorized; previously it incorrectly displayed a success message.
 
     **NOTE**: Starting September 2025, the new warning will be converted to an error. As a result, the exit code when you try to log out of an unauthenticated org will change from 0 to 1. (GitHub issue [#3247](https://github.com/forcedotcom/cli/issues/3247), plugin-org PR [#1282](https://github.com/salesforcecli/plugin-auth/pull/1282))
