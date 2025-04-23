@@ -48,10 +48,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `flow run test` : Invoke flow tests in an org.   
     * `flow get test` : Display test results for a specific asynchronous test run.
 
-    For example, this command runs all the tests associated with the flows called `Flow1` and `Flow2` in the org with alias `scratchOrg`:
+    For example, this command runs all the tests associated with a flow in the org with alias `scratchOrg`; use the flow definition developer name to identify a flow:
 
     ```bash
-    sf flow run test --target-org scratchOrg --class-names Flow1 --class-names Flow2
+    sf flow run test --target-org scratchOrg --class-names <flow defintion developer name>
     ```
     Run the two commands with the `--help` flag to get more information and examples.
   
