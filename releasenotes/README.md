@@ -41,6 +41,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
   We also updated a related issue where specifying the new source sandbox in a sandbox definition file with the `sourceSandboxName` option returned an error when running `org refresh sandbox`. (GitHub issue [#3262](https://github.com/forcedotcom/cli/issues/3262), plugin-auth PR [#1396](https://github.com/salesforcecli/plugin-org/pull/1396))
 
+* NEW: The [Agentforce DX](./README.md#2794-march-12-2025) commands, such as `agent create` and `agent test run` are now just-in-time (JIT). This means that when you update to this Salesforce CLI release and run an `agent` command, Salesforce CLI checks to see if the associated [plugin-agent](https://github.com/salesforcecli/plugin-agent) is installed. If it's not, Salesforce CLI automatically installs it and then runs your command. (cli PR [#2203](https://github.com/salesforcecli/cli/pull/2203))
+
 * FIX: You can now correctly retrieve DigitalExperienceBundle metadata components with the `project retrieve start` command into a DX project that already contains these components.  Previously you either got an error or they were retrieved into an incorrect directory. (source-deploy-retrieve PR [#1546](https://github.com/forcedotcom/source-deploy-retrieve/pull/1546)
 
 * FIX: Salesforce CLI now displays a warning when you run `org logout` on an org that you haven't authorized; previously it incorrectly displayed a success message.
