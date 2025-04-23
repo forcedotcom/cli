@@ -25,7 +25,7 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.86.6 (April 30, 2025) [stable-rc]
+## 2.86.8 (April 30, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
@@ -42,6 +42,20 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
   We also updated a related issue where specifying the new source sandbox in a sandbox definition file with the `sourceSandboxName` option returned an error when running `org refresh sandbox`. (GitHub issue [#3262](https://github.com/forcedotcom/cli/issues/3262), plugin-auth PR [#1396](https://github.com/salesforcecli/plugin-org/pull/1396))
 
 * NEW: The [Agentforce DX](./README.md#2794-march-12-2025) commands, such as `agent create` and `agent test run` are now just-in-time (JIT). This means that when you update to this Salesforce CLI release and run an `agent` command, Salesforce CLI checks if the associated [plugin-agent](https://github.com/salesforcecli/plugin-agent) is installed. If it's not, Salesforce CLI automatically installs it and then runs your command. (cli PR [#2203](https://github.com/salesforcecli/cli/pull/2203))
+
+* NEW: Run flow tests in your org with these new CLI commands, which are contained in the just-in-time (JIT) [plugin-flow](https://github.com/salesforcecli/plugin-flow) plugin:
+
+    * `flow run test` : Invoke flow tests in an org.   
+    * `flow get test` : Display test results for a specific asynchronous test run.
+
+    For example, this command runs all the tests associated with a flow in the org with alias `scratchOrg`; use the flow definition developer name to identify a flow:
+
+    ```bash
+    sf flow run test --target-org scratchOrg --class-names <flow defintion developer name>
+    ```
+    Run the two commands with the `--help` flag to get more information and examples.
+  
+    The `plugin-flow` plugin isn't included in the core Salesforce CLI; instead, it's installed the first time you run one of its commands.  
 
 * FIX: You can now correctly retrieve DigitalExperienceBundle metadata components with the `project retrieve start` command into a DX project that already contains these components.  Previously you either got an error or they were retrieved into an incorrect directory. (source-deploy-retrieve PR [#1546](https://github.com/forcedotcom/source-deploy-retrieve/pull/1546)
 
