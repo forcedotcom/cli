@@ -43,6 +43,20 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: The [Agentforce DX](./README.md#2794-march-12-2025) commands, such as `agent create` and `agent test run` are now just-in-time (JIT). This means that when you update to this Salesforce CLI release and run an `agent` command, Salesforce CLI checks if the associated [plugin-agent](https://github.com/salesforcecli/plugin-agent) is installed. If it's not, Salesforce CLI automatically installs it and then runs your command. (cli PR [#2203](https://github.com/salesforcecli/cli/pull/2203))
 
+* NEW: Run flow tests in your org with these new CLI commands, which are contained in the just-in-time (JIT) [plugin-flow](https://github.com/salesforcecli/plugin-flow) plugin:
+
+    * `flow run test` : Invoke flow tests in an org.   
+    * `flow get test` : Display test results for a specific asynchronous test run.
+
+    For example, this command runs all the tests associated with the flows called `Flow1` and `Flow2` in the org with alias `scratchOrg`:
+
+    ```bash
+    sf flow run test --target-org scratchOrg --class-names Flow1 --class-names Flow2
+    ```
+    Run the two commands with the `--help` flag to get more information and examples.
+  
+    The `plugin-flow` plugin isn't included in the core Salesforce CLI; instead, it's installed the first time you run one of its commands.  
+
 * FIX: You can now correctly retrieve DigitalExperienceBundle metadata components with the `project retrieve start` command into a DX project that already contains these components.  Previously you either got an error or they were retrieved into an incorrect directory. (source-deploy-retrieve PR [#1546](https://github.com/forcedotcom/source-deploy-retrieve/pull/1546)
 
 * FIX: Salesforce CLI now displays a warning when you run `org logout` on an org that you haven't authorized; previously it incorrectly displayed a success message.
