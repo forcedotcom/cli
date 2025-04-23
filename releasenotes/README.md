@@ -25,11 +25,31 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.85.7 (April 23, 2025) [stable-rc]
+## 2.86.6 (April 30, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: When refreshing a sandbox org with the `org refresh sandbox` command, you can now use the new `--source-id` or `--source-sandbox-name` flags to change its original source org to a new org. The refreshed sandbox org's metadata is then updated with the new source org's metadata. For example, this command refreshes the sandbox named `devSbx2` by changing its original source org to be a sandbox called `devSbx3`:
+
+    ```bash
+    sf org refresh sandbox --name devSbx2 --source-sandbox-name devSbx3 --target-org prodOrg
+    ```
+
+    The value of `--source-id` and `--source-sandbox-name` must be an existing sandbox. The new source sandbox org, and the refreshed sandbox specified with the `--name` flag, must both be associated with the production org (`--target-org`) that contains the sandbox licenses. You can specify either `--source-id `or `--source-sandbox-name` when refreshing an existing sandbox, but not both.
+
+  We also updated a related issue where specifying the new source sandbox in a sandbox definition file with the `sourceSandboxName` option returned an error when running `org refresh sandbox`. (GitHub issue [#3262](https://github.com/forcedotcom/cli/issues/3262), plugin-auth PR [#1396](https://github.com/salesforcecli/plugin-org/pull/1396))
+
+* FIX: You can now correctly retrieve DigitalExperienceBundle metadata components with the `project retrieve start` command into a DX project that already contains these components.  Previously you either got an error or they were retrieved into an incorrect directory. (source-deploy-retrieve PR [#1546](https://github.com/forcedotcom/source-deploy-retrieve/pull/1546)
+
+* FIX: Salesforce CLI now displays a warning when you run `org logout` on an org that you haven't authorized; previously it incorrectly displayed a success message.
+
+    **NOTE**: Starting September 2025, the new warning will be converted to an error. As a result, the exit code when you try to log out of an unauthenticated org will change from 0 to 1. (GitHub issue [#3247](https://github.com/forcedotcom/cli/issues/3247), plugin-org PR [#1282](https://github.com/salesforcecli/plugin-auth/pull/1282))
+
+* FIX: Salesforce DX projects now support the WorkflowFlowAutomation [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json). (GitHub issue [#3202](https://github.com/forcedotcom/cli/issues/3202))
+
+## 2.85.7 (April 23, 2025) [stable]
 
 * CHANGE: Starting with this release, the `--async` flag of these commands is deprecated because the commands are asynchronous by default:
 
@@ -44,7 +64,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * CHANGE: Over the next few releases we'll be changing our licenses from the [3-Clause BSD License](https://opensource.org/license/bsd-3-clause) to the [Apache License, Version 2.0](https://opensource.org/license/apache-2-0). (dev-scripts PR [#386](https://github.com/forcedotcom/dev-scripts/pull/386))
 
-## 2.84.6 (April 16, 2025) [stable]
+## 2.84.6 (April 16, 2025)
 
 * NEW: If the `org create scratch` command times out before the scratch org is ready, you run the `org resume scratch` command to poll for completion and see the results. You can now specify how long the command waits before it returns control of the terminal to you with the new `--wait` flag; the output shows the progress of the scratch org create. Previously you had to keep running the `org resume scratch` command until the scratch org was ready. In this example the command waits for 10 minutes before returning control to you:
 
