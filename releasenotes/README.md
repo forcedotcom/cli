@@ -39,6 +39,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
    (plugin-data PR [#1237](https://github.com/salesforcecli/plugin-data/pull/1237))
 
+* FIX: We improved the help for `project retrieve start` by adding an example that shows how to use a wildcard to retrieve metadata components associated with a parent component, in this case list views for the Case standard object. It's not always obvious how to do this. (GitHub issue [#3266](https://github.com/forcedotcom/cli/issues/3266), plugin-deploy-retrieve [#1341](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1341))
+
 ## 2.86.9 (April 30, 2025) [stable]
 
 * NEW: When refreshing a sandbox org with the `org refresh sandbox` command, you can now use the new `--source-id` or `--source-sandbox-name` flags to change its original source org to a new org. The refreshed sandbox org's metadata is then updated with the new source org's metadata. For example, this command refreshes the sandbox named `devSbx2` by changing its original source org to be a sandbox called `devSbx3`:
