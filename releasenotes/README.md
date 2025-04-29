@@ -25,11 +25,21 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.86.9 (April 30, 2025) [stable-rc]
+## 2.87.6 (May 7, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* CHANGE: As we announced on [January 8, 2025](./README.md#2716-january-8-2025), we removed the `--bulk`, `--wait`, and `--async` flags of the `data query` command. We also removed the `data query resume` command.  Use the `data export bulk|resume` commands instead. For example:
+
+    ```bash
+    sf data export bulk --query "SELECT Id, Name, Account.Name FROM Contact" --output-file export-accounts.csv --wait 10 --target-org my-scratch
+    ```
+
+   (plugin-data PR [#1237](https://github.com/salesforcecli/plugin-data/pull/1237))
+
+## 2.86.9 (April 30, 2025) [stable]
 
 * NEW: When refreshing a sandbox org with the `org refresh sandbox` command, you can now use the new `--source-id` or `--source-sandbox-name` flags to change its original source org to a new org. The refreshed sandbox org's metadata is then updated with the new source org's metadata. For example, this command refreshes the sandbox named `devSbx2` by changing its original source org to be a sandbox called `devSbx3`:
 
@@ -65,7 +75,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Salesforce DX projects now support the WorkflowFlowAutomation [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json). (GitHub issue [#3202](https://github.com/forcedotcom/cli/issues/3202))
 
-## 2.85.7 (April 23, 2025) [stable]
+## 2.85.7 (April 23, 2025)
 
 * CHANGE: Starting with this release, the `--async` flag of these commands is deprecated because the commands are asynchronous by default:
 
