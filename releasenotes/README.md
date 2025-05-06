@@ -25,11 +25,16 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.87.7 (May 7, 2025) [stable-rc]
+## 2.88.6 (May 14, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: Decomposing a permission set that grants access to multiple objects is now working correctly and as documented. (GitHub issue [#3233](https://github.com/forcedotcom/cli/issues/3233), source-deploy-retrieve PR [#1554](https://github.com/forcedotcom/source-deploy-retrieve/pull/1554))
+
+
+## 2.87.7 (May 7, 2025) [stable]
 
 * CHANGE: As we announced on [January 8, 2025](./README.md#2716-january-8-2025), we removed the `--bulk`, `--wait`, and `--async` flags of the `data query` command. We also removed the `data query resume` command.  Use the `data export bulk|resume` commands instead. For example:
 
@@ -41,7 +46,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We improved the help for `project retrieve start` by adding an example that shows how to use a wildcard to retrieve metadata components associated with a parent component, in this case list views for the Case standard object. It's not always obvious how to do this. (GitHub issue [#3266](https://github.com/forcedotcom/cli/issues/3266), plugin-deploy-retrieve [#1341](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1341))
 
-## 2.86.9 (April 30, 2025) [stable]
+## 2.86.9 (April 30, 2025)
 
 * NEW: When refreshing a sandbox org with the `org refresh sandbox` command, you can now use the new `--source-id` or `--source-sandbox-name` flags to change its original source org to a new org. The refreshed sandbox org's metadata is then updated with the new source org's metadata. For example, this command refreshes the sandbox named `devSbx2` by changing its original source org to be a sandbox called `devSbx3`:
 
