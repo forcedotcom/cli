@@ -30,6 +30,27 @@ Additional documentation:
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+* CHANGE: To maintain consistency across all `agent` comamnds, we changed these flag names:
+
+    * Command `agent create`:
+       * The `--agent-api-name` flag is now `--api-name`.
+       * The `--agent-name` flag is now `--name`.
+    * Command `agent test create`
+       * The `--test-api-name` flag is now `--api-name`.
+
+  For example, to create an agent:
+
+  ```bash
+  sf agent create --name "Resort Manager" --api-name Resort_Manager --spec specs/resortManagerAgent.yaml --target-org my-org
+  ```
+
+  To create an agent test:
+
+  ```bash
+  sf agent test create --spec specs/Resort_Manager-testSpec.yaml --api-name Resort_Manager_Test --force-overwrite --target-org my-org
+  ```
+
+  (plugin-agent PR [#x](https://github.com/salesforcecli/plugin-agent/pull/135))
 
 * FIX: Decomposing a permission set that grants access to multiple objects is now working correctly and as documented. (GitHub issue [#3233](https://github.com/forcedotcom/cli/issues/3233), source-deploy-retrieve PR [#1554](https://github.com/forcedotcom/source-deploy-retrieve/pull/1554))
 
