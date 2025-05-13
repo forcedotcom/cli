@@ -31,6 +31,14 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* CHANGE: The `org open agent` command is now generally available; previously it was beta. Also, to maintain consistency across all agent-related commands, we changed the `--name` flag name to `--api-name`. For example, to open the agent with API name `Coral_Cloud_Agent` in your default org using your default browser, run this command:
+
+    ```bash
+    sf org open agent --api-name Coral_Cloud_Agent
+    ```
+
+   (plugin-org PR [#1420](https://github.com/salesforcecli/plugin-org/pull/1420))
+
 * CHANGE: The `agent preview` command is now beta; previously it was developer preview. (plugin-agent PR [#140](https://github.com/salesforcecli/plugin-agent/pull/140))
 
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
