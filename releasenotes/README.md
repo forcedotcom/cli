@@ -33,7 +33,12 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * CHANGE: The `agent preview` command is now beta; previously it was developer preview. (plugin-agent PR [#140](https://github.com/salesforcecli/plugin-agent/pull/140))
 
-* FIX: (GitHub issue [#3277](https://github.com/forcedotcom/cli/issues/3277), source-deploy-retrieve PR [#1561](https://github.com/forcedotcom/source-deploy-retrieve/pull/1561))
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+
+    * DgtAssetMgmtProvider
+    * DgtAssetMgmtPrvdLghtCpnt
+
+    (GitHub issue [#3277](https://github.com/forcedotcom/cli/issues/3277), source-deploy-retrieve PR [#1561](https://github.com/forcedotcom/source-deploy-retrieve/pull/1561))
 
 ## 2.88.6 (May 14, 2025) [stable]
 
