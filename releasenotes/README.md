@@ -25,11 +25,18 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.88.6 (May 14, 2025) [stable-rc]
+## 2.89.7 (May 21, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* CHANGE: The `agent preview` command is now beta; previously it was developer preview. (plugin-agent PR [#140](https://github.com/salesforcecli/plugin-agent/pull/140))
+
+* FIX: (GitHub issue [#3277](https://github.com/forcedotcom/cli/issues/3277), source-deploy-retrieve PR [#1561](https://github.com/forcedotcom/source-deploy-retrieve/pull/1561))
+
+## 2.88.6 (May 14, 2025) [stable]
+
 * CHANGE: To maintain consistency across all `agent` comamnds, we changed these flag names:
 
     * Command `agent create`:
@@ -50,12 +57,12 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
   sf agent test create --spec specs/Resort_Manager-testSpec.yaml --api-name Resort_Manager_Test --force-overwrite --target-org my-org
   ```
 
-  (plugin-agent PR [#x](https://github.com/salesforcecli/plugin-agent/pull/135))
+  (plugin-agent PR [#135](https://github.com/salesforcecli/plugin-agent/pull/135))
 
 * FIX: Decomposing a permission set that grants access to multiple objects is now working correctly and as documented. (GitHub issue [#3233](https://github.com/forcedotcom/cli/issues/3233), source-deploy-retrieve PR [#1554](https://github.com/forcedotcom/source-deploy-retrieve/pull/1554))
 
 
-## 2.87.7 (May 7, 2025) [stable]
+## 2.87.7 (May 7, 2025)
 
 * CHANGE: As we announced on [January 8, 2025](./README.md#2716-january-8-2025), we removed the `--bulk`, `--wait`, and `--async` flags of the `data query` command. We also removed the `data query resume` command.  Use the `data export bulk|resume` commands instead. For example:
 
