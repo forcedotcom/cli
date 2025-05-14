@@ -50,7 +50,20 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ## 2.88.6 (May 14, 2025) [stable]
 
-* CHANGE: To maintain consistency across all `agent` comamnds, we changed these flag names:
+* CHANGE: We're excited to announce that these `agent` commands are now generally available; previously they were beta.
+
+    * `agent create` : Create an agent in your org using a local agent spec file.
+    * `agent generate agent-spec` : Generate an agent spec, which is a YAML file that captures what an agent can do.
+    * `agent generate test-spec` : Generate an agent test spec, which is a YAML file that lists the test cases for testing a specific agent.
+    * `agent test create` : Create an agent test in your org using a local test spec YAML file.
+    * `agent test list` : List the available agent tests in your org.
+    * `agent test results` : Get the results of a completed agent test run.
+    * `agent test resume` : Resume an agent test that you previously started in your org so you can view the test results.
+    * `agent test run` : Start an agent test in your org.
+
+    The `agent generate template` command is still beta and the `agent preview` command is still developer preview.
+  
+    Also, to maintain consistency across all `agent` comamnds, we changed these flag names:
 
     * Command `agent create`:
        * The `--agent-api-name` flag is now `--api-name`.
