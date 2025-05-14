@@ -25,12 +25,45 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.88.6 (May 14, 2025) [stable-rc]
+## 2.89.6 (May 21, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
-* CHANGE: To maintain consistency across all `agent` comamnds, we changed these flag names:
+
+* CHANGE: The `org open agent` command is now generally available; previously it was beta. Also, to maintain consistency across all agent-related commands, we changed the `--name` flag name to `--api-name`. For example, to open the agent with API name `Coral_Cloud_Agent` in your default org using your default browser, run this command:
+
+    ```bash
+    sf org open agent --api-name Coral_Cloud_Agent
+    ```
+
+   (plugin-org PR [#1420](https://github.com/salesforcecli/plugin-org/pull/1420))
+
+* CHANGE: The `agent preview` command is now beta; previously it was developer preview. (plugin-agent PR [#140](https://github.com/salesforcecli/plugin-agent/pull/140))
+
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+
+    * DgtAssetMgmtProvider
+    * DgtAssetMgmtPrvdLghtCpnt
+
+    (GitHub issue [#3277](https://github.com/forcedotcom/cli/issues/3277), source-deploy-retrieve PR [#1561](https://github.com/forcedotcom/source-deploy-retrieve/pull/1561))
+
+## 2.88.6 (May 14, 2025) [stable]
+
+* CHANGE: We're excited to announce that these `agent` commands are now generally available; previously they were beta.
+
+    * `agent create` : Create an agent in your org using a local agent spec file.
+    * `agent generate agent-spec` : Generate an agent spec, which is a YAML file that captures what an agent can do.
+    * `agent generate test-spec` : Generate an agent test spec, which is a YAML file that lists the test cases for testing a specific agent.
+    * `agent test create` : Create an agent test in your org using a local test spec YAML file.
+    * `agent test list` : List the available agent tests in your org.
+    * `agent test results` : Get the results of a completed agent test run.
+    * `agent test resume` : Resume an agent test that you previously started in your org so you can view the test results.
+    * `agent test run` : Start an agent test in your org.
+
+    The `agent generate template` command is still beta and the `agent preview` command is still developer preview.
+  
+    Also, to maintain consistency across all `agent` comamnds, we changed these flag names:
 
     * Command `agent create`:
        * The `--agent-api-name` flag is now `--api-name`.
@@ -50,12 +83,12 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
   sf agent test create --spec specs/Resort_Manager-testSpec.yaml --api-name Resort_Manager_Test --force-overwrite --target-org my-org
   ```
 
-  (plugin-agent PR [#x](https://github.com/salesforcecli/plugin-agent/pull/135))
+  (plugin-agent PR [#135](https://github.com/salesforcecli/plugin-agent/pull/135))
 
 * FIX: Decomposing a permission set that grants access to multiple objects is now working correctly and as documented. (GitHub issue [#3233](https://github.com/forcedotcom/cli/issues/3233), source-deploy-retrieve PR [#1554](https://github.com/forcedotcom/source-deploy-retrieve/pull/1554))
 
 
-## 2.87.7 (May 7, 2025) [stable]
+## 2.87.7 (May 7, 2025)
 
 * CHANGE: As we announced on [January 8, 2025](./README.md#2716-january-8-2025), we removed the `--bulk`, `--wait`, and `--async` flags of the `data query` command. We also removed the `data query resume` command.  Use the `data export bulk|resume` commands instead. For example:
 
