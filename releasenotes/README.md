@@ -25,11 +25,11 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.89.8 (May 21, 2025) [stable-rc]
+## 2.90.6 (May 28, 2025) [stable-rc]
 
-These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+* FIX: We updated the directory name of the PricingRecipe metadata type in the [CLI registry](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json) to the correct `pricingRecipe`. (source-deploy-retrieve PR [#1565](https://github.com/forcedotcom/source-deploy-retrieve/pull/1565))
 
-------------
+## 2.89.8 (May 21, 2025)
 
 * CHANGE: The `org open agent` command is now generally available; previously it was beta. Also, to maintain consistency across all agent-related commands, we changed the `--name` flag name to `--api-name`. For example, to open the agent with API name `Coral_Cloud_Agent` in your default org using your default browser, run this command:
 
@@ -48,7 +48,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     (GitHub issue [#3277](https://github.com/forcedotcom/cli/issues/3277), source-deploy-retrieve PR [#1561](https://github.com/forcedotcom/source-deploy-retrieve/pull/1561))
 
-## 2.88.6 (May 14, 2025) [stable]
+## 2.88.6 (May 14, 2025)
 
 * CHANGE: We're excited to announce that these `agent` commands are now generally available; previously they were beta.
 
