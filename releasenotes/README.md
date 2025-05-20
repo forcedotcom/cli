@@ -25,7 +25,7 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.90.6 (May 28, 2025) [stable-rc]
+## 2.90.4 (May 28, 2025) [stable-rc]
 
 * FIX: When you run `project deploy start` with the `--verbose` flag, and also set the CI environment variable set to `true`, the command output now includes the `Test Success` section, same as the human-readable output.  (GitHub issue [#3291](https://github.com/forcedotcom/cli/issues/3291), GitHub discussion [#3242](https://github.com/forcedotcom/cli/discussions/3242), plugin-deploy-retrieve PR [#1358](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1358))
 
