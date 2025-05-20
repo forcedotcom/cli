@@ -27,6 +27,8 @@ Additional documentation:
 
 ## 2.90.6 (May 28, 2025) [stable-rc]
 
+* FIX: When you run `project deploy start` with the `--verbose` flag, and also set the CI environment variable set to `true`, the command output now includes the `Test Success` section, same as the human-readable output.  (GitHub issue [#3291](https://github.com/forcedotcom/cli/issues/3291), GitHub discussion [#3242](https://github.com/forcedotcom/cli/discussions/3242), plugin-deploy-retrieve PR [#1358](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1358))
+
 * FIX: We updated the directory name of the PricingRecipe metadata type in the [CLI registry](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json) to the correct `pricingRecipe`. (source-deploy-retrieve PR [#1565](https://github.com/forcedotcom/source-deploy-retrieve/pull/1565))
 
 ## 2.89.8 (May 21, 2025)
