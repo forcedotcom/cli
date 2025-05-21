@@ -27,6 +27,14 @@ Additional documentation:
 
 ## 2.90.4 (May 28, 2025) [stable-rc]
 
+* NEW: Enable Apex debug logging when you use the `agent preview` CLI command to converse with your agent with the new `--apex-debug` flag. For example:
+
+    ```bash
+    sf agent preview --api-name "Resort_Manager" --target-org my-org --connected-app-user my-agent-user --apex-debug
+    ```
+
+    With this new flag, when any conversation message executes Apex code, a new Apex debug log file is written to the specified output directory, along with the transcript and response JSON files.  See [Debug Apex Code](https://developer.salesforce.com/docs/platform/sfvscode-extensions/guide/apex-debugging.html) in the _Salesforce Extensions for Visual Studio Code_ guide for information about using these debug log files. (plugin-agent PR [#141](https://github.com/salesforcecli/plugin-agent/pull/141))
+  
 * FIX: When you run `project deploy start` with the `--verbose` flag, and also set the CI environment variable to `true`, the command output now includes the `Test Success` section, same as the human-readable output.  (GitHub issue [#3291](https://github.com/forcedotcom/cli/issues/3291), GitHub discussion [#3242](https://github.com/forcedotcom/cli/discussions/3242), plugin-deploy-retrieve PR [#1358](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1358))
 
 * FIX: We updated the directory name of the PricingRecipe metadata type in the [CLI registry](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json) to the correct `pricingRecipe`. (source-deploy-retrieve PR [#1565](https://github.com/forcedotcom/source-deploy-retrieve/pull/1565))
