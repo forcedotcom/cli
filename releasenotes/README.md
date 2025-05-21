@@ -31,7 +31,11 @@ Additional documentation:
 
 * FIX: We updated the directory name of the PricingRecipe metadata type in the [CLI registry](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json) to the correct `pricingRecipe`. (source-deploy-retrieve PR [#1565](https://github.com/forcedotcom/source-deploy-retrieve/pull/1565))
 
-## 2.89.8 (May 21, 2025)
+## 2.89.8 (May 21, 2025) [stable]
+
+ANNOUNCEMENT: Agentforce DX is now generally available (GA)!  Check out the [Build Agents with Agentforce DX](https://developer.salesforce.com/docs/einstein/genai/guide/agent-dx.html) documentation in the _Agentforce Developer Guide_.  Enjoy!
+
+-----------------
 
 * CHANGE: The `org open agent` command is now generally available; previously it was beta. Also, to maintain consistency across all agent-related commands, we changed the `--name` flag name to `--api-name`. For example, to open the agent with API name `Coral_Cloud_Agent` in your default org using your default browser, run this command:
 
