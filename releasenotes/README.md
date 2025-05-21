@@ -25,11 +25,17 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.89.8 (May 21, 2025) [stable-rc]
+## 2.90.4 (May 28, 2025) [stable-rc]
 
-These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+* FIX: When you run `project deploy start` with the `--verbose` flag, and also set the CI environment variable to `true`, the command output now includes the `Test Success` section, same as the human-readable output.  (GitHub issue [#3291](https://github.com/forcedotcom/cli/issues/3291), GitHub discussion [#3242](https://github.com/forcedotcom/cli/discussions/3242), plugin-deploy-retrieve PR [#1358](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1358))
 
-------------
+* FIX: We updated the directory name of the PricingRecipe metadata type in the [CLI registry](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json) to the correct `pricingRecipe`. (source-deploy-retrieve PR [#1565](https://github.com/forcedotcom/source-deploy-retrieve/pull/1565))
+
+## 2.89.8 (May 21, 2025) [stable]
+
+ANNOUNCEMENT: Agentforce DX is now generally available (GA)!  Check out the [Build Agents with Agentforce DX](https://developer.salesforce.com/docs/einstein/genai/guide/agent-dx.html) documentation in the _Agentforce Developer Guide_.  Enjoy!
+
+-----------------
 
 * CHANGE: The `org open agent` command is now generally available; previously it was beta. Also, to maintain consistency across all agent-related commands, we changed the `--name` flag name to `--api-name`. For example, to open the agent with API name `Coral_Cloud_Agent` in your default org using your default browser, run this command:
 
@@ -48,7 +54,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     (GitHub issue [#3277](https://github.com/forcedotcom/cli/issues/3277), source-deploy-retrieve PR [#1561](https://github.com/forcedotcom/source-deploy-retrieve/pull/1561))
 
-## 2.88.6 (May 14, 2025) [stable]
+## 2.88.6 (May 14, 2025)
 
 * CHANGE: We're excited to announce that these `agent` commands are now generally available; previously they were beta.
 
