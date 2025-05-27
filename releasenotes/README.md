@@ -31,6 +31,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* FIX: If you set the SF_ORG_METADATA_REST_DEPLOY environment variable or the `org-metadata-rest-deploy` configuration variable, org settings in the scratch org definition file are now deployed using the REST API instead of the default SOAP API. (sfdx-core PR [#1192](https://github.com/forcedotcom/sfdx-core/pull/1192))
 
 ## 2.90.4 (May 28, 2025) [stable]
 
