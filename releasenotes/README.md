@@ -25,7 +25,14 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.90.4 (May 28, 2025) [stable-rc]
+## 2.91.6 (June 4, 2025) [stable-rc]
+
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+------------
+
+
+## 2.90.4 (May 28, 2025) [stable]
 
 * NEW: Enable Apex debug logging when you use the `agent preview` CLI command to converse with your agent with the new `--apex-debug` flag. For example:
 
@@ -39,7 +46,7 @@ Additional documentation:
 
 * FIX: We updated the directory name of the PricingRecipe metadata type in the [CLI registry](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json) to the correct `pricingRecipe`. (source-deploy-retrieve PR [#1565](https://github.com/forcedotcom/source-deploy-retrieve/pull/1565))
 
-## 2.89.8 (May 21, 2025) [stable]
+## 2.89.8 (May 21, 2025)
 
 ANNOUNCEMENT: Agentforce DX is now generally available (GA)!  Check out the [Build Agents with Agentforce DX](https://developer.salesforce.com/docs/einstein/genai/guide/agent-dx.html) documentation in the _Agentforce Developer Guide_.  Enjoy!
 
