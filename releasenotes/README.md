@@ -30,6 +30,12 @@ Additional documentation:
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+* NEW: Create a second-generation package version from a first-generation package with the new `package convert` command. This example converts the first-generation package with the specified ID and gives it the installation key "password123"; the example uses the default Dev Hub org:
+
+   ```bash
+   sf package convert --package 033... --installation-key password123
+   ```
+  
 * CHANGE: The `agent generate template` command is now generally available.  Use this command to generate an agent template from an existing agent in your DX project so you can then package the template in a managed package. For example:
 
     ```bash
@@ -39,6 +45,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     (plugin-agent PR [#152](https://github.com/salesforcecli/plugin-agent/pull/152))
 
 * CHANGE: We converted the plugin that contains the `agent` commands ([`plugin-agent`](https://github.com/salesforcecli/plugin-agent)) from JIT to core. As a result, starting with this release, new installs of Salesforce CLI automatically include the plugin.  (cli PR [#2254](https://github.com/salesforcecli/cli/pull/2254))
+
+* FIX: Re-retrieving a custom object after adding a custom field using Salesforce UI now works correctly. (GitHub issues [#3300](https://github.com/forcedotcom/cli/issues/3300) and [#3301](https://github.com/forcedotcom/cli/issues/3301), plugin-deploy-retrieve PR [#1568](https://github.com/forcedotcom/source-deploy-retrieve/pull/1568))
 
 ## 2.91.6 (June 4, 2025) [stable]
 
