@@ -30,8 +30,15 @@ Additional documentation:
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+* CHANGE: The `agent generate template` command is now generally available.  Use this command to generate an agent template from an existing agent in your DX project so you can then package the template in a managed package. For example:
 
-* CHANGE: (plugin-agent PR [#2254](https://github.com/salesforcecli/cli/pull/2254))
+    ```bash
+    sf agent generate template --agent-file force-app/main/default/bots/My_Agent/My_Agent.bot-meta.xml --agent-version 1
+    ```
+
+    (plugin-agent PR [#152](https://github.com/salesforcecli/plugin-agent/pull/152))
+
+* CHANGE: We converted the plugin that contains the `agent` commands ([`plugin-agent`](https://github.com/salesforcecli/plugin-agent)) from JIT to core. As a result, starting with this release, new installs of Salesforce CLI automatically include the plugin.  (cli PR [#2254](https://github.com/salesforcecli/cli/pull/2254))
 
 ## 2.91.6 (June 4, 2025) [stable]
 
