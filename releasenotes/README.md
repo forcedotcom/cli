@@ -30,13 +30,13 @@ Additional documentation:
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
-* NEW: Create a second-generation package version from a first-generation package with the new `package convert` command. This example converts the first-generation package with the specified ID and gives it the installation key "password123"; the example uses the default Dev Hub org:
-
+* NEW: The `package convert` command is now generally available. Package migrations let you convert an existing first-generation (1GP) package into a second-generation (2GP) package, and then migrate the 1GP package installed in subscriber orgs to 2GP. The latest managed-released version of the 1GP package is converted. This example converts a 1GP package with the specified package ID and gives it the installation key "password123"; the example uses the default Dev Hub org:
+ 
    ```bash
    sf package convert --package 033... --installation-key password123
    ```
   
-* CHANGE: The `agent generate template` command is now generally available.  Use this command to generate an agent template from an existing agent in your DX project so you can then package the template in a managed package. For example:
+* NEW: The `agent generate template` command is now generally available. Use this command to generate an agent template from an existing agent in your DX project so you can then package the template in a managed package. For example:
 
     ```bash
     sf agent generate template --agent-file force-app/main/default/bots/My_Agent/My_Agent.bot-meta.xml --agent-version 1
