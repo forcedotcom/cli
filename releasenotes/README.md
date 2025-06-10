@@ -36,12 +36,14 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
    A few things to keep in mind:
 
     * Now that source mobility is GA, the feature is enabled by default. To opt-out of the behavior, set the new SF_DISABLE_SOURCE_MOBILITY environment variable to `true`; the variable is `false` by default.
-    * We removed the old environment variable for opting into the Beta feature (SF_BETA_TRACK_FILE_MOVES)
+    * We removed the old environment variable for opting into the Beta feature (SF_BETA_TRACK_FILE_MOVES).
     * Source Mobility works with file _moves_, not file _renames_. Renaming a source file is still interpreted as deleting a metadata component and creating a new one with the different name.
     * Child source files can move only to an identically named parent. For example, a custom field can move between Object folders in different package directories only if both Object folders have the same name.
 
     Enjoy reorganizing your DX project source files! (source-tracking PR [#778](https://github.com/forcedotcom/source-tracking/pull/778))
-  
+
+* FIX: Decomposed workflows now play nice with other metadata in your DX project when deploying to an org. (GitHub issue [#3275](https://github.com/forcedotcom/cli/issues/3275), source-deploy-retrieve PR [#1571](https://github.com/forcedotcom/source-deploy-retrieve/pull/1571))
+
 ## 2.92.7 (June 11, 2027) [stable]
 
 * NEW: The `package convert` command is now generally available. Package migrations let you convert an existing first-generation (1GP) package into a second-generation (2GP) package, and then migrate the 1GP package installed in subscriber orgs to 2GP. This example converts the latest managed-released version of the 1GP package with the specified package ID and gives it the installation key "password123"; the example uses the default Dev Hub org:
