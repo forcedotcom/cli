@@ -31,7 +31,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: We're happy to announce that the Source Mobility feature is now generally available (GA)!  With this feature you can move source files within your local Salesforce DX project without the source-tracking feature thinking that you've deleted and then recreated a metadata component. So reorganize your source files as you like!
+* NEW: We're happy to announce that the Source Mobility feature is now generally available (GA)!  With this feature you can move source files within your local Salesforce DX project without the source-tracking feature thinking that you've deleted and then recreated a metadata component. 
 
    A few things to keep in mind:
 
@@ -40,7 +40,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * Source Mobility works with file _moves_, not file _renames_. Renaming a source file is still interpreted as deleting a metadata component and creating a new one with the different name.
     * Child source files can move only to an identically named parent. For example, a custom field can move between Object folders in different package directories only if both Object folders have the same name.
 
-    Enjoy rearranging your DX project package directories! (source-tracking PR [#778](https://github.com/forcedotcom/source-tracking/pull/778))
+    Enjoy reorganizing your DX project source files! (source-tracking PR [#778](https://github.com/forcedotcom/source-tracking/pull/778))
   
 ## 2.92.7 (June 11, 2027) [stable]
 
