@@ -25,11 +25,25 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.92.7 (June 11, 2027) [stable-rc]
+## 2.93.6 (June 18, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: We're happy to announce that the Source Mobility feature is now generally available (GA)!  With this feature you can move source files within your local Salesforce DX project without the source-tracking feature thinking that you've deleted and then recreated a metadata component. So reorganize your source files as you like!
+
+   A few things to keep in mind:
+
+    * Now that source mobility is GA, the feature is enabled by default. To opt-out of the behavior, set the new SF_DISABLE_SOURCE_MOBILITY environment variable to `true`; the variable is `false` by default.
+    * We removed the old environment variable for opting into the Beta feature (SF_BETA_TRACK_FILE_MOVES)
+    * Source Mobility works with file _moves_, not file _renames_. Renaming a source file is still interpreted as deleting a metadata component and creating a new one with the different name.
+    * Child source files can move only to an identically named parent. For example, a custom field can move between Object folders in different package directories only if both Object folders have the same name.
+
+    Enjoy rearranging your DX project package directories! (source-tracking PR [#778](https://github.com/forcedotcom/source-tracking/pull/778))
+  
+## 2.92.7 (June 11, 2027) [stable]
+
 * NEW: The `package convert` command is now generally available. Package migrations let you convert an existing first-generation (1GP) package into a second-generation (2GP) package, and then migrate the 1GP package installed in subscriber orgs to 2GP. This example converts the latest managed-released version of the 1GP package with the specified package ID and gives it the installation key "password123"; the example uses the default Dev Hub org:
  
    ```bash
@@ -48,7 +62,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Re-retrieving a custom object after adding a custom field using Salesforce UI now works correctly. (GitHub issues [#3300](https://github.com/forcedotcom/cli/issues/3300) and [#3301](https://github.com/forcedotcom/cli/issues/3301), plugin-deploy-retrieve PR [#1568](https://github.com/forcedotcom/source-deploy-retrieve/pull/1568))
 
-## 2.91.6 (June 4, 2025) [stable]
+## 2.91.6 (June 4, 2025)
 
 * FIX: If you run a command that uses a SOAP API, such as `project deploy start`, and you have configured your connected app or external client app to issue JWT-based access tokens, the command now correctly fails and outputs an error message saying that the SOAP API doesn't support JWT-based access tokens.  (GitHub issue [#3297](https://github.com/forcedotcom/cli/issues/3297), jsforce PR [#1698](https://github.com/jsforce/jsforce/pull/1698))
 
