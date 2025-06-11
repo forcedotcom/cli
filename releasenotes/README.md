@@ -51,6 +51,12 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     Push upgrades let you upgrade unlocked or second-generation managed packages installed in orgs, without asking customers to install the upgrade themselves.
 
+    This example schedules a push upgrade that initiates at a specified time, and provides a list of org IDs to receive the package upgrade.
+
+    ```bash
+    sf package push-upgrade schedule --package 04txyz --start-time "2024-12-06T21:00:00" --org-list 00DAxx, 00DBx
+    ```
+
 * FIX: Decomposed workflows now play nice with other metadata in your DX project when deploying to an org. (GitHub issue [#3275](https://github.com/forcedotcom/cli/issues/3275), source-deploy-retrieve PR [#1571](https://github.com/forcedotcom/source-deploy-retrieve/pull/1571))
 
 ## 2.92.7 (June 11, 2027) [stable]
