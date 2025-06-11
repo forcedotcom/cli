@@ -31,21 +31,21 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: Link multiple connected apps in an org to an authenticated user, enabling Salesforce CLI commands to use these connected apps for API-specific requirements, like new OAuth scopes or JWT-based access tokens. As a result of this new feature, the authencation flow to use the `agent preview` CLI command is now much easier because you no longer have to create second Salesforce user for each Agentforce agent you want to interact with. 
+* NEW: Link multiple connected apps in an org to an authenticated user, enabling Salesforce CLI commands to use these connected apps for API-specific requirements, like new OAuth scopes or JWT-based access tokens. As a result of this new feature, the authentication flow to use the `agent preview` CLI command to interact with an agent is now much easier. Previously you had to create a new Salesforce username for each Agentforce agent you wanted to interact with. Now you use the same username you normally authenticate with along with the link to a connected app. The `agent preview` command is currently the only one that requires this feature.
 
-    You create the link to a connected app by running the `org login web` command and using the `--client-id` flag to specify the connected app's consumer secret (also called _client id_).  You also specify these new flags:
+    Let's see how this works. You create the link to a connected app by re-running the `org login web` command and using the `--client-id` flag to specify the connected app's consumer secret (also called _client id_).  You also specify these new flags:
 
     * `--client-app`: The name of the link to the connected app. You can specify any string you want. 
-    * `--username`: The username of the authenticated user.  This is the username you specified when you originally authorized your org. 
+    * `--username`: The username of the authenticated user.  This is the username you specified when you originally authorized your org with `org login web`. 
     * `--scopes`: The OAuth scopes required by the CLI command that is going to use the link. 
 
-    In this example, the resulting link is called `agent-app` which you use later with the command that requires this connected app, such as `agent preview`.  
+    In this example, the resulting link is called `agent-app` which you later use with the command that requires this connected app, such as `agent preview`.  
 
     ```bash
     sf org login web --client-app agent-app --username jdoe@example.com --client-id 3MVG9XgkMlongstring --scopes "sfap_api chatbot_api refresh_token api web"
     ```
 
-    We added the new `--client-app` flag to the `agent preview` command, which you now use to specify the link to the connected app.  For example: 
+    We added the new `--client-app` flag to the `agent preview` command which you use to specify the link to the connected app.  For example: 
 
     ```bash
     sf agent preview --client-app agent-app --target-org my-org
