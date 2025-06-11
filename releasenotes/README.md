@@ -42,6 +42,15 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     Enjoy reorganizing your DX project source files! (source-tracking PR [#778](https://github.com/forcedotcom/source-tracking/pull/778))
 
+* NEW: Simplify your packaging push upgrades by leveraging the four new CLI commands that let you schedule, abort, view details on on a specific package upgrade, or view a list of all push upgrade jobs:
+
+    * `package push-upgrade schedule`: Schedules a push upgrade for an unlocked or second-generation managed package.
+    * `package push-upgrade abort`: Cancels a push upgrade request.
+    * `package push-upgrade list`: Displays the status of all push upgrade requests for a specific package..
+    * `package push-upgrade report`: Displays detailed information for a specific push upgrade request.
+
+    Push upgrades let you upgrade unlocked or second-generation managed packages installed in orgs, without asking customers to install the upgrade themselves.
+
 * FIX: Decomposed workflows now play nice with other metadata in your DX project when deploying to an org. (GitHub issue [#3275](https://github.com/forcedotcom/cli/issues/3275), source-deploy-retrieve PR [#1571](https://github.com/forcedotcom/source-deploy-retrieve/pull/1571))
 
 ## 2.92.7 (June 11, 2027) [stable]
