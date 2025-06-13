@@ -31,6 +31,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* FIX: (note from Juliet: this issue is marked rn-worthy, but the GH issue was marked fixed a while ago. But maybe it wasn't completely? or we needed an oclif fix too? Ask Mike or Eric. Thx!) (GitHub issue [#3252](https://github.com/forcedotcom/cli/issues/3252), oclif/plugin-commands [#911](https://github.com/oclif/plugin-commands/pull/911))
 
 ## 2.93.7 (June 18, 2025) [stable]
 
