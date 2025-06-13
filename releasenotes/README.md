@@ -31,7 +31,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* FIX: (note from Juliet: the associated GUS issue is marked rn-worthy, but the GH issue was marked fixed a while ago. But maybe it wasn't fixed completely? or we needed an oclif fix too? Ask Mike or Eric. Thx!) (GitHub issue [#3252](https://github.com/forcedotcom/cli/issues/3252), oclif/plugin-commands [#911](https://github.com/oclif/plugin-commands/pull/911))
+* FIX: Column width in table output when running CLI commands in a CircleCI environment is now reasonable and readable. (GitHub issue [#3252](https://github.com/forcedotcom/cli/issues/3252), oclif/table PRs [#131](https://github.com/oclif/table/pull/131) and [#167](https://github.com/oclif/table/pull/167))
 
 ## 2.93.7 (June 18, 2025) [stable]
 
