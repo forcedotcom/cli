@@ -25,11 +25,35 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.93.6 (June 18, 2025) [stable-rc]
+## 2.93.7 (June 18, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: Link multiple connected apps in an org to an authenticated user, enabling Salesforce CLI commands to use these connected apps for API-specific requirements, like new OAuth scopes or JWT-based access tokens.
+
+    As a result of this new feature, the authentication flow to use the `agent preview` CLI command to interact with an agent is now much easier. Previously you had to create a new Salesforce username for each Agentforce agent you wanted to interact with, and then specify it with the `--connected-app-user` flag. Now you use the same username you normally authenticate with, then specify the link to the connected app with the new `--client-app` flag. The `agent preview` command is currently the only CLI command that requires this feature.
+
+    Let's see how this works. First, you create the link to a connected app by re-running the `org login web` command and using the `--client-id` flag to specify the connected app's consumer secret (also called _client id_).  You also specify these new flags:
+
+    * `--client-app`: The name of the link to the connected app. You can specify any string you want. 
+    * `--username`: The username of the authenticated user.  This is the username you specified when you originally authorized your org with `org login web`. 
+    * `--scopes`: The OAuth scopes required by the CLI command that is going to use the link. 
+
+    In this example, the resulting link is called `agent-app` which you later use with the command that requires this connected app, such as `agent preview`.  
+
+    ```bash
+    sf org login web --client-app agent-app --username jdoe@example.com --client-id 3MVG9XgkMlongstring --scopes "sfap_api chatbot_api refresh_token api web"
+    ```
+
+    Then use the new `--client-app` flag of the `agent preview` command to specify the link to the connected app.  For example: 
+
+    ```bash
+    sf agent preview --api-name "Resort_Manager" --client-app agent-app --target-org my-org
+    ```
+
+    (sfdx-core PR [#1188](https://github.com/forcedotcom/sfdx-core/pull/1188), plugin-auth PR [#1306](https://github.com/salesforcecli/plugin-auth/pull/1306), plugin-agent PR [#157](https://github.com/salesforcecli/plugin-agent/pull/157))
 
 * NEW: We're happy to announce that the Source Mobility feature is now generally available (GA)!  With this feature you can move source files within your local Salesforce DX project without the source-tracking feature thinking that you've deleted and then recreated a metadata component. 
 
