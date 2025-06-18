@@ -25,11 +25,15 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.93.7 (June 18, 2025) [stable-rc]
+## 2.94.6 (June 25, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: The `sf project deploy start` command no longers modifies source-tracking info when using the `--dry-run` flag. (GitHub issue [#3243](https://github.com/forcedotcom/cli/issues/3243), plugin-deploy-retrieve PR [#1372](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1372)
+
+## 2.93.7 (June 18, 2025) [stable]
 
 * NEW: Link multiple connected apps in an org to an authenticated user, enabling Salesforce CLI commands to use these connected apps for API-specific requirements, like new OAuth scopes or JWT-based access tokens.
 
@@ -83,7 +87,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Decomposed workflows now play nice with other metadata in your DX project when deploying to an org. (GitHub issue [#3275](https://github.com/forcedotcom/cli/issues/3275), source-deploy-retrieve PR [#1571](https://github.com/forcedotcom/source-deploy-retrieve/pull/1571))
 
-## 2.92.7 (June 11, 2027) [stable]
+## 2.92.7 (June 11, 2027)
 
 * NEW: The `package convert` command is now generally available. Package migrations let you convert an existing first-generation (1GP) package into a second-generation (2GP) package, and then migrate the 1GP package installed in subscriber orgs to 2GP. This example converts the latest managed-released version of the 1GP package with the specified package ID and gives it the installation key "password123"; the example uses the default Dev Hub org:
  
