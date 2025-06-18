@@ -31,7 +31,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* FIX: Column width in table output when running CLI commands in a CircleCI environment is now reasonable and readable. (GitHub issue [#3252](https://github.com/forcedotcom/cli/issues/3252), oclif/table PRs [#131](https://github.com/oclif/table/pull/131) and [#167](https://github.com/oclif/table/pull/167))
+* FIX: The `sf project deploy start` command no longers modifies source-tracking info when using the `--dry-run` flag. (GitHub issue [#3243](https://github.com/forcedotcom/cli/issues/3243), plugin-deploy-retrieve PR [#1372](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1372)
 
 ## 2.93.7 (June 18, 2025) [stable]
 
