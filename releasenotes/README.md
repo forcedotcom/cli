@@ -33,6 +33,16 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `sf project deploy start` command no longers modifies source-tracking info when using the `--dry-run` flag. (GitHub issue [#3243](https://github.com/forcedotcom/cli/issues/3243), plugin-deploy-retrieve PR [#1372](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1372)
 
+* NEW: We’ve added a --code-coverage flag to the package convert command.
+
+   Calculate and store the code coverage percentage by running the packaged Apex tests included in the package version. To promote a package version to released, you must use the --code-coverage flag. The package must also meet the code coverage requirements.
+
+  This example converts the latest managed-released version of the 1GP package with the specified package ID and calculates code coverage; the example uses the default Dev Hub org:
+
+  ```bash
+    sf package convert --package 033... --code-coverage
+  ```
+
 ## 2.93.7 (June 18, 2025) [stable]
 
 * NEW: Link multiple connected apps in an org to an authenticated user, enabling Salesforce CLI commands to use these connected apps for API-specific requirements, like new OAuth scopes or JWT-based access tokens.
