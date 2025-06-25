@@ -31,13 +31,13 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* FIX: Salesforce CLI now displays tables correclty when column size is resolved to 0 in some CI environments. (GitHub issue [#3317](https://github.com/forcedotcom/cli/issues/3317), oclif PR [#167](https://github.com/oclif/table/pull/167)
+* FIX: Salesforce CLI now displays tables correctly when column size is resolved to 0 in some CI environments. (GitHub issue [#3317](https://github.com/forcedotcom/cli/issues/3317), oclif PR [#167](https://github.com/oclif/table/pull/167)
 
 * FIX: You can now correctly clone a sandbox with Data Storage Upgrades. (GitHub issue [#3293](https://github.com/forcedotcom/cli/issues/3293), sfdx-core PR [#1205](https://github.com/forcedotcom/sfdx-core/pull/1205)
 
-* FIX: We The `sf agent generate test-spec` command no longer generates a Yaml file with an empty expectedActions array when the action contains single quotes. (GH issue [#3314](https://github.com/forcedotcom/cli/issues/3314), Agents PR [#115](https://github.com/forcedotcom/agents/pull/115))
+* FIX: The `sf agent generate test-spec` command no longer generates a Yaml file with an empty expectedActions array when the action contains single quotes. (GH issue [#3314](https://github.com/forcedotcom/cli/issues/3314), Agents PR [#115](https://github.com/forcedotcom/agents/pull/115))
 
-* FIX: We fixed a bug in which the string replacement fuctionality incorrectly emits warning saying the string to replace was not found when processing large files. (GH issue [#3318](https://github.com/forcedotcom/cli/issues/3318), source-deploy-retrieve PR [#1577](https://github.com/forcedotcom/source-deploy-retrieve/pull/1577)) 
+* FIX: We fixed a bug in which the string replacement functionality incorrectly emits warning saying the string to replace was not found when processing large files. (GH issue [#3318](https://github.com/forcedotcom/cli/issues/3318), source-deploy-retrieve PR [#1577](https://github.com/forcedotcom/source-deploy-retrieve/pull/1577)) 
 
 ## 2.94.6 (June 25, 2025) [stable]
 
