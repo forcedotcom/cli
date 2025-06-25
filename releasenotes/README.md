@@ -25,11 +25,21 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.94.6 (June 25, 2025) [stable-rc]
+## 2.9x.x (July 2, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: Salesforce CLI now displays tables correclty when column size is resolved to 0 in some CI environments. (GitHub issue [#3317](https://github.com/forcedotcom/cli/issues/3317), oclif PR [#167](https://github.com/oclif/table/pull/167)
+
+* FIX: You can now correctly clone a sandbox with Data Storage Upgrades. (GitHub issue [#3293](https://github.com/forcedotcom/cli/issues/3293), sfdx-core PR [#1205](https://github.com/forcedotcom/sfdx-core/pull/1205)
+
+* FIX: We The `sf agent generate test-spec` command no longer generates a Yaml file with an empty expectedActions array when the action contains single quotes. (GH issue [#3314](https://github.com/forcedotcom/cli/issues/3314), Agents PR [#115](https://github.com/forcedotcom/agents/pull/115))
+
+* FIX: We fixed a bug in which the string replacement fuctionality incorrectly emits warning saying the string to replace was not found when processing large files. (GH issue [#3318](https://github.com/forcedotcom/cli/issues/3318), source-deploy-retrieve PR [#1577](https://github.com/forcedotcom/source-deploy-retrieve/pull/1577)) 
+
+## 2.94.6 (June 25, 2025) [stable]
 
 * FIX: The `sf project deploy start` command no longers modifies source-tracking info when using the `--dry-run` flag. (GitHub issue [#3243](https://github.com/forcedotcom/cli/issues/3243), plugin-deploy-retrieve PR [#1372](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1372)
 
@@ -43,7 +53,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     sf package convert --package 033... --code-coverage
   ```
 
-## 2.93.7 (June 18, 2025) [stable]
+## 2.93.7 (June 18, 2025)
 
 * NEW: Link multiple connected apps in an org to an authenticated user, enabling Salesforce CLI commands to use these connected apps for API-specific requirements, like new OAuth scopes or JWT-based access tokens.
 
