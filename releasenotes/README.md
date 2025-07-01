@@ -38,7 +38,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * DataConnector
     * ExtlClntAppCanvasStngs
  
-
 ## 2.95.6 (July 2, 2025) [stable]
 
 * FIX: Salesforce CLI now displays tables correctly when column size is resolved to 0 in some CI environments. (GitHub issue [#3317](https://github.com/forcedotcom/cli/issues/3317), oclif PR [#167](https://github.com/oclif/table/pull/167)
