@@ -25,11 +25,20 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.95.6 (July 2, 2025) [stable-rc]
+## 2.96.4 (July 9, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+
+    * ApiNamedQuery
+    * ObjIntegProviderDefMapping
+    * DataConnector
+    * ExtlClntAppCanvasStngs
+ 
+## 2.95.6 (July 2, 2025) [stable]
 
 * FIX: Salesforce CLI now displays tables correctly when column size is resolved to 0 in some CI environments. (GitHub issue [#3317](https://github.com/forcedotcom/cli/issues/3317), oclif PR [#167](https://github.com/oclif/table/pull/167)
 
@@ -39,7 +48,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We fixed a bug in which the string replacement functionality incorrectly emits warning saying the string to replace was not found when processing large files. (GH issue [#3318](https://github.com/forcedotcom/cli/issues/3318), source-deploy-retrieve PR [#1577](https://github.com/forcedotcom/source-deploy-retrieve/pull/1577)) 
 
-## 2.94.6 (June 25, 2025) [stable]
+## 2.94.6 (June 25, 2025)
 
 * FIX: The `sf project deploy start` command no longers modifies source-tracking info when using the `--dry-run` flag. (GitHub issue [#3243](https://github.com/forcedotcom/cli/issues/3243), plugin-deploy-retrieve PR [#1372](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1372)
 
