@@ -25,11 +25,15 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.96.4 (July 9, 2025) [stable-rc]
+## 2.97.5 (July 16, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: Running `project deploy start` with the `--dry-run` flag is now working correctly. (Github Issue [#3336](https://github.com/forcedotcom/cli/issues/3336), plugin-deploy-retrieve PR [#1395](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1395))runnin
+
+## 2.96.4 (July 9, 2025) [stable]
 
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
 
@@ -38,7 +42,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * DataConnector
     * ExtlClntAppCanvasStngs
  
-## 2.95.6 (July 3, 2025) [stable]
+## 2.95.6 (July 3, 2025)
 
 * FIX: Salesforce CLI now displays tables correctly when column size is resolved to 0 in some CI environments. (GitHub issue [#3317](https://github.com/forcedotcom/cli/issues/3317), oclif PR [#167](https://github.com/oclif/table/pull/167)
 
