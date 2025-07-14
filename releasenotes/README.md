@@ -25,15 +25,19 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.97.5 (July 16, 2025) [stable-rc]
+## (2.98.5) (July 23, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
 
+* FIX: Salesforce DX projects now support the ExternalStoragePrvdConfig [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
+
+## 2.97.6 (July 16, 2025) [stable]
+
 * FIX: Running `project deploy start` with the `--dry-run` flag is now working correctly. (Github Issue [#3336](https://github.com/forcedotcom/cli/issues/3336), plugin-deploy-retrieve PR [#1395](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1395))runnin
 
-## 2.96.4 (July 9, 2025) [stable]
+## 2.96.4 (July 9, 2025)
 
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
 
