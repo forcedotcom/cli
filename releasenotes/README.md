@@ -31,6 +31,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* FIX: You can now successfully deploy a new custom field and updated workflow to your org when using decomposed workflows (beta) in your DX project. (Github Issue [#3320](https://github.com/forcedotcom/cli/issues/3320))
+
 * FIX: Salesforce DX projects now support the ExternalStoragePrvdConfig [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
 
 ## 2.97.6 (July 16, 2025) [stable]
