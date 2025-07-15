@@ -33,7 +33,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: We've improved the performance of `project deploy start`.  (source-tracking PRs [#794](https://github.com/forcedotcom/source-tracking/pull/794) and [#732](https://github.com/forcedotcom/source-tracking/pull/732))
 
-   Big thanks to Luke Cotter ([@lukecotter](https://github.com/lukecotter)) who contributed all the code for this awesome performance improvement. Who doesn't love a faster metadata deployment?  Muchas gracias, amigo!
+   Big thanks to Luke Cotter ([@lukecotter](https://github.com/lukecotter)) who contributed all the code for this awesome performance improvement. Who doesn't love a faster metadata deployment? We really appreciate it, Luke!
    
 * FIX: You can now successfully deploy a new custom field and updated workflow to your org when using decomposed workflows (beta) in your DX project. (Github Issue [#3320](https://github.com/forcedotcom/cli/issues/3320))
 
