@@ -25,12 +25,16 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## (2.98.5) (July 23, 2025) [stable-rc]
+## 2.98.6 (July 23, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
 
+* NEW: We've improved the performance of `project deploy start`.  (source-tracking PRs [#794](https://github.com/forcedotcom/source-tracking/pull/794) and [#732](https://github.com/forcedotcom/source-tracking/pull/732))
+
+   Big thanks to Luke Cotter ([@lukecotter](https://github.com/lukecotter)) who contributed all the code for this awesome performance improvement. Who doesn't love a faster metadata deployment?  Muchas gracias, amigo!
+   
 * FIX: You can now successfully deploy a new custom field and updated workflow to your org when using decomposed workflows (beta) in your DX project. (Github Issue [#3320](https://github.com/forcedotcom/cli/issues/3320))
 
 * FIX: Salesforce DX projects now support the ExternalStoragePrvdConfig [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
