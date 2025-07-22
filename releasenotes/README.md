@@ -31,6 +31,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: We improved the performance of deploys and retrieves.
+
+  Many thanks to Jon Freed ((@jon-freed)[https://github.com/jon-freed]), who is actually the "we" in the previous sentence. Jon contributed all the source code, which cleverly cuts back the number of string manipulations and simplifies key lookups, resulting in faster deployments and retrievals. We are delighted with your generous contribution. (source-deploy-retrieve PR [#1583](https://github.com/forcedotcom/source-deploy-retrieve/pull/1583), source-deploy-retrieve PR [#1591](https://github.com/forcedotcom/source-deploy-retrieve/pull/1591))
+
 ## 2.98.6 (July 23, 2025) [stable]
 
 * NEW: We've improved the performance of `project deploy|retrieve start` when used with source tracking.  (source-tracking PRs [#794](https://github.com/forcedotcom/source-tracking/pull/794) and [#732](https://github.com/forcedotcom/source-tracking/pull/732))
