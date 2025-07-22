@@ -25,11 +25,13 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.98.6 (July 23, 2025) [stable-rc]
+## 2.99.6 (July 30, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+## 2.98.6 (July 23, 2025) [stable]
 
 * NEW: We've improved the performance of `project deploy|retrieve start` when used with source tracking.  (source-tracking PRs [#794](https://github.com/forcedotcom/source-tracking/pull/794) and [#732](https://github.com/forcedotcom/source-tracking/pull/732))
 
@@ -39,7 +41,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Salesforce DX projects now support the ExternalStoragePrvdConfig [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
 
-## 2.97.6 (July 16, 2025) [stable]
+## 2.97.6 (July 16, 2025)
 
 * FIX: Running `project deploy start` with the `--dry-run` flag is now working correctly. (Github Issue [#3336](https://github.com/forcedotcom/cli/issues/3336), plugin-deploy-retrieve PR [#1395](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1395))runnin
 
