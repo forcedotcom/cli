@@ -25,17 +25,26 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.99.6 (July 30, 2025) [stable-rc]
+## 2.100.2 (Aug 6, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
 
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+
+    * CatalogedApi
+    * CatalogedApiVersion
+    * CatalogedApiArtfctVerInfo
+    * RuleLibraryDefinition
+
+## 2.99.6 (July 30, 2025) [stable]
+
 * NEW: We improved the performance of deploys and retrieves. (source-deploy-retrieve PR [#1583](https://github.com/forcedotcom/source-deploy-retrieve/pull/1583), source-deploy-retrieve PR [#1591](https://github.com/forcedotcom/source-deploy-retrieve/pull/1591))
 
   Many thanks to Jon Freed ((@jon-freed)[https://github.com/jon-freed]), who is actually the "we" in the previous sentence. Jon contributed all the source code, which cleverly cuts back the number of string manipulations and simplifies key lookups, resulting in faster deployments and retrievals. We are delighted with your generous contribution. 
 
-## 2.98.6 (July 23, 2025) [stable]
+## 2.98.6 (July 23, 2025)
 
 * NEW: We've improved the performance of `project deploy|retrieve start` when used with source tracking.  (source-tracking PRs [#794](https://github.com/forcedotcom/source-tracking/pull/794) and [#732](https://github.com/forcedotcom/source-tracking/pull/732))
 
