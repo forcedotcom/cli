@@ -31,6 +31,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* FIX: We updated the npm dependencies in our project templates so that you no longer get an error when you run `project generate` and then `npm install` in the DX project. (Github Issue [#3222](https://github.com/forcedotcom/cli/issues/3222), Github Issue [#3278](https://github.com/forcedotcom/cli/issues/3278), Github Issue [#3295](https://github.com/forcedotcom/cli/issues/3295))
+
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
 
     * CatalogedApi
