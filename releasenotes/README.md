@@ -53,7 +53,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * CatalogedApi
     * CatalogedApiVersion
     * CatalogedApiArtfctVerInfo
-    * RuleLibraryDefinition
+    * RuleLibraryDefinition (Github Issue [#3099](https://github.com/forcedotcom/cli/issues/3099))
 
 ## 2.99.6 (July 30, 2025) [stable]
 
