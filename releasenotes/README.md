@@ -40,7 +40,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
      * Comparison operator: The operator used to compare the expected and actual values returned from the test. Examples are equals, greater than or equal, and so on. 
      * Expected value: The value you expect after the evaluation is tested.
   
-   The `agent generate test-spec` uses the Agentforce Testing API under the covers. Therefore, for more information, see [Add Custom Evaluation Criteria to a Test Case](https://developer.salesforce.com/docs/einstein/genai/guide/testing-api-custom-evaluation-criteria.html#get-started-with-custom-evaluation-criteria). 
+   The `agent generate test-spec` uses the Agentforce Testing API under the covers. Therefore, for more information, see [Add Custom Evaluation Criteria to a Test Case](https://developer.salesforce.com/docs/einstein/genai/guide/testing-api-custom-evaluation-criteria.html#get-started-with-custom-evaluation-criteria). (plugin-agent PR [#177](https://github.com/salesforcecli/plugin-agent/pull/177))
 
 * FIX: You can once again successfully create a scratch org asynchronously (`org create scratch --async`) and then resume its creation (`org resume scratch`).   (Github Issue [#3322](https://github.com/forcedotcom/cli/issues/3322), sfdx-core PR [#1207](https://github.com/forcedotcom/sfdx-core/pull/1207), plugin-org PR [#1473](https://github.com/salesforcecli/plugin-org/pull/1473))
 
