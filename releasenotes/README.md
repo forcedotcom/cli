@@ -44,6 +44,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: You can once again successfully create a scratch org asynchronously (`org create scratch --async`) and then resume its creation (`org resume scratch`).   (Github Issue [#3322](https://github.com/forcedotcom/cli/issues/3322), sfdx-core PR [#1207](https://github.com/forcedotcom/sfdx-core/pull/1207), plugin-org PR [#1473](https://github.com/salesforcecli/plugin-org/pull/1473))
 
+* FIX: The `agent generate test-spec` command now works correctly with both the GenAiPlanner (legacy) and GenAiPlannerBundle (new) metadata types, both of which represent agent planners.  (plugin-agent PR [#174](https://github.com/salesforcecli/plugin-agent/pull/174))
+
 * FIX: We updated the npm dependencies in our project templates so that you no longer get an error when you run `project generate` and then `npm install` in the DX project. (Github Issue [#3222](https://github.com/forcedotcom/cli/issues/3222), Github Issue [#3278](https://github.com/forcedotcom/cli/issues/3278), Github Issue [#3295](https://github.com/forcedotcom/cli/issues/3295))
 
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
