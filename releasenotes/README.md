@@ -31,6 +31,19 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: Add custom evaluations to your agent test spec with the updated `agent generate test-spec` command, which now asks if you want to add one to a specific test case.  
+
+    Custom evaluations test an agent response for specific strings or numbers. If you opt to add a custom evaluation to an agent test case, you'll be prompted for the following information:
+  
+     * Label: A descriptive name of the custom evaluation. 
+     * JSONPath expression: Enables you to automatically point to the data you want to test. For details on how to construct a JSONPath expression, see [Dynamically Reference Generated Data](https://developer.salesforce.com/docs/einstein/genai/guide/testing-api-custom-evaluation-criteria.html#dynamically-reference-generated-data).
+     * Comparison operator: The operator used to compare the expected and actual values returned from the test. Examples are equals, greater than or equal, and so on. 
+     * Expected value: The value you expect after the evaluation is tested.
+  
+   The `agent generate test-spec` uses the Agentforce Testing API under the covers. Therefore, for more information, see [Add Custom Evaluation Criteria to a Test Case](https://developer.salesforce.com/docs/einstein/genai/guide/testing-api-custom-evaluation-criteria.html#get-started-with-custom-evaluation-criteria). 
+
+* FIX: You can once again successfully create a scratch org asynchronously (`org create scratch --async`) and then resume its creation (`org resume scratch`).   (Github Issue [#3322](https://github.com/forcedotcom/cli/issues/3322), sfdx-core PR [#1207](https://github.com/forcedotcom/sfdx-core/pull/1207), plugin-org PR [#1473](https://github.com/salesforcecli/plugin-org/pull/1473))
+
 * FIX: We updated the npm dependencies in our project templates so that you no longer get an error when you run `project generate` and then `npm install` in the DX project. (Github Issue [#3222](https://github.com/forcedotcom/cli/issues/3222), Github Issue [#3278](https://github.com/forcedotcom/cli/issues/3278), Github Issue [#3295](https://github.com/forcedotcom/cli/issues/3295))
 
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
