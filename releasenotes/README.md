@@ -25,29 +25,55 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.99.6 (July 30, 2025) [stable-rc]
+## 2.100.2 (Aug 6, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
 
+* NEW: Add custom evaluations to your agent test spec with the updated `agent generate test-spec` command, which now asks if you want to add one to a specific test case.  
+
+    Custom evaluations test an agent response for specific strings or numbers. If you opt to add a custom evaluation to an agent test case, you'll be prompted for the following information:
+  
+     * Label: A descriptive name of the custom evaluation. 
+     * JSONPath expression: Enables you to automatically point to the data you want to test. For details on how to construct a JSONPath expression, see [Dynamically Reference Generated Data](https://developer.salesforce.com/docs/einstein/genai/guide/testing-api-custom-evaluation-criteria.html#dynamically-reference-generated-data).
+     * Comparison operator: The operator used to compare the expected and actual values returned from the test. Examples are equals, greater than or equal, and so on. 
+     * Expected value: The value you expect after the evaluation is tested.
+  
+   The `agent generate test-spec` uses the Agentforce Testing API under the covers. Therefore, for more information, see [Add Custom Evaluation Criteria to a Test Case](https://developer.salesforce.com/docs/einstein/genai/guide/testing-api-custom-evaluation-criteria.html#get-started-with-custom-evaluation-criteria). (plugin-agent PR [#177](https://github.com/salesforcecli/plugin-agent/pull/177))
+
+* FIX: You can once again successfully create a scratch org asynchronously (`org create scratch --async`) and then resume its creation (`org resume scratch`).   (GitHub Issue [#3322](https://github.com/forcedotcom/cli/issues/3322), sfdx-core PR [#1207](https://github.com/forcedotcom/sfdx-core/pull/1207), plugin-org PR [#1473](https://github.com/salesforcecli/plugin-org/pull/1473))
+
+* FIX: The `agent generate test-spec` command now works correctly with both the GenAiPlanner (legacy) and GenAiPlannerBundle (new) metadata types, both of which represent agent planners.  (plugin-agent PR [#174](https://github.com/salesforcecli/plugin-agent/pull/174))
+
+* FIX: We updated the npm dependencies in our project templates so that you no longer get an error when you run `project generate` and then `npm install` in the DX project. (GitHub Issue [#3222](https://github.com/forcedotcom/cli/issues/3222), GitHub Issue [#3278](https://github.com/forcedotcom/cli/issues/3278), GitHub Issue [#3295](https://github.com/forcedotcom/cli/issues/3295))
+
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+
+    * CatalogedApi
+    * CatalogedApiVersion
+    * CatalogedApiArtfctVerInfo
+    * RuleLibraryDefinition (GitHub Issue [#3099](https://github.com/forcedotcom/cli/issues/3099))
+
+## 2.99.6 (July 30, 2025) [stable]
+
 * NEW: We improved the performance of deploys and retrieves. (source-deploy-retrieve PR [#1583](https://github.com/forcedotcom/source-deploy-retrieve/pull/1583), source-deploy-retrieve PR [#1591](https://github.com/forcedotcom/source-deploy-retrieve/pull/1591))
 
   Many thanks to Jon Freed ((@jon-freed)[https://github.com/jon-freed]), who is actually the "we" in the previous sentence. Jon contributed all the source code, which cleverly cuts back the number of string manipulations and simplifies key lookups, resulting in faster deployments and retrievals. We are delighted with your generous contribution. 
 
-## 2.98.6 (July 23, 2025) [stable]
+## 2.98.6 (July 23, 2025)
 
 * NEW: We've improved the performance of `project deploy|retrieve start` when used with source tracking.  (source-tracking PRs [#794](https://github.com/forcedotcom/source-tracking/pull/794) and [#732](https://github.com/forcedotcom/source-tracking/pull/732))
 
    Big thanks to Luke Cotter ([@lukecotter](https://github.com/lukecotter)) who contributed all the code for this awesome performance improvement. Who doesn't love a faster metadata deployment? We really appreciate it, Luke!
    
-* FIX: You can now successfully deploy a new custom field and updated workflow to your org when using decomposed workflows (beta) in your DX project. (Github Issue [#3320](https://github.com/forcedotcom/cli/issues/3320))
+* FIX: You can now successfully deploy a new custom field and updated workflow to your org when using decomposed workflows (beta) in your DX project. (GitHub Issue [#3320](https://github.com/forcedotcom/cli/issues/3320))
 
 * FIX: Salesforce DX projects now support the ExternalStoragePrvdConfig [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
 
 ## 2.97.6 (July 16, 2025)
 
-* FIX: Running `project deploy start` with the `--dry-run` flag is now working correctly. (Github Issue [#3336](https://github.com/forcedotcom/cli/issues/3336), plugin-deploy-retrieve PR [#1395](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1395))
+* FIX: Running `project deploy start` with the `--dry-run` flag is now working correctly. (GitHub Issue [#3336](https://github.com/forcedotcom/cli/issues/3336), plugin-deploy-retrieve PR [#1395](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1395))
 
 ## 2.96.4 (July 9, 2025)
 
@@ -1002,7 +1028,7 @@ Due to the Thanksgiving break in the United States, we aren't releasing a new st
 
 * NEW: The `apex run test` and `apex get test` commands now have a new `--concise` flag.
 
-    Setting this flag for `apex run test` or `apex get test` will suppress passing test results and the code coverage table. Only failing tests and the summary table will be displayed. (plugin-apex PR [#504](https://github.com/salesforcecli/plugin-apex/pull/504), Github Issue [#243](https://github.com/forcedotcom/salesforcedx-apex/issues/243), Github Discussion [#2872](https://github.com/forcedotcom/cli/discussions/2872))
+    Setting this flag for `apex run test` or `apex get test` will suppress passing test results and the code coverage table. Only failing tests and the summary table will be displayed. (plugin-apex PR [#504](https://github.com/salesforcecli/plugin-apex/pull/504), GitHub Issue [#243](https://github.com/forcedotcom/salesforcedx-apex/issues/243), GitHub Discussion [#2872](https://github.com/forcedotcom/cli/discussions/2872))
 
     Many thanks to [Kyle Capehart](https://github.com/k-capehart) for contributing this useful new flag!
 
@@ -1142,13 +1168,13 @@ Due to the Thanksgiving break in the United States, we aren't releasing a new st
 
 ## 2.50.6 (July 17, 2024)
 
-* NEW: By default, Salesforce CLI uses 128-bit encryption to encrypt its internal files, such as the authorization files associated with the orgs you’ve logged into. For increased security, you can now enable 256-bit encryption. Check out [these docs](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_enable_256_bit_encryption.htm) for instructions. (Github issue [#1861](https://github.com/forcedotcom/cli/issues/1861), sfdx-core PR [#810](https://github.com/forcedotcom/sfdx-core/pull/810))
+* NEW: By default, Salesforce CLI uses 128-bit encryption to encrypt its internal files, such as the authorization files associated with the orgs you’ve logged into. For increased security, you can now enable 256-bit encryption. Check out [these docs](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_enable_256_bit_encryption.htm) for instructions. (GitHub issue [#1861](https://github.com/forcedotcom/cli/issues/1861), sfdx-core PR [#810](https://github.com/forcedotcom/sfdx-core/pull/810))
 
-* FIX: Plugins (ex: sfdx-scanner) using an old version of our libraries would cause an error.  We're now preventing that error.  (Github issue [#2935](https://github.com/forcedotcom/cli/issues/2935), sfdx-core PR [#1098](https://github.com/forcedotcom/sfdx-core/pull/1098))
+* FIX: Plugins (ex: sfdx-scanner) using an old version of our libraries would cause an error.  We're now preventing that error.  (GitHub issue [#2935](https://github.com/forcedotcom/cli/issues/2935), sfdx-core PR [#1098](https://github.com/forcedotcom/sfdx-core/pull/1098))
 
-* FIX: `sf project deploy start` with `--coverage-formatters` now prints the correct location for the coverage files in its output. (Github issue [#2816](https://github.com/forcedotcom/cli/issues/2816), plugin-deploy-retrieve PR [#973](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/973)).  We actually fixed this in April but forgot to put it in the release notes.
+* FIX: `sf project deploy start` with `--coverage-formatters` now prints the correct location for the coverage files in its output. (GitHub issue [#2816](https://github.com/forcedotcom/cli/issues/2816), plugin-deploy-retrieve PR [#973](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/973)).  We actually fixed this in April but forgot to put it in the release notes.
 
-* FIX: Recently created packages take some time to become available to all orgs.  If you use `sf package install` to install that's not available yet, you get an error.  The error now explains that it might work but not yet. (Github issue [#2921](https://github.com/forcedotcom/cli/issues/2921), packaging library PR [#600](https://github.com/forcedotcom/packaging/pull/600/))
+* FIX: Recently created packages take some time to become available to all orgs.  If you use `sf package install` to install that's not available yet, you get an error.  The error now explains that it might work but not yet. (GitHub issue [#2921](https://github.com/forcedotcom/cli/issues/2921), packaging library PR [#600](https://github.com/forcedotcom/packaging/pull/600/))
 
 ## 2.49.7 (July 10, 2024)
 
@@ -1244,7 +1270,7 @@ Due to the Thanksgiving break in the United States, we aren't releasing a new st
 
 * FIX: Source Mobility (BETA): You can now move source files in very large projects (over 8GB with over 1700 files) and successfully deploy without getting an out of memory error. (GitHub issue [#2880](https://github.com/forcedotcom/cli/issues/2880), source-tracking PR [#591](https://github.com/forcedotcom/source-tracking/pull/591))
 
-* FIX: When retrieving a CustomField from the org, `project retrieve start` now preserves the content of the field's CustomObject source file. We partly fixed this bug [back in May](./README.md#2418-may-15-2024), but this time around we think we fixed it all. (Github issue [#2865](https://github.com/forcedotcom/cli/issues/2865), source-deploy-retrieve PR [#1338](https://github.com/forcedotcom/source-deploy-retrieve/pull/1338))
+* FIX: When retrieving a CustomField from the org, `project retrieve start` now preserves the content of the field's CustomObject source file. We partly fixed this bug [back in May](./README.md#2418-may-15-2024), but this time around we think we fixed it all. (GitHub issue [#2865](https://github.com/forcedotcom/cli/issues/2865), source-deploy-retrieve PR [#1338](https://github.com/forcedotcom/source-deploy-retrieve/pull/1338))
 
 ## 2.45.6 (June 12, 2024)
 
@@ -1373,7 +1399,7 @@ Due to the Thanksgiving break in the United States, we aren't releasing a new st
 
 * FIX: Specifying the `--no-namespace` flag of the `org create scratch` command now correctly creates a scratch org that doesn't have a namespace. (GitHub issue [#2855](https://github.com/forcedotcom/cli/issues/2855), sfdx-core PR [#1064](https://github.com/forcedotcom/sfdx-core/pull/1064))
 
-* FIX: When retrieving a CustomField from the org, `project retrieve start` now preserves the content of the field's CustomObject source file. (Github issue [#2865](https://github.com/forcedotcom/cli/issues/2865), source-deploy-retrieve PR [#1308](https://github.com/forcedotcom/source-deploy-retrieve/pull/1308))
+* FIX: When retrieving a CustomField from the org, `project retrieve start` now preserves the content of the field's CustomObject source file. (GitHub issue [#2865](https://github.com/forcedotcom/cli/issues/2865), source-deploy-retrieve PR [#1308](https://github.com/forcedotcom/source-deploy-retrieve/pull/1308))
 
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
 
@@ -1415,9 +1441,9 @@ Due to the Thanksgiving break in the United States, we aren't releasing a new st
 
 * FIX: The `project deploy report` command now returns results about all deployed files, even if they don't currently exist in your local project. This scenario can happen if the deploy occurs on one computer and the report command is run on a different computer where the project looks different. The report command warns the user if a local file doesnt' exist. (GitHub issues [#2602](https://github.com/forcedotcom/cli/issues/2603) and [#2602](https://github.com/forcedotcom/cli/issues/2602), source-deploy-retrieve PR [#1273](https://github.com/forcedotcom/source-deploy-retrieve/pull/1273))
 
-* FIX: The `project deploy retrieve` command now does not check for a project when doing a metadata api retrieve when using the `--manifest` flag, and it shouldn't have started doing that. (Github issue [#2832](https://github.com/forcedotcom/cli/issues/2832) and [#2831](https://github.com/forcedotcom/cli/issues/2831), plugin-deploy-retrieve PR [#978](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/978)
+* FIX: The `project deploy retrieve` command now does not check for a project when doing a metadata api retrieve when using the `--manifest` flag, and it shouldn't have started doing that. (GitHub issue [#2832](https://github.com/forcedotcom/cli/issues/2832) and [#2831](https://github.com/forcedotcom/cli/issues/2831), plugin-deploy-retrieve PR [#978](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/978)
 
-* FIX: NodeJS made a breaking windows-related security change.  We adjusted the CLI to comply.  (Github issue [#2822](https://github.com/forcedotcom/cli/issues/2822), plugin-telemetry PR [#611](https://github.com/salesforcecli/plugin-telemetry/pull/611), oclif/plugin-plugins PR [#847](https://github.com/oclif/plugin-plugins/pull/847), oclif/plugin-update [#788](https://github.com/oclif/plugin-update/pull/788)) 
+* FIX: NodeJS made a breaking windows-related security change.  We adjusted the CLI to comply.  (GitHub issue [#2822](https://github.com/forcedotcom/cli/issues/2822), plugin-telemetry PR [#611](https://github.com/salesforcecli/plugin-telemetry/pull/611), oclif/plugin-plugins PR [#847](https://github.com/oclif/plugin-plugins/pull/847), oclif/plugin-update [#788](https://github.com/oclif/plugin-update/pull/788)) 
 
 NOTE: As a result of this NodeJS change, some windows users will see a terminal "flash" (see [#2833](https://github.com/forcedotcom/cli/issues/2833)) in certain scenarios.  We're working on a way to avoid that.
 
@@ -1573,7 +1599,7 @@ NOTE: As a result of this NodeJS change, some windows users will see a terminal 
 
 * FIX: We've improved the error message returned when `project deploy validate --json` encounters a validation error with one or more metadata components. (GitHub issue [#2757](https://github.com/forcedotcom/cli/issues/2757), plugin-deploy-retrieve PR [#938](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/938))
 
-* FIX: You can now successfully authenticate an org in which PKCE ([Proof Key for Code Exchange](https://help.salesforce.com/s/articleView?id=sf.remoteaccess_pkce.htm&type=5)) is enforced.  (Github Discussion [#2726](https://github.com/forcedotcom/cli/discussions/2726), sfdx-core PR [#1035](https://github.com/forcedotcom/sfdx-core/pull/1035))
+* FIX: You can now successfully authenticate an org in which PKCE ([Proof Key for Code Exchange](https://help.salesforce.com/s/articleView?id=sf.remoteaccess_pkce.htm&type=5)) is enforced.  (GitHub Discussion [#2726](https://github.com/forcedotcom/cli/discussions/2726), sfdx-core PR [#1035](https://github.com/forcedotcom/sfdx-core/pull/1035))
   
 ## 2.32.8 (March 13, 2024)
 
@@ -1638,7 +1664,7 @@ NOTE: As a result of this NodeJS change, some windows users will see a terminal 
  
     (plugin-users PR [#864](https://github.com/salesforcecli/plugin-user/pull/864))
 
-* FIX: We updated our Github Actions to be more friendly to external developers. In particular, we modified our [external plugin template](https://github.com/salesforcecli/plugin-template-sf-external) so that `dev generate plugin` generates updated sample GitHub Actions workflow files. We also added Personal Access Token instructions to the [README](https://github.com/salesforcecli/github-workflows) in our GitHub Actions repo.
+* FIX: We updated our GitHub Actions to be more friendly to external developers. In particular, we modified our [external plugin template](https://github.com/salesforcecli/plugin-template-sf-external) so that `dev generate plugin` generates updated sample GitHub Actions workflow files. We also added Personal Access Token instructions to the [README](https://github.com/salesforcecli/github-workflows) in our GitHub Actions repo.
 
 * FIX: Salesforce DX projects now support the EnablementMeasureDefinition [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
 
@@ -1757,7 +1783,7 @@ NOTE: As a result of this NodeJS change, some windows users will see a terminal 
   
 * FIX: We've improved source tracking so it better handles undecodable SourceMember keys; previously, the relevant command, such as `project deploy start`, would return an errror such as `URIError: URI malformed` if it encountered one. (GitHub issue [#2624](https://github.com/forcedotcom/cli/issues/2624), source-tracking PR [#531](https://github.com/forcedotcom/source-tracking/pull/531))
 
-* FIX: We've improved the `apex run` command so it can handle SOAP responses that don't include a header when executing anonymous Apex. (GitHub issue [#2630](Github issue link: https://github.com/forcedotcom/cli/issues/2630), salesforcedx-apex PR [#343](https://github.com/forcedotcom/salesforcedx-apex/pull/343))
+* FIX: We've improved the `apex run` command so it can handle SOAP responses that don't include a header when executing anonymous Apex. (GitHub issue [#2630](GitHub issue link: https://github.com/forcedotcom/cli/issues/2630), salesforcedx-apex PR [#343](https://github.com/forcedotcom/salesforcedx-apex/pull/343))
 
 * FIX: The error output from a failed execution of the `package version create report` command now contains the correct CLI command to run to get all relevant errors (`data query` rather than the incorrect `data:soql:query`). (GitHub issue [#2660](https://github.com/forcedotcom/cli/issues/2660), plugin-packaging PR [#561](https://github.com/salesforcecli/plugin-packaging/pull/561))
 
@@ -2115,17 +2141,17 @@ Due to the Thanksgiving break in the United States, we aren't releasing a new st
 
 ## 2.10.2 (Sept 27, 2023)
 
-* NEW: Code Coverage UI Improvements. We changed the code coverage colors to indicate good, average, and poor coverage. (Github Issue [#2412](https://github.com/forcedotcom/cli/issues/2412), plugin-deploy-retrieve PR [#756](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/756), plugin-source PR [#950](https://github.com/salesforcecli/plugin-source/pull/950), plugin-source PR (superseded) [#934](https://github.com/salesforcecli/plugin-source/pull/934))
+* NEW: Code Coverage UI Improvements. We changed the code coverage colors to indicate good, average, and poor coverage. (GitHub Issue [#2412](https://github.com/forcedotcom/cli/issues/2412), plugin-deploy-retrieve PR [#756](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/756), plugin-source PR [#950](https://github.com/salesforcecli/plugin-source/pull/950), plugin-source PR (superseded) [#934](https://github.com/salesforcecli/plugin-source/pull/934))
 
     Thank you @AllanOricil for your contributions to `plugin-source`! :heart:
 
 * NEW: Uninstalled JIT Plugins are now displayed when you run `sf plugins --core [--json]`. The command displays a warning if you try to inspect an uninstalled JIT plugin.
 
-* FIX: Uncovered line numbers are now correctly displayed in the Code Coverage report when you run `project deploy report`. (Github Issue [#2468](https://github.com/forcedotcom/cli/issues/2468), plugin-source PR [#950](https://github.com/salesforcecli/plugin-source/pull/950))
+* FIX: Uncovered line numbers are now correctly displayed in the Code Coverage report when you run `project deploy report`. (GitHub Issue [#2468](https://github.com/forcedotcom/cli/issues/2468), plugin-source PR [#950](https://github.com/salesforcecli/plugin-source/pull/950))
 
-* FIX: The `.forceignore` file now correctly handles an opt-in style with directories. (Github Issue [#2404](https://github.com/forcedotcom/cli/issues/2404), source-deploy-retrieve PR [#1093](https://github.com/forcedotcom/source-deploy-retrieve/pull/1093))
+* FIX: The `.forceignore` file now correctly handles an opt-in style with directories. (GitHub Issue [#2404](https://github.com/forcedotcom/cli/issues/2404), source-deploy-retrieve PR [#1093](https://github.com/forcedotcom/source-deploy-retrieve/pull/1093))
 
-* FIX: Running `project deploy quick` now displays the deploy ID of the quick deploy request, not the validation ID. (Github Issue [#2415](https://github.com/forcedotcom/cli/issues/2415), source-deploy-retrieve PR [#748](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/748))
+* FIX: Running `project deploy quick` now displays the deploy ID of the quick deploy request, not the validation ID. (GitHub Issue [#2415](https://github.com/forcedotcom/cli/issues/2415), source-deploy-retrieve PR [#748](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/748))
 
 ## 2.9.8 (Sept 20, 2023)
 
@@ -2434,9 +2460,9 @@ Due to the Thanksgiving break in the United States, we aren't releasing a new st
 
 * FIX: We now display the help for partial commands if Salesforce CLI finds only one possible match.  For example, `sf project create --help` correctly displays the help for `project generate` because it's the only (aliased) match.  Previously you'd get a `Command not found.` error.  (GitHub issue [#2301](https://github.com/forcedotcom/cli/issues/2301), oclif PR [#733](https://github.com/oclif/core/pull/733))
 
-* FIX: `package:version:create` no longer remove Profiles just because they are empty.  (Github issues [#2192](https://github.com/forcedotcom/cli/issues/2192)/[#2218](https://github.com/forcedotcom/cli/issues/2218) , packaging PR [#349](https://github.com/forcedotcom/packaging/pull/349))
+* FIX: `package:version:create` no longer remove Profiles just because they are empty.  (GitHub issues [#2192](https://github.com/forcedotcom/cli/issues/2192)/[#2218](https://github.com/forcedotcom/cli/issues/2218) , packaging PR [#349](https://github.com/forcedotcom/packaging/pull/349))
 
-* FIX: `package:version:create` was briefly erroring because of a change in the xml2js library.  They fixed it and that fixed these commands.  If you encounter the issue, uninstall the packaging plugin and run your command again to get the new fixed version. (Github issue [#2324](https://github.com/forcedotcom/cli/issues/2324)).  
+* FIX: `package:version:create` was briefly erroring because of a change in the xml2js library.  They fixed it and that fixed these commands.  If you encounter the issue, uninstall the packaging plugin and run your command again to get the new fixed version. (GitHub issue [#2324](https://github.com/forcedotcom/cli/issues/2324)).  
 
 * FIX: Salesforce DX projects now support these metadata types:
 
