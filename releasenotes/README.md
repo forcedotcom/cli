@@ -73,7 +73,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ## 2.97.6 (July 16, 2025)
 
-* FIX: Running `project deploy start` with the `--dry-run` flag is now working correctly. (GitHub Issue [#3336](https://github.com/forcedotcom/cli/issues/3336), plugin-deploy-retrieve PR [#1395](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1395))runnin
+* FIX: Running `project deploy start` with the `--dry-run` flag is now working correctly. (Github Issue [#3336](https://github.com/forcedotcom/cli/issues/3336), plugin-deploy-retrieve PR [#1395](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1395))
 
 ## 2.96.4 (July 9, 2025)
 
