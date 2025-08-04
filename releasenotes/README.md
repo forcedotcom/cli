@@ -25,11 +25,13 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.100.2 (Aug 6, 2025) [stable-rc]
+## 2.101.4 (Aug 13, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+## 2.100.2 (Aug 6, 2025) [stable]
 
 * NEW: Add custom evaluations to your agent test spec with the updated `agent generate test-spec` command, which now asks if you want to add one to a specific test case.  
 
@@ -55,7 +57,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * CatalogedApiArtfctVerInfo
     * RuleLibraryDefinition (GitHub Issue [#3099](https://github.com/forcedotcom/cli/issues/3099))
 
-## 2.99.6 (July 30, 2025) [stable]
+## 2.99.6 (July 30, 2025)
 
 * NEW: We improved the performance of deploys and retrieves. (source-deploy-retrieve PR [#1583](https://github.com/forcedotcom/source-deploy-retrieve/pull/1583), source-deploy-retrieve PR [#1591](https://github.com/forcedotcom/source-deploy-retrieve/pull/1591))
 
