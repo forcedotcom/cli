@@ -31,6 +31,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* CHANGE: We removed  the `@salesforce/sfdx-scanner` plugin from the list of JIT (just in time) plugins. As a result, you must manually install the plugin if you want to use a `scanner` command and the plugin isn't installed in Salesforce CLI.  We removed this plugin from the JIT list because it contains CLI commands for Code Analyzer v4, which being [retired](https://developer.salesforce.com/docs/platform/salesforce-code-analyzer/guide/release-notes.md#code-analyzer-v4120-end-of-life). Use [Code Analyzer v5](https://developer.salesforce.com/docs/platform/salesforce-code-analyzer/guide/code-analyzer.html) instead. 
+
 ## 2.100.2 (Aug 6, 2025) [stable]
 
 * NEW: Add custom evaluations to your agent test spec with the updated `agent generate test-spec` command, which now asks if you want to add one to a specific test case.  
