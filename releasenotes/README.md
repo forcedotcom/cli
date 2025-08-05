@@ -47,9 +47,27 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
   (plugin-agent PR [#182](https://github.com/salesforcecli/plugin-agent/pull/182))
 
-* NEW: (plugin-agent PR [#181](https://github.com/salesforcecli/plugin-agent/pull/181))
+* NEW: Add more context to agent tests with the updated `agent generate test-spec` CLI command which now asks if you want to add boilerplate conversation history to each individual test case. The boilerplate is simply a template that you then edit with the specific history of a conversation that can happen before the test case's utterance.
 
-* CHANGE: We removed  the `@salesforce/sfdx-scanner` plugin from the list of JIT (just in time) plugins. As a result, you must manually install the plugin if you want to use a `scanner` command and the plugin isn't installed in Salesforce CLI.  We removed this plugin from the JIT list because it contains CLI commands for Code Analyzer v4, which being [retired](https://developer.salesforce.com/docs/platform/salesforce-code-analyzer/guide/release-notes.md#code-analyzer-v4120-end-of-life). Use [Code Analyzer v5](https://developer.salesforce.com/docs/platform/salesforce-code-analyzer/guide/code-analyzer.html) instead. 
+  For example, let's say you're testing a shopping assistant agent, and a test case has the utterance of "When will my purchase arrive?".  To better test this utterance, you can add a conversation history like this:
+
+  ```yaml
+    conversationHistory:
+      - role: user
+        message: I purchased an item last week but it hasn't arrived yet.
+      - role: agent
+        message: What is your order ID?
+        topic: ask_for_order_id
+      - role: user
+        message: It's 123456.
+      - role: agent
+        message: You ordered a Wacky Cat Bobble Head, right?  Great choice.
+        topic: look_up_order
+  ```
+
+  The `agent generate test-spec` command uses the Agentforce Testing API under the covers. For more information, see [Conversation History](https://developer.salesforce.com/docs/einstein/genai/guide/testing-api-build-tests.html#conversation-history). (plugin-agent PR [#181](https://github.com/salesforcecli/plugin-agent/pull/181))
+
+* CHANGE: We removed  the `@salesforce/sfdx-scanner` plugin from the list of JIT (just in time) plugins. As a result, you must manually install the plugin if you want to use a `scanner` command and the plugin isn't installed in Salesforce CLI.  We removed this plugin from the JIT list because it contains CLI commands for Code Analyzer v4, which being [retired](https://developer.salesforce.com/docs/platform/salesforce-code-analyzer/guide/release-notes.md#code-analyzer-v4120-end-of-life). Use [Code Analyzer v5](https://developer.salesforce.com/docs/platform/salesforce-code-analyzer/guide/code-analyzer.html) instead. (cli PR [#2322](https://github.com/salesforcecli/cli/pull/2322))
 
 ## 2.100.2 (Aug 6, 2025) [stable]
 
