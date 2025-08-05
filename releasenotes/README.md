@@ -47,6 +47,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
   (plugin-agent PR [#182](https://github.com/salesforcecli/plugin-agent/pull/182))
 
+* NEW: (plugin-agent PR [#181](https://github.com/salesforcecli/plugin-agent/pull/181))
+
 * CHANGE: We removed  the `@salesforce/sfdx-scanner` plugin from the list of JIT (just in time) plugins. As a result, you must manually install the plugin if you want to use a `scanner` command and the plugin isn't installed in Salesforce CLI.  We removed this plugin from the JIT list because it contains CLI commands for Code Analyzer v4, which being [retired](https://developer.salesforce.com/docs/platform/salesforce-code-analyzer/guide/release-notes.md#code-analyzer-v4120-end-of-life). Use [Code Analyzer v5](https://developer.salesforce.com/docs/platform/salesforce-code-analyzer/guide/code-analyzer.html) instead. 
 
 ## 2.100.2 (Aug 6, 2025) [stable]
@@ -60,7 +62,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
      * Comparison operator: The operator used to compare the expected and actual values returned from the test. Examples are equals, greater than or equal, and so on. 
      * Expected value: The value you expect after the evaluation is tested.
   
-   The `agent generate test-spec` uses the Agentforce Testing API under the covers. Therefore, for more information, see [Add Custom Evaluation Criteria to a Test Case](https://developer.salesforce.com/docs/einstein/genai/guide/testing-api-custom-evaluation-criteria.html#get-started-with-custom-evaluation-criteria). (plugin-agent PR [#177](https://github.com/salesforcecli/plugin-agent/pull/177))
+   The `agent generate test-spec` command uses the Agentforce Testing API under the covers. Therefore, for more information, see [Add Custom Evaluation Criteria to a Test Case](https://developer.salesforce.com/docs/einstein/genai/guide/testing-api-custom-evaluation-criteria.html#get-started-with-custom-evaluation-criteria). (plugin-agent PR [#177](https://github.com/salesforcecli/plugin-agent/pull/177))
 
 * FIX: You can once again successfully create a scratch org asynchronously (`org create scratch --async`) and then resume its creation (`org resume scratch`).   (GitHub Issue [#3322](https://github.com/forcedotcom/cli/issues/3322), sfdx-core PR [#1207](https://github.com/forcedotcom/sfdx-core/pull/1207), plugin-org PR [#1473](https://github.com/salesforcecli/plugin-org/pull/1473))
 
