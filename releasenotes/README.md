@@ -31,6 +31,22 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: Easily activate or deactivate an agent in your org with the new `agent activate|deactivate` commands.  Activating an agent makes it immediately available to your users. 
+
+  The two commands use the agent's API name; if you know it, use the `--api-name` flag to specify it. If you don't use the flag, the command lists the agents in your org for you to select. This example shows how to activate an agent with API name `Coral_Cloud_Agent` in your default org:
+
+  ```bash
+  sf agent activate --api-name Coral_Cloud_Agent
+  ```
+
+  This example prompts you to choose an agent to deactivate in the org with alias `my-org`:
+
+  ```bash
+  sf agent deactivate --target-org my-org
+  ```
+
+  (plugin-agent PR [#182](https://github.com/salesforcecli/plugin-agent/pull/182))
+
 * CHANGE: We removed  the `@salesforce/sfdx-scanner` plugin from the list of JIT (just in time) plugins. As a result, you must manually install the plugin if you want to use a `scanner` command and the plugin isn't installed in Salesforce CLI.  We removed this plugin from the JIT list because it contains CLI commands for Code Analyzer v4, which being [retired](https://developer.salesforce.com/docs/platform/salesforce-code-analyzer/guide/release-notes.md#code-analyzer-v4120-end-of-life). Use [Code Analyzer v5](https://developer.salesforce.com/docs/platform/salesforce-code-analyzer/guide/code-analyzer.html) instead. 
 
 ## 2.100.2 (Aug 6, 2025) [stable]
