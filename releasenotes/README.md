@@ -25,11 +25,51 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.100.2 (Aug 6, 2025) [stable-rc]
+## 2.101.4 (Aug 13, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: Easily activate or deactivate an agent in your org with the new `agent activate|deactivate` commands.  Activating an agent makes it immediately available to your users. 
+
+  The two commands use the agent's API name; if you know it, use the `--api-name` flag to specify it. If you don't use the flag, the command lists the agents in your org for you to select. This example shows how to activate an agent with API name `Coral_Cloud_Agent` in your default org:
+
+  ```bash
+  sf agent activate --api-name Coral_Cloud_Agent
+  ```
+
+  This example prompts you to choose an agent to deactivate in the org with alias `my-org`:
+
+  ```bash
+  sf agent deactivate --target-org my-org
+  ```
+
+  (plugin-agent PR [#182](https://github.com/salesforcecli/plugin-agent/pull/182))
+
+* NEW: Add more context to agent tests with the updated `agent generate test-spec` CLI command which now asks if you want to add boilerplate conversation history to each individual test case. The boilerplate is simply a template that you then edit with the specific history of a conversation that can happen before the test case's utterance.
+
+  For example, let's say you're testing a shopping assistant agent, and a test case has the utterance of "When will my purchase arrive?".  To better test this utterance, you can add a conversation history like this:
+
+  ```yaml
+    conversationHistory:
+      - role: user
+        message: I purchased an item last week but it hasn't arrived yet.
+      - role: agent
+        message: What is your order ID?
+        topic: ask_for_order_id
+      - role: user
+        message: It's 123456.
+      - role: agent
+        message: You ordered a Wacky Cat Bobblehead, right?  Great choice.
+        topic: look_up_order
+  ```
+
+  The `agent generate test-spec` command uses the Agentforce Testing API under the covers. For more information, see [Conversation History](https://developer.salesforce.com/docs/einstein/genai/guide/testing-api-build-tests.html#conversation-history). (plugin-agent PR [#181](https://github.com/salesforcecli/plugin-agent/pull/181))
+
+* CHANGE: We removed  the `@salesforce/sfdx-scanner` plugin from the list of JIT (just in time) plugins. As a result, you must manually install the plugin if you want to use a `scanner` command and the plugin isn't installed in Salesforce CLI.  We removed this plugin from the JIT list because it contains CLI commands for Code Analyzer v4, which being [retired](https://developer.salesforce.com/docs/platform/salesforce-code-analyzer/guide/release-notes.md#code-analyzer-v4120-end-of-life). Use [Code Analyzer v5](https://developer.salesforce.com/docs/platform/salesforce-code-analyzer/guide/code-analyzer.html) instead. (cli PR [#2322](https://github.com/salesforcecli/cli/pull/2322))
+
+## 2.100.2 (Aug 6, 2025) [stable]
 
 * NEW: Add custom evaluations to your agent test spec with the updated `agent generate test-spec` command, which now asks if you want to add one to a specific test case.  
 
@@ -40,7 +80,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
      * Comparison operator: The operator used to compare the expected and actual values returned from the test. Examples are equals, greater than or equal, and so on. 
      * Expected value: The value you expect after the evaluation is tested.
   
-   The `agent generate test-spec` uses the Agentforce Testing API under the covers. Therefore, for more information, see [Add Custom Evaluation Criteria to a Test Case](https://developer.salesforce.com/docs/einstein/genai/guide/testing-api-custom-evaluation-criteria.html#get-started-with-custom-evaluation-criteria). (plugin-agent PR [#177](https://github.com/salesforcecli/plugin-agent/pull/177))
+   The `agent generate test-spec` command uses the Agentforce Testing API under the covers. Therefore, for more information, see [Add Custom Evaluation Criteria to a Test Case](https://developer.salesforce.com/docs/einstein/genai/guide/testing-api-custom-evaluation-criteria.html#get-started-with-custom-evaluation-criteria). (plugin-agent PR [#177](https://github.com/salesforcecli/plugin-agent/pull/177))
 
 * FIX: You can once again successfully create a scratch org asynchronously (`org create scratch --async`) and then resume its creation (`org resume scratch`).   (GitHub Issue [#3322](https://github.com/forcedotcom/cli/issues/3322), sfdx-core PR [#1207](https://github.com/forcedotcom/sfdx-core/pull/1207), plugin-org PR [#1473](https://github.com/salesforcecli/plugin-org/pull/1473))
 
@@ -55,7 +95,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * CatalogedApiArtfctVerInfo
     * RuleLibraryDefinition (GitHub Issue [#3099](https://github.com/forcedotcom/cli/issues/3099))
 
-## 2.99.6 (July 30, 2025) [stable]
+## 2.99.6 (July 30, 2025)
 
 * NEW: We improved the performance of deploys and retrieves. (source-deploy-retrieve PR [#1583](https://github.com/forcedotcom/source-deploy-retrieve/pull/1583), source-deploy-retrieve PR [#1591](https://github.com/forcedotcom/source-deploy-retrieve/pull/1591))
 
