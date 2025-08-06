@@ -67,6 +67,14 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
   The `agent generate test-spec` command uses the Agentforce Testing API under the covers. For more information, see [Conversation History](https://developer.salesforce.com/docs/einstein/genai/guide/testing-api-build-tests.html#conversation-history). (plugin-agent PR [#181](https://github.com/salesforcecli/plugin-agent/pull/181))
 
+* NEW: Display the dependency graph for an unlocked or 2GP managed package version with the new `package version displaydependencies` CLI command. This example displays the dependencies of the specified package version in the order that the dependencies must be installed (root last):
+
+    ```bash
+    sf package version displaydependencies --package 04t... --edge-direction root-last --target-dev-hub devhub@example.com
+    ```
+
+    Run `sf package version displaydependencies` for additional examples and configuration information. (plugin-packaging PR [#1018](https://github.com/salesforcecli/plugin-packaging/pull/1018))
+
 * CHANGE: We removed  the `@salesforce/sfdx-scanner` plugin from the list of JIT (just in time) plugins. As a result, you must manually install the plugin if you want to use a `scanner` command and the plugin isn't installed in Salesforce CLI.  We removed this plugin from the JIT list because it contains CLI commands for Code Analyzer v4, which being [retired](https://developer.salesforce.com/docs/platform/salesforce-code-analyzer/guide/release-notes.md#code-analyzer-v4120-end-of-life). Use [Code Analyzer v5](https://developer.salesforce.com/docs/platform/salesforce-code-analyzer/guide/code-analyzer.html) instead. (cli PR [#2322](https://github.com/salesforcecli/cli/pull/2322))
 
 ## 2.100.3 (Aug 6, 2025) [stable]
