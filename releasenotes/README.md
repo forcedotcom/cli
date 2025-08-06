@@ -61,7 +61,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
       - role: user
         message: It's 123456.
       - role: agent
-        message: You ordered a Wacky Cat Bobble Head, right?  Great choice.
+        message: You ordered a Wacky Cat Bobblehead, right?  Great choice.
         topic: look_up_order
   ```
 
