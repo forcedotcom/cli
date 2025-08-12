@@ -41,6 +41,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * CHANGE: As we announced in [March 2025](https://github.com/forcedotcom/cli/issues/3249), when you now use the `org open` command with the `--json` or `--url-only` flags, the generated URLs in the output will be single-use only. This means that the URLs can be used only one time; subsequent use won’t allow you to log into the org.  The URLs also expire 60 seconds after they are generated. Finally, as a result of this change, we no longer support the `SF_SINGLE_USE_ORG_OPEN_URL` environment variable. (plugin-org PR [#1484](https://github.com/salesforcecli/plugin-org/pull/1484))
 
+* FIX: The CatalogedApiArtifactVerInfo metadata type has been correctly renamed CatalogedApiArtifactVersionInfo in the [metadata registry](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
+
 ## 2.101.5 (Aug 13, 2025) [stable]
 
 * NEW: Easily activate or deactivate an agent in your org with the new `agent activate|deactivate` commands.  Activating an agent makes it immediately available to your users. 
