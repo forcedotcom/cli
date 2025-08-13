@@ -25,11 +25,25 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.101.5 (Aug 13, 2025) [stable-rc]
+## 2.102.6 (Aug 20, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: Easily activate or deactivate an agent in your org when using the [VS Code Agentforce DX extension](https://marketplace.visualstudio.com/items?itemName=salesforce.salesforcedx-vscode-agents) by right-clicking on one of the agent's Bot metadata files and clicking **SFDX: Activate Agent** or **SFDX: Deactivate Agent**. The agent's Bot metadata files are in the `bots` folder of your package directory (`force-app` by default).
+
+    Activating an agent makes it immediately available to your users. If you deactivate a currently-active agent, which makes it unavailable to users, you're prompted to confirm. Only one agent version can be active at a time, so if you activate a new version, the old one is deactivated. 
+
+    If you (de)activate an agent from its Bot folder or its main Bot metadata file (such as `Resort_Manager.bot-meta.xml`), the latest agent version is (de)activated. To (de)activate a non-latest version, right-click on its version file, such as `v1.botVersion-meta.xml`. (vscode-agents PR [#55](https://github.com/forcedotcom/vscode-agents/pull/55))
+
+* NEW: When running agent tests with the `agent test run|resume|report` CLI commands or from the VS Code Agent Testing Panel, and a test utterance invoked an action, the test results now include details about the invoked action in JSON format. Details include any Apex classes or Flows that were invoked, any Salesforce objects that were touched, and so on.  (plugin-agent PR [#185](https://github.com/salesforcecli/plugin-agent/pull/185))
+
+* CHANGE: As we announced in [March 2025](https://github.com/forcedotcom/cli/issues/3249), when you now use the `org open` command with the `--json` or `--url-only` flags, the generated URLs in the output will be single-use only. This means that the URLs can be used only one time; subsequent use won’t allow you to log into the org.  The URLs also expire 60 seconds after they are generated. Finally, as a result of this change, we no longer support the `SF_SINGLE_USE_ORG_OPEN_URL` environment variable. (plugin-org PR [#1484](https://github.com/salesforcecli/plugin-org/pull/1484))
+
+* FIX: The CatalogedApiArtifactVerInfo metadata type has been correctly renamed CatalogedApiArtifactVersionInfo in the [metadata registry](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json). (source-deploy-retrieve PR [#1600](https://github.com/forcedotcom/source-deploy-retrieve/pull/1600))
+
+## 2.101.5 (Aug 13, 2025) [stable]
 
 * NEW: Easily activate or deactivate an agent in your org with the new `agent activate|deactivate` commands.  Activating an agent makes it immediately available to your users. 
 
@@ -77,7 +91,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * CHANGE: We removed  the `@salesforce/sfdx-scanner` plugin from the list of JIT (just in time) plugins. As a result, you must manually install the plugin if you want to use a `scanner` command and the plugin isn't installed in Salesforce CLI.  We removed this plugin from the JIT list because it contains CLI commands for Code Analyzer v4, which being [retired](https://developer.salesforce.com/docs/platform/salesforce-code-analyzer/guide/release-notes.md#code-analyzer-v4120-end-of-life). Use [Code Analyzer v5](https://developer.salesforce.com/docs/platform/salesforce-code-analyzer/guide/code-analyzer.html) instead. (cli PR [#2322](https://github.com/salesforcecli/cli/pull/2322))
 
-## 2.100.4 (Aug 6, 2025) [stable]
+## 2.100.4 (Aug 6, 2025)
 
 * NEW: Add custom evaluations to your agent test spec with the updated `agent generate test-spec` command, which now asks if you want to add one to a specific test case.  
 
