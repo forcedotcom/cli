@@ -31,6 +31,17 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* CHANGE: We removed the `--async` flag of these commands:
+
+    * `data delete bulk`
+    * `data export bulk`
+    * `data import bulk`
+    * `data query`
+    * `data update bulk`
+    * `data upset bulk`
+
+    The commands don't need the `--async` flag because they're asynchronous by default. We deprecated the flag back in [April 23, 2025)](./README.md#2857-april-23-2025). (plugin-data PR [#1303](https://github.com/salesforcecli/plugin-data/pull/1303))
+
 * FIX: Salesforce DX projects now support the UiPreviewMessageTabDef [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json). 
 
 ## 2.102.6 (Aug 20, 2025) [stable]
