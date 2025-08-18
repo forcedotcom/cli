@@ -25,11 +25,15 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.102.6 (Aug 20, 2025) [stable-rc]
+## 2.103.6 (Aug 27, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: Salesforce DX projects now support the UiPreviewMessageTabDef [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json). 
+
+## 2.102.6 (Aug 20, 2025) [stable]
 
 * NEW: Easily activate or deactivate an agent in your org when using the [VS Code Agentforce DX extension](https://marketplace.visualstudio.com/items?itemName=salesforce.salesforcedx-vscode-agents) by right-clicking on one of the agent's Bot metadata files and clicking **SFDX: Activate Agent** or **SFDX: Deactivate Agent**. The agent's Bot metadata files are in the `bots` folder of your package directory (`force-app` by default).
 
@@ -43,7 +47,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The CatalogedApiArtifactVerInfo metadata type has been correctly renamed CatalogedApiArtifactVersionInfo in the [metadata registry](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json). (source-deploy-retrieve PR [#1600](https://github.com/forcedotcom/source-deploy-retrieve/pull/1600))
 
-## 2.101.5 (Aug 13, 2025) [stable]
+## 2.101.5 (Aug 13, 2025)
 
 * NEW: Easily activate or deactivate an agent in your org with the new `agent activate|deactivate` commands.  Activating an agent makes it immediately available to your users. 
 
