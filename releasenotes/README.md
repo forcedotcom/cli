@@ -31,7 +31,15 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* CHANGE: We removed the `--async` flag of these commands:
+* NEW and CHANGED: Last week (in version 2.102.6), we introduced a new feature to display details about an invoked action when running agent tests with the `agent test run|resume|report` CLI commands. These details are in JSON format and displayed in the Generated Data section of the test results. Depending on the action, the JSON can get pretty long. So for simplicity, we no longer output these details _by default_; instead, use the new `--verbose` flag to output the details. This example runs an agent test and specifies that the output should include the generated data:
+
+    ```bash
+    sf agent test run --api-name Resort_Manager_Test --verbose --wait 40
+    ```
+    
+    (plugin-agent PR [#189](https://github.com/salesforcecli/plugin-agent/pull/189))
+
+* CHANGE: We removed the `--async` flag of each of these commands:
 
     * `data delete bulk`
     * `data export bulk`
@@ -40,7 +48,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `data update bulk`
     * `data upset bulk`
 
-    The commands don't need the `--async` flag because they're asynchronous by default. We deprecated the flag back in [April 23, 2025)](./README.md#2857-april-23-2025). (plugin-data PR [#1303](https://github.com/salesforcecli/plugin-data/pull/1303))
+    The commands don't need the `--async` flag because they're asynchronous by default. We deprecated the flag back in [April 23, 2025)](./README.md#2857-april-23-2025. (plugin-data PR [#1303](https://github.com/salesforcecli/plugin-data/pull/1303))
 
 * FIX: Salesforce DX projects now support the UiPreviewMessageTabDef [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json). 
 
