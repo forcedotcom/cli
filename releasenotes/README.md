@@ -44,9 +44,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `data delete bulk`
     * `data export bulk`
     * `data import bulk`
-    * `data query`
     * `data update bulk`
-    * `data upset bulk`
+    * `data upsert bulk`
 
     The commands don't need the `--async` flag because they're asynchronous by default. We deprecated the flag back in [April 23, 2025)](./README.md#2857-april-23-2025. (plugin-data PR [#1303](https://github.com/salesforcecli/plugin-data/pull/1303))
 
