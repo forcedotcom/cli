@@ -53,7 +53,14 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     The commands don't need the `--async` flag because they're asynchronous by default. We deprecated the flag back in [April 23, 2025)](./README.md#2857-april-23-2025. (plugin-data PR [#1303](https://github.com/salesforcecli/plugin-data/pull/1303))
 
-* CHANGE: We deprecated the `org login device` command and will remove it from Salesforce CLI in the near future. It's also now hidden, so it won't appear when you run `sf org login -h`. But it remains usable until its removal. 
+* CHANGE: We deprecated the `org login device` command and will remove it from Salesforce CLI in the near future. It's also now hidden, so it won't appear when you run `sf org login -h`. 
+
+    We are taking these actions because the command uses the the OAuth 2.0 device flow, which is being blocked.  For details see [Prepare for Connected App Usage Restrictions Change](https://help.salesforce.com/s/articleView?id=005132365&type=1&utm_source=techcomms&utm_medium=email&utm_campaign=FY26_Core_4013001).
+
+    We recommend that instead of `org login device`, you use one of these other commands:
+  
+    *  [`org login jwt`](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_jwt_flow.htm) to authorize an org in headless environments, such as CI.
+    *  [`org login web`](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_web_flow.htm) to authorize an org using a browser.
 
 * FIX: Salesforce DX projects now support the UiPreviewMessageTabDef [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json). 
 
