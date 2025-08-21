@@ -31,6 +31,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: Check out the new release of the [Agentforce DX for VS Code extension](https://marketplace.visualstudio.com/items?itemName=salesforce.salesforcedx-vscode-agents)! You can now chat with an active agent using the new Agent Preview panel to see how the agent responds to your statements, questions, and commands (utterances). This feature is the VS Code equivalent of the `agent preview` CLI command.  And if an agent action that's implemented with an Apex class encounters an error, you can use **Debug Mode** during the chat to automatically invoke the [Apex Replay Debugger](https://developer.salesforce.com/docs/platform/sfvscode-extensions/guide/replay-debugger.html).
+
+    See the [README](https://github.com/forcedotcom/vscode-agents/blob/HEAD/README.md#preview-an-agent-and-debug-the-conversation) for prerequisites and instructions for using this feature. 
+
 * NEW and CHANGED: Last week (in version 2.102.6), we introduced a new feature to display details about an invoked action when running agent tests with the `agent test run|resume|report` CLI commands. These details are in JSON format and displayed in the Generated Data section of the test results. Depending on the action, the JSON can get pretty long. So for simplicity, we no longer output these details _by default_; instead, use the new `--verbose` flag to output the details. This example runs an agent test and specifies that the output should include the generated data:
 
     ```bash
@@ -48,6 +52,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `data upsert bulk`
 
     The commands don't need the `--async` flag because they're asynchronous by default. We deprecated the flag back in [April 23, 2025)](./README.md#2857-april-23-2025. (plugin-data PR [#1303](https://github.com/salesforcecli/plugin-data/pull/1303))
+
+* CHANGE: We deprecated the `org login device` command and will remove it from Salesforce CLI in the near future. It's also now hidden, so it won't appear when you run `sf org login -h`. But it remains usable until its removal. 
 
 * FIX: Salesforce DX projects now support the UiPreviewMessageTabDef [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json). 
 
