@@ -25,11 +25,20 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.103.7 (Aug 27, 2025) [stable-rc]
+## 2.104.6 (Sept 3, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* ANNOUNCEMENT: Starting in December 2025, the `project deploy start` and `project retrieve start` commands will require that the target org use source tracking, unless you specify the metadata you want to deploy or retrieve. If you deploy or retrieve to an org that doesn’t use source tracking, then you must specify the metadata you want to deploy or retrieve. See the [pinned issue](https://github.com/forcedotcom/cli/issues/3375) for more information. 
+
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+
+    * FieldMappingConfig
+    * FieldMappingConfigItem
+
+## 2.103.7 (Aug 27, 2025) [stable]
 
 * NEW: Check out the new release of the [Agentforce DX for VS Code extension](https://marketplace.visualstudio.com/items?itemName=salesforce.salesforcedx-vscode-agents)! You can now chat with an active agent using the new Agent Preview panel to see how the agent responds to your statements, questions, and commands (utterances). This feature is the VS Code equivalent of the `agent preview` CLI command.  And if an agent action that's implemented with an Apex class encounters an error, you can use **Debug Mode** during the chat to automatically invoke the [Apex Replay Debugger](https://developer.salesforce.com/docs/platform/sfvscode-extensions/guide/replay-debugger.html).
 
@@ -64,7 +73,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Salesforce DX projects now support the UiPreviewMessageTabDef [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json). 
 
-## 2.102.6 (Aug 20, 2025) [stable]
+## 2.102.6 (Aug 20, 2025)
 
 * NEW: Easily activate or deactivate an agent in your org when using the [VS Code Agentforce DX extension](https://marketplace.visualstudio.com/items?itemName=salesforce.salesforcedx-vscode-agents) by right-clicking on one of the agent's Bot metadata files and clicking **SFDX: Activate Agent** or **SFDX: Deactivate Agent**. The agent's Bot metadata files are in the `bots` folder of your package directory (`force-app` by default).
 
