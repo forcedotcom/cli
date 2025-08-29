@@ -32,5 +32,6 @@
   "bugs": {
     "url": "https://github.com/forcedotcom/cli/issues"
   },
-  "homepage": "https://github.com/forcedotcom/cli#readme"
+  "homepage": "https://github.com/forcedotcom/cli#readme",
+  "license": "Apache-2.0"
 }
