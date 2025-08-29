@@ -1,11 +1,15 @@
 {
-    "productTag": "a1aB00000004Bx8IAE",
-    "defaultBuild": "offcore.tooling.54",
-    "issueTypeLabels": { "feature": "USER STORY", "regression": "BUG P1", "bug": "BUG P3" },
-    "hideWorkItemUrl": false,
-    "statusWhenClosed": "CLOSED",
-    "issueEpicMapping": {
-        "BUG P1": "a3QB00000004yR1MAI",
-        "BUG P3": "a3QB00000004yR1MAI"
-    }
+  "productTag": "a1aB00000004Bx8IAE",
+  "defaultBuild": "offcore.tooling.58",
+  "issueTypeLabels": {
+    "feature": "USER STORY",
+    "regression": "BUG P1",
+    "bug": "BUG P3"
+  },
+  "hideWorkItemUrl": false,
+  "statusWhenClosed": "CLOSED",
+  "issueEpicMapping": {
+    "BUG P1": "a3QB00000004yR1MAI",
+    "BUG P3": "a3QB00000004yR1MAI"
+  }
 }
