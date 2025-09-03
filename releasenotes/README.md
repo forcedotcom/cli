@@ -29,12 +29,14 @@ Additional documentation:
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
-------------
-
 * ANNOUNCEMENTS:
     
 	* Starting 8/28/2025, the OAuth 2.0 Device Flow is blocked in the default `Salesforce CLI` connected app. See the [pinned issue](https://github.com/forcedotcom/cli/issues/3368) for more information. 
 	* Starting in December 2025, the `project deploy start` and `project retrieve start` commands will require that the target org use source tracking, unless you specify the metadata you want to deploy or retrieve. If you deploy or retrieve to an org that doesn’t use source tracking, then you must specify the metadata you want to deploy or retrieve. See the [pinned issue](https://github.com/forcedotcom/cli/issues/3375) for more information.
+
+------------
+
+* FIX: We fixed some under-the-hood bugs.
 
 ## 2.104.6 (Sept 3, 2025) [stable]
 
@@ -42,6 +44,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
 	* Starting 8/28/2025, the OAuth 2.0 Device Flow is blocked in the default `Salesforce CLI` connected app. See the [pinned issue](https://github.com/forcedotcom/cli/issues/3368) for more information. 
 	* Starting in December 2025, the `project deploy start` and `project retrieve start` commands will require that the target org use source tracking, unless you specify the metadata you want to deploy or retrieve. If you deploy or retrieve to an org that doesn’t use source tracking, then you must specify the metadata you want to deploy or retrieve. See the [pinned issue](https://github.com/forcedotcom/cli/issues/3375) for more information.
+
+------------
 
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
 
