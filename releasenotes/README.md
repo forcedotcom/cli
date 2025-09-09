@@ -25,9 +25,15 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.105.6 (Sept 10, 2025) [stable-rc]
+## 2.106.5 (Sept 17, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+------------
+
+* FIX: We fixed a Windows security vulnerability to ensure that the Salesforce CLI installer always executes the correct `cmd.exe` file. (cli PR [#2365](https://github.com/salesforcecli/cli/pull/2365), oclif PR [#1852](https://github.com/oclif/oclif/pull/1852))
+
+## 2.105.6 (Sept 10, 2025) [stable]
 
 * ANNOUNCEMENTS:
     
@@ -38,14 +44,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We fixed some under-the-hood bugs.
 
-## 2.104.6 (Sept 3, 2025) [stable]
-
-* ANNOUNCEMENTS:
-    
-	* Starting 8/28/2025, the OAuth 2.0 Device Flow is blocked in the default `Salesforce CLI` connected app. See the [pinned issue](https://github.com/forcedotcom/cli/issues/3368) for more information. 
-	* Starting in December 2025, the `project deploy start` and `project retrieve start` commands will require that the target org use source tracking, unless you specify the metadata you want to deploy or retrieve. If you deploy or retrieve to an org that doesn’t use source tracking, then you must specify the metadata you want to deploy or retrieve. See the [pinned issue](https://github.com/forcedotcom/cli/issues/3375) for more information.
-
-------------
+## 2.104.6 (Sept 3, 2025)
 
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
 
