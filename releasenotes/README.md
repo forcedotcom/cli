@@ -31,11 +31,17 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: (logic commands for testing Apex and Flow tests with the same command)
+
 * CHANGE: As we noted in the [April 30, 2025](README.md#2869-april-30-2025) release notes, Salesforce CLI now returns an error when you run `org logout` on an org that you haven't authorized; since April the command displayed only a warning. The exit code in this scenario has also changed from 0 to 1. (GitHub Issue [#3247](https://github.com/forcedotcom/cli/issues/3247), plugin-auth PR [#1366](https://github.com/salesforcecli/plugin-auth/pull/1366))
 
 * FIX: We fixed a regression in the `apex run test` command so that it now makes the expected number of API calls. (GitHub Issue [#3380](https://github.com/forcedotcom/cli/issues/3380), salesforcedx-apex PR [#569](https://github.com/forcedotcom/salesforcedx-apex/pull/569))
 
 * FIX: We increased the request timeout period in the JSForce `node-fetch` wrapper to prevent Salesforce CLI commands (such as `org create scratch`) from timing out too quickly. (GitHub Issue [#3354](https://github.com/forcedotcom/cli/issues/3354), jsforce PRs [#1738](https://github.com/jsforce/jsforce/pull/1738) and [#1745](https://github.com/jsforce/jsforce/pull/1745))
+
+* FIX: (GitHub Issue [#3392](https://github.com/forcedotcom/cli/issues/3392), telemetry PR [#450](https://github.com/forcedotcom/telemetry/pull/450))
+
+* FIX: (GitHub Issue [#3389](https://github.com/forcedotcom/cli/issues/3389), salesforcedx-apex PR [#568](https://github.com/forcedotcom/salesforcedx-apex/pull/568))
 
 ## 2.106.6 (Sept 17, 2025) [stable]
 
