@@ -35,6 +35,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We fixed a regression in the `apex run test` command so that it now makes the expected number of API calls. (GitHub Issue [#3380](https://github.com/forcedotcom/cli/issues/3380), salesforcedx-apex PR [#569](https://github.com/forcedotcom/salesforcedx-apex/pull/569))
 
+* FIX: We increased the request timeout period in the JSForce `node-fetch` wrapper to prevent Salesforce CLI commands (such as `org create scratch`) from timing out too quickly. (GitHub Issue [#3354](https://github.com/forcedotcom/cli/issues/3354), jsforce PRs [#1738](https://github.com/jsforce/jsforce/pull/1738) and [#1745](https://github.com/jsforce/jsforce/pull/1745))
+
 ## 2.106.6 (Sept 17, 2025) [stable]
 
 * FIX: We fixed a Windows security vulnerability to ensure that the Salesforce CLI installer always executes the correct `cmd.exe` file. (cli PR [#2365](https://github.com/salesforcecli/cli/pull/2365), oclif PR [#1852](https://github.com/oclif/oclif/pull/1852))
