@@ -31,7 +31,30 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: (logic commands for testing Apex and Flow tests with the same command)
+* NEW: Run tests for multiple Salesforce features, such as Apex classes and Flows, in a single and unified way with these new commands:
+
+    - `logic run test`: Invoke tests for Apex and Flows in an org.
+    - `logic get test`: Get the results of a test run if it timed out.  
+
+    Running the tests together with a single command ensures seamless interoperability between the features.
+
+    Many flags of these new commands mimic the flags for the existing `apex run|get test` and `flow run|get test` commands, such as `--tests`, `--test-level`, `--code-coverage`, `--class-names`, `--output-dir`, and more.  But the new `logic run test` command expands the `--tests` flag so that you can specify _both_ Apex and Flow tests and adds a `--test-category` flag to narrow the type of tests you want to run.  To specify a flow test, use this format: `FlowTest.<name-of-flow-test>`, such as `FlowTest.testMyFabulousFlow`, where `testMyFabulousFlow` is the API name of a specific flow test.
+
+  By default, the `logic run test` command executes asynchronously and returns a test run ID. Then use the `logic get test` command to retrieve the results. If you want to wait for the test run to complete and see the results in the command output, use the `--synchronous` flag.
+
+  This example runs all local Apex and Flow tests in the org with alias `my-scratch` asynchronously:
+
+  ```bash
+  sf logic run test --test-level RunLocalTests --test-category Apex --test-category Flow --target-org my-scratch
+  ```
+
+  The command returns a test run ID which you pass to the `logic get test` command to get the test results:
+
+  ```bash
+  sf logic get test --test-run-id <test-run-id>
+  ```
+  (plugin-apex PR [#792](https://github.com/salesforcecli/plugin-apex/pull/792) and [#795](https://github.com/salesforcecli/plugin-apex/pull/795))
+
 
 * CHANGE: As we noted in the [April 30, 2025](README.md#2869-april-30-2025) release notes, Salesforce CLI now returns an error when you run `org logout` on an org that you haven't authorized; since April the command displayed only a warning. The exit code in this scenario has also changed from 0 to 1. (GitHub Issue [#3247](https://github.com/forcedotcom/cli/issues/3247), plugin-auth PR [#1366](https://github.com/salesforcecli/plugin-auth/pull/1366))
 
