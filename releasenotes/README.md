@@ -62,9 +62,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We increased the request timeout period in the JSForce `node-fetch` wrapper to prevent Salesforce CLI commands (such as `org create scratch`) from timing out too quickly. (GitHub Issue [#3354](https://github.com/forcedotcom/cli/issues/3354), jsforce PRs [#1738](https://github.com/jsforce/jsforce/pull/1738) and [#1745](https://github.com/jsforce/jsforce/pull/1745))
 
-* FIX: (GitHub Issue [#3392](https://github.com/forcedotcom/cli/issues/3392), telemetry PR [#450](https://github.com/forcedotcom/telemetry/pull/450))
+* FIX: We fixed the Salesforce CLI telemetry dependencies and now the CLI is using all the correct licenses. (GitHub Issue [#3392](https://github.com/forcedotcom/cli/issues/3392), telemetry PR [#450](https://github.com/forcedotcom/telemetry/pull/450))
 
-* FIX: (GitHub Issue [#3389](https://github.com/forcedotcom/cli/issues/3389), salesforcedx-apex PR [#568](https://github.com/forcedotcom/salesforcedx-apex/pull/568))
+* FIX: We updated `apex run test` to align with the changed API response in v65.0, which in turned fixed the TypeError in `apex get test`. (GitHub Issue [#3389](https://github.com/forcedotcom/cli/issues/3389), salesforcedx-apex PR [#568](https://github.com/forcedotcom/salesforcedx-apex/pull/568))
 
 ## 2.106.6 (Sept 17, 2025) [stable]
 
