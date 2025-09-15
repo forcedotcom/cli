@@ -25,15 +25,21 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.106.5 (Sept 17, 2025) [stable-rc]
+## 2.107.6 (Sept 24, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
 
+* CHANGE: As we noted in the [April 30, 2025](README.md#2869-april-30-2025) release notes, Salesforce CLI now returns an error when you run `org logout` on an org that you haven't authorized; since April the command displayed only a warning. The exit code in this scenario has also changed from 0 to 1. (GitHub Issue [#3247](https://github.com/forcedotcom/cli/issues/3247), plugin-auth PR [#1366](https://github.com/salesforcecli/plugin-auth/pull/1366))
+
+* FIX: We fixed a regression in the `apex run test` command so that it now makes the expected number of API calls. (GitHub Issue [#3380](https://github.com/forcedotcom/cli/issues/3380), salesforcedx-apex PR [#569](https://github.com/forcedotcom/salesforcedx-apex/pull/569))
+
+## 2.106.6 (Sept 17, 2025) [stable]
+
 * FIX: We fixed a Windows security vulnerability to ensure that the Salesforce CLI installer always executes the correct `cmd.exe` file. (cli PR [#2365](https://github.com/salesforcecli/cli/pull/2365), oclif PR [#1852](https://github.com/oclif/oclif/pull/1852))
 
-## 2.105.6 (Sept 10, 2025) [stable]
+## 2.105.6 (Sept 10, 2025)
 
 * ANNOUNCEMENTS:
     
