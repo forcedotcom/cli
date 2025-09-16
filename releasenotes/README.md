@@ -38,7 +38,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     Running the tests together with a single command ensures seamless interoperability between the features.
 
-    Many flags of these new commands mimic the flags for the existing `apex run|get test` and `flow run|get test` commands, such as `--tests`, `--test-level`, `--code-coverage`, `--class-names`, `--output-dir`, and more.  But the new `logic run test` command expands the `--tests` flag so that you can specify _both_ Apex and Flow tests and adds a `--test-category` flag to narrow the type of tests you want to run.  To specify a flow test, use this format: `FlowTest.<name-of-flow-test>`, such as `FlowTest.testMyFabulousFlow`, where `testMyFabulousFlow` is the API name of a specific flow test.
+    Many flags of these new commands mimic the flags for the existing `apex run|get test` and `flow run|get test` commands, such as `--tests`, `--test-level`, `--code-coverage`, `--class-names`, `--output-dir`, and more.  But the new `logic run test` command expands the `--tests` flag so that you can specify _both_ Apex and Flow tests and adds a `--test-category` flag to narrow the type of tests you want to run.  To specify a flow test, use this format: `FlowTesting.<name-of-flow-test>`. Run `sf logic run test --help` for more information about getting the exact name of a Flow test. 
 
   By default, the `logic run test` command executes asynchronously and returns a test run ID. Then use the `logic get test` command to retrieve the results. If you want to wait for the test run to complete and see the results in the command output, use the `--synchronous` flag.
 
