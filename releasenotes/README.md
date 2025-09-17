@@ -25,15 +25,52 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.106.5 (Sept 17, 2025) [stable-rc]
+## 2.107.6 (Sept 24, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
 
+* NEW: (Beta) Run tests for multiple Salesforce features, such as Apex classes and Flows, in a single and unified way with these new commands:
+
+    - `logic run test`: Invoke tests for Apex and Flows in an org.
+    - `logic get test`: Get the results of a test run if it timed out.  
+
+    Running the tests together with a single command ensures seamless interoperability between the features.
+
+    Many flags of these new commands mimic the flags for the existing `apex run|get test` and `flow run|get test` commands, such as `--tests`, `--test-level`, `--code-coverage`, `--class-names`, `--output-dir`, and more.  But the new `logic run test` command expands the `--tests` flag so that you can specify _both_ Apex and Flow tests and adds a `--test-category` flag to narrow the type of tests you want to run.  To specify a flow test, use this format: `FlowTesting.<name-of-flow-test>`. Run `sf logic run test --help` for more information about getting the exact name of a Flow test. 
+
+  By default, the `logic run test` command executes asynchronously and returns a test run ID. Then use the `logic get test` command to retrieve the results. If you want to wait for the test run to complete and see the results in the command output, use the `--synchronous` flag.
+
+  This example runs all local Apex and Flow tests in the org with alias `my-scratch` asynchronously:
+
+  ```bash
+  sf logic run test --test-level RunLocalTests --test-category Apex --test-category Flow --target-org my-scratch
+  ```
+
+  The command returns a test run ID which you pass to the `logic get test` command to get the test results:
+
+  ```bash
+  sf logic get test --test-run-id <test-run-id>
+  ```
+  (plugin-apex PR [#792](https://github.com/salesforcecli/plugin-apex/pull/792) and [#795](https://github.com/salesforcecli/plugin-apex/pull/795))
+
+
+* CHANGE: As we noted in the [April 30, 2025](README.md#2869-april-30-2025) release notes, Salesforce CLI now returns an error when you run `org logout` on an org that you haven't authorized; since April the command displayed only a warning. The exit code in this scenario has also changed from 0 to 1. (GitHub Issue [#3247](https://github.com/forcedotcom/cli/issues/3247), plugin-auth PR [#1366](https://github.com/salesforcecli/plugin-auth/pull/1366))
+
+* FIX: We fixed a regression in the `apex run test` command so that it now makes the expected number of API calls. (GitHub Issue [#3380](https://github.com/forcedotcom/cli/issues/3380), salesforcedx-apex PR [#569](https://github.com/forcedotcom/salesforcedx-apex/pull/569))
+
+* FIX: We increased the request timeout period in the JSForce `node-fetch` wrapper to prevent Salesforce CLI commands (such as `org create scratch`) from timing out too quickly. (GitHub Issue [#3354](https://github.com/forcedotcom/cli/issues/3354), jsforce PRs [#1738](https://github.com/jsforce/jsforce/pull/1738) and [#1745](https://github.com/jsforce/jsforce/pull/1745))
+
+* FIX: We fixed the Salesforce CLI telemetry dependencies and now the CLI is using all the correct licenses. (GitHub Issue [#3392](https://github.com/forcedotcom/cli/issues/3392), telemetry PR [#450](https://github.com/forcedotcom/telemetry/pull/450))
+
+* FIX: We updated `apex run test` to align with the changed API response in v65.0, which in turned fixed the TypeError in `apex get test`. (GitHub Issue [#3389](https://github.com/forcedotcom/cli/issues/3389), salesforcedx-apex PR [#568](https://github.com/forcedotcom/salesforcedx-apex/pull/568))
+
+## 2.106.6 (Sept 17, 2025) [stable]
+
 * FIX: We fixed a Windows security vulnerability to ensure that the Salesforce CLI installer always executes the correct `cmd.exe` file. (cli PR [#2365](https://github.com/salesforcecli/cli/pull/2365), oclif PR [#1852](https://github.com/oclif/oclif/pull/1852))
 
-## 2.105.6 (Sept 10, 2025) [stable]
+## 2.105.6 (Sept 10, 2025)
 
 * ANNOUNCEMENTS:
     
