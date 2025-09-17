@@ -31,7 +31,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: Run tests for multiple Salesforce features, such as Apex classes and Flows, in a single and unified way with these new commands:
+* NEW: (Beta) Run tests for multiple Salesforce features, such as Apex classes and Flows, in a single and unified way with these new commands:
 
     - `logic run test`: Invoke tests for Apex and Flows in an org.
     - `logic get test`: Get the results of a test run if it timed out.  
