@@ -25,11 +25,15 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.107.6 (Sept 24, 2025) [stable-rc]
+## 2.108.6 (Oct 1, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: Salesforce DX projects now support the TransactionProcessingType [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json). 
+
+## 2.107.6 (Sept 24, 2025) [stable]
 
 * NEW: (Beta) Run tests for multiple Salesforce features, such as Apex classes and Flows, in a single and unified way with these new commands:
 
@@ -66,7 +70,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We updated `apex run test` to align with the changed API response in v65.0, which in turned fixed the TypeError in `apex get test`. (GitHub Issue [#3389](https://github.com/forcedotcom/cli/issues/3389), salesforcedx-apex PR [#568](https://github.com/forcedotcom/salesforcedx-apex/pull/568))
 
-## 2.106.6 (Sept 17, 2025) [stable]
+## 2.106.6 (Sept 17, 2025)
 
 * FIX: We fixed a Windows security vulnerability to ensure that the Salesforce CLI installer always executes the correct `cmd.exe` file. (cli PR [#2365](https://github.com/salesforcecli/cli/pull/2365), oclif PR [#1852](https://github.com/oclif/oclif/pull/1852))
 
