@@ -25,22 +25,20 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.110.6 (Oct 15, 2025) [stable-rc]
+
+## 2.109.6 (Oct 22, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
 
-* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
-
-  * DataMapperDefinition
-  * McpServerDefinition
-
-## 2.109.6 (Oct 8, 2025) [stable]
-
 * FIX: We fixed some under-the-hood bugs.
 
-## 2.108.6 (Oct 1, 2025)
+## Oct 8 and 15 2025
+
+Due to Dreamforce, we aren't releasing a new stable version on these dates. If you're attending Dreamforce, stop by Moscone West and say hello!
+
+## 2.108.6 (Oct 1, 2025) [stable]
 
 * FIX: Salesforce DX projects now support the TransactionProcessingType [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json). 
 
