@@ -26,11 +26,13 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.109.6 (Oct 22, 2025) [stable-rc]
+## 2.110.19 (October 29, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+## 2.109.6 (Oct 22, 2025) [stable]
 
 * FIX: We fixed some under-the-hood bugs.
 
@@ -38,7 +40,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 Due to Dreamforce, we aren't releasing a new stable version on these dates. If you're attending Dreamforce, stop by Moscone West and say hello!
 
-## 2.108.6 (Oct 1, 2025) [stable]
+## 2.108.6 (Oct 1, 2025)
 
 * FIX: Salesforce DX projects now support the TransactionProcessingType [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json). 
 
