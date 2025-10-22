@@ -26,11 +26,27 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.109.6 (Oct 22, 2025) [stable-rc]
+## 2.110.19 (Oct 29, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: Using the `SF_MDAPI_TEMP_DIR` environment variable when running `project retrieve start` now generates a correct directory name on Windows. (GitHub Issue [#3416](https://github.com/forcedotcom/cli/issues/3416), plugin-deploy-retrieve PR [#1460](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1460), source-deploy-retrieve PR [#1635](https://github.com/forcedotcom/source-deploy-retrieve/pull/1635))
+
+* FIX: The `org open` and `org open agent` commands now correctly generate frontdoor URLs so you can now successfully use the `--source-file` flag to open the org at a specific builder, such as  or Agentforce Builder or the setup page for Apex classes. (GitHub Discussion [#3427](https://github.com/forcedotcom/cli/discussions/3427), plugin-org PR [#1529](https://github.com/salesforcecli/plugin-org/pull/1529))
+
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+
+    * AiAuthoringBundle
+    * ComputeExtension
+    * DataMapperDefinition
+    * GiftEntryGridTemplate
+    * IntegrationProcdDefinition
+    * McpServerDefinition
+    * OmniscriptDefinition
+
+## 2.109.6 (Oct 22, 2025) [stable]
 
 * FIX: We fixed some under-the-hood bugs.
 
@@ -38,7 +54,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 Due to Dreamforce, we aren't releasing a new stable version on these dates. If you're attending Dreamforce, stop by Moscone West and say hello!
 
-## 2.108.6 (Oct 1, 2025) [stable]
+## 2.108.6 (Oct 1, 2025)
 
 * FIX: Salesforce DX projects now support the TransactionProcessingType [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json). 
 
