@@ -32,6 +32,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* FIX: Using the `SF_MDAPI_TEMP_DIR` environment variable when running `project retrieve start` now generates a correct directory name on Windows. (GitHub Issue [#3416](https://github.com/forcedotcom/cli/issues/3416), plugin-deploy-retrieve PR [#1460](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1460), source-deploy-retrieve PR [#1635](https://github.com/forcedotcom/source-deploy-retrieve/pull/1635))
+
 * FIX: The `org open` and `org open agent` commands now correctly generate frontdoor URLs so you can now successfully use the `--source-file` flag to open the org at a specific builder, such as  or Agentforce Builder or the setup page for Apex classes. (GitHub Discussion [#3427](https://github.com/forcedotcom/cli/discussions/3427), plugin-org PR [#1529](https://github.com/salesforcecli/plugin-org/pull/1529))
 
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
