@@ -32,6 +32,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* FIX: If you authorize an org with the `org login web` command, but then there's an issue after you log into your org, the CLI command now times out after 2 minutes rather than hang indefinitely.   (sfdx-core PR [#1245](https://github.com/forcedotcom/sfdx-core/pull/1245), sfdx-core PR [#1246](https://github.com/forcedotcom/sfdx-core/pull/1246))
+
 * FIX: Salesforce DX projects now support the FlowValueMap [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
  
 ## 2.110.20 (Oct 29, 2025) [stable]
