@@ -26,11 +26,15 @@ Additional documentation:
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
 
-## 2.110.20 (Oct 29, 2025) [stable-rc]
+## 2.111.5 (Nov 5, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: Salesforce DX projects now support the FlowValueMap [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
+ 
+## 2.110.20 (Oct 29, 2025) [stable]
 
 * FIX: Using the `SF_MDAPI_TEMP_DIR` environment variable when running `project retrieve start` now generates a correct directory name on Windows. (GitHub Issue [#3416](https://github.com/forcedotcom/cli/issues/3416), plugin-deploy-retrieve PR [#1460](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1460), source-deploy-retrieve PR [#1635](https://github.com/forcedotcom/source-deploy-retrieve/pull/1635))
 
@@ -45,7 +49,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * McpServerDefinition
     * OmniscriptDefinition
 
-## 2.109.6 (Oct 22, 2025) [stable]
+## 2.109.6 (Oct 22, 2025)
 
 * FIX: We fixed some under-the-hood bugs.
 
