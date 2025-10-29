@@ -49,9 +49,14 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * McpServerDefinition
     * OmniscriptDefinition
 
-## 2.109.6 (Oct 22, 2025)
+## 2.109.7 (Oct 22, 2025) [stable]
 
-* FIX: We fixed some under-the-hood bugs.
+* NEW: If you authorize an org with the `org login web` CLI command, but it runs into an issue during the org login process, the CLI command now times out after 2 minutes rather than hang indefinitely. You can customize the number of milliseconds that the command waits to timeout with the new SF_WEB_OAUTH_SERVER_TIMEOUT environment variable.  The default value is 120000 (2 minutes). This example sets the timeout to 3 minutes:
+
+    ```bash
+    export SF_WEB_OAUTH_SERVER_TIMEOUT=180000
+    ```
+    (sfdx-core PR [#1245](https://github.com/forcedotcom/sfdx-core/pull/1245), sfdx-core PR [#1246](https://github.com/forcedotcom/sfdx-core/pull/1246))
 
 ## Oct 8 and 15, 2025
 
