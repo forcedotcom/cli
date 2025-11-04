@@ -31,7 +31,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* **ANNOUNCEMENT OF AN UPCOMING CHANGE**: Starting ???, the `plugins link` command will no longer automatically install dependencies after it links the specified plugin into Salesforce CLI. At that time, you will need to run `yarn` manually to install the required dependencies before you run `plugins link`. In this release, we've simply updated the `plugins link` command to print out a message reminding you about the upcoming change. This change is mostly relevant to Salesforce CLI plugin developers, not standard users. (oclif plugin-plugins PR [#1230](https://github.com/oclif/plugin-plugins/pull/1230))
+**ANNOUNCEMENT OF UPCOMING CHANGES**
+
+* **`plugins link` command**: Starting ???, the `plugins link` command will no longer automatically install dependencies after it links the specified plugin into Salesforce CLI. At that time, you will need to run `yarn` manually to install the required dependencies before you run `plugins link`. In this release, we've simply updated the `plugins link` command to print out a message reminding you about the upcoming change. This change is mostly relevant to Salesforce CLI plugin developers, not standard users. (oclif plugin-plugins PR [#1230](https://github.com/oclif/plugin-plugins/pull/1230))
+* **Bundled Node.js version**: Starting February 2026, the Salesforce CLI installer for Windows, macOS, and Linux tarballs will start bundling Node.js v24 (Current LTS) instead of Node.js v22 (Maintenance LTS).  See [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/3445) for more additional information. 
 
 ## 2.111.5 (Nov 5, 2025) [stable]
 
