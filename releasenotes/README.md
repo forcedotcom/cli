@@ -31,6 +31,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* **ANNOUNCEMENT OF AN UPCOMING CHANGE**: Starting ???, the `plugins link` command will no longer automatically install dependencies after it links the specified plugin into Salesforce CLI. At that time, you will need to run `yarn` manually to install the required dependencies before you run `plugins link`. In this release, we've simply updated the `plugins link` command to print out a message reminding you about the upcoming change. This change is mostly relevant to Salesforce CLI plugin developers, not standard users. (oclif plugin-plugins PR [#1230](https://github.com/oclif/plugin-plugins/pull/1230))
+
 ## 2.111.5 (Nov 5, 2025) [stable]
 
 * FIX: Salesforce DX projects now support the FlowValueMap [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
