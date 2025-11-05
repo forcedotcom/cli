@@ -38,6 +38,14 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ## 2.111.7 (Nov 5, 2025) [stable]
 
+* NEW: Retrieve package metadata for a specified package version with the new `package version retrieve` command. Package metadata can be retrieved for only second-generation managed package versions or unlocked packages.
+
+   This example shows how to retrieve package metadata for a converted subscriber package version ID (starts with 04t) into `my-directory/` within your Salesforce DX project directory:
+
+  ```bash
+  sf package version retrieve --package 04tXXX --output-dir my-directory/ --target-dev-hub devhub@example.com
+  ```
+
 * FIX: Salesforce DX projects now support the FlowValueMap [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
  
 ## 2.110.22 (Oct 29, 2025)
