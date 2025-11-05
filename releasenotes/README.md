@@ -36,11 +36,11 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 * **`plugins link` Command**: (This change impacts Salesforce CLI plugin developers who use `yarn` as their package manager.) Starting March 2026, the `plugins link` command will no longer automatically install dependencies after it links the specified plugin into Salesforce CLI. You will need to run `yarn` manually to install the required dependencies before you run `plugins link`. In this release, the `plugins link` command has been updated to include a reminder about this upcoming change.  This change doesn't impact plugin developers who use `npm` or `pnmp` as their package manager because those types of plugins already don't get dependencies automatically installed when linked.  (oclif plugin-plugins PR [#1230](https://github.com/oclif/plugin-plugins/pull/1230))
 * **Bundled Node.js Version**: Starting February 2026, the Salesforce CLI installer for Windows, macOS, and Linux tarballs will start bundling Node.js v24 (Current LTS) instead of Node.js v22 (Maintenance LTS).  See [this pinned GitHub issue](https://github.com/forcedotcom/cli/issues/3445) for additional information. 
 
-## 2.111.5 (Nov 5, 2025) [stable]
+## 2.111.7 (Nov 5, 2025) [stable]
 
 * FIX: Salesforce DX projects now support the FlowValueMap [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
  
-## 2.110.21 (Oct 29, 2025)
+## 2.110.22 (Oct 29, 2025)
 
 * FIX: Using the `SF_MDAPI_TEMP_DIR` environment variable when running `project retrieve start` now generates a correct directory name on Windows. (GitHub Issue [#3416](https://github.com/forcedotcom/cli/issues/3416), plugin-deploy-retrieve PR [#1460](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1460), source-deploy-retrieve PR [#1635](https://github.com/forcedotcom/source-deploy-retrieve/pull/1635))
 
