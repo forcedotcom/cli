@@ -31,7 +31,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* FIX: Salesforce DX projects now support the AccountPlanObjMeasCalcDef [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json). (GitHub Issue [#3395](https://github.com/forcedotcom/cli/issues/3395))
+* FIX: We fixed some under-the-hood bugs.
 
 ## 2.112.6 (Nov 12, 2025) [stable]
 
