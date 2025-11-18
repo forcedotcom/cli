@@ -25,15 +25,23 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.113.6 (Nov 19, 2025) [stable-rc]
+## 2.114.5 (Nov 26, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
 
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+
+    * AccountPlanObjMeasCalcDef
+    * LightningOutApp
+    * DataObjectSearchIndexConf
+
+## 2.113.6 (Nov 19, 2025) [stable]
+
 * FIX: We fixed some under-the-hood bugs.
 
-## 2.112.6 (Nov 12, 2025) [stable]
+## 2.112.6 (Nov 12, 2025)
 
 **ANNOUNCEMENT OF UPCOMING CHANGES**
 
