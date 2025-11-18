@@ -31,10 +31,12 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* FIX: The `project retrieve start` command now correctly fails and outputs an error message if you specify an output directory (with the `--output-dir` flag) that is outside of the Salesforce DX project. (GitHub Issue [#3432](https://github.com/forcedotcom/cli/issues/3432), plugin-deploy-retrieve PR [#1480](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1480))
+
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
 
-    * AccountPlanObjMeasCalcDef
-    * LightningOutApp
+    * AccountPlanObjMeasCalcDef (GitHub Issue [#3395](https://github.com/forcedotcom/cli/issues/3395))
+    * LightningOutApp (GitHub Issue [#3435](https://github.com/forcedotcom/cli/issues/3435))
     * DataObjectSearchIndexConf (GitHub Issue [#3441](https://github.com/forcedotcom/cli/issues/3441))
 
 ## 2.113.6 (Nov 19, 2025) [stable]
