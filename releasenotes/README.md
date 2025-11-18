@@ -35,7 +35,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     * AccountPlanObjMeasCalcDef
     * LightningOutApp
-    * DataObjectSearchIndexConf
+    * DataObjectSearchIndexConf (GitHub Issue [#3441](https://github.com/forcedotcom/cli/issues/3441))
 
 ## 2.113.6 (Nov 19, 2025) [stable]
 
