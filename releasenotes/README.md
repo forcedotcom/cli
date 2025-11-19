@@ -25,15 +25,41 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.113.6 (Nov 19, 2025) [stable-rc]
+## 2.114.5 (Nov 26, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
 
+* NEW: Specify that you want to run only relevant Apex tests when you deploy metadata to your org with the new `RunRelevantTests` value of the `--test-level` flag of the `project deploy start|validate` commands .  Examples of relevant tests include:
+
+    * New or modified tests that are part of the deployment.
+    * Specific tests for new or modified Apex classes or triggers that are part of the deployment.
+    * Tests that directly or indirectly reference new or modified Apex classes or triggers that are part of the deployment.
+    * Tests that are marked critical, which always run.
+ 
+    **NOTE**: This feature is available only for Spring '26 orgs (API version 66.0). 
+
+    This example deploys source files in the `force-app` package directory to the org with alias `my-scratch` and runs only the Apex tests that are relevant to the actual metadata that's being deployed:
+
+    ```bash
+    sf project deploy start --source-dir force-app --test-level RunRelevantTests --target-org my-scratch
+    ```
+    (plugin-deploy-retrieve PR [#1479](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1479), source-deploy-retrieve PR [#1644](https://github.com/forcedotcom/source-deploy-retrieve/pull/1644))
+
+* FIX: The `project retrieve start` command now correctly fails and outputs an error message if you specify an output directory (with the `--output-dir` flag) that is outside of the Salesforce DX project. (GitHub Issue [#3432](https://github.com/forcedotcom/cli/issues/3432), plugin-deploy-retrieve PR [#1480](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1480))
+
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+
+    * AccountPlanObjMeasCalcDef (GitHub Issue [#3395](https://github.com/forcedotcom/cli/issues/3395))
+    * LightningOutApp (GitHub Issue [#3435](https://github.com/forcedotcom/cli/issues/3435))
+    * DataObjectSearchIndexConf (GitHub Issue [#3441](https://github.com/forcedotcom/cli/issues/3441))
+
+## 2.113.6 (Nov 19, 2025) [stable]
+
 * FIX: We fixed some under-the-hood bugs.
 
-## 2.112.6 (Nov 12, 2025) [stable]
+## 2.112.6 (Nov 12, 2025)
 
 **ANNOUNCEMENT OF UPCOMING CHANGES**
 
