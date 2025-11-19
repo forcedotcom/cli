@@ -31,6 +31,22 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: Specify that you want to run only relevant Apex tests when you deploy metadata to your org with the new `RunRelevantTests` value of the `--test-level` flag of the `project deploy start|validate` commands .  Examples of relevant tests include:
+
+    * New or modified tests that are part of the deployment.
+    * Specific tests for new or modified Apex classes or triggers that are part of the deployment.
+    * Tests that directly or indirectly reference new or modified Apex classes or triggers that are part of the deployment.
+    * Tests that are marked critical, which always run.
+ 
+    **NOTE**: This feature is available only for Spring '26 orgs (API version 66.0). 
+
+    This example deploys source files in the `force-app` package directory to the org with alias `my-scratch` and runs only the Apex tests that are relevant to the actual metadata that's being deployed:
+
+    ```bash
+    sf project deploy start --source-dir force-app --test-level RunRelevantTests --target-org my-scratch
+    ```
+    (plugin-deploy-retrieve PR [#1479](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1479), source-deploy-retrieve PR [#1644](https://github.com/forcedotcom/source-deploy-retrieve/pull/1644))
+
 * FIX: The `project retrieve start` command now correctly fails and outputs an error message if you specify an output directory (with the `--output-dir` flag) that is outside of the Salesforce DX project. (GitHub Issue [#3432](https://github.com/forcedotcom/cli/issues/3432), plugin-deploy-retrieve PR [#1480](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1480))
 
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
