@@ -31,7 +31,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: Specify that you want to run only relevant Apex tests when you deploy metadata to your org with the new `RunRelevantTests` value of the `--test-level` flag of the `project deploy start|validate` commands .  Examples of relevant tests include:
+* NEW: Specify that you want to run only relevant Apex tests when you deploy metadata to your org with the new `RunRelevantTests` value of the `--test-level` flag of the `project deploy start|validate` and `project delete source` commands .  Examples of relevant tests include:
 
     * New or modified tests that are part of the deployment.
     * Specific tests for new or modified Apex classes or triggers that are part of the deployment.
