@@ -31,7 +31,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: (Beta) Specify that you want to run only relevant Apex tests when you deploy metadata to your org with the new `RunRelevantTests` value of the `--test-level` flag of the `project deploy start|validate` and `project delete source` commands. Salesforce automatically identifies the relevant tests based on an analysis of the deployment payload and the payload dependencies. For fine-grained control, you can also annotate test classes so that they always run in certain conditions. See [@IsTest Annotation](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_annotation_isTest.htm) in the _Apex Developer Guide_.
+* NEW: (Beta) Specify that you want to run only relevant Apex tests when you deploy metadata to your org with the new `RunRelevantTests` value of the `--test-level` flag of the `project deploy start|validate` and `project delete source` commands.
+
+    Salesforce automatically identifies the relevant tests based on an analysis of the deployment payload and the payload dependencies. For fine-grained control, you can also annotate test classes so that they always run in certain conditions. See [@IsTest Annotation](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_annotation_isTest.htm) in the _Apex Developer Guide_. Each class and trigger in the deployment package must be covered by the executed tests for a minimum of 75% code coverage. This coverage is computed for each class and triggers individually and is different than the overall coverage percentage.
  
     **NOTE**: This feature is available only for Spring '26 orgs (API version 66.0). 
 
