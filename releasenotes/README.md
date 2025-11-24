@@ -25,7 +25,7 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.114.5 (Nov 26, 2025) [stable-rc]
+## 2.114.5 (Dec 3, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
@@ -51,6 +51,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * AccountPlanObjMeasCalcDef (GitHub Issue [#3395](https://github.com/forcedotcom/cli/issues/3395))
     * LightningOutApp (GitHub Issue [#3435](https://github.com/forcedotcom/cli/issues/3435))
     * DataObjectSearchIndexConf (GitHub Issue [#3441](https://github.com/forcedotcom/cli/issues/3441))
+
+## Nov 26, 2025
+
+Due to the Thanksgiving break in the United States, we aren't releasing a new stable version. Happy Thanksgiving!
 
 ## 2.113.6 (Nov 19, 2025) [stable]
 
