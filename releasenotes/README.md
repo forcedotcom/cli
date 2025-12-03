@@ -31,6 +31,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* FIX: You no longer get an error if you run `apex run test` asynchronously, such as with the `--wait 0` flag, and also specify an output format or `--code-coverage`. (GitHub Issue [#2963](https://github.com/forcedotcom/cli/issues/2963), salesforcedx-apex PR [#596](https://github.com/forcedotcom/salesforcedx-apex/pull/596))
 
 ## 2.114.5 (Dec 3, 2025) [stable]
 
