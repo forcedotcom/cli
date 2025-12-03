@@ -25,11 +25,14 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.114.5 (Dec 3, 2025) [stable-rc]
+## 2.115.13 (Dec 10, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+
+## 2.114.5 (Dec 3, 2025) [stable]
 
 * NEW: (Beta) Specify that you want to run only relevant Apex tests when you deploy metadata to your org with the new `RunRelevantTests` value of the `--test-level` flag of the `project deploy start|validate` and `project delete source` commands.
 
@@ -56,7 +59,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 Due to the Thanksgiving break in the United States, we aren't releasing a new stable version. Happy Thanksgiving!
 
-## 2.113.6 (Nov 19, 2025) [stable]
+## 2.113.6 (Nov 19, 2025)
 
 * FIX: We fixed some under-the-hood bugs.
 
