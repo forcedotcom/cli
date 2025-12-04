@@ -33,6 +33,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: You no longer get an error if you run `apex run test` asynchronously, such as with the `--wait 0` flag, and also specify an output format or `--code-coverage`. (GitHub Issue [#2963](https://github.com/forcedotcom/cli/issues/2963), salesforcedx-apex PR [#596](https://github.com/forcedotcom/salesforcedx-apex/pull/596))
 
+* FIX: The `org login web` command, when run with the `--scopes` flag, now correctly requests the specified authentication (OAuth) scopes, rather than always requesting the default scopes (`refresh_token api web`). (plugin-auth PRs [#1420](https://github.com/salesforcecli/plugin-auth/pull/1420) and [#1423](https://github.com/salesforcecli/plugin-auth/pull/1423))
+
 ## 2.114.5 (Dec 3, 2025) [stable]
 
 * NEW: (Beta) Specify that you want to run only relevant Apex tests when you deploy metadata to your org with the new `RunRelevantTests` value of the `--test-level` flag of the `project deploy start|validate` and `project delete source` commands.
