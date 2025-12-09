@@ -25,17 +25,23 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.115.14 (Dec 10, 2025) [stable-rc]
+## 2.116.6 (Dec 17, 2025) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
 
+* FIX: Salesforce DX projects now support the `StageAssignment` [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json). 
+
+## 2.115.14 (Dec 10, 2025) [stable]
+
+* NEW: AFDX Beta!
+
 * FIX: You no longer get an error if you run `apex run test` asynchronously, such as with the `--wait 0` flag, and also specify an output format or `--code-coverage`. (GitHub Issue [#2963](https://github.com/forcedotcom/cli/issues/2963), salesforcedx-apex PR [#596](https://github.com/forcedotcom/salesforcedx-apex/pull/596))
 
 * FIX: The `org login web` command, when run with the `--scopes` flag, now correctly requests the specified authentication (OAuth) scopes, rather than always requesting the default scopes (`refresh_token api web`). (plugin-auth PRs [#1420](https://github.com/salesforcecli/plugin-auth/pull/1420) and [#1423](https://github.com/salesforcecli/plugin-auth/pull/1423))
 
-## 2.114.5 (Dec 3, 2025) [stable]
+## 2.114.5 (Dec 3, 2025)
 
 * NEW: (Beta) Specify that you want to run only relevant Apex tests when you deploy metadata to your org with the new `RunRelevantTests` value of the `--test-level` flag of the `project deploy start|validate` and `project delete source` commands.
 
