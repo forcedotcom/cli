@@ -35,7 +35,12 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ## 2.115.14 (Dec 10, 2025) [stable]
 
-* NEW: AFDX Beta!
+* NEW: (Beta) Build complex enterprise-ready agents with the new Agentforce DX CLI commands and updated VS Code extension.  To say:
+
+    * These next-gen agents use Agent Script, blurb and link to docs and RN
+    * 3 new CLI commands
+    * Updated VS Code extension makes it easy to preview an agent
+    * 
 
 * FIX: You no longer get an error if you run `apex run test` asynchronously, such as with the `--wait 0` flag, and also specify an output format or `--code-coverage`. (GitHub Issue [#2963](https://github.com/forcedotcom/cli/issues/2963), salesforcedx-apex PR [#596](https://github.com/forcedotcom/salesforcedx-apex/pull/596))
 
