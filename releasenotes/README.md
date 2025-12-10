@@ -35,19 +35,21 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ## 2.115.15 (Dec 10, 2025) [stable]
 
-* NEW: (Beta) Build complex, reliable, and enterprise-ready agents right in your Salesforce DX project with these new features of Agentforce DX. 
+* NEW: (Beta) Build complex, deterministic, enterprise-ready agents with Agent Script and Agentforce DX.
 
-    * Generate, validate, and publish an _authoring bundle_ with these new CLI commands. An authoring bundle is a new metadata type ([AiAuthoringBundle](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_aiauthoringbundle.htm)) that represents an agent that uses Agent Script as its blueprint. 
+    Agentforce DX is the pro-code equivalent of the newly-released [Agentforce Builder](https://help.salesforce.com/s/articleView?id=release-notes.rn_einstein_agent_builder.htm&release=258&type=5) UI that runs in your org. See [Author an Agent with Agentforce DX](https://developer.salesforce.com/docs/einstein/genai/guide/agent-dx-nga-author-agent.html) in the _Agentforce Developer Guide_ for more information.  New features include: 
+
+   * Author agents using [Agent Script](https://developer.salesforce.com/docs/einstein/genai/guide/agent-script.html), the language for building Salesforce agents. Agent Script combines the flexibility of using natural language for code generation with the reliability of programmatic expressions for handling business rules.
+
+   * Easily edit Agent Script files in the VS Code editor with the new [Agent Script VS Code extension](https://marketplace.visualstudio.com/items?itemName=salesforce.agent-script-language-client), which provides standard code editing features: syntax highlighting, visual syntax cues (such as red squiggles for errors), internal validation, and Outline support.
+   
+   * Preview an agent conversation from its Agent Script file and get the behind-the-scenes details of how your agent is working with the updated [Agentforce DX VS Code Extension](https://marketplace.visualstudio.com/items?itemName=salesforce.salesforcedx-vscode-agents) The preview supports two modes: simulated (which mocks data) and live mode (which uses real Apex classes, flows, and other resources).
+ 
+   * Generate, validate, and publish an _authoring bundle_ with these new CLI commands. An authoring bundle is a new metadata type ([AiAuthoringBundle](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_aiauthoringbundle.htm)) that represents an agent that uses Agent Script as its blueprint. 
         * `agent generate authoring-bundle`: Generate an authoring bundle from an existing agent spec YAML file. 
         * `agent validate authoring-bundle`: Validate an authoring bundle to ensure its Agent Script file compiles successfully and can be used to publish an agent.
         * `agent publish authoring-bundle`: Publish an authoring bundle to your org, which results in a new agent or a new version of an existing agent.
-
-    * Author agents using [Agent Script](https://developer.salesforce.com/docs/einstein/genai/guide/agent-script.html), the language for building Salesforce agents. Agent Script combines the flexibility of using natural language for code generation, with the reliability of programmatic expressions for handling business rules.
-    * Easily edit Agent Script files in the VS Code editor with the new [Agent Script VS Code extension](https://marketplace.visualstudio.com/items?itemName=salesforce.agent-script-language-client), which provides standard code editing features: syntax highlighting, visual syntax cues (such as red squiggles for errors), internal validation, and Outline support.
-    * Preview an agent conversation from its Agent Script file and get the behind-the-scenes details of how your agent is working with the updated [Agentforce DX VS Code Extension](https://marketplace.visualstudio.com/items?itemName=salesforce.salesforcedx-vscode-agents) The preview supports two modes: simulated (which mocks data) and live mode (which uses real Apex classes, flows, and other resources).
-
-    These Agentforce DX updates are the pro-code equivalent of the newly-released [Agentforce Builder](https://help.salesforce.com/s/articleView?id=release-notes.rn_einstein_agent_builder.htm&release=258&type=5) UI that runs in your org. See [Author an Agent with Agentforce DX](https://developer.salesforce.com/docs/einstein/genai/guide/agent-dx-nga-author-agent.html) in the _Agentforce Developer Guide_ for more information. 
-
+  
 * FIX: You no longer get an error if you run `apex run test` asynchronously, such as with the `--wait 0` flag, and also specify an output format or `--code-coverage`. (GitHub Issue [#2963](https://github.com/forcedotcom/cli/issues/2963), salesforcedx-apex PR [#596](https://github.com/forcedotcom/salesforcedx-apex/pull/596))
 
 * FIX: The `org login web` command, when run with the `--scopes` flag, now correctly requests the specified authentication (OAuth) scopes, rather than always requesting the default scopes (`refresh_token api web`). (plugin-auth PRs [#1420](https://github.com/salesforcecli/plugin-auth/pull/1420) and [#1423](https://github.com/salesforcecli/plugin-auth/pull/1423))
