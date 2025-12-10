@@ -31,9 +31,13 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* FIX: (GitHub Issue [#3428](https://github.com/forcedotcom/cli/issues/3428), sfdx-core PR [#1248](https://github.com/forcedotcom/sfdx-core/pull/1248), jsforce PR [#1774](https://github.com/jsforce/jsforce/pull/1774))
+* NEW: Specify the number of seconds to poll the org to check for the test status when you run `apex test run` with the new `--poll-interval`.  Previously the poll interval was hard-coded to 1 second. This example shows how to set the poll interval to 5 seconds:
 
-* FIX: (GitHub Issue [#3456](https://github.com/forcedotcom/cli/issues/3456), plugin-apex PR [#832](https://github.com/salesforcecli/plugin-apex/pull/832), salesforcedx-apex PR [#597](https://github.com/forcedotcom/salesforcedx-apex/pull/597))
+    ```bash
+     sf apex run test --class-names MyClassTest --result-format human --poll-interval 5 --target-org my-org
+    ```
+
+  (GitHub Issue [#3456](https://github.com/forcedotcom/cli/issues/3456), plugin-apex PR [#832](https://github.com/salesforcecli/plugin-apex/pull/832), salesforcedx-apex PR [#597](https://github.com/forcedotcom/salesforcedx-apex/pull/597))
 
 * FIX: Salesforce DX projects now support the `StageAssignment` [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json). 
 
