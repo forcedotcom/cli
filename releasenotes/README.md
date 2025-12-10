@@ -31,6 +31,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* FIX: (GitHub Issue [#3428](https://github.com/forcedotcom/cli/issues/3428), sfdx-core PR [#1248](https://github.com/forcedotcom/sfdx-core/pull/1248), jsforce PR [#1774](https://github.com/jsforce/jsforce/pull/1774))
+
+* FIX: (GitHub Issue [#3456](https://github.com/forcedotcom/cli/issues/3456), plugin-apex PR [#832](https://github.com/salesforcecli/plugin-apex/pull/832), salesforcedx-apex PR [#597](https://github.com/forcedotcom/salesforcedx-apex/pull/597))
+
 * FIX: Salesforce DX projects now support the `StageAssignment` [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json). 
 
 ## 2.115.15 (Dec 10, 2025) [stable]
