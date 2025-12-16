@@ -55,7 +55,7 @@ Due to the holiday break in the United States, we aren't releasing new stable ve
 
 * FIX: Salesforce DX projects now support the `StageAssignment` [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json). 
 
-## 2.115.15 (Dec 10, 2025) [stable]
+## 2.115.15 (Dec 10, 2025)
 
 * NEW: (Beta) Build complex, deterministic, enterprise-ready agents with Agent Script and Agentforce DX.
 
