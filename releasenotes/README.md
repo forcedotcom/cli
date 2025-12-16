@@ -25,11 +25,23 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.116.6 (Dec 17, 2025) [stable-rc]
+## 2.117.6 (Jan 6, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+
+	* IntegArtifactDef
+	* OnboardingDataObjectGroup
+	* PartyProfileDataObjectValidityDefinition
+
+## December 23 and 30, 2025
+
+Due to the holiday break in the United States, we aren't releasing new stable versions. Happy holidays!
+
+## 2.116.6 (Dec 17, 2025) [stable]
 
 * NEW: Specify the number of seconds to poll the org to check for the test status when you run `apex test run` with the new `--poll-interval`.  Previously the poll interval was hard-coded to 1 second. This example shows how to set the poll interval to 5 seconds:
 
