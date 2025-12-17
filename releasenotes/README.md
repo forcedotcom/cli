@@ -33,8 +33,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: The debug log information outputted by the `--dev-debug` flag now includes the list of files that were ignored during a deployment or retrieval.  This information is useful to debug your `.forceignore` file and understand exactly what's being ignored when you run `project deploy|retrieve start`. (GitHub Issue [#3345](https://github.com/forcedotcom/cli/issues/3345), source-deploy-retrieve PR [#1656](https://github.com/forcedotcom/source-deploy-retrieve/pull/1656))
 
-* FIX: Running the `apex test run` command with the `--code-coverage` flag in certain situations no longer results in a memory leak. (salesforcedx-apex PR [#571](https://github.com/forcedotcom/salesforcedx-apex/pull/571))
-
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
 
 	* IntegArtifactDef
