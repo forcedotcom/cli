@@ -33,7 +33,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: The debug log information outputted by the `--dev-debug` flag now includes the list of files that were ignored during a deployment or retrieval.  This information is useful to debug your `.forceignore` file and understand exactly what's being ignored when you run `project deploy|retrieve start`. (GitHub Issue [#3345](https://github.com/forcedotcom/cli/issues/3345), source-deploy-retrieve PR [#1656](https://github.com/forcedotcom/source-deploy-retrieve/pull/1656))
 
-* UPDATE: Use the existing `package update` command to set the recommended version of a package. When you set a package version as the recommended version, your subscribers see an **Upgrade to Recommended Version** option on the Installed Package page in their org. Only released package versions can be set as the recommended version. This example sets `PackageA@1.0 as` the recommended version.
+* UPDATE: Use the existing `package update` command to set the recommended version of a package. When you set a package version as the recommended version, your subscribers see an **Upgrade to Recommended Version** option on the Installed Packages page in their org. Only released package versions can be set as the recommended version. This example sets `PackageA@1.0 as` the recommended version.
 
     ```bash
     sf package update --package 0Ho.. --target-dev-hub devhub@example.com --recommended-version PackageA@1.0  
