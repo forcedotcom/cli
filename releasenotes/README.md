@@ -36,7 +36,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 * UPDATE: Use the existing `package update` command to set the recommended version of a package. When you set a package version as the recommended version, your subscribers see an **Upgrade to Recommended Version** option on the Installed Packages page in their org. Only released package versions can be set as the recommended version. This example sets `PackageA@1.0 as` the recommended version.
 
     ```bash
-    sf package update --package 0Ho.. --target-dev-hub devhub@example.com --recommended-version PackageA@1.0  
+    sf package update --package 0Ho.. --target-dev-hub devhub@example.com --recommended-version-id PackageA@1.0  
     ```
 
    Run `package update --help` for more information. NOTE: This feature is available for only Spring '26 orgs (API version 66.0).
