@@ -31,6 +31,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* FIX: We fixed some under-the-hood bugs.
 
 ## 2.117.6 (Jan 6, 2026) [stable]
 
