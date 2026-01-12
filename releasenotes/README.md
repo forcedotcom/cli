@@ -31,13 +31,22 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* CHANGE: We removed the `org login device` command from Salesforce CLI, as announced on [August 27, 2025](./README.md#21037-aug-27-2025). 
+
+    We removed the command because it uses the the OAuth 2.0 device flow, which is being blocked by Salesforce. For details see [Prepare for Connected App Usage Restrictions Change](https://help.salesforce.com/s/articleView?id=005132365&type=1&utm_source=techcomms&utm_medium=email&utm_campaign=FY26_Core_4013001).
+
+    Use one of these commands instead of `org login device`:
+  
+    *  [`org login jwt`](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_jwt_flow.htm) to authorize an org in headless environments, such as CI.
+    *  [`org login web`](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_web_flow.htm) to authorize an org using a browser.
+
 * FIX: Salesforce DX projects now support the FlexcardDefinition [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
 
-## 2.118.20 (Jan 13, 2026) [stable]
+## 2.118.20 (Jan 14, 2026) [stable]
 
 * FIX: We fixed some under-the-hood bugs.
 
-## 2.117.7 (Jan 6, 2026)
+## 2.117.7 (Jan 7, 2026)
 
 * NEW: The debug log information outputted by the `--dev-debug` flag now includes the list of files that were ignored during a deployment or retrieval.  This information is useful to debug your `.forceignore` file and understand exactly what's being ignored when you run `project deploy|retrieve start`. (GitHub Issue [#3345](https://github.com/forcedotcom/cli/issues/3345), source-deploy-retrieve PR [#1656](https://github.com/forcedotcom/source-deploy-retrieve/pull/1656))
 
