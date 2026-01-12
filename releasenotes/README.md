@@ -25,15 +25,19 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.118.20 (Jan 13, 2026) [stable-rc]
+## 2.119.8 (Jan 20, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
 
+* FIX: Salesforce DX projects now support the FlexcardDefinition [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
+
+## 2.118.20 (Jan 13, 2026) [stable]
+
 * FIX: We fixed some under-the-hood bugs.
 
-## 2.117.7 (Jan 6, 2026) [stable]
+## 2.117.7 (Jan 6, 2026)
 
 * NEW: The debug log information outputted by the `--dev-debug` flag now includes the list of files that were ignored during a deployment or retrieval.  This information is useful to debug your `.forceignore` file and understand exactly what's being ignored when you run `project deploy|retrieve start`. (GitHub Issue [#3345](https://github.com/forcedotcom/cli/issues/3345), source-deploy-retrieve PR [#1656](https://github.com/forcedotcom/source-deploy-retrieve/pull/1656))
 
@@ -55,7 +59,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 Due to the holiday break in the United States, we aren't releasing new stable versions. Happy holidays!
 
-## 2.116.6 (Dec 17, 2025) [stable]
+## 2.116.6 (Dec 17, 2025)
 
 * NEW: Specify the number of seconds to poll the org to check for the test status when you run `apex test run` with the new `--poll-interval`.  Previously the poll interval was hard-coded to 1 second. This example shows how to set the poll interval to 5 seconds:
 
