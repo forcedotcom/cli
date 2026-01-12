@@ -40,6 +40,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     *  [`org login jwt`](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_jwt_flow.htm) to authorize an org in headless environments, such as CI.
     *  [`org login web`](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_web_flow.htm) to authorize an org using a browser.
 
+* FIX: We fixed a bug that caused deploys and retrieves to hang indefinitely during certain connection errors. (source-deploy-retrieve PR [#1663](https://github.com/forcedotcom/source-deploy-retrieve/pull/1663))
+
 * FIX: Salesforce DX projects now support the FlexcardDefinition [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
 
 ## 2.118.20 (Jan 14, 2026) [stable]
