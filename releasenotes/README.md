@@ -42,6 +42,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We fixed a bug that caused deploys and retrieves to hang indefinitely during certain connection errors. (source-deploy-retrieve PR [#1663](https://github.com/forcedotcom/source-deploy-retrieve/pull/1663))
 
+* FIX: Users who have the Manage Dev Sandboxes user permission can now successfully run the `org refresh sandbox` command. (plugin-org PR [#1569](https://github.com/salesforcecli/plugin-org/pull/1569)) 
+
 * FIX: Salesforce DX projects now support the FlexcardDefinition [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
 
 ## 2.118.20 (Jan 14, 2026) [stable]
