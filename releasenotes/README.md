@@ -44,7 +44,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Users who have the Manage Dev Sandboxes user permission can now successfully run the `org refresh sandbox` command. (plugin-org PR [#1569](https://github.com/salesforcecli/plugin-org/pull/1569))
 
-* FIX: We fixed all known issues when using Node.js v25 with Salesforce CLI. We still officially support v24, which is the [Active LTS version of Node.js](https://nodejs.org/en/about/previous-releases), but we're getting ready for when v25 takes over.
+* FIX: We fixed all known issues when using Node.js v25 with Salesforce CLI. We still officially support v24, which is the [Active LTS version of Node.js](https://nodejs.org/en/about/previous-releases).
 
 * FIX: Salesforce DX projects now support the FlexcardDefinition [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
 
