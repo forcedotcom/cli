@@ -46,6 +46,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We fixed all known issues when using Node.js v25 with Salesforce CLI. We still officially support v24, which is the [Active LTS version of Node.js](https://nodejs.org/en/about/previous-releases).
 
+* FIX: When creating a sandbox with the `org create sandbox` command, you can now list the features in the sandbox definition file as either an array (`"features": ["SandboxStorage"]`) or a string (`"features": "['SandboxStorage']"`). (GitHub Issue [#3479](https://github.com/forcedotcom/cli/issues/3479), sfdx-core PR [#1254](https://github.com/forcedotcom/sfdx-core/pull/1254))
+
 * FIX: Salesforce DX projects now support the FlexcardDefinition [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
 
 ## 2.118.20 (Jan 14, 2026) [stable]
