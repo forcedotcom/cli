@@ -25,15 +25,36 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.118.20 (Jan 13, 2026) [stable-rc]
+## 2.119.8 (Jan 20, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
 
+* CHANGE: We removed the `org login device` command from Salesforce CLI, as announced on [August 27, 2025](./README.md#21037-aug-27-2025). 
+
+    We removed the command because it uses the the OAuth 2.0 device flow, which is being blocked by Salesforce. For details see [Prepare for Connected App Usage Restrictions Change](https://help.salesforce.com/s/articleView?id=005132365&type=1&utm_source=techcomms&utm_medium=email&utm_campaign=FY26_Core_4013001).
+
+    Use one of these commands instead of `org login device`:
+  
+    *  [`org login jwt`](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_jwt_flow.htm) to authorize an org in headless environments, such as CI.
+    *  [`org login web`](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_web_flow.htm) to authorize an org using a browser.
+
+* FIX: We fixed a bug that caused deploys and retrieves to hang indefinitely during certain connection errors. (source-deploy-retrieve PR [#1663](https://github.com/forcedotcom/source-deploy-retrieve/pull/1663))
+
+* FIX: Users who have the Manage Dev Sandboxes user permission can now successfully run the `org refresh sandbox` command. (plugin-org PR [#1569](https://github.com/salesforcecli/plugin-org/pull/1569))
+
+* FIX: We fixed all known issues when using Node.js v25 with Salesforce CLI. We still officially support v24, which is the [Active LTS version of Node.js](https://nodejs.org/en/about/previous-releases).
+
+* FIX: When creating a sandbox with the `org create sandbox` command, you can now list the features in the sandbox definition file as either an array (`"features": ["SandboxStorage"]`) or a string (`"features": "['SandboxStorage']"`). (GitHub Issue [#3479](https://github.com/forcedotcom/cli/issues/3479), sfdx-core PR [#1254](https://github.com/forcedotcom/sfdx-core/pull/1254))
+
+* FIX: Salesforce DX projects now support the FlexcardDefinition [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
+
+## 2.118.20 (Jan 14, 2026) [stable]
+
 * FIX: We fixed some under-the-hood bugs.
 
-## 2.117.7 (Jan 6, 2026) [stable]
+## 2.117.7 (Jan 7, 2026)
 
 * NEW: The debug log information outputted by the `--dev-debug` flag now includes the list of files that were ignored during a deployment or retrieval.  This information is useful to debug your `.forceignore` file and understand exactly what's being ignored when you run `project deploy|retrieve start`. (GitHub Issue [#3345](https://github.com/forcedotcom/cli/issues/3345), source-deploy-retrieve PR [#1656](https://github.com/forcedotcom/source-deploy-retrieve/pull/1656))
 
@@ -55,7 +76,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 Due to the holiday break in the United States, we aren't releasing new stable versions. Happy holidays!
 
-## 2.116.6 (Dec 17, 2025) [stable]
+## 2.116.6 (Dec 17, 2025)
 
 * NEW: Specify the number of seconds to poll the org to check for the test status when you run `apex test run` with the new `--poll-interval`.  Previously the poll interval was hard-coded to 1 second. This example shows how to set the poll interval to 5 seconds:
 
