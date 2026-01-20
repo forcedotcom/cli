@@ -25,11 +25,13 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.119.8 (Jan 20, 2026) [stable-rc]
+## 2.120.2 (Jan 27, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+## 2.119.8 (Jan 20, 2026) [stable]
 
 * CHANGE: We removed the `org login device` command from Salesforce CLI, as announced on [August 27, 2025](./README.md#21037-aug-27-2025). 
 
@@ -50,7 +52,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Salesforce DX projects now support the FlexcardDefinition [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
 
-## 2.118.20 (Jan 14, 2026) [stable]
+## 2.118.20 (Jan 14, 2026)
 
 * FIX: We fixed some under-the-hood bugs.
 
