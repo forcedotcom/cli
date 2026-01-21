@@ -31,6 +31,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: (cli PR [#2399](https://github.com/salesforcecli/cli/pull/2399))
 * FIX: We improved the performance of the `project retrieve start` command. In particular, retrieves of large metatdata components, such as massive static resources, now finish correctly rather than hanging indefinitely. (sfdx-core PR [#1256](https://github.com/forcedotcom/sfdx-core/pull/1256), jsforce PR [#1784](https://github.com/jsforce/jsforce/pull/1784))
 
 * FIX: The `package version` commands now work correctly when specifying `--api-version 60.0` (or lower); previously, some commands returned the `ErrorInvalidIdNoMatchingVersionIdError` error. (GitHub Issue [#3481](https://github.com/forcedotcom/cli/issues/3481), packaging PR [#796](https://github.com/forcedotcom/packaging/pull/796), plugin-packaging PR [#1108](https://github.com/salesforcecli/plugin-packaging/pull/1108))
