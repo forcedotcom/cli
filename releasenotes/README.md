@@ -31,11 +31,11 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* FIX: (sfdx-core PR [#1256](https://github.com/forcedotcom/sfdx-core/pull/1256), jsforce PR [#1784](https://github.com/jsforce/jsforce/pull/1784))
+* FIX: We improved the performance of the `project retrieve start` command. In particular, retrieves of large metatdata components, such as massive static resources, now finish correctly rather than hanging indefinitely. (sfdx-core PR [#1256](https://github.com/forcedotcom/sfdx-core/pull/1256), jsforce PR [#1784](https://github.com/jsforce/jsforce/pull/1784))
 
-* FIX: (GitHub Issue [#3481](https://github.com/forcedotcom/cli/issues/3481), packaging PR [#796](https://github.com/forcedotcom/packaging/pull/796), plugin-packaging PR [#1108](https://github.com/salesforcecli/plugin-packaging/pull/1108))
+* FIX: The `package version` commands now work correctly when specifying `--api-version 60.0` (or lower); previously, some commands returned the `ErrorInvalidIdNoMatchingVersionIdError` error. (GitHub Issue [#3481](https://github.com/forcedotcom/cli/issues/3481), packaging PR [#796](https://github.com/forcedotcom/packaging/pull/796), plugin-packaging PR [#1108](https://github.com/salesforcecli/plugin-packaging/pull/1108))
 
-* FIX: (GitHub Issue [#3439](https://github.com/forcedotcom/cli/issues/3439), plugin-org PR [#1551](https://github.com/salesforcecli/plugin-org/pull/1551))
+* FIX: If you create a second sys admin user in a scratch org, and then authorize the scratch org using that second username, then the  `org list` command now correctly lists that org with the second username.  (GitHub Issue [#3439](https://github.com/forcedotcom/cli/issues/3439), plugin-org PR [#1551](https://github.com/salesforcecli/plugin-org/pull/1551))
 
 * FIX: (GitHub Issue [#3296](https://github.com/forcedotcom/cli/issues/3296), plugin-auth PR [#1437](https://github.com/salesforcecli/plugin-auth/pull/1437), sfdx-core PR [#1255](https://github.com/forcedotcom/sfdx-core/pull/1255))
 
