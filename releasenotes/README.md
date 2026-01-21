@@ -37,7 +37,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: If you create a second sys admin user in a scratch org, and then authorize the scratch org using that second username, then the  `org list` command now correctly lists that org with the second username.  (GitHub Issue [#3439](https://github.com/forcedotcom/cli/issues/3439), plugin-org PR [#1551](https://github.com/salesforcecli/plugin-org/pull/1551))
 
-* FIX: (GitHub Issue [#3296](https://github.com/forcedotcom/cli/issues/3296), plugin-auth PR [#1437](https://github.com/salesforcecli/plugin-auth/pull/1437), sfdx-core PR [#1255](https://github.com/forcedotcom/sfdx-core/pull/1255))
+* FIX: Logging out of multiple orgs with the `org logout --all` command, and deselecting the ones you want to stay logged into, is now working correctly. (GitHub Issue [#3296](https://github.com/forcedotcom/cli/issues/3296), plugin-auth PR [#1437](https://github.com/salesforcecli/plugin-auth/pull/1437), sfdx-core PR [#1255](https://github.com/forcedotcom/sfdx-core/pull/1255))
 
 ## 2.119.8 (Jan 20, 2026) [stable]
 
