@@ -25,11 +25,20 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.120.2 (Jan 27, 2026) [stable-rc]
+## 2.121.7 (Feb 4, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* CHANGE: In the next few weeks we are ending support for these two operating system-specific installers and TAR files:
+
+    * Windows x86
+    * Linux ARM
+
+* FIX: Salesforce DX projects now support the WebApplication [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
+
+## 2.120.3 (Jan 27, 2026) [stable]
 
 * NEW: Improve the usability and maintainability of the [configuration files that contain flag values](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_flag_values_in_files.htm) by adding comments that begin with either `#` or `//`.  For example, let's say that the file `flags/sobject` in your DX project contains the value of the `--sobject` flag of `data create record`.  You can comment the file like this:
 
@@ -48,7 +57,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Logging out of multiple orgs with the `org logout --all` command, and deselecting the ones you want to stay logged into, is now working correctly. (GitHub Issue [#3296](https://github.com/forcedotcom/cli/issues/3296), plugin-auth PR [#1437](https://github.com/salesforcecli/plugin-auth/pull/1437), sfdx-core PR [#1255](https://github.com/forcedotcom/sfdx-core/pull/1255))
 
-## 2.119.8 (Jan 20, 2026) [stable]
+## 2.119.8 (Jan 20, 2026)
 
 * CHANGE: We removed the `org login device` command from Salesforce CLI, as announced on [August 27, 2025](./README.md#21037-aug-27-2025). 
 
