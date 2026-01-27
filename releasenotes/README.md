@@ -35,6 +35,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     * Windows x86
     * Linux ARM
+ 
+    We are removing the download button for the [Windows x86](https://developer.salesforce.com/tools/salesforcecli) installer from the download page (the Linux ARM TAR file was already removed). We'll keep some [old versions](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm#sfdx_setup_install_cli_olderversions) for a while, but they too will become unavailable in the future. 
 
 * FIX: Salesforce DX projects now support the WebApplication [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
 
