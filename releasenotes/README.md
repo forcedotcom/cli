@@ -31,7 +31,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* CHANGE: Previewing a published agent with the `agent preview` CLI command no longer requires the extra security of a specially-configured connected app. Use the standard ways to authorize the org in which the agent is activated, such as with `org login web`, and then immediately use `agent preview` to chat with it.  When you run the command without arguments, and the command lists the available agents you can chat with, published agents are prepended with the label `(Published)`.  Agents labeled `(Agent Script)` are local to your DX project and the `agent preview` command uses their local Agent Script file in your DX project to preview it.  
+* CHANGE: Previewing a published agent with the `agent preview` CLI command no longer requires the extra security of a specially-configured connected app. Rather, use the standard way to authorize the org in which the published agent is active (such as with the `org loging web` command) and then you can immediately use `agent preview` to chat with it.  As a result of this change, we've removed the `--client-app` flag from `agent preview` because it's no longer needed. 
+
+    When you run the `agent preview` command without arguments, the list of published agents you can chat with are prepended with the label `(Published)`.  Agents labeled `(Agent Script)` are local to your DX project and the `agent preview` command uses their local Agent Script file in your DX project to preview it.  
 
 * CHANGE: In the next few weeks we are ending support for these two operating system-specific installers and TAR files:
 
