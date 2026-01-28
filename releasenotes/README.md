@@ -35,7 +35,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     When you run the `agent preview` command without arguments, the list of published agents you can chat with are prepended with the label `(Published)`.  Agents labeled `(Agent Script)` are local to your DX project and the `agent preview` command uses their local Agent Script file in your DX project to preview it.  
 
-* CHANGE: In the next few weeks we are ending support for these two operating system-specific installers and TAR files:
+* CHANGE: Over the next few weeks we're ending support for these two operating system-specific installers and TAR files:
 
     * Windows x86
     * Linux ARM
