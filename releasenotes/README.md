@@ -31,6 +31,12 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: Open your org right in Agentforce Studio, specifically in the list view that displays all your agents, with the new `org open authoring-bundle` command. This example opens Agentforce Studio in an org with alias `my-org`; the command opens the browser in incognito mode:
+
+     ```bash
+     sf org open authoring-bundle --private --target-org my-org
+     ```
+     
 * CHANGE: Previewing a published agent with the `agent preview` CLI command no longer requires the extra security of a specially-configured connected app. Rather, use the standard way to authorize the org in which the published agent is active (such as with the `org loging web` command) and then you can immediately use `agent preview` to chat with it.  As a result of this change, we've removed the `--client-app` flag from `agent preview` because it's no longer needed. 
 
     When you run the `agent preview` command without arguments, the list of published agents you can chat with are prepended with the label `(Published)`.  Agents labeled `(Agent Script)` are local to your DX project and the `agent preview` command uses their local Agent Script file in your DX project to preview it.  
