@@ -31,8 +31,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* FIX: (GitHub Issue [#3486](https://github.com/forcedotcom/cli/issues/3486), https://github.com/salesforcecli/cli/pull/2554)
+* FIX: (GitHub Issue [#3486](https://github.com/forcedotcom/cli/issues/3486), cli PR [#2554](https://github.com/salesforcecli/cli/pull/2554))
 
+* FIX: (GitHub Issue [#3387](https://github.com/forcedotcom/cli/issues/3387), sfdx-core PR [#1260](https://github.com/forcedotcom/sfdx-core/pull/1260))
 
 ## 2.121.7 (Feb 4, 2026) [stable]
 
