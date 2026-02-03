@@ -31,6 +31,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: (plugin-agent PR [#304](https://github.com/salesforcecli/plugin-agent/pull/304), agents PR [#204](https://github.com/forcedotcom/agents/pull/204))
+
 * FIX: (GitHub Issue [#3486](https://github.com/forcedotcom/cli/issues/3486), cli PR [#2554](https://github.com/salesforcecli/cli/pull/2554))
 
 * FIX: (GitHub Issue [#3387](https://github.com/forcedotcom/cli/issues/3387), sfdx-core PR [#1260](https://github.com/forcedotcom/sfdx-core/pull/1260))
