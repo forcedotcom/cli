@@ -25,11 +25,16 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.121.7 (Feb 4, 2026) [stable-rc]
+## 2.122.6 (Feb 11, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: (GitHub Issue [#3486](https://github.com/forcedotcom/cli/issues/3486), https://github.com/salesforcecli/cli/pull/2554)
+
+
+## 2.121.7 (Feb 4, 2026) [stable]
 
 * NEW: Open your org right in Agentforce Studio, specifically in the list view that displays all your agents, with the new `org open authoring-bundle` command. This example opens Agentforce Studio in an org with alias `my-org`; the command opens the browser in incognito mode:
 
@@ -50,7 +55,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Salesforce DX projects now support the WebApplication [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
 
-## 2.120.3 (Jan 27, 2026) [stable]
+## 2.120.3 (Jan 27, 2026)
 
 * NEW: Improve the usability and maintainability of the [configuration files that contain flag values](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_flag_values_in_files.htm) by adding comments that begin with either `#` or `//`.  For example, let's say that the file `flags/sobject` in your DX project contains the value of the `--sobject` flag of `data create record`.  You can comment the file like this:
 
