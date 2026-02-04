@@ -25,11 +25,27 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.121.7 (Feb 4, 2026) [stable-rc]
+## 2.122.6 (Feb 11, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: Skip retrieving new or changed metadata from your org when you publish an agent's authoring bundle with the new `--skip-retrieve` flag of `agent publish authoring-bundle`.  This feature is useful when you publish the authoring bundle in a CI job and don't need to retrieve the metadata back to your DX project because it already has it; skipping the retrieve can save time. This example shows how to publish an authoring bundle with API name `MyAuthoringBundle` to the org with alias `my-dev-org`, but not retrieve any of the metadata:
+  
+    ```bash
+    sf agent publish authoring-bundle --api-name MyAuthoringbundle --skip-retrieve --target-org my-dev-org
+    ```
+    
+     (plugin-agent PR [#304](https://github.com/salesforcecli/plugin-agent/pull/304), agents PR [#204](https://github.com/forcedotcom/agents/pull/204))
+
+* FIX: When you specify flag values in files via the `--flags-dir` flag, overriding the flags at the command-line now works correctly for all types of flags. Previously, the command would fail if you overrode a flag using its long flag name when it also has a short name.
+
+    Thank you, [Jon Freed](https://github.com/jon-freed), for your contribution. This is your second one in two weeks, you're now quite the expert on `--flags-dir`. Do you have a third one coming up? Ha, no pressure!  But seriously, we love your contribution, thanks again.  (GitHub Issue [#3486](https://github.com/forcedotcom/cli/issues/3486), cli PR [#2554](https://github.com/salesforcecli/cli/pull/2554))
+
+* FIX: The `project deploy start` command now correctly handles an empty `deploy-cache.json` file (an internal file that the CLI uses to manage deployments) rather than throwing a confusing error.  (GitHub Issue [#3387](https://github.com/forcedotcom/cli/issues/3387), sfdx-core PR [#1260](https://github.com/forcedotcom/sfdx-core/pull/1260))
+
+## 2.121.7 (Feb 4, 2026) [stable]
 
 * NEW: Open your org right in Agentforce Studio, specifically in the list view that displays all your agents, with the new `org open authoring-bundle` command. This example opens Agentforce Studio in an org with alias `my-org`; the command opens the browser in incognito mode:
 
@@ -50,7 +66,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Salesforce DX projects now support the WebApplication [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
 
-## 2.120.3 (Jan 27, 2026) [stable]
+## 2.120.3 (Jan 27, 2026)
 
 * NEW: Improve the usability and maintainability of the [configuration files that contain flag values](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_flag_values_in_files.htm) by adding comments that begin with either `#` or `//`.  For example, let's say that the file `flags/sobject` in your DX project contains the value of the `--sobject` flag of `data create record`.  You can comment the file like this:
 
