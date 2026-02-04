@@ -31,7 +31,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: Skip retrieving new or changed metadata from your org when you publish an agent with the new `--skip-retrieve` flag of `agent publish authoring-bundle`.  This feature is useful when you publish an agent as part of a CI job but don't need to retrieve the metadata back to your DX project; skipping the retrieve can save time. This example shows how to publish an authoring bundle with API name `MyAuthoringBundle` to the org with alias `my-dev-org`, but not retrieve any of the metadata:
+* NEW: Skip retrieving new or changed metadata from your org when you publish an agent's authoring bundle with the new `--skip-retrieve` flag of `agent publish authoring-bundle`.  This feature is useful when you publish the authoring bundle in a CI job and don't need to retrieve the metadata back to your DX project because it already has it; skipping the retrieve can save time. This example shows how to publish an authoring bundle with API name `MyAuthoringBundle` to the org with alias `my-dev-org`, but not retrieve any of the metadata:
   
     ```bash
     sf agent publish authoring-bundle --api-name MyAuthoringbundle --skip-retrieve --target-org my-dev-org
