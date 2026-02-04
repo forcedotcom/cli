@@ -31,7 +31,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: Skip retrieving new or changed metadata from your org when you publish an agent with the new `--skip-retrieve` flag of `agent publish authoring-bundle`.  This feature is useful when you publish an agent as part of a CI job but don't want to wait for all the metadata to be retrieved. This example shows how to publish an authoring bundle with API name `MyAuthoringBundle` to the org with alias `my-dev-org`, but not retrieve any of the metadata:
+* NEW: Skip retrieving new or changed metadata from your org when you publish an agent with the new `--skip-retrieve` flag of `agent publish authoring-bundle`.  This feature is useful when you publish an agent as part of a CI job but don't need to retrieve the metadata back to your DX project; skipping the retrieve can save time. This example shows how to publish an authoring bundle with API name `MyAuthoringBundle` to the org with alias `my-dev-org`, but not retrieve any of the metadata:
   
     ```bash
     sf agent publish authoring-bundle --api-name MyAuthoringbundle --skip-retrieve --target-org my-dev-org
@@ -39,9 +39,11 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
      (plugin-agent PR [#304](https://github.com/salesforcecli/plugin-agent/pull/304), agents PR [#204](https://github.com/forcedotcom/agents/pull/204))
 
-* FIX: (GitHub Issue [#3486](https://github.com/forcedotcom/cli/issues/3486), cli PR [#2554](https://github.com/salesforcecli/cli/pull/2554))
+* FIX: When you specify flag values in files via the `--flags-dir` flag, overriding the flags at the command-line now works correctly for all types of flags. Previously, the command would fail if you overrode a flag using its long flag name when it also has a short name.
 
-* FIX: (GitHub Issue [#3387](https://github.com/forcedotcom/cli/issues/3387), sfdx-core PR [#1260](https://github.com/forcedotcom/sfdx-core/pull/1260))
+    Thank you, [Jon Freed](https://github.com/jon-freed), for your contribution. This is your second one in two weeks, you're now quite the expert on `--flags-dir`. Do you have a third one coming up? Ha, no pressure!  But seriously, we love your contribution, thanks again.  (GitHub Issue [#3486](https://github.com/forcedotcom/cli/issues/3486), cli PR [#2554](https://github.com/salesforcecli/cli/pull/2554))
+
+* FIX: The `project deploy start` command now correctly handles an empty `deploy-cache.json` file (an internal file that the CLI uses to manage deployments) rather than throwing a confusing error.  (GitHub Issue [#3387](https://github.com/forcedotcom/cli/issues/3387), sfdx-core PR [#1260](https://github.com/forcedotcom/sfdx-core/pull/1260))
 
 ## 2.121.7 (Feb 4, 2026) [stable]
 
