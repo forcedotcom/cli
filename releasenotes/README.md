@@ -25,11 +25,15 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.122.6 (Feb 11, 2026) [stable-rc]
+## 2.123.6 (Feb 18, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: (needs better desc and an example) Generate a package ZIP file that you can use for debugging or to examine the package contents when you run `package version create` with the new `--generate-pkg-zip` flag. (plugin-packaging PR [#1117](https://github.com/salesforcecli/plugin-packaging/pull/1117))
+
+## 2.122.6 (Feb 11, 2026) [stable]
 
 * NEW: Skip retrieving new or changed metadata from your org when you publish an agent's authoring bundle with the new `--skip-retrieve` flag of `agent publish authoring-bundle`.  This feature is useful when you publish the authoring bundle in a CI job and don't need to retrieve the metadata back to your DX project because it already has it; skipping the retrieve can save time. This example shows how to publish an authoring bundle with API name `MyAuthoringBundle` to the org with alias `my-dev-org`, but not retrieve any of the metadata:
   
@@ -45,7 +49,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `project deploy start` command now correctly handles an empty `deploy-cache.json` file (an internal file that the CLI uses to manage deployments) rather than throwing a confusing error.  (GitHub Issue [#3387](https://github.com/forcedotcom/cli/issues/3387), sfdx-core PR [#1260](https://github.com/forcedotcom/sfdx-core/pull/1260))
 
-## 2.121.7 (Feb 4, 2026) [stable]
+## 2.121.7 (Feb 4, 2026)
 
 * NEW: Open your org right in Agentforce Studio, specifically in the list view that displays all your agents, with the new `org open authoring-bundle` command. This example opens Agentforce Studio in an org with alias `my-org`; the command opens the browser in incognito mode:
 
