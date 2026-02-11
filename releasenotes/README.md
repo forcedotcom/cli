@@ -25,11 +25,28 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.122.6 (Feb 11, 2026) [stable-rc]
+## 2.123.1 (Feb 18, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: Generate a package ZIP file that you can use for debugging or to examine the package contents when you run `package version create` with the new `--generate-pkg-zip` flag.
+
+  This example creates a package version from the contents of the `common` directory and gives it an installation key of `password123` and generates a package ZIP file:
+
+  ```
+  $ sf package version create --path common --installation-key password123 --generate-pkg-zip --target-dev-hub my-dev-hub
+  ```
+    (plugin-packaging PR [#1117](https://github.com/salesforcecli/plugin-packaging/pull/1117))
+
+* FIX: Retrieving DigitalExperienceBundle metadata components now works correctly after you update the Digital Experience site in the org.
+
+    Specifically, let's say you created a page in the Digital Experience site using the in-org builder, and then retrieved it to your DX project with the `project retrieve start` CLI command. You then change the mobile layout in the org, and retrieve the metadata again.  Before this fix, the `mobile.json` file was incorrectly created at the top-level of the page; now it's correctly nested in `mobile/mobile.json`. (source-deploy-retrieve PR [#1680](https://github.com/forcedotcom/source-deploy-retrieve/pull/1680))
+
+* FIX: CLI commands that don't require an org no longer run really slowly in directories in which the `target-org` config variable points to a long-expired scratch org. (GitHub Issue [#3425](https://github.com/forcedotcom/cli/issues/3425), jsforce PR [#1772](https://github.com/jsforce/jsforce/pull/1772))
+
+## 2.122.6 (Feb 11, 2026) [stable]
 
 * NEW: Skip retrieving new or changed metadata from your org when you publish an agent's authoring bundle with the new `--skip-retrieve` flag of `agent publish authoring-bundle`.  This feature is useful when you publish the authoring bundle in a CI job and don't need to retrieve the metadata back to your DX project because it already has it; skipping the retrieve can save time. This example shows how to publish an authoring bundle with API name `MyAuthoringBundle` to the org with alias `my-dev-org`, but not retrieve any of the metadata:
   
@@ -45,7 +62,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `project deploy start` command now correctly handles an empty `deploy-cache.json` file (an internal file that the CLI uses to manage deployments) rather than throwing a confusing error.  (GitHub Issue [#3387](https://github.com/forcedotcom/cli/issues/3387), sfdx-core PR [#1260](https://github.com/forcedotcom/sfdx-core/pull/1260))
 
-## 2.121.7 (Feb 4, 2026) [stable]
+## 2.121.7 (Feb 4, 2026)
 
 * NEW: Open your org right in Agentforce Studio, specifically in the list view that displays all your agents, with the new `org open authoring-bundle` command. This example opens Agentforce Studio in an org with alias `my-org`; the command opens the browser in incognito mode:
 
