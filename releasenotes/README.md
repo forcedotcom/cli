@@ -31,6 +31,18 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: Generate an Experience Cloud site in your DX project with the new `template generate digital-experience site` command. After you pass the command the name of a template (currently only `BuildYourOwnLWR`), the new site name, and an URL path prefix, all the required metadata files are created locally. The metadata files correspond to metadata components such as DigitalExperienceConfig, DigitalExperienceBundle, Network, and CustomSite.
+
+    The `BuildYourOwnLWR` template creates suepr fast digital experiences, such as websites, microsites, and portals, using the Lightning Web Components programming model. Powered by Lightning Web Runtime (LWR), this customizable template delivers unparalleled site performance.  For additional details, see this Salesforce Help topic: https://help.salesforce.com/s/articleView?id=experience.rss_build_your_own_lwr.htm.
+
+  Here's an example that generates the metadata files in the `force-app/main/default` directory:
+
+  ```bash
+  sf template generate digital-experience site --template BuildYourOwnLWR --name mysite --url-path-prefix mysite --output-dir force-app/main/default
+  ```
+
+  (plugin-templates PR [#829](https://github.com/salesforcecli/plugin-templates/pull/829))
+
 * NEW: Generate a package ZIP file that you can use for debugging or to examine the package contents when you run `package version create` with the new `--generate-pkg-zip` flag. (plugin-packaging PR [#1117](https://github.com/salesforcecli/plugin-packaging/pull/1117))
 
 * CHANGE: We reorganized all the commands in [plugin-templates](https://github.com/salesforcecli/plugin-templates) under a top-level topic called `template generate`. As a result, you can now take advantage of autocomplete to list all the available templates to generate things, such as DX projects or Apex classes. 
