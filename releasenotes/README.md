@@ -55,7 +55,14 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
   (plugin-templates PR [#829](https://github.com/salesforcecli/plugin-templates/pull/829))
 
-* NEW: Generate a package ZIP file that you can use for debugging or to examine the package contents when you run `package version create` with the new `--generate-pkg-zip` flag. (plugin-packaging PR [#1117](https://github.com/salesforcecli/plugin-packaging/pull/1117))
+* NEW: Generate a package ZIP file that you can use for debugging or to examine the package contents when you run `package version create` with the new `--generate-pkg-zip` flag.
+
+  This example creates a package version from the contents of the `common` directory and gives it an installation key of `password123` and generates a package ZIP file:
+
+  ```
+  $ sf package version create --path common --installation-key password123 --generate-pkg-zip --target-dev-hub my-dev-hub
+  ```
+    (plugin-packaging PR [#1117](https://github.com/salesforcecli/plugin-packaging/pull/1117))
 
 * CHANGE: We reorganized all the commands in [plugin-templates](https://github.com/salesforcecli/plugin-templates) under a top-level topic called `template generate`. As a result, you can now take advantage of autocomplete to list all the available templates to generate things, such as DX projects or Apex classes. 
 
