@@ -42,7 +42,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Retrieving DigitalExperienceBundle metadata components now works correctly after you update the Digital Experience site in the org.
 
-    Specifically, let's say you created a page in the Digital Experience site using the in-org builder, and then retrieved it to your DX projec with the `project retrieve start` CLI command. You then change the mobile layout in the org, and retrieve the metadata again.  Before this fix, the `mobile.json` file was incorrectly created at the top-level of the page; now it's corrected nested in `mobile/mobile.json`. (source-deploy-retrieve PR [#1680](https://github.com/forcedotcom/source-deploy-retrieve/pull/1680))
+    Specifically, let's say you created a page in the Digital Experience site using the in-org builder, and then retrieved it to your DX project with the `project retrieve start` CLI command. You then change the mobile layout in the org, and retrieve the metadata again.  Before this fix, the `mobile.json` file was incorrectly created at the top-level of the page; now it's correctly nested in `mobile/mobile.json`. (source-deploy-retrieve PR [#1680](https://github.com/forcedotcom/source-deploy-retrieve/pull/1680))
 
 * FIX: CLI commands that don't require an org no longer run really slowly in directories in which the `target-org` config variable points to a long-expired scratch org. (GitHub Issue [#3425](https://github.com/forcedotcom/cli/issues/3425), jsforce PR [#1772](https://github.com/jsforce/jsforce/pull/1772))
 
