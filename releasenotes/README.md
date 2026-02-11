@@ -31,30 +31,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: (Developer Preview) Add AI-generated descriptions in the metadata source files in your local DX project with the new `metadata enrich` command. These enriched descriptions succinctly outline the metadata component’s purpose and capabilities, which in turn provide context when vibe coding with an AI tool, such as Agentforce Vibes.
-
-  Currently, this command supports enriching only Lightning Web Components, represented by the LightningComponentBundle metadata type. Even though the command updates only local files in your DX project, you're still required to authorize and specify an org, which is how the command accesses a large language model (LLM). Your org must be eligible for metadata enrichment; contact your Salesforce admin.
-
-   This example shows how to enrich the local metadata files corresonding to the `HelloWorld` LightningComponentBundle component; it uses the org with alias `my-org`:
-
-   ```
-   sf metadata enrich --metadata LightningComponentBundle:HelloWorld --target-org my-org
-   ```
-
-   This command lives in the new [plugin-metadata-enrichment](https://github.com/salesforcecli/plugin-metadata-enrichment) plugin.  
-
-* NEW: Generate an Experience Cloud site in your DX project with the new `template generate digital-experience site` command. After you pass the command the name of a template (currently only `BuildYourOwnLWR`), the new site name, and an URL path prefix, all the required metadata files are created locally. The metadata files correspond to metadata components such as DigitalExperienceConfig, DigitalExperienceBundle, Network, and CustomSite.
-
-    The `BuildYourOwnLWR` template creates suepr fast digital experiences, such as websites, microsites, and portals, using the Lightning Web Components programming model. Powered by Lightning Web Runtime (LWR), this customizable template delivers unparalleled site performance.  For additional details, see this Salesforce Help topic: https://help.salesforce.com/s/articleView?id=experience.rss_build_your_own_lwr.htm.
-
-  Here's an example that generates the metadata files in the `force-app/main/default` directory:
-
-  ```bash
-  sf template generate digital-experience site --template BuildYourOwnLWR --name mysite --url-path-prefix mysite --output-dir force-app/main/default
-  ```
-
-  (plugin-templates PR [#829](https://github.com/salesforcecli/plugin-templates/pull/829))
-
 * NEW: Generate a package ZIP file that you can use for debugging or to examine the package contents when you run `package version create` with the new `--generate-pkg-zip` flag.
 
   This example creates a package version from the contents of the `common` directory and gives it an installation key of `password123` and generates a package ZIP file:
@@ -64,28 +40,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
   ```
     (plugin-packaging PR [#1117](https://github.com/salesforcecli/plugin-packaging/pull/1117))
 
-* CHANGE: We reorganized all the commands in [plugin-templates](https://github.com/salesforcecli/plugin-templates) under a top-level topic called `template generate`. As a result, you can now take advantage of autocomplete to list all the available templates to generate things, such as DX projects or Apex classes. 
+* FIX: Retrieving DigitalExperienceBundle metadata components now works correctly after you update the Digital Experience site in the org.
 
-   But don't worry, we also added aliases to the moved commands, so that the old command names will still work. But they display a deprecation warning that the command name has changed.
-
-   Here are all the affected commands. (plugin-templates PR [#840](https://github.com/salesforcecli/plugin-templates/pull/840), 
-
-  | Old command | New command |
-  | ----------- | ----------- |
-  | apex generate class | template generate apex class |
-  | apex generate trigger | template generate apex trigger |
-  | analytics generate template | template generate analytics template |
-  | lightning generate app | template generate lightning app |
-  | lightning generate component | template generate lightning component |
-  | lightning generate event | template generate lightning event |
-  | lightning generate interface | template generate lightning interface |
-  | lightning generate test | template generate lightning test |
-  | project generate | template generate project |
-  | static-resource generate | template generate static-resource |
-  | visualforce generate component | template generate visualforce component |
-  | visualforce generate page | template generate visualforce page |
-
-* FIX: Retrieving DigitalExperienceBundle metadata components now works correctly after you update the Digital Experience site in the org. Specifically, let's say you created a page in the Digital Experience site using the in-org builder, and then retrieved it to your DX projec with the `project retrieve start` CLI command. You then change the mobile layout in the org, and retrieve the metadata again.  Before this fix, the `mobile.json` file was incorrectly created at the top-level of the page; now it's corrected nested in `mobile/mobile.json`. (source-deploy-retrieve PR [#1680](https://github.com/forcedotcom/source-deploy-retrieve/pull/1680))
+    Specifically, let's say you created a page in the Digital Experience site using the in-org builder, and then retrieved it to your DX projec with the `project retrieve start` CLI command. You then change the mobile layout in the org, and retrieve the metadata again.  Before this fix, the `mobile.json` file was incorrectly created at the top-level of the page; now it's corrected nested in `mobile/mobile.json`. (source-deploy-retrieve PR [#1680](https://github.com/forcedotcom/source-deploy-retrieve/pull/1680))
 
 * FIX: CLI commands that don't require an org no longer run really slowly in directories in which the `target-org` config variable points to a long-expired scratch org. (GitHub Issue [#3425](https://github.com/forcedotcom/cli/issues/3425), jsforce PR [#1772](https://github.com/jsforce/jsforce/pull/1772))
 
