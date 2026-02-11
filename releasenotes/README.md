@@ -78,6 +78,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
   | visualforce generate component | template generate visualforce component |
   | visualforce generate page | template generate visualforce page |
 
+* FIX: CLI commands that don't require an org no longer run really slowly in directories in which the `target-org` config variable points to a long-expired scratch org. (GitHub Issue [#3425](https://github.com/forcedotcom/cli/issues/3425), jsforce PR [#1772](https://github.com/jsforce/jsforce/pull/1772))
+
 ## 2.122.6 (Feb 11, 2026) [stable]
 
 * NEW: Skip retrieving new or changed metadata from your org when you publish an agent's authoring bundle with the new `--skip-retrieve` flag of `agent publish authoring-bundle`.  This feature is useful when you publish the authoring bundle in a CI job and don't need to retrieve the metadata back to your DX project because it already has it; skipping the retrieve can save time. This example shows how to publish an authoring bundle with API name `MyAuthoringBundle` to the org with alias `my-dev-org`, but not retrieve any of the metadata:
