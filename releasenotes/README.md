@@ -31,6 +31,18 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: (Developer Preview) Add AI-generated descriptions in the metadata source files in your local DX project with the new `metadata enrich` command. These enriched descriptions succinctly outline the metadata component’s purpose and capabilities, which in turn provide context when vibe coding with an AI tool, such as Agentforce Vibes.
+
+  Currently, this command supports enriching only Lightning Web Components, represented by the LightningComponentBundle metadata type. Even though the command updates only local files in your DX project, you're still required to authorize and specify an org, which is how the command accesses a large language model (LLM). Your org must be eligible for metadata enrichment; contact your Salesforce admin.
+
+   This example shows how to enrich the local metadata files corresonding to the `HelloWorld` LightningComponentBundle component; it uses the org with alias `my-org`:
+
+   ```
+   sf metadata enrich --metadata LightningComponentBundle:HelloWorld --target-org my-org
+   ```
+
+   This command lives in the new [plugin-metadata-enrichment](https://github.com/salesforcecli/plugin-metadata-enrichment) plugin.  
+
 * NEW: Generate an Experience Cloud site in your DX project with the new `template generate digital-experience site` command. After you pass the command the name of a template (currently only `BuildYourOwnLWR`), the new site name, and an URL path prefix, all the required metadata files are created locally. The metadata files correspond to metadata components such as DigitalExperienceConfig, DigitalExperienceBundle, Network, and CustomSite.
 
     The `BuildYourOwnLWR` template creates suepr fast digital experiences, such as websites, microsites, and portals, using the Lightning Web Components programming model. Powered by Lightning Web Runtime (LWR), this customizable template delivers unparalleled site performance.  For additional details, see this Salesforce Help topic: https://help.salesforce.com/s/articleView?id=experience.rss_build_your_own_lwr.htm.
