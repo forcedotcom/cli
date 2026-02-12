@@ -25,11 +25,27 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.123.1 (Feb 18, 2026) [stable-rc]
+## 2.124.6 (Feb 25, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: Generate an Experience Cloud site in your DX project with the new `template generate digital-experience site` command. After you pass the command the name of a template (currently only `BuildYourOwnLWR`), the new site name, and an URL path prefix, all the required metadata files are created locally. The metadata files correspond to metadata components such as DigitalExperienceConfig, DigitalExperienceBundle, Network, and CustomSite.
+
+    The `BuildYourOwnLWR` template creates suepr fast digital experiences, such as websites, microsites, and portals, using the Lightning Web Components programming model. Powered by Lightning Web Runtime (LWR), this customizable template delivers unparalleled site performance.  For additional details, see this Salesforce Help topic: https://help.salesforce.com/s/articleView?id=experience.rss_build_your_own_lwr.htm.
+
+  Here's an example that generates the metadata files in the `force-app/main/default` directory:
+
+  ```bash
+  sf template generate digital-experience site --template BuildYourOwnLWR --name mysite --url-path-prefix mysite --output-dir force-app/main/default
+  ```
+
+  (plugin-templates PR [#829](https://github.com/salesforcecli/plugin-templates/pull/829))## 2.123.1 (Feb 18, 2026) [stable-rc]
+
+* NEW: Generate a FlexiPage, also known as a Lightning Page, in your DX project with the new `template generate flexipage` command. More... (plugin-templates PR [#833](https://github.com/salesforcecli/plugin-templates/pull/833))
+
+## 2.123.1 (Feb 18, 2026) [stable]
 
 * NEW: Generate a package ZIP file that you can use for debugging or to examine the package contents when you run `package version create` with the new `--generate-pkg-zip` flag.
 
@@ -46,7 +62,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: CLI commands that don't require an org no longer run really slowly in directories in which the `target-org` config variable points to a long-expired scratch org. (GitHub Issue [#3425](https://github.com/forcedotcom/cli/issues/3425), jsforce PR [#1772](https://github.com/jsforce/jsforce/pull/1772))
 
-## 2.122.6 (Feb 11, 2026) [stable]
+## 2.122.6 (Feb 11, 2026)
 
 * NEW: Skip retrieving new or changed metadata from your org when you publish an agent's authoring bundle with the new `--skip-retrieve` flag of `agent publish authoring-bundle`.  This feature is useful when you publish the authoring bundle in a CI job and don't need to retrieve the metadata back to your DX project because it already has it; skipping the retrieve can save time. This example shows how to publish an authoring bundle with API name `MyAuthoringBundle` to the org with alias `my-dev-org`, but not retrieve any of the metadata:
   
