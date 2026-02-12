@@ -45,6 +45,27 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: Generate a FlexiPage, also known as a Lightning Page, in your DX project with the new `template generate flexipage` command. More... (plugin-templates PR [#833](https://github.com/salesforcecli/plugin-templates/pull/833))
 
+* CHANGE: We reorganized all the commands in [plugin-templates](https://github.com/salesforcecli/plugin-templates) under a top-level topic called `template generate`. As a result, you can now take advantage of autocomplete to list all the available templates to generate things, such as DX projects or Apex classes. 
+
+   But don't worry, we also added aliases to the moved commands, so that the old command names will still work. But they display a deprecation warning that the command name has changed.
+
+   Here are all the affected commands. (plugin-templates PR [#840](https://github.com/salesforcecli/plugin-templates/pull/840), 
+
+  | Old command | New command |
+  | ----------- | ----------- |
+  | apex generate class | template generate apex class |
+  | apex generate trigger | template generate apex trigger |
+  | analytics generate template | template generate analytics template |
+  | lightning generate app | template generate lightning app |
+  | lightning generate component | template generate lightning component |
+  | lightning generate event | template generate lightning event |
+  | lightning generate interface | template generate lightning interface |
+  | lightning generate test | template generate lightning test |
+  | project generate | template generate project |
+  | static-resource generate | template generate static-resource |
+  | visualforce generate component | template generate visualforce component |
+  | visualforce generate page | template generate visualforce page |
+  
 ## 2.123.1 (Feb 18, 2026) [stable]
 
 * NEW: Generate a package ZIP file that you can use for debugging or to examine the package contents when you run `package version create` with the new `--generate-pkg-zip` flag.
