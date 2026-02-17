@@ -31,21 +31,22 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: **(Generally Available) Build enterprise-ready agents with Agent Script and Agentforce DX.**
+* NEW: **(Generally Available) Build Enterprise-Ready Agents with Agentforce DX and Agent Script**
 
   After a successful [beta](./README.md#211515-dec-10-2025), we're happy to announce the generally availability of Agentforce DX to build hybrid reasoning Salesforce agents that use Agent Script. These new types of agents have both the predictability that your business demands and the creativity that large language models (LLMs) make possible. Agentforce DX helps pro-code developers build these agents by minimizing context switching, enabling professional DevOps, and simplifying collaboration between low-code and pro-code developers.
 
-  See [these release notes](https://help.salesforce.com/s/articleView?id=release-notes.rn_tools_afdx_nga_beta.htm&release=260&type=5) for the list of features we announced for the beta. These are the new or changed features since then:
-
-  - **Agentforce Vibes Rules for Agent Script**: Agentforce Vibes now includes a global rule specifically for coding Agent Script files. 
-  - **Improved Agent Preview**: Previewing an agent now works the same regardless of how you start it, either using the Agent Script file or a published agent.  Previously you had to configure additional security using a connected app to preview a published agent.
+  For the list of features we announced in the beta, see [these release notes](https://help.salesforce.com/s/articleView?id=release-notes.rn_tools_afdx_nga_beta.htm&release=260&type=5). Since the beta announcement, we've added or improved the following features:
+  - **Agentforce Vibes Rules for Agent Script**: Agentforce Vibes now includes a global rule for coding Agent Script files. 
+  - **Improved Agent Preview**: Previewing an agent now works the same regardless of how you started the conversation (using an Agent Script file or a published agent.)  Previously you had to configure additional security using a connected app to preview a published agent.
   - **Programmatic Agent Preview**: Preview an agent programmatically, without starting an interactive session, with these four new CLI commands; this feature is particularly useful when you want an agent to test your agent.
     - `agent preview start`:     Start a programmatic agent preview session.
     - `agent preview send`:      Send a message to an existing agent preview session.
     - `agent preview sessions`:  List all known programmatic agent preview sessions.
     - `agent preview end`:  End an existing programmatic agent preview session and get trace location.
   - **Enhanced Session Tracer**: Get oodles of useful session trace information with the enhanced Agent Tracer panel in VS Code.  
-  - **Generate an authoring bundlee**: You're no longer required to generate an agent spec YAML file when generating an authoring bundle. This feature makes it even easier to get started with Agent Script agents. 
+  - **Simpler Authoring Bundle Generation**: You're no longer required to generate an agent spec YAML file when generating an authoring bundle. This feature makes it even easier to get started with Agent Script agents.
+
+   See the [Build Agents with Agentforce DX](https://developer.salesforce.com/docs/ai/agentforce/guide/agent-dx.html) section of the _Agentforce Developer Guide_ for details. 
   
 * NEW: Generate an Experience Cloud site in your DX project with the new `template generate digital-experience site` command. After you pass the command the name of a template (currently only `BuildYourOwnLWR`), the new site name, and an URL path prefix, all the required metadata files are created locally. The metadata files correspond to metadata components such as DigitalExperienceConfig, DigitalExperienceBundle, Network, and CustomSite.
 
