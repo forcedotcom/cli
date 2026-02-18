@@ -47,7 +47,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
    This example generates a `RecordPage` Flexipage for the Account object in the `force-app/main/default/flexipages` directory:
   ```bash
-  sf template generate flexipage --name Account_Record_Page --template RecordPage --sobject Account--output-dir force-app/main/default/flexipages
+  sf template generate flexipage --name Account_Record_Page --template RecordPage --sobject Account --output-dir force-app/main/default/flexipages
   ```
   (plugin-templates PR [#833](https://github.com/salesforcecli/plugin-templates/pull/833))
 
@@ -55,7 +55,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
    But don't worry, we also added aliases to the moved commands, so that the old command names will still work. But they display a deprecation warning that the command name has changed.
 
-   Here are all the affected commands. (plugin-templates PR [#840](https://github.com/salesforcecli/plugin-templates/pull/840), 
+   Here are all the affected commands. (plugin-templates PR [#840](https://github.com/salesforcecli/plugin-templates/pull/840), plugin-templates PR [#838](https://github.com/salesforcecli/plugin-templates/pull/838))
 
   | Old command | New command |
   | ----------- | ----------- |
