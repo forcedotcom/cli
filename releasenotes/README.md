@@ -25,11 +25,71 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.123.1 (Feb 18, 2026) [stable-rc]
+## 2.124.6 (Feb 25, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+ 
+* NEW: Generate an Experience Cloud site in your DX project with the new `template generate digital-experience site` command. After you pass the command the name of a template (currently only `BuildYourOwnLWR`), the new site name, and an URL path prefix, all the required metadata files are created locally. The metadata files correspond to metadata components such as DigitalExperienceConfig, DigitalExperienceBundle, Network, and CustomSite.
+
+    The `BuildYourOwnLWR` template creates super-fast digital experiences, such as websites, microsites, and portals, using the Lightning Web Components programming model. Powered by Lightning Web Runtime (LWR), this customizable template delivers unparalleled site performance.  For additional details, see this Salesforce Help topic: https://help.salesforce.com/s/articleView?id=experience.rss_build_your_own_lwr.htm.
+
+  Here's an example that generates the metadata files in the `force-app/main/default` directory:
+
+  ```bash
+  sf template generate digital-experience site --template BuildYourOwnLWR --name mysite --url-path-prefix mysite --output-dir force-app/main/default
+  ```
+
+  (plugin-templates PR [#829](https://github.com/salesforcecli/plugin-templates/pull/829))
+
+* NEW: Generate a FlexiPage in your DX project with the new `template generate flexipage` command.  FlexiPages are the metadata types associated with a Lightning page, which represents a customizable screen made up of regions containing Lightning components.  You can generate these types of FlexiPages: `AppPage`, `HomePage`, or `RecordPage`.
+
+   This example generates a `RecordPage` Flexipage for the Account object in the `force-app/main/default/flexipages` directory:
+  ```bash
+  sf template generate flexipage --name Account_Record_Page --template RecordPage --sobject Account --output-dir force-app/main/default/flexipages
+  ```
+  (plugin-templates PR [#833](https://github.com/salesforcecli/plugin-templates/pull/833))
+
+* CHANGE: We reorganized all the commands in [plugin-templates](https://github.com/salesforcecli/plugin-templates) under a top-level topic called `template generate`. As a result, you can now take advantage of autocomplete to list all the available templates to generate things, such as DX projects or Apex classes. 
+
+   But don't worry, we also added aliases to the moved commands, so that the old command names will still work. But they display a deprecation warning that the command name has changed.
+
+   Here are all the affected commands. (plugin-templates PR [#840](https://github.com/salesforcecli/plugin-templates/pull/840), plugin-templates PR [#838](https://github.com/salesforcecli/plugin-templates/pull/838))
+
+  | Old command | New command |
+  | ----------- | ----------- |
+  | apex generate class | template generate apex class |
+  | apex generate trigger | template generate apex trigger |
+  | analytics generate template | template generate analytics template |
+  | lightning generate app | template generate lightning app |
+  | lightning generate component | template generate lightning component |
+  | lightning generate event | template generate lightning event |
+  | lightning generate interface | template generate lightning interface |
+  | lightning generate test | template generate lightning test |
+  | project generate | template generate project |
+  | static-resource generate | template generate static-resource |
+  | visualforce generate component | template generate visualforce component |
+  | visualforce generate page | template generate visualforce page |
+  
+## 2.123.1 (Feb 18, 2026) [stable]
+
+* NEW: **(Generally Available) Build Enterprise-Ready Agents with Agentforce DX and Agent Script**
+
+  After a successful [beta](./README.md#211515-dec-10-2025), we're happy to announce the generally availability of Agentforce DX to build hybrid reasoning Salesforce agents that use Agent Script. These new types of agents have both the predictability that your business demands and the creativity that large language models (LLMs) make possible. Agentforce DX helps pro-code developers build these agents by minimizing context switching, enabling professional DevOps, and simplifying collaboration between low-code and pro-code developers.
+
+  For the list of features we announced in the beta, see [these release notes](https://help.salesforce.com/s/articleView?id=release-notes.rn_tools_afdx_nga_beta.htm&release=260&type=5). Since the beta announcement, we've added or improved the following features:
+  - **Agentforce Vibes Rules for Agent Script**: Agentforce Vibes now includes a global rule for coding Agent Script files. 
+  - **Improved Agent Preview**: Previewing an agent now works the same regardless of how you started the conversation (using an Agent Script file or a published agent.)  Previously you had to configure additional security using a connected app to preview a published agent.
+  - **Programmatic Agent Preview**: Preview an agent programmatically, without starting an interactive session, with these four new CLI commands; this feature is particularly useful when you want an agent to test your agent.
+    - `agent preview start`:     Start a programmatic agent preview session.
+    - `agent preview send`:      Send a message to an existing agent preview session.
+    - `agent preview sessions`:  List all known programmatic agent preview sessions.
+    - `agent preview end`:  End an existing programmatic agent preview session and get trace location.
+  - **Enhanced Session Tracer**: Get oodles of useful session trace information with the enhanced Agent Tracer panel in VS Code.  
+  - **Simpler Authoring Bundle Generation**: You're no longer required to generate an agent spec YAML file when generating an authoring bundle. This feature makes it even easier to get started with Agent Script agents.
+
+   See the [Build Agents with Agentforce DX](https://developer.salesforce.com/docs/ai/agentforce/guide/agent-dx.html) section of the _Agentforce Developer Guide_ for details. 
 
 * NEW: Generate a package ZIP file that you can use for debugging or to examine the package contents when you run `package version create` with the new `--generate-pkg-zip` flag.
 
@@ -46,7 +106,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: CLI commands that don't require an org no longer run really slowly in directories in which the `target-org` config variable points to a long-expired scratch org. (GitHub Issue [#3425](https://github.com/forcedotcom/cli/issues/3425), jsforce PR [#1772](https://github.com/jsforce/jsforce/pull/1772))
 
-## 2.122.6 (Feb 11, 2026) [stable]
+## 2.122.6 (Feb 11, 2026)
 
 * NEW: Skip retrieving new or changed metadata from your org when you publish an agent's authoring bundle with the new `--skip-retrieve` flag of `agent publish authoring-bundle`.  This feature is useful when you publish the authoring bundle in a CI job and don't need to retrieve the metadata back to your DX project because it already has it; skipping the retrieve can save time. This example shows how to publish an authoring bundle with API name `MyAuthoringBundle` to the org with alias `my-dev-org`, but not retrieve any of the metadata:
   
