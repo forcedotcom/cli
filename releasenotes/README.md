@@ -89,7 +89,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
   - **Enhanced Session Tracer**: Get oodles of useful session trace information with the enhanced Agent Tracer panel in VS Code.  
   - **Simpler Authoring Bundle Generation**: You're no longer required to generate an agent spec YAML file when generating an authoring bundle. This feature makes it even easier to get started with Agent Script agents.
 
-   See the [Build Agents with Agentforce DX](https://developer.salesforce.com/docs/ai/agentforce/guide/agent-dx.html) section of the _Agentforce Developer Guide_ for details. 
+   The version of the Agentforce DX for VS Code Extension that contains these GA features is 1.7.0; install it from either the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=salesforce.salesforcedx-vscode-agents) or [Open VSX Registry](https://open-vsx.org/extension/salesforce/salesforcedx-vscode-agents).
+
+  See the [Build Agents with Agentforce DX](https://developer.salesforce.com/docs/ai/agentforce/guide/agent-dx.html) section of the _Agentforce Developer Guide_ for details. 
 
 * NEW: Generate a package ZIP file that you can use for debugging or to examine the package contents when you run `package version create` with the new `--generate-pkg-zip` flag.
 
