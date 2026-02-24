@@ -25,11 +25,15 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.124.6 (Feb 25, 2026) [stable-rc]
+## 2.125.1 (March 4, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: We fixed some under-the-hood issues.
+
+## 2.124.6 (Feb 25, 2026) [stable]
  
 * NEW: Generate an Experience Cloud site in your DX project with the new `template generate digital-experience site` command. After you pass the command the name of a template (currently only `BuildYourOwnLWR`), the new site name, and an URL path prefix, all the required metadata files are created locally. The metadata files correspond to metadata components such as DigitalExperienceConfig, DigitalExperienceBundle, Network, and CustomSite.
 
@@ -72,7 +76,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
   | visualforce generate component | template generate visualforce component |
   | visualforce generate page | template generate visualforce page |
   
-## 2.123.1 (Feb 18, 2026) [stable]
+## 2.123.1 (Feb 18, 2026)
 
 * NEW: **(Generally Available) Build Enterprise-Ready Agents with Agentforce DX and Agent Script**
 
