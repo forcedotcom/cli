@@ -25,7 +25,7 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.124.6 (Feb 25, 2026) [stable-rc]
+## 2.124.7 (Feb 25, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
@@ -71,7 +71,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
   | static-resource generate | template generate static-resource |
   | visualforce generate component | template generate visualforce component |
   | visualforce generate page | template generate visualforce page |
-  
+
+* FIX: Salesforce CLI now properly shuts down node processes after sending telemetry events. (GitHub Issues [#3505](https://github.com/forcedotcom/cli/issues/3505) and [#3506](https://github.com/forcedotcom/cli/issues/3506), plugin-telemetry PR [#835](https://github.com/salesforcecli/plugin-telemetry/pull/835))
 ## 2.123.1 (Feb 18, 2026) [stable]
 
 * NEW: **(Generally Available) Build Enterprise-Ready Agents with Agentforce DX and Agent Script**
