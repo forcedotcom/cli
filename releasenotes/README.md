@@ -33,7 +33,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We fixed some under-the-hood issues.
 
-## 2.124.6 (Feb 25, 2026) [stable]
+## 2.124.7 (Feb 25, 2026) [stable]
  
 * NEW: Generate an Experience Cloud site in your DX project with the new `template generate digital-experience site` command. After you pass the command the name of a template (currently only `BuildYourOwnLWR`), the new site name, and an URL path prefix, all the required metadata files are created locally. The metadata files correspond to metadata components such as DigitalExperienceConfig, DigitalExperienceBundle, Network, and CustomSite.
 
@@ -75,7 +75,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
   | static-resource generate | template generate static-resource |
   | visualforce generate component | template generate visualforce component |
   | visualforce generate page | template generate visualforce page |
-  
+
+* FIX: Salesforce CLI now properly shuts down node processes after sending telemetry events. (GitHub Issues [#3505](https://github.com/forcedotcom/cli/issues/3505) and [#3506](https://github.com/forcedotcom/cli/issues/3506), plugin-telemetry PR [#835](https://github.com/salesforcecli/plugin-telemetry/pull/835))
+
 ## 2.123.1 (Feb 18, 2026)
 
 * NEW: **(Generally Available) Build Enterprise-Ready Agents with Agentforce DX and Agent Script**
