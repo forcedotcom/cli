@@ -31,7 +31,12 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* FIX: We fixed some under-the-hood issues.
+* NEW: When generating an authoring bundle with the `agent generate authoring-bundle` Agentforce DX command, use the `--force-overwrite` flag to overwrite the existing authoring bundle if one with the same API name already exists locally. For example:
+
+    ```bash
+    sf agent generate authoring-bundle --no-spec --api-name My_Authoring_Bundle --force-overwrite
+    ```
+    (plugin-agent PR [#327](https://github.com/salesforcecli/plugin-agent/pull/327))
 
 ## 2.124.7 (Feb 25, 2026) [stable]
  
