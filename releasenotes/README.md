@@ -31,6 +31,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* CHANGE: If you specify the `--json` flag for an interactive Agentforce DX command, but you don't also specify values for all the required flags, then the command now correctly stops executing and displays an error. By "interactive", we mean commands that prompt you for values if you don't provide one for a required flag.
+
+   For example, the `--name` flag is required for `agent generate authoring-bundle`. If you don't provide it (and also don't provide `--json`), then the command prompts you for a name for the new authoring bundle.  However, if you specify `--json` but not `--name`, then the command fails with an error. (plugin-agent PR [#336](https://github.com/salesforcecli/plugin-agent/pull/336))
+
 * FIX: Salesforce CLI is now better able to recognize the shell that it's being run from. (oclif GitHub Issue [#1538](https://github.com/oclif/core/issues/1538), oclif core PR [#1548](https://github.com/oclif/core/pull/1548))
 
 ## 2.125.1 (March 4, 2026) [stable]
