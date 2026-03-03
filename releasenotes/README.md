@@ -31,6 +31,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* FIX: Salesforce CLI is now better able to recognize the shell that it's being run from. (oclif GitHub Issue [#1538](https://github.com/oclif/core/issues/1538), oclif core PR [#1548](https://github.com/oclif/core/pull/1548))
+
 ## 2.125.1 (March 4, 2026) [stable]
 
 * NEW: When generating an authoring bundle with the `agent generate authoring-bundle` Agentforce DX command, use the `--force-overwrite` flag to overwrite the existing authoring bundle if one with the same API name already exists locally. For example:
