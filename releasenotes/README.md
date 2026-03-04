@@ -25,11 +25,28 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.125.1 (March 4, 2026) [stable-rc]
+## 2.126.1 (March 11, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: The `dev generate flag` command now supports generating flags for commands that use the `src/commands/hello/world/index.ts` file layout in the plugin repo, in addition to `src/commands/hello/world.ts`. The command now also tries to find an existing messages file for adding the new flag's help text.
+
+   Many thanks to [AndrewLPetersonSF](https://github.com/AndrewLPetersonSF) for contributing this useful feature! (plugin-dev PR #533)
+
+* CHANGE: If you specify the `--json` flag for an interactive Agentforce DX command, but not a required flag, the command now correctly stops executing and displays an error. In this context, "interactive" refers to a command that prompts you for values if you don't explicitly specify a required flag. 
+
+   For example, the `--name` flag is required for `agent generate authoring-bundle`. 
+
+    * If you run `sf agent generate authoring-bundle`, then you're prompted for the name of the authoring bundle.
+    * If you run `sf agent generate authoring-bundle --json`, then the command returns an error because in this case you must specify `--name`.
+
+    (plugin-agent PR [#336](https://github.com/salesforcecli/plugin-agent/pull/336))
+
+* FIX: We fixed an issue in how Salesforce CLI recognizes the shell that it's being run from. (oclif GitHub Issue [#1538](https://github.com/oclif/core/issues/1538), oclif core PR [#1548](https://github.com/oclif/core/pull/1548))
+
+## 2.125.1 (March 4, 2026) [stable]
 
 * NEW: When generating an authoring bundle with the `agent generate authoring-bundle` Agentforce DX command, use the `--force-overwrite` flag to overwrite the existing authoring bundle if one with the same API name already exists locally. For example:
 
@@ -38,7 +55,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     ```
     (plugin-agent PR [#327](https://github.com/salesforcecli/plugin-agent/pull/327))
 
-## 2.124.7 (Feb 25, 2026) [stable]
+## 2.124.7 (Feb 25, 2026)
  
 * NEW: Generate an Experience Cloud site in your DX project with the new `template generate digital-experience site` command. After you pass the command the name of a template (currently only `BuildYourOwnLWR`), the new site name, and an URL path prefix, all the required metadata files are created locally. The metadata files correspond to metadata components such as DigitalExperienceConfig, DigitalExperienceBundle, Network, and CustomSite.
 
