@@ -31,7 +31,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* CHANGE: If you specify the `--json` flag for an interactive Agentforce DX command, but not a required flag, the command now correctly stops executing and displays an error. By "interactive", we mean commands that prompt you for values if you don't explicitly specify a required flag. 
+* CHANGE: If you specify the `--json` flag for an interactive Agentforce DX command, but not a required flag, the command now correctly stops executing and displays an error. In this context, "interactive" refers to a command that prompts you for values if you don't explicitly specify a required flag. 
 
    For example, the `--name` flag is required for `agent generate authoring-bundle`. 
 
