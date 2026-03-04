@@ -31,6 +31,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: The `dev generate flag` command now supports generating flags for commands that use the `src/commands/hello/world/index.ts` file layout in the plugin repo, in addition to `src/commands/hello/world.ts`. The command now also tries to find an existing messages file for adding the new flag's help text.
+
+   Many thanks to [AndrewLPetersonSF](https://github.com/AndrewLPetersonSF) for contributing this useful feature! (plugin-dev PR #533)
+
 * CHANGE: If you specify the `--json` flag for an interactive Agentforce DX command, but not a required flag, the command now correctly stops executing and displays an error. In this context, "interactive" refers to a command that prompts you for values if you don't explicitly specify a required flag. 
 
    For example, the `--name` flag is required for `agent generate authoring-bundle`. 
