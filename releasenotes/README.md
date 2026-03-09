@@ -31,6 +31,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* FIX: You can now correctly deploy and retrieve `SchedulingObjective` metadata components.  (GitHub Issue [#3514](https://github.com/forcedotcom/cli/issues/3514), source-deploy-retrieve PR [#1700](https://github.com/forcedotcom/source-deploy-retrieve/pull/1700))
+
 * FIX: Using `--flags-dir` to [read flag values from a file](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_flag_values_in_files.htm) now correctly works with commands in non-core third-party plugins. (GitHub Issue [#3493](https://github.com/forcedotcom/cli/issues/3493), oclif core PR [#1553](https://github.com/oclif/core/pull/1553), oclif plugin-plugins PR [#1288](https://github.com/oclif/plugin-plugins/pull/1288))
 
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
