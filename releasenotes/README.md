@@ -31,7 +31,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* FIX: (GitHub Issue [#3507](https://github.com/forcedotcom/cli/issues/3507), plugin-data PR [#1388](https://github.com/salesforcecli/plugin-data/pull/1388))
+* FIX: The `data bulk export` CLI command now works correctly even when exporting many records (such as 700K+). (GitHub Issue [#3507](https://github.com/forcedotcom/cli/issues/3507), plugin-data PR [#1388](https://github.com/salesforcecli/plugin-data/pull/1388))
 
 * FIX: You can now successfully retrieve individual `BotVersion` metadata components, such as `sf project retrieve start --metadata BotVersion:MyAgent.v1`.  (GitHub Issue [#3516](https://github.com/forcedotcom/cli/issues/3516), source-deploy-retrieve PR [#1704](https://github.com/forcedotcom/source-deploy-retrieve/pull/1704))
 
