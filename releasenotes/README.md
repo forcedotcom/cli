@@ -25,11 +25,26 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.126.2 (March 11, 2026) [stable-rc]
+## 2.127.2 (March 18, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: The `data bulk export` CLI command now works correctly even when exporting many records (such as 700K+). (GitHub Issue [#3507](https://github.com/forcedotcom/cli/issues/3507), plugin-data PR [#1388](https://github.com/salesforcecli/plugin-data/pull/1388))
+
+* FIX: You can now successfully retrieve individual `BotVersion` metadata components, such as `sf project retrieve start --metadata BotVersion:MyAgent.v1`.  (GitHub Issue [#3516](https://github.com/forcedotcom/cli/issues/3516), source-deploy-retrieve PR [#1704](https://github.com/forcedotcom/source-deploy-retrieve/pull/1704))
+
+* FIX: You can now correctly deploy and retrieve `SchedulingObjective` metadata components.  (GitHub Issue [#3514](https://github.com/forcedotcom/cli/issues/3514), source-deploy-retrieve PR [#1700](https://github.com/forcedotcom/source-deploy-retrieve/pull/1700))
+
+* FIX: Using `--flags-dir` to [read flag values from a file](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_flag_values_in_files.htm) now correctly works with commands in non-core third-party plugins. (GitHub Issue [#3493](https://github.com/forcedotcom/cli/issues/3493), oclif core PR [#1553](https://github.com/oclif/core/pull/1553), oclif plugin-plugins PR [#1288](https://github.com/oclif/plugin-plugins/pull/1288))
+
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+
+    * MktDatalakeSrcKeyQualifier
+    * ProcedurePlanDefinition
+  
+## 2.126.3 (March 11, 2026) [stable]
 
 * NEW: The `dev generate flag` command now supports generating flags for commands that use the `src/commands/hello/world/index.ts` file layout in the plugin repo, in addition to `src/commands/hello/world.ts`. The command now also tries to find an existing messages file for adding the new flag's help text.
 
@@ -46,7 +61,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We fixed an issue in how Salesforce CLI recognizes the shell that it's being run from. (oclif GitHub Issue [#1538](https://github.com/oclif/core/issues/1538), oclif core PR [#1548](https://github.com/oclif/core/pull/1548))
 
-## 2.125.1 (March 4, 2026) [stable]
+## 2.125.1 (March 4, 2026)
 
 * NEW: When generating an authoring bundle with the `agent generate authoring-bundle` Agentforce DX command, use the `--force-overwrite` flag to overwrite the existing authoring bundle if one with the same API name already exists locally. For example:
 
