@@ -44,7 +44,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * MktDatalakeSrcKeyQualifier
     * ProcedurePlanDefinition
   
-## 2.126.2 (March 11, 2026) [stable]
+## 2.126.3 (March 11, 2026) [stable]
 
 * NEW: The `dev generate flag` command now supports generating flags for commands that use the `src/commands/hello/world/index.ts` file layout in the plugin repo, in addition to `src/commands/hello/world.ts`. The command now also tries to find an existing messages file for adding the new flag's help text.
 
