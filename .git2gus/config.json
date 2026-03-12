@@ -1,12 +1,13 @@
 {
   "productTag": "a1aB00000004Bx8IAE",
-  "defaultBuild": "offcore.tooling.58",
+  "productTagLabels": { "area:afdx": "a1aEE000001vDZRYA2" },
+  "defaultBuild": "offcore.tooling.66",
   "issueTypeLabels": {
     "feature": "USER STORY",
     "regression": "BUG P1",
     "bug": "BUG P3"
   },
-  "hideWorkItemUrl": false,
+  "hideWorkItemUrl": true,
   "statusWhenClosed": "CLOSED",
   "issueEpicMapping": {
     "BUG P1": "a3QB00000004yR1MAI",
