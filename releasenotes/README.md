@@ -33,6 +33,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * CHANGE: For enhanced security, the minimum (and new default) value of the `--length` flag of the `org generate password` CLI command is now 20. If you specify a value less than 20, the command displays a message and uses 20 instead. Starting in Summer '26, the command will fail if you specify a password length less than 20.  The maximum value is still 100. (plugin-user PR [#1372](https://github.com/salesforcecli/plugin-user/pull/1372))
 
+* FIX: The `project deploy start` command now works correctly when you use both mechanisms for deleting metadata components at the same time: use a destructive change file (such as `--pre-destructive-changes manifest/destructiveChangesPre.xml`) and remove a different component from the standard manifest file (such as `--manifest manifest/package.xml`).  (source-deploy-retrieve PR [#1690](https://github.com/forcedotcom/source-deploy-retrieve/pull/1690), plugin-deploy-retrieve PR [#1508](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1508))
+
 ## 2.127.2 (March 18, 2026) [stable]
 
 * FIX: The `data bulk export` CLI command now works correctly even when exporting many records (such as 700K+). (GitHub Issue [#3507](https://github.com/forcedotcom/cli/issues/3507), plugin-data PR [#1388](https://github.com/salesforcecli/plugin-data/pull/1388))
