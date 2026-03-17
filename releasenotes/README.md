@@ -31,6 +31,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* CHANGE: For enhanced security, the minimum (and new default) value of the `--length` flag of the `org generate password` CLI command is now 20. If you specify a value less than 20, the command displays a message and uses 20 instead. Starting in Summer '26, the command will fail if you specify a password length less than 20.  The maximum value is still 100. (plugin-user PR [#1372](https://github.com/salesforcecli/plugin-user/pull/1372))
 
 ## 2.127.2 (March 18, 2026) [stable]
 
