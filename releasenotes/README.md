@@ -25,11 +25,14 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.127.2 (March 18, 2026) [stable-rc]
+## 2.128.4 (March 25, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+
+## 2.127.2 (March 18, 2026) [stable]
 
 * FIX: The `data bulk export` CLI command now works correctly even when exporting many records (such as 700K+). (GitHub Issue [#3507](https://github.com/forcedotcom/cli/issues/3507), plugin-data PR [#1388](https://github.com/salesforcecli/plugin-data/pull/1388))
 
@@ -44,7 +47,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * MktDatalakeSrcKeyQualifier
     * ProcedurePlanDefinition
   
-## 2.126.4 (March 11, 2026) [stable]
+## 2.126.4 (March 11, 2026)
 
 * NEW: The `dev generate flag` command now supports generating flags for commands that use the `src/commands/hello/world/index.ts` file layout in the plugin repo, in addition to `src/commands/hello/world.ts`. The command now also tries to find an existing messages file for adding the new flag's help text.
 
