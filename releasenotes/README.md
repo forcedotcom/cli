@@ -43,6 +43,12 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
  
 * CHANGE: For enhanced security, the minimum (and new default) value of the `--length` flag of the `org generate password` CLI command is now 20. If you specify a value less than 20, the command displays a message and uses 20 instead. Starting in Summer '26, the command will fail if you specify a password length less than 20.  The maximum value is still 100. (plugin-user PR [#1372](https://github.com/salesforcecli/plugin-user/pull/1372))
 
+* FIX: The `project retrieve start` command now correctly retrieves specific versions of the `Bot` metadata type (`BotVersion`); previously it would retrieve just the latest version.  This example shows retrieving version 3 of the Local_Info_Agent `Bot`:
+
+    ```bash
+    sf project retrieve start --metadata Bot:Local_Info_Agent --metadata BotVersion:Local_Info_Agent.v3
+    ```
+
 * FIX: The `project deploy start` command now works correctly when you use both mechanisms for deleting metadata components at the same time: use a destructive change file (such as `--pre-destructive-changes manifest/destructiveChangesPre.xml`) and remove a different component from the standard manifest file (such as `--manifest manifest/package.xml`).  (source-deploy-retrieve PR [#1690](https://github.com/forcedotcom/source-deploy-retrieve/pull/1690), plugin-deploy-retrieve PR [#1508](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1508))
 
 ## 2.127.2 (March 18, 2026) [stable]
