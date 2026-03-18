@@ -25,11 +25,43 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.127.2 (March 18, 2026) [stable-rc]
+## 2.128.4 (March 25, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: The Lightning Local Dev CLI commands are now just-in-time (JIT). This means that when you update to this Salesforce CLI release and run a `lightning dev` command, Salesforce CLI checks if the associated [plugin-lightning-dev](https://github.com/salesforcecli/plugin-lightning-dev) is installed. If it's not, Salesforce CLI automatically installs it and then runs your command. These are the CLI commands included in this plugin:
+
+    * `lightning dev app` : Preview a Lightning Experience app locally and in real-time, without deploying it.                                                                                     │
+    * `lightning dev component` : Preview LWC components in isolation.                                                                                                                                   │
+    * `lightning dev site` : Preview an Experience Builder site locally and in real-time, without deploying it.        
+
+	See [Preview Components with Local Dev](https://developer.salesforce.com/docs/platform/lwc/guide/get-started-test-components.html) for information about using the commands.  These new commands will also soon be included in the [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_unified.htm). 
+
+* NEW: Specify the version of an agent you want to activate with the new `--version` flag of `agent activate`. If you run the command without the `--version` flag, the command provides a list of agent versions for you to choose from. The value of `--version` is always a number, corresponding to the `vX` part of the `BotVersion` metadata in your project.
+
+   For example, if you have a `force-app/main/default/bots/My_Agent/v4.botVersion-meta.xml` file in your project, then you activate this agent version in an org with alias `my-org` like this:
+
+    ```bash
+    sf agent activate --api-name My_Agent --version 4 --target-org my-org
+    ```
+
+   You can now also specify JSON output for the `agent activate` and `agent deactivate` commands with the new `--json` flag. (plugin-agent PR [#348](https://github.com/salesforcecli/plugin-agent/pull/348))
+ 
+* CHANGE: For enhanced security, the minimum (and new default) value of the `--length` flag of the `org generate password` CLI command is now 20. If you specify a value less than 20, the command displays a message and uses 20 instead. Starting in Summer '26, the command will fail if you specify a password length less than 20.  The maximum value is still 100. (plugin-user PR [#1372](https://github.com/salesforcecli/plugin-user/pull/1372))
+
+* FIX: The `project retrieve start` command now correctly retrieves specific versions of the `Bot` metadata type (`BotVersion`); previously it would retrieve just the latest version.  This example shows how to retrieve version 3 of the Local_Info_Agent `Bot`:
+
+    ```bash
+    sf project retrieve start --metadata Bot:Local_Info_Agent --metadata BotVersion:Local_Info_Agent.v3
+    ```
+
+    (source-deploy-retrieve PR [#1706](https://github.com/forcedotcom/source-deploy-retrieve/pull/1706))
+  
+* FIX: The `project deploy start` command now works correctly when you use both mechanisms for deleting metadata components at the same time: use a destructive change file (such as `--pre-destructive-changes manifest/destructiveChangesPre.xml`) and remove a different component from the standard manifest file (such as `--manifest manifest/package.xml`).  (source-deploy-retrieve PR [#1690](https://github.com/forcedotcom/source-deploy-retrieve/pull/1690), plugin-deploy-retrieve PR [#1508](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1508))
+
+## 2.127.2 (March 18, 2026) [stable]
 
 * FIX: The `data bulk export` CLI command now works correctly even when exporting many records (such as 700K+). (GitHub Issue [#3507](https://github.com/forcedotcom/cli/issues/3507), plugin-data PR [#1388](https://github.com/salesforcecli/plugin-data/pull/1388))
 
@@ -44,7 +76,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * MktDatalakeSrcKeyQualifier
     * ProcedurePlanDefinition
   
-## 2.126.4 (March 11, 2026) [stable]
+## 2.126.4 (March 11, 2026)
 
 * NEW: The `dev generate flag` command now supports generating flags for commands that use the `src/commands/hello/world/index.ts` file layout in the plugin repo, in addition to `src/commands/hello/world.ts`. The command now also tries to find an existing messages file for adding the new flag's help text.
 
