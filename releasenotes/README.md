@@ -31,6 +31,14 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: The Lightning Local Dev CLI commands are now just-in-time (JIT). This means that when you update to this Salesforce CLI release and run a `lightning dev` command, Salesforce CLI checks if the associated [plugin-lightning-dev](https://github.com/salesforcecli/plugin-lightning-dev) is installed. If it's not, Salesforce CLI automatically installs it and then runs your command. These are the CLI commands included in this plugin:
+
+    * `lightning dev app` : Preview a Lightning Experience app locally and in real-time, without deploying it.                                                                                     │
+    * `lightning dev component` : Preview LWC components in isolation.                                                                                                                                   │
+    * `lightning dev site` : Preview an Experience Builder site locally and in real-time, without deploying it.        
+
+	See [Preview Components with Local Dev](https://developer.salesforce.com/docs/platform/lwc/guide/get-started-test-components.html) for information about using the commands.  These new commands will also soon be included in the [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_unified.htm). 
+
 * NEW: Specify the version of an agent you want to activate with the new `--version` flag of `agent activate`. If you run the command without the `--version` flag, the command provides a list of agent versions for you to choose from. The value of `--version` is always a number, corresponding to the `vX` part of the `BotVersion` metadata in your project.
 
    For example, if you have a `force-app/main/default/bots/My_Agent/v4.botVersion-meta.xml` file in your project, then you activate this agent version in an org with alias `my-org` like this:
