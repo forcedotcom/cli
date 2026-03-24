@@ -31,6 +31,19 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: Easily create the default Salesforce user that is used to run an agent in your org with the new `org create agent-user` CLI command.  You specify this user in the agent's Agent Script file using the `default_agent_user` parameter in the [`config` block](https://developer.salesforce.com/docs/ai/agentforce/guide/ascript-blocks.html#config-block).  
+
+  By default, the command generates a user called `Agent User` with a globally unique username.  Use the `--first-name`, `--last-name`, and `--base-username` flags to change these default names. The command also assigns the required profiles and permission sets.  Run `sf org create agent-user --help` for more details. When the command completes, it displays a summary of what it did, including the new agent user's username and ID.
+
+   This example creates an agent user with an auto-generated username but the custom name `Service Agent` in the org with alias `my-org`:
+
+   ```bash
+   sf org create agent-user --first-name Service --last-name Agent --target-org my-org
+   ```
+    (vscode-agents PR [#168](https://github.com/forcedotcom/vscode-agents/pull/168))
+  
+* NEW: When you activate an agent in VS Code with the **AFDX: Active Agent** command, you're now prompted for the version you want to activate.  (vscode-agents PR [#168](https://github.com/forcedotcom/vscode-agents/pull/168))
+
 * CHANGE: For increased security, we changed the behavior of `org generate password` so it always generates passwords of higher complexity.
 
     Specifically, if you pass the `--complexity` flag a value below 3, the command now ignores that value and instead generates a password of complexity 3, which means a password that includes only lower and upper case letters and numbers. The command also displays a message about this changed behavior.  Starting in Summer '26, the command will fail if you specify a complexity value less than 3. (plugin-user PR [#1389](https://github.com/salesforcecli/plugin-user/pull/1389), 
