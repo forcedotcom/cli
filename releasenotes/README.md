@@ -25,11 +25,14 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.128.5 (March 25, 2026) [stable-rc]
+## 2.129.7 (April 1, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+
+## 2.128.5 (March 25, 2026) [stable]
 
 * NEW: The Lightning Local Dev CLI commands are now just-in-time (JIT). This means that when you update to this Salesforce CLI release and run a `lightning dev` command, Salesforce CLI checks if the associated [plugin-lightning-dev](https://github.com/salesforcecli/plugin-lightning-dev) is installed. If it's not, Salesforce CLI automatically installs it and then runs your command. These are the CLI commands included in this plugin:
 
@@ -61,7 +64,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
   
 * FIX: The `project deploy start` command now works correctly when you use both mechanisms for deleting metadata components at the same time: use a destructive change file (such as `--pre-destructive-changes manifest/destructiveChangesPre.xml`) and remove a different component from the standard manifest file (such as `--manifest manifest/package.xml`).  (source-deploy-retrieve PR [#1690](https://github.com/forcedotcom/source-deploy-retrieve/pull/1690), plugin-deploy-retrieve PR [#1508](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1508))
 
-## 2.127.2 (March 18, 2026) [stable]
+## 2.127.2 (March 18, 2026)
 
 * FIX: The `data bulk export` CLI command now works correctly even when exporting many records (such as 700K+). (GitHub Issue [#3507](https://github.com/forcedotcom/cli/issues/3507), plugin-data PR [#1388](https://github.com/salesforcecli/plugin-data/pull/1388))
 
