@@ -31,6 +31,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* CHANGE: For increased security, we changed the behavior of `org generate password` so it always generates passwords of higher complexity.
+
+    Specifically, if you pass the `--complexity` flag a value below 3, the command now ignores that value and instead generates a password of complexity 3, which means a password that includes only lower and upper case letters and numbers. The command also displays a message about this changed behavior.  Starting in Summer '26, the command will fail if you specify a complexity value less than 3. (plugin-user PR [#1389](https://github.com/salesforcecli/plugin-user/pull/1389), 
+
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
 
     * CnfgItemAttrDef
