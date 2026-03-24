@@ -31,6 +31,24 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+
+    * CnfgItemAttrDef
+    * CnfgItemAttrPcklstValDef
+    * CnfgItemAttrPicklistDef
+    * CnfgItemAttrSetAttr
+    * CnfgItemAttrSetDef
+    * CnfgItemTypeAttrRelDef
+    * CnfgItemTypeDef
+    * CnfgItemTypeRelationDef
+    * CnfgMgmtRelationTypeDef
+    * CnfgMgmtCiSourceDef
+    * MeetingPlaybookDefinition
+    * TelemetryDefinition
+    * TelemetryDefinitionVersion
+    * TelemetryActionDefinition
+    * TelemetryActionDefStep
+    * TelemetryActnDefStepAttr
 
 ## 2.128.5 (March 25, 2026) [stable]
 
