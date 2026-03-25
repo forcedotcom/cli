@@ -31,6 +31,15 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: (Generally Available) The commands to preview an agent programmatically, without starting an interactive session, are now generally available. These commands are particularly useful when you want an agent to test your agent.
+
+    - `agent preview start`:     Start a programmatic agent preview session.
+    - `agent preview send`:      Send a message to an existing agent preview session.
+    - `agent preview sessions`:  List all known programmatic agent preview sessions.
+    - `agent preview end`:  End an existing programmatic agent preview session and get trace location.
+  
+     (plugin-agent PR [#367](https://github.com/salesforcecli/plugin-agent/pull/367))
+
 * NEW: We added the [Agentforce DX VS Code Extension](https://marketplace.visualstudio.com/items?itemName=salesforce.salesforcedx-vscode-agents) to the Salesforce Extension Pack, which is available from either the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=salesforce.salesforcedx-vscode) or the [Open VSX Registry](https://open-vsx.org/extension/salesforce/salesforcedx-vscode).  The updated Salesforce Extension Pack will be available very soon.  This change means that if you're setting up Agentforce DX tools for the first time on VS Code, you only need to install the Salesforce extension pack, which includes all the things. Already set up your tools?  Then you don't need to do anything. 
 
     The Salesforce Extension Pack includes tools for developing on the Salesforce Platform. Use these tools to work with development orgs (scratch orgs, sandboxes, and Developer Edition orgs), Apex, Lightning web components, and SOQL. The extension pack also includes Agentforce Vibes, and now Agentforce DX.  (salesforcedx-vscode PR [#7003](https://github.com/forcedotcom/salesforcedx-vscode/pull/7003))
@@ -198,7 +207,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
   For the list of features we announced in the beta, see [these release notes](https://help.salesforce.com/s/articleView?id=release-notes.rn_tools_afdx_nga_beta.htm&release=260&type=5). Since the beta announcement, we've added or improved the following features:
   - **Agentforce Vibes Rules for Agent Script**: Agentforce Vibes now includes a global rule for coding Agent Script files. 
   - **Improved Agent Preview**: Previewing an agent now works the same regardless of how you started the conversation (using an Agent Script file or a published agent.)  Previously you had to configure additional security using a connected app to preview a published agent.
-  - **Programmatic Agent Preview**: Preview an agent programmatically, without starting an interactive session, with these four new CLI commands; this feature is particularly useful when you want an agent to test your agent.
+  - **Programmatic Agent Preview**: (Beta) Preview an agent programmatically, without starting an interactive session, with these four new CLI commands; this feature is particularly useful when you want an agent to test your agent.
     - `agent preview start`:     Start a programmatic agent preview session.
     - `agent preview send`:      Send a message to an existing agent preview session.
     - `agent preview sessions`:  List all known programmatic agent preview sessions.
