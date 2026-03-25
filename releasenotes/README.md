@@ -25,11 +25,100 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.128.5 (March 25, 2026) [stable-rc]
+## 2.129.8 (April 1, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: Create a Salesforce DX project that includes a sample agent with the new `agent` template value of the `template generate project` command.  For example:
+
+   ```bash
+   sf template generate project --name my-agent-project --template agent
+   ```
+   The new `agent` template is also listed as an option when you create a project in VS Code with the **SFDX: Create Project** command.
+
+   The generated Salesforce DX project contains a sample agent called `Local Info Agent` inside the `force-app/main/default/aiAuthoringBundles/Local_Info_Agent` authoring bundle. The agent could be embedded in a resort's web site to provide local weather updates, share information about local events, and help guests with facility hours. The agent demonstrates:
+
+   - Three types of subagents (Invocable Apex, Prompt Template, and Flow).
+   - Mutable variables.
+   - Flow control with `available when`.
+   - Deterministic branching with `if/else` in reasoning instructions.
+
+    The DX project also includes other metadata that implement the sample agent, such as Apex classes, a flow, and a prompt template, as well as permission sets and permission set groups.  See the `README.md` file in the root directory of the new DX project for more info.
+  
+   (salesforcedx-templates PR [#753](https://github.com/forcedotcom/salesforcedx-templates/pull/753), plugin-templates PR [#874](https://github.com/salesforcecli/plugin-templates/pull/874))
+
+* NEW: (Generally Available) The commands to preview an agent programmatically, without starting an interactive session, are now generally available. These commands are particularly useful when you want an agent to test your agent.
+
+    - `agent preview start`:     Start a programmatic agent preview session.
+    - `agent preview send`:      Send a message to an existing agent preview session.
+    - `agent preview sessions`:  List all known programmatic agent preview sessions.
+    - `agent preview end`:  End an existing programmatic agent preview session and get trace location.
+  
+     (plugin-agent PR [#367](https://github.com/salesforcecli/plugin-agent/pull/367))
+
+* NEW: We added the [Agentforce DX VS Code Extension](https://marketplace.visualstudio.com/items?itemName=salesforce.salesforcedx-vscode-agents) to the Salesforce Extension Pack, which is available from either the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=salesforce.salesforcedx-vscode) or the [Open VSX Registry](https://open-vsx.org/extension/salesforce/salesforcedx-vscode).  The updated Salesforce Extension Pack will be available very soon.  This change means that if you're setting up Agentforce DX tools for the first time on VS Code, you only need to install the Salesforce extension pack, which includes all the things. Already set up your tools?  Then you don't need to do anything. 
+
+    The Salesforce Extension Pack includes tools for developing on the Salesforce Platform. Use these tools to work with development orgs (scratch orgs, sandboxes, and Developer Edition orgs), Apex, Lightning web components, and SOQL. The extension pack also includes Agentforce Vibes, and now Agentforce DX.  (salesforcedx-vscode PR [#7003](https://github.com/forcedotcom/salesforcedx-vscode/pull/7003))
+
+* NEW: Easily create the default Salesforce user that is used to run an agent in your org with the new `org create agent-user` CLI command.  You specify this user in the agent's Agent Script file using the `default_agent_user` parameter in the [`config` block](https://developer.salesforce.com/docs/ai/agentforce/guide/ascript-blocks.html#config-block).  
+
+  By default, the command generates a user called `Agent User` with a globally unique username.  Use the `--first-name`, `--last-name`, and `--base-username` flags to change these default names. The command also assigns the required profiles and permission sets.  Run `sf org create agent-user --help` for more details. When the command completes, it displays a summary of what it did, including the new agent user's username and ID.
+
+   This example creates an agent user with an auto-generated username but the custom name `Service Agent` in the org with alias `my-org`:
+
+   ```bash
+   sf org create agent-user --first-name Service --last-name Agent --target-org my-org
+   ```
+    (vscode-agents PR [#168](https://github.com/forcedotcom/vscode-agents/pull/168))
+  
+* NEW: When you activate an agent in VS Code with the **AFDX: Active Agent** command, you're now prompted for the version you want to activate.  (vscode-agents PR [#168](https://github.com/forcedotcom/vscode-agents/pull/168))
+
+* NEW: Specify a custom directory into which the `agent generate template` command generates the `BotTemplate` and `GenAiPlannerBundle` files with the new `--output-dir` flag. If you don't specify this flag, then the files are generated in the default package directory. 
+
+   This example generates an agent template of version 1 of the `My_Awesome_Agent` Bot metadata file into the `my-package` directory:
+
+   ```bash
+   sf agent generate template --agent-file force-app/main/default/bots/My_Awesome_Agent/My_Awesome_Agent.bot-meta.xml --agent-version 1 --source-org my-scratch-org --output-dir my-package
+   ```
+   
+  (plugin-agent PR [#376](https://github.com/salesforcecli/plugin-agent/pull/376))
+
+* CHANGE: For increased security, we changed the behavior of `org generate password` so it always generates passwords of higher complexity.
+
+    Specifically, if you pass the `--complexity` flag a value below 3, the command now ignores that value and instead generates a password of complexity 3, which means a password that includes only lower and upper case letters and numbers. The command also displays a message about this changed behavior.  Starting in Summer '26, the command will fail if you specify a complexity value less than 3. (plugin-user PR [#1389](https://github.com/salesforcecli/plugin-user/pull/1389), 
+
+* FIX: We fixed [this issue](https://help.salesforce.com/s/issue?id=a02Ka00000ji2nu) with the `agent generate template` command caused by packaging local actions and topics. As a result of the fix, you can now correctly generate an agent template, and then package the template in a second-generation managed package, without going through the workaround.
+
+    Important: this fix added a new requirement when you run `agent generate template`: you must now use the new `--source-org` flag to specify the username or alias of the namespaced scratch org that contains the agent which the template is based on. For example, this command generates an agent template from version 1 of the `My_Awesome_Agent` Bot metadata file in your DX project; the agent that the new template is based on is in the org with alias "my-scratch-org":
+  
+   ```bash
+   sf agent generate template --agent-file force-app/main/default/bots/My_Awesome_Agent/My_Awesome_Agent.bot-meta.xml --agent-version 1 --source-org my-scratch-org
+    ```
+
+   (plugin-agent PR [#376](https://github.com/salesforcecli/plugin-agent/pull/376))
+
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+
+    * CnfgItemAttrDef
+    * CnfgItemAttrPcklstValDef
+    * CnfgItemAttrPicklistDef
+    * CnfgItemAttrSetAttr
+    * CnfgItemAttrSetDef
+    * CnfgItemTypeAttrRelDef
+    * CnfgItemTypeDef
+    * CnfgItemTypeRelationDef
+    * CnfgMgmtRelationTypeDef
+    * CnfgMgmtCiSourceDef
+    * MeetingPlaybookDefinition
+    * TelemetryDefinition
+    * TelemetryDefinitionVersion
+    * TelemetryActionDefinition
+    * TelemetryActionDefStep
+    * TelemetryActnDefStepAttr
+
+## 2.128.5 (March 25, 2026) [stable]
 
 * NEW: The Lightning Local Dev CLI commands are now just-in-time (JIT). This means that when you update to this Salesforce CLI release and run a `lightning dev` command, Salesforce CLI checks if the associated [plugin-lightning-dev](https://github.com/salesforcecli/plugin-lightning-dev) is installed. If it's not, Salesforce CLI automatically installs it and then runs your command. These are the CLI commands included in this plugin:
 
@@ -61,7 +150,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
   
 * FIX: The `project deploy start` command now works correctly when you use both mechanisms for deleting metadata components at the same time: use a destructive change file (such as `--pre-destructive-changes manifest/destructiveChangesPre.xml`) and remove a different component from the standard manifest file (such as `--manifest manifest/package.xml`).  (source-deploy-retrieve PR [#1690](https://github.com/forcedotcom/source-deploy-retrieve/pull/1690), plugin-deploy-retrieve PR [#1508](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1508))
 
-## 2.127.2 (March 18, 2026) [stable]
+## 2.127.2 (March 18, 2026)
 
 * FIX: The `data bulk export` CLI command now works correctly even when exporting many records (such as 700K+). (GitHub Issue [#3507](https://github.com/forcedotcom/cli/issues/3507), plugin-data PR [#1388](https://github.com/salesforcecli/plugin-data/pull/1388))
 
@@ -156,7 +245,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
   For the list of features we announced in the beta, see [these release notes](https://help.salesforce.com/s/articleView?id=release-notes.rn_tools_afdx_nga_beta.htm&release=260&type=5). Since the beta announcement, we've added or improved the following features:
   - **Agentforce Vibes Rules for Agent Script**: Agentforce Vibes now includes a global rule for coding Agent Script files. 
   - **Improved Agent Preview**: Previewing an agent now works the same regardless of how you started the conversation (using an Agent Script file or a published agent.)  Previously you had to configure additional security using a connected app to preview a published agent.
-  - **Programmatic Agent Preview**: Preview an agent programmatically, without starting an interactive session, with these four new CLI commands; this feature is particularly useful when you want an agent to test your agent.
+  - **Programmatic Agent Preview**: (Beta) Preview an agent programmatically, without starting an interactive session, with these four new CLI commands; this feature is particularly useful when you want an agent to test your agent.
     - `agent preview start`:     Start a programmatic agent preview session.
     - `agent preview send`:      Send a message to an existing agent preview session.
     - `agent preview sessions`:  List all known programmatic agent preview sessions.
