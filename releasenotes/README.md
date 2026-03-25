@@ -31,6 +31,24 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: Create a Salesforce DX project that includes a sample agent with the new `agent` template value of the `template generate project` command.  For example:
+
+   ```bash
+   sf template generate project --name my-agent-project --template agent
+   ```
+   The new `agent` template is also listed as an option when you create a project in VS Code with the **SFDX: Create Project** command.
+
+   The generated Salesforce DX project contains a sample agent called `Local Info Agent` inside the `force-app/main/default/aiAuthoringBundles/Local_Info_Agent` authoring bundle. The agent could be embedded in a resort's web site to provide local weather updates, share information about local events, and help guests with facility hours. The agent demonstrates:
+
+   - Three types of subagents (Invocable Apex, Prompt Template, and Flow).
+   - Mutable variables.
+   - Flow control with `available when`.
+   - Deterministic branching with `if/else` in reasoning instructions.
+
+    The DX project also includes other metadata that implement the sample agent, such as Apex classes, a flow, and a prompt template, as well as permission sets and permission set groups.  See the `README.md` file in the root directory of the new DX project for more info.
+  
+   (salesforcedx-templates PR [#753](https://github.com/forcedotcom/salesforcedx-templates/pull/753), plugin-templates PR [#874](https://github.com/salesforcecli/plugin-templates/pull/874))
+
 * NEW: (Generally Available) The commands to preview an agent programmatically, without starting an interactive session, are now generally available. These commands are particularly useful when you want an agent to test your agent.
 
     - `agent preview start`:     Start a programmatic agent preview session.
