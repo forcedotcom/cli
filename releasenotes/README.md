@@ -31,6 +31,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: We added the [Agentforce DX VS Code Extension](https://marketplace.visualstudio.com/items?itemName=salesforce.salesforcedx-vscode-agents) to the Salesforce Extension Pack, which is available from either the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=salesforce.salesforcedx-vscode) or the [Open VSX Registry](https://open-vsx.org/extension/salesforce/salesforcedx-vscode).  The updated Salesforce Extension Pack will be available very soon.  This change means that if you're setting up Agentforce DX tools for the first time on VS Code, you only need to install the Salesforce extension pack, which includes all the things. Already set up your tools?  Then you don't need to do anything. 
+
+    The Salesforce Extension Pack includes tools for developing on the Salesforce Platform. Use these tools to work with development orgs (scratch orgs, sandboxes, and Developer Edition orgs), Apex, Lightning web components, and SOQL. The extension pack also includes Agentforce Vibes, and now Agentforce DX.  (salesforcedx-vscode PR [#7003](https://github.com/forcedotcom/salesforcedx-vscode/pull/7003))
+
 * NEW: Easily create the default Salesforce user that is used to run an agent in your org with the new `org create agent-user` CLI command.  You specify this user in the agent's Agent Script file using the `default_agent_user` parameter in the [`config` block](https://developer.salesforce.com/docs/ai/agentforce/guide/ascript-blocks.html#config-block).  
 
   By default, the command generates a user called `Agent User` with a globally unique username.  Use the `--first-name`, `--last-name`, and `--base-username` flags to change these default names. The command also assigns the required profiles and permission sets.  Run `sf org create agent-user --help` for more details. When the command completes, it displays a summary of what it did, including the new agent user's username and ID.
