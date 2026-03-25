@@ -75,9 +75,29 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
   
 * NEW: When you activate an agent in VS Code with the **AFDX: Active Agent** command, you're now prompted for the version you want to activate.  (vscode-agents PR [#168](https://github.com/forcedotcom/vscode-agents/pull/168))
 
+* NEW: Specify a custom directory into which the `agent generate template` command generates the `BotTemplate` and `GenAiPlannerBundle` files with the new `--output-dir` flag. If you don't specify this flag, then the files are generated in the default package directory. 
+
+   This example generates an agent template of version 1 of the `My_Awesome_Agent` Bot metadata file into the `my-package` directory:
+
+   ```bash
+   sf agent generate template --agent-file force-app/main/default/bots/My_Awesome_Agent/My_Awesome_Agent.bot-meta.xml --agent-version 1 --source-org my-scratch-org --output-dir my-package
+   ```
+   
+  (plugin-agent PR [#376](https://github.com/salesforcecli/plugin-agent/pull/376))
+
 * CHANGE: For increased security, we changed the behavior of `org generate password` so it always generates passwords of higher complexity.
 
     Specifically, if you pass the `--complexity` flag a value below 3, the command now ignores that value and instead generates a password of complexity 3, which means a password that includes only lower and upper case letters and numbers. The command also displays a message about this changed behavior.  Starting in Summer '26, the command will fail if you specify a complexity value less than 3. (plugin-user PR [#1389](https://github.com/salesforcecli/plugin-user/pull/1389), 
+
+* FIX: We fixed [this issue](https://help.salesforce.com/s/issue?id=a02Ka00000ji2nu) with the `agent generate template` command caused by packaging local actions and topics. As a result of the fix, you can now correctly generate an agent template, and then package the template in a second-generation managed package, without going through the workaround.
+
+    Important: this fix added a new requirement when you run `agent generate template`: you must now use the new `--source-org` flag to specify the username or alias of the namespaced scratch org that contains the agent which the template is based on. For example, this command generates an agent template from version 1 of the `My_Awesome_Agent` Bot metadata file in your DX project; the agent that the new template is based on is in the org with alias "my-scratch-org":
+  
+   ```bash
+   sf agent generate template --agent-file force-app/main/default/bots/My_Awesome_Agent/My_Awesome_Agent.bot-meta.xml --agent-version 1 --source-org my-scratch-org
+    ```
+
+   (plugin-agent PR [#376](https://github.com/salesforcecli/plugin-agent/pull/376))
 
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
 
