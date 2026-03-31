@@ -122,6 +122,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * CnfgItemTypeDef
     * CnfgItemTypeRelationDef
     * CnfgMgmtRelationTypeDef
+    * CnfgMgmtCiSourceDef
     * MeetingPlaybookDefinition
     * TelemetryDefinition
     * TelemetryDefinitionVersion
