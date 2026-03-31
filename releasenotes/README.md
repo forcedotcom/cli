@@ -31,6 +31,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* FIX: If the `org assign permset` CLI command encounters multiple errors during a permission set assignment, we now correctly provide all the known details about the errors in the JSON output so you can better diagnose the problem. (GitHub Issue [#3511](https://github.com/forcedotcom/cli/issues/3511), plugin-user PR [#1398](https://github.com/salesforcecli/plugin-user/pull/1398))
+
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
 
     * CnfgItemSourceDefinition (replaces CnfgMgmtCiSourceDef)
