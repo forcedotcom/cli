@@ -31,6 +31,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* CHANGE: When running `agent preview start` to start a programmatic agent preview session using an agent's authoring bundle (`--authoring-bundle` flag), you're now required to specify either simulated or live mode.  Specify simulated mode with the new `--simulate-actions` flag; specify live actions with the existing `--use-live-actions` flag.  Previously, the programmatic agent preview ran in simulated mode by default; to use live mode you had to explicitly specify the `--use-live-actions` flag.
+
+    Published agents, which you specify with the --api-name, always use live actions. (plugin-agent PR [#380](https://github.com/salesforcecli/plugin-agent/pull/380))
+
 * FIX: If the `org assign permset` CLI command encounters multiple errors during a permission set assignment, we now correctly provide all the known details about the errors in the JSON output so you can better diagnose the problem. (GitHub Issue [#3511](https://github.com/forcedotcom/cli/issues/3511), plugin-user PR [#1398](https://github.com/salesforcecli/plugin-user/pull/1398))
 
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
