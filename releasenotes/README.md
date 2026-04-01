@@ -40,6 +40,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     |`PreviewEndFailed (4)`|Failed to end the preview session.|
     |`SessionAmbiguous (5)`|Multiple preview sessions found; specify --session-id to choose one.|
 
+   (plugin-agent PR [#378](https://github.com/salesforcecli/plugin-agent/pull/378))
+
 * CHANGE: When running `agent preview start` to start a programmatic agent preview session using an agent's authoring bundle (`--authoring-bundle` flag), you're now required to specify either simulated or live mode.  Specify simulated mode with the new `--simulate-actions` flag; specify live actions with the existing `--use-live-actions` flag.  Previously, the programmatic agent preview ran in simulated mode by default; to use live mode you had to explicitly specify the `--use-live-actions` flag.
 
     Published agents, which you specify with the --api-name, always use live actions. (plugin-agent PR [#380](https://github.com/salesforcecli/plugin-agent/pull/380))
