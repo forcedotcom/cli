@@ -25,11 +25,36 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.129.8 (April 1, 2026) [stable-rc]
+## 2.130.7 (April 8, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: We standardized the error codes that `agent` commands throw when they run into issues.  For example, both `agent publish authoring-bundle` and `agent validate authoring-bundle` now throw the same error code if they run into Agent Script compilation errors.  These are the error codes that the `agent` commands might throw:
+
+    |Error Code| Error Text|
+    |--------|-------
+	|`Succeeded (0)`|Preview session ended successfully and traces saved.|
+    |`NotFound (2)`|Agent not found, or no preview session exists for this agent.|
+    |`PreviewEndFailed (4)`|Failed to end the preview session.|
+    |`SessionAmbiguous (5)`|Multiple preview sessions found; specify --session-id to choose one.|
+
+   (plugin-agent PR [#378](https://github.com/salesforcecli/plugin-agent/pull/378))
+
+* CHANGE: When running `agent preview start` to start a programmatic agent preview session using an agent's authoring bundle (`--authoring-bundle` flag), you're now required to specify either simulated or live mode.  Specify simulated mode with the new `--simulate-actions` flag; specify live actions with the existing `--use-live-actions` flag.  Previously, the programmatic agent preview ran in simulated mode by default; to use live mode you had to explicitly specify the `--use-live-actions` flag.
+
+    Published agents, which you specify with the --api-name, always use live actions. (plugin-agent PR [#380](https://github.com/salesforcecli/plugin-agent/pull/380))
+
+* FIX: If the `org assign permset` CLI command encounters multiple errors during a permission set assignment, we now correctly provide all the known details about the errors in the JSON output so you can better diagnose the problem. (GitHub Issue [#3511](https://github.com/forcedotcom/cli/issues/3511), plugin-user PR [#1398](https://github.com/salesforcecli/plugin-user/pull/1398))
+
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+
+    * CnfgItemSourceDefinition (replaces CnfgMgmtCiSourceDef)
+    * ExtlClntAppOauthSecuritySettings
+    * UIBundle (replaces WebApplication) 
+
+## 2.129.8 (April 1, 2026) [stable]
 
 * NEW: Create a Salesforce DX project that includes a sample agent with the new `agent` template value of the `template generate project` command.  For example:
 
@@ -122,7 +147,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * TelemetryActionDefStep
     * TelemetryActnDefStepAttr
 
-## 2.128.5 (March 25, 2026) [stable]
+## 2.128.5 (March 25, 2026)
 
 * NEW: The Lightning Local Dev CLI commands are now just-in-time (JIT). This means that when you update to this Salesforce CLI release and run a `lightning dev` command, Salesforce CLI checks if the associated [plugin-lightning-dev](https://github.com/salesforcecli/plugin-lightning-dev) is installed. If it's not, Salesforce CLI automatically installs it and then runs your command. These are the CLI commands included in this plugin:
 
