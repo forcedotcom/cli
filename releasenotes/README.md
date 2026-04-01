@@ -31,6 +31,15 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: We standardized the error codes that `agent` commands throw when they run into issues.  For example, both `agent publish authoring-bundle` and `agent validate authoring-bundle` now throw the same error code if they run into Agent Script compilation errors.  These are the error codes that the `agent` commands might throw:
+
+    |Error Code| Error Text|
+    |--------|-------
+	|`Succeeded (0)`|Preview session ended successfully and traces saved.|
+    |`NotFound (2)`|Agent not found, or no preview session exists for this agent.|
+    |`PreviewEndFailed (4)`|Failed to end the preview session.|
+    |`SessionAmbiguous (5)`|Multiple preview sessions found; specify --session-id to choose one.|
+
 * CHANGE: When running `agent preview start` to start a programmatic agent preview session using an agent's authoring bundle (`--authoring-bundle` flag), you're now required to specify either simulated or live mode.  Specify simulated mode with the new `--simulate-actions` flag; specify live actions with the existing `--use-live-actions` flag.  Previously, the programmatic agent preview ran in simulated mode by default; to use live mode you had to explicitly specify the `--use-live-actions` flag.
 
     Published agents, which you specify with the --api-name, always use live actions. (plugin-agent PR [#380](https://github.com/salesforcecli/plugin-agent/pull/380))
