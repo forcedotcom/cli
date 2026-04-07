@@ -25,11 +25,19 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.130.8 (April 8, 2026) [stable-rc]
+## 2.131.6 (April 22, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: We fixed some under-the-hood bugs.
+
+## April 15, 2026
+
+Due to [TDX 2026](https://www.salesforce.com/tdx/), we aren't releasing a new stable or stable-rc version on this day. Hope to see you at the conference!
+
+## 2.130.8 (April 8, 2026) [stable]
 
 * NEW: We standardized the error codes that `agent` commands throw when they run into issues.  For example, both `agent publish authoring-bundle` and `agent validate authoring-bundle` now throw the same error code if they run into Agent Script compilation errors.  These are the error codes that the `agent` commands might throw:
 
@@ -54,7 +62,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * ExtlClntAppOauthSecuritySettings
     * UIBundle (replaces WebApplication) 
 
-## 2.129.8 (April 1, 2026) [stable]
+## 2.129.8 (April 1, 2026)
 
 * NEW: Create a Salesforce DX project that includes a sample agent with the new `agent` template value of the `template generate project` command.  For example:
 
