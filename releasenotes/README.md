@@ -37,7 +37,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 Due to [TDX 2026](https://www.salesforce.com/tdx/), we aren't releasing a new stable or stable-rc version on this day. Hope to see you at the conference!
 
-## 2.130.8 (April 8, 2026) [stable]
+## 2.130.9 (April 8, 2026) [stable]
 
 * NEW: We standardized the error codes that `agent` commands throw when they run into issues.  For example, both `agent publish authoring-bundle` and `agent validate authoring-bundle` now throw the same error code if they run into Agent Script compilation errors.  These are the error codes that the `agent` commands might throw:
 
