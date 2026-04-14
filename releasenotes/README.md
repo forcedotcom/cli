@@ -98,7 +98,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
    ```
     (vscode-agents PR [#168](https://github.com/forcedotcom/vscode-agents/pull/168))
   
-* NEW: When you activate an agent in VS Code with the **AFDX: Active Agent** command, you're now prompted for the version you want to activate.  (vscode-agents PR [#168](https://github.com/forcedotcom/vscode-agents/pull/168))
+* NEW: When you activate an agent in VS Code with the **AFDX: Activate Agent** command, you're now prompted for the version you want to activate.  (vscode-agents PR [#168](https://github.com/forcedotcom/vscode-agents/pull/168))
 
 * NEW: Specify a custom directory into which the `agent generate template` command generates the `BotTemplate` and `GenAiPlannerBundle` files with the new `--output-dir` flag. If you don't specify this flag, then the files are generated in the default package directory. 
 
