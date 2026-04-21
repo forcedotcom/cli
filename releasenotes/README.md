@@ -33,9 +33,23 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Salesforce DX projects now support the DynamicUiCardDefinition [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
 
-## 2.131.6 (April 22, 2026) [stable]
+## 2.131.7 (April 22, 2026) [stable]
 
-* FIX: We fixed some under-the-hood bugs.
+* CHANGE: The agent script compiler version used by the `agent` commands in `@salesforce/plugin-agent` and the [Agentforce DX VS Code Extension](https://marketplace.visualstudio.com/items?itemName=salesforce.salesforcedx-vscode-agents) was updated to 2.0.0 to support the latest version of the Agent Script language. The v2.0.0 compiler is backward compatible with previous versions.
+
+* CHANGE: All references to `topic` in Agent Script files have been changed to `subagent` to align with industry standards. For example, to define a subagent:
+
+```
+subagent eligibility:
+```
+
+To refer to that subagent:
+
+```
+@subagent.eligibility
+```
+
+For more details refer to the [Agent Script Documentation](https://developer.salesforce.com/docs/ai/agentforce/guide/ascript-lang.html)
 
 ## April 15, 2026
 
