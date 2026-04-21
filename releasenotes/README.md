@@ -31,7 +31,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* FIX: Salesforce DX projects now support the DynamicUiCardDefinition [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+    * [DynamicUiCardDefinition](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json)
+    * [AiAgentScorerDefinition](https://github.com/forcedotcom/source-deploy-retrieve/pull/1746) 
 
 ## 2.131.7 (April 22, 2026) [stable]
 
