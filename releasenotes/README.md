@@ -25,17 +25,26 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.132.14 (April 29, 2026) [stable-rc]
+## 2.133.4 (May 6, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
 
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
-    * [DynamicUiCardDefinition](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json)
-    * [AiAgentScorerDefinition](https://github.com/forcedotcom/source-deploy-retrieve/pull/1746) 
 
-## 2.131.7 (April 22, 2026) [stable]
+    * AiResponseFormat
+    * AiSurface
+    * PolicyRuleDefinition
+    * PolicyRuleDefinitionSet
+
+## 2.132.14 (April 29, 2026) [stable]
+
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+    * [DynamicUiCardDefinition](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json)
+    * [AiAgentScorerDefinition](https://github.com/forcedotcom/source-deploy-retrieve/pull/1746)
+
+## 2.131.7 (April 22, 2026)
 
 * CHANGE: The agent script compiler version used by the `agent` commands in `@salesforce/plugin-agent` and the [Agentforce DX VS Code Extension](https://marketplace.visualstudio.com/items?itemName=salesforce.salesforcedx-vscode-agents) was updated to 2.0.0 to support the latest version of the Agent Script language. The v2.0.0 compiler is backward compatible with previous versions.
 
