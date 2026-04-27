@@ -7,7 +7,7 @@
     "regression": "BUG P1",
     "bug": "BUG P3"
   },
-  "hideWorkItemUrl": true,
+  "hideWorkItemUrl": "true",
   "statusWhenClosed": "CLOSED",
   "issueEpicMapping": {
     "BUG P1": "a3QB00000004yR1MAI",
