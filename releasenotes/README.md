@@ -35,6 +35,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     * AiResponseFormat
     * AiSurface
+    * AiTestingDefinition
     * PolicyRuleDefinition
     * PolicyRuleDefinitionSet
 
