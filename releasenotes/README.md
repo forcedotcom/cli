@@ -31,6 +31,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* FIX: We improved the error message when `org resume sandbox` fails; previously, the original sandbox error that provided the actual issue was replaced with a generic error.   (GitHub Issue [#3490](https://github.com/forcedotcom/cli/issues/3490), plugin-org PR [#1646](https://github.com/salesforcecli/plugin-org/pull/1646), sfdx-core PR [#1278](https://github.com/forcedotcom/sfdx-core/pull/1278))
+
+* FIX: When deploying source to an org, any HTML entities in the files are now correctly encoded. (GitHub Issue [#3543](https://github.com/forcedotcom/cli/issues/3543), source-deploy-retrieve PR [#1752](https://github.com/forcedotcom/source-deploy-retrieve/pull/1752))
+
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
 
     * AiResponseFormat
