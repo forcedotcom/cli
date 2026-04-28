@@ -46,6 +46,12 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
   
     (agents library PR [#269](https://github.com/forcedotcom/agents/pull/269), plugin-agent PRs [#400](https://github.com/salesforcecli/plugin-agent/pull/400) and [#399](https://github.com/salesforcecli/plugin-agent/pull/399))
 
+* CHANGE: Beginning in April 2026, agent `topics` in Agent Script files are now called `subagents`.  We updated various Agentforce DX files to reflect this change, including:
+
+	* The sample `Local_Info_Agent.agent` file generated in a new project when you run `sf template generate project --name new-project --template agent`.
+ 	* The [sample GitHub repo](https://github.com/forcedotcom/afdx-pro-code-testdrive) used by the [Build an Agent Using Agentforce DX](https://trailhead.salesforce.com/content/learn/projects/create-an-agent-using-pro-code-tools).
+  	* Agentforce DX-related skills in the [skills GitHub repo](https://github.com/forcedotcom/afv-library/tree/main/skills).  
+
 * CHANGE: We cleaned up the Agentforce DX VS Code extension UI so it consistently uses the term `Agentforce DX` in headings and grouped settings.   (vscode-agents PR [#196](https://github.com/forcedotcom/vscode-agents/pull/196))
 
 * FIX: We improved the error message when `org resume sandbox` fails; previously, the original sandbox error that provided the actual issue was replaced with a generic error.   (GitHub Issue [#3490](https://github.com/forcedotcom/cli/issues/3490), plugin-org PR [#1646](https://github.com/salesforcecli/plugin-org/pull/1646), sfdx-core PR [#1278](https://github.com/forcedotcom/sfdx-core/pull/1278))
