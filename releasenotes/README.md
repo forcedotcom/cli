@@ -55,6 +55,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * CHANGE: We cleaned up the Agentforce DX VS Code extension UI so it consistently uses the term `Agentforce DX` in headings and grouped settings.   (vscode-agents PR [#196](https://github.com/forcedotcom/vscode-agents/pull/196))
 
+* FIX: TBW (GitHub Issue [#3538](https://github.com/forcedotcom/cli/issues/3538), sf-plugins-core PR [#697](https://github.com/salesforcecli/sf-plugins-core/pull/697))
+
 * FIX: We improved the error message when `org resume sandbox` fails; previously, the original sandbox error that provided the actual issue was replaced with a generic error.   (GitHub Issue [#3490](https://github.com/forcedotcom/cli/issues/3490), plugin-org PR [#1646](https://github.com/salesforcecli/plugin-org/pull/1646), sfdx-core PR [#1278](https://github.com/forcedotcom/sfdx-core/pull/1278))
 
 * FIX: When deploying source to an org, any HTML entities in the files are now correctly encoded. (GitHub Issue [#3543](https://github.com/forcedotcom/cli/issues/3543), source-deploy-retrieve PR [#1752](https://github.com/forcedotcom/source-deploy-retrieve/pull/1752))
