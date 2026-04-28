@@ -31,6 +31,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: TBW (plugin-org PR [#1633](https://github.com/salesforcecli/plugin-org/pull/1633))
+
 * NEW: TBW (plugin-user PR [#1415](https://github.com/salesforcecli/plugin-user/pull/1415))
 
 * NEW: We added more information to the JSON output of the `agent preview` commands. For example, we added:
@@ -41,6 +43,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `index.json` file to the sessions directory
   
     (agents library PR [#269](https://github.com/forcedotcom/agents/pull/269), plugin-agent PRs [#400](https://github.com/salesforcecli/plugin-agent/pull/400) and [#399](https://github.com/salesforcecli/plugin-agent/pull/399))
+
+* CHANGE: TBW (vscode-agents PR [#196](https://github.com/forcedotcom/vscode-agents/pull/196))
 
 * FIX: We improved the error message when `org resume sandbox` fails; previously, the original sandbox error that provided the actual issue was replaced with a generic error.   (GitHub Issue [#3490](https://github.com/forcedotcom/cli/issues/3490), plugin-org PR [#1646](https://github.com/salesforcecli/plugin-org/pull/1646), sfdx-core PR [#1278](https://github.com/forcedotcom/sfdx-core/pull/1278))
 
