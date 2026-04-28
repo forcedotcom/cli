@@ -31,6 +31,17 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: TBW (plugin-user PR [#1415](https://github.com/salesforcecli/plugin-user/pull/1415))
+
+* NEW: We added more information to the JSON output of the `agent preview` commands. For example, we added:
+
+    * `agentApiName` property to `agent preview start` and `agent preview send`
+    * `sessionId` property to `agent preview send`
+    * `timestamp` and `sessionType` properties to `agent preview start`
+    * `index.json` file to the sessions directory
+  
+    (agents library PR [#269](https://github.com/forcedotcom/agents/pull/269), plugin-agent PRs [#400](https://github.com/salesforcecli/plugin-agent/pull/400) and [#399](https://github.com/salesforcecli/plugin-agent/pull/399))
+
 * FIX: We improved the error message when `org resume sandbox` fails; previously, the original sandbox error that provided the actual issue was replaced with a generic error.   (GitHub Issue [#3490](https://github.com/forcedotcom/cli/issues/3490), plugin-org PR [#1646](https://github.com/salesforcecli/plugin-org/pull/1646), sfdx-core PR [#1278](https://github.com/forcedotcom/sfdx-core/pull/1278))
 
 * FIX: When deploying source to an org, any HTML entities in the files are now correctly encoded. (GitHub Issue [#3543](https://github.com/forcedotcom/cli/issues/3543), source-deploy-retrieve PR [#1752](https://github.com/forcedotcom/source-deploy-retrieve/pull/1752))
