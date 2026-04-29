@@ -31,9 +31,11 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: Easily open an agent's authoring bundle in the in-org Agentforce Builder UI from VS Code with the new **Open Authoring Bundle in Default Org** command. Run the new command from either the command palette or by right-clicking the agent's `.agent` or metadata file in the VS Code file explorer. These files are in the `aiAuthoringBundle` directory of the package directory. (vscode-agents PR [#183](https://github.com/forcedotcom/vscode-agents/pull/183))
+* NEW: Easily open an agent's authoring bundle in the in-org Agentforce Builder UI from VS Code with the new **AFDX: Open Authoring Bundle in Default Org** command. Run the new command from either the command palette or by right-clicking the agent's `.agent` or metadata file in the VS Code file explorer. If there are multipile versions of the bundle, the command prompts for the one you want to open. 
 
-* NEW: TBW (plugin-org PR [#1633](https://github.com/salesforcecli/plugin-org/pull/1633))
+  You can now also use the `org open agent` CLI command to open an agent's authoring bundle in Agentforce Builder by specifying its API name with the new `--authoring-bundle` flag.  Use the new `--version` flag to specify a version.
+  
+  An agent's authoring bundle files are located in the `aiAuthoringBundle` directory of your DX project's package directory. Finally, we deprecated the `org open authoring-bundle` command. (vscode-agents PR [#183](https://github.com/forcedotcom/vscode-agents/pull/183), plugin-org PR [#1633](https://github.com/salesforcecli/plugin-org/pull/1633))
 
 * NEW: TBW (plugin-user PR [#1415](https://github.com/salesforcecli/plugin-user/pull/1415))
 
@@ -55,7 +57,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * CHANGE: We cleaned up the Agentforce DX VS Code extension UI so it consistently uses the term `Agentforce DX` in headings and grouped settings.   (vscode-agents PR [#196](https://github.com/forcedotcom/vscode-agents/pull/196))
 
-* FIX: TBW (GitHub Issue [#3538](https://github.com/forcedotcom/cli/issues/3538), sf-plugins-core PR [#697](https://github.com/salesforcecli/sf-plugins-core/pull/697))
+* FIX: Table output now correctly handles full-width characters (such as 'ＡＢＣ' or 'ワイド') without the margins misaligning. (GitHub Issue [#3538](https://github.com/forcedotcom/cli/issues/3538), table PR [#289](https://github.com/oclif/table/pull/289))
 
 * FIX: We improved the error message when `org resume sandbox` fails; previously, the original sandbox error that provided the actual issue was replaced with a generic error.   (GitHub Issue [#3490](https://github.com/forcedotcom/cli/issues/3490), plugin-org PR [#1646](https://github.com/salesforcecli/plugin-org/pull/1646), sfdx-core PR [#1278](https://github.com/forcedotcom/sfdx-core/pull/1278))
 
