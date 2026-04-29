@@ -31,34 +31,34 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: (Agentforce DX) Easily open an agent's authoring bundle in the in-org Agentforce Builder UI from VS Code with the new **AFDX: Open Authoring Bundle in Default Org** command. Run the new command from either the command palette or by right-clicking the agent's `.agent` or metadata file in the VS Code file explorer. If there are multipile versions of the bundle, the command prompts for the one you want to open. 
+* NEW: (Agentforce DX) Easily open an agent's authoring bundle in the in-org Agentforce Builder UI from VS Code with the new **AFDX: Open Authoring Bundle in Default Org** command. Run the new command from either the command palette or by right-clicking the agent's `.agent` or metadata file in the VS Code file explorer. If there are multiple versions of the bundle, the command prompts for the one you want to open.
 
-  You can now also use the `org open agent` CLI command to open an agent's authoring bundle in Agentforce Builder by specifying its API name with the new `--authoring-bundle` flag.  Use the new `--version` flag to specify a version.
-  
-  An agent's authoring bundle files are located in the `aiAuthoringBundle` directory of your DX project's package directory. Finally, we deprecated the `org open authoring-bundle` command. (vscode-agents PR [#183](https://github.com/forcedotcom/vscode-agents/pull/183), plugin-org PR [#1633](https://github.com/salesforcecli/plugin-org/pull/1633))
+  You can now also use the `org open agent` CLI command to open an agent's authoring bundle in Agentforce Builder by specifying its API name with the new `--authoring-bundle` flag. Use the new `--version` flag to specify a version.
 
-* NEW: Automatically assign a user role to a new [scratch org user](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_scratch_orgs_create_users.htm) with the new `roleDeveloperName` option of the user definition file.  You specify this file when you run the `org create user` command to, yep, create a new user!  Set the new option to the API name of the user role, which is represented by the UserRole standard object.
+  An agent's authoring bundle files are located in the `aiAuthoringBundle` directory of your DX project's package directory. We also deprecated the `org open authoring-bundle` command. (vscode-agents PR [#183](https://github.com/forcedotcom/vscode-agents/pull/183), plugin-org PR [#1633](https://github.com/salesforcecli/plugin-org/pull/1633))
+
+* NEW: Automatically assign a user role to a new [scratch org user](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_scratch_orgs_create_users.htm) with the new `roleDeveloperName` option of the user definition file. You specify this file when you run the `org create user` command to, yep, create a new user! Set the new option to the developer name (API name) of the role; the value corresponds to `UserRole.DeveloperName` in the org.
 
     In this sample user definition file, the new user is assigned the `Customer_Support` role:
 
     ```json
     {
-	    "Username": "tester1@sfdx.org",
-    	"LastName": "Hobbs",
-    	"Email": "tester1@sfdx.org",
-    	"Alias": "tester1",
-    	"TimeZoneSidKey": "America/Denver",
-    	"LocaleSidKey": "en_US",
-    	"EmailEncodingKey": "UTF-8",
-    	"LanguageLocaleKey": "en_US",
-    	"profileName": "Standard Platform User",
-    	"permsets": ["Dreamhouse", "Cloudhouse"],
-    	"generatePassword": true,
+        "Username": "tester1@sfdx.org",
+        "LastName": "Hobbs",
+        "Email": "tester1@sfdx.org",
+        "Alias": "tester1",
+        "TimeZoneSidKey": "America/Denver",
+        "LocaleSidKey": "en_US",
+        "EmailEncodingKey": "UTF-8",
+        "LanguageLocaleKey": "en_US",
+        "profileName": "Standard Platform User",
+        "permsets": ["Dreamhouse", "Cloudhouse"],
+        "generatePassword": true,
         "roleDeveloperName": "Customer_Support"
-	}
+    }
     ```
 
-     Many thanks to [Luca Bassani](https://github.com/baslu93) for contributing this cool new feature, we love it! (plugin-user PR [#1415](https://github.com/salesforcecli/plugin-user/pull/1415))
+    Many thanks to [Luca Bassani](https://github.com/baslu93) for contributing this cool new feature. We love it! (plugin-user PR [#1415](https://github.com/salesforcecli/plugin-user/pull/1415))
 
 * NEW: (Agentforce DX) We added more information to the JSON output of the `agent preview` commands. For example, we added:
 
@@ -66,21 +66,21 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `sessionId` property to `agent preview send`
     * `timestamp` and `sessionType` properties to `agent preview start`
     * `index.json` file to the sessions directory
-  
+
     (agents library PR [#269](https://github.com/forcedotcom/agents/pull/269), plugin-agent PRs [#400](https://github.com/salesforcecli/plugin-agent/pull/400) and [#399](https://github.com/salesforcecli/plugin-agent/pull/399))
 
-* CHANGE: (Agentforce DX) Beginning in April 2026, agent `topics` in Agent Script files are now called `subagents`.  We updated various Agentforce DX files to reflect this change, including:
+* CHANGE: (Agentforce DX) As of April 2026, agent `topics` in Agent Script files are now called `subagents`. We updated various Agentforce DX files to reflect this change, including:
 
 	* The sample `Local_Info_Agent.agent` file generated in a new project when you run `sf template generate project --name new-project --template agent`.
  	* The [sample GitHub repo](https://github.com/forcedotcom/afdx-pro-code-testdrive) used by the [Build an Agent Using Agentforce DX](https://trailhead.salesforce.com/content/learn/projects/create-an-agent-using-pro-code-tools) Trailhead badge.
-  	* The Agent Script file generated by the `agent generate authoring-bundle` command. 
-  	* Agentforce DX-related skills in the [skills GitHub repo](https://github.com/forcedotcom/afv-library/tree/main/skills).  
+  	* The Agent Script file generated by the `agent generate authoring-bundle` command.
+  	* Agentforce DX-related skills in the [skills GitHub repo](https://github.com/forcedotcom/afv-library/tree/main/skills).
 
-* CHANGE: (Agentforce DX) We cleaned up the Agentforce DX VS Code extension UI so it consistently uses the term `Agentforce DX` in headings and grouped settings.   (vscode-agents PR [#196](https://github.com/forcedotcom/vscode-agents/pull/196))
+* CHANGE: (Agentforce DX) We cleaned up the Agentforce DX VS Code extension UI so it consistently uses the term *Agentforce DX* in headings and grouped settings. (vscode-agents PR [#196](https://github.com/forcedotcom/vscode-agents/pull/196))
 
 * FIX: Table output now correctly handles full-width characters (such as 'ＡＢＣ' or 'ワイド') without the margins misaligning. (GitHub Issue [#3538](https://github.com/forcedotcom/cli/issues/3538), table PR [#289](https://github.com/oclif/table/pull/289))
 
-* FIX: We improved the error message when `org resume sandbox` fails; previously, the original sandbox error that provided the actual issue was replaced with a generic error.   (GitHub Issue [#3490](https://github.com/forcedotcom/cli/issues/3490), plugin-org PR [#1646](https://github.com/salesforcecli/plugin-org/pull/1646), sfdx-core PR [#1278](https://github.com/forcedotcom/sfdx-core/pull/1278))
+* FIX: We improved the error message when `org resume sandbox` fails; previously, the original sandbox error that provided the actual issue was replaced with a generic error. (GitHub Issue [#3490](https://github.com/forcedotcom/cli/issues/3490), plugin-org PR [#1646](https://github.com/salesforcecli/plugin-org/pull/1646), sfdx-core PR [#1278](https://github.com/forcedotcom/sfdx-core/pull/1278))
 
 * FIX: When deploying source to an org, any HTML entities in the files are now correctly encoded. (GitHub Issue [#3543](https://github.com/forcedotcom/cli/issues/3543), source-deploy-retrieve PR [#1752](https://github.com/forcedotcom/source-deploy-retrieve/pull/1752))
 
