@@ -37,7 +37,28 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
   
   An agent's authoring bundle files are located in the `aiAuthoringBundle` directory of your DX project's package directory. Finally, we deprecated the `org open authoring-bundle` command. (vscode-agents PR [#183](https://github.com/forcedotcom/vscode-agents/pull/183), plugin-org PR [#1633](https://github.com/salesforcecli/plugin-org/pull/1633))
 
-* NEW: TBW (plugin-user PR [#1415](https://github.com/salesforcecli/plugin-user/pull/1415))
+* NEW: Automatically assign a user role to a new [scratch org user](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_scratch_orgs_create_users.htm) with the new `roleDeveloperName` option of the user definition file.  You specify this file when you run the `org create user` command to, yep, create a new user!  Set the new option to the API name of the user role, which is represented by the UserRole standard object.
+
+    In this sample user definition file, the new user is assigned the `Customer_Support` role:
+
+    ```json
+    {
+	    "Username": "tester1@sfdx.org",
+    	"LastName": "Hobbs",
+    	"Email": "tester1@sfdx.org",
+    	"Alias": "tester1",
+    	"TimeZoneSidKey": "America/Denver",
+    	"LocaleSidKey": "en_US",
+    	"EmailEncodingKey": "UTF-8",
+    	"LanguageLocaleKey": "en_US",
+    	"profileName": "Standard Platform User",
+    	"permsets": ["Dreamhouse", "Cloudhouse"],
+    	"generatePassword": true,
+        "roleDeveloperName": "Customer_Support"
+	}
+    ```
+
+     Many thanks to [Luca Bassani](https://github.com/baslu93) for contributing this cool new feature, we love it! (plugin-user PR [#1415](https://github.com/salesforcecli/plugin-user/pull/1415))
 
 * NEW: (Agentforce DX) We added more information to the JSON output of the `agent preview` commands. For example, we added:
 
