@@ -31,6 +31,29 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: Successfully run in a scratch org Apex tests that send emails to users with unverified email domains by setting the `EmailAuthorizationSettings.enableSubstituteFromAddress` field to `true` in your scratch org definition file. With this scratch org feature you can work around the [new Salesforce requirement](https://help.salesforce.com/s/articleView?id=005316090&type=1) that emails sent from Salesforce must have verified email domains.  Here's an example of including this setting in a scratch org definition file.
+
+    ```json
+    {
+      "orgName": "juliet.shackell company",
+      "edition": "Developer",
+      "features": ["EnableSetPasswordInApi"],
+      "settings": {
+        "lightningExperienceSettings": {
+          "enableS1DesktopEnabled": true
+        },
+        "mobileSettings": {
+          "enableS1EncryptedStoragePref2": false
+        },
+        "emailAuthorizationSettings": {
+          "enableSubstituteFromAddress": true
+        },
+      }
+    }
+    ```
+   (GitHub Issue [#3534](https://github.com/forcedotcom/cli/issues/3534), sfdx-core PR [#1282](https://github.com/forcedotcom/sfdx-core/pull/1282))
+
+    
 ## 2.133.4 (May 6, 2026) [stable]
 
 * NEW: (Agentforce DX) Easily open an agent's authoring bundle in the in-org Agentforce Builder UI from VS Code with the new **AFDX: Open Authoring Bundle in Default Org** command. Run the new command from either the command palette or by right-clicking the agent's `.agent` or metadata file in the VS Code file explorer. If there are multiple versions of the bundle, the command prompts for the one you want to open.
