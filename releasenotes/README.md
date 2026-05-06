@@ -25,11 +25,44 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.133.4 (May 6, 2026) [stable-rc]
+## 2.134.6 (May 13, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: (Agentforce DX) Choose how much detail you want the `agent publish authoring-bundle` command to output with the new `--concise` and `--verbose` flags. The `--verbose` flag displays detailed output showing all metadata components that were retrieved and deployed during the publish process.  The `--concise` flag shows only the essential information.  For example:
+
+    ```bash
+    sf agent publish authoring-bundle --api-name MyAuthoringbundle --verbose
+    ```
+
+	(plugin-agent PR [#404](https://github.com/salesforcecli/plugin-agent/pull/404))
+
+* NEW: Successfully run Apex tests in a scratch org that send emails to users with unverified email domains by setting the `EmailAuthorizationSettings.enableSubstituteFromAddress` field to `true` in your scratch org definition file. With this scratch org feature you can work around the [new Salesforce requirement](https://help.salesforce.com/s/articleView?id=005316090&type=1) that emails sent from Salesforce must have verified email domains.  Here's an example of including this setting in a scratch org definition file.
+
+    ```json
+    {
+      "orgName": "juliet.shackell company",
+      "edition": "Developer",
+      "features": ["EnableSetPasswordInApi"],
+      "settings": {
+        "lightningExperienceSettings": {
+          "enableS1DesktopEnabled": true
+        },
+        "mobileSettings": {
+          "enableS1EncryptedStoragePref2": false
+        },
+        "emailAuthorizationSettings": {
+          "enableSubstituteFromAddress": true
+        },
+      }
+    }
+    ```
+   (GitHub Issue [#3534](https://github.com/forcedotcom/cli/issues/3534), sfdx-core PR [#1282](https://github.com/forcedotcom/sfdx-core/pull/1282))
+
+    
+## 2.133.4 (May 6, 2026) [stable]
 
 * NEW: (Agentforce DX) Easily open an agent's authoring bundle in the in-org Agentforce Builder UI from VS Code with the new **AFDX: Open Authoring Bundle in Default Org** command. Run the new command from either the command palette or by right-clicking the agent's `.agent` or metadata file in the VS Code file explorer. If there are multiple versions of the bundle, the command prompts for the one you want to open.
 
@@ -92,7 +125,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * PolicyRuleDefinition
     * PolicyRuleDefinitionSet
 
-## 2.132.14 (April 29, 2026) [stable]
+## 2.132.14 (April 29, 2026)
 
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
     * [DynamicUiCardDefinition](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json)
