@@ -31,14 +31,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: (Agentforce DX) Choose how much detail you want the `agent publish authoring-bundle` command to output with the new `--concise` and `--verbose` flags. The `--verbose` flag displays detailed output showing all metadata components that were retrieved and deployed during the publish process.  The `--concise` flag shows only the essential information.  For example:
-
-    ```bash
-    sf agent publish authoring-bundle --api-name MyAuthoringbundle --verbose
-    ```
-
-	(plugin-agent PR [#404](https://github.com/salesforcecli/plugin-agent/pull/404))
-
 * NEW: Successfully run Apex tests in a scratch org that send emails to users with unverified email domains by setting the `EmailAuthorizationSettings.enableSubstituteFromAddress` field to `true` in your scratch org definition file. With this scratch org feature you can work around the [new Salesforce requirement](https://help.salesforce.com/s/articleView?id=005316090&type=1) that emails sent from Salesforce must have verified email domains.  Here's an example of including this setting in a scratch org definition file.
 
     ```json
