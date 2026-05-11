@@ -25,7 +25,9 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.134.6 (May 13, 2026) [stable-rc]
+## 2.135.6 (May 20, 2026) [stable-rc]
+
+## 2.134.6 (May 13, 2026) [stable]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
@@ -54,7 +56,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
    (GitHub Issue [#3534](https://github.com/forcedotcom/cli/issues/3534), sfdx-core PR [#1282](https://github.com/forcedotcom/sfdx-core/pull/1282))
 
     
-## 2.133.4 (May 6, 2026) [stable]
+## 2.133.4 (May 6, 2026)
 
 * NEW: (Agentforce DX) Easily open an agent's authoring bundle in the in-org Agentforce Builder UI from VS Code with the new **AFDX: Open Authoring Bundle in Default Org** command. Run the new command from either the command palette or by right-clicking the agent's `.agent` or metadata file in the VS Code file explorer. If there are multiple versions of the bundle, the command prompts for the one you want to open.
 
