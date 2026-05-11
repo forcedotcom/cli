@@ -39,6 +39,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 	(plugin-agent PR [#404](https://github.com/salesforcecli/plugin-agent/pull/404))
 
+* FIX: We are now correctly digitally signing all downloadable Salesforce CLI packages and executables. (GitHub Issue [#3547](https://github.com/forcedotcom/cli/issues/3547))
 
 ## 2.134.6 (May 13, 2026) [stable]
 
