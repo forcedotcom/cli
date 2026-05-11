@@ -31,6 +31,13 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: (Agentforce DX) End multiple preview sessions with one command by using the new `--all` flag of `agent preview end`.  Previously you could end only single sessions using a session ID. Used in combination with either `--api-name` or `--authoring-bundle`, the command ends all preview sessions associated with a specific agent.  Use alone, it ends all preview sessions for all known agents.  This example ends preview sessions associated with the My_Local_Agent authoring bundle; it uses your default org:
+
+    ```bash
+    sf agent preview end --authoring-bundle My_Local_Agent --all
+    ```
+    (plugin-agent PR [#406](https://github.com/salesforcecli/plugin-agent/pull/406))
+
 * NEW: (Agentforce DX) Choose how much detail you want the `agent publish authoring-bundle` command to output with the new `--concise` and `--verbose` flags. The `--verbose` flag displays detailed output showing all metadata components that were retrieved and deployed during the publish process.  The `--concise` flag shows only the essential information.  For example:
 
     ```bash
