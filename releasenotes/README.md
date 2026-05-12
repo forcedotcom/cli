@@ -31,6 +31,25 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: (Agentforce DX) Get information about an agent preview conversation by viewing the trace files for a particular session.  When you run an agent preview conversation (either interactive or programmatic), trace files are automatically recorded and saved in your local DX project. These trace files are useful if you want to analyze a preview conversation with an agent to observe, monitor, investigate, and troubleshoot its behavior. You can output a summary of the trace information, details, or raw JSON.  When viewing details, you can drill down into specific dimensions, such as the actions that were executed or how the agent navigated between subagents. Use these three commands:
+
+   * `agent trace read`  :  Read trace files from an agent preview session.
+   * `agent trace delete` : Delete trace files from an agent preview session.
+   * `agent trace list`  :  List the available trace files that were recorded during all agent preview sessions.
+
+   This example displays detailed trace information about the action executions for the specified session ID:
+  
+    ```bash
+    sf agent trace read --session-id <SESSION_ID> --format detail --dimension actions
+    ```
+
+   This example delete trace files older than 24 hours for a specific agent and doesn't prompt for confirmation:
+
+   ```bash
+   sf agent trace delete --agent My_Agent --older-than 24h --no-prompt
+   ```
+
+
 * NEW: (Agentforce DX) End multiple preview sessions with one command by using the new `--all` flag of `agent preview end`.  Previously you could end only single sessions using a session ID. Used in combination with either `--api-name` or `--authoring-bundle`, the command ends all preview sessions associated with a specific agent.  Use alone, it ends all preview sessions for all known agents.  This example ends preview sessions associated with the My_Local_Agent authoring bundle; it uses your default org:
 
     ```bash
