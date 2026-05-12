@@ -43,7 +43,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     sf agent trace read --session-id <SESSION_ID> --format detail --dimension actions
     ```
 
-   This example delete trace files older than 24 hours for a specific agent and doesn't prompt for confirmation:
+   This example deletes trace files older than 24 hours for a specific agent and doesn't prompt for confirmation:
 
    ```bash
    sf agent trace delete --agent My_Agent --older-than 24h --no-prompt
