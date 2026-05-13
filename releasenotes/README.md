@@ -60,7 +60,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     ```bash
     sf agent test run-eval --spec specs/my-agent-testSpec.yaml --target-org my-org
     ```
-    (plugin-agent PR [#420](https://github.com/salesforcecli/plugin-agent/pull/420))
+    (plugin-agent PR [#407](https://github.com/salesforcecli/plugin-agent/pull/407))
   
 * NEW: (Agentforce DX) End multiple preview sessions with one command by using the new `--all` flag of `agent preview end`.  Previously you could end only single sessions using a session ID. Used in combination with either `--api-name` or `--authoring-bundle`, the command ends all preview sessions associated with a specific agent.  Use alone, it ends all preview sessions for all known agents.  This example ends preview sessions associated with the My_Local_Agent authoring bundle; it uses your default org:
 
