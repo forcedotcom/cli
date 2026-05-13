@@ -62,7 +62,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     ```
     (plugin-agent PR [#413](https://github.com/salesforcecli/plugin-agent/pull/413), agents PR [#276](https://github.com/forcedotcom/agents/pull/276))
   
-* NEW: (Agentforce DX) End multiple preview sessions with one command by using the new `--all` flag of `agent preview end`.  Previously you could end only single sessions using a session ID. Used in combination with either `--api-name` or `--authoring-bundle`, the command ends all preview sessions associated with a specific agent.  Use alone, it ends all preview sessions for all known agents.  This example ends preview sessions associated with the My_Local_Agent authoring bundle; it uses your default org:
+* NEW: (Agentforce DX) End multiple preview sessions with one command by using the new `--all` flag of `agent preview end`.  Previously you could end only single sessions using a session ID. Used in combination with either `--api-name` or `--authoring-bundle`, the command ends all preview sessions associated with a specific agent.  Use alone, it ends all preview sessions for all known agents.  By default, when you specify the `--all` flag, you're prompted for confirmation before the command ends all sessions; use the new `--no-prompt` flag to skip the prompt. This example ends preview sessions associated with the My_Local_Agent authoring bundle; it uses your default org:
 
     ```bash
     sf agent preview end --authoring-bundle My_Local_Agent --all
