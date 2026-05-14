@@ -79,6 +79,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We are now correctly digitally signing all downloadable Salesforce CLI packages and executables. (GitHub Issue [#3547](https://github.com/forcedotcom/cli/issues/3547))
 
+* FIX: (Agentforce DX) The `agent preview` and `agent publish authoring-bundle` commands no longer fail with HTTP 404 errors when user permissions are correct. The fix isolates connections used when calling server APIs, preventing token clobbering during connection refreshes. (plugin-agent PR [#421](https://github.com/salesforcecli/plugin-agent/pull/421), agents PR [#278](https://github.com/forcedotcom/agents/pull/278))
+
 ## 2.134.6 (May 13, 2026) [stable]
 
 * NEW: Successfully run Apex tests in a scratch org that send emails to users with unverified email domains by setting the `EmailAuthorizationSettings.enableSubstituteFromAddress` field to `true` in your scratch org definition file. With this scratch org feature you can work around the [new Salesforce requirement](https://help.salesforce.com/s/articleView?id=005316090&type=1) that emails sent from Salesforce must have verified email domains.  Here's an example of including this setting in a scratch org definition file.
