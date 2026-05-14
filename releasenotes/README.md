@@ -79,7 +79,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We are now correctly digitally signing all downloadable Salesforce CLI packages and executables. (GitHub Issue [#3547](https://github.com/forcedotcom/cli/issues/3547))
 
-* FIX: (Agentforce DX) The `agent preview` and `agent publish` commands no longer fail with JWT token errors when calling their associated APIs. The fix isolates JWT connections used for Salesforce AI Platform APIs from standard connections used for org operations, which prevents token clobbering during connection refresh. (plugin-agent PR [#421](https://github.com/salesforcecli/plugin-agent/pull/421), agents PR [#278](https://github.com/forcedotcom/agents/pull/278))
+* FIX: (Agentforce DX) The `agent preview` and `agent publish` commands no longer fail with HTTP 404 errors when user permissions are correct. The fix isolates connections used when calling server APIs, preventing token clobbering during connection refreshes. (plugin-agent PR [#421](https://github.com/salesforcecli/plugin-agent/pull/421), agents PR [#278](https://github.com/forcedotcom/agents/pull/278))
 
 ## 2.134.6 (May 13, 2026) [stable]
 
