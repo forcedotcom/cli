@@ -50,7 +50,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 	(plugin-org PR [#1667](https://github.com/salesforcecli/plugin-org/pull/1667))
 
-  
+* NEW: (Agentforce DX VS Code Extension) Search and filter agent traces in VS Code's Agent Tracer panel with the new search filter. When you run a preview conversation with an agent, many traces are generated. Previously, to search the list of traces, you had to open each one. Now you can use the live search filter to quickly find specific events, messages, or values in the trace history. You can filter by user message, session ID, step type, or any content in the trace data. A counter shows the matched steps.  (vscode-agents PR [#207](https://github.com/forcedotcom/vscode-agents/pull/207))
+
 ## 2.135.7 (May 20, 2026) [stable]
 
 * NEW: (Agentforce DX) Get information about an agent preview conversation by viewing the trace files for a particular session.  When you run an agent preview conversation (either interactive or programmatic), trace files are automatically recorded and saved in your local DX project. These trace files are useful if you want to analyze a preview conversation with an agent to observe, monitor, investigate, and troubleshoot its behavior. You can output a summary of the trace information, details, or raw JSON.  When viewing details, you can drill down into specific dimensions, such as the actions that were executed or how the agent navigated between subagents. Use these three commands:
