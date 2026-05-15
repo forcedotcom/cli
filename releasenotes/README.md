@@ -25,11 +25,21 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.135.7 (May 20, 2026) [stable-rc]
+## 2.136.6 (May 27, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW/CHANGED:
+
+    To view the secrets associated with your org, use these new CLI commands:
+  
+    - `org auth show-access-token` : Show the current access token for an org.
+    - `org auth show-sfdx-auth-url` : Show the SFDX Auth URL for an org.
+    - `org auth show-user-password` : Show the stored password for an org's user.
+
+## 2.135.7 (May 20, 2026) [stable]
 
 * NEW: (Agentforce DX) Get information about an agent preview conversation by viewing the trace files for a particular session.  When you run an agent preview conversation (either interactive or programmatic), trace files are automatically recorded and saved in your local DX project. These trace files are useful if you want to analyze a preview conversation with an agent to observe, monitor, investigate, and troubleshoot its behavior. You can output a summary of the trace information, details, or raw JSON.  When viewing details, you can drill down into specific dimensions, such as the actions that were executed or how the agent navigated between subagents. Use these three commands:
 
@@ -81,7 +91,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: (Agentforce DX) The `agent preview` and `agent publish authoring-bundle` commands no longer fail with HTTP 404 errors when user permissions are correct. The fix isolates connections used when calling server APIs, preventing token clobbering during connection refreshes. (plugin-agent PR [#421](https://github.com/salesforcecli/plugin-agent/pull/421), agents PR [#278](https://github.com/forcedotcom/agents/pull/278))
 
-## 2.134.6 (May 13, 2026) [stable]
+## 2.134.6 (May 13, 2026)
 
 * NEW: Successfully run Apex tests in a scratch org that send emails to users with unverified email domains by setting the `EmailAuthorizationSettings.enableSubstituteFromAddress` field to `true` in your scratch org definition file. With this scratch org feature you can work around the [new Salesforce requirement](https://help.salesforce.com/s/articleView?id=005316090&type=1) that emails sent from Salesforce must have verified email domains.  Here's an example of including this setting in a scratch org definition file.
 
