@@ -31,14 +31,24 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW/CHANGED:
+* NEW and CHANGED: To improve security, we updated Salesforce CLI to reduce the accidental exposure of sensitive credentials, such as access tokens, SFDX Auth URLs, and user passwords. See **\<ADD LINK TO KA OR PINNED ISSUE HERE>** for details and timeline, but here's a summary of the changes: 
 
-    To view the secrets associated with your org, use these new CLI commands:
+    * We removed sensitive credentials from the output of these CLI commands:
+        - `org display`
+        - `org list --json `
+        - `org auth list --json`
+        - `org display user `
+        - `org list users --json`
+    * To avoid breaking your existing CI/CD pipelines, we added a temporary environment variable (SF_ORG_DISPLAY_SHOW_SECRETS) that overrides the changes to these existing commands.
+
+      Set this variable to `true` to continue seeing the old command output that includes sensitive credentials. IMPORTANT: We will disable this environment variable in the near future, so we highly recommend that you update your CI/CD pipelines soon.
+
+    * We added these CLI commands in case you need to view the sensitive credentials associated with your org:
+       - `org auth show-access-token` : Show the current access token for an org.
+       - `org auth show-sfdx-auth-url` : Show the SFDX Auth URL for an org.
+       - `org auth show-user-password` : Show the stored password for an org's user.
+
   
-    - `org auth show-access-token` : Show the current access token for an org.
-    - `org auth show-sfdx-auth-url` : Show the SFDX Auth URL for an org.
-    - `org auth show-user-password` : Show the stored password for an org's user.
-
 ## 2.135.7 (May 20, 2026) [stable]
 
 * NEW: (Agentforce DX) Get information about an agent preview conversation by viewing the trace files for a particular session.  When you run an agent preview conversation (either interactive or programmatic), trace files are automatically recorded and saved in your local DX project. These trace files are useful if you want to analyze a preview conversation with an agent to observe, monitor, investigate, and troubleshoot its behavior. You can output a summary of the trace information, details, or raw JSON.  When viewing details, you can drill down into specific dimensions, such as the actions that were executed or how the agent navigated between subagents. Use these three commands:
