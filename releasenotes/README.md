@@ -31,7 +31,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW and CHANGED: To improve security, we updated Salesforce CLI to reduce the accidental exposure of sensitive credentials, such as access tokens, SFDX Auth URLs, and user passwords. See **\<ADD LINK TO KA OR PINNED ISSUE HERE>** for details and timeline, but here's a summary of the changes: 
+* NEW and CHANGED: To improve security, we updated Salesforce CLI to reduce the accidental exposure of sensitive credentials (access tokens, SFDX Auth URLs, and user passwords.) See **\<ADD LINK TO KA OR PINNED ISSUE HERE>** for additional details and timeline, but here's a summary of the changes: 
 
     * We removed sensitive credentials from the output of these CLI commands:
         - `org display`
@@ -39,7 +39,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
         - `org auth list --json`
         - `org display user `
         - `org list users --json`
-    * To avoid breaking your existing CI/CD pipelines, we added a temporary environment variable (SF_ORG_DISPLAY_SHOW_SECRETS) that overrides the changes to these existing commands.
+    * To avoid breaking your existing CI/CD pipelines, we added a temporary environment variable (`SF_ORG_DISPLAY_SHOW_SECRETS`) that overrides the changes to these existing commands.
 
       Set this variable to `true` to continue seeing the old command output that includes sensitive credentials. IMPORTANT: We will disable this environment variable in the near future, so we highly recommend that you update your CI/CD pipelines soon.
 
@@ -47,6 +47,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
        - `org auth show-access-token` : Show the current access token for an org.
        - `org auth show-sfdx-auth-url` : Show the SFDX Auth URL for an org.
        - `org auth show-user-password` : Show the stored password for an org's user.
+
+	(plugin-org PR [#1667](https://github.com/salesforcecli/plugin-org/pull/1667))
 
   
 ## 2.135.7 (May 20, 2026) [stable]
