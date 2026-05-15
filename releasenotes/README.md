@@ -31,7 +31,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW and CHANGED: To improve security, we updated Salesforce CLI to reduce the accidental exposure of sensitive credentials (access tokens, SFDX Auth URLs, and user passwords.) See **\<ADD LINK TO KA OR PINNED ISSUE HERE>** for additional details and timeline, but here's a summary of the changes: 
+* NEW and CHANGED: To improve security, we updated Salesforce CLI to reduce the accidental exposure of sensitive credentials (access tokens, SFDX Auth URLs, and user passwords.) Here's a summary of the changes, but see **\<ADD LINK TO KA OR PINNED ISSUE HERE>** for additional details, why we made these changes, and the timeline,: 
 
     * We removed sensitive credentials from the output of these CLI commands:
         - `org display`
