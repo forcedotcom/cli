@@ -50,7 +50,13 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 	(plugin-org PR [#1667](https://github.com/salesforcecli/plugin-org/pull/1667))
 
-* NEW: (Agentforce DX VS Code Extension) Search and filter agent traces in VS Code's Agent Tracer panel with the new search filter. When you run a preview conversation with an agent, many traces are generated. Previously, to search the list of traces, you had to open each one. Now you can use the live search filter to quickly find specific events, messages, or values in the trace history. You can filter by user message, session ID, step type, or any content in the trace data. A counter shows the matched steps.  (vscode-agents PR [#207](https://github.com/forcedotcom/vscode-agents/pull/207))
+* NEW: (Agentforce DX VS Code Extension) Search and filter agent traces in VS Code's **Agent Tracer** tab with the new search filter.
+
+    When you run a preview conversation with an agent, many traces are generated. Previously, to search the list of traces, you had to open each one. Now you can use the live search filter to quickly find specific events, messages, or values in the trace history. You can filter by user message, session ID, step type, or any content in the trace data. A counter shows the matched steps.  (vscode-agents PR [#207](https://github.com/forcedotcom/vscode-agents/pull/207))
+
+* NEW: (Agentforce DX VS Code Extension) Resume previous agent preview conversations in VS Code with the new **History** tab (to the right of the existing **Agent Tracer** tab).
+
+    After running preview conversations with an agent (either simulated or live), you can now view all prior sessions and click any one to pick up where you left off. The **History** tab reads sessions saved on disk, so it works with sessions created by both the VS Code extension or Salesforce CLI (such as the `agent preview` command). Each entry shows the session type, first user message, and timestamp. (vscode-agents PR [#205](https://github.com/forcedotcom/vscode-agents/pull/205))
 
 ## 2.135.7 (May 20, 2026) [stable]
 
