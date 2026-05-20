@@ -37,7 +37,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
         - `org display`
         - `org list --json `
         - `org auth list --json`
-        - `org display user `
+        - `org display user [--json]`
         - `org list users --json`
     * To avoid breaking your existing CI/CD pipelines, we added a temporary environment variable (`SF_ORG_DISPLAY_SHOW_SECRETS`) that overrides the changes to these existing commands.
 
