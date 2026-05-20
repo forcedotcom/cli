@@ -40,6 +40,11 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
         - `org resume scratch --json`        
         - `org display user [--json]`
         - `org list users --json`
+        - `org login jwt --json`
+        - `org login web --json`
+        - `org login sfdx-url --json`
+        - `org login access-token --json`
+        - `org list auth --json`
     * To avoid breaking your existing CI/CD pipelines, we added a temporary environment variable (`SF_ORG_DISPLAY_SHOW_SECRETS`) that overrides the changes to these existing commands.
 
       Set this variable to `true` to continue seeing the old command output that includes sensitive credentials. IMPORTANT: We will disable this environment variable in the near future, so we highly recommend that you update your CI/CD pipelines soon.
