@@ -45,7 +45,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
         - `org login sfdx-url --json`
         - `org login access-token --json`
         - `org list auth --json`
-    * To avoid breaking your existing CI/CD pipelines, we added a temporary environment variable (`SF_ORG_DISPLAY_SHOW_SECRETS`) that overrides the changes to these existing commands.
+    * To avoid breaking your existing CI/CD pipelines, we added a temporary environment variable that overrides the changes to these existing commands. To use, set `SF_TEMP_SHOW_SECRETS=true`
 
       Set this variable to `true` to continue seeing the old command output that includes sensitive credentials. IMPORTANT: We will disable this environment variable in the near future, so we highly recommend that you update your CI/CD pipelines soon.
 
