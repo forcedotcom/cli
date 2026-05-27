@@ -25,11 +25,15 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.136.8 (May 27, 2026) [stable-rc]
+## 2.137.6 (June 3, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: We fixed some under-the-hood bugs.
+
+## 2.136.8 (May 27, 2026) [stable]
 
 * NEW and CHANGED: To improve security, we updated Salesforce CLI to reduce the accidental exposure of sensitive credentials (access tokens, SFDX Auth URLs, and user passwords.) Here's a summary of the changes, but see [forcedotcom/cli/issues/3560](https://github.com/forcedotcom/cli/issues/3560) for additional details, why we made these changes, and the timeline,: 
 
@@ -64,7 +68,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     After running preview conversations with an agent (either simulated or live), you can now view all prior sessions and click any one to pick up where you left off. The **History** tab reads sessions saved on disk, so it works with sessions created by both the VS Code extension or Salesforce CLI (such as the `agent preview` command). Each entry shows the session type, first user message, and timestamp. (vscode-agents PR [#205](https://github.com/forcedotcom/vscode-agents/pull/205))
 
-## 2.135.7 (May 20, 2026) [stable]
+## 2.135.7 (May 20, 2026)
 
 * NEW: (Agentforce DX) Get information about an agent preview conversation by viewing the trace files for a particular session.  When you run an agent preview conversation (either interactive or programmatic), trace files are automatically recorded and saved in your local DX project. These trace files are useful if you want to analyze a preview conversation with an agent to observe, monitor, investigate, and troubleshoot its behavior. You can output a summary of the trace information, details, or raw JSON.  When viewing details, you can drill down into specific dimensions, such as the actions that were executed or how the agent navigated between subagents. Use these three commands:
 
