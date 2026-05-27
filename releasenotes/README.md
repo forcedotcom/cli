@@ -35,7 +35,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ## 2.136.8 (May 27, 2026) [stable]
 
-* NEW and CHANGED: To improve security, we updated Salesforce CLI to reduce the accidental exposure of sensitive credentials (access tokens, SFDX Auth URLs, and user passwords.) Here's a summary of the changes, but see [forcedotcom/cli/issues/3560](https://github.com/forcedotcom/cli/issues/3560) for additional details, why we made these changes, and the timeline,: 
+* NEW and CHANGED: To improve security, we updated Salesforce CLI to reduce the accidental exposure of sensitive credentials (access tokens, SFDX Auth URLs, and user passwords.) Here's a summary of the changes, but see [forcedotcom/cli/issues/3560](https://github.com/forcedotcom/cli/issues/3560) for additional details, why we made these changes, and the timeline.  
 
     * We removed sensitive credentials from the output of these CLI commands:
         - `org display`
