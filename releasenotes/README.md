@@ -25,15 +25,22 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.137.6 (June 3, 2026) [stable-rc]
+## 2.138.6 (June 10, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
 
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+
+    * CnfgItemTypeIdentFieldMap
+    * CnfgItemTypeIdentRule
+
+## 2.137.6 (June 3, 2026) [stable]
+
 * FIX: We fixed some under-the-hood bugs.
 
-## 2.136.8 (May 27, 2026) [stable]
+## 2.136.8 (May 27, 2026)
 
 * NEW and CHANGED: To improve security, we updated Salesforce CLI to reduce the accidental exposure of sensitive credentials (access tokens, SFDX Auth URLs, and user passwords.) Here's a summary of the changes, but see [forcedotcom/cli/issues/3560](https://github.com/forcedotcom/cli/issues/3560) for additional details, why we made these changes, and the timeline.  
 
