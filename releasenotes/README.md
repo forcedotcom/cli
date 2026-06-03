@@ -31,6 +31,23 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: (Agentforce DX) Create and manage Agentforce Data Libraries with these new CLI commands: 
+
+    - `agent adl create` : Create an Agentforce Data Library.
+    - `agent adl delete` : Delete an Agentforce Data Library.
+    - `agent adl file add`  : Add files to an existing Agentforce Data Library.
+    - `agent adl file delete` :  Delete a file from an Agentforce Data Library.
+    - `agent adl file list` :  List files in an Agentforce Data Library.
+    - `agent adl get` :  Get details of an Agentforce Data Library.
+    - `agent adl list` :  List Agentforce Data Libraries in an org.
+    - `agent adl status` : Get indexing status of an Agentforce Data Library.
+    - `agent adl update` : Update an Agentforce Data Library.
+    - `agent adl upload` : Upload a file to an SFDRIVE Agentforce Data Library.
+
+	Agentforce Data Libraries enhance the accuracy of AI features like Agentforce Agents by connecting them to your trusted data sources. Data libraries use unstructured or semi-structured data so that they can take large sets of information that exist on the web, in documents, or as large text inputs in fields, and turn that into more useful, searchable information.
+
+   **NOTE**: The `agent adl` commands are in Developer Preview.  (plugin-agent PR [#435](https://github.com/salesforcecli/plugin-agent/pull/435), agents PR [#296](https://github.com/forcedotcom/agents/pull/296))
+
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
 
     * CnfgItemTypeIdentFieldMap
