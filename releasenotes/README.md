@@ -39,7 +39,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     - `agent adl file delete` :  Delete a file from an Agentforce Data Library.
     - `agent adl file list` :  List files in an Agentforce Data Library.
     - `agent adl get` :  Get details of an Agentforce Data Library.
-    - `agent adl list` :  List Agentforce Data Libraries in an org.
+    - `agent adl list` :  List Agentforce Data Libraries.
     - `agent adl status` : Get indexing status of an Agentforce Data Library.
     - `agent adl update` : Update an Agentforce Data Library.
     - `agent adl upload` : Upload a file to an SFDRIVE Agentforce Data Library.
