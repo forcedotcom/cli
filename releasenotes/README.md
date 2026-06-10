@@ -25,11 +25,15 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.138.6 (June 10, 2026) [stable-rc]
+## 2.139.6 (June 17, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: Salesforce DX projects now support the HouseholdNamingConfig [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
+
+## 2.138.6 (June 10, 2026) [stable]
 
 * NEW: (Agentforce DX) Create and manage Agentforce Data Libraries with these new CLI commands: 
 
@@ -53,7 +57,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * CnfgItemTypeIdentFieldMap
     * CnfgItemTypeIdentRule
 
-## 2.137.6 (June 3, 2026) [stable]
+## 2.137.6 (June 3, 2026)
 
 * FIX: We fixed some under-the-hood bugs.
 
