@@ -31,7 +31,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* FIX: (GitHub Issue [#1605](https://github.com/oclif/core/issues/1605), core PR [#1613](https://github.com/oclif/core/pull/1613))
+* FIX: We fixed some under-the-hood bugs.
 
 ## 2.139.6 (June 17, 2026) [stable]
 
