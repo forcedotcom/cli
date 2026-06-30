@@ -39,6 +39,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     
    (GitHub Issue [#3469](https://github.com/forcedotcom/cli/issues/3469), plugin-packaging PR [#1227](https://github.com/salesforcecli/plugin-packaging/pull/1227), packaging PR [#886](https://github.com/forcedotcom/packaging/pull/886))
 
+* FIX: The `package version create` CLI command, when run with `scopeProfiles: true` in the `sfdx-project.json` file, now generates a correct `package.xml` file with the appropriate profiles. (packaging PR [#887](https://github.com/forcedotcom/packaging/pull/887))
+
 * FIX: Salesforce CLI now works correctly on all supported versions of Node.js. (GitHub Issue [#3586](https://github.com/forcedotcom/cli/issues/3586), jsforce PR [#1807](https://github.com/jsforce/jsforce/pull/1807))
 
 * FIX: We fixed a bug in `@salesforce/core` so that the `isWeb()` check run in the Bun runtime works correctly.  (GitHub Issue [#3535](https://github.com/forcedotcom/cli/issues/3535), sfdx-core PR [#1301](https://github.com/forcedotcom/sfdx-core/pull/1301))
