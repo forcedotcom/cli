@@ -31,6 +31,16 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: Query the dependencies of a package version that is protected by an installation key with the new `--installation-key` flag (short name `-k`) of the `package version displaydependencies` command. For example:
+
+    ```bash
+    sf package version displaydependencies --package 04t.. --installation-key YOUR_KEY --target-dev-hub devhub@example.com
+    ```
+    
+   (GitHub Issue [#3469](https://github.com/forcedotcom/cli/issues/3469), plugin-packaging PR [#1227](https://github.com/salesforcecli/plugin-packaging/pull/1227), packaging PR [#886](https://github.com/forcedotcom/packaging/pull/886))
+
+* FIX: We fixed a bug in `@salesforce/core` so that the `isWeb()` check run in the Bun runtime works correctly.  (GitHub Issue [#3535](https://github.com/forcedotcom/cli/issues/3535), sfdx-core PR [#1301](https://github.com/forcedotcom/sfdx-core/pull/1301))
+
 * FIX: Salesforce DX projects now support the IdpConfiguration [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
 
 
