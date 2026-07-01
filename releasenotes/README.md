@@ -31,6 +31,21 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: (Agentforce DX)  Manage MCP server registrations in the API Catalog with these new `agent mcp` commands:
+
+  * `agent mcp asset list` : List the assets (tools, prompts, and resources) for an MCP server in the catalog.
+  * `agent mcp asset replace` : Replace the asset set of an MCP server in the API Catalog.
+  * `agent mcp create` :  Create an MCP server in the API Catalog.
+  * `agent mcp delete` : Delete an MCP server from the API Catalog.
+  * `agent mcp fetch` : Fetch the live assets (tools, prompts, resources) advertised by an MCP server.
+  * `agent mcp get` : Get a single MCP server registered in the API Catalog.
+  * `agent mcp list` : List the MCP servers registered in the API Catalog.
+  * `agent mcp update` : Update an MCP server registered in the API Catalog.
+
+  (plugin-agent PR [#443](https://github.com/salesforcecli/plugin-agent/pull/443), agents PR [#300](https://github.com/forcedotcom/agents/pull/300))
+
+* NEW: 
+
 * NEW: Query the dependencies of a package version that is protected by an installation key with the new `--installation-key` flag (short name `-k`) of the `package version displaydependencies` command. For example:
 
     ```bash
