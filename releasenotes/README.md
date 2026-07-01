@@ -25,17 +25,55 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.141.6 (July 1, 2026) [stable-rc]
+## 2.142.6 (July 8, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
 
+* NEW: (Agentforce DX)  Manage MCP server registrations in the API Catalog with these new `agent mcp` commands:
+
+  * `agent mcp asset list` : List the assets (tools, prompts, and resources) for an MCP server in the catalog.
+  * `agent mcp asset replace` : Replace the asset set of an MCP server in the API Catalog.
+  * `agent mcp create` :  Create an MCP server in the API Catalog.
+  * `agent mcp delete` : Delete an MCP server from the API Catalog.
+  * `agent mcp fetch` : Fetch the live assets (tools, prompts, resources) advertised by an MCP server.
+  * `agent mcp get` : Get a single MCP server registered in the API Catalog.
+  * `agent mcp list` : List the MCP servers registered in the API Catalog.
+  * `agent mcp update` : Update an MCP server registered in the API Catalog.
+
+  **NOTE**: The `agent mcp` CLI commands are in developer preview. (plugin-agent PR [#443](https://github.com/salesforcecli/plugin-agent/pull/443), agents PR [#300](https://github.com/forcedotcom/agents/pull/300))
+
+* NEW: (Agentforce DX) Generate a next-generation agent test spec which is based on the AiTestingDefinition metadata type with the new `--test-runner` flag of the `agent generate test-spec` command. (plugin-agent PR [#450](https://github.com/salesforcecli/plugin-agent/pull/450))
+
+* NEW: (Agentforce DX) Pre-populate session variables on a live preview session with the new `--context-variables` flag of the `agent preview` and `agent preview start` commands. (plugin-agent PR [#438](https://github.com/salesforcecli/plugin-agent/pull/438))
+
+* NEW: Query the dependencies of a package version that is protected by an installation key with the new `--installation-key` flag (short name `-k`) of the `package version displaydependencies` command. For example:
+
+    ```bash
+    sf package version displaydependencies --package 04t.. --installation-key YOUR_KEY --target-dev-hub devhub@example.com
+    ```
+    
+   (GitHub Issue [#3469](https://github.com/forcedotcom/cli/issues/3469), plugin-packaging PR [#1227](https://github.com/salesforcecli/plugin-packaging/pull/1227), packaging PR [#886](https://github.com/forcedotcom/packaging/pull/886))
+
+* FIX: When using source tracking, metadata files that have an ampersand (`&`) in them are now properly updated.  As a result, they're no longer always listed as needing to be deployed or retrieved after a successful deployment or retrieval.  (GitHub Issue [#3504](https://github.com/forcedotcom/cli/issues/3504), source-tracking PR [#862](https://github.com/forcedotcom/source-tracking/pull/862))
+
+* FIX: The `package version create` CLI command, when run with `scopeProfiles: true` in the `sfdx-project.json` file, now generates a correct `package.xml` file with the appropriate profiles. (packaging PR [#887](https://github.com/forcedotcom/packaging/pull/887))
+
+* FIX: Salesforce CLI now works correctly on all supported versions of Node.js. (GitHub Issue [#3586](https://github.com/forcedotcom/cli/issues/3586), jsforce PR [#1807](https://github.com/jsforce/jsforce/pull/1807))
+
+* FIX: We fixed a bug in `@salesforce/core` so that the `isWeb()` check run in the Bun runtime works correctly.  (GitHub Issue [#3535](https://github.com/forcedotcom/cli/issues/3535), sfdx-core PR [#1301](https://github.com/forcedotcom/sfdx-core/pull/1301))
+
+* FIX: Salesforce DX projects now support the IdpConfiguration [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
+
+
+## 2.141.6 (July 1, 2026) [stable]
+
 * FIX: [String replacement](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_string_replace.htm) on big metadata files now works correctly. (GitHub Issue [#3461](https://github.com/forcedotcom/cli/issues/3461), source-deploy-retrieve PR [#1699](https://github.com/forcedotcom/source-deploy-retrieve/pull/1699))
 
     Big shoutout to [Bartheleway](https://github.com/Bartheleway) who dove into the Salesforce CLI code and fixed this issue. Our team and community thank you! 
 
-## 2.140.6 (June 24, 2026) [stable]
+## 2.140.6 (June 24, 2026)
 
 * FIX: We fixed some under-the-hood bugs.
 
