@@ -48,6 +48,15 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: (Agentforce DX) Pre-populate session variables on a live preview session with the new `--context-variables` flag of the `agent preview` and `agent preview start` commands. (plugin-agent PR [#438](https://github.com/salesforcecli/plugin-agent/pull/438))
 
+* NEW:  (Code Analyzer) Generate and display the abstract syntax tree (AST) that PMD produces when parsing a source file with the new `code-analyzer ast-dump` command. This is useful for understanding how PMD interprets your code and for developing custom PMD rules. The command supports
+  Apex, Visualforce, HTML, XML, and JavaScript files. Example:
+
+  ```bash
+  sf code-analyzer ast-dump --file ./force-app/main/default/classes/MyClass.cls
+  ```
+
+  (code-analyzer PR [#2050](https://github.com/forcedotcom/code-analyzer/pull/2050))
+
 * NEW: Query the dependencies of a package version that is protected by an installation key with the new `--installation-key` flag (short name `-k`) of the `package version displaydependencies` command. For example:
 
     ```bash
