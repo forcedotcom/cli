@@ -42,9 +42,11 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
   * `agent mcp list` : List the MCP servers registered in the API Catalog.
   * `agent mcp update` : Update an MCP server registered in the API Catalog.
 
-  (plugin-agent PR [#443](https://github.com/salesforcecli/plugin-agent/pull/443), agents PR [#300](https://github.com/forcedotcom/agents/pull/300))
+  **NOTE**: The `agent mcp` CLI commands are in developer preview. (plugin-agent PR [#443](https://github.com/salesforcecli/plugin-agent/pull/443), agents PR [#300](https://github.com/forcedotcom/agents/pull/300))
 
-* NEW: 
+* NEW: (Agentforce DX) Generate a next-generation agent test spec which is based on the AiTestingDefinition metadata type with the new `--test-runner` flag of the `agent generate test-spec` command. (plugin-agent PR [#450](https://github.com/salesforcecli/plugin-agent/pull/450))
+
+* NEW: (Agentforce DX) Pre-populate session variables on a live preview session with the new `--context-variables` flag of the `agent preview` and `agent preview start` commands. (plugin-agent PR [#438](https://github.com/salesforcecli/plugin-agent/pull/438))
 
 * NEW: Query the dependencies of a package version that is protected by an installation key with the new `--installation-key` flag (short name `-k`) of the `package version displaydependencies` command. For example:
 
