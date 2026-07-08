@@ -25,11 +25,15 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.142.6 (July 8, 2026) [stable-rc]
+## 2.143.6 (July 15, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: Salesforce DX projects now support the UiWidgetBundle [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
+
+## 2.142.7 (July 8, 2026) [stable]
 
 * NEW: (Agentforce DX)  Manage MCP server registrations in the API Catalog with these new `agent mcp` commands:
 
@@ -76,7 +80,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 * FIX: Salesforce DX projects now support the IdpConfiguration [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
 
 
-## 2.141.6 (July 1, 2026) [stable]
+## 2.141.6 (July 1, 2026)
 
 * FIX: [String replacement](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_string_replace.htm) on big metadata files now works correctly. (GitHub Issue [#3461](https://github.com/forcedotcom/cli/issues/3461), source-deploy-retrieve PR [#1699](https://github.com/forcedotcom/source-deploy-retrieve/pull/1699))
 
