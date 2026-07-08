@@ -33,7 +33,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Salesforce DX projects now support the UiWidgetBundle [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
 
-## 2.142.6 (July 8, 2026) [stable]
+## 2.142.7 (July 8, 2026) [stable]
 
 * NEW: (Agentforce DX)  Manage MCP server registrations in the API Catalog with these new `agent mcp` commands:
 
