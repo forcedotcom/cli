@@ -31,7 +31,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* FIX: Scoped deploys (`-d `or `-m`) no longer fail when an unrelated UIBundle in your project has no built dist/ directory. Previously, validation ran during full-project source resolution, so any single unbuilt bundle blocked every deploy. Now validation only checks the components actually being deployed. (GitHub Issue [#3576](https://github.com/forcedotcom/cli/issues/3576), source-deploy-retrieve PR [#1796](https://github.com/forcedotcom/source-deploy-retrieve/pull/1796))
+* FIX: When deploying a UIBundle in your Salesforce DX project with `project deploy start` using either `--source-dir <path-to-bundle>` or `--metadata UIBundle:<name>`, and your DX project contains an unrelated sibling UIBundle that hasn't yet been built (doesn't contain the `dist` directory), the deploy no longer fails with the `ExpectedSourceFilesError` error.  (GitHub Issue [#3576](https://github.com/forcedotcom/cli/issues/3576), source-deploy-retrieve PR [#1796](https://github.com/forcedotcom/source-deploy-retrieve/pull/1796))
 
 ## 2.143.6 (July 15, 2026) [stable]
 
