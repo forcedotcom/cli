@@ -25,15 +25,19 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.143.6 (July 15, 2026) [stable-rc]
+## 2.144.6 (July 22, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
 
+* FIX: Scoped deploys (`-d `or `-m`) no longer fail when an unrelated UIBundle in your project has no built dist/ directory. Previously, validation ran during full-project source resolution, so any single unbuilt bundle blocked every deploy. Now validation only checks the components actually being deployed. (GitHub Issue [#3576](https://github.com/forcedotcom/cli/issues/3576), source-deploy-retrieve PR [#1796](https://github.com/forcedotcom/source-deploy-retrieve/pull/1796))
+
+## 2.143.6 (July 15, 2026) [stable]
+
 * FIX: Salesforce DX projects now support the UiWidgetBundle [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
 
-## 2.142.7 (July 8, 2026) [stable]
+## 2.142.7 (July 8, 2026)
 
 * NEW: (Agentforce DX)  Manage MCP server registrations in the API Catalog with these new `agent mcp` commands:
 
