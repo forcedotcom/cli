@@ -31,10 +31,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: Salesforce CLI now requires Node.js version 22 or later. Node.js 18 reached end-of-life in September 2025, and Node.js 20 reached end-of-life in April 2026. The operating-system specific Salesforce CLI builds and TAR files now bundle Node.js 24. Additionally, we dropped support for 32-bit Windows (`win32-x86`), as Node.js 24 no longer provides 32-bit binaries and telemetry shows this platform represents less than 0.01% of CLI usage. 
-
-    (GitHub Issue [#3596](https://github.com/forcedotcom/cli/issues/3596), cli PR [#2829](https://github.com/salesforcecli/cli/pull/2829))
-
 * FIX: The`auth accesstoken store` command no longer crashes with `Error (13): User force closed the prompt with 13 null` when an access token is piped via stdin and an auth file already exists. The command now reads piped tokens directly from stdin instead of using an interactive prompt. (GitHub Issue [#3573](https://github.com/forcedotcom/cli/issues/3573), plugin-auth PR [#1526](https://github.com/salesforcecli/plugin-auth/pull/1526))
 
 * FIX: Setting `SF_LOG_ROTATION_PERIOD` to a value greater than `1d` (such as `2d` or `7d`) no longer causes Salesforce CLI to crash with an `UnexpectedValueTypeError`. The CLI now falls back to `1d` rotation for unrecognized values and emits a warning. (GitHub Issue [#3580](https://github.com/forcedotcom/cli/issues/3580), sfdx-core PR [#1314](https://github.com/forcedotcom/sfdx-core/pull/1314))
