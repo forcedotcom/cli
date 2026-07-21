@@ -25,15 +25,25 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.144.6 (July 22, 2026) [stable-rc]
+## 2.145.6 (July 29, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
 
+* NEW: Salesforce CLI now requires Node.js version 22 or later. Node.js 18 reached end-of-life in September 2025, and Node.js 20 reached end-of-life in April 2026. The operating-system specific Salesforce CLI builds and TAR files now bundle Node.js 24. Additionally, we dropped support for 32-bit Windows (`win32-x86`), as Node.js 24 no longer provides 32-bit binaries and telemetry shows this platform represents less than 0.01% of CLI usage. 
+
+    (GitHub Issue [#3596](https://github.com/forcedotcom/cli/issues/3596), cli PR [#2829](https://github.com/salesforcecli/cli/pull/2829))
+
+* FIX: The`auth accesstoken store` command no longer crashes with `Error (13): User force closed the prompt with 13 null` when an access token is piped via stdin and an auth file already exists. The command now reads piped tokens directly from stdin instead of using an interactive prompt. (GitHub Issue [#3573](https://github.com/forcedotcom/cli/issues/3573), plugin-auth PR [#1526](https://github.com/salesforcecli/plugin-auth/pull/1526))
+
+* FIX: Setting `SF_LOG_ROTATION_PERIOD` to a value greater than `1d` (such as `2d` or `7d`) no longer causes Salesforce CLI to crash with an `UnexpectedValueTypeError`. The CLI now falls back to `1d` rotation for unrecognized values and emits a warning. (GitHub Issue [#3580](https://github.com/forcedotcom/cli/issues/3580), sfdx-core PR [#1314](https://github.com/forcedotcom/sfdx-core/pull/1314))
+
+## 2.144.6 (July 22, 2026) [stable]
+
 * FIX: When deploying a UIBundle in your Salesforce DX project with `project deploy start` using either `--source-dir <path-to-bundle>` or `--metadata UIBundle:<name>`, and your DX project contains an unrelated sibling UIBundle that hasn't yet been built (doesn't contain the `dist` directory), the deploy no longer fails with the `ExpectedSourceFilesError` error.  (GitHub Issue [#3576](https://github.com/forcedotcom/cli/issues/3576), source-deploy-retrieve PR [#1796](https://github.com/forcedotcom/source-deploy-retrieve/pull/1796))
 
-## 2.143.6 (July 15, 2026) [stable]
+## 2.143.6 (July 15, 2026)
 
 * FIX: Salesforce DX projects now support the UiWidgetBundle [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
 
