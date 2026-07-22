@@ -31,6 +31,24 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: Scaffold asynchronous Apex classes with built-in best practices with these new values of the `--template` flag of the `template generate apex class` CLI command: `Batchable` and `Queueable`.
+
+    * The `Batchable` template generates a strongly-typed `Database.Batchable<SObject>` with a typed `List<SObject>` scope, inline (compile-checked) SOQL query instead of a dynamic string query, and `Database.RaisesPlatformEvents` so that batch iteration failures surface as platform events.
+    * The `Queueable` template generates a `Queueable` class that implements `Finalizer` and attaches it, ensuring post-job logic runs reliably even after an unhandled exception. The generated code explicitly handles `UNHANDLED_EXCEPTION` cases.
+
+    This example generates a batchable class for processing accounts:
+
+    ```bash
+    sf template generate apex class --name ProcessAccounts --template Batchable
+    ```
+    
+    This example generates a queueable class for sending emails:
+
+    ```
+    sf template generate apex class --name SendEmail --template Queueable
+    ```
+    (salesforcedx-templates PR [#860](https://github.com/forcedotcom/salesforcedx-templates/pull/860))
+
 * FIX: The`auth accesstoken store` command no longer crashes with `Error (13): User force closed the prompt with 13 null` when an access token is piped via stdin and an auth file already exists. The command now reads piped tokens directly from stdin instead of using an interactive prompt. (GitHub Issue [#3573](https://github.com/forcedotcom/cli/issues/3573), plugin-auth PR [#1526](https://github.com/salesforcecli/plugin-auth/pull/1526))
 
 * FIX: Setting `SF_LOG_ROTATION_PERIOD` to a value greater than `1d` (such as `2d` or `7d`) no longer causes Salesforce CLI to crash with an `UnexpectedValueTypeError`. The CLI now falls back to `1d` rotation for unrecognized values and emits a warning. (GitHub Issue [#3580](https://github.com/forcedotcom/cli/issues/3580), sfdx-core PR [#1314](https://github.com/forcedotcom/sfdx-core/pull/1314))
