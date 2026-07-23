@@ -89,6 +89,21 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
   (code-analyzer PR [#2050](https://github.com/forcedotcom/code-analyzer/pull/2050))
 
+* NEW: (DevOps Center) Manage DevOps Center projects, pipelines, and work items  with these new `devops` commands:
+
+  * `devops pipeline activate` : Activate a DevOps Center pipeline for deployments.
+  * `devops pipeline attach-project` : Attach a DevOps Center project to a pipeline.
+  * `devops pipeline create` : Create a DevOps Center pipeline.
+  * `devops pipeline stage add` : Add a stage to a DevOps Center pipeline.
+  * `devops project create` : Create a DevOps Center project in a DevOps Center org.
+  * `devops project list` : List all DevOps Center projects in a Salesforce org.
+  * `devops pull-request create` : Create a pull request for a work item branch.
+  * `devops work-item create` : Create a new work item in a DevOps Center project.
+  * `devops work-item list` : List all work items for a DevOps Center project.
+  * `devops work-item status update` : Update the status of a work item in DevOps Center.
+
+  (plugin-devops-center PR [#506](https://github.com/salesforcecli/plugin-devops-center/pull/506), plugin-devops-center PR [#508](https://github.com/salesforcecli/plugin-devops-center/pull/508), plugin-devops-center PR [#509](https://github.com/salesforcecli/plugin-devops-center/pull/509))
+
 * NEW: Query the dependencies of a package version that is protected by an installation key with the new `--installation-key` flag (short name `-k`) of the `package version displaydependencies` command. For example:
 
     ```bash
