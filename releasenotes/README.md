@@ -25,11 +25,17 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.145.6 (July 29, 2026) [stable-rc]
+## 2.146.3 (August 5, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: Source tracking now updates correctly after deploying platform events, big objects, external objects, or custom metadata types. Previously, the CLI would hang and eventually time out with the warning "Polling for N SourceMembers timed out" because the SourceMember table sometimes stores child members without the entity suffix (e.g., `MyEvent.Field__c` instead of `MyEvent__e.Field__c`). (GitHub Issue [#3512](https://github.com/forcedotcom/cli/issues/3512), source-tracking PR [#868](https://github.com/forcedotcom/source-tracking/pull/868))
+
+* FIX: The `sf package version create --branch <branch>` command no longer fails with `NoReleaseVersionFoundForBranchError` when using `LATEST` in dependency version numbers. Dependencies without versions on the specified branch now gracefully fall back to the latest released version instead of causing the command to fail. (GitHub Issue [#3517](https://github.com/forcedotcom/cli/issues/3517), packaging PR [#898](https://github.com/forcedotcom/packaging/pull/898))
+
+## 2.145.6 (July 29, 2026) [stable]
 
 * NEW: Scaffold asynchronous Apex classes with built-in best practices with these new values of the `--template` flag of the `template generate apex class` CLI command: `Batchable` and `Queueable`.
 
@@ -53,7 +59,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Setting `SF_LOG_ROTATION_PERIOD` to a value greater than `1d` (such as `2d` or `7d`) no longer causes Salesforce CLI to crash with an `UnexpectedValueTypeError`. The CLI now falls back to `1d` rotation for unrecognized values and emits a warning. (GitHub Issue [#3580](https://github.com/forcedotcom/cli/issues/3580), sfdx-core PR [#1314](https://github.com/forcedotcom/sfdx-core/pull/1314))
 
-## 2.144.6 (July 22, 2026) [stable]
+## 2.144.6 (July 22, 2026)
 
 * FIX: When deploying a UIBundle in your Salesforce DX project with `project deploy start` using either `--source-dir <path-to-bundle>` or `--metadata UIBundle:<name>`, and your DX project contains an unrelated sibling UIBundle that hasn't yet been built (doesn't contain the `dist` directory), the deploy no longer fails with the `ExpectedSourceFilesError` error.  (GitHub Issue [#3576](https://github.com/forcedotcom/cli/issues/3576), source-deploy-retrieve PR [#1796](https://github.com/forcedotcom/source-deploy-retrieve/pull/1796))
 
