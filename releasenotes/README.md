@@ -31,7 +31,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: The command `org create scratch` no longer fails when the associated Dev Hub is authenticated via an external client app using the JWT Bearer Flow (`org login jwt`). External client apps can't currently be replicated during the signup process, so to work around this limitation we added these two environment variables which you must set before you run `org create scratch`: 
+* NEW: We added two new environment variables so that the command `org create scratch` no longer fails when the associated Dev Hub is authenticated via an external client app using the JWT Bearer Flow (`org login jwt`). External client apps can't currently be replicated during the signup process, so to work around this limitation we added these two environment variables which you set before you run `org create scratch`: 
 
     * `SF_SCRATCH_SIGNUP_CONNECTED_APP` - Set to `PlatformCLI` to use the default Salesforce CLI connected app. 
     * `SF_SCRATCH_SIGNUP_CALLBACK_URL` - Set to the connected app callback URL, such as `http://localhost:1717/OauthRedirect`.
