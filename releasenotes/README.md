@@ -25,17 +25,37 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.146.3 (August 5, 2026) [stable-rc]
+## 2.147.7 (August 12, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
 
+* NEW: We added two environment variables to fix an issue where `org create scratch` fails when you authenticate the associated Dev Hub with an external client app via JWT (`org login jwt`). Because external client apps can't be replicated during the signup process, set these environment variables before running `org create scratch`:
+
+    * `SF_SCRATCH_SIGNUP_CONNECTED_APP` - Set to `PlatformCLI` to use the default Salesforce CLI connected app. 
+    * `SF_SCRATCH_SIGNUP_CALLBACK_URL` - Set to the connected app callback URL, such as `http://localhost:1717/OauthRedirect`.
+
+    These two environment variables are a temporary workaround until the external client app replication limitation is fixed, at which point they become no-ops and will be deprecated.  (GitHub Issue [#3515](https://github.com/forcedotcom/cli/issues/3515), sfdx-core PR [#1315](https://github.com/forcedotcom/sfdx-core/pull/1315))
+
+* CHANGE: Salesforce CLI now requires Node.js version 22 or later. We've dropped support for Node.js 18 and 20, which reached end-of-life. The bundled Node.js runtime in the Salesforce CLI installers is now version 24. For example:
+
+    ```bash
+    # Check your Node version
+    node --version
+    # Should show v22.x.x or v24.x.x
+    ```
+
+    (cli PR [#2851](https://github.com/salesforcecli/cli/pull/2851))
+
+
+## 2.146.3 (August 5, 2026) [stable]
+
 * FIX: Source tracking now updates correctly after deploying platform events, big objects, external objects, or custom metadata types. Previously, the CLI would hang and eventually time out with the warning "Polling for N SourceMembers timed out" because the SourceMember table sometimes stores child members without the entity suffix (e.g., `MyEvent.Field__c` instead of `MyEvent__e.Field__c`). (GitHub Issue [#3512](https://github.com/forcedotcom/cli/issues/3512), source-tracking PR [#868](https://github.com/forcedotcom/source-tracking/pull/868))
 
 * FIX: The `sf package version create --branch <branch>` command no longer fails with `NoReleaseVersionFoundForBranchError` when using `LATEST` in dependency version numbers. Dependencies without versions on the specified branch now gracefully fall back to the latest released version instead of causing the command to fail. (GitHub Issue [#3517](https://github.com/forcedotcom/cli/issues/3517), packaging PR [#898](https://github.com/forcedotcom/packaging/pull/898))
 
-## 2.145.6 (July 29, 2026) [stable]
+## 2.145.6 (July 29, 2026)
 
 * NEW: Scaffold asynchronous Apex classes with built-in best practices with these new values of the `--template` flag of the `template generate apex class` CLI command: `Batchable` and `Queueable`.
 
