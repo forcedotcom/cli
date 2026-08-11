@@ -33,14 +33,16 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: Use natural language prompts to quickly build Salesforce apps and agents with the new [Salesforce Development plugin for Claude Code](https://claude.com/plugins/salesforce-development). The plugin detects your DX project environment and provides Salesforce-specific skills and org context through hosted MCP servers. You get AI-powered assistance to build, update, and maintain apps efficiently and quickly.
 
-    To install the plugin and ensure it's activated, open Claude Code and run these commands:
+    First install the [prerequisite software](https://github.com/forcedotcom/sf-skills/tree/main/plugins/builder/salesforce-development#quick-start) on your computer.  If you're a regular Salesforce CLI user you're probably all set!
+
+    Then install the plugin and ensure it's activated by opening Claude Code and running these commands:
 
     ```
     /plugin install salesforce-development@claude-plugins-official
     /reload-plugins
     ```
 
-    Now run this command to get the Salesforce Development Welcome page that displays useful information about your environment and tips on what to do next:
+     Run this command to get the Salesforce Development Welcome page that displays useful information about your environment and tips on what to do next:
   
      ```
      /salesforce-development:welcome
