@@ -25,11 +25,51 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.147.7 (August 12, 2026) [stable-rc]
+## 2.148.2 (August 19, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: Add a `--skip-assignment-rules` flag to the `data create record` and `data update record` commands to prevent Account, Case, or Lead assignment rules from running when you create or update records. This is useful when you want to preserve record ownership without triggering active assignment rules. For example:
+
+    ```bash
+    # Update a Case without triggering assignment rules
+    sf data update record --sobject Case --record-id 500xx000000abcd --values "Status=Closed" --skip-assignment-rules
+    
+    # Create a Lead without triggering assignment rules
+    sf data create record --sobject Lead --values "LastName=Smith Company=Acme" --skip-assignment-rules
+    ```
+
+    (plugin-data PR [https://github.com/salesforcecli/plugin-data/pull/1492](https://github.com/salesforcecli/plugin-data/pull/1492))
+
+* CHANGE: The `org generate password` command now enforces minimum values for password length and complexity. Commands that specify `--length` below 20 or `--complexity` below 3 now fail with a validation error instead of being silently corrected. This completes the deprecation cycle started in the Summer '26 release. For example:
+
+    ```bash
+    # This now fails with a validation error
+    sf org generate password --length 15
+    
+    # Use minimum values instead
+    sf org generate password --length 20 --complexity 3
+    ```
+
+    (plugin-user PR [https://github.com/salesforcecli/plugin-user/pull/1490](https://github.com/salesforcecli/plugin-user/pull/1490))
+
+* CHANGE: The `api request rest` command is now generally available (GA) and no longer beta. Remove the `--beta` flag from your scripts and CI workflows. For example:
+
+    ```bash
+    # Old (beta)
+    sf api request rest --beta --url /services/data/v62.0/sobjects/Account
+    
+    # New (GA)
+    sf api request rest --url /services/data/v62.0/sobjects/Account
+    ```
+
+    (plugin-api PR [https://github.com/salesforcecli/plugin-api/pull/194](https://github.com/salesforcecli/plugin-api/pull/194))
+
+* FIX: The `@salesforce/core` package type declarations no longer cause TypeScript compilation errors (`TS2694: Namespace 'pino.pino' has no exported member 'TransportSingleOptions'`) when building projects with `skipLibCheck: false`. The emitted `.d.ts` file now correctly imports `TransportSingleOptions` directly from the pino module instead of referencing it through the problematic nested namespace. (GitHub Issue [https://github.com/forcedotcom/cli/issues/3618](https://github.com/forcedotcom/cli/issues/3618), sfdx-core PR [https://github.com/forcedotcom/sfdx-core/pull/1324](https://github.com/forcedotcom/sfdx-core/pull/1324))
+
+## 2.147.7 (August 12, 2026) [stable]
 
 * NEW: We added two environment variables to fix an issue where `org create scratch` fails when you authenticate the associated Dev Hub with an external client app via JWT (`org login jwt`). Because external client apps can't be replicated during the signup process, set these environment variables before running `org create scratch`:
 
@@ -49,7 +89,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     (cli PR [#2851](https://github.com/salesforcecli/cli/pull/2851))
 
 
-## 2.146.3 (August 5, 2026) [stable]
+## 2.146.3 (August 5, 2026)
 
 * FIX: Source tracking now updates correctly after deploying platform events, big objects, external objects, or custom metadata types. Previously, the CLI would hang and eventually time out with the warning "Polling for N SourceMembers timed out" because the SourceMember table sometimes stores child members without the entity suffix (e.g., `MyEvent.Field__c` instead of `MyEvent__e.Field__c`). (GitHub Issue [#3512](https://github.com/forcedotcom/cli/issues/3512), source-tracking PR [#868](https://github.com/forcedotcom/source-tracking/pull/868))
 
