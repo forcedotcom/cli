@@ -31,6 +31,38 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
+* NEW: Use natural language prompts to quickly build Salesforce apps and agents with the new [Salesforce Development plugin for Claude Code](https://claude.com/plugins/salesforce-development). The plugin detects your DX project environment and provides Salesforce-specific skills and org context through hosted MCP servers. You get AI-powered assistance to build, update, and maintain apps efficiently and quickly.
+
+   Open Claude Code and run these commands to install the plugin and ensure it's activated:
+
+    ```
+    /plugin install salesforce-development@claude-plugins-official
+    /reload-plugins
+    ```
+
+    Now run this command to get the Salesforce Development Welcome page that displays useful information about your environment and tips on what to do next:
+  
+     ```
+     /salesforce-development:welcome
+     ```
+
+     Then enter some prompts; if you're unsure what to do, just ask!
+    
+     * _Create a project._
+     * _Authorize my org._
+     * _Let's build something on Salesforce!_
+     * _What do I do now?_
+ 
+     Claude Code explains what it did, and offers suggestions for the next steps.
+
+     If you're an experienced Salesforce developer, switch to your DX project and enter natural language prompts to continue building your app, such as:
+
+     * _Create an Apex service class to handle Account territory assignments._
+     * _Generate a custom object called Project with fields for Name, Status, Due Date, and Owner._
+     * _Deploy the current changes to my sandbox._
+
+     Pretty fun, right? 
+
 * NEW: Add a `--skip-assignment-rules` flag to the `data create record` and `data update record` commands to prevent Account, Case, or Lead assignment rules from running when you create or update records. This is useful when you want to preserve record ownership without triggering active assignment rules. For example:
 
     ```bash
