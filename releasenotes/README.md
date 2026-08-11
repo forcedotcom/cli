@@ -33,7 +33,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: Use natural language prompts to quickly build Salesforce apps and agents with the new [Salesforce Development plugin for Claude Code](https://claude.com/plugins/salesforce-development). The plugin detects your DX project environment and provides Salesforce-specific skills and org context through hosted MCP servers. You get AI-powered assistance to build, update, and maintain apps efficiently and quickly.
 
-   Open Claude Code and run these commands to install the plugin and ensure it's activated:
+    To install the plugin and ensure it's activated, open Claude Code and run these commands:
 
     ```
     /plugin install salesforce-development@claude-plugins-official
@@ -75,7 +75,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     (plugin-data PR [1492](https://github.com/salesforcecli/plugin-data/pull/1492))
 
-* CHANGE: The `org generate password` command now enforces minimum values for password length and complexity. Commands that specify `--length` below 20 or `--complexity` below 3 now fail with a validation error instead of being silently corrected. This completes the deprecation cycle started in the Summer '26 release. For example:
+* CHANGE: The `org generate password` command now enforces minimum values for password length and complexity. Commands that specify `--length` below 20 or `--complexity` below 3 now fail with a validation error instead of being silently corrected. This completes the deprecation cycle we announced in [April 1, 2026](./README.md#21298-april-1-2026).  For example:
 
     ```bash
     # This now fails with a validation error
