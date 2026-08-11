@@ -41,7 +41,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     sf data create record --sobject Lead --values "LastName=Smith Company=Acme" --skip-assignment-rules
     ```
 
-    (plugin-data PR [https://github.com/salesforcecli/plugin-data/pull/1492](https://github.com/salesforcecli/plugin-data/pull/1492))
+    (plugin-data PR [1492](https://github.com/salesforcecli/plugin-data/pull/1492))
 
 * CHANGE: The `org generate password` command now enforces minimum values for password length and complexity. Commands that specify `--length` below 20 or `--complexity` below 3 now fail with a validation error instead of being silently corrected. This completes the deprecation cycle started in the Summer '26 release. For example:
 
@@ -53,21 +53,11 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     sf org generate password --length 20 --complexity 3
     ```
 
-    (plugin-user PR [https://github.com/salesforcecli/plugin-user/pull/1490](https://github.com/salesforcecli/plugin-user/pull/1490))
+    (plugin-user PR [1490](https://github.com/salesforcecli/plugin-user/pull/1490))
 
-* CHANGE: The `api request rest` command is now generally available (GA) and no longer beta. Remove the `--beta` flag from your scripts and CI workflows. For example:
+* CHANGE: The `api request rest` command is now generally available (GA) and no longer beta. (plugin-api PR [194](https://github.com/salesforcecli/plugin-api/pull/194))
 
-    ```bash
-    # Old (beta)
-    sf api request rest --beta --url /services/data/v62.0/sobjects/Account
-    
-    # New (GA)
-    sf api request rest --url /services/data/v62.0/sobjects/Account
-    ```
-
-    (plugin-api PR [https://github.com/salesforcecli/plugin-api/pull/194](https://github.com/salesforcecli/plugin-api/pull/194))
-
-* FIX: The `@salesforce/core` package type declarations no longer cause TypeScript compilation errors (`TS2694: Namespace 'pino.pino' has no exported member 'TransportSingleOptions'`) when building projects with `skipLibCheck: false`. The emitted `.d.ts` file now correctly imports `TransportSingleOptions` directly from the pino module instead of referencing it through the problematic nested namespace. (GitHub Issue [https://github.com/forcedotcom/cli/issues/3618](https://github.com/forcedotcom/cli/issues/3618), sfdx-core PR [https://github.com/forcedotcom/sfdx-core/pull/1324](https://github.com/forcedotcom/sfdx-core/pull/1324))
+* FIX: The `@salesforce/core` package type declarations no longer cause TypeScript compilation errors (`TS2694: Namespace 'pino.pino' has no exported member 'TransportSingleOptions'`) when building projects with `skipLibCheck: false`. The emitted `.d.ts` file now correctly imports `TransportSingleOptions` directly from the pino module instead of referencing it through the problematic nested namespace. (GitHub Issue [3618](https://github.com/forcedotcom/cli/issues/3618), sfdx-core PR [1324](https://github.com/forcedotcom/sfdx-core/pull/1324))
 
 ## 2.147.7 (August 12, 2026) [stable]
 
