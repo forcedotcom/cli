@@ -63,7 +63,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
      * _Generate a custom object called Project with fields for Name, Status, Due Date, and Owner._
      * _Deploy the current changes to my sandbox._
 
-     Pretty fun, right? 
+     To learn how the plugin is defined, its list of skills, and so on, see this [GitHub repo](https://github.com/forcedotcom/sf-skills/tree/main/plugins/builder/salesforce-development). Use the [issues section](https://github.com/forcedotcom/sf-skills/issues) to enter a bug or suggest a new feature. Happy building!
 
 * NEW: Add a `--skip-assignment-rules` flag to the `data create record` and `data update record` commands to prevent Account, Case, or Lead assignment rules from running when you create or update records. This is useful when you want to preserve record ownership without triggering active assignment rules. For example:
 
