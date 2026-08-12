@@ -25,11 +25,75 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.147.7 (August 12, 2026) [stable-rc]
+## 2.148.3 (August 19, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: Use natural language prompts to quickly build Salesforce apps and agents with the new [Salesforce Development plugin for Claude Code](https://claude.com/plugins/salesforce-development). The plugin detects your DX project environment and provides Salesforce-specific skills and org context through hosted MCP servers. You get AI-powered assistance to build, update, and maintain apps efficiently and quickly.
+
+    First install the [prerequisite software](https://github.com/forcedotcom/sf-skills/tree/main/plugins/builder/salesforce-development#quick-start) on your computer.  If you're a regular Salesforce CLI user you're probably all set!
+
+    Then install the plugin and ensure it's activated by opening Claude Code and running these commands:
+
+    ```
+    /plugin install salesforce-development@claude-plugins-official
+    /reload-plugins
+    ```
+
+     Run this command to get the Salesforce Development Welcome page that displays useful information about your environment and tips on what to do next:
+  
+     ```
+     /salesforce-development:welcome
+     ```
+
+     Then enter some prompts; if you're unsure what to do, just ask!
+    
+     * _Create a project._
+     * _Authorize my org._
+     * _Let's build something on Salesforce!_
+     * _What do I do now?_
+ 
+     Claude Code explains what it did, and offers suggestions for the next steps.
+
+     If you're an experienced Salesforce developer, switch to your DX project and enter natural language prompts to continue building your app, such as:
+
+     * _Create an Apex service class to handle Account territory assignments._
+     * _Generate a custom object called Project with fields for Name, Status, Due Date, and Owner._
+     * _Deploy the current changes to my sandbox._
+
+     To learn how the plugin is defined, its list of skills, and so on, see this [GitHub repo](https://github.com/forcedotcom/sf-skills/tree/main/plugins/builder/salesforce-development). Use the [issues section](https://github.com/forcedotcom/sf-skills/issues) to enter a bug or suggest a new feature. Happy building!
+
+* NEW: Add a `--skip-assignment-rules` flag to the `data create record` and `data update record` commands to prevent Account, Case, or Lead assignment rules from running when you create or update records. This is useful when you want to preserve record ownership without triggering active assignment rules. For example:
+
+    ```bash
+    # Update a Case without triggering assignment rules
+    sf data update record --sobject Case --record-id 500xx000000abcd --values "Status=Closed" --skip-assignment-rules
+    
+    # Create a Lead without triggering assignment rules
+    sf data create record --sobject Lead --values "LastName=Smith Company=Acme" --skip-assignment-rules
+    ```
+
+    (plugin-data PR [1492](https://github.com/salesforcecli/plugin-data/pull/1492))
+
+* CHANGE: The `org generate password` command now enforces minimum values for password length and complexity. Commands that specify `--length` below 20 or `--complexity` below 3 now fail with a validation error instead of being silently corrected. This completes the deprecation cycle we announced in [April 1, 2026](./README.md#21298-april-1-2026).  For example:
+
+    ```bash
+    # This now fails with a validation error
+    sf org generate password --length 15
+    
+    # Use minimum values instead
+    sf org generate password --length 20 --complexity 3
+    ```
+
+    (plugin-user PR [1490](https://github.com/salesforcecli/plugin-user/pull/1490))
+
+* CHANGE: The `api request rest` and `api request graphql` commands are now generally available (GA) and no longer beta. (plugin-api PR [194](https://github.com/salesforcecli/plugin-api/pull/194))
+
+* FIX: The `@salesforce/core` package type declarations no longer cause TypeScript compilation errors (`TS2694: Namespace 'pino.pino' has no exported member 'TransportSingleOptions'`) when building projects with `skipLibCheck: false`. The emitted `.d.ts` file now correctly imports `TransportSingleOptions` directly from the pino module instead of referencing it through the problematic nested namespace. (GitHub Issue [3618](https://github.com/forcedotcom/cli/issues/3618), sfdx-core PR [1324](https://github.com/forcedotcom/sfdx-core/pull/1324))
+
+## 2.147.7 (August 12, 2026) [stable]
 
 * NEW: We added two environment variables to fix an issue where `org create scratch` fails when you authenticate the associated Dev Hub with an external client app via JWT (`org login jwt`). Because external client apps can't be replicated during the signup process, set these environment variables before running `org create scratch`:
 
@@ -49,7 +113,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     (cli PR [#2851](https://github.com/salesforcecli/cli/pull/2851))
 
 
-## 2.146.3 (August 5, 2026) [stable]
+## 2.146.3 (August 5, 2026)
 
 * FIX: Source tracking now updates correctly after deploying platform events, big objects, external objects, or custom metadata types. Previously, the CLI would hang and eventually time out with the warning "Polling for N SourceMembers timed out" because the SourceMember table sometimes stores child members without the entity suffix (e.g., `MyEvent.Field__c` instead of `MyEvent__e.Field__c`). (GitHub Issue [#3512](https://github.com/forcedotcom/cli/issues/3512), source-tracking PR [#868](https://github.com/forcedotcom/source-tracking/pull/868))
 
