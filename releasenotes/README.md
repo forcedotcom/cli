@@ -89,7 +89,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     (plugin-user PR [1490](https://github.com/salesforcecli/plugin-user/pull/1490))
 
-* CHANGE: The `api request rest` command is now generally available (GA) and no longer beta. (plugin-api PR [194](https://github.com/salesforcecli/plugin-api/pull/194))
+* CHANGE: The `api request rest` and `api request graphql` commands are now generally available (GA) and no longer beta. (plugin-api PR [194](https://github.com/salesforcecli/plugin-api/pull/194))
 
 * FIX: The `@salesforce/core` package type declarations no longer cause TypeScript compilation errors (`TS2694: Namespace 'pino.pino' has no exported member 'TransportSingleOptions'`) when building projects with `skipLibCheck: false`. The emitted `.d.ts` file now correctly imports `TransportSingleOptions` directly from the pino module instead of referencing it through the problematic nested namespace. (GitHub Issue [3618](https://github.com/forcedotcom/cli/issues/3618), sfdx-core PR [1324](https://github.com/forcedotcom/sfdx-core/pull/1324))
 
