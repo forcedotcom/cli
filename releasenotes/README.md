@@ -25,11 +25,9 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.148.3 (August 19, 2026) [stable-rc]
+## 2.149.8 (Aug 26, 2026) [stable-rc]
 
-These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
-
-------------
+## 2.148.3 (August 19, 2026) [stable]
 
 * NEW: Use natural language prompts to quickly build Salesforce apps and agents with the new [Salesforce Development plugin for Claude Code](https://claude.com/plugins/salesforce-development). The plugin detects your DX project environment and provides Salesforce-specific skills and org context through hosted MCP servers. You get AI-powered assistance to build, update, and maintain apps efficiently and quickly.
 
@@ -93,7 +91,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `@salesforce/core` package type declarations no longer cause TypeScript compilation errors (`TS2694: Namespace 'pino.pino' has no exported member 'TransportSingleOptions'`) when building projects with `skipLibCheck: false`. The emitted `.d.ts` file now correctly imports `TransportSingleOptions` directly from the pino module instead of referencing it through the problematic nested namespace. (GitHub Issue [3618](https://github.com/forcedotcom/cli/issues/3618), sfdx-core PR [1324](https://github.com/forcedotcom/sfdx-core/pull/1324))
 
-## 2.147.7 (August 12, 2026) [stable]
+## 2.147.7 (August 12, 2026)
 
 * NEW: We added two environment variables to fix an issue where `org create scratch` fails when you authenticate the associated Dev Hub with an external client app via JWT (`org login jwt`). Because external client apps can't be replicated during the signup process, set these environment variables before running `org create scratch`:
 
