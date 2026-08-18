@@ -33,15 +33,15 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: Use the new `--root-with-dependencies` flag with `sf project retrieve start` to expose the Metadata API `rootTypesWithDependencies` request parameter. The flag accepts `Bot` and `AiAgentDefinitionVersion` as valid values (you can specify multiple). When you provide it explicitly, it takes precedence over the existing auto-detected `['Bot']` behavior for Agent pseudo-types. For example:
+* NEW: Use the new `--root-with-dependencies` flag of the `project retrieve start` command to specify the metadata type for which you also want to retrieve all dependent components. Currently the flag accepts only `Bot` and `AiAgentDefinitionVersion` as valid values.  In this example, the command retrieves the metadata source files in the `force-app` directory; if any of the retrieved metadata is of type `Bot`, the command also retrieves its dependent components, such as `GenAiPlannerBundle`, `GenAiPlugin`, and `GenAiFunction:
 
     ```bash
-    sf project retrieve start --metadata ApexClass:Foo --include-dependents Bot --root-with-dependencies AiAgentDefinitionVersion
+   sf project retrieve start --source-dir force-app -root-type-with-dependencies Bot
     ```
 
     (plugin-deploy-retrieve PR [1626](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1626))
 
-* FIX: We fixed an issue where the CLI incorrectly reported a scratch org definition validation warning (`features.N: Invalid input`) for the `ServiceCloudVoicePartnerTelephony` feature. This feature is now correctly categorized as a pattern feature (for example, `ServiceCloudVoicePartnerTelephony:3`) rather than a simple feature. (GitHub Issue [#3617](https://github.com/forcedotcom/cli/issues/3617), sfdx-core PR [1323](https://github.com/forcedotcom/sfdx-core/pull/1323))
+* FIX: Salesforce CLI no longer incorrectly reports a scratch org definition validation warning (`features.N: Invalid input`) for the `ServiceCloudVoicePartnerTelephony` feature. This feature is now correctly categorized as a pattern feature, such as `ServiceCloudVoicePartnerTelephony:3`, rather than a simple feature. (GitHub Issue [#3617](https://github.com/forcedotcom/cli/issues/3617), sfdx-core PR [1323](https://github.com/forcedotcom/sfdx-core/pull/1323))
 
 * FIX: We released source tracking support for nCino metadata (mobility). (plugin-deploy-retrieve PR [1628](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1628))
 
