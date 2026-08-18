@@ -27,6 +27,24 @@ Additional documentation:
 
 ## 2.149.8 (Aug 26, 2026) [stable-rc]
 
+## 2.149.6 (August 26, 2026) [stable-rc]
+
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+------------
+
+* NEW: Use the new `--root-with-dependencies` flag with `sf project retrieve start` to expose the Metadata API `rootTypesWithDependencies` request parameter. The flag accepts `Bot` and `AiAgentDefinitionVersion` as valid values (you can specify multiple). When you provide it explicitly, it takes precedence over the existing auto-detected `['Bot']` behavior for Agent pseudo-types. For example:
+
+    ```bash
+    sf project retrieve start --metadata ApexClass:Foo --include-dependents Bot --root-with-dependencies AiAgentDefinitionVersion
+    ```
+
+    (plugin-deploy-retrieve PR [1626](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1626))
+
+* FIX: We fixed an issue where the CLI incorrectly reported a scratch org definition validation warning (`features.N: Invalid input`) for the `ServiceCloudVoicePartnerTelephony` feature. This feature is now correctly categorized as a pattern feature (for example, `ServiceCloudVoicePartnerTelephony:3`) rather than a simple feature. (GitHub Issue [#3617](https://github.com/forcedotcom/cli/issues/3617), sfdx-core PR [1323](https://github.com/forcedotcom/sfdx-core/pull/1323))
+
+* FIX: We released source tracking support for nCino metadata (mobility). (plugin-deploy-retrieve PR [1628](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1628))
+
 ## 2.148.3 (August 19, 2026) [stable]
 
 * NEW: Use natural language prompts to quickly build Salesforce apps and agents with the new [Salesforce Development plugin for Claude Code](https://claude.com/plugins/salesforce-development). The plugin detects your DX project environment and provides Salesforce-specific skills and org context through hosted MCP servers. You get AI-powered assistance to build, update, and maintain apps efficiently and quickly.
