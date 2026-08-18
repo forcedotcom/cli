@@ -45,6 +45,12 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: We released source tracking support for nCino metadata (mobility). (plugin-deploy-retrieve PR [1628](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1628))
 
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+
+    * `AiAgentDefinition`
+    * `AiAgentDefinitionVersion`
+
+
 ## 2.148.3 (August 19, 2026) [stable]
 
 * NEW: Use natural language prompts to quickly build Salesforce apps and agents with the new [Salesforce Development plugin for Claude Code](https://claude.com/plugins/salesforce-development). The plugin detects your DX project environment and provides Salesforce-specific skills and org context through hosted MCP servers. You get AI-powered assistance to build, update, and maintain apps efficiently and quickly.
