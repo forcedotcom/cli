@@ -47,6 +47,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Salesforce CLI no longer incorrectly reports a scratch org definition validation warning (`features.N: Invalid input`) for the `ServiceCloudVoicePartnerTelephony` feature. This feature is now correctly categorized as a pattern feature, such as `ServiceCloudVoicePartnerTelephony:3`, rather than a simple feature. (GitHub Issue [#3617](https://github.com/forcedotcom/cli/issues/3617), sfdx-core PR [1323](https://github.com/forcedotcom/sfdx-core/pull/1323))
 
+* FIX: The `data bulk export` command now works correctly in a CI/CD environment when running behind a company firewall or web proxy. (GitHub Issue [#3620](https://github.com/forcedotcom/cli/issues/3620), plugin-data PR [#1507](https://github.com/salesforcecli/plugin-data/pull/1507))
+
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
 
     * `AiAgentDefinition`
