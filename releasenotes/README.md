@@ -41,9 +41,11 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     (plugin-deploy-retrieve PR [1626](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1626))
 
-* FIX: Salesforce CLI no longer incorrectly reports a scratch org definition validation warning (`features.N: Invalid input`) for the `ServiceCloudVoicePartnerTelephony` feature. This feature is now correctly categorized as a pattern feature, such as `ServiceCloudVoicePartnerTelephony:3`, rather than a simple feature. (GitHub Issue [#3617](https://github.com/forcedotcom/cli/issues/3617), sfdx-core PR [1323](https://github.com/forcedotcom/sfdx-core/pull/1323))
+* NEW: Skip the local filesystem scan when you synchronize (deploy or retrieve) your DX project with a source-tracking-enabled org by setting the new `SF_SOURCE_TRACKING_ASSUME_SYNCED` environment variable to `true.` This variable is useful when you know that your org is fully synchronized with your DX project, such as when you're using an org that's been pre-seeded with your project's metadata. Skipping the source-tracking scan that normally happens when you deploy or retrieve can save a lot of time—60+ minutes for very large projects.
 
-* FIX: We released source tracking support for nCino metadata (mobility). (plugin-deploy-retrieve PR [1628](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1628))
+    **Warning**: This advanced feature is intended only for users who understand the risks. If you use it when your org and DX project aren't actually synchronized, they can get further out of sync. (plugin-deploy-retrieve PR [1628](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1628))
+
+* FIX: Salesforce CLI no longer incorrectly reports a scratch org definition validation warning (`features.N: Invalid input`) for the `ServiceCloudVoicePartnerTelephony` feature. This feature is now correctly categorized as a pattern feature, such as `ServiceCloudVoicePartnerTelephony:3`, rather than a simple feature. (GitHub Issue [#3617](https://github.com/forcedotcom/cli/issues/3617), sfdx-core PR [1323](https://github.com/forcedotcom/sfdx-core/pull/1323))
 
 * FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
 
