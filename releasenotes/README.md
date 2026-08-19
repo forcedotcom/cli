@@ -25,11 +25,35 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.148.3 (August 19, 2026) [stable-rc]
+## 2.149.9 (Aug 26, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: Use the new `--root-with-dependencies` flag of the `project retrieve start` command to specify the metadata type for which you also want to retrieve all dependent components. Currently the flag accepts only `Bot` and `AiAgentDefinitionVersion` as valid values.  In this example, the command retrieves the metadata source files in the `force-app` directory; if any of the retrieved metadata is of type `Bot`, the command also retrieves its dependent components, such as `GenAiPlannerBundle`, `GenAiPlugin`, and `GenAiFunction:
+
+    ```bash
+   sf project retrieve start --source-dir force-app -root-type-with-dependencies Bot
+    ```
+
+    (plugin-deploy-retrieve PR [1626](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1626))
+
+* NEW: Skip the local filesystem scan when you synchronize (deploy or retrieve) your DX project with a source-tracking-enabled org by setting the new `SF_SOURCE_TRACKING_ASSUME_SYNCED` environment variable to `true.` This variable is useful when you know that your org is fully synchronized with your DX project, such as when you're using an org that's been pre-seeded with your project's metadata. Skipping the source-tracking scan that normally happens when you deploy or retrieve can save a lot of time—60+ minutes for very large projects.
+
+    **Warning**: This advanced feature is intended only for users who understand the risks. If you use it when your org and DX project aren't actually synchronized, they can get further out of sync. (plugin-deploy-retrieve PR [1628](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1628))
+
+* FIX: Salesforce CLI no longer incorrectly reports a scratch org definition validation warning (`features.N: Invalid input`) for the `ServiceCloudVoicePartnerTelephony` feature. This feature is now correctly categorized as a pattern feature, such as `ServiceCloudVoicePartnerTelephony:3`, rather than a simple feature. (GitHub Issue [#3617](https://github.com/forcedotcom/cli/issues/3617), sfdx-core PR [1323](https://github.com/forcedotcom/sfdx-core/pull/1323))
+
+* FIX: The `data bulk export` command now works correctly in a CI/CD environment when running behind a company firewall or web proxy. (GitHub Issue [#3620](https://github.com/forcedotcom/cli/issues/3620), plugin-data PR [#1507](https://github.com/salesforcecli/plugin-data/pull/1507))
+
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+
+    * `AiAgentDefinition`
+    * `AiAgentDefinitionVersion`
+
+
+## 2.148.3 (August 19, 2026) [stable]
 
 * NEW: Use natural language prompts to quickly build Salesforce apps and agents with the new [Salesforce Development plugin for Claude Code](https://claude.com/plugins/salesforce-development). The plugin detects your DX project environment and provides Salesforce-specific skills and org context through hosted MCP servers. You get AI-powered assistance to build, update, and maintain apps efficiently and quickly.
 
@@ -93,7 +117,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `@salesforce/core` package type declarations no longer cause TypeScript compilation errors (`TS2694: Namespace 'pino.pino' has no exported member 'TransportSingleOptions'`) when building projects with `skipLibCheck: false`. The emitted `.d.ts` file now correctly imports `TransportSingleOptions` directly from the pino module instead of referencing it through the problematic nested namespace. (GitHub Issue [3618](https://github.com/forcedotcom/cli/issues/3618), sfdx-core PR [1324](https://github.com/forcedotcom/sfdx-core/pull/1324))
 
-## 2.147.7 (August 12, 2026) [stable]
+## 2.147.7 (August 12, 2026)
 
 * NEW: We added two environment variables to fix an issue where `org create scratch` fails when you authenticate the associated Dev Hub with an external client app via JWT (`org login jwt`). Because external client apps can't be replicated during the signup process, set these environment variables before running `org create scratch`:
 
