@@ -25,11 +25,13 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.149.9 (Aug 26, 2026) [stable-rc]
+## 2.150.6 (Sept 2, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+## 2.149.9 (Aug 26, 2026) [stable]
 
 * NEW: Use the new `--root-with-dependencies` flag of the `project retrieve start` command to specify the metadata type for which you also want to retrieve all dependent components. Currently the flag accepts only `Bot` and `AiAgentDefinitionVersion` as valid values.  In this example, the command retrieves the metadata source files in the `force-app` directory; if any of the retrieved metadata is of type `Bot`, the command also retrieves its dependent components, such as `GenAiPlannerBundle`, `GenAiPlugin`, and `GenAiFunction:
 
@@ -53,7 +55,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `AiAgentDefinitionVersion`
 
 
-## 2.148.3 (August 19, 2026) [stable]
+## 2.148.3 (August 19, 2026)
 
 * NEW: Use natural language prompts to quickly build Salesforce apps and agents with the new [Salesforce Development plugin for Claude Code](https://claude.com/plugins/salesforce-development). The plugin detects your DX project environment and provides Salesforce-specific skills and org context through hosted MCP servers. You get AI-powered assistance to build, update, and maintain apps efficiently and quickly.
 
