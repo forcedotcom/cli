@@ -134,7 +134,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `SF_SCRATCH_SIGNUP_CONNECTED_APP` - Set to `PlatformCLI` to use the default Salesforce CLI connected app. 
     * `SF_SCRATCH_SIGNUP_CALLBACK_URL` - Set to the connected app callback URL, such as `http://localhost:1717/OauthRedirect`.
 
-    These two environment variables are a temporary workaround until the external client app replication limitation is fixed, at which point they become no-ops and will be deprecated.  (GitHub Issue [#3515](https://github.com/forcedotcom/cli/issues/3515), sfdx-core PR [#1315](https://github.com/forcedotcom/sfdx-core/pull/1315))
+    These two environment variables are a temporary workaround until the external client app replication limitation is fixed, at which point they become no-ops and will be deprecated.
+
+    Thank you for your testing and digging into this issue, [Mark Ramsell](https://github.com/mark-ramsell) and [Jonny Power](https://github.com/JonnyPower)!  This is true community collaboration, and we love it. (GitHub Issue [#3515](https://github.com/forcedotcom/cli/issues/3515), sfdx-core PR [#1315](https://github.com/forcedotcom/sfdx-core/pull/1315))
 
 * CHANGE: Salesforce CLI now requires Node.js version 22 or later. We've dropped support for Node.js 18 and 20, which reached end-of-life. The bundled Node.js runtime in the Salesforce CLI installers is now version 24. For example:
 
