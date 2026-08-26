@@ -33,9 +33,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The`project retrieve start --metadata` and `project deploy start --metadata` commands no longer crash with `ENOTDIR` when a non-component file (such as `README.md`) is in the `lwc/` directory, even when the file was matched by a `.forceignore` rule. (GitHub Issue [#3627](https://github.com/forcedotcom/cli/issues/3627), source-deploy-retrieve PR [1823](https://github.com/forcedotcom/source-deploy-retrieve/pull/1823))
 
-* FIX: A decomposed permission set (`decomposePermissionSetBeta2`) no longer has a child fragment incorrectly resolved as the parent component, causing a `ConversionError` during source-to-Metadata API conversion. (GitHub Issue [#3621](https://github.com/forcedotcom/cli/issues/3621), source-deploy-retrieve PR [1817](https://github.com/forcedotcom/source-deploy-retrieve/pull/1817))
+* FIX: A decomposed permission set (converted using `project convert source-behavior --behavior decomposePermissionSetBeta2`) no longer has a child fragment incorrectly resolved as the parent component, causing a `ConversionError` during source-to-Metadata API conversion. (GitHub Issue [#3621](https://github.com/forcedotcom/cli/issues/3621), source-deploy-retrieve PR [1817](https://github.com/forcedotcom/source-deploy-retrieve/pull/1817))
 
-* FIX: An unhandled `SocketError: other side closed` error from the undici HTTP/2 client no longer crashes during long-running data commands, such as `data import tree`, when the server closes the connection mid-operation. (GitHub Issue [#3622](https://github.com/forcedotcom/cli/issues/3622), jsforce PR [1824](https://github.com/jsforce/jsforce/pull/1824))
+* FIX: Long-running commands, such `data import tree --plan` on a very large plan, no longer crash in certain situations.  (GitHub Issue [#3622](https://github.com/forcedotcom/cli/issues/3622), jsforce PR [1824](https://github.com/jsforce/jsforce/pull/1824))
 
 ## 2.149.9 (Aug 26, 2026) [stable]
 
