@@ -25,11 +25,21 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.149.9 (Aug 26, 2026) [stable-rc]
+## 2.150.6 (Sept 2, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: The`project retrieve start --metadata` and `project deploy start --metadata` commands no longer crash with `ENOTDIR` when a non-component file (such as `README.md`) is in the `lwc/` directory, even when the file was matched by a `.forceignore` rule. (GitHub Issue [#3627](https://github.com/forcedotcom/cli/issues/3627), source-deploy-retrieve PR [1823](https://github.com/forcedotcom/source-deploy-retrieve/pull/1823))
+
+* FIX: A decomposed permission set (converted using `project convert source-behavior --behavior decomposePermissionSetBeta2`) no longer has a child fragment incorrectly resolved as the parent component, causing a `ConversionError` during source-to-Metadata API conversion.
+
+  Many thanks to [Maximilien Huet](https://github.com/MaxHuet) for contributing this fix. Nous adorons et espérons en voir davantage!  (GitHub Issue [#3621](https://github.com/forcedotcom/cli/issues/3621), source-deploy-retrieve PR [1817](https://github.com/forcedotcom/source-deploy-retrieve/pull/1817))
+
+* FIX: Long-running commands, such `data import tree --plan` on a very large plan, no longer crash in certain situations.  (GitHub Issue [#3622](https://github.com/forcedotcom/cli/issues/3622), jsforce PR [1824](https://github.com/jsforce/jsforce/pull/1824))
+
+## 2.149.9 (Aug 26, 2026) [stable]
 
 * NEW: Use the new `--root-with-dependencies` flag of the `project retrieve start` command to specify the metadata type for which you also want to retrieve all dependent components. Currently the flag accepts only `Bot` and `AiAgentDefinitionVersion` as valid values.  In this example, the command retrieves the metadata source files in the `force-app` directory; if any of the retrieved metadata is of type `Bot`, the command also retrieves its dependent components, such as `GenAiPlannerBundle`, `GenAiPlugin`, and `GenAiFunction:
 
@@ -53,7 +63,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `AiAgentDefinitionVersion`
 
 
-## 2.148.3 (August 19, 2026) [stable]
+## 2.148.3 (August 19, 2026)
 
 * NEW: Use natural language prompts to quickly build Salesforce apps and agents with the new [Salesforce Development plugin for Claude Code](https://claude.com/plugins/salesforce-development). The plugin detects your DX project environment and provides Salesforce-specific skills and org context through hosted MCP servers. You get AI-powered assistance to build, update, and maintain apps efficiently and quickly.
 
@@ -124,7 +134,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `SF_SCRATCH_SIGNUP_CONNECTED_APP` - Set to `PlatformCLI` to use the default Salesforce CLI connected app. 
     * `SF_SCRATCH_SIGNUP_CALLBACK_URL` - Set to the connected app callback URL, such as `http://localhost:1717/OauthRedirect`.
 
-    These two environment variables are a temporary workaround until the external client app replication limitation is fixed, at which point they become no-ops and will be deprecated.  (GitHub Issue [#3515](https://github.com/forcedotcom/cli/issues/3515), sfdx-core PR [#1315](https://github.com/forcedotcom/sfdx-core/pull/1315))
+    These two environment variables are a temporary workaround until the external client app replication limitation is fixed, at which point they become no-ops and will be deprecated.
+
+    Thank you for your testing and digging into this issue, [Mark Ramsell](https://github.com/mark-ramsell) and [Jonny Power](https://github.com/JonnyPower)!  This is true community collaboration, and we love it. (GitHub Issue [#3515](https://github.com/forcedotcom/cli/issues/3515), sfdx-core PR [#1315](https://github.com/forcedotcom/sfdx-core/pull/1315))
 
 * CHANGE: Salesforce CLI now requires Node.js version 22 or later. We've dropped support for Node.js 18 and 20, which reached end-of-life. The bundled Node.js runtime in the Salesforce CLI installers is now version 24. For example:
 
