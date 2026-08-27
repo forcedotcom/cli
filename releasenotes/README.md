@@ -25,7 +25,25 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.150.6 (Sept 2, 2026) [stable-rc]
+## 2.151.6 (Sept 9, 2026) [stable-rc]
+
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+------------
+
+* NEW: Deploy-level notifications (such as `ApexApiVersionRetirement`) are now displayed in both JSON and human-readable table output when you run the `project deploy start` command. Previously, these notifications were included only in JSON output. For example:
+
+    ```bash
+    sf project deploy start --metadata ApexClass:MyRetiringApiClass --target-org my-org
+    ```
+
+    (plugin-deploy-retrieve PR [1630](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1630), source-deploy-retrieve PR [1825](https://github.com/forcedotcom/source-deploy-retrieve/pull/1825))
+
+* FIX: `plugins install`, `plugins uninstall`, and `plugins update` no longer fail on Windows with a misleading `<package> does not exist in the registry` error when Node.js is installed at the default path containing a space (such as `C:\Program Files\nodejs\node.exe`). (GitHub Issue [#1387](https://github.com/oclif/plugin-plugins/issues/1387), plugin-plugins PR [1388](https://github.com/oclif/plugin-plugins/pull/1388))
+
+* FIX: `project retrieve preview` no longer reports hundreds of unrelated, false-positive metadata diffs after you edit only the CSS resource of an Aura component through the Setup UI or Developer Console. A long-lived process (such as the VS Code Salesforce Extension) holding a stale in-memory source-tracking cache could overwrite the CLI's correctly synced revision data in `maxRevision.json`. (GitHub Issue [#3612](https://github.com/forcedotcom/cli/issues/3612), source-tracking PR [877](https://github.com/forcedotcom/source-tracking/pull/877))
+
+## 2.150.6 (Sept 2, 2026) [stable]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
@@ -39,7 +57,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Long-running commands, such `data import tree --plan` on a very large plan, no longer crash in certain situations.  (GitHub Issue [#3622](https://github.com/forcedotcom/cli/issues/3622), jsforce PR [1824](https://github.com/jsforce/jsforce/pull/1824))
 
-## 2.149.9 (Aug 26, 2026) [stable]
+## 2.149.9 (Aug 26, 2026)
 
 * NEW: Use the new `--root-with-dependencies` flag of the `project retrieve start` command to specify the metadata type for which you also want to retrieve all dependent components. Currently the flag accepts only `Bot` and `AiAgentDefinitionVersion` as valid values.  In this example, the command retrieves the metadata source files in the `force-app` directory; if any of the retrieved metadata is of type `Bot`, the command also retrieves its dependent components, such as `GenAiPlannerBundle`, `GenAiPlugin`, and `GenAiFunction:
 
