@@ -31,7 +31,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: Deploy-level notifications (such as `ApexApiVersionRetirement`) are now displayed in both JSON and human-readable table output when you run the `project deploy start` command. Previously, these notifications were included only in JSON output. For example:
+* NEW: When you run project deploy start, any notification attached to the deployment now appears in both the JSON and the human-readable table output; previously, notifications were included only in the JSON output. Notifications are informational, non-blocking, deploy-level advisories represented by the DeployNotification metadata type—for example, ApexApiVersionRetirement. There's no new flag to enable this behavior; the human-readable output includes notifications by default. For example:
 
     ```bash
     sf project deploy start --metadata ApexClass:MyRetiringApiClass --target-org my-org
@@ -39,9 +39,9 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     (plugin-deploy-retrieve PR [1630](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1630), source-deploy-retrieve PR [1825](https://github.com/forcedotcom/source-deploy-retrieve/pull/1825))
 
-* FIX: `plugins install`, `plugins uninstall`, and `plugins update` no longer fail on Windows with a misleading `<package> does not exist in the registry` error when Node.js is installed at the default path containing a space (such as `C:\Program Files\nodejs\node.exe`). (GitHub Issue [#1387](https://github.com/oclif/plugin-plugins/issues/1387), plugin-plugins PR [1388](https://github.com/oclif/plugin-plugins/pull/1388))
+* FIX: The `plugins install`, `plugins uninstall`, and `plugins update` commands no longer fail on Windows with a misleading `<package> does not exist in the registry` error when Node.js is installed at the default path containing a space (such as `C:\Program Files\nodejs\node.exe`). (GitHub Issue [#1387](https://github.com/oclif/plugin-plugins/issues/1387), plugin-plugins PR [1388](https://github.com/oclif/plugin-plugins/pull/1388))
 
-* FIX: `project retrieve preview` no longer reports hundreds of unrelated, false-positive metadata diffs after you edit only the CSS resource of an Aura component through the Setup UI or Developer Console. A long-lived process (such as the VS Code Salesforce Extension) holding a stale in-memory source-tracking cache could overwrite the CLI's correctly synced revision data in `maxRevision.json`. (GitHub Issue [#3612](https://github.com/forcedotcom/cli/issues/3612), source-tracking PR [877](https://github.com/forcedotcom/source-tracking/pull/877))
+* FIX: The `project retrieve preview` command no longer reports hundreds of unrelated, false-positive metadata diffs after you edit only the CSS resource of an Aura component through the Setup UI or Developer Console. A long-lived process (such as the VS Code Salesforce Extension) holding a stale in-memory source-tracking cache could overwrite the CLI's correctly synced revision data in `maxRevision.json`. (GitHub Issue [#3612](https://github.com/forcedotcom/cli/issues/3612), source-tracking PR [877](https://github.com/forcedotcom/source-tracking/pull/877))
 
 ## 2.150.6 (Sept 2, 2026) [stable]
 
