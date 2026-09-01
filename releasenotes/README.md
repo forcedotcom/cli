@@ -43,6 +43,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `project retrieve preview` command no longer reports hundreds of unrelated, false-positive metadata diffs after you edit only the CSS resource of an Aura component through the Setup UI or Developer Console. A long-lived process (such as the VS Code Salesforce Extension) holding a stale in-memory source-tracking cache could overwrite the CLI's correctly synced revision data in `maxRevision.json`. (GitHub Issue [#3612](https://github.com/forcedotcom/cli/issues/3612), source-tracking PR [877](https://github.com/forcedotcom/source-tracking/pull/877))
 
+* FIX: The `project deploy start` and `project retrieve start` commands now correctly handle `AiAgentDefinitionVersion` metadata, which uses `#` as a version separator in its fullName (such as `MyAgent#1`). Previously, the `#` character was incorrectly interpreted as a key delimiter, which caused deploy messages to be unmapped and retrieves to fail. (source-deploy-retrieve PR [1826](https://github.com/forcedotcom/source-deploy-retrieve/pull/1826))
+
+* FIX: The `plugins install`, `plugins link`, and other commands that spawn child processes no longer fail with `ENOENT` when Salesforce CLI was installed from a standalone tarball on Unix. The fix ensures the CLI uses the bundled Node.js binary rather than searching `PATH` for a system-level `node`. (GitHub Issue [#1293](https://github.com/oclif/plugin-plugins/issues/1293), plugin-plugins PR [1383](https://github.com/oclif/plugin-plugins/pull/1383))
+
 ## 2.150.6 (Sept 2, 2026) [stable]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
