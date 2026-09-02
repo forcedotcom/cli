@@ -63,10 +63,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ## 2.149.9 (Aug 26, 2026)
 
-* NEW: Use the new `--root-with-dependencies` flag of the `project retrieve start` command to specify the metadata type for which you also want to retrieve all dependent components. Currently the flag accepts only `Bot` and `AiAgentDefinitionVersion` as valid values.  In this example, the command retrieves the metadata source files in the `force-app` directory; if any of the retrieved metadata is of type `Bot`, the command also retrieves its dependent components, such as `GenAiPlannerBundle`, `GenAiPlugin`, and `GenAiFunction:
+* NEW: Use the new `--root-type-with-dependencies` flag of the `project retrieve start` command to specify the metadata type for which you also want to retrieve all dependent components. Currently the flag accepts only `Bot` and `AiAgentDefinitionVersion` as valid values.  In this example, the command retrieves the metadata source files in the `force-app` directory; if any of the retrieved metadata is of type `Bot`, the command also retrieves its dependent components, such as `GenAiPlannerBundle`, `GenAiPlugin`, and `GenAiFunction:
 
     ```bash
-   sf project retrieve start --source-dir force-app -root-type-with-dependencies Bot
+   sf project retrieve start --source-dir force-app --root-type-with-dependencies Bot
     ```
 
     (plugin-deploy-retrieve PR [1626](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1626))
