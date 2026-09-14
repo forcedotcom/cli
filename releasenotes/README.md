@@ -25,7 +25,7 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.151.6 (Sept 9, 2026) [stable-rc]
+## 2.151.6 (Sept 23, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
@@ -46,6 +46,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 * FIX: The `project deploy start` and `project retrieve start` commands now correctly handle `AiAgentDefinitionVersion` metadata, which uses `#` as a version separator in its fullName (such as `MyAgent#1`). Previously, the `#` character was incorrectly interpreted as a key delimiter, which caused deploy messages to be unmapped and retrieves to fail. (source-deploy-retrieve PR [1826](https://github.com/forcedotcom/source-deploy-retrieve/pull/1826))
 
 * FIX: The `plugins install`, `plugins link`, and other commands that spawn child processes no longer fail with `ENOENT` when Salesforce CLI was installed from a standalone tarball on Unix. The fix ensures the CLI uses the bundled Node.js binary rather than searching `PATH` for a system-level `node`. (GitHub Issue [#1293](https://github.com/oclif/plugin-plugins/issues/1293), plugin-plugins PR [1383](https://github.com/oclif/plugin-plugins/pull/1383))
+
+## Sept 9 and 16, 2026
+
+Due to Dreamforce, we aren't releasing a new stable version on these dates. If you're attending Dreamforce, stop by Moscone West and say hello!
 
 ## 2.150.6 (Sept 2, 2026) [stable]
 
