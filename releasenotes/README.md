@@ -45,7 +45,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * NEW: Salesforce CLI now supports Refresh Token Rotation (RTR). When your connected app has RTR enabled, the CLI persists the server-rotated refresh token and handles concurrent token refreshes safely, so simultaneous commands no longer fail with "Token request is already being processed". No new flags are required; the behavior is automatic. (sfdx-core PR [1342](https://github.com/forcedotcom/sfdx-core/pull/1342))
 
-* CHANGE: We removed the Hyperforce/JWT gate that blocked `sf org create user` on Hyperforce orgs when the Dev Hub used JWT authentication. The underlying platform issue is now resolved, so this command works in that scenario. It still blocks on non-scratch orgs. For example:
+* CHANGE: We removed the Hyperforce/JWT gate that blocked `sf org create user` on Hyperforce orgs when the Dev Hub used JWT authentication. The underlying platform issue is now resolved, so this command works in that scenario. For example:
 
     ```bash
     # Now succeeds on a Hyperforce scratch org authenticated with JWT (previously blocked)
