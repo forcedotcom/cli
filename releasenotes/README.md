@@ -25,11 +25,48 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.151.6 (Sept 23, 2026) [stable-rc]
+## 2.152.13 (September 30, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: The `apex run` command has two new flags for controlling the debug log level when you execute anonymous Apex. Use `--debug-level` to set a predefined level (`NONE`, `DEBUGONLY`, `DB`, `PROFILING`, `CALLOUT`, or `DETAIL`), or `--category-level` for fine-grained, per-category control (the two flags are mutually exclusive). For example:
+
+    ```bash
+    # Set a predefined debug log level
+    sf apex run --file test.apex --debug-level DETAIL
+
+    # Or set individual category levels (repeatable)
+    sf apex run --file test.apex --category-level Apex_code=FINEST --category-level Db=FINE
+    ```
+
+    (plugin-apex PR [967](https://github.com/salesforcecli/plugin-apex/pull/967), salesforcedx-apex PR [684](https://github.com/forcedotcom/salesforcedx-apex/pull/684))
+
+* NEW: Salesforce CLI now supports Refresh Token Rotation (RTR). When your connected app has RTR enabled, the CLI persists the server-rotated refresh token and handles concurrent token refreshes safely, so simultaneous commands no longer fail with "Token request is already being processed". No new flags are required; the behavior is automatic. (sfdx-core PR [1342](https://github.com/forcedotcom/sfdx-core/pull/1342))
+
+* CHANGE: We removed the Hyperforce/JWT gate that blocked `sf org create user` on Hyperforce orgs when the Dev Hub used JWT authentication. The underlying platform issue is now resolved, so this command works in that scenario. It still blocks on non-scratch orgs. For example:
+
+    ```bash
+    # Now succeeds on a Hyperforce scratch org authenticated with JWT (previously blocked)
+    sf org create user --definition-file config/user-def.json --target-org my-scratch-org
+    ```
+
+    (plugin-user PR [1509](https://github.com/salesforcecli/plugin-user/pull/1509))
+
+* FIX: Deploying or retrieving `AiAgentDefinitionVersion` metadata (which uses the `AgentName#N` full-name format) no longer fails because Salesforce CLI split the name on every `#` character. Salesforce CLI now splits only on the first `#`. (source-deploy-retrieve PR [1826](https://github.com/forcedotcom/source-deploy-retrieve/pull/1826))
+
+* FIX: The `sf org open` command no longer exits before the browser finishes launching, which caused intermittent failures, especially on Windows and in the VS Code integrated terminal. (GitHub Issue [#3646](https://github.com/forcedotcom/cli/issues/3646), plugin-org PR [1775](https://github.com/salesforcecli/plugin-org/pull/1775))
+
+* FIX: We fixed a broken `sf-trust` bin path in `@salesforce/plugin-trust` that pointed at an unpublished `bin/dev` file, which silently skipped the bin link and broke `npm install`. It now points at the published `bin/run.js`. (GitHub Issue [#3644](https://github.com/forcedotcom/cli/issues/3644), plugin-trust PR [1347](https://github.com/salesforcecli/plugin-trust/pull/1347))
+
+* FIX: We addressed a security vulnerability where the published `npm-shrinkwrap.json` pinned a version of `npm` that bundled a vulnerable version of `tar`. We bumped the pinned `npm` version to pull in a patched `tar`. (GitHub Issue [#3642](https://github.com/forcedotcom/cli/issues/3642), plugin-trust PR [1347](https://github.com/salesforcecli/plugin-trust/pull/1347))
+
+* FIX: We significantly sped up `sf org login jwt` for users with many cached org authorizations. The post-login scratch-org identification check now exits early on the first match, scans auth files in a single pass, and short-circuits sandbox lookups by URL. You can also skip the check entirely in CI/CD by setting the `SF_SKIP_SCRATCH_ORG_CHECK` environment variable. (GitHub Issue [#3626](https://github.com/forcedotcom/cli/issues/3626), sfdx-core PR [1336](https://github.com/forcedotcom/sfdx-core/pull/1336))
+
+* FIX: Salesforce DX projects now support the ReferralIntakeConfiguration [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
+ 
+## 2.151.6 (Sept 23, 2026) [stable]
 
 * NEW: When you run project deploy start, any notification attached to the deployment now appears in both the JSON and the human-readable table output; previously, notifications were included only in the JSON output. Notifications are informational, non-blocking, deploy-level advisories represented by the DeployNotification metadata type—for example, ApexApiVersionRetirement. There's no new flag to enable this behavior; the human-readable output includes notifications by default. For example:
 
@@ -51,11 +88,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 Due to Dreamforce, we aren't releasing a new stable version on these dates. If you're attending Dreamforce, stop by Moscone West and say hello!
 
-## 2.150.6 (Sept 2, 2026) [stable]
-
-These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
-
-------------
+## 2.150.6 (Sept 2, 2026)
 
 * FIX: The`project retrieve start --metadata` and `project deploy start --metadata` commands no longer crash with `ENOTDIR` when a non-component file (such as `README.md`) is in the `lwc/` directory, even when the file was matched by a `.forceignore` rule. (GitHub Issue [#3627](https://github.com/forcedotcom/cli/issues/3627), source-deploy-retrieve PR [1823](https://github.com/forcedotcom/source-deploy-retrieve/pull/1823))
 
