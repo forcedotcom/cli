@@ -1,0 +1,99 @@
+name: Auto Label Issues
+on:
+  issues:
+    types: [opened]
+jobs:
+  auto-label:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const body = context.payload.issue.body || '';
+            const labels = [];
+
+            // =====================
+            // 1. DETECTION (all labels gathered before any apply)
+            // =====================
+
+            // --- Detect commands owned by other teams ---
+            const commandMatch = body.match(/### Command\s*\n\s*(.+)/);
+            const command = commandMatch ? commandMatch[1].trim().toLowerCase() : '';
+
+            const otherTeamCommands = [
+              { match: 'project deploy pipeline', area: 'area:devops' },
+              { match: 'project deploy validate', area: 'area:devops' },
+              { match: 'devops', area: 'area:devops' },
+              { match: 'org create shape', area: 'area:signups' },
+              { match: 'org create snapshot', area: 'area:signups' },
+              { match: 'agent', area: 'area:afdx' },
+            ];
+
+            // Sort longest match first to avoid partial matches
+            otherTeamCommands.sort((a, b) => b.match.length - a.match.length);
+            for (const { match, area } of otherTeamCommands) {
+              if (command.includes(match)) {
+                labels.push(area);
+                labels.push('owned by another team');
+                break;
+              }
+            }
+
+            // Package commands — check it's not a flag like --package
+            if (/\bsf\s+package\b/.test(command) || /^package\b/.test(command)) {
+              labels.push('area:packaging');
+              if (!labels.includes('owned by another team')) labels.push('owned by another team');
+            }
+
+            // --- Parse regression ---
+            const regressionMatch = body.match(/### Did this work before\?\s*\n\s*(.+)/);
+            const regression = regressionMatch ? regressionMatch[1].trim() : '';
+
+            if (regression === 'Yes, this is a regression') labels.push('regression');
+
+            // =====================
+            // 2. APPLY LABELS (single pass, all labels at once)
+            // =====================
+
+            const labelColors = {
+              'owned by another team':  { color: 'e99695', description: 'Bug is owned by another team' },
+            };
+
+            const uniqueLabels = [...new Set(labels)];
+
+            // Create labels that don't exist yet (area: labels already exist on repo)
+            for (const name of uniqueLabels) {
+              const config = labelColors[name];
+              if (!config) continue;
+              try {
+                await github.rest.issues.getLabel({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  name,
+                });
+              } catch (e) {
+                if (e.status === 404) {
+                  await github.rest.issues.createLabel({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    name,
+                    color: config.color,
+                    description: config.description,
+                  });
+                }
+              }
+            }
+
+            // Apply all labels at once
+            if (uniqueLabels.length > 0) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                labels: uniqueLabels,
+              });
+            }
+
+            console.log(`Labels applied: ${uniqueLabels.join(', ') || 'none'}`);

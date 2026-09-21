@@ -1,0 +1,146 @@
+name: Bug Report
+description: Report a bug with the Salesforce CLI
+title: "[BUG]: "
+labels: ["investigating"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        > **NOTICE:** GitHub is not a mechanism for receiving support under any agreement or SLA.
+        > If you require immediate assistance, please use [official support channels](https://help.salesforce.com).
+
+  - type: checkboxes
+    id: pre-submit
+    attributes:
+      label: Before you submit
+      options:
+        - label: I am using the latest version of Salesforce CLI
+          required: true
+        - label: I have searched the [existing issues](https://github.com/forcedotcom/cli/issues)
+          required: true
+        - label: I have run `sf doctor` to diagnose common issues
+          required: false
+
+  - type: input
+    id: related-issue
+    attributes:
+      label: Related issue
+      description: If you found a related issue, link it here.
+      placeholder: "https://github.com/forcedotcom/cli/issues/1234"
+    validations:
+      required: false
+
+  - type: input
+    id: command
+    attributes:
+      label: Command
+      description: Which sf command did you run?
+      placeholder: "sf <command>"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: org-type
+    attributes:
+      label: Org Type
+      options:
+        - Production
+        - Sandbox
+        - Scratch Org
+        - Developer Edition
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: regression
+    attributes:
+      label: Did this work before?
+      options:
+        - "Yes, this is a regression"
+        - "No, this is a new bug"
+        - "Not sure"
+    validations:
+      required: true
+
+  - type: input
+    id: last-working-version
+    attributes:
+      label: Last working version
+      description: If you selected "Yes, this is a regression" above, which CLI version was it last working on?
+      placeholder: "2.XXX.X"
+    validations:
+      required: false
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      placeholder: "Short summary of what's going on or to provide context"
+    validations:
+      required: true
+
+  - type: input
+    id: repro-repo
+    attributes:
+      label: Repository to reproduce
+      description: "Provide a repo if possible. Generate one with `sf project generate` or fork [dreamhouse-lwc](https://github.com/trailheadapps/dreamhouse-lwc). If you can't provide a repo, explain why in the steps below."
+      placeholder: "https://github.com/your-org/your-repo"
+    validations:
+      required: false
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps To Reproduce
+      description: Provide detailed step-by-step instructions. The more info from the start, the faster we can resolve your issue.
+      placeholder: |
+        1. Run `sf ...`
+        2. ...
+        3. ...
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        > **Tip:** Use `sf doctor --create-issue` to automatically fill in the required system information.
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Result
+      placeholder: "Describe what should have happened"
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Result
+      placeholder: "Describe what actually happened"
+    validations:
+      required: true
+
+  - type: textarea
+    id: system-info
+    attributes:
+      label: System Information
+      description: Paste the **full** output of `sf version --verbose --json`
+      render: json
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Information
+      placeholder: "Any other context about the problem"
+
+  - type: upload
+    id: screenshots
+    attributes:
+      label: Screenshots or log files
+      description: Drag and drop any relevant screenshots or log files. **Redact any sensitive information before sharing.**
+    validations:
+      required: false
