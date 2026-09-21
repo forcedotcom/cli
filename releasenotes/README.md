@@ -54,13 +54,13 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     (plugin-user PR [1509](https://github.com/salesforcecli/plugin-user/pull/1509))
 
+* FIX, with NEW feature: We significantly sped up `sf org login jwt` for users with many cached org authorizations. The post-login scratch-org identification check now exits early on the first match, scans auth files in a single pass, and short-circuits sandbox lookups by URL. You can also skip the check entirely in CI/CD by setting the new `SF_SKIP_SCRATCH_ORG_CHECK` environment variable. (GitHub Issue [#3626](https://github.com/forcedotcom/cli/issues/3626), sfdx-core PR [1336](https://github.com/forcedotcom/sfdx-core/pull/1336))
+
 * FIX: The `sf org open` command no longer exits before the browser finishes launching, which caused intermittent failures, especially on Windows and in the VS Code integrated terminal. (GitHub Issue [#3646](https://github.com/forcedotcom/cli/issues/3646), plugin-org PR [1775](https://github.com/salesforcecli/plugin-org/pull/1775))
 
 * FIX: We fixed a broken `sf-trust` bin path in `@salesforce/plugin-trust` that pointed at an unpublished `bin/dev` file, which silently skipped the bin link and broke `npm install`. It now points at the published `bin/run.js`. (GitHub Issue [#3644](https://github.com/forcedotcom/cli/issues/3644), plugin-trust PR [1347](https://github.com/salesforcecli/plugin-trust/pull/1347))
 
 * FIX: We addressed an issue where the published `npm-shrinkwrap.json` pinned a version of `npm` that bundled a vulnerable version of `tar`. We bumped the pinned `npm` version to pull in a patched `tar`. (GitHub Issue [#3642](https://github.com/forcedotcom/cli/issues/3642), plugin-trust PR [1347](https://github.com/salesforcecli/plugin-trust/pull/1347))
-
-* FIX: We significantly sped up `sf org login jwt` for users with many cached org authorizations. The post-login scratch-org identification check now exits early on the first match, scans auth files in a single pass, and short-circuits sandbox lookups by URL. You can also skip the check entirely in CI/CD by setting the `SF_SKIP_SCRATCH_ORG_CHECK` environment variable. (GitHub Issue [#3626](https://github.com/forcedotcom/cli/issues/3626), sfdx-core PR [1336](https://github.com/forcedotcom/sfdx-core/pull/1336))
 
 * FIX: Salesforce DX projects now support the ReferralIntakeConfiguration [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
  
