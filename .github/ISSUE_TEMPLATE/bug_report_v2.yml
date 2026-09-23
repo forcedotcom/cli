@@ -140,7 +140,7 @@ body:
   - type: upload
     id: screenshots
     attributes:
-      label: Screenshots or log files
+      label: Screenshots or Log Files
       description: Drag and drop any relevant screenshots or log files. Use `--dev-debug` for more detailed error output.**Redact any sensitive information before sharing.**
     validations:
       required: false
