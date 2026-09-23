@@ -92,7 +92,7 @@ body:
   - type: textarea
     id: steps
     attributes:
-      label: Steps To Reproduce
+      label: Steps to reproduce
       description: Provide detailed step-by-step instructions. The more info from the start, the faster we can resolve your issue.
       placeholder: |
         1. Run `sf ...`
