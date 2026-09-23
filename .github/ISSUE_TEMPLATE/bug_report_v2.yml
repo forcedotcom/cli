@@ -18,7 +18,7 @@ body:
           required: true
         - label: I've searched the [existing issues](https://github.com/forcedotcom/cli/issues)
           required: true
-        - label: I have run `sf doctor` to diagnose common issues
+        - label: I've run `sf doctor` to diagnose common issues
           required: false
 
   - type: input
