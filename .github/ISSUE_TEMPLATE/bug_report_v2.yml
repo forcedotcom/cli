@@ -84,7 +84,7 @@ body:
     id: repro-repo
     attributes:
       label: Repository to Reproduce
-      description: "Provide a repo if possible. Generate one with `sf project generate` or fork [dreamhouse-lwc](https://github.com/trailheadapps/dreamhouse-lwc). If you can't provide a repo, explain why in the steps below."
+      description: "Provide a repo with a Salesforce DX project, if possible. Generate one with `sf project generate` or fork [dreamhouse-lwc](https://github.com/trailheadapps/dreamhouse-lwc). If you can't provide a repo, explain why in the steps below."
       placeholder: "https://github.com/your-org/your-repo"
     validations:
       required: false
