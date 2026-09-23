@@ -43,8 +43,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     (plugin-apex PR [967](https://github.com/salesforcecli/plugin-apex/pull/967), salesforcedx-apex PR [684](https://github.com/forcedotcom/salesforcedx-apex/pull/684))
 
-* NEW: Salesforce CLI now supports Refresh Token Rotation (RTR). When your connected app has RTR enabled, the CLI persists the server-rotated refresh token and handles concurrent token refreshes safely, so simultaneous commands no longer fail with "Token request is already being processed". No new flags are required; the behavior is automatic. (sfdx-core PR [1342](https://github.com/forcedotcom/sfdx-core/pull/1342))
-
 * CHANGE: We removed the Hyperforce/JWT gate that blocked `sf org create user` on Hyperforce orgs when the Dev Hub used JWT authentication. The underlying platform issue is now resolved, so this command works in that scenario. For example:
 
     ```bash
@@ -54,8 +52,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     (plugin-user PR [1509](https://github.com/salesforcecli/plugin-user/pull/1509))
 
-* FIX, with NEW feature: We significantly sped up `sf org login jwt` for users with many cached org authorizations. The post-login scratch-org identification check now exits early on the first match, scans auth files in a single pass, and short-circuits sandbox lookups by URL. You can also skip the check entirely in CI/CD by setting the new `SF_SKIP_SCRATCH_ORG_CHECK` environment variable. (GitHub Issue [#3626](https://github.com/forcedotcom/cli/issues/3626), sfdx-core PR [1336](https://github.com/forcedotcom/sfdx-core/pull/1336))
-
 * FIX: The `sf org open` command no longer exits before the browser finishes launching, which caused intermittent failures, especially on Windows and in the VS Code integrated terminal. (GitHub Issue [#3646](https://github.com/forcedotcom/cli/issues/3646), plugin-org PR [1775](https://github.com/salesforcecli/plugin-org/pull/1775))
 
 * FIX: We fixed a broken `sf-trust` bin path in `@salesforce/plugin-trust` that pointed at an unpublished `bin/dev` file, which silently skipped the bin link and broke `npm install`. It now points at the published `bin/run.js`. (GitHub Issue [#3644](https://github.com/forcedotcom/cli/issues/3644), plugin-trust PR [1347](https://github.com/salesforcecli/plugin-trust/pull/1347))
@@ -64,7 +60,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Salesforce DX projects now support the ReferralIntakeConfiguration [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
  
-## 2.151.6 (Sept 23, 2026) [stable]
+## 2.151.7 (Sept 23, 2026) [stable]
 
 * NEW: When you run project deploy start, any notification attached to the deployment now appears in both the JSON and the human-readable table output; previously, notifications were included only in the JSON output. Notifications are informational, non-blocking, deploy-level advisories represented by the DeployNotification metadata type—for example, ApexApiVersionRetirement. There's no new flag to enable this behavior; the human-readable output includes notifications by default. For example:
 
@@ -73,6 +69,10 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     ```
 
     (plugin-deploy-retrieve PR [1630](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1630), source-deploy-retrieve PR [1825](https://github.com/forcedotcom/source-deploy-retrieve/pull/1825))
+
+* NEW: Salesforce CLI now supports Refresh Token Rotation (RTR). When your connected app has RTR enabled, the CLI persists the server-rotated refresh token and handles concurrent token refreshes safely, so simultaneous commands no longer fail with "Token request is already being processed". No new flags are required; the behavior is automatic. (sfdx-core PR [1342](https://github.com/forcedotcom/sfdx-core/pull/1342))
+
+* FIX, with NEW feature: We significantly sped up `sf org login jwt` for users with many cached org authorizations. The post-login scratch-org identification check now exits early on the first match, scans auth files in a single pass, and short-circuits sandbox lookups by URL. You can also skip the check entirely in CI/CD by setting the new `SF_SKIP_SCRATCH_ORG_CHECK` environment variable. (GitHub Issue [#3626](https://github.com/forcedotcom/cli/issues/3626), sfdx-core PR [1336](https://github.com/forcedotcom/sfdx-core/pull/1336))
 
 * FIX: The `plugins install`, `plugins uninstall`, and `plugins update` commands no longer fail on Windows with a misleading `<package> does not exist in the registry` error when Node.js is installed at the default path containing a space (such as `C:\Program Files\nodejs\node.exe`). (GitHub Issue [#1387](https://github.com/oclif/plugin-plugins/issues/1387), plugin-plugins PR [1388](https://github.com/oclif/plugin-plugins/pull/1388))
 
