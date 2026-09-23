@@ -1,5 +1,5 @@
 name: Bug Report
-description: Report a bug with the Salesforce CLI
+description: Report a bug with Salesforce CLI.
 title: "[BUG]: "
 labels: ["investigating"]
 body:
