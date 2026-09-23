@@ -12,7 +12,7 @@ body:
   - type: checkboxes
     id: pre-submit
     attributes:
-      label: Before you submit
+      label: Before You Submit
       options:
         - label: I'm using the latest version of Salesforce CLI
           required: true
