@@ -126,7 +126,7 @@ body:
     id: system-info
     attributes:
       label: System Information
-      description: Paste the **full** output of `sf version --verbose --json`
+      description: Paste the **full** output of `sf version --verbose --json`.
       render: json
     validations:
       required: true
