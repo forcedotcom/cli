@@ -7,7 +7,7 @@ body:
     attributes:
       value: |
         > **NOTICE:** GitHub isn't a mechanism for receiving support under any agreement or SLA.
-        > If you require immediate assistance, please use [official support channels](https://help.salesforce.com).
+        > If you require immediate assistance, please use [official Salesforce support channels](https://help.salesforce.com).
 
   - type: checkboxes
     id: pre-submit
