@@ -24,7 +24,7 @@ body:
   - type: input
     id: related-issue
     attributes:
-      label: Related issue
+      label: Related Issue
       description: If you found a related issue, link it here.
       placeholder: "https://github.com/forcedotcom/cli/issues/1234"
     validations:
