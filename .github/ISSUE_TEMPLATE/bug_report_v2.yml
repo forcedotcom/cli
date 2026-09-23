@@ -67,7 +67,7 @@ body:
     id: last-working-version
     attributes:
       label: Last Working Version
-      description: If you selected "Yes, this is a regression" above, which CLI version was it last working on?
+      description: If you selected "Yes, this is a regression" above, which Salesforce CLI version was it last working on?
       placeholder: "2.XXX.X"
     validations:
       required: false
