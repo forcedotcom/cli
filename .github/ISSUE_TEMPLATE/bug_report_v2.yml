@@ -16,7 +16,7 @@ body:
       options:
         - label: I'm using the latest version of Salesforce CLI
           required: true
-        - label: I have searched the [existing issues](https://github.com/forcedotcom/cli/issues)
+        - label: I've searched the [existing issues](https://github.com/forcedotcom/cli/issues)
           required: true
         - label: I have run `sf doctor` to diagnose common issues
           required: false
