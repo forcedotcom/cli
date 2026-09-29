@@ -31,8 +31,14 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ------------
 
-* NEW: The new `apex trace` topic provides three commands to manage Apex debug log trace flags in your org: `apex trace list` displays all trace flags in a table, `apex trace create` creates a trace flag for a user, class, or trigger with a configurable debug level, log type, and duration, and `apex trace delete` removes a trace flag by its ID. For example:
+* NEW: Manage Apex debug log trace flags in your org with these new `apex trace` commands:
 
+    * `apex trace create` : Create a trace flag for a user, Apex class, or Apex trigger.
+    * `apex trace delete` : Delete a trace flag in your org.
+    * `apex trace list` : List trace flags in your org.
+
+    For example:
+  
     ```bash
     # List all trace flags in the org
     sf apex trace list --target-org my-org
@@ -46,7 +52,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     (plugin-apex PR [970](https://github.com/salesforcecli/plugin-apex/pull/970), plugin-apex PR [973](https://github.com/salesforcecli/plugin-apex/pull/973))
 
-* CHANGE: The CLI no longer suggests the `SF_TEMP_SHOW_SECRETS` environment variable as a workaround for viewing redacted secrets, and now announces that this workaround will be removed on January 13, 2027. Commands such as `org display user` and `org list users` now point you to the `sf org auth show-*` commands instead. The `SF_TEMP_SHOW_SECRETS=true` workaround still works until the removal date, so existing pipelines won't break. For example:
+* CHANGE: Salesforce CLI no longer suggests the `SF_TEMP_SHOW_SECRETS` environment variable as a workaround for viewing redacted secrets, and now announces that this workaround will be removed on January 13, 2027. Commands such as `org display user` and `org list users` now point you to the `sf org auth show-*` commands instead. The `SF_TEMP_SHOW_SECRETS=true` workaround still works until the removal date, so existing pipelines won't break. For example:
 
     ```bash
     # Instead of setting SF_TEMP_SHOW_SECRETS=true, use the dedicated command
