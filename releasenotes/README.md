@@ -37,14 +37,14 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `apex trace delete` : Delete a trace flag in your org.
     * `apex trace list` : List trace flags in your org.
 
-    For example:
+     A trace flag sets the debug log level and duration for a specific entity, so you capture the logs you need without changing org-wide settings.  After creating the trace flag, perform the activity you want to debug and then use the `apex log` commands to get the debug logs. For example:
   
     ```bash
-    # List all trace flags in the org
-    sf apex trace list --target-org my-org
-
     # Create a trace flag for a user with a custom duration and log type
     sf apex trace create --traced-entity-id 005xx000001Sv6DAAS --debug-level SFDC_DevConsole --duration 60 --log-type USER_DEBUG --target-org my-org
+
+	# List all trace flags in the org
+    sf apex trace list --target-org my-org
 
     # Delete a trace flag by ID
     sf apex trace delete --trace-flag-id 7tfxx0000000001AAA --target-org my-org
@@ -52,11 +52,11 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     (plugin-apex PR [970](https://github.com/salesforcecli/plugin-apex/pull/970), plugin-apex PR [973](https://github.com/salesforcecli/plugin-apex/pull/973))
 
-* CHANGE: Salesforce CLI no longer suggests the `SF_TEMP_SHOW_SECRETS` environment variable as a workaround for viewing redacted secrets, and now announces that this workaround will be removed on January 13, 2027. Commands such as `org display user` and `org list users` now point you to the `sf org auth show-*` commands instead. The `SF_TEMP_SHOW_SECRETS=true` workaround still works until the removal date, so existing pipelines won't break. For example:
+* CHANGE: Salesforce CLI no longer suggests the `SF_TEMP_SHOW_SECRETS` environment variable as a workaround for viewing redacted secrets, and now announces that this workaround will be removed on January 13, 2027. Commands such as `org display user` and `org list users` now point you to the `sf org auth show-*` commands instead. The `SF_TEMP_SHOW_SECRETS=true` workaround still works until the removal date, so existing CI jobs won't break. For example:
 
     ```bash
     # Instead of setting SF_TEMP_SHOW_SECRETS=true, use the dedicated command
-    sf org auth show-org --target-org my-org
+    sf org auth show-access-token --target-org my-org
     ```
 
     (GitHub Issue [#3560](https://github.com/forcedotcom/cli/issues/3560), plugin-user PR [1527](https://github.com/salesforcecli/plugin-user/pull/1527), plugin-org PR [1782](https://github.com/salesforcecli/plugin-org/pull/1782), plugin-auth PR [1550](https://github.com/salesforcecli/plugin-auth/pull/1550))
