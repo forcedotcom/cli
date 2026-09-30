@@ -52,7 +52,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     (plugin-apex PR [970](https://github.com/salesforcecli/plugin-apex/pull/970), plugin-apex PR [973](https://github.com/salesforcecli/plugin-apex/pull/973))
 
-* CHANGE: Salesforce CLI no longer suggests the `SF_TEMP_SHOW_SECRETS` environment variable as a workaround for viewing redacted secrets, and now announces that this workaround will be removed on January 13, 2027. Commands such as `org display user` and `org list users` now point you to the `sf org auth show-*` commands instead. The `SF_TEMP_SHOW_SECRETS=true` workaround still works until the removal date, so existing CI jobs won't break. For example:
+* CHANGE: Salesforce CLI no longer suggests the `SF_TEMP_SHOW_SECRETS` environment variable as a workaround for viewing redacted secrets, and now announces that this workaround will be removed on October 28, 2026. Commands such as `org display user` and `org list users` now point you to the `sf org auth show-*` commands instead. The `SF_TEMP_SHOW_SECRETS=true` workaround still works until the removal date, so existing CI jobs won't break. For example:
 
     ```bash
     # Instead of setting SF_TEMP_SHOW_SECRETS=true, use the dedicated command
