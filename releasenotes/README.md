@@ -25,11 +25,47 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.152.14 (September 30, 2026) [stable-rc]
+## 2.153.6 (October 7, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: Manage Apex debug log trace flags in your org with these new `apex trace` commands:
+
+    * `apex trace create` : Create a trace flag for a user, Apex class, or Apex trigger.
+    * `apex trace delete` : Delete a trace flag in your org.
+    * `apex trace list` : List trace flags in your org.
+
+     A trace flag sets the debug log level and duration for a specific entity, so you capture the logs you need without changing org-wide settings.  After creating the trace flag, perform the activity you want to debug and then use the `apex log` commands to get the debug logs. For example:
+  
+    ```bash
+    # Create a trace flag for a user with a custom duration and log type
+    sf apex trace create --traced-entity-id 005xx000001Sv6DAAS --debug-level SFDC_DevConsole --duration 60 --log-type USER_DEBUG --target-org my-org
+
+	# List all trace flags in the org
+    sf apex trace list --target-org my-org
+
+    # Delete a trace flag by ID
+    sf apex trace delete --trace-flag-id 7tfxx0000000001AAA --target-org my-org
+    ```
+
+    (plugin-apex PR [970](https://github.com/salesforcecli/plugin-apex/pull/970), plugin-apex PR [973](https://github.com/salesforcecli/plugin-apex/pull/973))
+
+* CHANGE: Salesforce CLI no longer suggests the `SF_TEMP_SHOW_SECRETS` environment variable as a workaround for viewing redacted secrets, and now announces that this workaround will be removed on October 28, 2026. Commands such as `org display user` and `org list users` now point you to the `sf org auth show-*` commands instead. The `SF_TEMP_SHOW_SECRETS=true` workaround still works until the removal date, so existing CI jobs won't break. For example:
+
+    ```bash
+    # Instead of setting SF_TEMP_SHOW_SECRETS=true, use the dedicated command
+    sf org auth show-access-token --target-org my-org
+    ```
+
+    See [this announcement](https://github.com/forcedotcom/cli/issues/3658) for more information.
+  
+    (GitHub Issue [#3560](https://github.com/forcedotcom/cli/issues/3560), plugin-user PR [1527](https://github.com/salesforcecli/plugin-user/pull/1527), plugin-org PR [1782](https://github.com/salesforcecli/plugin-org/pull/1782), plugin-auth PR [1550](https://github.com/salesforcecli/plugin-auth/pull/1550))
+
+* FIX: Logging in with `sf org login web` on Linux no longer intermittently fails due to a race condition when opening the browser. (plugin-auth PR [1549](https://github.com/salesforcecli/plugin-auth/pull/1549))
+
+## 2.152.14 (September 30, 2026) [stable]
 
 * NEW: The `apex run` command has two new flags for controlling the debug log level when you execute anonymous Apex. Use `--debug-level` to set a predefined level (`NONE`, `DEBUGONLY`, `DB`, `PROFILING`, `CALLOUT`, or `DETAIL`), or `--category-level` for fine-grained, per-category control (the two flags are mutually exclusive). For example:
 
@@ -60,7 +96,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Salesforce DX projects now support the ReferralIntakeConfiguration [metadata type](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json).
  
-## 2.151.7 (Sept 23, 2026) [stable]
+## 2.151.7 (Sept 23, 2026)
 
 * NEW: When you run project deploy start, any notification attached to the deployment now appears in both the JSON and the human-readable table output; previously, notifications were included only in the JSON output. Notifications are informational, non-blocking, deploy-level advisories represented by the DeployNotification metadata type—for example, ApexApiVersionRetirement. There's no new flag to enable this behavior; the human-readable output includes notifications by default. For example:
 
