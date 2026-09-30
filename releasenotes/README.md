@@ -59,6 +59,8 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     sf org auth show-access-token --target-org my-org
     ```
 
+    See [this announcement](https://github.com/forcedotcom/cli/issues/3658) for more information.
+  
     (GitHub Issue [#3560](https://github.com/forcedotcom/cli/issues/3560), plugin-user PR [1527](https://github.com/salesforcecli/plugin-user/pull/1527), plugin-org PR [1782](https://github.com/salesforcecli/plugin-org/pull/1782), plugin-auth PR [1550](https://github.com/salesforcecli/plugin-auth/pull/1550))
 
 * FIX: Logging in with `sf org login web` on Linux no longer intermittently fails due to a race condition when opening the browser. (plugin-auth PR [1549](https://github.com/salesforcecli/plugin-auth/pull/1549))
