@@ -25,11 +25,21 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.153.6 (October 7, 2026) [stable-rc]
+## 2.154.4 (October 14, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* NEW: See which Apex classes in your org are invalid or have compilation warnings with the new `apex get compile-status` command. For example:
+
+    ```bash
+    sf apex get compile-status --target-org my-org
+    ```
+
+    (plugin-apex PR [977](https://github.com/salesforcecli/plugin-apex/pull/977))
+
+## 2.153.5 (October 7, 2026) [stable]
 
 * NEW: Manage Apex debug log trace flags in your org with these new `apex trace` commands:
 
@@ -65,7 +75,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: Logging in with `sf org login web` on Linux no longer intermittently fails due to a race condition when opening the browser. (plugin-auth PR [1549](https://github.com/salesforcecli/plugin-auth/pull/1549))
 
-## 2.152.14 (September 30, 2026) [stable]
+## 2.152.14 (September 30, 2026)
 
 * NEW: The `apex run` command has two new flags for controlling the debug log level when you execute anonymous Apex. Use `--debug-level` to set a predefined level (`NONE`, `DEBUGONLY`, `DB`, `PROFILING`, `CALLOUT`, or `DETAIL`), or `--category-level` for fine-grained, per-category control (the two flags are mutually exclusive). For example:
 
