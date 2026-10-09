@@ -42,6 +42,7 @@ jobs:
             // Agent commands — match "sf agent" but not flags like --agent
             if (/\bsf\s+agent\b/.test(command) || /^agent\b/.test(command)) {
               labels.push('area:afdx');
+              labels.push('bug');
               if (!labels.includes('owned by another team')) labels.push('owned by another team');
             }
 
