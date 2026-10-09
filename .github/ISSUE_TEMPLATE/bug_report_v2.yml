@@ -48,6 +48,7 @@ body:
         - Sandbox
         - Scratch Org
         - Developer Edition
+        - Not applicable
         - Other
     validations:
       required: true
@@ -89,6 +90,11 @@ body:
     validations:
       required: false
 
+  - type: markdown
+    attributes:
+      value: |
+        > **Tip:** Use `sf doctor --create-issue` to automatically fill in the required system information.
+
   - type: textarea
     id: steps
     attributes:
@@ -100,11 +106,6 @@ body:
         3. ...
     validations:
       required: true
-
-  - type: markdown
-    attributes:
-      value: |
-        > **Tip:** Use `sf doctor --create-issue` to automatically fill in the required system information.
 
   - type: textarea
     id: expected
@@ -123,11 +124,34 @@ body:
       required: true
 
   - type: textarea
+    id: error-message
+    attributes:
+      label: Error Message
+      description: "Paste the exact error or stack trace. Use `--dev-debug` for more detailed output."
+      render: shell
+      placeholder: |
+        ERROR running <command>:
+        <error message>
+    validations:
+      required: false
+
+  - type: textarea
     id: system-info
     attributes:
       label: System Information
-      description: Paste the **full** output of `sf version --verbose --json`.
+      description: "Paste the **full JSON** output of `sf version --verbose --json`."
       render: json
+      placeholder: |
+        {
+          "architecture": "darwin-arm64",
+          "cliVersion": "@salesforce/cli/2.x.x",
+          "nodeVersion": "node-vXX.XX.X",
+          "osVersion": "Darwin 25.x.x",
+          "shell": "zsh",
+          "pluginVersions": [
+            ...
+          ]
+        }
     validations:
       required: true
 
@@ -141,6 +165,6 @@ body:
     id: screenshots
     attributes:
       label: Screenshots or Log Files
-      description: Drag and drop any relevant screenshots or log files. Use `--dev-debug` for more detailed error output. **Redact any sensitive information before sharing.**
+      description: Drag and drop any relevant screenshots or log files. **Redact any sensitive information before sharing.**
     validations:
       required: false

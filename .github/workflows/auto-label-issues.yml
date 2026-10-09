@@ -24,11 +24,9 @@ jobs:
 
             const otherTeamCommands = [
               { match: 'project deploy pipeline', area: 'area:devops' },
-              { match: 'project deploy validate', area: 'area:devops' },
               { match: 'devops', area: 'area:devops' },
               { match: 'org create shape', area: 'area:signups' },
               { match: 'org create snapshot', area: 'area:signups' },
-              { match: 'agent', area: 'area:afdx' },
             ];
 
             // Sort longest match first to avoid partial matches
@@ -41,9 +39,10 @@ jobs:
               }
             }
 
-            // Package commands — check it's not a flag like --package
-            if (/\bsf\s+package\b/.test(command) || /^package\b/.test(command)) {
-              labels.push('area:packaging');
+            // Agent commands — match "sf agent" but not flags like --agent
+            if (/\bsf\s+agent\b/.test(command) || /^agent\b/.test(command)) {
+              labels.push('area:afdx');
+              labels.push('bug');
               if (!labels.includes('owned by another team')) labels.push('owned by another team');
             }
 
