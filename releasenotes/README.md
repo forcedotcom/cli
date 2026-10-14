@@ -39,7 +39,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ## 2.154.4 (October 14, 2026) [stable]
 
-These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+These changes are in the latest stable Salesforce CLI release.
 
 ------------
 
