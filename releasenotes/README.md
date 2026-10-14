@@ -25,7 +25,19 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.154.4 (October 14, 2026) [stable-rc]
+## 2.155.7 (October 21, 2026) [stable-rc]
+
+These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
+
+------------
+
+* FIX: Deleting an EmailTemplate in a nested folder is now recorded by source tracking, so subsequent deploys no longer resend the deletion. ([Issue #3659](https://github.com/forcedotcom/cli/issues/3659), [PR #1846](https://github.com/forcedotcom/source-deploy-retrieve/pull/1846))
+
+* FIX: Source-tracked retrieves now correctly resolve Experience Cloud NavigationMenu components when the SourceMember name differs from the Metadata API component name. ([Issue #3660](https://github.com/forcedotcom/cli/issues/3660), [PR #885](https://github.com/salesforcecli/source-tracking/pull/885), [PR #1668](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1668))
+
+* FIX: `sf package uninstall --wait` and `sf package uninstall report` now show the actual uninstall failure details instead of a `MALFORMED_QUERY` error. ([Issue #3664](https://github.com/forcedotcom/cli/issues/3664), [PR #945](https://github.com/salesforcecli/packaging/pull/945))
+
+## 2.154.4 (October 14, 2026) [stable]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
