@@ -39,9 +39,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 ## 2.154.4 (October 14, 2026) [stable]
 
-These changes are in the latest stable Salesforce CLI release.
-
-------------
+> These changes are in the latest stable Salesforce CLI release.
 
 * NEW: See which Apex classes in your org are invalid or have compilation warnings with the new `apex get compile-status` command. For example:
 
