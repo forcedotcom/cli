@@ -42,6 +42,14 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `ignoreManifest` option in `loadOptions` is now respected by `execute()` in oclif/core. (oclif/core Issue [#1533](https://github.com/oclif/core/issues/1533), oclif/core PR [1658](https://github.com/oclif/core/pull/1658))
 
+* FIX: The zip file count for `project deploy start` now includes folder entries, which count toward the Metadata API's 10,000-entry limit. The warning about approaching the limit now appears when it should. With the `--verbose` flag, the count label is now `Entries:` instead of `Files:`. (GitHub Issue [#3655](https://github.com/forcedotcom/cli/issues/3655), source-deploy-retrieve PR [1844](https://github.com/forcedotcom/source-deploy-retrieve/pull/1844), plugin-deploy-retrieve PR [1657](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1657))
+
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+
+    * `ExtlClntAppAttestConfigurablePolicies`
+    * `ExtlClntAppAttestSettings`
+    * `GenOpPlanEligibilityConfig`
+
 ## 2.155.7 (October 21, 2026) [stable]
 
 > These changes are in the latest stable Salesforce CLI release.
@@ -52,9 +60,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: `sf package uninstall --wait` and `sf package uninstall report` now show the actual uninstall failure details instead of a `MALFORMED_QUERY` error. ([Issue #3664](https://github.com/forcedotcom/cli/issues/3664), [PR #945](https://github.com/salesforcecli/packaging/pull/945))
 
-## 2.154.4 (October 14, 2026) [stable]
-
-> These changes are in the latest stable Salesforce CLI release.
+## 2.154.4 (October 14, 2026)
 
 * NEW: See which Apex classes in your org are invalid or have compilation warnings with the new `apex get compile-status` command. For example:
 
@@ -64,7 +70,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
     (plugin-apex PR [977](https://github.com/salesforcecli/plugin-apex/pull/977))
 
-## 2.153.5 (October 7, 2026) [stable]
+## 2.153.5 (October 7, 2026)
 
 * NEW: Manage Apex debug log trace flags in your org with these new `apex trace` commands:
 
