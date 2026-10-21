@@ -42,12 +42,6 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 
 * FIX: The `ignoreManifest` option in `loadOptions` is now respected by `execute()` in oclif/core. (oclif/core Issue [#1533](https://github.com/oclif/core/issues/1533), oclif/core PR [1658](https://github.com/oclif/core/pull/1658))
 
-* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
-
-    * `ExtlClntAppAttestConfigurablePolicies`
-    * `ExtlClntAppAttestSettings`
-    * `GenOpPlanEligibilityConfig`
-
 ## 2.155.7 (October 21, 2026) [stable]
 
 > These changes are in the latest stable Salesforce CLI release.
