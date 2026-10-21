@@ -34,14 +34,11 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
 * CHANGE: The `SF_TEMP_SHOW_SECRETS` environment variable workaround is now removed. Access tokens, SFDX auth URLs, and passwords are permanently redacted from standard and `--json` output, even if the variable is set. To view a secret, use the dedicated `sf org auth show-*` commands. For example:
 
     ```bash
-    # Old way: no longer works
-    SF_TEMP_SHOW_SECRETS=true sf org display user
-
-    # New way
-    sf org auth show-sfdx-auth-url --target-org my-org
+    # Instead of setting SF_TEMP_SHOW_SECRETS=true, use the dedicated command
+    sf org auth show-access-token --target-org my-org
     ```
 
-    (GitHub Issue [#3658](https://github.com/forcedotcom/cli/issues/3658), plugin-auth PR [1560](https://github.com/salesforcecli/plugin-auth/pull/1560), plugin-org PR [1798](https://github.com/salesforcecli/plugin-org/pull/1798), plugin-user PR [1543](https://github.com/salesforcecli/plugin-user/pull/1543))
+    (GitHub Issue [#3560](https://github.com/forcedotcom/cli/issues/3560), plugin-auth PR [1560](https://github.com/salesforcecli/plugin-auth/pull/1560), plugin-org PR [1798](https://github.com/salesforcecli/plugin-org/pull/1798), plugin-user PR [1543](https://github.com/salesforcecli/plugin-user/pull/1543))
 
 * FIX: The `ignoreManifest` option in `loadOptions` is now respected by `execute()` in oclif/core. (oclif/core Issue [#1533](https://github.com/oclif/core/issues/1533), oclif/core PR [1658](https://github.com/oclif/core/pull/1658))
 
