@@ -25,11 +25,35 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.155.7 (October 21, 2026) [stable-rc]
+## 2.156.7 (October 28, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* CHANGE: The `SF_TEMP_SHOW_SECRETS` environment variable workaround is now removed. Access tokens, SFDX auth URLs, and passwords are permanently redacted from standard and `--json` output, even if the variable is set. To view a secret, use the dedicated `sf org auth show-*` commands. For example:
+
+    ```bash
+    # Old way: no longer works
+    SF_TEMP_SHOW_SECRETS=true sf org display user
+
+    # New way
+    sf org auth show-sfdx-auth-url --target-org my-org
+    ```
+
+    (GitHub Issue [#3658](https://github.com/forcedotcom/cli/issues/3658), plugin-auth PR [1560](https://github.com/salesforcecli/plugin-auth/pull/1560), plugin-org PR [1798](https://github.com/salesforcecli/plugin-org/pull/1798), plugin-user PR [1543](https://github.com/salesforcecli/plugin-user/pull/1543))
+
+* FIX: The `ignoreManifest` option in `loadOptions` is now respected by `execute()` in oclif/core. (oclif/core Issue [#1533](https://github.com/oclif/core/issues/1533), oclif/core PR [1658](https://github.com/oclif/core/pull/1658))
+
+* FIX: Salesforce DX projects now support these [metadata types](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/registry/metadataRegistry.json):
+
+    * `ExtlClntAppAttestConfigurablePolicies`
+    * `ExtlClntAppAttestSettings`
+    * `GenOpPlanEligibilityConfig`
+
+## 2.155.7 (October 21, 2026) [stable]
+
+> These changes are in the latest stable Salesforce CLI release.
 
 * FIX: Deleting an EmailTemplate in a nested folder is now recorded by source tracking, so subsequent deploys no longer resend the deletion. ([Issue #3659](https://github.com/forcedotcom/cli/issues/3659), [PR #1846](https://github.com/forcedotcom/source-deploy-retrieve/pull/1846))
 
