@@ -25,11 +25,23 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.156.8 (October 28, 2026) [stable-rc]
+## 2.157.7 (October 28, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: Deploying a profile whose metadata is split across multiple source files now combines the files correctly, preserving entries such as layout assignments. (GitHub Issue [#3196](https://github.com/forcedotcom/cli/issues/3196), source-deploy-retrieve PR [1854](https://github.com/forcedotcom/source-deploy-retrieve/pull/1854))
+
+* FIX: Retrieving custom fields with a namespace wildcard such as `CustomField:npsp__*` now includes matching fields on standard objects. (GitHub Issue [#3052](https://github.com/forcedotcom/cli/issues/3052), source-deploy-retrieve PR [1852](https://github.com/forcedotcom/source-deploy-retrieve/pull/1852))
+
+* FIX: `sf package version create` now respects the project's `org-capitalize-record-types` configuration and no longer displays the default warning when the setting is explicitly configured. (GitHub Issue [#3663](https://github.com/forcedotcom/cli/issues/3663), packaging PR [948](https://github.com/forcedotcom/packaging/pull/948))
+
+* FIX: Configuration and authentication changes made by a running CLI process after your computer wakes from sleep are now saved correctly, including refreshed access tokens. (sfdx-core PR [1360](https://github.com/forcedotcom/sfdx-core/pull/1360))
+
+## 2.156.8 (October 28, 2026) [stable]
+
+> These changes are in the latest stable Salesforce CLI release.
 
 * CHANGE: The `SF_TEMP_SHOW_SECRETS` environment variable workaround is now removed. Access tokens, SFDX auth URLs, and passwords are permanently redacted from standard and `--json` output, even if the variable is set. To view a secret, use the dedicated `sf org auth show-*` commands. For example:
 
@@ -50,9 +62,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `ExtlClntAppAttestSettings`
     * `GenOpPlanEligibilityConfig`
 
-## 2.155.8 (October 21, 2026) [stable]
-
-> These changes are in the latest stable Salesforce CLI release.
+## 2.155.8 (October 21, 2026)
 
 * FIX: Deleting an EmailTemplate in a nested folder is now recorded by source tracking, so subsequent deploys no longer resend the deletion. ([Issue #3659](https://github.com/forcedotcom/cli/issues/3659), [PR #1846](https://github.com/forcedotcom/source-deploy-retrieve/pull/1846))
 
