@@ -25,11 +25,17 @@ Additional documentation:
 * [Salesforce CLI Plugin Developer Guide](https://github.com/salesforcecli/cli/wiki/Quick-Introduction-to-Developing-sf-Plugins)
 * [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 
-## 2.158.7 (November 4, 2026) [stable-rc]
+## 2.159.7 (November 11, 2026) [stable-rc]
 
 These changes are in the Salesforce CLI release candidate. We plan to include these changes in next week's official release. This list isn't final and is subject to change.
 
 ------------
+
+* FIX: Deploying a project now includes components in package directories reached through symbolic links. (GitHub Issue [#3653](https://github.com/forcedotcom/cli/issues/3653), source-tracking PR [897](https://github.com/forcedotcom/source-tracking/pull/897), plugin-deploy-retrieve PR [1697](https://github.com/salesforcecli/plugin-deploy-retrieve/pull/1697))
+
+## 2.158.7 (November 4, 2026) [stable]
+
+> These changes are in the latest stable Salesforce CLI release.
 
 * CHANGE: The deprecated `force user password generate`, `force user permset assign`, and `force user permsetlicense assign` commands now warn that they'll be removed on March 1, 2027. Use their `org` replacements. For example:
 
@@ -46,9 +52,7 @@ These changes are in the Salesforce CLI release candidate. We plan to include th
     * `DebugLevel`
     * `NtfcnDefinition`
 
-## 2.157.8 (November 4, 2026) [stable]
-
-> These changes are in the latest stable Salesforce CLI release.
+## 2.157.8 (November 4, 2026)
 
 * FIX: Deploying a profile whose metadata is split across multiple source files now combines the files correctly, preserving entries such as layout assignments. (GitHub Issue [#3196](https://github.com/forcedotcom/cli/issues/3196), source-deploy-retrieve PR [1854](https://github.com/forcedotcom/source-deploy-retrieve/pull/1854))
 
